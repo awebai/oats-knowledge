@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "id": "oats-knowledge",
+  "nodes": {
+    "oats-expert": {
+      "path": "nodes/oats-expert",
+      "owner": "c448f593-9b2d-4c48-a679-1c468bda5beb"
+    }
+  }
+}
