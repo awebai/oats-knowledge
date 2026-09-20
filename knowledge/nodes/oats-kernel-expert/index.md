@@ -1,0 +1,13 @@
+# oats-kernel-expert
+
+* [Keep kernel responsibilities generic and capability runtimes complete](decisions/kernel-and-capability-responsibility.md) - Native lifecycle and exact managed composition belong to the kernel while replaceable capabilities own concrete runtime behavior.
+* [Separate operational home from granted work authority](decisions/home-work-authority.md) - Keeping lifecycle identity outside disposable work prevents work topology from silently becoming operational or knowledge authority.
+* [Live lineage is deliberately bounded](decisions/bounded-live-lineage.md) - Sparse explicit current relations favor truthful ambiguity refusal over a permanent history or multi-file transaction promise.
+* [Configured scope is not messaging membership](decisions/configured-team-boundary.md) - A declared configuration boundary establishes team scope independently of ambient messaging identity.
+* [Capability resources must outlive package staging](decisions/contained-capability-lifetime.md) - Explicit payload selection and contained capability artifacts prevent discarded source staging from becoming runtime authority.
+* [Local configuration remains authored policy](decisions/local-policy-is-not-package-policy.md) - Explicit adoption and synchronization preserve local authorship rather than allowing package updates to rewrite policy at a distance.
+* [Compatibility follows supported adoption, not every intermediate format](decisions/evidence-bounded-compatibility-and-migration.md) - Supported published commitments deserve compatibility while unrepresentable migrations must refuse rather than lose state.
+* [Integrity, origin and consent are different proofs](decisions/trust-approval-and-consent-boundaries.md) - Contained reproducible bytes, consistent provenance and explicit executable or host-install consent answer distinct trust questions.
+* [A minimal process boundary avoids permanent private coupling](decisions/minimal-process-boundary.md) - A structured public CLI lets independent consumers evolve without turning each private kernel function into a permanent API.
+* [Preserve recovery authority until the outcome is proven](decisions/preserve-authority-until-cleanup-is-proven.md) - Partial failures must retain the identity and obligations needed for retry rather than mistaking plausible descriptors for completed cleanup.
+* [Record locks favor recoverable refusal over live-holder theft](decisions/record-lock-liveness-tradeoff.md) - Record-store lock age must not override a live local holder, with foreign-lock fallback and the check-unlink race remaining explicit limits.

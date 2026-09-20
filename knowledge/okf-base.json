@@ -5,6 +5,22 @@
     "oats-expert": {
       "path": "nodes/oats-expert",
       "owner": "c448f593-9b2d-4c48-a679-1c468bda5beb"
+    },
+    "oats-kernel-expert": {
+      "path": "nodes/oats-kernel-expert",
+      "owner": "4f532e2d-72f6-4dd0-9743-c9eeab2809ba"
+    },
+    "oats-desktop-expert": {
+      "path": "nodes/oats-desktop-expert",
+      "owner": "76085278-3874-4382-9f7a-f11de3dbceb4"
+    },
+    "market-research-expert": {
+      "path": "nodes/market-research-expert",
+      "owner": "2a073e37-2114-474d-917d-29cf3333932f"
+    },
+    "oats-assistant": {
+      "path": "nodes/oats-assistant",
+      "owner": "2dab92c7-701d-4101-bc7f-09acf4fc374e"
     }
   }
 }
