@@ -1,5 +1,9 @@
 # oats-expert log
 
+## 2026-09-20
+
+* **Update**: [Current OATS direction](/nodes/oats-expert/roadmap/current-direction.md) re-verified against the 2026-09-20 human direction and the published 0.24.1 / OKF 2.1.1 / oats.framework 1.1.0 baseline: workspace-first order, official capabilities with an explicit removable `oats.core`, reviewed marketplace. Prior 0.23.1 snapshot superseded.
+
 ## 2026-09-13
 
 * **Harvest**: Preserved the founder-accepted optional reference theory and capability-owned runtime decision in [Optional reference theory, capability-owned runtime](/nodes/oats-expert/optional-reference-theory.md).
