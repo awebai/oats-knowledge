@@ -1,0 +1,42 @@
+name: Validate knowledge
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - name: Check out this knowledge repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Use Node 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+      - name: Acquire immutable public OKF v2 validator
+        shell: bash
+        env:
+          OKF_SOURCE: ${{ runner.temp }}/public-okf
+          GIT_CONFIG_NOSYSTEM: '1'
+          GIT_CONFIG_GLOBAL: /dev/null
+        run: |
+          set -euo pipefail
+          git init "$OKF_SOURCE"
+          git -C "$OKF_SOURCE" -c credential.helper= -c core.askPass= fetch --depth=1 \
+            https://github.com/awebai/oats-okf.git 01b48dfc9d763b5b8cc4606aea3e361bf2ef783d
+          git -C "$OKF_SOURCE" checkout --detach FETCH_HEAD
+          printf 'OKF_SOURCE=%s\n' "$OKF_SOURCE" >> "$GITHUB_ENV"
+      - name: Validate whole-base concepts and ownership
+        run: node scripts/validate.mjs
+      - name: Exercise owner-mapping refusals
+        run: node --test test/ownership.test.mjs

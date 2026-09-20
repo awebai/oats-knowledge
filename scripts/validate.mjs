@@ -1,0 +1,75 @@
+#!/usr/bin/env node
+// Repository CI adapter, not an OATS runtime integration. No package install,
+// private kernel imports, bindings, owner registration or lifecycle calls.
+import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { realpathSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+export const OKF_COMMIT = '01b48dfc9d763b5b8cc4606aea3e361bf2ef783d'; // public v2.1.1
+export const BASE_ID = 'oats-knowledge';
+export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// Accepted curation identity reservations. Changing this roster/map requires
+// explicit ownership review; it must not be inferred from directory names.
+export const OWNERS = Object.freeze({
+  'oats-expert': 'c448f593-9b2d-4c48-a679-1c468bda5beb',
+  'oats-kernel-expert': '4f532e2d-72f6-4dd0-9743-c9eeab2809ba',
+  'oats-desktop-expert': '76085278-3874-4382-9f7a-f11de3dbceb4',
+  'market-research-expert': '2a073e37-2114-474d-917d-29cf3333932f',
+  'oats-assistant': '2dab92c7-701d-4101-bc7f-09acf4fc374e',
+});
+
+export async function loadOkf(source = process.env.OKF_SOURCE) {
+  assert.equal(process.versions.node.split('.')[0], '22', 'Use Node 22');
+  assert.ok(source, 'Set OKF_SOURCE to a clean checkout of the pinned public OKF commit');
+  const root = realpathSync(source);
+  const git = (...args) => execFileSync('git', ['-C', root, ...args], { encoding: 'utf8' }).trim();
+  assert.equal(git('rev-parse', 'HEAD'), OKF_COMMIT, 'Unexpected OKF source revision');
+  assert.equal(git('status', '--porcelain', '--untracked-files=all'), '', 'OKF source must be clean');
+  const capability = join(root, 'oats-package/capabilities/oats-okf');
+  // These pure validation helpers are pinned public source, not a stable API
+  // dependency on a separately installed OATS runtime.
+  const config = await import(pathToFileURL(join(capability, 'lib/config.mjs')));
+  const { tree } = await import(pathToFileURL(join(capability, 'lib/io.mjs')));
+  return { ...config, tree, validator: join(capability, 'skills/okf/scripts/okf-validate.mjs') };
+}
+
+export function validateOwnership(files, okf) {
+  // Runtime metadata validation covers schema fields AND filesystem ownership:
+  // canonical/nonoverlapping paths, required node index/log, no hidden/stray files.
+  const base = okf.metadata(files, { id: BASE_ID });
+  assert.deepEqual(Object.keys(base.nodes).sort(), Object.keys(OWNERS).sort(), 'Unreviewed node roster');
+  assert.equal(new Set(Object.values(base.nodes).map(node => node.owner)).size, 5, 'Owner UUIDs must be distinct');
+  for (const [name, owner] of Object.entries(OWNERS)) {
+    assert.deepEqual(base.nodes[name], { path: `nodes/${name}`, owner }, `Ownership drift: ${name}`);
+    const declaration = okf.validateDeclaration({ version: 1, owner, owns: [`oats/${name}`], reads: [] });
+    okf.resolveNodes(declaration, { bases: { oats: { id: BASE_ID } } }, { oats: base });
+  }
+  return base;
+}
+
+export function assertStrictResult(result) {
+  assert.equal(result.conformant, true, 'Nonconformant OKF base');
+  assert.deepEqual(result.errors, [], 'OKF errors');
+  // Upstream v2's CLI does not fail for warnings by default. Never accept its
+  // exit status alone as a strict pass.
+  assert.deepEqual(result.warnings, [], 'Strict OKF warnings');
+  return result;
+}
+
+export async function validate() {
+  const okf = await loadOkf();
+  const root = realpathSync(join(REPO_ROOT, 'knowledge'));
+  const base = validateOwnership(okf.tree(root), okf);
+  const result = assertStrictResult(JSON.parse(execFileSync(process.execPath,
+    [okf.validator, root, '--strict', '--json'], { encoding: 'utf8' })));
+  console.log(JSON.stringify({ ok: true, okfCommit: OKF_COMMIT, base: base.id,
+    nodes: Object.keys(base.nodes).length, concepts: result.concepts,
+    errors: result.errors, warnings: result.warnings }, null, 2));
+}
+
+if (process.argv[1] && realpathSync(process.argv[1]) === realpathSync(fileURLToPath(import.meta.url))) {
+  try { await validate(); }
+  catch (error) { console.error(error.message); process.exitCode = 1; }
+}
