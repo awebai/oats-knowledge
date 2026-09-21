@@ -2,14 +2,30 @@
 type: Decision
 title: Record locks favor recoverable refusal over live-holder theft
 description: Record-store lock age must not override a live local holder, with foreign-lock fallback and the check-unlink race remaining explicit limits.
+tags: [kernel, record-store, locks, concurrency, fail-closed]
+timestamp: 2026-09-05
 ---
 # Rationale
 
-The record-store failure came from comparing clocks with different starting events. A wait timeout starts when a contender arrives; lock age starts when the holder acquired it. Ordering the durations cannot prevent a late contender from stealing a live lock.
+Decided 2026-09-05 during the record-store lock review. The failure came from
+comparing clocks with different starting events: a wait timeout starts when a
+contender arrives; lock age starts when the holder acquired it. Two durations
+measured from different events cannot be ordered by comparing their lengths,
+so ordering them cannot prevent a late contender from stealing a live lock.
 
-The accepted tradeoff refuses to write when a local holder appears alive, even after long delay. PID reuse can make abandoned state appear live, but that recoverable refusal is preferable to concurrent read-truncate-write repair corrupting the journal. Do not reintroduce an unconditional age ceiling as a convenience fix.
+The accepted tradeoff refuses to write when a local holder appears alive, even
+after long delay. The asymmetry is the whole argument: refusing to write is
+recoverable; writing concurrently with a live holder is not — so every
+uncertainty resolves toward waiting. PID reuse can make abandoned state appear
+live, but that recoverable refusal is preferable to concurrent
+read-truncate-write repair corrupting the journal. Do not reintroduce an
+unconditional age ceiling as a convenience fix.
 
-This is bounded record-store rationale, not distributed-lock doctrine. Foreign or unreadable holders still use age fallback, and checking identity before unlink detects many replacements but does not close the check/unlink race. Owner-checked release helps prevent cascading theft without proving universal exclusion.
+This is bounded record-store rationale, not distributed-lock doctrine. Foreign
+or unreadable holders still use age fallback, and checking identity before
+unlink detects many replacements but does not close the check/unlink race.
+Owner-checked release helps prevent cascading theft without proving universal
+exclusion.
 
 # Related
 
