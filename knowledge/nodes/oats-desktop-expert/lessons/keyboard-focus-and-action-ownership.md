@@ -2,8 +2,19 @@
 type: Lesson
 title: Keyboard policy follows actions and user intent
 description: Focus intent, effective bindings and event ownership must agree without consuming native terminal or control input.
+tags: [desktop, keyboard, focus, keybindings, terminal]
+timestamp: 2026-07-26
 ---
 # Rationale
+
+Learned 2026-07-25 to 2026-07-26 by the Desktop engineering role, from
+three defects found in review of the first keybinding engine and terminal
+tabs: tab restoration and close-fallback stole input focus from wherever
+the operator was typing; an allowlisted sidebar toggle would have resolved,
+on non-mac platforms, to the chord that is the tmux prefix inside the
+terminal; and chords claimed at the window level were reaching the pty
+first because the terminal wrote the control byte before the application
+saw the event.
 
 Activating a tab and asking to type in its terminal are different intentions. User jumps may focus input; restoration and background activation must not steal it. Structural tab traversal and focus recovery are not merely rebindable application shortcuts.
 
@@ -13,7 +24,7 @@ Event ownership matters before dispatch: a late no-op after preventDefault still
 
 # Related
 
-[Agent-centered navigation makes the action target legible](/nodes/oats-desktop-expert/decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md).
+[Agent-centered navigation makes the action target legible](/nodes/oats-desktop-expert/decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md); [Browser-owned state and accessibility under repaint](/nodes/oats-desktop-expert/lessons/browser-owned-state-and-accessibility-under-repaint.md).
 
 # Current contracts
 

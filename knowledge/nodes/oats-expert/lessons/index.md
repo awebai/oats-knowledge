@@ -1,0 +1,4 @@
+# Lessons
+
+* [Adoption evidence and authority must match the claimed outcome](adoption-evidence-and-approved-scope.md) - Installation, usable execution, publication, delivery, consumption and learning are different evidence, and review findings do not expand approved product scope.
+* [Second-operator acceptance — what the gate is for, how to read its failures, and the contract-siblings rule](second-operator-acceptance.md) - An independent operator holding none of the authoring state is the acceptance gate for published definitions; its value is the absence of that state, its exit criterion is "every remaining item is named and owned", its failures fall into four owner-distinct classes, and its recurring finding — a contract adopted by one provider but not its siblings — is prevented by a same-release adoption rule.
