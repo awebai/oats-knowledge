@@ -2,6 +2,11 @@
 
 ## 2026-09-24
 
+* **Creation**: [Team as a first-class config entity](/nodes/oats-expert/decisions/team-as-config-entity.md), promoted from a local in-repo harvest.
+* **Creation**: [Review the whole PR merge range for scope, not only the intended feature files](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md), promoted from a local in-repo harvest.
+* **Creation**: [Search the whole repository before declaring a cited file missing](/nodes/oats-expert/lessons/search-the-whole-repository-before-declaring-a-cited-file-missing.md), promoted from a local in-repo harvest.
+* **Creation**: [A test harness must reproduce a known-good baseline before any delta it reports means anything](/nodes/oats-expert/lessons/validate-the-harness-against-a-known-good-baseline.md), promoted from a local in-repo harvest.
+* **Creation**: [Verify the remote ref after every scripted push before reporting a head](/nodes/oats-expert/lessons/verify-the-remote-ref-after-every-scripted-push.md), promoted from a local in-repo harvest.
 * **Update**: [served identity](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md) — the provider's host-only declaration folds into its next minor, no patch; [review protocol](/nodes/oats-expert/stewardship/review-protocol.md) — only a maintainer owning main pushes directly; a checkout-mode maintainer delivers by PR. (Second reviewer's post-merge read.)
 * **Update**: [release traps](/nodes/oats-expert/stewardship/release-traps.md) — the bump PR has no checks by design; its merge gate is CLEAN + manifests-only diff.
 * **Creation**: [Desktop parity: lifecycle and policy](/nodes/oats-expert/decisions/desktop-parity-lifecycle-and-policy.md) — five 2026-09-22 parity rulings by the redesign lead: Remove retains and re-homes work, recursive Stop, enrolment as admission, verified signatures only, enforced child-spawn policy, ADE-owned draft PR.

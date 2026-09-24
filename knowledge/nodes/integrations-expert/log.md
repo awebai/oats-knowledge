@@ -2,6 +2,9 @@
 
 ## 2026-09-24
 
+* **Creation**: [A personal team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-personal-team-per-workspace-needs-a-service-primitive.md), promoted from a local in-repo harvest.
+* **Creation**: [A capability's own manifest overrides guidance prose about what its settings require](/nodes/integrations-expert/lessons/capability-manifest-over-guidance-prose.md), promoted from a local in-repo harvest.
+* **Creation**: [A soul declaration that suppresses a default must also provision its replacement, or the instance silently loses both](/nodes/integrations-expert/lessons/declared-oats-core-without-activation-yields-skill-less-instance.md), promoted from a local in-repo harvest.
 * **Creation**: [Type availability failures for the operator, but rethrow domain errors untouched](/nodes/integrations-expert/lessons/type-availability-failures-but-rethrow-domain-errors.md), promoted from the OKF 2.1.5 source-registration work.
 * **Creation**: [Integration guidance names only verbs the target CLI exposes](/nodes/integrations-expert/lessons/guidance-names-only-verbs-the-target-cli-exposes.md), promoted from the oats.aweb 1.12.2 setup-hardening work (real verbs pinned by test, hostOnly as manifest metadata, readiness follows spawn).
 * **Update**: [Capability resources resolve inside the package root](/nodes/integrations-expert/lessons/capability-resources-resolve-inside-the-package-root.md) states its premise in terms of the lock's integrity digest rather than an executable approval, which the kernel drops in 0.26.0.
