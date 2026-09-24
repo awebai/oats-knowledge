@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Update**: [served identity](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md) — the provider's host-only declaration folds into its next minor, no patch; [review protocol](/nodes/oats-expert/stewardship/review-protocol.md) — only a maintainer owning main pushes directly; a checkout-mode maintainer delivers by PR. (Second reviewer's post-merge read.)
 * **Update**: [release traps](/nodes/oats-expert/stewardship/release-traps.md) — the bump PR has no checks by design; its merge gate is CLEAN + manifests-only diff.
 * **Creation**: [Desktop parity: lifecycle and policy](/nodes/oats-expert/decisions/desktop-parity-lifecycle-and-policy.md) — five 2026-09-22 parity rulings by the redesign lead: Remove retains and re-homes work, recursive Stop, enrolment as admission, verified signatures only, enforced child-spawn policy, ADE-owned draft PR.
 * **Creation**: [A forge connection is a workstation fact, not a capability](/nodes/oats-expert/decisions/forge-connection-is-a-workstation-fact.md) — human direction 2026-09-22: forge sign-in is a per-machine Desktop Connection under the forge CLI's custody; the `oats.forge` capability draft is superseded; automatic PR becomes ADE-owned.

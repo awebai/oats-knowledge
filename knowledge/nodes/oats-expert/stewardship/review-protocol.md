@@ -15,7 +15,11 @@ Contributed work — from helper instances, package maintainers or outside
 contributors — reaches `main` **only through pull requests**. The maintainer
 soul commits its own stewardship directly, because the gate exists to review
 contributed work, not to slow stewardship; framework behaviour changes still go
-to the human first. This 2026-07-21 rule stands; the knowledge base itself is
+to the human first. Corollary: only a maintainer that **owns `main`** pushes
+directly. A checkout-mode maintainer whose local `main` is never pushed
+delivers stewardship and harvested knowledge by branch and pull request — or
+it stays on one machine, as a batch of harvested lessons once did until a PR
+carried them over. This 2026-07-21 rule stands; the knowledge base itself is
 the one stewardship surface that moved to PR-only learning (custody decision,
 [external knowledge custody](/nodes/oats-expert/decisions/external-knowledge-custody.md)),
 and a later decision that extends PR-only to other stewardship commits must
