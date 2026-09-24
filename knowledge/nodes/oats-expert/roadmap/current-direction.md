@@ -5,6 +5,16 @@ description: Dated priorities on the 0.25 line — workspace model v2 published,
 tags: [roadmap, direction, priorities]
 timestamp: 2026-09-24
 ---
+> **Amended 2026-09-24 (human decision): package approval is removed.**
+> Declaring a package in the workspace's `packages:` IS the trust decision.
+> There's no per-version executable approval: `oats sync` has no approve
+> step, the lock carries no `approved` record, and there's no
+> `E_PACKAGE_UNAPPROVED` (OATS 0.26.0). The lock still pins commit +
+> integrity, and `oats sync` refuses drift (`E_PACKAGE_INTEGRITY`). Read any
+> mention below of approving package executables as the 0.25 design, not
+> current behaviour. See
+> [integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
+
 # Ownership and freshness
 
 **Owner: oats-expert. Last verified: 2026-09-24.** This is a planning

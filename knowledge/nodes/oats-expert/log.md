@@ -60,3 +60,7 @@
 * **Creation**: Prepared curated rationale for independent review; no cutover or release is certified.
 * **Update**: The staged oats-expert AGENTS.md explicitly assigns dated-roadmap ownership and same-session update capture through external review when accepted direction or delivery reality changes. No roadmap concept or accepted-base write is introduced.
 * **Creation**: Proposed the judged 24-concept seed and five-node ownership map for knowledge PR review, preserving the accepted theory and history. Added [Current OATS direction](/nodes/oats-expert/roadmap/current-direction.md) from accepted priorities and verified published OATS 0.23.1 / OKF 2.0.0; cutover, fresh-role adoption and delegated Desktop UX remain separate acceptance work.
+
+## 2026-09-24
+
+* **Update**: [Workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), [current direction](/nodes/oats-expert/roadmap/current-direction.md), [the workspace definition is not a package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md) and [official development dogfoods the workspace](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md) carry the human decision that removes package approval. Declaring a package is the trust decision; the lock keeps commit + integrity.
