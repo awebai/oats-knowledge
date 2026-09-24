@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Keep kernel responsibilities generic and capability runtimes complete
-description: Native lifecycle and exact OATS-managed composition belong to the kernel while replaceable capabilities own concrete runtime behavior; since 2026-09-18 exclusive runtime visibility is claimed only for Pi's strict profile and credentials are never OATS-managed.
-tags: [kernel, capabilities, layers, composition, boundaries]
-timestamp: 2026-09-21
+description: Native lifecycle and exact OATS-managed composition belong to the kernel while replaceable capabilities own concrete runtime behavior; since 2026-09-23 no harness carries an exclusive-visibility claim, the official core is a visible, suppressible kernel default, and credentials are never OATS-managed.
+tags: [kernel, capabilities, layers, composition, boundaries, workspace-model]
+timestamp: 2026-09-23
 ---
 # Rationale
 
@@ -61,6 +61,16 @@ The two-runtime exclusivity test is therefore a Pi-adapter test, not a
 kernel invariant; do not defend it as one, and do not rebuild isolation
 adapters for the native harnesses.
 
+**2026-09-23: no harness keeps an exclusivity claim.** Workspace model v2
+extended native launch to Pi
+([native launch amendment](/nodes/oats-kernel-expert/decisions/native-launch-strict-pi-only.md)),
+so the two-runtime exclusivity test no longer describes any adapter's
+policy. Complete OATS-managed composition stays: every resolved capability
+is copied whole into the home and recorded per module with source, commit
+and content digest
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+decision 10).
+
 Exact OATS-managed composition makes a role's curriculum inspectable and
 exposes missing or conflicting resources before launch. It is not a sandbox:
 runtime-native tools and ambient extensions remain. One accepted limit
@@ -117,6 +127,17 @@ OATS-unaware soul. Only the briefings describing the layout the kernel itself
 creates stay kernel-owned. This amends the composition rule above: the kernel
 composes what the soul and its configuration declare, and nothing else.
 
+**Amended 2026-09-23 (workspace model v2, decision 26).** The official core
+is now a kernel *default*, including in the standalone view, where a soul
+without it would be the hollow agent the framework refuses. It is visible in
+the spawn preview, and any mention of the core in the soul suppresses it,
+whether that mention names a source or says "off". The 2026-09-20 reasoning
+survives in narrower form: nothing is conferred *invisibly*, and a soul can
+still be deliberately OATS-unaware with one line. When the core resolves as
+a module, the kernel's own "you run on OATS" briefing is suppressed so that
+exactly one such block composes. A soul that turns the core off gets the
+kernel's briefing back, so no instance is left without it.
+
 # Related
 
 [Optional reference theory](/nodes/oats-expert/decisions/optional-reference-theory.md);
@@ -146,3 +167,4 @@ composes what the soul and its configuration declare, and nothing else.
 10. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/provider-neutral-knowledge-and-harvest.md`, "Contract versus capability functionality" and "Accepted helper/input implementation contract" (2026-09-16/17).
 11. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/helper-injection-policy-on-every-injecting-capability.md` (2026-09-21).
 12. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/official-capabilities-oats-core-setup-and-marketplace.md` (2026-09-20), kernel clause only.
+13. Accepted decision [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), decisions 10, 22 and 26 (2026-09-23), and framework `docs/design/2026-09-23-workspace-module-contracts.md`, "0.25.2 operator-rebuild round" R3.

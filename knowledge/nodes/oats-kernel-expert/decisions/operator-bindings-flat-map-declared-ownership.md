@@ -2,8 +2,8 @@
 type: Decision
 title: Operator bindings stay one flat map with declared per-provider ownership; providers ignore foreign keys
 description: The operator's bindings remain one flat map, but a provider consumes only the keys it owns and ignores the rest; owned keys are declared in the manifest, ownership is unique and kernel-enforced, and a key owned by no selected provider is an operator declaration error named by key.
-tags: [kernel, providers, operator-bindings, binding-wire, ownership, contract, second-operator]
-timestamp: 2026-09-21
+tags: [kernel, providers, operator-bindings, binding-wire, ownership, contract, second-operator, workspace-model]
+timestamp: 2026-09-24
 ---
 # Context
 
@@ -77,6 +77,30 @@ synthetic input that produces it (a workspace document *without* the required
 policy), never a fresh checkout. Diagnose a suspected collision by ablation:
 remove one key and watch which *other* component's verdict changes.
 
+# Under workspace model v2: three homes, one bound payload
+
+The flat map a provider receives is now a merge of three homes: soul level,
+the host-local file, and spawn time. For messaging, the workspace's base
+section and the soul team's section are added
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+decisions 18 and 20). The ownership and validation rules above run unchanged
+over the merged result. The kernel owes three things on top of them:
+1. **Inspectable before bound.** The spawn preview shows exactly what each
+   provider will receive.
+2. **Bound when confirmed.** The confirmed spawn decision binds those merged
+   payloads, so a settings-only change refuses a stale apply instead of
+   launching with values nobody previewed
+   ([served identity decision](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md)).
+3. **Host-only keys refused by the resolver.** A key a manifest declares
+   host-only is refused in every committed or per-spawn layer. The hook sees
+   one merged map with no provenance, so it cannot enforce where a value
+   came from.
+
+The reserved per-team key is kernel semantics: it is legal only at the top
+level of the workspace's messaging section and is stripped before delivery.
+Whether a provider honours what arrives is the provider's contract. The
+kernel adds no environment shim for a provider that does not yet read it.
+
 # Related
 
 [Every preparation refusal is attributed and reasoned](/nodes/oats-kernel-expert/decisions/preparation-problems-are-attributed-and-reasoned.md);
@@ -87,3 +111,4 @@ remove one key and watch which *other* component's verdict changes.
 
 1. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/operator-bindings-ownership.md` (2026-09-21).
 2. OATS rationale source `agents/oats-expert/soul/knowledge/lessons/shared-provider-input-namespace-misattribution.md` (2026-09-20).
+3. Accepted decision [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), decisions 18 and 20; [served identity decision](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md) (2026-09-24), kernel-mechanics clause; framework `docs/design/2026-09-23-workspace-module-contracts.md`, "0.25.2 operator-rebuild round" R5/R7 and "0.25.6" K1′/K1″.

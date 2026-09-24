@@ -25,6 +25,29 @@ version-control command run from the home walks up into that checkout and can
 move a shared branch. Being ignored does not put a directory outside the
 repository; the work tree is reached only by being in it or naming it.
 
+**Every repository-scoped tool walks up the same way** (kernel developer
+lessons, 2026-07-29 and 2026-09-05). Version control is not the only tool
+that resolves the enclosing tree from the working directory:
+- A package manager run from a home walks up to the enclosing checkout's
+  manifest and runs that project's gate. It prints the right package name
+  and passes.
+- A whitespace check of the diff reports clean because the enclosing checkout
+  is clean.
+
+Agent harnesses make this the default rather than an accident. A shell's
+working directory persists between tool calls, so one command that visits
+the home to run an operational command leaves every later gate there.
+Parallel tool calls are not ordered, so no call can rely on a directory
+change made in another.
+
+A verification gate therefore names its tree in the command itself, using
+the tool's own directory or prefix option, and prints the branch it tested
+beside the result. A gate that does not say which tree it ran on is not
+evidence. Under workspace model v2 a home sits under the deployment
+directory the operator chose, which may or may not be inside a repository
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+decision 16). The rule applies wherever some enclosing repository exists.
+
 Work modes grant different repository discipline, not additional task
 authority. A read-all/edit-none workspace mode exists for cross-repository
 coordinators (2026-07-17); its read-only discipline is instructional, like every
@@ -71,3 +94,4 @@ pending direction.
 3. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/marketplace-workmodes-runtime.md` (2026-07-17, work-mode briefing rationale only); SHA-256 `0351c556a8b758e806eab3f5ff29578f128947c82a5c8786e207e7f0b40bf6a7`.
 4. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/instance-home-bare-git-cwd.md` (2026-09-05); SHA-256 `f5e5d46a2ab659043c7a42cf368c425bbd62ffce64f1ccd57f4c307e8f2fcc85`.
 5. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/portable-role-editions-and-bootstrap.md` (2026-09-20), accepted bootstrap clause only.
+6. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/npm-prefix-in-worktree-instances.md` (2026-07-29), judgement only.

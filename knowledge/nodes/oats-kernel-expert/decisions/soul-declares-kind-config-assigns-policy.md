@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Soul declares identity and intrinsic requirements, config assigns deployment policy
-description: A soul carries what it is and what it intrinsically needs (kind, source-complete capability requirements, defaults, knowledge interests); scoped deployment configuration assigns bindings, settings, targets and policy; manifests and packages never carry deployment targets.
-tags: [kernel, config, targeting, souls, requirements, portable-souls, layers]
-timestamp: 2026-09-20
+description: A soul carries what it is and what it intrinsically needs — kind, capability references that name a location but never a version, defaults and knowledge interests; versions live only in workspace package pins and the lock; deployment policy lives in the workspace, the host-local file and spawn time; manifests and packages never carry deployment targets.
+tags: [kernel, config, targeting, souls, requirements, portable-souls, layers, workspace-model]
+timestamp: 2026-09-23
 ---
 # Rationale
 
@@ -41,7 +41,37 @@ origins. Family targeting survives only in the legacy classic-config
 deployments that the [fresh-install-first rollout](/nodes/oats-expert/decisions/fresh-install-first-rollout.md)
 preserves unmigrated.
 
-**What configuration still owns, unchanged since 2026-07:** deployment
+**Amendment 2026-09-23 (workspace model v2, accepted by the human): a
+location, never a version.**
+- **What a soul says.** A soul still declares what it needs. Each capability
+  reference now says only *where* the capability comes from: a member
+  repository, the soul's own repository, or "package". It never says which
+  version or revision.
+- **Where versions live.** Only packages have versions. A package version is
+  pinned once, in the workspace, and the lock records its exact commit,
+  integrity and per-version executable approval. A member is always its
+  latest state.
+- **What is superseded.** The source-and-revision policy in the soul
+  (2026-09-14) is superseded. Three files each knowing about versions made
+  the model hard to review, and "which version" is a team decision that
+  belongs in one place
+  ([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+  decisions 6–7).
+- **Defaults.** On the new line the per-deployment activation file, the
+  repository default tier and family targeting are gone. Workspace defaults,
+  with optional additive per-team defaults, fill what the soul leaves open.
+  The workspace proposes and the soul answers: a soul's "none" for a slot
+  drops the layer the defaults contributed, and only a soul contradicting
+  itself is an error (decision 21).
+- **Provider payloads.** Payloads live where the fact is true: at soul level
+  for every instance, in the host-local file for host facts, and at spawn
+  time for facts held by a single instance (decision 20).
+
+The 2026-07 principle is unchanged. Identity travels with the soul and
+deployment policy stays with the adopter. v2 applies that principle more
+strictly.
+
+**What deployment configuration still owns (classic line; on the v2 line through the workspace, the host-local file and spawn time):** deployment
 bindings and settings, provider selection among permitted choices, private
 team and human identifiers, store locators, exact executable approvals and
 local exclusions. Portability is not possession of credentials: a soul can
@@ -95,3 +125,4 @@ pressure.
 4. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/distribution-packages-config-profiles-and-requirements.md` (2026-07-26, adopter sovereignty); SHA-256 `c9109cecd0d4622152718436afe5836ea56e00bf7afa52b261eb13da683fb9cc`.
 5. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/official-capabilities-oats-core-setup-and-marketplace.md` (2026-09-20), explicit soul-definition declaration.
 6. Accepted design `docs/design/2026-09-14-portable-souls-and-git-workspaces.md` §4 "Source-complete soul requirements" and §12 "Two authorities, one resolver" (accepted 2026-09-15), and `docs/workspace-adoption.md` "The five framework experts", in [awebai/oats](https://github.com/awebai/oats).
+7. Accepted decision [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), decisions 6, 7, 13, 20 and 21 (2026-09-23, refined 2026-09-24); framework `docs/workspaces.md`, "Resolution, spelled out".

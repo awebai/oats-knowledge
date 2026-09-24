@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Configured scope is not messaging membership
-description: A declared configuration boundary establishes team scope independently of ambient messaging identity.
-tags: [kernel, team, workspace, config, discovery, messaging]
-timestamp: 2026-09-20
+description: A declared boundary, not ambient messaging identity, establishes team scope; under workspace model v2 a team is a workspace label that never gates, and membership is observed over Git remotes in the operator's access context with failures classified, never collapsed.
+tags: [kernel, team, workspace, config, discovery, messaging, workspace-model, remotes]
+timestamp: 2026-09-23
 ---
 # Rationale
 
@@ -52,6 +52,35 @@ one preparation, membership observations are frozen and a self-member's
 backlink must resolve to the same commit as the workspace; a coherent fresh
 observation is chosen rather than an old retained record rewritten.
 
+**Workspace model v2 (2026-09-23) replaces the mechanism again; the
+principle holds.** The configuration team block, tree reconciliation and
+nested-boundary descent described above belong to the previous line. On the
+new line a team is a label the workspace declares. It never gates,
+restricts, changes trust or partitions a store. The messaging provider's own
+notion of team moves under its payload, so the word "team" means one thing
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+decision 17). That is this decision's principle in its final form.
+
+Discovery and resolution observe Git remotes, never local clones, so "who
+can see what" is Git's own answer (decision 15). Three kernel obligations
+follow:
+1. **Observe in the operator's own access context, in the form the reference
+   was written.** A private repository probed over a transport the operator
+   did not write answers "not found". That answer classifies as an access
+   failure and silently turns a member into the standalone view (decision 4).
+2. **Classify failures; never collapse them.**
+   - Access denial and "not found" select the standalone view.
+   - Network and timeout failures are surfaced as they are, because an
+     offline laptop is not a public contributor.
+   - Nothing half-succeeds, and nothing prompts: a credential prompt would
+     hang an unattended spawn.
+   - A failure that fits no class becomes a problem row on that member
+     instead of aborting discovery for every member.
+3. **Standalone is a member's view, not a fallback for any repository.** A
+   repository with no backlink is a schema error. Only a member whose
+   workspace cannot be read for access reasons gets the standalone view, and
+   everything produced from that view is marked with the reason.
+
 # Related
 
 [Local configuration remains authored policy](/nodes/oats-kernel-expert/decisions/local-policy-is-not-package-policy.md);
@@ -71,3 +100,4 @@ observation is chosen rather than an old retained record rewritten.
 3. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/distribution-packages-config-profiles-and-requirements.md` (2026-07-26, option 7); SHA-256 `c9109cecd0d4622152718436afe5836ea56e00bf7afa52b261eb13da683fb9cc`.
 4. Supersession: `docs/design/2026-09-14-portable-souls-and-git-workspaces.md`, sections on discovery and admission.
 5. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/git-workspace-versus-development-package.md` (2026-09-20), reciprocal-admission clause; `docs/workspace-adoption.md`, qualification of reciprocal admission.
+6. Accepted decision [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), decisions 4, 15 and 17 (2026-09-23); framework `docs/design/2026-09-23-workspace-module-contracts.md` §1 with its Phase C clarification and "0.25.1 fix round" M2, L3 and L4.
