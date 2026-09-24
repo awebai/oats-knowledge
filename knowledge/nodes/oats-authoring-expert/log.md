@@ -1,4 +1,4 @@
-# dev-expert log
+# oats-authoring-expert log
 
 ## 2026-09-24
 

@@ -30,28 +30,28 @@
       "path": "nodes/integrations-expert",
       "owner": "e544038d-065f-477c-b19c-07dab58c68a3"
     },
-    "okf-expert": {
-      "path": "nodes/okf-expert",
+    "oats-okf-expert": {
+      "path": "nodes/oats-okf-expert",
       "owner": "8ecb9837-b76c-498b-9989-9c3cc1179bac"
     },
-    "aweb-expert": {
-      "path": "nodes/aweb-expert",
+    "oats-aweb-expert": {
+      "path": "nodes/oats-aweb-expert",
       "owner": "af0c2641-0345-43c7-8723-b58b133b7ec9"
     },
-    "jira-expert": {
-      "path": "nodes/jira-expert",
+    "oats-jira-expert": {
+      "path": "nodes/oats-jira-expert",
       "owner": "ed495570-5cd4-4328-b820-7f087ec96ca0"
     },
-    "linear-expert": {
-      "path": "nodes/linear-expert",
+    "oats-linear-expert": {
+      "path": "nodes/oats-linear-expert",
       "owner": "307b0cef-7d93-40a7-8e2c-f0ad615e59e6"
     },
-    "authoring-expert": {
-      "path": "nodes/authoring-expert",
+    "oats-authoring-expert": {
+      "path": "nodes/oats-authoring-expert",
       "owner": "a324f1de-0f6a-451c-8417-91ba1f402455"
     },
-    "dev-expert": {
-      "path": "nodes/dev-expert",
+    "oats-dev-expert": {
+      "path": "nodes/oats-dev-expert",
       "owner": "9835bcbf-9321-4bfb-ac78-3ee2960fa74f"
     }
   }

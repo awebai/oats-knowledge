@@ -2,7 +2,7 @@
 
 ## 2026-09-24
 
-* **Creation**: Chartered six package-expert nodes — [okf-expert](/nodes/okf-expert/index.md), [aweb-expert](/nodes/aweb-expert/index.md), [jira-expert](/nodes/jira-expert/index.md), [linear-expert](/nodes/linear-expert/index.md), [authoring-expert](/nodes/authoring-expert/index.md), [dev-expert](/nodes/dev-expert/index.md) — one per official package, owning that package's facts and reading the integrations node; the aweb and okf charters name their cross-project seams (Phase D slice 3, roster amendment of 2026-09-24).
+* **Creation**: Chartered six package-expert nodes — [oats-okf-expert](/nodes/oats-okf-expert/index.md), [oats-aweb-expert](/nodes/oats-aweb-expert/index.md), [oats-jira-expert](/nodes/oats-jira-expert/index.md), [oats-linear-expert](/nodes/oats-linear-expert/index.md), [oats-authoring-expert](/nodes/oats-authoring-expert/index.md), [oats-dev-expert](/nodes/oats-dev-expert/index.md) — one per official package, owning that package's facts and reading the integrations node; the aweb and okf charters name their cross-project seams (Phase D slice 3, roster amendment of 2026-09-24).
 
 ## 2026-09-22
 

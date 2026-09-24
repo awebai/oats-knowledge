@@ -86,7 +86,10 @@ member soul that is the expert in that capability** — six package experts
 ordinary member souls, discoverable in the official workspace, spawnable by
 anyone in it and the natural owner of their package's PRs. The roster
 amendment ruled on their knowledge: each package expert owns **that
-package's FACTS**, and nothing cross-package.
+package's FACTS**, and nothing cross-package. They are named
+`oats-<package>-expert` (`oats-okf-expert`, `oats-aweb-expert`, …), matching
+the package repositories and the domain experts' prefix, which also keeps them
+clear of the aweb project's own `aweb-expert`.
 
 The amendment also changed two roster entries this concept had left
 implicit:

@@ -1,4 +1,4 @@
-# linear-expert log
+# oats-jira-expert log
 
 ## 2026-09-24
 

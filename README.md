@@ -34,7 +34,7 @@ copy of framework code, API tables, command manuals or old task/release queues.
 | `oats-assistant` | Persistent onboarding/adoption expertise; no user setup state |
 | `oats-operator-expert` | Deployment operation: onboarding/rebuild rationale, migration and cutover judgement |
 | `integrations-expert` | Cross-package provider-integration judgement, read by the package experts |
-| `okf-expert`, `aweb-expert`, `jira-expert`, `linear-expert`, `authoring-expert`, `dev-expert` | One per official package: that package's facts, nothing cross-package |
+| `oats-okf-expert`, `oats-aweb-expert`, `oats-jira-expert`, `oats-linear-expert`, `oats-authoring-expert`, `oats-dev-expert` | One per official package: that package's facts, nothing cross-package |
 
 Market, assistant and the six package-expert nodes currently have navigation only: absence of researched
 knowledge is not permission to invent it. Owner UUIDs route responsibility,

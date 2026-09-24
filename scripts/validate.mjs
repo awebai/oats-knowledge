@@ -20,12 +20,12 @@ export const OWNERS = Object.freeze({
   'oats-assistant': '2dab92c7-701d-4101-bc7f-09acf4fc374e',
   'oats-operator-expert': 'af5e5c72-824e-4c86-9b3c-a197b4eb6edd',
   'integrations-expert': 'e544038d-065f-477c-b19c-07dab58c68a3',
-  'okf-expert': '8ecb9837-b76c-498b-9989-9c3cc1179bac',
-  'aweb-expert': 'af0c2641-0345-43c7-8723-b58b133b7ec9',
-  'jira-expert': 'ed495570-5cd4-4328-b820-7f087ec96ca0',
-  'linear-expert': '307b0cef-7d93-40a7-8e2c-f0ad615e59e6',
-  'authoring-expert': 'a324f1de-0f6a-451c-8417-91ba1f402455',
-  'dev-expert': '9835bcbf-9321-4bfb-ac78-3ee2960fa74f',
+  'oats-okf-expert': '8ecb9837-b76c-498b-9989-9c3cc1179bac',
+  'oats-aweb-expert': 'af0c2641-0345-43c7-8723-b58b133b7ec9',
+  'oats-jira-expert': 'ed495570-5cd4-4328-b820-7f087ec96ca0',
+  'oats-linear-expert': '307b0cef-7d93-40a7-8e2c-f0ad615e59e6',
+  'oats-authoring-expert': 'a324f1de-0f6a-451c-8417-91ba1f402455',
+  'oats-dev-expert': '9835bcbf-9321-4bfb-ac78-3ee2960fa74f',
 });
 
 export async function loadOkf(source = process.env.OKF_SOURCE) {
