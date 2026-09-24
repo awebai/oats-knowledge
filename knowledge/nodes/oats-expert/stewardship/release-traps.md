@@ -224,3 +224,12 @@ say which code merge it sits on, and expect the verifier to compare both.
 4. Legacy `agents/oats-expert/soul/knowledge/lessons/version-bump-grep-tests-before-push.md` (2026-09-20/21) and delivery-log release lessons of 2026-09-20 (tarball verification, honest release notes, decoupled distribution tag).
 5. Elimination routes verified landed 2026-09-22 against the repository's release workflow (`refs/heads/` destination, syntax-check, idempotent publish, clean-room tarball smoke), the verify-only installer workflow (`fail-fast: false`), and the mirror-parity / release-packaging tests; kernel-first floor per `docs/release-notes/v0.24.4.md`.
 6. Legacy `agents/oats-expert/soul/knowledge/lessons/pinned-release-lags-installed-release.md` (2026-09-22); `decisions/desktop-is-built-for-workspace-v2.md` (2026-09-24, the no-maintenance-line paragraph); lead's release playbook entries of 2026-09-24 (provider PR lands with tag + pin; version literals as release steps; checker-driven mirror sync; hand-opened bump PR; propagation lag ≠ failed publish).
+
+**The bump PR has no checks by design (2026-09-24, lead).** The post-release
+bump PR's single commit is `release: vX [skip ci]`: it never gets a CI run,
+`gh pr checks` is empty, and an "absent Node 22 gate" on it is not a blocker.
+Its merge gate is different from every other PR's: the diff is exactly the
+version manifests and lock files, the version equals the tag, and the PR is
+`MERGEABLE CLEAN` → squash. Whoever (or whatever) waits on CI for it waits
+forever — a delegated watcher stopped and asked, correctly, on the first
+release it watched.
