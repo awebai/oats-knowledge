@@ -21,6 +21,14 @@
     "oats-assistant": {
       "path": "nodes/oats-assistant",
       "owner": "2dab92c7-701d-4101-bc7f-09acf4fc374e"
+    },
+    "oats-operator-expert": {
+      "path": "nodes/oats-operator-expert",
+      "owner": "af5e5c72-824e-4c86-9b3c-a197b4eb6edd"
+    },
+    "integrations-expert": {
+      "path": "nodes/integrations-expert",
+      "owner": "e544038d-065f-477c-b19c-07dab58c68a3"
     }
   }
 }
