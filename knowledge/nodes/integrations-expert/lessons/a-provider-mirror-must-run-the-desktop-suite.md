@@ -30,7 +30,9 @@ With that package installed, the suite passed in full.
   suite before handoff. If the manifest's settings changed, the Desktop
   engineer recaptures the fixtures from the mirror's tree, and the mirror
   fast-forwards to that commit; when the fixture commit's parent is the
-  mirror's head, no cherry-pick is needed and the reviewed oid is the same.
+  mirror's head, no cherry-pick is needed: the new head is the fixture commit itself, so
+  the only new review surface is its delta, and the watcher is re-armed at
+  that new oid.
 - Running the Desktop suite in a worktree needs an install inside the
   Desktop package first. A wall of missing-module failures is an environment
   fact, not a verdict: report it as such and install before reading any test
