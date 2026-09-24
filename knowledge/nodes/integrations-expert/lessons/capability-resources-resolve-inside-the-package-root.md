@@ -3,7 +3,7 @@ type: Lesson
 title: Capability resources resolve inside the package root — a path that escapes the hashed tree makes the integrity check meaningless
 description: A locked capability is only as trustworthy as the tree whose bytes were hashed; manifest-relative paths for hooks, commands, skills and injections must resolve beneath the real package root, and symlinks that escape it are rejected or their targets included in the hash.
 tags: [lesson, integrations, integrity, manifest, paths, symlinks, trust]
-timestamp: 2026-09-25
+timestamp: 2026-09-24
 ---
 
 Learned 2026-07-11 by the integrations expert while building an externally

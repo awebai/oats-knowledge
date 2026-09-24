@@ -3,7 +3,7 @@ type: Playbook
 title: "Outsider verification of a rebuild: an operator who did not write the guide reproduces the topology on a scratch rig against the published combination and verifies by positive enumeration"
 description: A rebuild guide is accepted only when an outside operator, holding none of the authoring state, reproduces the target topology on a scratch rig against the published combination and walks an ordered invariant list by positive enumeration. Passes on working trees or half-published cross-package fixes are rehearsals, not acceptances.
 tags: [playbook, operator, rebuild, verification, migration, acceptance, published-combination, positive-enumeration]
-timestamp: 2026-09-25
+timestamp: 2026-09-24
 ---
 
 Method formed 2026-09-23/24 by the OSS coordinator and an outside operator

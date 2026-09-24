@@ -1,11 +1,8 @@
 # oats-operator-expert log
 
-## 2026-09-25
-
-* **Update**: [Outsider verification of a rebuild](/nodes/oats-operator-expert/playbooks/outsider-verification-of-a-rebuild.md) invariant 2 now describes the lock (integrity, capability list, the two refusals) instead of per-version executable approval, which the kernel drops in 0.26.0; the citation of the 0.25.5 pass is unchanged.
-
 ## 2026-09-24
 
+* **Update**: [Outsider verification of a rebuild](/nodes/oats-operator-expert/playbooks/outsider-verification-of-a-rebuild.md) invariant 2 now describes the lock (integrity, capability list, the two refusals) instead of per-version executable approval, which the kernel drops in 0.26.0; the citation of the 0.25.5 pass is unchanged.
 * **Creation**: [a team-local identity is reachable only inside its team](/nodes/oats-operator-expert/lessons/a-team-local-identity-is-reachable-only-inside-its-team.md) — identity kind by reachability; standing cross-team seats are custody-served residents (node owner, from the 2026-09-21 inbox seed).
 * **Creation**: [harvested knowledge on an unpushed main never leaves the machine](/nodes/oats-operator-expert/lessons/harvested-knowledge-on-an-unpushed-main-never-leaves-the-machine.md) — harvest delivery is a branch and pull request when the instance does not own main pushes (node owner).
 * **Update**: [resident custody is a host fact](/nodes/oats-operator-expert/decisions/resident-custody-is-a-host-fact.md) — rule 4 corrected against the accepted custody contract: a global-mode spawn fails closed when the custody service is not serving (the wake broker's durable registration is the exception, not the rule); rules 4 and 6 marked confirmed, not proposed.
