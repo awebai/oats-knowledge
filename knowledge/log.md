@@ -1,5 +1,9 @@
 # Knowledge log
 
+## 2026-09-24
+
+* **Creation**: Chartered six package-expert nodes — [okf-expert](/nodes/okf-expert/index.md), [aweb-expert](/nodes/aweb-expert/index.md), [jira-expert](/nodes/jira-expert/index.md), [linear-expert](/nodes/linear-expert/index.md), [authoring-expert](/nodes/authoring-expert/index.md), [dev-expert](/nodes/dev-expert/index.md) — one per official package, owning that package's facts and reading the integrations node; the aweb and okf charters name their cross-project seams (Phase D slice 3, roster amendment of 2026-09-24).
+
 ## 2026-09-22
 
 * **Update**: Cut [Release judgement for the tag-driven lane](/nodes/oats-expert/stewardship/release-traps.md) to decisions, traps-as-lessons and their elimination routes; every procedure sentence (refspec fix, token rerun, whitelist, syntax-check, pack-and-install recipe, sweep mechanics) is routed to the `git-tag-release` skill and the release workflow, and elimination routes already landed (verify-only installer build, clean-room smoke, mirror-parity test) are marked as such. Retitled; audit item B1.
