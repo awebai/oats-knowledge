@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-09-25
+
+* **Update**: [Capability resources resolve inside the package root](/nodes/integrations-expert/lessons/capability-resources-resolve-inside-the-package-root.md) states its premise in terms of the lock's integrity digest rather than an executable approval, which the kernel drops in 0.26.0.
+
 ## 2026-09-24
 
 * **Creation**: [a fake CLI that accepts what the real binary refuses hides a broken hook](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) — rehearsal is the gate for hooks that drive an external CLI; from the legacy fake-aw lesson and the 2026-09-24 review rounds (node owner).

@@ -1,5 +1,9 @@
 # oats-operator-expert log
 
+## 2026-09-25
+
+* **Update**: [Outsider verification of a rebuild](/nodes/oats-operator-expert/playbooks/outsider-verification-of-a-rebuild.md) invariant 2 now describes the lock (integrity, capability list, the two refusals) instead of per-version executable approval, which the kernel drops in 0.26.0; the citation of the 0.25.5 pass is unchanged.
+
 ## 2026-09-24
 
 * **Creation**: [a team-local identity is reachable only inside its team](/nodes/oats-operator-expert/lessons/a-team-local-identity-is-reachable-only-inside-its-team.md) — identity kind by reachability; standing cross-team seats are custody-served residents (node owner, from the 2026-09-21 inbox seed).
