@@ -71,6 +71,29 @@ default or alternative — that teaches writing without an equally explicit
 index-first consult instruction is building an archive, not expertise.
 Re-deriving what the base already knows is a defect.
 
+**Cross-base corollary (2026-09-23, OSS coordinator; recorded from the
+2026-09-24 identity rehearsal).** "Consult first" does not stop at one's own
+node. Three rounds of design discussion about global identities for OATS
+instances converged on a careful conclusion that a sibling project had already
+decided and written down a month earlier — resident identities served through
+session grants — and had already shipped as a grant surface and a working
+messaging capability in a neighbouring deployment. Every problem the
+discussion enumerated was one the recorded decision had been written to
+avoid; the record surfaced only when the human said "we did work on this weeks
+ago". Before redesigning anything about identity, custody or lifecycle, read
+the other project's recorded decisions and the capabilities and docs its
+operating deployments already run, searching for the same nouns. A live
+capability in a neighbouring workspace is evidence of an existing decision
+even when no package catalog carries it. For the reference theory this means
+the consult obligation is organisation-wide: a knowledge model that indexes
+only the local node leaves cross-project decisions to be re-derived, which is
+the same defect as the read-side gap above, one level up. The roster
+consequence — cross-project seams named in charters and read across bases —
+is recorded in the
+[2026-09-24 roster amendment](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md);
+the identity decision it produced is
+[the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md).
+
 # Evidence
 
 Founder acceptance and same-day amendment, 2026-09-13, recorded in the OATS
@@ -82,3 +105,6 @@ Evidence: OKF input 947332ff26a4dfe521231a56529a86d83b28cd3ec6f49ccfec5fa1349575
 Symmetry lesson: legacy `agents/oats-expert/soul/knowledge/lessons/okf-injection-read-side-gap.md`
 (2026-07-10). Contract-versus-functionality line and helper contract: legacy
 `decisions/provider-neutral-knowledge-and-harvest.md` amendments of 2026-09-16/17.
+Cross-base corollary: legacy
+`agents/oats-expert/soul/knowledge/inbox/check-the-record-before-redesigning-identity.md`
+(2026-09-23, landed with the 2026-09-24 identity-rehearsal inbox seeds, PR #121).

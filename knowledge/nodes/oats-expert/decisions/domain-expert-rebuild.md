@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: Expert domains replace implementation job titles
-description: Five persistent expert domains and an optional theory helper separate durable expertise from temporary implementation assignments; knowledge is rebuilt by strict audit, never bulk-copied.
+description: Five persistent expert domains and an optional theory helper separate durable expertise from temporary implementation assignments; knowledge is rebuilt by strict audit, never bulk-copied. Amended 2026-09-21 (five experts are the roster, developers ephemeral, knowledge centralised) and 2026-09-24 (operator and integrations experts own nodes).
 tags: [souls, expertise, knowledge, roadmap]
 timestamp: 2026-09-20
 ---
@@ -67,24 +67,88 @@ semantic review against current OATS is the main gate.
 The expert editions are **explicit library exports of the framework
 repository**, imported by reference and immutable revision through the
 workspace definition — not a universal replacement for project-local soul
-conventions, which adopters keep. A preserved legacy soul is **not
-automatically a valid portable source**; each edition is published as a
-source-complete definition and only then pinned. Each edition names its owned
-knowledge destination explicitly and cross-reads the others explicitly; **a
-read edge grants no write**, and no edition borrows an ambient default writer
-or infers write authority from a sole readable store. Private locators,
-state paths and credential references belong to deployment configuration,
-never to a public edition. The onboarding-created setup expert is a sixth
-edition that owns no node
-([official capabilities](/nodes/oats-expert/decisions/official-capabilities-and-reviewed-marketplace.md)).
+conventions, which adopters keep. *The "immutable revision" import mechanic
+was superseded 2026-09-23 by
+[workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md):
+member souls are discovered at latest state and the reciprocal membership
+handshake is the trust decision; the rest of this section stands.* A
+preserved legacy soul is **not automatically a valid portable source**; each
+edition is published as a source-complete definition. Each edition names its
+owned knowledge destination explicitly and cross-reads the others explicitly;
+**a read edge grants no write**, and no edition borrows an ambient default
+writer or infers write authority from a sole readable store. Private
+locators, state paths and credential references belong to deployment
+configuration, never to a public edition. The onboarding-created setup expert
+is a sixth edition that owns no node
+([official capabilities](/nodes/oats-expert/decisions/official-capabilities-and-reviewed-marketplace.md))
+— *superseded 2026-09-24 by the roster amendment below: it becomes the
+operator expert and owns the deployment-operator node.*
 A cold-bootstrap helper entry distinct from source-parented helpers was
 proposed alongside and remains **undecided**; nothing here grants it.
+
+# Roster confirmed and knowledge centralised (decided 2026-09-21)
+
+Decided by the human with the redesign lead, once the Git-workspace and
+Portable Souls infrastructure had shipped and been proven by an independent
+operator. Two roster readings were possible: **(A)** the five expert souls
+are the roster and developer roles are ephemeral; **(B)** developers keep
+durable souls and nodes. The human chose **option A**:
+
+1. **The roster is the five reviewed experts** plus the non-owning setup
+   expert. Developer roles are spawned fresh per task from the experts'
+   knowledge and hold no node; their material survives only as generalised
+   expertise in an expert node, or not at all.
+2. **The base carries expertise about OATS, never code teaching.** The
+   theory's two-part test and reject list apply in full, with the human's
+   explicit sharpening: no module maps, implementation walkthroughs, command
+   or test recipes or coding conventions; anything derivable from the
+   repository is out; architecture passes only as rationale or decision.
+   Every concept is dated, role-attributed, universal (no deployment
+   specifics) and marks its supersessions.
+3. **Migration is judgement, not copying.** Every legacy concept in the nine
+   per-soul bundles (~400 concepts) was assessed against the theory and the
+   current architecture; each node was then written coherently, audited for
+   conformance and reworked for stale claims, code-teaching, undated bodies
+   and duplicates; the lead reviewed the whole base before it landed. Result:
+   **58 concepts kept of ~400** — the kernel, expert and Desktop nodes
+   populated, the assistant node minimal, market research chartered and
+   intentionally empty.
+4. **Harvest into the central base stays off** until the new souls run from
+   it in a fresh deployment; knowledge-check readiness work is deferred
+   accordingly.
+5. **Stewardship state collapses** to one owned, prune-not-accumulate
+   concept — [Current OATS direction](/nodes/oats-expert/roadmap/current-direction.md);
+   the repository's program board remains the operational ledger outside
+   the base.
+
+The in-repository per-soul bundles became legacy and are decommissioned with
+the roster cutover; the six editions bind to the central base through their
+declared store and need no pin change.
+
+**Rejected:** option B, because durable developer nodes turn the base into
+work logs and the promotion bar already filters the material that would
+justify them; bulk copy of the legacy bundles, which fails the theory by
+construction.
+
+# Amended 2026-09-24
+
+See [the roster amendment](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md):
+the setup expert becomes `oats-operator-expert` and **owns** the deployment
+operator node (superseding "owns no knowledge" in point 1 above and in the
+publication section); `integrations-expert` stays as the cross-package
+provider-integration expert with a node; developer roles declare where their
+learnings promote to; recipes that encode external-system judgement pass the
+two-part test; cross-project seams are named in the per-package charters.
+The package experts that the amendment admits beside the domain roster are
+recorded in
+[official development dogfoods the workspace](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md).
 
 # Related
 
 [One standalone Desktop product, no hidden operational kernel](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md);
 [External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
-[Current OATS direction](/nodes/oats-expert/roadmap/current-direction.md).
+[Current OATS direction](/nodes/oats-expert/roadmap/current-direction.md);
+[Roster amendment: operator and integrations experts](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md).
 
 # Citations
 
@@ -93,3 +157,4 @@ proposed alongside and remains **undecided**; nothing here grants it.
    audit of existing soul knowledge and notes.
 2. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/expert-souls-and-knowledge-rebuild.md`; SHA-256 `5f44db5eba93e7eecd0a399747cadc5d1fa9901f590d794c13350b1bbe611704`.
 3. Accepted slice of legacy `decisions/portable-role-editions-and-bootstrap.md` (2026-09-20) and the "preserved legacy soul is not a portable source" delivery-log lesson; the helper-entry contract in that source is not promoted.
+4. Legacy `decisions/five-souls-are-the-roster-knowledge-centralised.md` (2026-09-21, redesign lead with the human; amended 2026-09-24): option A, the code-teaching exclusion, the 58-of-~400 migration result, harvest-off and stewardship-collapse points. Its migration-process lessons (assess from the current source tree; id-named audits; single date heading for concurrent log writers) are routed to stewardship, not kept here.
