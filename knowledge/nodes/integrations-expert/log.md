@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [A grant home needs a custody reference for encrypted receive](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md), from the first hosted rehearsal of session grants; the custody-reference owner is recorded as open.
 * **Creation**: [An alias rule lives in every provider path that carries an alias](/nodes/integrations-expert/lessons/an-alias-rule-lives-in-every-provider-path-that-carries-an-alias.md), promoted from a developer's release notes.
 * **Creation**: [A provider mirror must run the Desktop suite](/nodes/integrations-expert/lessons/a-provider-mirror-must-run-the-desktop-suite.md), from a mirror that went red on recorded Desktop fixtures after a manifest change.
 * **Creation**: [The kernel's provider readiness check wire (OATS 0.26.0)](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md), the contract providers build their binding check against.
