@@ -12,7 +12,7 @@ setting-source-exclusion launch for Claude Code — the strict-curriculum
 target of 2026-07-26 applied to that harness. On **2026-09-18 the human
 superseded that launch policy for Claude Code and Codex**: both now
 [launch natively with opt-in bypass only](/nodes/oats-kernel-expert/decisions/native-launch-strict-pi-only.md),
-and exclusive OATS-only visibility is a Pi-profile claim. Nothing below
+and exclusive OATS-only visibility is claimed for no harness since 2026-09-23. Nothing below
 describes how the Claude launch is shaped today, and none of it is a reason to
 rebuild an isolation adapter: per-instance config homes, setting-source
 exclusion and a session-only plugin route were *all* options of the strict

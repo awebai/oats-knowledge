@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Integrity, origin and consent are different proofs
-description: Contained reproducible bytes, consistent provenance and explicit executable or host-install consent answer distinct trust questions.
-tags: [kernel, trust, integrity, consent, packages, security]
-timestamp: 2026-07-29
+description: Contained reproducible bytes, consistent provenance and explicit executable or host-install consent answer distinct trust questions; under workspace model v2 membership is the trust for member capabilities and a package's per-version approval is re-verified at spawn.
+tags: [kernel, trust, integrity, consent, packages, security, workspace-model, approval]
+timestamp: 2026-09-24
 ---
 # Rationale
 
@@ -22,6 +22,35 @@ scope is trusted with that scope; an acquired one needs a lock and an integrity
 match, so location alone can never confer trust and an acquired artifact cannot
 masquerade as authored by dropping its lock. Resetting trust on every restore
 was rejected as theatre.
+
+**Workspace model v2 (2026-09-23/24): membership is the trust for members,
+and an approval is verified where it is consumed.** On the new line the
+trust decision for member capabilities is reciprocal membership, observed
+with the operator's own access. This is the model a team already accepts for
+a repository's committed agent skills
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+decision 2). It supersedes the configuration-scope boundary above for that
+line only; classic deployments keep it.
+
+Its consequence is a code-execution boundary. A member's hooks and scripts
+run, at the member's latest state, on every operator's machine at spawn, and
+only the handshake gates them. In a mixed public/private organisation,
+executable capabilities therefore belong in packages or private members, and
+public members carry souls. Applying that to a deployment is operator
+judgement.
+
+Packages keep a one-time executable approval per version, recorded in the
+lock next to the commit it approved.
+- **The spawn is the gate, not the write.** The executables digest is
+  recomputed at the locked commit and must equal the approved one. The lock
+  is an editable file: a copied approval next to a different commit would
+  otherwise run hooks that nobody approved.
+- **Never typed.** The digest is always computed. An unattended approval
+  names exactly the entry the current resolution contains, and end-of-input
+  at an approval prompt is a decline, never a yes.
+- **Versions must be immutable.** A version whose tag moved fails integrity
+  and asks again. A reference that resolves to a branch is refused, because
+  a version must not move.
 
 A trust boundary must contain the actual runtime bytes. Escaping manifest
 paths, mutable hoisted resources and package-staging dependencies undermine
@@ -91,3 +120,4 @@ package contract, not historical dependency-hash recipes.
 6. OATS rationale source `agents/integrations-expert/soul/knowledge/decisions/linear-task-interface-selection.md` (2026-07-10, credential-presence rationale only); SHA-256 `518b4e0277740bd8ce96ba8742f9d4199ad94913814d10443945f4e18d8b93cd`.
 7. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/runtime-package-requirements.md` (2026-07-28); SHA-256 `b6ac44624494e769054a9481c0acf2a3b915c0d973eb3fe7521aafbffe5edc18`.
 8. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/lock-source-strictness-prevents-reclassification.md` (SHA-256 `486aa777d35f9e4d5c3c464754702617ed9214a92165072c8dedee1a21ea9897`), `public-refs-are-option-injection-vectors.md` (SHA-256 `fd161c4df5e551eeaaa9635100cc2528cb221fc725773a0c14c08e5ed672fbf3`), `local-path-policy-before-expansion.md`, `requirement-recipes-data-allowlist.md`, `session-runtime-executable-scope-probe.md` (2026-07-26/28), principle only.
+9. Accepted decision [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), decisions 2 and 13 (2026-09-23, refined 2026-09-24); framework `docs/design/2026-09-23-workspace-module-contracts.md`, "0.25.1 fix round" M3, "0.25.2 operator-rebuild round" R9 and the post-0.25.0 "member capabilities are a code-execution boundary" clarification.

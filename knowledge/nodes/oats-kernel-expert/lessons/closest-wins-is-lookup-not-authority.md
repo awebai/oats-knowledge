@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Closest-wins merged views answer "what is active here", never provenance or mutation authority
-description: Config and lock chains merge closest-wins per identity independently, which is correct for resolving what applies and wrong for asking which scope provides a row or which rows a command may touch.
-tags: [kernel, config, locks, scopes, provenance, nested-scopes]
-timestamp: 2026-07-29
+description: Config and lock chains merge closest-wins per identity independently, which is correct for resolving what applies and wrong for asking which scope provides a row or which rows a command may touch; on the workspace-model line there is no cascade, and the residue is that the first deployment root found bounds every walk.
+tags: [kernel, config, locks, scopes, provenance, nested-scopes, workspace-model]
+timestamp: 2026-09-24
 ---
 # Lesson
 
@@ -36,6 +36,22 @@ Initialisation-adjacent logic therefore reads the target scope's own on-disk
 state directly rather than through chain readers, or it will look for the store
 and lock it is creating in the wrong place.
 
+**Scope under workspace model v2 (2026-09-24).** Everything above describes
+the previous line's configuration and lock chains. The new line has no
+configuration cascade and one lock per deployment
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+decisions 13–14), so neither merge exists there. The lesson governs classic
+deployments only.
+
+Its residue on the new line is the boundary. The host-local file is found by
+walking up, and the first one found *is* the deployment. An enclosing
+deployment is a different deployment; onboarding, for example, refuses a
+second onboard only for its own directory's file. Any classic chain walk
+still in the kernel must stop at a v2 deployment root. A Desktop report that
+"inspect names the operator checkout" turned out to be exactly such an
+ancestor walk crossing the boundary, which the configuration docs had
+already promised it would not cross. The fix was one stop condition.
+
 # Related
 
 [Configured scope is not messaging membership](/nodes/oats-kernel-expert/decisions/configured-team-boundary.md);
@@ -45,3 +61,4 @@ and lock it is creating in the wrong place.
 
 1. OATS rationale source `agents/cli-dev/soul/knowledge/decisions/provider-rows-resolve-at-their-own-lock-level.md` (2026-07-29); SHA-256 `4d97863c0e3289cd5e904f9370487d43d415266306ae675bd5d0323b94ed4233`.
 2. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/final-package-lifecycle-transaction-invariants.md`, `classic-init-own-scope-capability-store.md`, `init-acquires-before-config-exists.md`, `init-lock-visibility-package-twin.md` (2026-07-26 → 2026-07-29), principle only.
+3. Accepted decision [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), decisions 13, 14 and 16; framework `docs/design/2026-09-23-workspace-module-contracts.md`, Phase C clarification on onboarding; OATS stewardship source `agents/oats-expert/soul/knowledge/stewardship/delivery-log.md`, entry dated 2026-09-24 ("configChain stops at a v2 deployment root").

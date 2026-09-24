@@ -3,7 +3,7 @@ type: Decision
 title: Preserve recovery authority until the outcome is proven
 description: Partial failures must retain the identity and obligations needed for retry rather than mistaking plausible descriptors for completed cleanup.
 tags: [kernel, rollback, lifecycle, spawn, retire, fail-closed]
-timestamp: 2026-09-21
+timestamp: 2026-09-24
 ---
 # Rationale
 
@@ -58,6 +58,26 @@ worktree is gone, recording the drift as a typed observation. Whether a
 worktree-mode instance may drift branches silently at all — record the switch
 or forbid it — is a separate Decision, not a patch.
 
+**The reader must know which record answers its question, and every receipt
+a hook renews replaces the old one** (2026-09-24, two workspace-model
+patches, redesign lead).
+
+- **Two records for one home.** A quarantine retry trusted any live instance
+  record as the spawn record. On a workspace home, that file is a
+  materialization stub written *before* the spawn hooks run. The retry
+  therefore could not rerun what had failed, and its message blamed the
+  wrong field. Two records for one home is a design smell: when both can be
+  present, the consumer must know which question each one answers, and a
+  could-not-retry message names the field it lacked rather than guessing
+  why.
+- **A renewed receipt that was dropped.** A hook contract documented that a
+  start returns metadata, but the start path discarded it. A provider that
+  renews a grant at every start then left retirement revoking the
+  *original* grant while the live one ran until it expired. A documented
+  hook return that one lifecycle path drops is a wrong-target action waiting
+  for retirement. Metadata a hook returns replaces the receipt that the next
+  lifecycle step will act on.
+
 # Related
 
 [External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
@@ -79,3 +99,4 @@ or forbid it — is a separate Decision, not a patch.
 4. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/single-implementation-guarantee.md` (2026-07-27); SHA-256 `2ee9e42ccbe1aa71d9540b7ac2cbaf2df8c4dd680de5deb4d83c6569e6800d81`.
 5. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/rollback-probes-argv-and-fail-closed.md` (2026-07-28), three-outcome probe rationale only.
 6. OATS rationale source `agents/oats-expert/soul/knowledge/lessons/retire-recovery-uses-recorded-branch-not-checked-out-branch.md` (2026-09-21), rule and conduct only.
+7. OATS stewardship source `agents/oats-expert/soul/knowledge/stewardship/delivery-log.md`, v0.25.4 entry (2026-09-24), lesson only; framework `docs/design/2026-09-23-workspace-module-contracts.md`, "0.25.5 — launch-hook `meta` is persisted"; [served identity decision](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md) (2026-09-24), kernel-mechanics clause.
