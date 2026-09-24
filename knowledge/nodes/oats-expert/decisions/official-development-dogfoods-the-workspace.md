@@ -3,8 +3,18 @@ type: Decision
 title: Official OATS development runs on the architecture it offers adopters
 description: The framework and its official package repositories develop as one multi-repository OATS workspace so the project exercises its own workspace, curriculum and discovery architecture at real scale, under one cross-package stewardship gate. Superseded in part 2026-09-23 (members at latest state; member-and-publisher non-collapse) and 2026-09-24 (six package experts join the roster).
 tags: [workspace, packages, development, stewardship, dogfooding, supersession]
-timestamp: 2026-09-20
+timestamp: 2026-09-24
 ---
+> **Amended 2026-09-24 (human decision): package approval is removed.**
+> Declaring a package in the workspace's `packages:` IS the trust decision.
+> There's no per-version executable approval: `oats sync` has no approve
+> step, the lock carries no `approved` record, and there's no
+> `E_PACKAGE_UNAPPROVED` (OATS 0.26.0). The lock still pins commit +
+> integrity, and `oats sync` refuses drift (`E_PACKAGE_INTEGRITY`). Read any
+> mention below of approving package executables as the 0.25 design, not
+> current behaviour. See
+> [integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
+
 # Decision
 
 Accepted by the founder 2026-07-26 and re-shaped 2026-09-20. The OATS

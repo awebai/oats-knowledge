@@ -3,8 +3,18 @@ type: Decision
 title: A workspace definition, a source library and a capability package are different responsibilities
 description: Shared team composition lives in a Git-backed workspace definition; behaviour lives in capabilities; a distribution package transports them; a local deployment realises them — different responsibilities that may share a repository, joined only by reciprocal membership. The 2026-09-20 revision-pinned import and export-list mechanics were superseded 2026-09-23; the separation of responsibilities stands.
 tags: [workspace, packages, portable-souls, composition, membership, supersession]
-timestamp: 2026-09-20
+timestamp: 2026-09-24
 ---
+> **Amended 2026-09-24 (human decision): package approval is removed.**
+> Declaring a package in the workspace's `packages:` IS the trust decision.
+> There's no per-version executable approval: `oats sync` has no approve
+> step, the lock carries no `approved` record, and there's no
+> `E_PACKAGE_UNAPPROVED` (OATS 0.26.0). The lock still pins commit +
+> integrity, and `oats sync` refuses drift (`E_PACKAGE_INTEGRITY`). Read any
+> mention below of approving package executables as the 0.25 design, not
+> current behaviour. See
+> [integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
+
 # Decision
 
 Decided 2026-09-20 with the human (oats-expert as maintainer), after an

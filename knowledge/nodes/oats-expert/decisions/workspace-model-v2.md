@@ -3,8 +3,18 @@ type: Decision
 title: Workspace model v2 — membership is trust, location is not version, every capability is copied whole into the instance
 description: One workspace per organisation whose reciprocal membership is the whole trust decision for member capabilities; a soul says where each capability comes from and never which version, packages are the only versioned thing, nothing is installed, every capability is copied whole into the instance at spawn, and harnesses start normally. Supersedes the revision-pinned import model of 2026-09-20 and the classic per-deployment activation surface.
 tags: [workspace, membership, capabilities, packages, provenance, materialization, teams, harness, supersession]
-timestamp: 2026-09-23
+timestamp: 2026-09-24
 ---
+> **Amended 2026-09-24 (human decision): package approval is removed.**
+> Declaring a package in the workspace's `packages:` IS the trust decision.
+> There's no per-version executable approval: `oats sync` has no approve
+> step, the lock carries no `approved` record, and there's no
+> `E_PACKAGE_UNAPPROVED` (OATS 0.26.0). The lock still pins commit +
+> integrity, and `oats sync` refuses drift (`E_PACKAGE_INTEGRITY`). Read any
+> mention below of approving package executables as the 0.25 design, not
+> current behaviour. See
+> [integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
+
 # Decision
 
 Accepted by the human 2026-09-23 on the redesign lead's proposal, worked
