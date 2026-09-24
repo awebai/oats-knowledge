@@ -23,7 +23,7 @@ copy of framework code, API tables, command manuals or old task/release queues.
   recovery attic or raw legacy archive belongs in the active base.
 
 [`knowledge/okf-base.json`](knowledge/okf-base.json) declares the stable
-`oats-knowledge` identity and five nonoverlapping nodes:
+`oats-knowledge` identity and seven nonoverlapping nodes:
 
 | Node | Responsibility |
 | --- | --- |
@@ -80,7 +80,7 @@ whole-base** concept validator and requires **zero errors and warnings**. It
 uses the same pinned public source's metadata/declaration checks for base
 structure, canonical nonoverlapping node paths, required navigation/history,
 unowned or hidden files, and owner resolution. Local assertions enforce the
-five reviewed UUIDs. Tests include malformed metadata, owner drift, unauthorized
+seven reviewed UUIDs. Tests include malformed metadata, owner drift, unauthorized
 cross-node ownership and warning-as-failure cases, without provisioning anything.
 These pinned helpers are a CI adapter, not a promise of a stable runtime API.
 

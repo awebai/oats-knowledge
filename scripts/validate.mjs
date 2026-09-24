@@ -18,6 +18,8 @@ export const OWNERS = Object.freeze({
   'oats-desktop-expert': '76085278-3874-4382-9f7a-f11de3dbceb4',
   'market-research-expert': '2a073e37-2114-474d-917d-29cf3333932f',
   'oats-assistant': '2dab92c7-701d-4101-bc7f-09acf4fc374e',
+  'oats-operator-expert': 'af5e5c72-824e-4c86-9b3c-a197b4eb6edd',
+  'integrations-expert': 'e544038d-065f-477c-b19c-07dab58c68a3',
 });
 
 export async function loadOkf(source = process.env.OKF_SOURCE) {
@@ -40,7 +42,7 @@ export function validateOwnership(files, okf) {
   // canonical/nonoverlapping paths, required node index/log, no hidden/stray files.
   const base = okf.metadata(files, { id: BASE_ID });
   assert.deepEqual(Object.keys(base.nodes).sort(), Object.keys(OWNERS).sort(), 'Unreviewed node roster');
-  assert.equal(new Set(Object.values(base.nodes).map(node => node.owner)).size, 5, 'Owner UUIDs must be distinct');
+  assert.equal(new Set(Object.values(base.nodes).map(node => node.owner)).size, Object.keys(OWNERS).length, 'Owner UUIDs must be distinct');
   for (const [name, owner] of Object.entries(OWNERS)) {
     assert.deepEqual(base.nodes[name], { path: `nodes/${name}`, owner }, `Ownership drift: ${name}`);
     const declaration = okf.validateDeclaration({ version: 1, owner, owns: [`oats/${name}`], reads: [] });
