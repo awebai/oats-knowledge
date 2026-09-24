@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [Review a validator against every nullable field the wire spec names](/nodes/oats-expert/lessons/review-a-validator-against-every-nullable-field-the-wire-spec-names.md), a maintainer review lesson from a provider readiness-check cross-review.
 * **Creation**: [A commit cherry-picked across a base change must be re-read as a diff against the new base](/nodes/oats-expert/lessons/a-cherry-pick-across-a-base-change-must-be-reread-as-a-diff-against-the-new-base.md), promoted from the maintainer's notes.
 * **Creation**: [Team as a first-class config entity](/nodes/oats-expert/decisions/team-as-config-entity.md), promoted from a local in-repo harvest.
 * **Creation**: [Review the whole PR merge range for scope, not only the intended feature files](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md), promoted from a local in-repo harvest.
