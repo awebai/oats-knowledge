@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [An alias rule lives in every provider path that carries an alias](/nodes/integrations-expert/lessons/an-alias-rule-lives-in-every-provider-path-that-carries-an-alias.md), promoted from a developer's release notes.
 * **Creation**: [A provider mirror must run the Desktop suite](/nodes/integrations-expert/lessons/a-provider-mirror-must-run-the-desktop-suite.md), from a mirror that went red on recorded Desktop fixtures after a manifest change.
 * **Creation**: [The kernel's provider readiness check wire (OATS 0.26.0)](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md), the contract providers build their binding check against.
 * **Creation**: [Personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md), the design of record agreed with the messaging service.
