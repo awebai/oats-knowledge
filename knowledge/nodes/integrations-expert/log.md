@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [Personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md), the design of record agreed with the messaging service.
 * **Creation**: [A personal team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-personal-team-per-workspace-needs-a-service-primitive.md), promoted from a local in-repo harvest.
 * **Creation**: [A capability's own manifest overrides guidance prose about what its settings require](/nodes/integrations-expert/lessons/capability-manifest-over-guidance-prose.md), promoted from a local in-repo harvest.
 * **Creation**: [A soul declaration that suppresses a default must also provision its replacement, or the instance silently loses both](/nodes/integrations-expert/lessons/declared-oats-core-without-activation-yields-skill-less-instance.md), promoted from a local in-repo harvest.
