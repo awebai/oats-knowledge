@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: Integrity, origin and consent are different proofs
-description: Contained reproducible bytes, consistent provenance and explicit executable or host-install consent answer distinct trust questions.
+description: Contained reproducible bytes, consistent provenance and explicit host-install consent answer distinct trust questions.
 tags: [kernel, trust, integrity, consent, packages, security]
 timestamp: 2026-09-24
 ---
@@ -12,8 +12,8 @@ timestamp: 2026-09-24
 > (OATS 0.26.0).
 >
 > What stays:
-> - **Integrity:** the lock pins commit + content digest. Sync and restore
->   recompute it and refuse drift (`E_PACKAGE_INTEGRITY`).
+> - **Integrity:** the lock pins commit + content digest. `oats sync`
+>   recomputes it and refuses drift (`E_PACKAGE_INTEGRITY`).
 > - **Origin:** provenance consistency.
 > - **Containment:** manifest paths resolve inside the hashed tree.
 > - **Host-install consent:** unaffected.
