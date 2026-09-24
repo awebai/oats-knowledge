@@ -27,14 +27,18 @@ When you rebuild a deployment under the workspace model:
 3. **Do not fear knowledge loss.** Accepted knowledge lives in the knowledge
    bases, not in per-deployment provider state. A fresh state directory
    restarts registration bookkeeping, not the corpus.
-4. **While a provider pins owners by filesystem path**, treat one state
-   directory per (deployment, soul-commit) as the safe unit, and plan member
-   commits of knowledge-owning souls deliberately instead of letting them
-   drift under a running deployment.
-5. **Once providers pin by identity**, confirm the durable invariant on the
-   published combination: every owner or custody pin identifies a soul as
-   `<repo-key>#<soul>`, never as a path, and a second spawn after a member
-   commit plus sync keeps the same owner with the pin file unchanged.
+4. **Confirm the durable invariant on the published combination**: every
+   owner or custody pin identifies a soul as `<repo-key>#<soul>`, never as a
+   path, and a second spawn after a member commit plus sync keeps the same
+   owner with the pin file unchanged. Verified 2026-09-24 on the published
+   kernel and knowledge-provider pair; a one-spawn test proves nothing, only
+   *commit → sync → re-spawn* does.
+5. **Superseded (2026-09-24).** While a deployed knowledge provider still
+   pinned owners by filesystem path (releases before the identity pin), the
+   safe unit was one state directory per (deployment, soul-commit) and member
+   commits of knowledge-owning souls had to be sequenced by hand. That rule
+   applies only to a deployment that has not yet moved to a provider that
+   pins by identity; the published combination no longer needs it.
 
 # Why
 
@@ -82,7 +86,8 @@ applies the same reasoning to identity directories.
   messaging root is placed right after it
   ([messaging root placement decides the team](/nodes/oats-operator-expert/lessons/messaging-root-placement-decides-the-team.md)).
 - Member commits of knowledge-owning souls are sequenced, not incidental,
-  while any deployed provider still pins by path; see
+  only for a deployment still on a provider that pins by path (superseded
+  case above); see
   [cutover is sequenced per deployment](/nodes/oats-operator-expert/playbooks/cutover-is-sequenced-per-deployment.md).
 - Retiring an instance from a rebuilt deployment should leave no orphaned
   provider schedule behind; an old state directory that accumulates dead rows

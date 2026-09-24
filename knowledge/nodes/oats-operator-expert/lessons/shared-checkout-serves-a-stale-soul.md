@@ -6,8 +6,11 @@ tags: [lesson, operator, placement, orientation, knowledge, shared-checkout, cus
 timestamp: 2026-09-19
 ---
 
-Judgement formed 2026-09-19 by an expert instance orienting in checkout mode;
-adopted as operator placement guidance in the 2026-09-24 seeding.
+Judgement formed 2026-09-19 by the maintainer of a second deployment,
+orienting in checkout mode on a tree that had fallen more than two hundred
+commits behind (one incident; the rule generalises the mechanism, which
+needs no repeat to hold); adopted as operator placement guidance in the
+2026-09-24 seeding.
 
 # Rule
 

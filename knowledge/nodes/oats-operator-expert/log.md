@@ -2,6 +2,13 @@
 
 ## 2026-09-24
 
+* **Creation**: [a team-local identity is reachable only inside its team](/nodes/oats-operator-expert/lessons/a-team-local-identity-is-reachable-only-inside-its-team.md) — identity kind by reachability; standing cross-team seats are custody-served residents (node owner, from the 2026-09-21 inbox seed).
+* **Creation**: [harvested knowledge on an unpushed main never leaves the machine](/nodes/oats-operator-expert/lessons/harvested-knowledge-on-an-unpushed-main-never-leaves-the-machine.md) — harvest delivery is a branch and pull request when the instance does not own main pushes (node owner).
+* **Update**: [resident custody is a host fact](/nodes/oats-operator-expert/decisions/resident-custody-is-a-host-fact.md) — rule 4 corrected against the accepted custody contract: a global-mode spawn fails closed when the custody service is not serving (the wake broker's durable registration is the exception, not the rule); rules 4 and 6 marked confirmed, not proposed.
+* **Update**: [rebuild starts fresh provider state](/nodes/oats-operator-expert/playbooks/rebuild-starts-fresh-provider-state.md) — the identity-pin invariant is the current rule, verified on the published combination; the path-pin sequencing rule marked superseded.
+* **Update**: [self-custodial identity retires from inside the home](/nodes/oats-operator-expert/lessons/self-custodial-identity-retires-from-inside-the-home.md) — evidence labelled (one pre-workspace-model probe) and the retire order confirmed on the published combination.
+* **Update**: [shared checkout serves a stale soul](/nodes/oats-operator-expert/lessons/shared-checkout-serves-a-stale-soul.md) — evidence labelled as a single incident with its attribution.
+
 * **Creation**: [place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md) — three legal homes for a configuration fact, chosen by holder count; meaning over type breaks ties (OSS coordinator, 2026-09-23).
 * **Creation**: [the installed provider is the authority for a setting](/nodes/oats-operator-expert/lessons/the-installed-provider-is-the-authority-for-a-setting.md) — a setting has effect only if the shipped provider reads it; preview proves delivery, not effect (OSS coordinator, 2026-09-23).
 * **Creation**: [messaging root placement decides the team](/nodes/oats-operator-expert/lessons/messaging-root-placement-decides-the-team.md) — the root is a deployment-bounded host fact; a root above the boundary is a silent cross-team leak (maintainer 2026-07-09, extended by the OSS coordinator 2026-09-23).

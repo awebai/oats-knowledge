@@ -10,7 +10,10 @@ Position formed 2026-09-24 by the OSS coordinator as OATS runtime input to
 the grant contract, from operating a two-team deployment across machines
 through a rebuild round. It fixes operator placement, ordering and
 degraded-mode behaviour; the grant command surface, the custody service's
-API and hook-verification rules are routed elsewhere (see Routed).
+API and hook-verification rules are routed elsewhere (see Routed). Rules 4
+and 6 were confirmed the same day by the messaging project's accepted
+custody contract (local, self-custodial resident custody; host-held mint and
+renew), so they read as settled, not proposed.
 
 # Rule
 
@@ -31,14 +34,20 @@ API and hook-verification rules are routed elsewhere (see Routed).
    serve a different spawn — a hook must not mutate custody state.
 4. **Custody-class services run per host, co-located with the state they
    guard**, under the same user and lifecycle as the spawn hook — the same
-   operational class as the wake broker. A spawn must never fail because such
-   a daemon is down or restarting.
+   operational class as the wake broker. They differ in one way: a wake-broker
+   registration is durable across a broker restart, so a spawn never fails on
+   a restarting broker; a custody service is *required* for signing and for
+   encrypted receive, so a global-mode spawn probes it before minting and
+   **fails closed with a typed diagnostic** when it is not serving. The
+   operator's remedy is to start the service, never to spawn without it.
 5. **Host down means fail closed.** When a custody host is unavailable,
    encrypted receive for its residents is unavailable and is reported as
    unavailable — never served stale from a cache, never served from another
    host. Plaintext paths continue unaffected.
 6. **Grant renewal is a host action at restart**, performed through the
-   launch lifecycle. An instance cannot renew itself. On a mid-session expiry
+   launch lifecycle (accepted 2026-09-24 in the messaging project's custody
+   contract: the worker-facing service exposes no mint, renew or revoke; those
+   stay with the trusted host). An instance cannot renew itself. On a mid-session expiry
    error the instance reports and stops; the operator restarts it (restart
    renews and supersedes the old grant) rather than repairing identity
    in-session. Size grant TTL to the expected session length so this is rare.

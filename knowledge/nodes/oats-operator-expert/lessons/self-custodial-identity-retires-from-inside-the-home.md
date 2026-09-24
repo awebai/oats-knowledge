@@ -7,7 +7,12 @@ timestamp: 2026-07-08
 ---
 
 Judgement formed 2026-07-08 by the maintainer after a live probe on a hosted
-messaging team; adopted as operator content in the 2026-09-24 seeding.
+messaging team (one probe, before the workspace model); adopted as operator
+content in the 2026-09-24 seeding. The ordering was confirmed 2026-09-24 on
+the published kernel and messaging-provider combination: the kernel runs a
+capability's retire hook before it removes the home, and the messaging
+provider de-registers (or revokes its grant) from inside the home in that
+hook.
 
 # Rule
 
