@@ -11,6 +11,18 @@ Decided 2026-09-20 with the human (oats-expert as maintainer); amended
 2026-09-21 by the redesign lead for the setup expert's shape. Shipped in the
 2026-09-20/21 wave; recorded here as **decided**, not pending.
 
+> **Superseded in part.** The "explicit, removable core declared on every
+> soul at creation" was superseded 2026-09-23 by
+> [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)
+> (point 26): the core is a **kernel default** visible in the spawn preview
+> and suppressed by any mention of it in the soul, not a line tooling writes
+> into every soul. "The setup expert owns no node" was superseded 2026-09-24
+> by the
+> [roster amendment](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md):
+> the setup expert became the operator expert and owns the
+> deployment-operator node. The two-capability split and the reviewed list
+> as the marketplace stand.
+
 # Context
 
 Under Portable Souls every soul declares its capabilities and where they come
