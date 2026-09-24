@@ -3,8 +3,24 @@ type: Decision
 title: Integrity, origin and consent are different proofs
 description: Contained reproducible bytes, consistent provenance and explicit executable or host-install consent answer distinct trust questions.
 tags: [kernel, trust, integrity, consent, packages, security]
-timestamp: 2026-07-29
+timestamp: 2026-09-24
 ---
+> **Amended 2026-09-24 (human decision): package approval is removed.**
+> Declaring a package in the workspace's `packages:` IS the trust decision.
+> There's no per-version executable approval: `oats sync` has no approve step,
+> the lock carries no `approved` record, and `E_PACKAGE_UNAPPROVED` is gone
+> (OATS 0.26.0).
+>
+> What stays:
+> - **Integrity:** the lock pins commit + content digest. Sync and restore
+>   recompute it and refuse drift (`E_PACKAGE_INTEGRITY`).
+> - **Origin:** provenance consistency.
+> - **Containment:** manifest paths resolve inside the hashed tree.
+> - **Host-install consent:** unaffected.
+>
+> Read the paragraphs below about per-capability approval as the history of
+> the classic and 0.25 kernels, not current behaviour.
+
 # Rationale
 
 Founder decisions of 2026-07-12 (scope as trust boundary), 2026-07-26

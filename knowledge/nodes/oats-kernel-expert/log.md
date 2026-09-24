@@ -45,3 +45,7 @@
 
 * **Creation**: Prepared curated rationale for independent review; no cutover or release is certified.
 * **Fix**: [Kernel and capability responsibility](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md) now records the founder amendment of 2026-07-27 and its runtime-contract rationale, with the exact donor hash; the non-sandbox boundary remains.
+
+## 2026-09-24
+
+* **Update**: [Integrity, origin and consent are different proofs](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md) is amended by the human decision that removes package approval. Declaring a package is the trust decision. Integrity, origin, containment and host-install consent stand.
