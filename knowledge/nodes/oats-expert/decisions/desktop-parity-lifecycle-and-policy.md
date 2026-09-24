@@ -69,6 +69,25 @@ so closing one proves nothing about the agent's state.
 
 # 3. "Enrol workspace" means member admission; "signed by" means a verified signature or nothing
 
+> **Superseded in part (OATS 0.26.0).** Package approval was removed by
+> human decision (declaring a package in `packages:` is the trust decision),
+> and readiness was rewritten on the workspace model. So:
+> - there is **no `trusted` check and no signature verification**, and no
+>   "Trusted · signed by X", "unsigned" or "signature unknown" row;
+> - `enrolled` became **`member`**: the soul's member repository confirmed by
+>   the reciprocal membership discovery, never a separate admission receipt.
+>   A standalone view reads `not-applicable`; an unreadable workspace reads
+>   `unknown`;
+> - readiness gains **`providers`**: each bound provider's own binding check,
+>   relayed verbatim.
+>
+> What stands from the trust boundary is integrity, origin, containment and
+> host-install consent
+> ([integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md)),
+> and the rule that the UI never renders a fact the kernel did not produce.
+> Read the enrolment-receipt and signature paragraphs below as the 0.25
+> design.
+
 **Decision.** *Enrollment* is **workspace member admission**: this
 deployment's repository is recorded as a member of the workspace definition
 and the member repository records the backlink, through the existing
