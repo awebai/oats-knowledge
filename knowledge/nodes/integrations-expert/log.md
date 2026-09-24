@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Update**: [A grant home's custody block is what makes a grant sign and decrypt](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md): the service decided its CLI mint writes the custody locator (integration passes the verified path); the attachment check is the custody status command through the grant home, not whoami.
 * **Creation**: [A grant home's custody block is what makes a grant sign and decrypt](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md), from the first hosted grant rehearsal, corrected against the service's released source the same day.
 * **Creation**: [An alias rule lives in every provider path that carries an alias](/nodes/integrations-expert/lessons/an-alias-rule-lives-in-every-provider-path-that-carries-an-alias.md), promoted from a developer's release notes.
 * **Creation**: [A provider mirror must run the Desktop suite](/nodes/integrations-expert/lessons/a-provider-mirror-must-run-the-desktop-suite.md), from a mirror that went red on recorded Desktop fixtures after a manifest change.

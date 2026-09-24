@@ -39,17 +39,38 @@ a diagnostic defect, not the contract.
   custody service can sign and unwrap; it does not prove the grant home is
   attached to it. A grant home without its custody block is a
   delivery-only identity, and the integration must not call it ready.
-- **Who fills the block is one owner's decision, agreed before anyone
-  writes.** Either the mint fills it from the resident root it runs in, or
-  the integration's spawn hook writes it after the mint from the preflight's
-  verified socket path and service id, atomically and owner-only. Two
-  writers of one schema is the outcome to refuse. At the time of writing
-  the service's CLI owner holds that decision.
+- **The CLI's mint fills the block; the integration passes the path.** The
+  messaging service decided that its mint gains an explicit option that
+  records the custody socket path in the grant record, so the CLI owns both
+  the schema and the writer. The integration passes the socket path its
+  preflight verified, explicitly, never a guess and never a value derived
+  from its own configuration. Two writers of one schema was the outcome to
+  refuse, and it was refused. (Service-side implementation in progress at
+  the time of writing; the integration floors on the CLI version that ships
+  the option and fails closed before minting below it.)
 - **Acceptance evidence is the receiver's verification, not delivery.** A
   rehearsal report reads the recipient's verification status of the mail
   sent through the grant, reads the inbox through the grant, and labels
   each path separately: delivery, custody-signed plaintext, encrypted
   receive. "Delivered" alone proves routing.
+
+# Attachment check
+
+The released client already provides the proof that a grant home is
+attached to custody: its custody status command, run with the identity home
+pointed at the grant home, reads the grant record's custody locator and
+reports the referenced service (status, service id, socket path, resident,
+teams, keys, operations). Run through a grant home without the locator it
+fails with "grant home has no custody.socket_path locator". The identity
+command (whoami) exposes no custody field and is not the check.
+
+The integration's post-mint verification is therefore two-fold: read the
+grant record back and require the locator equal to the preflight's socket
+path; then run the custody status command through the grant home and
+require status running, the same socket path, and the resident alias equal
+to the grant's subject. Any failure revokes the grant, removes the home and
+fails the spawn. Readiness for a home lacking the locator stays
+needs-configuration.
 
 # Why
 
@@ -67,8 +88,8 @@ and a receive attempt through the grant show it.
 - The integration's readiness answer
   ([the kernel's provider readiness check wire](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md))
   reports a grant whose home lacks the custody block as needs-configuration,
-  never ready, once the writer is decided; until then the rehearsal
-  evidence stays labelled delivery-only.
+  never ready; until the CLI option ships and the integration floors on it,
+  rehearsal evidence stays labelled delivery-only.
 - The same discipline applies to the token-free admission and personal-team
   work ([personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md)):
   a verb that exists is not a verb that is proven end to end until the
