@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [A provider mirror must run the Desktop suite](/nodes/integrations-expert/lessons/a-provider-mirror-must-run-the-desktop-suite.md), from a mirror that went red on recorded Desktop fixtures after a manifest change.
 * **Creation**: [The kernel's provider readiness check wire (OATS 0.26.0)](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md), the contract providers build their binding check against.
 * **Creation**: [Personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md), the design of record agreed with the messaging service.
 * **Creation**: [A personal team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-personal-team-per-workspace-needs-a-service-primitive.md), promoted from a local in-repo harvest.
