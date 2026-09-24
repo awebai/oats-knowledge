@@ -1,5 +1,11 @@
 # oats-desktop-expert log
 
+## 2026-09-24
+
+* **Update**: [Verification judgment for Desktop's privileged surfaces](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md) gains "Selecting tests is not isolating their effects" from the desktop-engineer lesson of 2026-09-24 (full-name matching of test-name patterns, isolation before execution, stop-and-report on unexpected native cases), admitted under the 2026-09-24 recipe refinement; timestamp advanced to 2026-09-24. The repository-wide nested-worktree discovery trap was routed to oats-expert.
+* **Update**: [The loopback interface is Desktop's trust boundary](/nodes/oats-desktop-expert/decisions/loopback-trust-boundary-and-transport-simplicity.md) gains "workspace-derived strings are hostile input inside the privileged window" (attribute/selector assignment, coerce before sort/group) from three desktop-engineer lessons of 2026-07-24/25, with the elimination route named.
+* **Update**: Phase D slice 1 re-assessment of the legacy Desktop-engineer bundle (115 concepts) against this node under the 2026-09-24 recipe refinement: 67 already covered, 4 folded into the two concepts above, 5 routed (kernel node: harness launch argv, retired-capability map; oats-expert stewardship: nested-worktree test discovery, maintainer hand-back race), 39 dropped (code maps, delivery residue, superseded surfaces, traps now carried by code and tests). No new concepts.
+
 ## 2026-09-22
 
 * **Update**: [Agent-centered navigation makes the action target legible](/nodes/oats-desktop-expert/decisions/agent-centered-navigation.md) — the workspace-switcher grounding no longer cites the superseded 2026-07-26 non-Git team-scope shape (audit A5): generalised to "one operator view across the repositories of one workspace", with the 2026-09-20 boundary re-shaping named and citation 5 pointed at the dogfooding decision that records it. Timestamp advanced to 2026-09-20.

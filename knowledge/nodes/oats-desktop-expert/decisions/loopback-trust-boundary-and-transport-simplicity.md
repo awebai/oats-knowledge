@@ -2,7 +2,7 @@
 type: Decision
 title: The loopback interface is Desktop's trust boundary
 description: Because Desktop's backend can type into live agent terminals, it binds loopback only, guards Host on every request and Origin on every command-running route, and treats remote use as the operator's own SSH forward; polling over push transport was a deliberate deferral.
-tags: [desktop, security, trust-boundary, loopback, transport]
+tags: [desktop, security, trust-boundary, loopback, transport, renderer]
 timestamp: 2026-07-27
 ---
 # Context
@@ -50,6 +50,22 @@ markup survives but not how surviving anchors navigate; raw-HTML anchors
 bypass the markdown renderer, so every surviving link is normalised after
 sanitising.
 
+**Workspace-derived strings are hostile input inside the privileged window.**
+Paths, names, `instance.json` fields and catalog ids come from workspaces
+Desktop observes but does not own (reviews of 2026-07-24 … 2026-07-25). They
+enter the DOM by assignment — `textContent`, `dataset`, `value`,
+`createElement` — never by interpolation into markup attributes or CSS
+selectors. A text-context escape that handles `& < >` does not escape quotes,
+so an escaped value in an attribute position still breaks out. A selector
+built from a name throws on metacharacters or matches the wrong node, and a
+module-local binding can silently shadow the global escaper. Such strings are
+also coerced before they key a sort or a grouping. A throw inside a render
+loop is availability loss for the whole view: one malformed instance record
+once blanked the entire roster. The elimination route is an escaper that also
+escapes quotes, plus a regression that renders a hostile path and asserts no
+extra element and no `on*` attribute. Until that exists, reviewers look for
+escaped values in attribute positions.
+
 **Client-supplied paths are selectors, never authority.** Path-shaped input
 from the renderer selects among server-computed, admitted roots; see
 [Workspace admission is privileged and transactional](/nodes/oats-desktop-expert/decisions/privileged-workspace-admission.md)
@@ -72,6 +88,9 @@ polling demonstrably chafes. Anyone proposing push must show the chafing.
 - Blocklisting bad URL shapes — rejected: check the resolved origin.
 - Trusting the sanitiser alone for links — rejected: navigation behaviour is a
   second decision after markup survival.
+- Reusing a text-context escape for attributes or selectors — rejected: it
+  does not escape quotes or selector syntax; assign workspace data to DOM
+  properties instead.
 
 # Related
 
@@ -94,3 +113,6 @@ polling demonstrably chafes. Anyone proposing push must show the chafing.
 6. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/desktop-shell-hardening-review-lessons.md`; SHA-256 `3e7981803e566ec7642f50692e9f97d26a8ef21ea57a286c3e251c55f41affe0`.
 7. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/url-resolution-ssrf-footgun.md`; SHA-256 `25e0d3809c879c1af154559b7f1cf9ecc05c324652289f58c88bc4480726bfd3`.
 8. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/sanitize-marked-markdown-before-innerhtml.md`; SHA-256 `6175f57a9fe71b89f32b1a7a34b100fe9f194b178da0dacecc2d0442ad66acd9`.
+9. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/dom-construction-not-innerhtml-attributes.md`; SHA-256 `f4d3703c3ab835fa5fdd3aa6009e40955de14b194f4b2f66c6fd7ed6199970e3`.
+10. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/no-dynamic-selectors-from-data.md`; SHA-256 `bf2a1d520a91ee4d67b39a789d16262d9a3591534dc543d9895bc3c97023c0b6`.
+11. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/roster-grouping-string-coerce-metadata.md` (promoted 2026-07-25 per the legacy log); SHA-256 `f01ed9eb382511267af5cbdf584e743371b5b69b900fd334e6761c8b45c50d20`.

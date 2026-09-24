@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
-description: Security and race guards on the loopback server, IPC proxy, file viewers and terminal attach are proven only by driving the real boundary and failing when the guard is removed; review loops end when findings turn into test-strength findings; packaged GUI launches are never verification on an operator's machine.
-tags: [desktop, verification, security, review, testing-judgment, operator-safety]
-timestamp: 2026-07-25
+description: Security and race guards on the loopback server, IPC proxy, file viewers and terminal attach are proven only by driving the real boundary and failing when the guard is removed; review loops end when findings turn into test-strength findings; packaged GUI launches are never verification on an operator's machine, and selecting tests by name or file never isolates their native effects.
+tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
+timestamp: 2026-09-24
 ---
 # Lesson
 
@@ -63,6 +63,39 @@ CI-harness requirement, not a licence to launch locally. The standing rule:
 - Electron's `before-quit` does not fire on signals; a child server leaks on
   a plain kill unless the shutdown path is wired to signal handlers.
 
+# Selecting tests is not isolating their effects
+
+Learned 2026-09-24 during terminal-ownership qualification. Desktop's suites
+mix inert cases with live multiplexer and PTY cases, so which tests run is an
+operator-safety question. The Node test runner matches `--test-name-pattern`
+against the full test name, ancestors included, not the short label a
+reporter prints. A negative-lookahead filter meant as "everything except the
+live tmux cases" therefore selected and ran them, a PTY test among them. The
+green result and a log named "pure" proved neither what ran nor that nothing
+native happened.
+
+- **A name pattern is a positive allowlist, not an exclusion.** Exclusion uses
+  the runner's explicit skip pattern. Neither flag is an authorization or
+  effect-isolation boundary, just as pinned file globs bound discovery but
+  not the effects inside a file they select.
+- **Isolation precedes execution.** If native work is forbidden, a mixed
+  module is not loaded against real process and PTY dependencies at all. The
+  elimination route is separate inert entrypoints with injected effects, with
+  native cases confined to authorised CI or operator-owned acceptance jobs. A
+  pre-dispatch tripwire may supplement it, but only if it covers direct,
+  synchronous and promisified process calls. Live multiplexer tests run
+  against an isolated server socket, never the operator's own server.
+- **Read the actual selection before calling a run inert.** Check the
+  reporter's selected names and counts. Checking afterwards is an audit, not
+  prevention; it cannot undo a side effect.
+- **On an unexpected native case, stop and report.** Preserve the truthful
+  output. Do not re-run to explain the filter, and do not clean up
+  speculatively. A similar session name or a present key table is not
+  evidence of test residue, and establishing provenance and current use
+  belongs to an authorised owner. Attribute any inspection of operator state
+  to whoever actually made it. Closing the incident does not make the run a
+  native acceptance of the reviewed head.
+
 # Elimination route
 
 The individual traps here have already become tests and harness structure in
@@ -87,3 +120,6 @@ be run on a human's machine.
 6. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/electron-smoke-process-group-reaping.md`; SHA-256 `2992933665450a4fa9566c85e6d5060ba9c61edc7f2fde25ee06e53e39623abd`.
 7. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/electron-headless-verification.md`; SHA-256 `fc26148aea9fc312a208e6607be7717b2a96239518b4250ff500da30fe36ec27`.
 8. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/pkill-scoping-discipline.md`; SHA-256 `fd8e6a55acf1c98b13ddacb8c3d8bdc1eb25c9ba5e5b287088f504da9bb5bed9`.
+9. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/test-name-filters-are-not-effect-isolation.md` (2026-09-24); SHA-256 `b0b91abcfaffec7705e0b7fe2a34d463edf0886395f64f97b56c30617aaa3b03`.
+10. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/pin-node-test-globs-in-nested-worktrees.md` (2026-09-24 bullet only: globs bound discovery, not effects); SHA-256 `7a613a1586b0c325beeed5f953a881bd6c7cebabf52ee390341beda93dc7b8a4`.
+11. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/terminal-resource-cap-in-owning-process.md` (isolated multiplexer server for live tests); SHA-256 `2bb46b9acb64541abf34c1c8c89e2a2a71b6c0c42653d81b813fdd84b1640ad8`.
