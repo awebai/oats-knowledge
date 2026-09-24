@@ -71,3 +71,4 @@
 ## 2026-09-24
 
 * **Update**: [Workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md), [current direction](/nodes/oats-expert/roadmap/current-direction.md), [the workspace definition is not a package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md) and [official development dogfoods the workspace](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md) carry the human decision that removes package approval. Declaring a package is the trust decision; the lock keeps commit + integrity.
+* **Update**: [Desktop parity lifecycle and policy](/nodes/oats-expert/decisions/desktop-parity-lifecycle-and-policy.md) §3 gains a supersession note for OATS 0.26.0: no `trusted` check or signature row, `enrolled` becomes `member`, `providers` is relayed verbatim.
