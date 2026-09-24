@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [A shared checkout's local main leaks into every worktree spawned from it](/nodes/oats-operator-expert/lessons/a-shared-checkouts-local-main-leaks-into-every-spawned-worktree.md), promoted from the maintainer's notes.
 * **Creation**: [A channel's verified=false is the channel's verdict; confirm with a CLI fetch before suspecting the sender](/nodes/oats-operator-expert/lessons/a-channel-verification-flag-is-the-channels-verdict-not-the-senders.md), promoted from a local in-repo harvest.
 * **Creation**: [A loop variable named path empties the search path in zsh](/nodes/oats-operator-expert/lessons/a-shell-variable-named-path-empties-the-search-path.md), promoted from a local in-repo harvest.
 * **Creation**: [A new execution route that publishes resolutions may still be unable to scaffold the work targets standing seats use](/nodes/oats-operator-expert/lessons/captured-route-scaffolds-only-directory-work-mode.md), promoted from a local in-repo harvest.
