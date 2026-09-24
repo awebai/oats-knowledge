@@ -1,0 +1,7 @@
+# Playbooks
+
+Ordered operator procedures for rebuilding a deployment, cutting over between kernel generations, and accepting a rebuild guide.
+
+* [Outsider verification of a rebuild: an operator who did not write the guide reproduces the topology on a scratch rig against the published combination and verifies by positive enumeration](outsider-verification-of-a-rebuild.md) - A rebuild guide is accepted only when an operator who did not write it reproduces the topology on a scratch rig against the published combination and verifies by positive enumeration through an ordered invariant list; anything less is a rehearsal.
+* [A rebuilt deployment gets fresh provider state; the old state directory is frozen custody, and any owner or custody pin must identify a soul by durable identity, never by path](rebuild-starts-fresh-provider-state.md) - Give a rebuild a fresh knowledge-provider state directory, keep the old one read-only as custody, and hold providers to soul-identity pins that survive a member commit plus re-spawn.
+* [A kernel cutover is sequenced per deployment, not per machine: hold the previous kernel until the last deployment you care about is rebuilt, and decide per old home whether the new launcher may touch it](cutover-is-sequenced-per-deployment.md) - When two kernel generations share no files nothing forces the move; hold the previous kernel until the last deployment you care about is rebuilt, and decide per old home whether the new launcher may touch it.
