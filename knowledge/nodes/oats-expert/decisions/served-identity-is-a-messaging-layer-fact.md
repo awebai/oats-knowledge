@@ -100,9 +100,11 @@ Accepted 2026-09-24. Provider half published after a live rehearsal; kernel
 half complete in the same week — launch-meta persistence as a defect fix in
 one 0.25 patch, then bound payloads, host-only keys and roster display in
 the next, advertised to the Desktop as a reported **feature** rather than a
-version number. Open at the time of writing: the provider declaring its
-resident map host-only in a patch, and the Desktop's Identity select as
-provider pairs. Which shipped version of the messaging capability honours
+version number. Decided the same day: the provider does **not** ship a patch
+to declare its resident map host-only — that declaration and a duplicate
+deregistration fix fold into its next minor re-land, because a bundled
+provider lands with its tag and catalog pin, never ahead of them. Still open:
+the Desktop's Identity select as provider pairs. Which shipped version of the messaging capability honours
 which part is that package expert's fact, not this record's.
 
 # Citations
