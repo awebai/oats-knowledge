@@ -1,62 +1,75 @@
 ---
 type: Lesson
-title: A grant home needs a custody reference for encrypted receive, and a grant rehearsal reads the inbox through the grant
-description: A session-grant home written by the messaging CLI's mint holds only the grant record and its signing key, and encrypted receive through the grant looks for an encryption reference in that home naming the custody socket; without it the instance can send and identify itself but cannot decrypt, so rehearsal evidence is labelled per path and every grant rehearsal reads the inbox through the grant, where receive-side gaps surface.
+title: A grant home's custody block is what makes a grant sign and decrypt, and the mint leaves it empty
+description: The grant record a messaging CLI mints carries a custody block (socket path, service id, version) that the client's plain-message signer and decryptor both read; the mint writes none of it, so a fresh grant home sends unverified and cannot decrypt even with a ready custody service, and a grant rehearsal must read the receiver's verification and the inbox through the grant, not delivery alone.
 tags: [lesson, integrations, messaging, grants, custody, e2ee, rehearsal]
 timestamp: 2026-09-24
 ---
 
 Learned 2026-09-24 by the integrations maintainer during the first hosted
 rehearsal of resident-identity session grants against the deployed messaging
-service.
+service, corrected the same day against the service's released source.
 
 # What happened
 
-Every plaintext path proved out end to end: custody readiness with the
-grant-status endpoint ready, a typed not-found from the authenticated status
-route, a grant minted through the integration's preflight, a mail delivered
-through the grant, the identity reported through the grant, a reply received
-through the grant, and the grant revoked on retire. Reading the instance's
-inbox through the grant printed one warning: encrypted decryption
-unavailable, because the grant home has no custody reference (an encryption
-file the client expects beside the grant record, naming the custody socket).
-The custody service was running with encryption ready and both encrypted
-operations advertised; the client simply had no path to it from the grant
-home, and the mint command offers no flag to record one.
+Custody readiness reported the service running with the team ready, the
+grant-status endpoint ready, both keys ready and every signing and
+encryption operation advertised. The integration's preflight passed, a
+grant was minted from the resident's custody home, a mail sent through the
+grant was delivered, identity through the grant was reported, a reply was
+received through the grant, and retire revoked the grant on the service.
+
+Two facts said the rehearsal was not what it looked like. The receiver
+reported the probe's mail as unverified. Reading the inbox through the grant
+warned that encrypted decryption was unavailable because the grant home had
+no custody socket, naming an encryption file that does not exist.
+
+The released source explains both. The grant record has a custody block
+with a socket path, a service id and a version; the client installs its
+plain-message signer from that socket path and reaches the custody service
+for decryption through the same reference. The mint writes none of those
+fields, and the CLI has no flag to set them. So a fresh grant home signs
+nothing through custody: the service still delivers, but the recipient sees
+an unverified sender, and receive cannot decrypt. The warning's file name is
+a diagnostic defect, not the contract.
 
 # Rule
 
-- **Custody readiness is not grant readiness for receive.** The preflight
-  proves the custody service can sign and unwrap; it does not prove the
-  grant home can reach it. Who writes the custody reference into the grant
-  home (the mint, a setup step, or the integration's spawn hook) is the
-  messaging service's call and is open at the time of writing; until it is
-  answered, the integration does not report encrypted receive through a
-  grant as ready.
-- **Evidence is labelled per path.** Plaintext send, identity and revoke
-  proven is not encrypted receive proven. A rehearsal report that says
-  "grants work" without reading the inbox through the grant has not
-  exercised receive at all.
-- **Reading the inbox through the grant home is part of every grant
-  rehearsal.** It is read-only, cheap, and the one step where receive-side
-  gaps surface; the send-side steps cannot reveal them.
+- **Custody readiness is not grant readiness.** The preflight proves the
+  custody service can sign and unwrap; it does not prove the grant home is
+  attached to it. A grant home without its custody block is a
+  delivery-only identity, and the integration must not call it ready.
+- **Who fills the block is one owner's decision, agreed before anyone
+  writes.** Either the mint fills it from the resident root it runs in, or
+  the integration's spawn hook writes it after the mint from the preflight's
+  verified socket path and service id, atomically and owner-only. Two
+  writers of one schema is the outcome to refuse. At the time of writing
+  the service's CLI owner holds that decision.
+- **Acceptance evidence is the receiver's verification, not delivery.** A
+  rehearsal report reads the recipient's verification status of the mail
+  sent through the grant, reads the inbox through the grant, and labels
+  each path separately: delivery, custody-signed plaintext, encrypted
+  receive. "Delivered" alone proves routing.
 
 # Why
 
-The grant model separates the resident's root keys (custody host only) from
-a short-lived, scoped grant the instance holds
+The grant model keeps the resident's root keys on the custody host and gives
+the instance a short-lived, scoped grant
 ([resident custody is a host fact](/nodes/oats-operator-expert/decisions/resident-custody-is-a-host-fact.md)).
-Sending needs only the grant's signing key; decrypting needs the custody
-service, so the grant home must know where custody is. A gap on that edge
-is invisible from the sender's side and from readiness, and only a receive
-attempt through the grant shows it.
+Everything that must be signed or decrypted as the resident goes back to the
+custody service over its socket, and the grant home is the only place the
+instance can learn where that socket is. A gap on that edge is invisible
+from the sender's side and from readiness; only the receiver's verification
+and a receive attempt through the grant show it.
 
 # Consequences
 
-- The integration's readiness answer ([the kernel's provider readiness check wire](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md))
-  reports encrypted receive as a warning, never as ready, while the custody
-  reference question is open.
+- The integration's readiness answer
+  ([the kernel's provider readiness check wire](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md))
+  reports a grant whose home lacks the custody block as needs-configuration,
+  never ready, once the writer is decided; until then the rehearsal
+  evidence stays labelled delivery-only.
 - The same discipline applies to the token-free admission and personal-team
   work ([personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md)):
-  each new identity path gets a receive-side check in its rehearsal, not
-  only a send.
+  a verb that exists is not a verb that is proven end to end until the
+  receiving side's evidence is read.
