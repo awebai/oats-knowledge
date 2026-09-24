@@ -2,6 +2,10 @@
 
 ## 2026-09-24
 
+* **Creation**: [A channel's verified=false is the channel's verdict; confirm with a CLI fetch before suspecting the sender](/nodes/oats-operator-expert/lessons/a-channel-verification-flag-is-the-channels-verdict-not-the-senders.md), promoted from a local in-repo harvest.
+* **Creation**: [A loop variable named path empties the search path in zsh](/nodes/oats-operator-expert/lessons/a-shell-variable-named-path-empties-the-search-path.md), promoted from a local in-repo harvest.
+* **Creation**: [A new execution route that publishes resolutions may still be unable to scaffold the work targets standing seats use](/nodes/oats-operator-expert/lessons/captured-route-scaffolds-only-directory-work-mode.md), promoted from a local in-repo harvest.
+* **Creation**: [A roster command run against a linked Git worktree can resolve its agents root to the main checkout](/nodes/oats-operator-expert/lessons/status-on-a-linked-worktree-resolves-to-the-main-checkout.md), promoted from a local in-repo harvest.
 * **Update**: [Outsider verification of a rebuild](/nodes/oats-operator-expert/playbooks/outsider-verification-of-a-rebuild.md) invariant 2 now describes the lock (integrity, capability list, the two refusals) instead of per-version executable approval, which the kernel drops in 0.26.0; the citation of the 0.25.5 pass is unchanged.
 * **Creation**: [a team-local identity is reachable only inside its team](/nodes/oats-operator-expert/lessons/a-team-local-identity-is-reachable-only-inside-its-team.md) — identity kind by reachability; standing cross-team seats are custody-served residents (node owner, from the 2026-09-21 inbox seed).
 * **Creation**: [harvested knowledge on an unpushed main never leaves the machine](/nodes/oats-operator-expert/lessons/harvested-knowledge-on-an-unpushed-main-never-leaves-the-machine.md) — harvest delivery is a branch and pull request when the instance does not own main pushes (node owner).
