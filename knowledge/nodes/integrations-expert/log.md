@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [Integration guidance names only verbs the target CLI exposes](/nodes/integrations-expert/lessons/guidance-names-only-verbs-the-target-cli-exposes.md), promoted from the oats.aweb 1.12.2 setup-hardening work (real verbs pinned by test, hostOnly as manifest metadata, readiness follows spawn).
 * **Update**: [Capability resources resolve inside the package root](/nodes/integrations-expert/lessons/capability-resources-resolve-inside-the-package-root.md) states its premise in terms of the lock's integrity digest rather than an executable approval, which the kernel drops in 0.26.0.
 * **Creation**: [a fake CLI that accepts what the real binary refuses hides a broken hook](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) — rehearsal is the gate for hooks that drive an external CLI; from the legacy fake-aw lesson and the 2026-09-24 review rounds (node owner).
 * **Creation**: [a lifecycle hook never trusts the ambient environment](/nodes/integrations-expert/lessons/a-lifecycle-hook-never-trusts-the-ambient-environment.md) — from the 1.13 provider review (node owner).
