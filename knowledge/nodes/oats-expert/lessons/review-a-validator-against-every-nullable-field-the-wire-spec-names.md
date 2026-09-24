@@ -6,7 +6,7 @@ tags: [lesson, review, wire, validation, providers]
 timestamp: 2026-09-24
 ---
 
-Learned 2026-09-24 by the maintainer while cross-reviewing a messaging
+Learned 2026-09-24 by the first reviewer while cross-reviewing a messaging
 provider's readiness check against the kernel's written wire contract.
 
 # What happened
@@ -15,7 +15,7 @@ The provider's check validated the kernel's workspace context and required
 the team label to be a non-empty string. The kernel's wire, sent in writing,
 said the label is `<label|null>`: a soul without a team label gets null. The
 maintainer approved on the strength of a strict-validation test that always
-sent a string; the co-lead drove the binary with null and got an
+sent a string; a second reviewer drove the binary with null and got an
 invalid-binding answer, which would have reported the most common
 single-team setup as unknown.
 
