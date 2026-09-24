@@ -21,8 +21,8 @@ at once:
    what the guide "means") — reproduces the target topology on a scratch rig,
    from the guide alone.
 2. **The combination is the published one.** Kernel from the registry,
-   packages resolved from the catalog at their pinned commits, approvals given
-   the way a real deployment gives them. A pass on git working trees, or on a
+   packages resolved from the catalog at their pinned commits, the lock
+   written the way a real deployment writes it. A pass on git working trees, or on a
    kernel half published while the provider half is still git-pinned (or the
    reverse), is a *rehearsal*. When a fix lands in halves across kernel and
    provider, the deployment stays blocked until both halves are on their
@@ -44,7 +44,7 @@ exists for claims, so the guide must be treated as a contract and each claim
 exercised.
 
 **Authors pass their own guides.** An author's rig carries the state the guide
-omits — a clone already at the right place, an approval already given, a
+omits — a clone already at the right place, a lock already written, a
 provider already at the intended rather than the shipped version. The
 outsider's scratch rig has none of it, which is exactly why it finds the gaps.
 This is the same judgement as
@@ -76,8 +76,15 @@ A passing rebuild demonstrates these, in this order, on the scratch rig:
 
 1. Member clones resolve at `<deployment>/<member-repo>` with no flags, and a
    deliberately wrong clone entry is **refused**, not silently used.
-2. Every package approves non-interactively (a scripted rebuild must be
-   possible), against exactly the entry the resolution contains.
+2. Every package syncs non-interactively from the catalog at its pinned
+   commit (a scripted rebuild must be possible); the lock records the
+   package's integrity and capability list, and the kernel refuses an edited
+   capability list or a tampered integrity (`E_PACKAGE_INTEGRITY`) and a
+   stale entry for a package the workspace no longer declares
+   (`E_PACKAGE_MISSING`). Kernels before 0.26.0 additionally required a
+   per-version executable approval at this step; a lock written by 0.26.0
+   is refused by those kernels, so the rig's kernel and its lock belong to
+   one deployment directory.
 3. A spawned instance carries **exactly one** kernel identity block; two means
    the core module did not resolve.
 4. Soul-source drift appears in status after a member commit — information,

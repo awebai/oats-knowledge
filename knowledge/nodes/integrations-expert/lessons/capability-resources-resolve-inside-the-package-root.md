@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Capability resources resolve inside the package root — a path that escapes the hashed tree makes the integrity check meaningless
-description: A locked or approved capability is only as trustworthy as the tree whose bytes were hashed; manifest-relative paths for hooks, commands, skills and injections must resolve beneath the real package root, and symlinks that escape it are rejected or their targets included in the hash.
+description: A locked capability is only as trustworthy as the tree whose bytes were hashed; manifest-relative paths for hooks, commands, skills and injections must resolve beneath the real package root, and symlinks that escape it are rejected or their targets included in the hash.
 tags: [lesson, integrations, integrity, manifest, paths, symlinks, trust]
-timestamp: 2026-07-11
+timestamp: 2026-09-24
 ---
 
 Learned 2026-07-11 by the integrations expert while building an externally
@@ -21,9 +21,9 @@ covers. An author who needs shared code vendors it into the package.
 # Why
 
 The integrity digest is computed over the package tree. If a manifest may
-point at a file outside that tree, an approved package executes bytes the
-approval never saw, and a later change to those bytes is invisible to every
-check. The kernel's trust model separates integrity, origin and consent as
+point at a file outside that tree, a locked package executes bytes the
+integrity digest never covered, and a later change to those bytes is
+invisible to every check. The kernel's trust model separates integrity, origin and consent as
 different proofs
 ([trust, approval and consent boundaries](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md));
 an escaping path defeats the first of them silently.
