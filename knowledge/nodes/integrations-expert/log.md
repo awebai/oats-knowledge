@@ -2,6 +2,7 @@
 
 ## 2026-09-25
 
+* **Creation**: [a provider command never rewrites the kernel's instance record](/nodes/integrations-expert/lessons/a-provider-command-never-rewrites-the-kernels-instance-record.md), from the first review of the messaging provider's join/leave verbs.
 * **Update**: [teams in the messaging provider](/nodes/integrations-expert/decisions/teams-in-the-messaging-provider-personal-by-default-explicit-join.md): leaves happen only on a live eligible list (a recorded fallback keeps memberships and warns), and the side-by-side receive requirement (native primary untouched, broker for listed joined identities only) is recorded as the agreed contract to come.
 * **Fix**: [a global instance identity's address is released only by the authority that owns its lifecycle](/nodes/integrations-expert/lessons/a-global-instance-identity-leaves-a-permanent-address-behind.md): the claim that no release exists under a hosted namespace was wrong; the service's owners showed owner archive and member self-deprovision with address deletion, under their own authority, and a human-session route for enrolling an existing global identity into a further team.
 * **Creation**: [teams in the messaging provider](/nodes/integrations-expert/decisions/teams-in-the-messaging-provider-personal-by-default-explicit-join.md) (the human's teams priority, agreed with the framework lead) and [a global instance identity leaves a permanent address behind](/nodes/integrations-expert/lessons/a-global-instance-identity-leaves-a-permanent-address-behind.md).
