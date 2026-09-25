@@ -5,3 +5,7 @@ Messaging package expert (`oats.aweb`, repository `oats-aweb`). Owns the FACTS o
 **Seam:** the messaging protocol's own identity, custody and team model is decided on the protocol side, in node `aweb-protocol-expert` of the aweb project's base (read-only store reference across bases). This node reads it and records only how the OATS package applies it — so the two rosters do not re-derive each other's decisions ([roster amendment](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md), point 5).
 
 **Chartered, not yet seeded (Phase D slice 3).** The owning soul is the package repository's member soul of the same name.
+
+## Sections
+
+* [References](references/index.md) - How the package applies the protocol's identity and custody model at each release.
