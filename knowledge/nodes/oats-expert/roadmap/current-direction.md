@@ -217,7 +217,7 @@ and [workspace definition versus package](/nodes/oats-expert/decisions/workspace
    package experts; developers declare a promotion target; release
    stewardship is a Playbook.
 5. Framework program board `docs/design/2026-09-20-redesign-program-board.md`
-   and rebuild guide `docs/rebuild-to-v2.md` in awebai/oats; second-operator
+   and package guide `docs/packages.md` ("Declaring packages") and `docs/configuration.md` in awebai/oats (the 0.25 rebuild guide `docs/rebuild-to-v2.md` was removed by the 0.26.0 legacy sweep); second-operator
    gate runs and the operator-rebuild round recorded there.
 6. [OATS v0.24.4](https://github.com/awebai/oats/releases/tag/v0.24.4) (the
    superseded 2026-09-21 baseline) and the 0.25.x release tags in awebai/oats.
