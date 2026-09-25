@@ -51,8 +51,12 @@ identity scope is local, with global an explicit choice.
   and are also declared as home operations so the Desktop drives them
   through the operations contract.
 - **Leaving** is the same verb, and automatic at every launch for a joined
-  team that is no longer eligible; the provider never joins on its own and
-  never leaves a membership it did not create.
+  team that is no longer eligible, but only when the kernel marks the
+  eligible list as live (`OATS_TEAMS_SOURCE=live`); on a recorded fallback,
+  when the workspace could not be observed, the provider keeps every
+  membership and warns (`teams-unverified`), so an offline host never costs
+  an instance a membership. The provider never joins on its own and never
+  leaves a membership it did not create.
 - **One local identity per joined team**, minted the way the primary is
   (the person's root mints a local invite, the instance joins in a fresh
   identity directory beside its primary), recorded in the instance's
@@ -60,7 +64,13 @@ identity scope is local, with global an explicit choice.
   is the client's identity-home selection, shown once in the provider's
   inject. Receiving for a joined team is by polling until the service's
   delivery paths serve several identity homes per instance home; readiness
-  says which joined teams are poll-only. Global instance identities stay an
+  says which joined teams are poll-only. When that arrives, the primary
+  identity never leaves the harness's native channel to gain it: the broker
+  streams only the explicitly listed joined identities, disjoint from the
+  native primary, with no runtime control authority for them; the service
+  has agreed this as a new contract to build, and until it ships joined
+  teams on native-channel homes stay poll-receive while external-delivery
+  homes may register every identity. Global instance identities stay an
   explicit, non-default scope: under a hosted namespace nothing the root
   holds can release a retired identity's address.
 - **Readiness** reports, per home and per soul: personal, eligible against
