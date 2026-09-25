@@ -14,7 +14,7 @@ to its custody service.
 
 The grant carried every scope the mint's help enumerates, including mail
 send. Plaintext mail through it was delivered and verified at the receiver.
-Encrypted chat worked in both directions: an encrypted chat to the resident
+Encrypted chat was transported and decrypted in both directions (an encrypted chat to the resident arrived decrypted through custody, and the receiver decrypted the grant's encrypted reply; that reply's receiver-side verification verdict is a separate, open item): an encrypted chat to the resident
 arrived decrypted through custody, and an encrypted chat reply was sent. An
 encrypted mail reply was refused with "outside grant scope".
 
