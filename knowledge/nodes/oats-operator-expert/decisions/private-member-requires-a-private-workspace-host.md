@@ -99,5 +99,5 @@ organisation's insiders, so it belongs at a scope only insiders can read.
 
 # Citations
 
-- `docs/rebuild-to-v2.md` (section "Decide the one workspace" — the
+- [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) (section "Decide the one workspace" — the
   private-host paragraph and the standalone-path remark).

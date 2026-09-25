@@ -94,7 +94,7 @@ reads, and loses the effect they had.
   findings R1–R10; "provider capabilities lag the kernel's payload model —
   write what the shipped provider version actually reads"; published
   combination verification kernel 0.25.5 + oats.okf 2.1.4 + oats.aweb 1.12.0).
-- Rebuild guide `docs/rebuild-to-v2.md` (§4 box on what the knowledge
+- Rebuild guide [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) (§4 box on what the knowledge
   provider reads versus earlier guide drafts; §8b on the per-team block being
   "kernel-merged and delivered, but a NO-OP" for the installed messaging
   provider and "keep the per-team block in the workspace file anyway").

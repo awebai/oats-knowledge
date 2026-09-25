@@ -118,6 +118,6 @@ recipe.
 - Legacy lesson `lessons/aweb-workspace-lifecycle.md` in the oats-expert
   bundle ("Team boundedness", added 2026-07-09 by the maintainer; the bounded
   search and the cross-team-leak finding).
-- `docs/rebuild-to-v2.md` (§1 two teams in one workspace; §8b where the team
+- [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) (§1 two teams in one workspace; §8b where the team
   root lives now and per-repo placement; the two-team rebuild, 2026-09-23, on
   oats.aweb 1.11.2/1.12.0 under kernel 0.25.x).

@@ -106,7 +106,7 @@ applies the same reasoning to identity directories.
 
 # Citations
 
-- Rebuild guide, rationale of the fresh-state step (`docs/rebuild-to-v2.md`,
+- Rebuild guide, rationale of the fresh-state step ([`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`),
   §7b).
 - Delivery log, outsider rebuild findings and the owner-pin verifications
   (entries dated 2026-09-23 and 2026-09-24; kernel 0.25.3/0.25.5 with
