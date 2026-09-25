@@ -30,5 +30,5 @@ many memberships do not make one grant home switch teams.
   memberships: an identity may belong to several teams while its session
   credential names one.
 - The kernel contract for teams does not depend on the answer: the
-  reconcile operation and the per-label payload work with either identity
-  model; only the provider's default scope does.
+  explicit join/leave verbs and the per-label payload work with either
+  identity model; only the provider's default scope does.
