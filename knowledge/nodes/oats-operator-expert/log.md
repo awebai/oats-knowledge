@@ -1,5 +1,9 @@
 # oats-operator-expert log
 
+## 2026-09-25
+
+* **Update**: seven concepts' citations of the 0.25 rebuild guide now point at its v0.25.9 permalink (the 0.26.0 legacy sweep removed it from the current tree) and name the current homes (`docs/packages.md`, `docs/configuration.md`).
+
 ## 2026-09-24
 
 * **Creation**: [A shared checkout's local main leaks into every worktree spawned from it](/nodes/oats-operator-expert/lessons/a-shared-checkouts-local-main-leaks-into-every-spawned-worktree.md), promoted from the maintainer's notes.

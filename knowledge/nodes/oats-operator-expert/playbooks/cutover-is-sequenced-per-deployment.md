@@ -87,5 +87,5 @@ each one.
 
 # Citations
 
-- `docs/rebuild-to-v2.md` — §0 "0.24.x keeps working" (coexistence, launcher
+- [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) — §0 "0.24.x keeps working" (coexistence, launcher
   semantics for classic homes), §7b (frozen custody), §8 (retained seats).
