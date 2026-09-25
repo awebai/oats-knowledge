@@ -142,5 +142,5 @@ invariant list).
   0.25.3 + git-pinned oats.okf `a52082f`, and the published combination
   kernel 0.25.5 + catalog oats.okf v2.1.4 `2af47ad3` + oats.aweb v1.12.0
   `9d8cc740`, declared PASS).
-- `docs/rebuild-to-v2.md` (rationale for the soul-move, team-label,
+- [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) (rationale for the soul-move, team-label,
   fresh-state-directory and preview steps).

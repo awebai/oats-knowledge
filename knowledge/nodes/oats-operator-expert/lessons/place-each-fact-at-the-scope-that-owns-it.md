@@ -104,7 +104,7 @@ and the deployment-bounded messaging root
 
 # Citations
 
-- `docs/rebuild-to-v2.md` — the rationale paragraphs of the local-file step
+- [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) — the rationale paragraphs of the local-file step
   ("move host paths … here", "do not commit") and the retained-seat step
   ("because it is an absolute path it is a fact about one machine … prefer the
   spawn form: a machine-level setting would give the seat to every instance of
