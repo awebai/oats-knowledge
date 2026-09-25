@@ -2,6 +2,7 @@
 
 ## 2026-09-24
 
+* **Creation**: [A failing readiness diagnostic is not a missing fact until the source of truth has been read](/nodes/integrations-expert/lessons/a-failing-readiness-diagnostic-is-not-a-missing-fact.md), from the encrypted leg of the hosted grant rehearsal.
 * **Update**: [A grant home's custody block is what makes a grant sign and decrypt](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md): the service decided its CLI mint writes the custody locator (integration passes the verified path); the attachment check is the custody status command through the grant home, not whoami.
 * **Creation**: [A grant home's custody block is what makes a grant sign and decrypt](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md), from the first hosted grant rehearsal, corrected against the service's released source the same day.
 * **Creation**: [An alias rule lives in every provider path that carries an alias](/nodes/integrations-expert/lessons/an-alias-rule-lives-in-every-provider-path-that-carries-an-alias.md), promoted from a developer's release notes.
