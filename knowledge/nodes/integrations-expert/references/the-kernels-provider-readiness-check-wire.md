@@ -102,3 +102,30 @@ The answer is the **only** JSON document on stdout, with exit status 0:
   [review a validator against every nullable field the wire spec names](/nodes/oats-expert/lessons/review-a-validator-against-every-nullable-field-the-wire-spec-names.md)).
 - **Nothing else on stdout.** Diagnostics go to stderr; the JSON line is the
   whole of stdout.
+
+# Manifest setting defaults
+
+From OATS 0.26.0 the kernel injects every manifest `settings.<key>.default`
+as the lowest payload layer on the workspace-model path. The layers, lowest
+to highest: manifest default, then the workspace file's messaging block,
+then the per-team block, then the soul's slot, then the host-local file,
+then the spawn-time flag. The defaults reach the merged payload, the
+settings environment variable, the recorded providers in the instance
+record, the decision revision (which binds them by value, so a changed
+default changes the revision) and the readiness check request, and the
+preview exposes a per-leaf origin for each setting.
+
+Two consequences for a provider author:
+
+- **Declare a default only if it equals what the hook already does when the
+  key is absent.** The injection makes the implicit explicit; it must not
+  change behaviour. The messaging integration's declared delivery and
+  identity defaults match its hook's absent behaviour, which is why the
+  injection changed nothing there.
+- **Defaults are injected by the workspace-model resolver only, not by the
+  captured composition builder.** A provider whose captured-route wire (the
+  normalize and bind phases) whitelists keys is not in conflict when its
+  captured phases refuse a key that has a default; the messaging integration
+  refuses `identity` there because identity needs host facts the captured
+  route never carries. The check phase accepts the full settings shape,
+  defaults included.
