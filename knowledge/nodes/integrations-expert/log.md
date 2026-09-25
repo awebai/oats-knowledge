@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-09-25
+
+* **Creation**: [A grant's scope vocabulary does not name the endpoints a client path calls](/nodes/integrations-expert/lessons/a-grants-scope-vocabulary-does-not-name-the-endpoints-a-client-path-calls.md), from the encrypted leg of the hosted grant rehearsal.
+
 ## 2026-09-24
 
 * **Creation**: [Read a message's verification at the message level, not from a listing](/nodes/integrations-expert/lessons/read-a-messages-verification-at-the-message-level-not-the-listing.md), from the corrected hosted grant rehearsal.
