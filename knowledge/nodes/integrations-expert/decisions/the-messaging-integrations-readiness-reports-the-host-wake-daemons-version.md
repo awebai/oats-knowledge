@@ -70,3 +70,24 @@ warning:
 - A grant rehearsal's wake leg records the daemon's pid, binary, version and
   start time, and is rerun after a daemon restart before any positive wake
   claim is written down.
+
+# Update (2026-09-25, later the same day)
+
+The messaging service inspected its released sources and ran an isolated
+broker regression: **no published client release up to that date opened
+event streams for grant homes at all**; the daemon's stream opener bypassed
+the grant-aware selection path, so a daemon upgrade alone would not have
+fixed the rehearsal's miss. The fix is on the service's main and a release
+carrying it is planned, not published. Until it is published the upgrade
+step names no version, and no positive wake claim is written.
+
+The service's proposed status contract, pending its review, matches option
+2: `daemon_version` and `daemon_commit`, omitted when absent, and
+`daemon_version_state` with the values `reported`, `unknown` and
+`not_running`. Readiness compares the floor only for `reported`; `unknown`
+is the interim warning above (compatibility unproven, not a claim about any
+specific old version, with the supported upgrade and restart as the
+advice); `not_running` is its own problem when grants are in use. The wake
+floor becomes a second exported constant beside the custody floor, set only
+when the service publishes the release.
+
