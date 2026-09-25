@@ -1,5 +1,9 @@
 # oats-expert log
 
+## 2026-09-25
+
+* **Creation**: [a notice sent after a semicolon reports a variable the broken chain never set](/nodes/oats-expert/lessons/a-notice-sent-after-a-semicolon-reports-a-variable-the-chain-never-set.md), the mechanism behind a false merge notice; companion to [verify the remote ref after every scripted push](/nodes/oats-expert/lessons/verify-the-remote-ref-after-every-scripted-push.md).
+
 ## 2026-09-24
 
 * **Creation**: [A re-dated claim must be re-verified against the release it now names](/nodes/oats-expert/lessons/a-re-dated-claim-must-be-re-verified-against-the-release-it-now-names.md), a review lesson from a provider release mirror.
