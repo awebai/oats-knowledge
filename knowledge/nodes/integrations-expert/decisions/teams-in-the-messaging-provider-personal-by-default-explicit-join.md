@@ -47,8 +47,9 @@ identity scope is local, with global an explicit choice.
   outside the eligible set is refused, naming the eligible ones. The
   personal team cannot be left. All three verbs (list, join, leave) answer
   one JSON document (personal, primary, eligible with joined flags, joined
-  with identity home and time, unmapped) and are also declared as home
-  operations so the Desktop drives them through the operations contract.
+  with identity home, receive mode (`native` or `poll`) and time, unmapped)
+  and are also declared as home operations so the Desktop drives them
+  through the operations contract.
 - **Leaving** is the same verb, and automatic at every launch for a joined
   team that is no longer eligible; the provider never joins on its own and
   never leaves a membership it did not create.
