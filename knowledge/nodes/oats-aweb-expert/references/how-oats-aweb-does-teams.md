@@ -22,18 +22,23 @@ the custody attachment of resident grants is unchanged from
    `OATS_TEAM_LABELS`, in every hook, command and readiness check. The
    binding-check stdin decoder stays strict; the only new setting it accepts
    is `join`.
-2. **Every instance is minted into the personal team** (the merged primary
-   payload's team, else the root's active team). An unmapped primary label
-   is not a refusal: spawn uses the personal team and warns `team-unmapped`;
+2. **Every instance is minted into the personal team**: `settings.oats.aweb.team`
+   when the host or workspace sets it, else the root's active team (the
+   person's default team, the stand-in until a per-workspace personal team
+   exists). A soul's labels, the primary included, never choose the mint
+   target: a mapped primary label is eligible like every other label. An
+   unmapped primary label is not a refusal: spawn warns `team-unmapped` and
    readiness stays ready with the same warning.
 3. **Wider teams are explicit**: the spawn setting `join` (comma-separated
    eligible labels, checked before anything is minted), and the commands
    `oats aweb teams`, `oats aweb join --labels …`, `oats aweb leave
-   --labels …`, also declared as the home operations `messaging:teams`,
-   `messaging:join`, `messaging:leave` (kind action; one required arg
-   `labels`). A label outside the eligible set is `E_TEAM_NOT_ELIGIBLE`;
-   leaving the personal or primary label is `E_TEAM_PERSONAL`. Global
-   (resident-grant) mode refuses `join`.
+   --labels …`, also declared as home operations keyed `teams`, `join`,
+   `leave` (the kernel addresses them as `messaging:teams|join|leave`; kind
+   action; one required arg `labels`). `eligible` lists every mapped label
+   with its joined flag; `personal` is separate and never in `eligible`. A
+   label outside the eligible set is `E_TEAM_NOT_ELIGIBLE`; leaving the
+   personal team is `E_TEAM_PERSONAL`. Global (resident-grant) mode refuses
+   `join`.
 4. **One local identity per joined team**, minted like the primary (the
    root's local invite for that team, then the join in
    `<home>/.aweb-identity-<label>`). Sending as that team is the client's
@@ -46,7 +51,8 @@ the custody attachment of resident grants is unchanged from
    copy, never the source.
 6. **Lifecycle**: the launch hook leaves a joined team that is no longer
    eligible only when `OATS_TEAMS_SOURCE=live`, and warns `teams-unverified`
-   otherwise; retire leaves every joined team; a leave whose remote
+   otherwise; retire leaves every joined team, a retained seat's retire
+   included; a leave whose remote
    self-delete fails keeps the identity home and the state entry and reports
    the failure, so the deletion can be retried.
 7. **Readiness** answers a `teams` block (personal, primary, eligible with
