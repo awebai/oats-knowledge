@@ -2,6 +2,7 @@
 
 ## 2026-09-25
 
+* **Creation**: [A missing wake is diagnosed from the broker daemon's own log](/nodes/integrations-expert/lessons/a-missing-wake-is-diagnosed-from-the-broker-daemons-own-log.md) and the decision [readiness reports the host wake daemon's version](/nodes/integrations-expert/decisions/the-messaging-integrations-readiness-reports-the-host-wake-daemons-version.md), from the wake leg of the hosted grant rehearsal: the host daemon, not the server, was the cause.
 * **Creation**: [A grant's scope vocabulary does not name the endpoints a client path calls](/nodes/integrations-expert/lessons/a-grants-scope-vocabulary-does-not-name-the-endpoints-a-client-path-calls.md), from the encrypted leg of the hosted grant rehearsal.
 
 ## 2026-09-24
