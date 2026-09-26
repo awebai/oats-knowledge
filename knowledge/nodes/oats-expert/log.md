@@ -2,6 +2,7 @@
 
 ## 2026-09-25
 
+* **Creation**: [check the PR's own check before an ACK](/nodes/oats-expert/lessons/check-the-pr-check-not-only-the-authors-local-run.md), from the oats.aweb 1.14.0 review.
 * **Update**: [current direction](/nodes/oats-expert/roadmap/current-direction.md) cites the package guide and configuration docs instead of the 0.25 rebuild guide the 0.26.0 legacy sweep removed.
 * **Creation**: [a notice sent after a semicolon reports a variable the broken chain never set](/nodes/oats-expert/lessons/a-notice-sent-after-a-semicolon-reports-a-variable-the-chain-never-set.md), the mechanism behind a false merge notice; companion to [verify the remote ref after every scripted push](/nodes/oats-expert/lessons/verify-the-remote-ref-after-every-scripted-push.md).
 
