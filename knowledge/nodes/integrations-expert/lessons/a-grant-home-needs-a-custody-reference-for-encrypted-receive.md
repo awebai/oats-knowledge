@@ -90,7 +90,7 @@ and a receive attempt through the grant show it.
   reports a grant whose home lacks the custody block as needs-configuration,
   never ready; until the CLI option ships and the integration floors on it,
   rehearsal evidence stays labelled delivery-only.
-- The same discipline applies to the token-free admission and personal-team
-  work ([personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md)):
+- The same discipline applies to the token-free admission and workspace-team
+  work ([the superseded human-login enrollment design](/nodes/integrations-expert/decisions/workspace-team-enrollment-by-human-login-superseded.md)):
   a verb that exists is not a verb that is proven end to end until the
   receiving side's evidence is read.

@@ -6,7 +6,7 @@ tags: [integrations, fallback, identity, readiness, teams]
 timestamp: 2026-09-25
 ---
 
-**Observed.** The personal-team rule was implemented for local identities:
+**Observed.** The default-team rule was implemented for local identities:
 no configured team means the root's active team. The same change removed
 the older environment fallback from the global (session-grant) path and
 left a fatal there, so a global-mode deployment with a mapped workspace and

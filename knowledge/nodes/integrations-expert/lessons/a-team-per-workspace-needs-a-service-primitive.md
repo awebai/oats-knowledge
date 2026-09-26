@@ -1,14 +1,14 @@
 ---
 type: Lesson
-title: A personal team per workspace needs a service primitive
-description: A personal-workspace team and token-free shared-team joining both require a human CLI login the messaging service does not yet provide; until then the provider exposes setup as a required guided step and never invents local shims.
+title: A team per workspace needs a service primitive
+description: A team per workspace and token-free shared-team joining both require a human CLI login the messaging service does not yet provide; until then the provider exposes setup as a required guided step and never invents local shims.
 tags: [lesson, aweb, messaging, teams, defaults, integrations]
 timestamp: 2026-09-24
 ---
 
 Learned 2026-09-24 by the integrations expert, checking with the messaging
 service's coordinator against reviewed source after the framework's human
-asked for a personal team per person per workspace with no steps.
+asked for a team per workspace with no steps (then framed as "personal"; the framing was withdrawn on 2026-09-26).
 
 - The hosted "create team" command is a fresh signup: a new key, a new
   account, a team named `default:<username>`, a refusal for an existing
@@ -22,10 +22,10 @@ asked for a personal team per person per workspace with no steps.
 A follow-up source check narrowed the missing primitive: the messaging CLI
 has no reusable human credential. The hosted side has browser sessions and
 an OAuth 2.1 server for connectors, but no CLI login, device-code flow or
-other command-line human session. Personal namespaces hold exactly one team
+other command-line human session. A hosted user's namespace held exactly one team
 named `default`, while organisation namespaces already hold several; the
 registry's uniqueness key `(domain, name)` would support idempotency, and
-the server's fixed-name personal default helper is already idempotent on
+the server's fixed-name default-team helper is already idempotent on
 `(owner, slug)`, so the first server change is to generalise a
 caller-supplied slug. Spawn invites carry `max_uses` and expiry in the
 model, but the CLI hardcodes single use and minting needs team-key
@@ -34,8 +34,8 @@ exists only in the dashboard path.
 
 The shape proposed to the service (not a landed contract): a prerequisite
 human CLI login, then session-authorised verbs that mint a short-expiry
-single-use spawn invite and redeem it in place, one for the personal
-workspace team keyed on the workspace and one for an entitled human joining
+single-use spawn invite and redeem it in place, one for the workspace's
+team keyed on the workspace and one for an entitled human joining
 a named team without a token. Refusals return structured data (entitled or
 not, and why) so readiness can print the exact remedy. The provider's
 per-spawn path, a single-use invite minted with the root's authority, does
