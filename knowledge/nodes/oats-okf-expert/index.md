@@ -5,3 +5,7 @@ Knowledge package expert (`oats.okf`, repository `oats-okf`). Owns the FACTS of 
 **Seam:** the theory of what counts as knowledge (the two-part test, the reject list, promotion) is not this node's — it lives in [oats-expert](/nodes/oats-expert/index.md) (see [optional reference theory](/nodes/oats-expert/decisions/optional-reference-theory.md)); this node records how the package implements and enforces it, and reads the theory rather than restating it.
 
 **Chartered, not yet seeded (Phase D slice 3).** The owning soul is the package repository's member soul of the same name.
+
+## Decisions
+
+* [Decisions](decisions/index.md) - Accepted positions on how the knowledge package behaves.
