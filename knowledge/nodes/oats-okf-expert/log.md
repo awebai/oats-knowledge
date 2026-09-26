@@ -2,7 +2,7 @@
 
 ## 2026-09-26
 
-* **Creation**: [consult explores accepted knowledge remotely; instances get no knowledge copy by default](/nodes/oats-okf-expert/decisions/consult-explores-accepted-knowledge-remotely-no-per-instance-copy.md), the oats.okf 2.2.0 decision on the human's priority.
+* **Creation**: [consult explores accepted knowledge remotely; instances get no knowledge copy by default](/nodes/oats-okf-expert/decisions/consult-explores-accepted-knowledge-remotely-no-per-instance-copy.md), the oats.okf 3.0.0 decision on the human's direction (amended the same day from a 2.2.0 draft: no materialize opt-in, read removed, a separate okf-consult skill).
 
 ## 2026-09-24
 
