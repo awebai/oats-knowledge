@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: Consult explores accepted knowledge remotely; instances get no knowledge copy by default
-description: Decided 2026-09-26 on the human's direction: oats.okf 3.0.0 adds read-only consult commands (bases, index, cat, ls, search, links) that serve a base's accepted commit from a host-wide bare partial-clone cache with reproducible receipts, no instance holds any knowledge copy (no spawn snapshot, no per-call views; read and refresh removed), a new okf-consult skill teaches consulting at task start and throughout while the okf skill defers to it, and every answer is confined to its base and to the accepted commit.
+description: Decided 2026-09-26 on the human's direction: oats.okf 3.0.0 adds read-only consult commands (bases, index, cat, ls, search, links) that serve a base's accepted commit from a host-wide bare partial-clone cache with reproducible receipts, no instance holds any knowledge copy (no spawn snapshot, no per-call views; refresh removed, read kept as cat on one file), the okf skill gains a consulting section that teaches consulting at task start and throughout, and every answer is confined to its base and to the accepted commit.
 tags: [decision, okf, knowledge, consult, materialize, skill]
 timestamp: 2026-09-26
 ---
@@ -31,20 +31,23 @@ staleness.
    leaves the base root; only Markdown is served; symlink and submodule
    entries are refused. There is no ref override: nothing widens acceptance.
 3. **No per-instance copy, no compatibility shim.** A spawn writes no
-   `./knowledge/` and no view directory; `read` and `refresh` are removed
-   (`E_REMOVED` naming `index`/`cat`); a leftover `./knowledge/` from 2.x is
-   reported as a legacy local view and ignored. The version is 3.0.0 because
-   this breaks the 2.x contract; a 2.x home keeps its frozen module copy and
-   its own instructions, so nothing is emulated.
-4. **Two skills that agree.** A new `okf-consult` skill (in the package)
-   teaches the instance: bases and nodes, the accepted commit and the host
+   `./knowledge/` and no view directory. `read` stays because it is `cat` on
+   one file with the same output; `refresh` is removed (`E_REMOVED` naming
+   `index`/`cat`) because its meaning, rebuilding a local view, no longer
+   exists and a verb that silently does something else misleads. A leftover
+   `./knowledge/` from 2.x is reported as a legacy local view and ignored.
+   The version is 3.0.0 because this breaks every consumer of the local
+   copy; a 2.x home keeps its frozen module copy and its own instructions,
+   so nothing is emulated.
+4. **One skill.** The `okf` skill, loaded by every okf soul at session start,
+   gains a "Consulting your knowledge" section that teaches the instance: bases and nodes, the accepted commit and the host
    cache, the start-of-task checklist (index the owned and read nodes, then
    the relevant concepts), the consult-while-working triggers (before a
    decision, before re-deriving, when a question touches the domain, after a
    compaction), navigation index → concept → links without bulk-loading,
-   citing, freshness, and the gotchas. The `okf` skill keeps the bundle craft
-   and defers to `okf-consult` for consuming. The inject states the rule in
-   a few lines and points at both.
+   citing, freshness, and the gotchas, beside the bundle craft it already
+   holds. The inject states the rule in a few lines and points at the skill
+   and the CLI.
 5. **Sequencing.** 3.0.0 branches from the released 2.1.5 and carries the
    feature-gated `--harness` worker flag; the captured-code deletion, parked
    as a pushed work-in-progress branch, resumes as 3.1.0 rebased on 3.0.0.
