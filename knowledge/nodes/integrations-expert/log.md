@@ -1,5 +1,11 @@
 # integrations-expert log
 
+## 2026-09-26
+
+* **Creation**: [a workspace has a default team; there is no personal team](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md), the human's directive of 2026-09-26.
+* **Update**: renamed [teams in the messaging provider](/nodes/integrations-expert/decisions/teams-in-the-messaging-provider-default-team-explicit-join.md) and [a team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-team-per-workspace-needs-a-service-primitive.md), and reworded four lessons, from "personal team" to the workspace's default team.
+* **Deprecation**: [the human-login enrollment design](/nodes/integrations-expert/decisions/workspace-team-enrollment-by-human-login-superseded.md) is superseded (no personal team; no human login in the provider's path).
+
 ## 2026-09-25
 
 * **Creation**: three lessons from the oats.aweb 1.14.x release day: [provider commands under an external identity home must be on the tool's allowlist](/nodes/integrations-expert/lessons/provider-commands-under-an-external-identity-home-must-be-on-the-tools-allowlist.md), [an admitted accept is not an operable identity](/nodes/integrations-expert/lessons/an-admitted-accept-is-not-an-operable-identity.md), [a provider's wire answer must pass the kernel's validator on the provider's own stage](/nodes/integrations-expert/lessons/a-provider-answer-is-validated-by-the-kernel-not-by-the-reviewer.md).

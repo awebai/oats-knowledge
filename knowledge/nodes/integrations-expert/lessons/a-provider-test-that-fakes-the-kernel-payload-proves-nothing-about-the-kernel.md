@@ -1,14 +1,14 @@
 ---
 type: Lesson
 title: A provider test that fakes the kernel's payload proves nothing about the kernel; a provider's meaning for a settings key is only as good as what the kernel puts there
-description: When a provider gives a settings key a meaning the contract does not guarantee (settings.team as "the personal team a host chose"), a test that hand-writes the payload without the key passes while the real kernel, which merges the primary label's team into that key, makes the provider do the opposite; check what the kernel actually merges before assigning meaning, and when the meaning is right, change the kernel's merge rather than guess from equality in the provider.
+description: When a provider gives a settings key a meaning the contract does not guarantee (settings.team as "the default team a host chose"), a test that hand-writes the payload without the key passes while the real kernel, which merges the primary label's team into that key, makes the provider do the opposite; check what the kernel actually merges before assigning meaning, and when the meaning is right, change the kernel's merge rather than guess from equality in the provider.
 tags: [integrations, kernel-contract, settings, teams, testing]
 timestamp: 2026-09-25
 ---
 
-**Observed.** The teams work moved the provider to "personal team by
+**Observed.** The teams work moved the provider to "default team by
 default; the primary label is just the first eligible team". The provider
-read the personal team from `settings.team`. Its test built `OATS_SETTINGS`
+read the default team from `settings.team`. Its test built `OATS_SETTINGS`
 by hand without `team` and passed. The kernel, though, merged
 `byTeam[primary].team` into that same key, so on a real deployment with a
 mapped primary label the provider minted the instance straight into the

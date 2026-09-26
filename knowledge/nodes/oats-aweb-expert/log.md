@@ -1,5 +1,9 @@
 # oats-aweb-expert log
 
+## 2026-09-26
+
+* **Update**: [how oats.aweb does teams](/nodes/oats-aweb-expert/references/how-oats-aweb-does-teams.md) speaks of the workspace's default team; the 1.14–1.15 wire names are noted with their 1.16.0 replacements.
+
 ## 2026-09-25
 
 * **Creation**: [How oats.aweb does teams (1.14.0)](/nodes/oats-aweb-expert/references/how-oats-aweb-does-teams.md), promoted from the 1.14.0 developer's notes and the maintainer review.

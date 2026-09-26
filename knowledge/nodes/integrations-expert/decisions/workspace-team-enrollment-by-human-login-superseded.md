@@ -1,10 +1,12 @@
 ---
 type: Decision
-title: Personal workspace teams and token-free admission ride one human login and the existing invite path
-description: Design of record agreed with the messaging service for a zero-step personal team per (person, workspace) and for an entitled human joining a mapped team without a hand-carried token; implementation requirements, not released commands, and the integration composes them without changing its per-spawn path.
-tags: [decision, integrations, messaging, identity, personal-team, admission, onboarding]
+title: Superseded — enrolling a workspace's team through a human login on the host
+description: SUPERSEDED 2026-09-26 by "a workspace has a default team; there is no personal team". Was: the design agreed with the messaging service for a zero-step team per workspace and for an entitled human joining a mapped team without a hand-carried token; implementation requirements, not released commands, and the integration composes them without changing its per-spawn path.
+tags: [decision, superseded, integrations, messaging, identity, admission, onboarding]
 timestamp: 2026-09-24
 ---
+
+**Superseded 2026-09-26** by [a workspace has a default team; there is no personal team](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md): there is no personal team, and a human login on the host is never in the provider's path. Kept as the record of what was agreed and why it was withdrawn; its "personal" wording is the old framing.
 
 Agreed 2026-09-24 between the integrations lane and the messaging service's
 coordination and protocol review, after a source-verified proposal from this
@@ -73,7 +75,7 @@ repository, a namespace, an email or an OS user.
   workspace, and a second machine still needs a token.
 - When the verbs ship, readiness gains one code (not logged in) and setup
   runs the ensure; nothing else in the spawn path moves.
-- Related: [a personal team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-personal-team-per-workspace-needs-a-service-primitive.md)
+- Related: [a personal team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-team-per-workspace-needs-a-service-primitive.md)
   (the gap this decision closes) and
   [integration guidance names only verbs the target CLI exposes](/nodes/integrations-expert/lessons/guidance-names-only-verbs-the-target-cli-exposes.md)
   (why released guidance waits for the verbs).

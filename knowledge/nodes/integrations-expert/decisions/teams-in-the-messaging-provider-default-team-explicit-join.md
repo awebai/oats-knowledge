@@ -1,17 +1,17 @@
 ---
 type: Decision
-title: Teams in the messaging provider: the personal team by default, explicit join and leave, one local identity per joined team
-description: Agreed 2026-09-25 on the human's priority: every instance lives in its person's personal team for the workspace; a soul's team labels only make wider teams eligible; joining is a spawn choice or one idempotent command at any time, leaving is the same command or automatic when eligibility disappears; each joined team is a further local identity the provider records and revokes at retire; the kernel hands the eligible teams beside the settings and exposes them in preview and inspect.
+title: Teams in the messaging provider: the workspace's default team, explicit join and leave, one local identity per joined team
+description: Agreed 2026-09-25 on the human's priority: every instance lives in the workspace's default team; a soul's team labels only make wider teams eligible; joining is a spawn choice or one idempotent command at any time, leaving is the same command or automatic when eligibility disappears; each joined team is a further local identity the provider records and revokes at retire; the kernel hands the eligible teams beside the settings and exposes them in preview and inspect.
 tags: [decision, integrations, messaging, teams, identity, lifecycle, desktop]
 timestamp: 2026-09-25
 ---
 
 Agreed 2026-09-25 between the integrations lane and the framework lead on the
-human's stated priority ("a personal team for a person's agents in the
-workspace by default; an instance joins the teams its soul names, at spawn
+human's stated priority ("a team for the workspace's agents by default; an instance joins the teams its soul names, at spawn
 or during its life, matching the workspace; seamless, inside the messaging
 capability; kernel changes welcome"), refined the same day to "default is
-the personal team only; joining is explicit". The kernel half is the
+the workspace's default team only; joining is explicit" (renamed from
+"personal team" on 2026-09-26 by the human's directive: [a workspace has a default team; there is no personal team](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md)). The kernel half is the
 framework's agreed teams contract (its design record of the same date); this
 concept records the provider half and the facts the design rests on.
 
@@ -29,11 +29,9 @@ identity scope is local, with global an explicit choice.
 
 # Decision
 
-- **Default: the personal team only.** Every instance is minted into its
-  person's personal team for the workspace. Until the service ships a
-  per-workspace personal team (get-or-create keyed on the workspace key,
-  the service's top ask), "personal" is the person's single default team,
-  documented as a temporary stand-in and not built on. A soul's labels do
+- **Default: the workspace's default team only.** Every instance is minted
+  into the workspace's default team: the team of the root identity the
+  deployment holds (a configured team, else the root's active team). A soul's labels do
   not join anything by themselves.
 - **Eligible teams come from the kernel**, beside the settings, never inside
   them: the ordered list of the soul's labels with the mapped team id and
@@ -45,8 +43,8 @@ identity scope is local, with global an explicit choice.
   the provider's own verbs at any time, from inside the home or with the
   home named, for a human, another agent or the instance itself. A label
   outside the eligible set is refused, naming the eligible ones. The
-  personal team cannot be left. All three verbs (list, join, leave) answer
-  one JSON document (personal, primary, eligible with joined flags, joined
+  default team cannot be left. All three verbs (list, join, leave) answer
+  one JSON document (defaultTeam, primary, eligible with joined flags, joined
   with identity home, receive mode (`native` or `poll`) and time, unmapped)
   and are also declared as home operations so the Desktop drives them
   through the operations contract.
@@ -73,7 +71,7 @@ identity scope is local, with global an explicit choice.
   homes may register every identity. Global instance identities stay an
   explicit, non-default scope: under a hosted namespace nothing the root
   holds can release a retired identity's address.
-- **Readiness** reports, per home and per soul: personal, eligible against
+- **Readiness** reports, per home and per soul: the default team, eligible against
   joined, unmapped, and poll-only joined teams, each with its remedy.
 
 # Consequences
@@ -82,10 +80,10 @@ identity scope is local, with global an explicit choice.
   it; the kernel half lands in the major that already changes the file
   formats; the sync-driven reconcile of live homes is a later kernel minor
   the provider needs nothing new for.
-- What the service still owes changes setup and readiness, never spawn: the
-  per-workspace personal team, a device-flow login, a token-free join for an
+- What the service still owes changes setup and readiness, never spawn: a team
+  per workspace created by its owner outside OATS, a token-free join for an
   entitled person, and delivery for several identity homes per home.
 - See [a global instance identity leaves a permanent address behind](/nodes/integrations-expert/lessons/a-global-instance-identity-leaves-a-permanent-address-behind.md)
   for the identity-scope reasoning, and
-  [personal workspace teams and token-free admission](/nodes/integrations-expert/decisions/personal-workspace-teams-and-token-free-admission.md)
+  [the superseded human-login enrollment design](/nodes/integrations-expert/decisions/workspace-team-enrollment-by-human-login-superseded.md)
   for the service-side design this composes.
