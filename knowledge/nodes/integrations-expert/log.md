@@ -1,5 +1,10 @@
 # integrations-expert log
 
+## 2026-09-27
+
+* **Creation**: [a test-only tool installed with npm --prefix inside the repository lands in the package's dependencies](/nodes/integrations-expert/lessons/a-test-only-tool-install-must-not-land-in-the-package-dependencies.md), from the oats.aweb 1.16.0 work.
+* **Update**: [a team per workspace needs a service primitive](/nodes/integrations-expert/lessons/a-team-per-workspace-needs-a-service-primitive.md): its human-CLI-login conclusion is marked superseded by [a workspace has a default team](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md); description and index line corrected.
+
 ## 2026-09-26
 
 * **Creation**: [a workspace has a default team; there is no personal team](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md), the human's directive of 2026-09-26.
