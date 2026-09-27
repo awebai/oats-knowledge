@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A team per workspace needs a service primitive
-description: A team per workspace and token-free shared-team joining both require a human CLI login the messaging service does not yet provide; until then the provider exposes setup as a required guided step and never invents local shims.
+description: The messaging service has no idempotent create-or-return for a team, so a zero-step team per workspace cannot be improvised by the provider; the provider exposes setup as a guided step and never invents local shims, and the fix proposed here (a human CLI login in the provider's path) is superseded by team creation as the owner's account-level act outside OATS.
 tags: [lesson, aweb, messaging, teams, defaults, integrations]
-timestamp: 2026-09-24
+timestamp: 2026-09-27
 ---
 
 Learned 2026-09-24 by the integrations expert, checking with the messaging
@@ -31,6 +31,14 @@ caller-supplied slug. Spawn invites carry `max_uses` and expiry in the
 model, but the CLI hardcodes single use and minting needs team-key
 authority; the session-authorised route that adds an existing identity
 exists only in the dashboard path.
+
+**Superseded 2026-09-26:** the conclusion below, that the missing primitive is a
+human CLI login in the provider's path, was withdrawn. See
+[a workspace has a default team; there is no personal team](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md):
+the service's primitive is key control, creating a team is an account-level act
+by its owner outside OATS, and the provider only consumes the resulting root
+identity; nothing in spawn, mint, retire or wake requires a human login. The
+facts above (no idempotent create, every path refuses a repeat) still hold.
 
 The shape proposed to the service (not a landed contract): a prerequisite
 human CLI login, then session-authorised verbs that mint a short-expiry
