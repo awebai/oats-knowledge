@@ -2,6 +2,7 @@
 
 ## 2026-09-28
 
+* **Removal**: The `oats-dev-expert` node, retired with `oats.dev` (the `oats.engineering` package replaced it, oats#283). It held no researched knowledge; the base declares eleven nodes. The roster in [domain-expert rebuild](/nodes/oats-expert/decisions/domain-expert-rebuild.md) is updated.
 * **Update**: Audit pass against main (the 0.30 line; team-model content held for its own pass): every node describes main — the captured path, the classic cascade, install and approval removed; one canonical roster ([domain-expert rebuild](/nodes/oats-expert/decisions/domain-expert-rebuild.md)); stewardship cut to judgement with the legacy ledgers' lessons swept in; integrations consolidated and current to oats.aweb 1.16.1; Desktop at Phase F; provenance citations collapsed; one-line indexes; logs capped at ~20 entries, newest first.
 * **Update**: The `oats-assistant` node merged into [oats-operator-expert](/nodes/oats-operator-expert/index.md); the base declares twelve nodes.
 * **Deletion**: The dated current-direction snapshot; dated direction lives in the framework's release notes.

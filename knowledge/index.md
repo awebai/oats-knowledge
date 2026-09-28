@@ -15,4 +15,3 @@ okf_version: "0.1"
 * [oats-jira-expert](nodes/oats-jira-expert/index.md) - Jira tasks package expert (`oats.jira`, repository `oats-jira`): that package's facts.
 * [oats-linear-expert](nodes/oats-linear-expert/index.md) - Linear tasks package expert (`oats.linear`, repository `oats-linear`): that package's facts.
 * [oats-authoring-expert](nodes/oats-authoring-expert/index.md) - Authoring package expert (`oats.authoring`, repository `oats-authoring`): that package's facts.
-* [oats-dev-expert](nodes/oats-dev-expert/index.md) - Development-policy package expert (`oats.dev`, repository `oats-dev`): that package's facts.

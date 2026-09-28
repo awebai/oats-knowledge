@@ -31,7 +31,8 @@ stated; other concepts link here instead of restating it.
 - **Package experts, one member soul per official package repository**, each
   owning the node for **that package's facts** and nothing cross-package:
   `oats-okf-expert`, `oats-aweb-expert`, `oats-jira-expert`,
-  `oats-linear-expert`, `oats-authoring-expert`, `oats-dev-expert`. They sit
+  `oats-linear-expert`, `oats-authoring-expert`. (`oats-dev-expert` was retired
+  on 2026-09-28 with `oats.dev`, which `oats.engineering` replaced.) They sit
   *beside* the domain roster; cross-package architecture stays with
   `oats-expert`.
 - **Developer souls, owning no node** (framework repository `souls/`,
