@@ -62,6 +62,26 @@ forbids the credential copying they require.
   never the harness's whole visible context. Adapter tests verify what OATS
   composes for that harness, not an exclusivity it no longer claims.
 
+# Launch argv is a per-harness contract (2026-08-13)
+
+Native launch still means OATS writes each harness's command line, and two
+facts from a Claude spawn that died before its session started (a blank
+pane) hold for every harness:
+
+- **The task is protected from contributed flags.** A capability's launch
+  hook contributed a variadic Claude flag that swallowed the following task
+  prompt as one more entry. Claude and Codex therefore get `--` before the
+  task; pi has no `--`, so its task positional goes ahead of contributed
+  options. A regression pins the rendered command shape, separator
+  included, not merely the presence of the hook's arguments.
+- **Model preferences are translated per harness, never passed raw.** A
+  soul's pi-style `provider/id[:thinking]` preference reached Claude verbatim
+  and was rejected at launch. For Claude, `anthropic/…` entries become the
+  bare id and other providers' entries are dropped; Codex keeps only its own
+  providers' ids; nothing usable means no `--model`, so the harness chooses
+  its own default. The Desktop's model input stays free text; translation is
+  the launcher's job.
+
 # Related
 
 [Keep kernel responsibilities generic and capability runtimes complete](kernel-and-capability-responsibility.md);
@@ -76,3 +96,4 @@ forbids the credential copying they require.
 # Citations
 
 1. Migrated from agents/oats-expert/soul/knowledge and agents/cli-dev/soul/knowledge @ 7838d3ca (claude-codex-native-launch, strict-instance-curriculum, claude-strict-launch-setting-sources, claude-project-skill-discovery-root-bound).
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/claude-launch-argv-model-translation.md @ 7838d3ca.

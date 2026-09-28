@@ -13,7 +13,11 @@ historical task unfolded. Explicit sparse relations preserve that lightweight
 purpose. Attached work already establishes ownership; contradictory relation
 choices should not fabricate an independent work owner. Attached service
 agents are children of the tree owner so retirement responsibility stays
-local; a non-attached overseer expresses its topology explicitly.
+local; a non-attached overseer expresses its topology explicitly. One
+consequence (2026-07-26): a parent relation re-points only the anchor's
+recorded lineage, so one spawn cannot become the parent of two existing
+instances and there is no re-parent verb; bringing another party under an
+overseer is an agreement between the parties, not a graph edit.
 
 **Lineage is explicit-only.** Deriving a parent from ambient environment
 ("whoever's instance variable is set") was rejected even when gated on the
@@ -56,3 +60,4 @@ theoretically be made more elaborate.
 # Citations
 
 1. Migrated from agents/oats-expert/soul/knowledge and agents/cli-dev/soul/knowledge @ 7838d3ca (spawn-relations-live-lineage, spawn-lineage-explicit-only, attached-spawns-child-of-work-owner, lineage-edge-ambiguity-posture, relation-policy-migration-and-retire-splice).
+2. Migrated from agents/dev-coordinator/soul/knowledge/lessons/relation-parent-repoints-only-anchor.md @ 7838d3ca.

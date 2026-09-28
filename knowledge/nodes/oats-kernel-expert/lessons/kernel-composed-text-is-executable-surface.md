@@ -49,6 +49,15 @@ kernel block's job is to state the invariant and defer. Likewise, a skill that
 describes the *environment* rather than the *work* is describing what the
 spawner varies: enumerate the cases or name the briefing as the authority.
 
+**A pointer is only as good as its target's availability** (2026-07-26).
+Before a skill defers to another, check where each is visible: ambient
+before any workspace, inside an instance, or only with a capability. Outside
+an instance the pi adapter exposes only `oats-getting-started`; routing its
+first-time setup steps to a skill that exists only inside spawned instances
+made bootstrap unroutable in exactly the phase the skill covers. A bootstrap
+skill stays self-contained for every pre-spawn step, and a deferral says
+where its target is available.
+
 **Provider neutrality of prose is not machine-decidable.** The ladder —
 substring denylist → broader denylist → passage snapshot → whole-surface hash —
 was climbed over five review rounds and every rung rejected by the maintainer.
@@ -77,3 +86,4 @@ operator, public documentation says so in the section they would consult.
 # Citations
 
 1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (generated-instructions-executable-surface, shared-skill-spawn-paths-briefing-authority).
+2. Migrated from agents/cli-dev/soul/knowledge/lessons/skill-routing-availability-context.md @ 7838d3ca.

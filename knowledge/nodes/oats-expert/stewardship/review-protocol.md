@@ -47,7 +47,13 @@ kept state, reporting by message and retiring after the verdict. The first
 multi-agent run (2026-07-21) showed why: reviewers that kept report files or
 tracked state stalled, and stalled reviewers led developers to review their
 own code, losing the fresh-eyes property. A reviewer that vanishes mid-turn
-is replaced by a **new** reviewer on the same commit, never resumed. Reviewer
+is replaced by a **new** reviewer on the same commit, never resumed. But a
+vanished window with no wake event is not proof it vanished mid-turn
+(2026-07-23): a reviewer that finished, mailed its verdict and retired looks
+identical when the channel failed to wake the spawner. Check the full message
+history, not only the unread inbox, and the session tail (a clean send and
+self-retire versus an abrupt cut-off) before calling it killed; a verdict
+found there is a channel fault to report, not a reason to re-review. Reviewer
 notes reach knowledge only through their own reviewed change. A reviewer is a
 soul like any other, spawned fresh per verdict — capabilities no longer
 declare agents on main (a manifest `agents:` is refused), so a reviewer ships
@@ -184,3 +190,4 @@ dislodge than the original.
 
 1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/dev-team-and-review-flow`, 2026-07-21/27, and the 2026-07 review lessons), with lessons from agents/dev-coordinator, agents/docs-expert, agents/oats-coordinator and agents/cli-dev knowledge @ 7838d3ca (crossed mail, stale base, reviewer deaths, schema-migration aliases, review routing, the testing-honesty family).
 2. Migrated from agents/oats-expert/soul/knowledge/stewardship @ 7838d3ca (delivery-log, 2026-09-24 → 2026-09-27: squash orphan and patch verification, head-bound ACKs, human redirection recorded before review, removal sweeps and every-entry-point probes, the lone-gate re-review, additive fields and consumer-first renames, producer trust gaps, stand-in providers, one-way-call assertions, security review of knowledge changes).
+3. Migrated from agents/oats-expert/soul/knowledge/lessons/window-gone-completed-vs-killed-triage.md @ 7838d3ca.

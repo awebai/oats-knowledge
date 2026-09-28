@@ -24,6 +24,8 @@ Creation, roster presence, attachment readiness and task completion are separate
 
 Ignoring a stale response does not undo its mutation. Reconcile partial successes before retrying so a timeout or dismissed view does not create duplicate actions. A generation guard cannot substitute for transactional ownership of effects.
 
+**Close can arrive before mount settles** (2026-07-22 … 2026-07-23). A tab closed while its view or terminal was still mounting fell back to module-wide cleanup and blanked a healthy sibling tab, and a terminal closed during its pending open leaked an attached client. Whenever cleanup depends on a value an in-flight operation will produce, close waits for settle and then cleans up once with that mount's own disposer; a late resource arriving for a dead owner is released at once. Track what actually happened: a rejected mount and a fulfilled legacy mount both lack a disposer, but only the latter may use the module-wide fallback. Setup that needs cleanup (handlers, observers, focus) runs inside the lifecycle's ready callback, because code after `await start()` has no ordering with close. A tab key stays reserved until cleanup completes, and a reopen during that window waits on the reservation instead of being dropped.
+
 # Related
 
 [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
@@ -35,3 +37,4 @@ Ignoring a stale response does not undo its mutation. Reconcile partial successe
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/async-mount-close-race.md and decisions/view-mount-disposer-contract.md @ 7838d3ca.

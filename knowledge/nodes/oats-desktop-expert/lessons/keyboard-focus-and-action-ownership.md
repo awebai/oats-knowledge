@@ -22,6 +22,8 @@ One effective action policy should govern displayed hints, explicit unbinds, key
 
 Event ownership matters before dispatch: a late no-op after preventDefault still breaks a native control. Application shortcuts must neither consume ordinary typing nor send terminal bytes before claiming a chord. Unit policy checks and real input evidence serve different parts of this boundary.
 
+Integration limitation (2026-07-26): `KeyboardEvent.key` reports the shifted character, so a default chord such as Mod+Shift+\ parses and round-trips yet never fires unless the engine aliases the shifted character (`|`) to its base key. Every default built on shifted punctuation needs that alias and a test that dispatches the real shifted event, not a parse round-trip.
+
 # Related
 
 [Agent-centered navigation makes the action target legible](../decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md).
@@ -34,3 +36,4 @@ Event ownership matters before dispatch: a late no-op after preventDefault still
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shifted-punctuation-default-chords.md @ 7838d3ca.

@@ -58,6 +58,25 @@ worktree is gone, recording the drift as a typed observation. Whether a
 worktree-mode instance may drift branches silently at all is a separate
 decision, not a patch.
 
+**Recovery proofs measure; recovery primitives fail catchably**
+(2026-07-29 → 2026-09-05). Restoring a work tree's staged state once copied
+every index row "because copying everything cannot lose anything"; on a real
+index that was about 19,000 Git launches and read as a hang. Its safety was an
+assumption about what the recovered clone held. The replacement asks the
+destination once which staged objects it lacks, copies only those, and
+re-checks the *whole* staged set before installing the index: measure,
+repair, re-measure, then commit. That is stronger, not weaker, because it
+holds however the clone was made. A proof set contains only what the
+destination should hold: gitlink rows (mode 160000) name nested-repository
+commits that are correctly absent there and are restored by another
+mechanism, so including them makes the proof fail on every submodule.
+Recovery code also must not use a primitive whose failure is a process
+abort: Node 22's recursive `cpSync` dies on an unreadable directory with no
+catch, `finally` or rollback running, so the kernel copies hostile trees with
+its own hand-walked copy where `EACCES` is an ordinary error. The regression
+for such a failure runs in a child process; in-process it takes the test
+runner down instead of failing.
+
 # Related
 
 [External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
@@ -73,3 +92,4 @@ decision, not a patch.
 # Citations
 
 1. Migrated from agents/cli-dev/soul/knowledge, agents/dev-coordinator/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (rollback-retain-retry-state, compose-atomic-engine-operations-with-an-outer-command-journal, cross-instance-writes-commit-last, single-implementation-guarantee, rollback-probes-argv-and-fail-closed, retire-recovery-uses-recorded-branch-not-checked-out-branch).
+2. Migrated from agents/cli-dev/soul/knowledge/lessons/batch-existence-check-is-a-measurement.md, gitlink-rows-must-leave-the-proof-set.md, cpsync-aborts-on-unreadable-dirs.md, playbooks/test-process-aborting-regressions.md and agents/dev-coordinator/soul/knowledge/lessons/node-recursive-cpsync-can-bypass-javascript-cleanup.md @ 7838d3ca.

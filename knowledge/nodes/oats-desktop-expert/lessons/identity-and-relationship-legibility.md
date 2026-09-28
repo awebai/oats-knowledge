@@ -25,6 +25,16 @@ or grouping (UX design role, 2026-07-25). A globally ambiguous name can look uni
 resurrecting an edge that was correctly refused earlier. Showing disconnected
 nodes is safer than hiding an agent or manufacturing lineage.
 
+**Scope travels with the request** (2026-07-22 … 2026-07-23). Instance names
+repeat across workspaces, and an unscoped first-match lookup once let an
+Interrupt clicked in one workspace reach a same-named agent in another, and
+marked a stopped instance running because its namesake elsewhere was. An
+instance-addressed request carries its workspace end to end; the server
+resolves only inside that scope, never falls back to the first match
+anywhere, and refuses a bare name that is ambiguous within the scope. Scoping
+is classified by route family, not per endpoint, so a new route under the
+family is pinned by construction and fails safe.
+
 # Degrade to a forest, never to an error
 
 Malformed parentage must never break the overview (decided 2026-07-24): a
@@ -66,3 +76,4 @@ kernel's bounded live graph.
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/workspace-scoped-instance-routing.md, workspace-scoped-snapshot-lookups.md and route-family-workspace-pinning.md @ 7838d3ca.

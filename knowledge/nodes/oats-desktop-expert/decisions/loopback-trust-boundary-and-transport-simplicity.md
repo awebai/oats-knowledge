@@ -69,7 +69,12 @@ escaped values in attribute positions.
 **Client-supplied paths are selectors, never authority.** Path-shaped input
 from the renderer selects among server-computed, admitted roots; see
 [Workspace admission is privileged and transactional](privileged-workspace-admission.md)
-for how those roots are admitted and held.
+for how those roots are admitted and held. When a shared snapshot gains a
+producer of lower trust, audit every consumer, not only the new producer's
+shape (2026-09-05): host-supplied remote roster rows merged into the same
+snapshot the file guard enumerates turned remote `home` strings into
+admitted local read roots, so a host could choose what the local Desktop
+served. Remote rows never grant access to local files.
 
 # Transport simplicity
 
@@ -79,6 +84,13 @@ over a runtime-specific chat protocol because it is identical across agent
 runtimes and needs no runtime cooperation. Push transport (WebSockets/SSE)
 was deferred deliberately in favour of polling; the deferral stands until
 polling demonstrably chafes. Anyone proposing push must show the chafing.
+
+Polling must never block input (2026-07-23). The single-threaded server also
+carries keystrokes, so a synchronous roster collection on a request path put
+a poll's several hundred milliseconds in front of a key press; solo medians
+looked fine while humans felt the tail. Slow collection runs out of process
+and requests are served from a snapshot refreshed in the background, with one
+refresh in flight at a time. Benchmark under concurrent load, not solo.
 
 # Rejected alternatives
 
@@ -106,3 +118,4 @@ polling demonstrably chafes. Anyone proposing push must show the chafing.
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/snapshot-collection-off-thread.md and agents/cli-dev/soul/knowledge/lessons/remote-roster-widens-local-file-guard.md @ 7838d3ca.

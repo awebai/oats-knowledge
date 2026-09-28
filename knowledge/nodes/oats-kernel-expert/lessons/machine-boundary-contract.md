@@ -68,6 +68,21 @@ a comparison must be nameable by the refusals that use it and must protect
 something; otherwise the message names the same target on both sides and the
 key splits one operator-visible thing in two.
 
+**A new mode is advertised before a consumer may call it** (2026-09-22). A
+consumer talks to whatever CLI is installed, and an older CLI that ignores an
+unknown flag runs the old command: `retire --plan` on it simply retires.
+"Try it and see" is not detection for anything with side effects. So the
+producer ships every new command or mode with a positive advertisement in
+`oats version --json` (a `features[]` name, plus an API integer for a typed
+payload), and consumers gate on the name, never on a version string or on
+the call having worked; a missing feature makes the view unavailable, not
+degraded to the old command. A destructive apply also carries the plan it was
+shown: the kernel revalidates the plan revision (`E_PLAN_STALE`, fresh plan
+attached, nothing done) and an idempotency key replays the recorded outcome
+on retry. The Desktop engineer refused to wire removal until both existed;
+shipping the semantics without the advertisement and the revision is not
+shipping a GUI-safe verb.
+
 # Related
 
 [A minimal process boundary avoids permanent private coupling](../decisions/minimal-process-boundary.md);
@@ -82,3 +97,4 @@ key splits one operator-visible thing in two.
 # Citations
 
 1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (json-mode-cli-contract, json-envelope-dispatch-boundary, usage-must-not-resolve-deployment-state, dry-run-exit-status-contract, diagnostic-remedies-are-contracts, retry-hint-sites-travel-in-packs, identity-key-fields-shape-the-diagnostic, provider-problem-reasons-cross-the-wire).
+2. Migrated from agents/oats-expert/soul/knowledge/lessons/consumers-gate-on-advertised-features-never-on-optimistic-invocation.md @ 7838d3ca.

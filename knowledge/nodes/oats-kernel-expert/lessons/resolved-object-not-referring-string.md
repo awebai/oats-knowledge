@@ -67,6 +67,19 @@ it. Such a promise needs a witness kept outside the protected root, and a
 version constant that claims the guarantee must cover every dependent read and
 write boundary, not only the writer.
 
+**The disambiguator must reach every projection** (2026-09-05). Exact-home
+retirement made the action pick the right one of two same-named remote
+instances, while the roster that decides which row the operator may act on
+still joined saved routes by name alone and gave the route to whichever twin
+the host listed first. The exact-home retire refused the mismatch, but
+routes that still addressed by name reached the other home, and the
+name-keyed saved-route store could not even represent two colliding routes.
+A guard's scope is the layer it lives in. Once a guard says "same name, not
+the same thing", grep the name it disambiguates and check every join, cache
+key, store and route keyed on it; fail-closed at the action does not rescue
+a wrong offer. The roster now joins by name and home, and a colliding routed
+spawn is refused or reported rather than overwriting.
+
 # Related
 
 [Separate operational home from granted work authority](../decisions/home-work-authority.md);
@@ -76,3 +89,4 @@ write boundary, not only the writer.
 # Citations
 
 1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (placement-guards-resolve-destination, names-are-not-identity, path-first-resolution-round-trip, symlink-containment-walker-throws, canonical-worktree-verification, adopted-writes-never-follow-a-symlink, captured-session-storage-identity; principle only).
+2. Migrated from agents/cli-dev/soul/knowledge/lessons/guard-the-projection-not-just-the-action.md @ 7838d3ca.

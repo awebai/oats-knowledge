@@ -27,6 +27,16 @@ unlink detects many replacements but does not close the check/unlink race.
 Owner-checked release helps prevent cascading theft without proving universal
 exclusion.
 
+**Bounded retry** (2026-09-05). Waiting is only safe if it ends. Every
+iteration that fails to acquire falls through one deadline check and one
+sleep, with no `continue` above them and no branch that retries for free: the
+first version checked the deadline on one branch only, so an unreadable lock
+or one that kept failing to be removed retried forever, hot. Retrying at once
+after a reclaim saves about 25ms and reopens that hole. Two file shapes
+reproduce the pathologies deterministically, where permission tricks do not:
+a directory where the lock belongs (a non-ENOENT read error), and a dangling
+symlink (the name exists, yet the lock reads as vanished on every pass).
+
 # Related
 
 [Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md).
@@ -38,3 +48,4 @@ exclusion.
 # Citations
 
 1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (pid-liveness-fails-toward-refusing-to-write, ownership-token-lock-beats-threshold-ordering).
+2. Migrated from agents/cli-dev/soul/knowledge/lessons/every-failed-retry-needs-one-deadline.md @ 7838d3ca.

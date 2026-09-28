@@ -96,6 +96,22 @@ native happened.
   to whoever actually made it. Closing the incident does not make the run a
   native acceptance of the reviewed head.
 
+# A surface ships — or leaves — at the shell
+
+Learned 2026-07-22 … 2026-07-25. A fully tested view was unreachable because
+the production shell kept its own navigation list and special-cased the
+route; module tests could not see it. A view is delivered only when a
+shell-level test proves a user can reach it: the rail reads one importable
+navigation manifest, every entry loads a mount-exporting module, and the
+shared renderer harness is checked by enumerating every shipped view rather
+than a hand-kept list, so the next view fails until it is wired. Removal is
+the same property inverted. A removed or rolled-back surface leaves tendrils
+in route families, harness tabs, styles, docs, every test root and the
+user-facing recovery copy (one fallback still sent users to the view the same
+change deleted), so a removal is an inventory, pinned by absence tests that
+also assert one kept surface so they cannot pass on an empty scan, and the
+reachability suite is inverted rather than deleted.
+
 # Elimination route
 
 The individual traps here have already become tests and harness structure in
@@ -113,3 +129,4 @@ be run on a human's machine.
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shell-nav-reachability-manifest.md, shared-renderer-harness-enumeration-test.md, dormant-surface-removal-inventory.md, scope-rollback-absence-pins.md and agents/oats-expert/soul/knowledge/lessons/surface-removal-inventory-user-guidance.md @ 7838d3ca.

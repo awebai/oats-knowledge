@@ -54,6 +54,11 @@ server, because they attach to the session source, not to the server (see
   use, so a Shift+Enter newline must be translated locally to the runtime's
   raw-linefeed newline alias — and the whole chord suppressed across every
   key event phase, or the widget's own keypress path still submits.
+- **A newline sent as keys is an Enter press** (2026-07-22). Multi-line text
+  delivered with `send-keys` submits, or lets a shell execute, line by line.
+  Pastes and any whole-text payload go through a multiplexer buffer as one
+  bracketed paste (`load-buffer`, then `paste-buffer -p`); only ordinary
+  keydown bytes use `send-keys`.
 
 # Related
 
@@ -72,3 +77,4 @@ server, because they attach to the session source, not to the server (see
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/multiline-send-bracketed-paste.md @ 7838d3ca.

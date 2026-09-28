@@ -6,3 +6,6 @@
 * [Hook failures and error messages are output channels](hook-and-error-channels-disclose.md) - Argument vectors stop injection, not disclosure; credential-bearing failures are rebuilt and minted secrets suppressed.
 * [The CLI as a machine boundary](machine-boundary-contract.md) - One stdout envelope, exit status as answer, explanations that survive a broken deployment, and refusals that name their cause.
 * [A kernel fail-closed guarantee is proven only by its first real capability user](fail-closed-mechanism-proven-by-first-user.md) - Enforcement, its intended user and the schema must move together.
+* [A CLI decision made in two layers, or copied per command, drifts](per-command-enumerations-drift-from-the-dispatch.md) - Route coarsely and refuse precisely, pin hand-copied mirrors, and make per-command fallbacks structural.
+* [An integrity value proves only the exact bytes it covered](an-integrity-value-proves-only-the-bytes-it-covered.md) - Digest raw bytes, never a decoded string; a content-derived id proves content, not authorship.
+* [Code that observes another agent's tree must not be able to harm the observer](observation-must-not-harm-the-observer.md) - Helper-free read-only Git, verified PIDs only, and untrusted entries never followed or read blocking.
