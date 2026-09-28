@@ -1,26 +1,43 @@
 ---
 type: Lesson
-title: A provider's wire answer must pass the kernel's validator on the provider's own stage; a reviewer reading a new key as a feature is how a strict wire breaks readiness
-description: oats.aweb 1.14.0 added a teams block to its binding-check answer, the reviewer read it as a readiness feature, the kernel's check wire accepts only status, problems and warnings and discarded the whole answer, and every readiness of an aweb home on 0.26 and 0.27 showed unknown until the kernel's real-bundled-provider test caught it at mirror time; so a provider stage must vendor the kernel's answer rule as a test and run every answer through it, and a reviewer must check every key a provider adds to a kernel-consumed document against the kernel's wire, not against the feature's intent.
-tags: [integrations, kernel-contract, readiness, review, testing]
+title: A document a provider writes for the kernel passes the kernel's own rule on the provider's stage; a reviewer reading a new key as a feature is how a strict wire breaks
+description: Check answers, hook outputs and manifests are kernel-consumed documents; the provider's stage vendors the kernel's validator or shape rule and runs every produced document through it, a new key is a wire question before it is a feature, and manifest keys follow the kernel's grammar (operations are keyed by bare name; the kernel adds the layer).
+tags: [integrations, kernel-contract, readiness, manifests, operations, review, testing]
 timestamp: 2026-09-25
 ---
 
-**Observed.** The 1.14.0 brief asked for a teams readiness view. The developer
-attached it to the check result; the reviewer listed "teams readiness block"
-among the delivered features. The kernel's `runProviderCheck` rejects any
-result key outside status|problems|warnings, so 0.26.0 and 0.27.0 reported
-"check answered invalid binding data" for every aweb home. Two provider
-releases shipped with it; the kernel's mirror test caught it.
+**Observed (2026-09-25), twice in one release.**
+
+- A messaging provider added a teams block to its binding-check answer; the
+  reviewer credited it as a readiness feature. The kernel's check decoder
+  accepts only `status`, `problems` and `warnings` in `result`, so every
+  readiness read of that provider's homes was relayed as unknown ("invalid
+  binding data") for two provider releases, until the kernel's
+  real-bundled-provider test caught it at mirror time.
+- The same release declared its home operations as `messaging:teams`,
+  `messaging:join`, `messaging:leave`. The manifest schema's key pattern
+  refused them, the kernel answered `E_OPERATION_UNKNOWN` at the address it
+  formed, and the Desktop, matching on the bare name, showed them as
+  unsupported.
 
 **Rules.**
-- For every document a provider writes for the kernel (check answers, hook
-  outputs, manifests), the provider's stage carries a vendored copy of the
-  kernel's validator or shape rule and runs every produced document through
-  it; a shape change on either side fails the stage, not the mirror.
+- For every document a provider writes for the kernel, the provider's stage
+  carries a vendored copy of the kernel's validator or shape rule and runs
+  every produced document through it; a shape change on either side fails the
+  stage, not the mirror.
 - Reviewer: a new key in a kernel-consumed document is a wire question first.
   Find the consumer's decoder and confirm it accepts the key before crediting
-  the feature. Views that the kernel does not consume belong in their own
-  operation (here `messaging:teams`), not in the check answer.
+  the feature. A view the kernel does not consume belongs in its own
+  operation (here the provider's `teams` operation), not in the check answer.
+- Key operations by their local name; the kernel composes `<layer>:<name>`
+  from the manifest's `layer`. Documentation names both forms deliberately:
+  the key in the manifest, the address in the CLI and the GUI. Keep a vendored
+  schema's key pattern identical to the kernel's (`^[a-z][a-z0-9-]*$`) and
+  never loosen it to accept a key that smuggles the layer in.
 - The mirror PR's real-bundled-provider tests are the last guard; keep them,
   and treat their failure as a provider defect until proven otherwise.
+
+The wire itself is described in
+[capabilities.md](https://github.com/awebai/oats/blob/main/docs/capabilities.md)
+and summarised for providers in
+[the kernel's provider readiness check wire](/nodes/integrations-expert/references/the-kernels-provider-readiness-check-wire.md).

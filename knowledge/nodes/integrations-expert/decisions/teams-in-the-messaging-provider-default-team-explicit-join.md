@@ -60,15 +60,14 @@ identity scope is local, with global an explicit choice.
   identity directory beside its primary), recorded in the instance's
   provider meta and revoked one by one at retire. Sending as a joined team
   is the client's identity-home selection, shown once in the provider's
-  inject. Receiving for a joined team is by polling until the service's
-  delivery paths serve several identity homes per instance home; readiness
-  says which joined teams are poll-only. When that arrives, the primary
-  identity never leaves the harness's native channel to gain it: the broker
-  streams only the explicitly listed joined identities, disjoint from the
-  native primary, with no runtime control authority for them; the service
-  has agreed this as a new contract to build, and until it ships joined
-  teams on native-channel homes stay poll-receive while external-delivery
-  homes may register every identity. Global instance identities stay an
+  inject. Receiving for a joined team was by polling in the first release;
+  the primary identity never leaves the harness's native channel to gain
+  live receive: the host wake broker streams only the explicitly listed
+  joined identities, disjoint from the native primary, with no runtime
+  control authority for them. (Shipped in oats.aweb 1.15 and current in
+  1.16.1: joined teams receive live through the broker where the runtime
+  supports it, an external-delivery home registers every identity, and
+  readiness warns per joined team that stays poll-only.) Global instance identities stay an
   explicit, non-default scope: under a hosted namespace nothing the root
   holds can release a retired identity's address.
 - **Readiness** reports, per home and per soul: the default team, eligible against
@@ -80,9 +79,10 @@ identity scope is local, with global an explicit choice.
   it; the kernel half lands in the major that already changes the file
   formats; the sync-driven reconcile of live homes is a later kernel minor
   the provider needs nothing new for.
-- What the service still owes changes setup and readiness, never spawn: a team
+- What the service still owed changed setup and readiness, never spawn: a team
   per workspace created by its owner outside OATS, a token-free join for an
-  entitled person, and delivery for several identity homes per home.
+  entitled person, and delivery for several identity homes per home (the
+  last shipped with the broker's multi-identity registration).
 - See [a global instance identity leaves a permanent address behind](/nodes/integrations-expert/lessons/a-global-instance-identity-leaves-a-permanent-address-behind.md)
   for the identity-scope reasoning, and
   [the superseded human-login enrollment design](/nodes/integrations-expert/decisions/workspace-team-enrollment-by-human-login-superseded.md)

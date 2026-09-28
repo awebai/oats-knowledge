@@ -6,8 +6,8 @@ tags: [lesson, integrations, hooks, environment, locator, custody, launch]
 timestamp: 2026-09-24
 ---
 
-Learned 2026-09-24 in the review of a messaging provider's launch hook by the
-node's owner; the defect existed in two shapes in the same week.
+Learned 2026-09-24 in the review of a messaging provider's launch hook; the
+defect existed in two shapes in the same week.
 
 # Rule
 
@@ -24,8 +24,9 @@ node's owner; the defect existed in two shapes in the same week.
 
 # Why
 
-The kernel runs lifecycle hooks with the invoking process's environment, and
-the invoker is often not a human shell: a coordinator instance restarting a
+The kernel runs lifecycle hooks with the invoking process's environment plus
+its own `OATS_*` variables (only the readiness check starts from a stripped
+environment), and the invoker is often not a human shell: a coordinator instance restarting a
 child runs the child's launch hook from inside its own environment. A launch
 hook that read the identity-home variable to find "the current grant" would
 hand the child its parent's credential, or, with renewal on, revoke the
@@ -49,9 +50,3 @@ variable as an external home, and the hook had passed it on without knowing.
 - The kernel persists launch-hook meta for exactly this reason; a provider
   that renews credentials relies on that persistence
   ([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md)).
-
-# Citations
-
-- Maintainer review of the 1.13 messaging provider (oats PR #110, round 1,
-  2026-09-24), and round 3 of the 1.12 provider (oats PR #107), where the
-  environment was stripped from the child process.

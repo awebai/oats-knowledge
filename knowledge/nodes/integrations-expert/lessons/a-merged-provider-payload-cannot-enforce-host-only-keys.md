@@ -1,53 +1,53 @@
 ---
 type: Lesson
-title: A merged provider payload cannot enforce host-only keys — the resolver, not the hook, refuses a setting that must come from the host file
-description: A hook receives one deep-merged settings map with no layer provenance, so a rule like "this key may come only from the host-local file" cannot be enforced in the provider; declare the key host-only in the manifest and let the resolver reject it in every other layer.
-tags: [lesson, integrations, settings, provenance, security, manifest, resolver]
+title: Host-only settings are declared in the manifest and refused by the resolver, never enforced by the provider
+description: A setting that must come only from the host (a custody directory, a minting root) is declared hostOnly in the capability manifest so the resolver, which still sees the layers, refuses it from every committed file and spawn flag; the provider's hook receives one merged payload and is the wrong place to police provenance.
+tags: [lesson, integrations, settings, provenance, security, manifest, resolver, host-only]
 timestamp: 2026-09-24
 ---
 
 Learned 2026-09-24 while specifying a messaging provider whose resident-to-custody
-map must never come from a committed file.
+map must never come from a committed file. This is the node's one home for the
+host-only rule; other concepts link here instead of restating it.
 
 # Rule
 
-- A provider's settings arrive as **one merged map**: workspace base, per-team
-  block, soul payload, host-local file and per-spawn pairs, deep-merged in
-  that order. By the time the hook runs, the origin of each key is gone.
-- Therefore a setting that must be **host-owned** (a path to a credential
-  custody directory, a machine-local socket) cannot be protected inside the
-  provider. The provider documents the rule and fails on an unresolvable
-  value; it does not guess provenance from the shape of the value.
-- The place to refuse it is the **resolver**, where the layers are still
-  separate: the manifest declares the key host-only and the kernel rejects it
-  in every committed or per-spawn layer with a typed schema error, the same
-  way it refuses a reserved key today.
+- A provider's settings reach its hook as **one merged payload**, layered
+  from manifest defaults through the workspace, soul, host-local file and
+  spawn flags. The hook reads its keys from that payload.
+- A setting that is a **fact about the machine** (a custody directory, a
+  minting root, a socket) is declared `hostOnly: true` on its manifest
+  `settings` entry. The resolver then accepts it only from the deployment's
+  `oats-local.yaml` `settings.<capability>` and refuses it in a committed
+  workspace or soul file or a `--provider` flag (`E_WORKSPACE_SCHEMA`, reason
+  `host-only-key`; see
+  [capabilities.md](https://github.com/awebai/oats/blob/main/docs/capabilities.md)).
+- The provider does not re-implement the check. `OATS_SETTINGS_ORIGINS` now
+  tells a hook which layer set each leaf, which is useful for diagnostics and
+  remedies, but refusal belongs where the layers are resolved: before any
+  spawn, preview or readiness read has used the value.
+- Declare hostOnly for every key whose value points at something a committed
+  file must never be able to choose, and verify it with a resolver test that a
+  workspace-file value is refused.
 
 # Why
 
 A committed workspace file that can point a spawn at a custody directory on
 someone's machine is a way to make a spawn serve an identity it was never
-meant to serve. The hook cannot tell that map from the one the host file
-provides. Only the component that sees the layers can, and the kernel already
-has the mechanism for a reserved key; extending it to a capability-declared
-attribute keeps the kernel ignorant of what the key means. Declaring the
-attribute is not free until the manifest schema knows it: an unknown
-attribute on a settings entry fails the manifest gates, so the schema change
-lands before the declaration, never together.
+meant to serve. Only the component that sees the layers can refuse it for
+every consumer at once; the kernel already had the mechanism for reserved
+keys, and extending it to a capability-declared attribute keeps the kernel
+ignorant of what the key means.
 
 # Consequences
 
-- Provider authors list their host-only keys in the manifest once the schema
-  accepts the attribute, and say in their docs which keys are host-only
-  meanwhile.
-- Operators place such keys in the host-local file only
+- The messaging provider declares its minting roots and resident custody map
+  hostOnly; operators place such keys in the host-local file only
   ([place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md)).
-- The kernel's side of the rule (declared ownership of inputs, refusal by the
-  resolver) is recorded in
-  [operator bindings: flat map, declared ownership](/nodes/oats-kernel-expert/decisions/operator-bindings-flat-map-declared-ownership.md).
+- The kernel's side of the rule (the host-only item of the served-identity
+  decision) is
+  [the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md).
 
 # Citations
 
-- Maintainer's inbox note of the same name (2026-09-24) and decision 27's
-  host-only item in the oats-expert node
-  ([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md)).
+- Migrated from agents/oats-expert/soul/knowledge/inbox @ 26f2caef.

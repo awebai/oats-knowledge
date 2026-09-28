@@ -1,14 +1,15 @@
 ---
 type: Decision
-title: Official package repositories separate the distributed payload root from repository tooling — and the owner soul never ships in the payload
-description: A package repository keeps everything the kernel copies under one payload root that carries the distribution manifest, and everything else (schemas, scripts, tests, workflows, the package expert's soul) outside it; the integrity digest covers the payload only, and a Git or catalog reference always reads the payload root.
-tags: [decision, integrations, packaging, payload-root, distribution, integrity]
+title: Official package repositories separate the distributed payload root from repository tooling, and every resource resolves inside that root
+description: A package repository keeps everything the kernel copies under one payload root that carries the distribution manifest, and everything else (schemas, scripts, tests, workflows, the package expert's soul) outside it; the integrity digest covers the payload only, a Git or catalog reference reads the payload root, and every manifest-named resource resolves beneath it or the integrity check is meaningless.
+tags: [decision, integrations, packaging, payload-root, distribution, integrity, paths]
 timestamp: 2026-07-28
 ---
 
 Decided 2026-07-28 by the integrations expert when the kernel's contained
-package root contract landed; still the layout under the workspace model,
-where a package pinned by tag or by Git reference is read from that root.
+package root contract landed; the resource-containment rule dates from
+2026-07-11. Still the layout under the workspace model, where a package pinned
+by tag or Git reference is read from that root.
 
 # Decision
 
@@ -20,31 +21,39 @@ where a package pinned by tag or by Git reference is read from that root.
   scripts, tests, workflows, the repository's own package descriptor, and the
   package expert's soul. None of it is installed.
 - **Runtime content never hardcodes the payload directory's name**; resource
-  paths inside the payload are payload-relative. Repository tooling may know
-  the name, because it is not shipped.
+  paths inside the payload are payload-relative.
 - **The repository root is not a package root.** A reference to the
   repository root without a payload manifest fails as an invalid package,
   which is the proof that the separation holds.
+- **Every resource the manifest names resolves inside the root.** Hooks,
+  commands, skill directories and injections resolve to real paths beneath the
+  real package root; a relative path that climbs out, or a symlink whose
+  target lies outside, is refused. Shared code is vendored into the package.
 
 # Why
 
-The kernel copies bytes and hashes what it copies. Anything a package needs
-at runtime must therefore be inside the hashed tree, and anything that must
-not ship (tests with fixtures, a soul's knowledge, workflow secrets) must be
-outside it; a single root makes both properties checkable by a listing. The
-mirror-and-pin discipline of the official catalog depends on the same
-boundary: the framework's bundled copy is a byte-for-byte mirror of the
-payload root at the published tag, never an authoring surface.
+The kernel copies bytes and hashes what it copies. Anything a package needs at
+runtime must be inside the hashed tree, and anything that must not ship
+(fixtures, a soul's knowledge, workflow secrets) must be outside it; a single
+root makes both properties checkable by a listing. If a manifest could point
+outside the tree, a locked package would execute bytes the digest never
+covered, and a later change to them would be invisible to every check: the
+kernel's trust model keeps integrity, origin and consent as separate proofs
+([trust, approval and consent boundaries](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md)),
+and an escaping path silently defeats the first. The official catalog's
+mirror depends on the same boundary: the framework's bundled copy is a
+byte-for-byte mirror of the payload root at the published tag
+([a provider release is mirrored and pinned in one PR](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)).
 
 # Consequences
 
 - Sibling packages developed together reference each other by their payload
   roots, not their repository roots.
-- Negative test fixtures mirror the payload layout so that "manifest at the
-  wrong level" is a tested refusal.
+- Tests include negative fixtures: a manifest at the wrong level, and a
+  manifest path that escapes the root, are both refused.
 - Rehearsing a provider against a pre-release head pins the repository by Git
   reference and full commit, and the kernel reads the payload root from it.
 
 # Citations
 
-- Legacy `agents/integrations-expert/soul/knowledge/lessons/payload-root-repo-layout.md` (2026-07-28; its install-command probes describe the classic installed tier, superseded by the workspace model's copy-whole packages).
+- Migrated from agents/integrations-expert/soul/knowledge @ dade3270.

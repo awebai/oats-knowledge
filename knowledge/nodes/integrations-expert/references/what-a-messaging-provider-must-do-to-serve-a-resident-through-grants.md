@@ -40,7 +40,9 @@ changes it: the mode (instance-lifetime or served resident), the alias and
 team, the address or none, the resident's name or none, and for a served
 resident the grant's identifier, expiry and scopes. The kernel copies it to
 the roster and the instance inspection without interpreting it
-([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md)).
+([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md);
+the key's shape is in
+[integrations.md](https://github.com/awebai/oats/blob/main/docs/integrations.md)).
 
 # What the served instance can and cannot do
 
@@ -63,10 +65,11 @@ a reply received; the wake path into a launched session; retire revoking the
 grant with the home removed; a wrong-team mint revoked and rolled back; a
 concurrent second instance on the same resident; renewal at restart with the
 old grant revoked; expiry mid-session surfaced as a typed error; least-scope
-negatives; and the no-key-copy check that the instance home never holds the
-resident's long-lived keys. Encrypted receive and send join the list when the
-custody service provides them.
+negatives; the no-key-copy check that the instance home never holds the
+resident's long-lived keys; and encrypted send and receive through the
+custody-attached grant, each path and direction read at the receiver
+([a grant is proven per path at the receiver](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md)).
 
 # Citations
 
-- Maintainer's inbox note `oats-runtime-requirements-for-grant-backed-resident-operation` (2026-09-24) and the messaging project's accepted custody contract of the same day.
+- Migrated from agents/oats-expert/soul/knowledge/inbox @ 26f2caef.
