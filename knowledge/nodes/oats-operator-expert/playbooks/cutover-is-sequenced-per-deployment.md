@@ -1,91 +1,117 @@
 ---
 type: Playbook
-title: "A kernel cutover is sequenced per deployment, not per machine: hold the previous kernel until the last deployment you care about is rebuilt, and decide per old home whether the new launcher may touch it"
-description: When a new kernel generation reads only its own schema and shares no files with the previous one, nothing forces the move, so the operator orders the cutover deployment by deployment rather than upgrading a machine wholesale. The trap is launch semantics — a newer launcher can change how it starts the harness even for homes whose files it refuses — so every old home the new kernel might launch needs a deliberate hold-or-accept decision.
-tags: [playbook, operator, cutover, migration, kernel-generation, launcher, sequencing, custody]
+title: "A kernel cutover is sequenced per deployment: retire under the kernel that made the homes, rebuild on fresh provider state, and hold the previous kernel until the last deployment has moved"
+description: When a new kernel generation shares no files with the previous one nothing forces the move, so the operator orders it deployment by deployment. Each deployment's instances retire under the kernel that spawned them, the rebuild starts on a fresh provider state directory while the old one is frozen as custody, and the previous kernel stays installed until the last deployment you care about is rebuilt.
+tags: [playbook, operator, cutover, rebuild, migration, kernel-generation, provider-state, custody, sequencing]
 timestamp: 2026-09-23
 ---
 
-Judgement formed 2026-09-23 by the OSS coordinator while operating a real
-two-team cutover.
+Judgement formed 2026-09-23/24 by the OSS coordinator while operating a real
+two-team cutover and rebuild; restated for the 0.26+ line, where the classic
+path is removed rather than flagged.
 
 # Rule
 
-When a kernel generation is a clean break — it reads only the new schema,
-refuses the old files by name, and shares no state with its predecessor — the
+When a kernel generation is a clean break — it reads only its own schema,
+refuses the old files by name and shares no state with its predecessor — the
 cutover is **sequenced per deployment**:
 
-1. Keep the previous kernel installed until the **last deployment you still
-   care about** has been rebuilt on the new one. Do not upgrade a machine
-   wholesale because "the new version is out".
-2. Before installing the new kernel on a host, list every old home that host
-   could still launch through it (spawn, session start or restart, scheduled
-   runs). For **each** such home decide: hold the old kernel for it, or accept
-   the new launch semantics after checking the spawn preview's composed skill
-   list for clashes.
-3. Order retirements against directory moves: identities that must be retired
-   from inside their homes retire **before** the home or its repository moves
-   (see [self-custodial identities retire from inside the home](/nodes/oats-operator-expert/lessons/self-custodial-identity-retires-from-inside-the-home.md)).
-4. Treat the previous deployment's provider state as **frozen custody** — read
-   for history, never re-pointed at the rebuilt deployment (see
-   [rebuild starts fresh provider state](/nodes/oats-operator-expert/playbooks/rebuild-starts-fresh-provider-state.md)).
+1. **Keep the previous kernel installed** until the last deployment you still
+   care about has been rebuilt. Do not upgrade a machine wholesale because
+   "the new version is out".
+2. **Retire each deployment's instances under the kernel that spawned them,
+   before anything moves.** The new kernel refuses to start or restart a home
+   an earlier kernel made, and retires it without running its retire hooks, so
+   every self-custodial identity in it is stranded (see
+   [self-custodial identities retire from inside the home](/nodes/oats-operator-expert/lessons/self-custodial-identity-retires-from-inside-the-home.md)).
+3. **Settle the shared declarations first** — members, packages, defaults —
+   then the host facts, then per-instance facts
+   ([place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md)).
+4. **Give the rebuild fresh provider state.** New knowledge state directory
+   and, if the old bindings file names the old state, a new bindings file.
+   Check in the spawn preview that the merged provider settings point at the
+   new paths before the first spawn creates anything.
+5. **Freeze the previous state directory as custody.** Read it for history;
+   never edit it and never re-point it at the rebuilt deployment. It is
+   authority to preserve, not garbage to clean — the posture of
+   [preserve authority until cleanup is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md).
+6. **Accept a rebuild on commit → sync → re-spawn,** not on one clean spawn:
+   a second spawn of a knowledge-owning soul after a member commit must keep
+   the same owner and the same state.
 
 # Why
 
-A clean v2 (see [the workspace model decision](/nodes/oats-expert/decisions/workspace-model-v2.md))
-was chosen over a converter or dual-schema reader. The consequence for the
-operator is that two generations **coexist indefinitely**: the old kernel keeps
-spawning old deployments; the new one fails closed on old files. Nothing in
-either generation pushes the operator forward, and nothing prevents a half-moved
-state from persisting for months. The order therefore is not given by the tools;
-it is the operator's decision, and "per deployment" is the only unit at which
-the decision is complete — a deployment is rebuilt or it is not, whereas a
-machine hosts several deployments at different stages.
+**Nothing pushes the operator forward.** The old kernel keeps running its own
+deployments indefinitely and the new one fails closed on their files, so a
+half-moved estate can persist for months. The order is the operator's
+decision, and "per deployment" is the only unit at which it is complete: a
+deployment is rebuilt or it is not, whereas a machine hosts several
+deployments at different stages.
 
-The reason step 2 exists is an interaction **neither generation's documentation
-states as a warning**. The new kernel's rule that harnesses start with their own
-skill and context discovery intact is a property of the *launcher*, not of the
-new files. A newer launcher that still carries the old compose path will happily
-launch an old-style home — and start it the new way. Isolation an operator
-relied on (hiding machine-level or repository-level skills from an instance)
-disappears silently the moment the newer binary performs the launch, even though
-that same binary would refuse to *rebuild* the home. The rationale for the
-launcher rule belongs to the kernel node's native-launch decision; the
-operator's job is to know that the rule reaches old homes and to decide for
-each one.
+**The kernel that made a home is the only one that retires it fully.** A
+retire hook de-registers an identity from inside the home; a kernel that does
+not recognise the home cannot run that hook. Retiring after the upgrade is
+retiring without the credential's cooperation. (In the 0.25 line the risk ran
+the other way: a newer launcher would start an old home with new launch
+semantics. Since 0.26 old homes are refused at start, which turns the per-home
+decision into a retire-first rule.)
+
+**Fresh state loses nothing that matters.** Accepted knowledge lives in the
+knowledge bases and is consulted remotely at its accepted state; the provider
+state directory holds per-source capture evidence, custody of captured notes
+and registration bookkeeping for *one* deployment. Re-pointing it at a rebuilt
+deployment produces a directory that half-describes two deployments and
+destroys the only record of what the old one captured and scheduled.
+
+**Identity must survive a move of the soul's files.** Under the workspace
+model a soul is fetched per commit into a cache directory inside the
+deployment, so its path changes with every member commit and never equals the
+old deployment's path. Anything keyed to that path is correct for one
+deployment at one commit. oats.okf now names a soul's ownership by the stable
+owner id its `okf.json` declares; the acceptance run still exercises a member
+commit, because a one-spawn test cannot tell an identity key from a path key.
 
 # What goes wrong
 
-- **Wholesale upgrade.** The operator replaces the kernel on a host, a session
-  restart of an old home succeeds, and the instance now sees an ambient skill
-  set it was never meant to see — with a possible name clash against its own
-  capability skills. Nothing errors; the preview would have shown the composed
-  list, but nobody looked because the home "was not being migrated".
-- **Retiring after the move.** A self-custodial identity whose home directory
-  has already been relocated cannot be retired cleanly from inside it; the
-  seat lingers as an orphan in the team.
-- **Reusing provider state.** Pointing the rebuilt deployment at the previous
-  state root trips owner pins at the first spawn of every knowledge-owning
-  soul, and tempts an edit to "fix" custody that should stay read-only.
-- **Rebuilding by machine, not by deployment.** One deployment ends up half on
-  each generation across two hosts, and outsider verification (see
-  [outsider verification of a rebuild](/nodes/oats-operator-expert/playbooks/outsider-verification-of-a-rebuild.md))
-  can no longer state which kernel produced which instance.
+- **Wholesale upgrade.** The operator replaces the kernel on a host; every
+  classic home on it can no longer start, and retiring them now strands their
+  identities, which must be revoked by hand with the provider's tooling.
+- **Rebuilding by machine.** One deployment ends up half on each generation
+  across two hosts, and nobody can say which kernel produced which instance.
+- **Reusing the old state directory,** or "fixing" a refusal by editing it:
+  custody becomes an unreviewable mutation and the real defect is hidden.
+- **Accepting on a mixed pair.** A new kernel with an old provider (or the
+  reverse) proves nothing about what deployments will install; accept only the
+  published combination (see
+  [second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
 
 # Consequences
 
-- The cutover plan is a list of deployments with, for each, the hosts it lives
-  on, the old homes those hosts might still launch, and the hold-or-accept
-  decision per home.
-- "Both kernels installed" is a normal intermediate state, not a smell; the
-  smell is having no written order of which deployment moves next.
-- The previous deployment's custody directories survive the cutover untouched
-  and are named in the plan as such.
-- Before the per-machine work starts, the shared workspace file must already be
-  settled — fact placement precedes cutover; see
-  [place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md).
+- The cutover plan is a list of deployments with, for each, its hosts, the
+  instances to retire under the old kernel, the new state paths, and the old
+  state directories named as frozen custody.
+- "Both kernels installed" is a normal intermediate state; the smell is having
+  no written order of which deployment moves next.
+- Retiring an instance from a rebuilt deployment should leave no provider
+  schedule behind; dead rows accumulating are a sign retirement is not
+  settling, not a cleanup chore.
+- Messaging-root placement is a pre-spawn step of the rebuild, after the fresh
+  state is laid down
+  ([messaging root placement decides the team](/nodes/oats-operator-expert/lessons/messaging-root-placement-decides-the-team.md)).
+
+# Routed
+
+- State-file keys, capture custody and inspection commands → the knowledge
+  package expert. The per-commit soul cache and soul identity → the kernel
+  node. The onboarding procedure → the `oats.setup` skills
+  ([oats-onboarding](https://github.com/awebai/oats/tree/main/oats-package/capabilities/oats-setup/skills/oats-onboarding)).
 
 # Citations
 
-- [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md) (removed from the current tree by the 0.26.0 legacy sweep; the current homes are `docs/packages.md` "Declaring packages" and `docs/configuration.md`) — §0 "0.24.x keeps working" (coexistence, launcher
-  semantics for classic homes), §7b (frozen custody), §8 (retained seats).
+- [Release notes 0.26.0](https://github.com/awebai/oats/blob/main/docs/release-notes/v0.26.0.md),
+  "Removed" (homes from an earlier kernel refused at start; retire runs no
+  hook) and "Upgrading from 0.25" (retire classic instances first).
+- [knowledge.md](https://github.com/awebai/oats/blob/main/docs/knowledge.md)
+  (bindings file and `stateDir`, remote consultation, `okf.json` owner).
+- Original rationale: [`docs/rebuild-to-v2.md` at v0.25.9](https://github.com/awebai/oats/blob/v0.25.9/docs/rebuild-to-v2.md)
+  §0, §7b, §8 (removed by the 0.26.0 legacy sweep).

@@ -17,7 +17,6 @@ export const OWNERS = Object.freeze({
   'oats-kernel-expert': '4f532e2d-72f6-4dd0-9743-c9eeab2809ba',
   'oats-desktop-expert': '76085278-3874-4382-9f7a-f11de3dbceb4',
   'market-research-expert': '2a073e37-2114-474d-917d-29cf3333932f',
-  'oats-assistant': '2dab92c7-701d-4101-bc7f-09acf4fc374e',
   'oats-operator-expert': 'af5e5c72-824e-4c86-9b3c-a197b4eb6edd',
   'integrations-expert': 'e544038d-065f-477c-b19c-07dab58c68a3',
   'oats-okf-expert': '8ecb9837-b76c-498b-9989-9c3cc1179bac',

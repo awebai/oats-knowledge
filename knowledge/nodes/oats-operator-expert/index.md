@@ -1,27 +1,30 @@
 # oats-operator-expert
 
-Deployment operator expertise — what it takes to set up, rebuild, migrate and
-keep an OATS deployment honest across machines: the rationale behind
-onboarding and the rebuild guide, migration judgement (what to keep, how to
-stage, custody outside every work tree), multi-machine layout (per-host files,
-resident identities, wake broker, custody service), cutover sequencing (which
-instances retire before which step), and the outsider-verification method
-(an independent operator holding none of the authoring state). Owned by the
-soul users instantiate to set OATS up (formerly `oats-setup-expert`, which by
-the 2026-09-21 decision owned nothing); charter set by the 2026-09-24 roster
-amendment after the OSS coordinator's operating review showed this expertise
-was real, universal, non-derivable from the repository — and unowned.
+Deployment operator expertise: the judgement behind onboarding a first-time
+adopter, realising a workspace on a machine, rebuilding and cutting over
+between kernel generations, laying a deployment out across machines, and
+keeping it honest — where each fact and each piece of custody belongs, what
+the installed providers actually do, and how to verify without authoring
+state. Procedures live in the `oats.setup` skills and the repository docs;
+this node holds why they are sequenced as they are and what goes wrong
+otherwise. It also holds the adoption judgement of the former oats-assistant
+node.
 
 ## Start here
 
-* [Place each fact at the scope that owns it — organisation-wide in the workspace, host facts in the uncommitted local file, single-holder facts at spawn — and let meaning, not type, break ties](lessons/place-each-fact-at-the-scope-that-owns-it.md) - Three legal surfaces accept configuration facts; the docs say what each accepts, not which one a fact belongs to. Choose by blast radius: who else would this fact reach here?
-* [Outsider verification of a rebuild](playbooks/outsider-verification-of-a-rebuild.md) - A rebuild guide is accepted only when an operator who did not write it reproduces the topology on a scratch rig against the published combination and verifies by positive enumeration through an ordered invariant list; anything less is a rehearsal.
-* [A kernel cutover is sequenced per deployment, not per machine](playbooks/cutover-is-sequenced-per-deployment.md) - When two kernel generations share no files nothing forces the move; hold the previous kernel until the last deployment you care about is rebuilt, and decide per old home whether the new launcher may touch it.
-* [A resident's custody is a host fact](decisions/resident-custody-is-a-host-fact.md) - Multi-machine custody layout for grant-served residents: assign residents to hosts first, one custody directory per resident regardless of teams, custody services live and die with the spawn host, and host loss means unavailable — never stale, never served elsewhere.
-* [Configure against what the installed provider reads, not the grammar the kernel accepts or previews](lessons/the-installed-provider-is-the-authority-for-a-setting.md) - A setting takes effect only if the shipped provider's reader consumes it; the kernel's payload model and preview are a writer's view, so verify by provider behaviour, and keep declared per-team intent in the workspace file while obtaining the effect by placement.
+* [Place each fact at the scope that owns it](lessons/place-each-fact-at-the-scope-that-owns-it.md) - Shared declarations, host facts or spawn: choose by how many holders the fact may have, meaning over type.
+* [A kernel cutover is sequenced per deployment](playbooks/cutover-is-sequenced-per-deployment.md) - Retire under the kernel that made the homes, rebuild on fresh provider state, hold the previous kernel until the last deployment has moved.
+* [A resident's custody is a host fact](decisions/resident-custody-is-a-host-fact.md) - One custody host per resident, declared locally, with custody services co-located and failing closed.
+* [The installed provider is the authority for a setting](lessons/the-installed-provider-is-the-authority-for-a-setting.md) - The preview proves delivery, not effect; configure against what the locked provider reads.
+* [Tracker integrations are partial surfaces](lessons/tracker-integrations-are-partial-surfaces.md) - Set an adopter's expectations about a tasks integration before promising a workflow.
 
 ## Sections
 
-* [Decisions](decisions/index.md) - Accepted operator positions on custody layout and workspace hosting, with rationale and rejected alternatives.
-* [Lessons](lessons/index.md) - Placement, identity and verification judgement learned operating deployments across machines.
-* [Playbooks](playbooks/index.md) - Ordered operator procedures for rebuild, cutover and outsider acceptance.
+* [Decisions](decisions/index.md) - Operator positions on custody layout and workspace hosting.
+* [Lessons](lessons/index.md) - Placement, identity, verification and adoption judgement.
+* [Playbooks](playbooks/index.md) - Cutover and rebuild sequencing.
+
+## Read alongside
+
+* [Second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md) - how a rebuild or a published definition is accepted by an operator without authoring state.
+* [oats-kernel-expert](/nodes/oats-kernel-expert/index.md) - the contracts an operator's configuration must respect.

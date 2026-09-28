@@ -6,14 +6,12 @@ tags: [decision, operator, custody, residents, grants, multi-machine, identity, 
 timestamp: 2026-09-24
 ---
 
-Position formed 2026-09-24 by the OSS coordinator as OATS runtime input to
-the grant contract, from operating a two-team deployment across machines
-through a rebuild round. It fixes operator placement, ordering and
-degraded-mode behaviour; the grant command surface, the custody service's
-API and hook-verification rules are routed elsewhere (see Routed). Rules 4
-and 6 were confirmed the same day by the messaging project's accepted
-custody contract (local, self-custodial resident custody; host-held mint and
-renew), so they read as settled, not proposed.
+Position formed 2026-09-24 by the OSS coordinator from operating a two-team
+deployment across machines through a rebuild round. It fixes operator
+placement, ordering and degraded-mode behaviour; rules 4 and 6 match the
+messaging project's accepted custody contract and the shipped oats.aweb
+provider (1.16.1), which reads custody paths only from host settings and
+refuses a global-mode spawn whose custody service is not serving.
 
 # Rule
 
@@ -22,8 +20,9 @@ renew), so they read as settled, not proposed.
    resident's instances spawn and where the spawn hook runs. Each machine
    holds only the residents it serves. Do not point a second machine at the
    same resident, replicate its custody, or share it over a network path.
-2. **Custody location is declared in the host's local, uncommitted
-   config**, not in the committed deployment or workspace files. It is a
+2. **Custody location is declared in the host's `oats-local.yaml`**
+   (for oats.aweb, `settings.oats.aweb.residents`: resident name to custody
+   directory), never in the committed workspace or soul files. It is a
    fact about `<host-a>`, and it belongs at the scope that owns it — see
    [Place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md).
 3. **One resident, several teams, one custody directory.** The team an
@@ -114,6 +113,7 @@ operator's hands.
 
 # Citations
 
-- Position sent to the messaging project's identity/custody expert,
-  2026-09-24 (legacy path in the oats-expert bundle:
-  `knowledge/inbox/grant-custody-service-and-renewal-belong-on-the-custody-host.md`).
+- oats.aweb manifest `settings.residents` and custody preflight
+  ([`capabilities/oats-aweb`](https://github.com/awebai/oats/tree/main/capabilities/oats-aweb),
+  1.16.1 mirror).
+- Migrated from agents/oats-expert/soul/knowledge/inbox/grant-custody-service-and-renewal-belong-on-the-custody-host.md @ 7838d3ca.

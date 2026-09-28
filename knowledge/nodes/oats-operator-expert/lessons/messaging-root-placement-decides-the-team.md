@@ -98,10 +98,9 @@ recipe.
   [resident custody is a host fact](/nodes/oats-operator-expert/decisions/resident-custody-is-a-host-fact.md)).
 - Root placement is a **pre-spawn step of the rebuild**, sequenced before the
   first messaging soul is spawned and after the fresh provider state is laid
-  down ([rebuild starts fresh provider state](/nodes/oats-operator-expert/playbooks/rebuild-starts-fresh-provider-state.md),
-  [cutover is sequenced per deployment](/nodes/oats-operator-expert/playbooks/cutover-is-sequenced-per-deployment.md)).
+  down ([cutover is sequenced per deployment](/nodes/oats-operator-expert/playbooks/cutover-is-sequenced-per-deployment.md)).
 - The outsider verifying a rebuild checks certificates against the intended
-  team, not roster presence ([outsider verification of a rebuild](/nodes/oats-operator-expert/playbooks/outsider-verification-of-a-rebuild.md)).
+  team, not roster presence ([second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
 - The clean-v2 stance that made the old team scope disappear is recorded in
   [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md).
 

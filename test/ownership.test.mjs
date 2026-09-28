@@ -14,10 +14,10 @@ const mutate = change => {
   return { ...files, 'okf-base.json': encode(candidate) };
 };
 
-test('whole base has the thirteen reviewed owner UUIDs and resolvable declarations', () => {
+test('whole base has the twelve reviewed owner UUIDs and resolvable declarations', () => {
   const result = validateOwnership(files, okf);
   assert.equal(result.id, BASE_ID);
-  assert.equal(Object.keys(result.nodes).length, 13);
+  assert.equal(Object.keys(result.nodes).length, 12);
   for (const [name, owner] of Object.entries(OWNERS)) assert.equal(result.nodes[name].owner, owner);
 });
 
@@ -27,12 +27,12 @@ const malformed = [
   ['unknown node field', b => { b.nodes['oats-expert'].readers = []; }],
   ['missing owner', b => { delete b.nodes['oats-expert'].owner; }],
   ['changed owner UUID', b => { b.nodes['oats-expert'].owner = '11111111-1111-4111-8111-111111111111'; }],
-  ['duplicate owner', b => { b.nodes['oats-assistant'].owner = b.nodes['oats-expert'].owner; }],
-  ['overlapping nodes', b => { b.nodes['oats-assistant'].path = 'nodes/oats-expert'; }],
+  ['duplicate owner', b => { b.nodes['oats-operator-expert'].owner = b.nodes['oats-expert'].owner; }],
+  ['overlapping nodes', b => { b.nodes['oats-operator-expert'].path = 'nodes/oats-expert'; }],
   ['path traversal', b => { b.nodes['oats-expert'].path = '../outside'; }],
   ['absolute path', b => { b.nodes['oats-expert'].path = '/outside'; }],
   ['hidden path', b => { b.nodes['oats-expert'].path = '.hidden'; }],
-  ['missing node', b => { delete b.nodes['oats-assistant']; }],
+  ['missing node', b => { delete b.nodes['oats-operator-expert']; }],
   ['extra node alias', b => { b.nodes.extra = { ...b.nodes['oats-expert'] }; }],
 ];
 for (const [label, change] of malformed) test(`rejects ${label}`, () => {
