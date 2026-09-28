@@ -70,8 +70,7 @@ and the repository): the bound spawn decision carries the merged
 per-module provider payloads exactly as the hook received them; launch-hook
 meta is persisted, so retire revokes the grant that is actually live; and a
 manifest may mark a settings key **host-only**, admitted only from the
-host-local file — the resolver is the one place this can be enforced, since
-the hook receives one merged payload without provenance. No CLI grammar
+host-local file ([the host-only rule](/nodes/integrations-expert/lessons/a-merged-provider-payload-cannot-enforce-host-only-keys.md)). No CLI grammar
 grows, and a confirmed Desktop apply now binds every provider fact.
 
 # Status

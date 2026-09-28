@@ -1,5 +1,11 @@
 # Knowledge log
 
+## 2026-09-28
+
+* **Update**: Audit pass against main (the 0.30 line; team-model content held for its own pass): every node describes main — the captured path, the classic cascade, install and approval removed; one canonical roster ([domain-expert rebuild](/nodes/oats-expert/decisions/domain-expert-rebuild.md)); stewardship cut to judgement with the legacy ledgers' lessons swept in; integrations consolidated and current to oats.aweb 1.16.1; Desktop at Phase F; provenance citations collapsed; one-line indexes; logs capped at ~20 entries, newest first.
+* **Update**: The `oats-assistant` node merged into [oats-operator-expert](/nodes/oats-operator-expert/index.md); the base declares twelve nodes.
+* **Deletion**: The dated current-direction snapshot; dated direction lives in the framework's release notes.
+
 ## 2026-09-24
 
 * **Creation**: Chartered six package-expert nodes — [oats-okf-expert](/nodes/oats-okf-expert/index.md), [oats-aweb-expert](/nodes/oats-aweb-expert/index.md), [oats-jira-expert](/nodes/oats-jira-expert/index.md), [oats-linear-expert](/nodes/oats-linear-expert/index.md), [oats-authoring-expert](/nodes/oats-authoring-expert/index.md), [oats-dev-expert](/nodes/oats-dev-expert/index.md) — one per official package, owning that package's facts and reading the integrations node; the aweb and okf charters name their cross-project seams (Phase D slice 3, roster amendment of 2026-09-24).
@@ -17,4 +23,4 @@
 
 * **Harvest**: Preserved the founder-accepted optional reference theory and capability-owned runtime decision in [Optional reference theory, capability-owned runtime](/nodes/oats-expert/optional-reference-theory.md).
 * **Creation**: Prepared five domain nodes for review, preserving the accepted optional-theory concept byte-for-byte. Market and assistant contain navigation only. No release, deployment or fresh-reader learning is certified.
-* **Creation**: Proposed the judged 24-concept seed and five-node ownership map for knowledge PR review, preserving the accepted theory and history. Added [Current OATS direction](/nodes/oats-expert/roadmap/current-direction.md) from accepted priorities and verified published OATS 0.23.1 / OKF 2.0.0; cutover, fresh-role adoption and delegated Desktop UX remain separate acceptance work.
+* **Creation**: Proposed the judged 24-concept seed and five-node ownership map for knowledge PR review, preserving the accepted theory and history. Added a current-direction snapshot (since removed) from accepted priorities and verified published OATS 0.23.1 / OKF 2.0.0; cutover, fresh-role adoption and delegated Desktop UX remain separate acceptance work.
