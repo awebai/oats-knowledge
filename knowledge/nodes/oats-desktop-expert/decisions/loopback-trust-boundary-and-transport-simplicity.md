@@ -68,7 +68,7 @@ escaped values in attribute positions.
 
 **Client-supplied paths are selectors, never authority.** Path-shaped input
 from the renderer selects among server-computed, admitted roots; see
-[Workspace admission is privileged and transactional](/nodes/oats-desktop-expert/decisions/privileged-workspace-admission.md)
+[Workspace admission is privileged and transactional](privileged-workspace-admission.md)
 for how those roots are admitted and held.
 
 # Transport simplicity
@@ -94,9 +94,9 @@ polling demonstrably chafes. Anyone proposing push must show the chafing.
 
 # Related
 
-[One standalone Desktop product, no hidden operational kernel](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md);
-[Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md);
-[Verification judgment for Desktop's privileged surfaces](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md);
+[One standalone Desktop product, no hidden operational kernel](standalone-product-and-cli-authority.md);
+[Terminal tabs are viewers, not session owners](terminal-viewers-not-session-owners.md);
+[Verification judgment for Desktop's privileged surfaces](../lessons/verification-judgment-for-privileged-surfaces.md);
 [Integrity, origin and consent are different proofs](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
 
 # Current contracts
@@ -105,14 +105,4 @@ polling demonstrably chafes. Anyone proposing push must show the chafing.
 
 # Citations
 
-1. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/web-pane.md` (founder decision 2026-07-17; loopback and zero-dependency choices); SHA-256 `7fd5ecc5f26eda4e714db517382b67e9f490caf245efbf99c7628daefb974be3`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/architecture/desktop-backend-architecture.md`; SHA-256 `4160cfcdca27e11f1250f2e9304dea65ef2a17b9e3494737a1ca5c92a4f19ce8`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/loopback-host-guard-all-requests.md`; SHA-256 `1a4ef7fd96ffcf5cba50bfdfb6c90e1ee63fdfc171ecfdd91f47580e4925b48a`.
-4. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/command-running-get-csrf-fanout.md`; SHA-256 `d687ae2c01d8b1fbda8327223b24c3de05852a6f4ebc6991e05928960285da30`.
-5. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/harness-proxy-origin-guard.md`; SHA-256 `8eca6c262321ef16ad26be90c46501f4845033f9858c78c9eb28444e5a4645c4`.
-6. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/desktop-shell-hardening-review-lessons.md`; SHA-256 `3e7981803e566ec7642f50692e9f97d26a8ef21ea57a286c3e251c55f41affe0`.
-7. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/url-resolution-ssrf-footgun.md`; SHA-256 `25e0d3809c879c1af154559b7f1cf9ecc05c324652289f58c88bc4480726bfd3`.
-8. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/sanitize-marked-markdown-before-innerhtml.md`; SHA-256 `6175f57a9fe71b89f32b1a7a34b100fe9f194b178da0dacecc2d0442ad66acd9`.
-9. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/dom-construction-not-innerhtml-attributes.md`; SHA-256 `f4d3703c3ab835fa5fdd3aa6009e40955de14b194f4b2f66c6fd7ed6199970e3`.
-10. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/no-dynamic-selectors-from-data.md`; SHA-256 `bf2a1d520a91ee4d67b39a789d16262d9a3591534dc543d9895bc3c97023c0b6`.
-11. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/roster-grouping-string-coerce-metadata.md` (promoted 2026-07-25 per the legacy log); SHA-256 `f01ed9eb382511267af5cbdf584e743371b5b69b900fd334e6761c8b45c50d20`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca.

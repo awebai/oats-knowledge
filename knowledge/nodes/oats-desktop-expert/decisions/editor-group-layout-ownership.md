@@ -22,7 +22,7 @@ Group ownership within a layout does not by itself decide restoration across wor
 
 # Related
 
-[Agent-centered navigation makes the action target legible](/nodes/oats-desktop-expert/decisions/agent-centered-navigation.md); [Keyboard policy follows actions and user intent](/nodes/oats-desktop-expert/lessons/keyboard-focus-and-action-ownership.md).
+[Agent-centered navigation makes the action target legible](agent-centered-navigation.md); [Keyboard policy follows actions and user intent](../lessons/keyboard-focus-and-action-ownership.md).
 
 # Current contracts
 
@@ -31,4 +31,4 @@ Group ownership within a layout does not by itself decide restoration across wor
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/editor-group-split-model.md`; SHA-256 `b726d45da320a99fbc3e4ea3ec6ba66ffdf4c5f4812dab56124ba9cf96630ffd`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.

@@ -38,8 +38,8 @@ rounds 2026-07-22 … 2026-07-25.
    findings (a test that does not fail under reversion, a fixture that does
    not actually hang), the loop has reached its natural end. Fix minimally,
    rescope re-review explicitly to product correctness and security, and stop
-   adding speculative assertions. The operator ruled a five-round loop
-   "overboard" when it became testing tests (2026-07-24). Consumer-parity
+   adding speculative assertions. The operator stopped a five-round loop as
+   excessive once it had become testing the tests (2026-07-24). Consumer-parity
    evidence — the published artifact behaving correctly — is a better
    late-slice confidence source than more unit tests.
 
@@ -105,21 +105,11 @@ be run on a human's machine.
 
 # Related
 
-[The loopback interface is Desktop's trust boundary](/nodes/oats-desktop-expert/decisions/loopback-trust-boundary-and-transport-simplicity.md);
-[Workspace admission is privileged and transactional](/nodes/oats-desktop-expert/decisions/privileged-workspace-admission.md);
-[Async completion must still own the user's intent](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md);
-[Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md).
+[The loopback interface is Desktop's trust boundary](../decisions/loopback-trust-boundary-and-transport-simplicity.md);
+[Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md);
+[Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md);
+[Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md).
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/behavioral-security-regressions.md`; SHA-256 `7a367ce2d8057f5513f4a3ee7e1043d910d9a619a7197afe1c901365e5fd9265`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/race-guard-tests-overlap-generations.md`; SHA-256 `8fd224ee4019939198b58897d8391f437a7f7ab90b9f3eb114c3a20fb0d1234e`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/regression-tests-bug-layer.md`; SHA-256 `ba4a06c7eb7434c17d27c6d5441ca2f142fc48f67ac1017861f0fde7fa736a5a`.
-4. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/review-loop-scope-ratchet.md` (operator ruling 2026-07-24); SHA-256 `1622ceb4610631d4ac7819dad326f17669bc81994b26f6e171cb21b45bf22ade`.
-5. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/no-packaged-gui-launches-local.md`; SHA-256 `cbf4ac7cbedfb273219c5bfa4e064504070b4d8e94ff8f21c1c3527b36fe85a8`.
-6. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/electron-smoke-process-group-reaping.md`; SHA-256 `2992933665450a4fa9566c85e6d5060ba9c61edc7f2fde25ee06e53e39623abd`.
-7. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/electron-headless-verification.md`; SHA-256 `fc26148aea9fc312a208e6607be7717b2a96239518b4250ff500da30fe36ec27`.
-8. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/pkill-scoping-discipline.md`; SHA-256 `fd8e6a55acf1c98b13ddacb8c3d8bdc1eb25c9ba5e5b287088f504da9bb5bed9`.
-9. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/test-name-filters-are-not-effect-isolation.md` (2026-09-24); SHA-256 `b0b91abcfaffec7705e0b7fe2a34d463edf0886395f64f97b56c30617aaa3b03`.
-10. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/pin-node-test-globs-in-nested-worktrees.md` (2026-09-24 bullet only: globs bound discovery, not effects); SHA-256 `7a613a1586b0c325beeed5f953a881bd6c7cebabf52ee390341beda93dc7b8a4`.
-11. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/terminal-resource-cap-in-owning-process.md` (isolated multiplexer server for live tests); SHA-256 `2bb46b9acb64541abf34c1c8c89e2a2a71b6c0c42653d81b813fdd84b1640ad8`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.

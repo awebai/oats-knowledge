@@ -49,8 +49,8 @@ be copied into a workflow that holds real signing credentials.
 
 # Related
 
-[Verification judgment for Desktop's privileged surfaces](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md) (packaged launch smoke belongs in CI);
-[One standalone Desktop product, no hidden operational kernel](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md).
+[Verification judgment for Desktop's privileged surfaces](verification-judgment-for-privileged-surfaces.md) (packaged launch smoke belongs in CI);
+[One standalone Desktop product, no hidden operational kernel](../decisions/standalone-product-and-cli-authority.md).
 
 # Current contracts
 
@@ -58,6 +58,4 @@ be copied into a workflow that holds real signing credentials.
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/electron-builder-adhoc-identity.md`; SHA-256 `594a1221213aa43bebf70eb59bdad0e8e294a7ca15e17c24a9a34848c10ba397`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/macos-strict-codesign-gate-structure.md`; SHA-256 `b2ffdbad0333cca4de123838623f38843fffc0abecdae9fef26f30f174088f01`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/references/macos-installer-v0182-v0183-release-record.md` (dates the defect and the verified fix, 2026-07-25); SHA-256 `af075acef5b7d58ce993c0ae1389b0ec1a583870dc29ac06c2656e5990043d4d`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.

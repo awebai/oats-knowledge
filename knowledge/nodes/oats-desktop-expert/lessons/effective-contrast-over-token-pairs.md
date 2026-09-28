@@ -37,8 +37,8 @@ accessibility review, and refuses a token-table screenshot as proof.
 
 # Related
 
-[Browser-owned state and accessibility under repaint](/nodes/oats-desktop-expert/lessons/browser-owned-state-and-accessibility-under-repaint.md);
-[Identity and relationships must stay legible under ambiguity](/nodes/oats-desktop-expert/lessons/identity-and-relationship-legibility.md) (distinctions must not rely on colour alone).
+[Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md);
+[Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md) (distinctions must not rely on colour alone).
 
 # Current contracts
 
@@ -46,4 +46,4 @@ accessibility review, and refuses a token-table screenshot as proof.
 
 # Citations
 
-1. OATS rationale source `agents/ux-designer/soul/knowledge/lessons/effective-contrast-inventory.md`; SHA-256 `b821f2ef8cb4b7923bada84f2702af3ebaa55fd448ab27b188863897f5bc77f0`.
+1. Migrated from agents/ux-designer/soul/knowledge @ 7838d3ca.
