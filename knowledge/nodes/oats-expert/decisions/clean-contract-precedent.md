@@ -43,8 +43,8 @@ problem inside one file; the ruling itself (2026-07-29, superseding the
 2026-07-26 residue envelope) is recorded once, in the kernel decision above.
 
 Two corollaries: the removal error must be **orderable** — its remedy must not
-depend on the very command the error blocks (edit the config first, then
-install); and narrative documentation written for the replaced model must be
+depend on the very command the error blocks (edit the file first, then run
+the command); and narrative documentation written for the replaced model must be
 grepped sentence by sentence and re-verified, because prose describing the old
 behaviour survives renames.
 
@@ -59,5 +59,4 @@ behaviour survives renames.
 
 # Citations
 
-1. Legacy `agents/oats-expert/soul/knowledge/architecture/workspace-config.md` (2026-07-11), `decisions/workspace-seeded-knowledge-sections.md` (2026-07-11), `decisions/config-shape-agent-types-and-injections.md` §Options 4, `decisions/scoped-capability-store-and-templates.md` §Consequences, `decisions/capability-materialization-and-config-template-sync.md` §Migration (2026-07-29), `lessons/init-acquisition-discovery-gotcha.md` (2026-07-17).
-2. Legacy `agents/docs-expert/soul/knowledge/lessons/v1-lock-migration-no-residue.md` (2026-07-29).
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`architecture/workspace-config`, `decisions/config-shape-agent-types-and-injections`, `scoped-capability-store-and-templates`, `capability-materialization-and-config-template-sync`, 2026-07-11 → 2026-07-29) and agents/docs-expert/soul/knowledge @ 7838d3ca (`lessons/v1-lock-migration-no-residue`).

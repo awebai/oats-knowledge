@@ -63,5 +63,4 @@ claims about knowledge follow
 
 # Citations
 
-1. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/external-knowledge-custody.md`; SHA-256 `1800264e103d375baebde324925dfbeecd21e0ff2f61fc322cd757376340c120`.
-2. Motivating cases: legacy `agents/dev-coordinator/soul/knowledge/lessons/post-merge-harvest-stranding.md` (2026-07), `agents/docs-expert/soul/knowledge/lessons/review-handoffs-branch-tip-defer-harvest.md` (2026-07-29), `agents/oats-expert/soul/knowledge/lessons/harvest-cherrypick-parent-state.md` (2026-07-25).
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/external-knowledge-custody`; `lessons/harvest-cherrypick-parent-state`, 2026-07-25), with motivating cases from agents/dev-coordinator and agents/docs-expert knowledge @ 7838d3ca.

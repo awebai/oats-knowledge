@@ -59,12 +59,12 @@ the source. The plugin-marketplace convention of a payload subdirectory inside
 a repository informed the package payload root.
 
 Divergences OATS required and Pi does not solve for it: independently
-targetable capabilities, exclusive fundamental layers, exact lock integrity,
-per-capability executable approval, config snapshots rather than live
-inheritance, nested repository scopes, and deterministic instance-local
-composition
+targetable capabilities, exclusive fundamental layers, exact lock integrity
+(commit and content per package version), workspace policy that a package
+update can never rewrite, and every capability copied whole into each
+instance rather than installed once and shared
 ([kernel view](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md),
-[local policy is not package policy](/nodes/oats-kernel-expert/decisions/local-policy-is-not-package-policy.md)).
+[a package update never retargets a deployment](/nodes/oats-kernel-expert/decisions/soul-declares-kind-config-assigns-policy.md)).
 Silent floating updates were explicitly not borrowed.
 
 # Citations
@@ -73,4 +73,4 @@ Silent floating updates were explicitly not borrowed.
 2. [Agent Skills specification](https://agentskills.io/specification) and creator guides (best practices, optimizing descriptions, evaluating skills).
 3. [agents.md](https://agents.md); [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices).
 4. [Pi packages](https://github.com/earendil-works/pi-mono/blob/main/packages/coding-agent/docs/packages.md), cited in the 2026-07-26 distribution-package decision.
-5. Legacy `agents/oats-expert/soul/knowledge/references/` `okf-spec`, `agent-skills-standard`, `agents-md-standard` (2026-07-08); `architecture/knowledge-typology.md` provenance tiering; `decisions/distribution-packages-config-profiles-and-requirements.md` and `oats-package-repository-payload-root.md`.
+5. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`references/okf-spec`, `agent-skills-standard`, `agents-md-standard`, 2026-07-08; `architecture/knowledge-typology`; the 2026-07-26 distribution-package decisions).

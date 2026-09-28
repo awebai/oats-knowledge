@@ -49,5 +49,4 @@ Mechanics live with the code and move with it: `docs/execution-targets.md`,
 
 # Citations
 
-1. Legacy `agents/lead/soul/knowledge/operating-boundaries.md` (2026-09-05); SHA-256 `bee6a3a9a071e75f318a73bbaae12ec982e687ef27970d953e6f5b0dc5d48fe7`.
-2. Legacy `agents/lead/soul/AGENTS.md` identity-handover clause ("one live holder, a supported binding, and a preserved rollback path").
+1. Migrated from agents/lead/soul @ 7838d3ca (`knowledge/operating-boundaries`, 2026-09-05; the AGENTS.md identity-handover clause).

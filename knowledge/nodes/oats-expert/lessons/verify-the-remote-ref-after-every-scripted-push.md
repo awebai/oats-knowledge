@@ -1,36 +1,33 @@
 ---
 type: Lesson
-title: Verify the remote ref after every scripted push before reporting a head
-description: A chained release or merge script can fail mid-way while later steps still report the intended outcome; read the remote or PR state back before naming it to a reviewer.
-tags: [lesson, release, git, review-protocol, github]
+title: Report an outcome only from a read-back of the target
+description: A chained push, merge or release script can fail mid-way while a later step still announces the intended outcome; a head, a merge or a tag is named to a reviewer only from a read-back of the remote or the forge, in its own step, guarded by what the read-back says.
+tags: [lesson, release, git, review, notices, read-back]
 timestamp: 2026-09-24
 ---
 
-Learned 2026-09-24 by a maintainer who sent two consecutive false "new head"
-reports in one landing, both from the same shape: a `&&` chain whose git step
-failed while an unconditional print of the local head and the mail step still
-ran.
+Learned 2026-09-24/25 by a maintainer who sent three false reports in two
+days, all of one shape. Twice a chain whose git step failed still printed the
+local head and mailed it as the "new head". Once an edit, commit, merge and
+the "merged" notice were chained with `&&` except the notice, which followed a
+`;`: the edit's pattern did not match, every guarded step was skipped, and the
+notice announced a merge with empty identifiers.
 
-- `git checkout -B <branch>` is refused when another worktree (a developer
-  instance's work tree) holds that branch. Use a detached checkout of the
-  remote branch and push `HEAD:refs/heads/<branch>` instead; never touch the
-  other instance's worktree.
-- `git push --force-with-lease` to a URL rather than a named remote has no
-  remote-tracking ref to lease against and is refused. Give the expected
-  value explicitly: `--force-with-lease=refs/heads/<branch>:<old-oid>`.
-- Never let the report step run unconditionally. Read the remote back
-  (`git ls-remote <url> refs/heads/<branch>`), compare with the local head,
-  and only then name the head to the reviewer.
+# Rule
 
-The same rule applies to head-guarded merges and notices on the forge. The
-expected-head guard takes the full 40-character object id from the PR view,
-not an abbreviated SHA. A notice about an outcome is composed from a
-read-back of that outcome (PR state, remote ref, or remote tag) in a
-separate step after the action. If action and notice share one chain, the
-notice branches on the read-back value, not on the intent.
+- A notice about an outcome is **its own step**, composed from a read-back of
+  the target after the action — the remote ref, the PR state, the remote tag —
+  and it branches on the read-back value, never on the intent.
+- The merge guard takes the full object id from the PR view, and the PR's
+  check (its head SHA and conclusion) is part of what is read back.
+- An edit that finds nothing to change must stop the run; assert the match
+  before editing.
+- A refusal right after a push to a branch with required checks is usually
+  the check still running, not a conflict: wait for the check, merge, read
+  back.
+- Before opening a PR from a scratch worktree, list the merge range's paths:
+  a dependency symlink added for local gate runs is committed by a
+  directory-wide add.
 
-A reviewer who fetches the branch catches this immediately, but it costs a
-round trip and trust. Also: a scratch worktree that received a
-`node_modules` symlink for gate runs will commit that symlink under a
-directory-wide `git add`; list `git diff --name-only origin/main...HEAD`
-before opening the PR.
+A reviewer who fetches the branch catches a false report at once, but it
+costs a round trip and trust.

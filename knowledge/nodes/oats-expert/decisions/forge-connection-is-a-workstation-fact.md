@@ -42,8 +42,8 @@ capability") would have put a workstation fact at the soul level:
 The human's framing — *a button in the ADE, however IDEs do it* — is the
 smaller and truer design. Consequently nothing about a forge connection is
 written into deployment config, soul definitions, instance records, locks or
-the catalogue; there is no activation, no injection, no `oats use`; and the
-kernel is not involved in connections at all.
+the catalogue; there is no activation and no injection; and the kernel is
+not involved in connections at all.
 
 # Rationale: custody and reads
 

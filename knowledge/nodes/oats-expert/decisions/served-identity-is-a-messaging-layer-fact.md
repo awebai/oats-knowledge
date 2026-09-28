@@ -65,49 +65,24 @@ seams and never a CLI grammar for them.
   deregistering at retire, and reporting a failed revoke as a failure with the
   TTL note.
 
-Kernel mechanics, one line each — rationale and current shape live in the
-kernel node and the repository:
-
-- The bound spawn decision carries the merged per-module provider payloads,
-  an exact echo of what the hook received (see kernel node).
-- Launch-hook meta is persisted into the instance's capability meta, because a
-  provider that renews a grant at every start would otherwise leave retire
-  revoking the *original* grant while the live one runs to its TTL; a
-  documented hook return being dropped is a contract defect, so this shipped
-  ahead of acceptance (see kernel node).
-- A manifest may mark a settings key **host-only**; the resolver refuses it in
-  every committed or per-spawn layer and admits it only from the host-local
-  file. The resolver is the only place this can be enforced — the hook
-  receives one merged payload without provenance — and the motivating case is
-  a resident-to-custody map that a committed workspace file must never be able
-  to point a spawn at (see kernel node).
-
-# Consequences
-
-- The kernel grows two provider-neutral fields, one manifest attribute and one
-  persistence fix; no CLI grammar grows.
-- A confirmed Desktop apply binds provider facts for the first time; before,
-  they were covered only through the resolution revision.
-- An older kernel without the per-spawn payload is unaffected: the same keys
-  work through capability settings.
-- Sequence: the provider half does not wait on the kernel (it emits the meta
-  key regardless); the kernel half lands after acceptance; the Desktop follows
-  when its lane resumes.
+The kernel side is three provider-neutral seams (recorded in the kernel node
+and the repository): the bound spawn decision carries the merged
+per-module provider payloads exactly as the hook received them; launch-hook
+meta is persisted, so retire revokes the grant that is actually live; and a
+manifest may mark a settings key **host-only**, admitted only from the
+host-local file — the resolver is the one place this can be enforced, since
+the hook receives one merged payload without provenance. No CLI grammar
+grows, and a confirmed Desktop apply now binds every provider fact.
 
 # Status
 
-Accepted 2026-09-24. Provider half published after a live rehearsal; kernel
-half complete in the same week — launch-meta persistence as a defect fix in
-one 0.25 patch, then bound payloads, host-only keys and roster display in
-the next, advertised to the Desktop as a reported **feature** rather than a
-version number. Decided the same day: the provider does **not** ship a patch
-to declare its resident map host-only — that declaration and a duplicate
-deregistration fix fold into its next minor re-land, because a bundled
-provider lands with its tag and catalog pin, never ahead of them. Still open:
-the Desktop's Identity select as provider pairs. Which shipped version of the messaging capability honours
-which part is that package expert's fact, not this record's.
+Shipped: the kernel half in 0.25.5–0.25.6, advertised to the Desktop as the
+`served-identity` **feature** rather than a version number; the Desktop's
+identity choice forwards provider pairs. Which version of the messaging
+capability honours which part is that package expert's fact, not this
+record's.
 
 # Citations
 
-1. Legacy `agents/oats-expert/soul/knowledge/decisions/served-identity-is-a-messaging-layer-fact.md` (2026-09-23, amended and accepted 2026-09-24).
-2. Framework `docs/integrations.md` (messaging-layer `identity` meta key) and `docs/capability-manifest.schema.json` (host-only settings attribute), [awebai/oats](https://github.com/awebai/oats); kernel half landed in 0.25.5 (PR #111, launch-meta persistence) and 0.25.6 (PR #118, `served-identity` feature).
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/served-identity-is-a-messaging-layer-fact`, 2026-09-23, accepted 2026-09-24).
+2. [integrations.md](https://github.com/awebai/oats/blob/main/docs/integrations.md) (messaging-layer `identity` meta key, `hostOnly` settings) and [desktop-cli-api.md](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md) (`served-identity` feature) in awebai/oats.

@@ -81,5 +81,5 @@ acceptance work.
 
 # Citations
 
-1. Legacy `agents/oats-expert/soul/knowledge/decisions/flexible-knowledge-and-instance-expertise.md` (2026-09-19) and `lessons/three-facts-conflated-in-knowledge-placement.md` (2026-09-19).
-2. Framework `docs/knowledge-theory.md` ("Knowledge, instances and evolving expertise"), [awebai/oats](https://github.com/awebai/oats).
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/flexible-knowledge-and-instance-expertise`, `lessons/three-facts-conflated-in-knowledge-placement`, 2026-09-19).
+2. [knowledge-theory.md](https://github.com/awebai/oats/blob/main/docs/knowledge-theory.md) ("Knowledge, instances and evolving expertise").

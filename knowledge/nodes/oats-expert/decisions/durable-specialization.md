@@ -76,5 +76,4 @@ architecture is never documented as shipped.
 
 # Citations
 
-1. OATS rationale source `agents/oats-expert/soul/knowledge/architecture/what-oats-is.md` (2026-07-08); SHA-256 `722831f9cc723e15d2d4e013e51197296d3df5646a5a844ed8039b167a1421eb`.
-2. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/provider-agnostic-specialization-and-curated-context.md` (founder acceptance 2026-07-26); SHA-256 `13e232ecba4c88e5263ca09a014040b0942c96c3bf7008f42c8fff2be66e74c7`.
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`architecture/what-oats-is`, 2026-07-08; `decisions/provider-agnostic-specialization-and-curated-context`, founder acceptance 2026-07-26).
