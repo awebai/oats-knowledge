@@ -48,10 +48,9 @@ boundary, and the kernel must not assume hook output is safe to persist.
 
 # Related
 
-[Integrity, origin and consent are different proofs](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md);
-[A fail-closed guarantee is proven by its first real user](/nodes/oats-kernel-expert/lessons/fail-closed-mechanism-proven-by-first-user.md).
+[Integrity, origin and consent are different proofs](../decisions/trust-approval-and-consent-boundaries.md);
+[A fail-closed guarantee is proven by its first real user](fail-closed-mechanism-proven-by-first-user.md).
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/execfile-error-secret-disclosure.md` (2026-07-27); SHA-256 `5b81ec03a873489c9b8b5fdce4773586b341c52331e5e71ad711b8b50d26c7c5`.
-2. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/public-refs-are-option-injection-vectors.md` (2026-07-28), option-injection sentence only; SHA-256 `fd161c4df5e551eeaaa9635100cc2528cb221fc725773a0c14c08e5ed672fbf3`.
+1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (execfile-error-secret-disclosure, public-refs-are-option-injection-vectors).

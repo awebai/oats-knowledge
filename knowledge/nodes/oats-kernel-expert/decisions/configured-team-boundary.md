@@ -54,20 +54,15 @@ observation is chosen rather than an old retained record rewritten.
 
 # Related
 
-[Local configuration remains authored policy](/nodes/oats-kernel-expert/decisions/local-policy-is-not-package-policy.md);
-[Kernel supplies provider-neutral messaging intent](/nodes/oats-kernel-expert/decisions/messaging-capability-owns-provider-behaviour.md);
-[Closest-wins is lookup, not authority](/nodes/oats-kernel-expert/lessons/closest-wins-is-lookup-not-authority.md).
+[Kernel supplies provider-neutral messaging inputs](messaging-capability-owns-provider-behaviour.md).
 
 # Current contracts
 
 - [Current configuration.md](https://github.com/awebai/oats/blob/main/docs/configuration.md)
 - [Current integrations.md](https://github.com/awebai/oats/blob/main/docs/integrations.md)
-- [Portable souls and Git workspaces (2026-09-14)](https://github.com/awebai/oats/blob/main/docs/design/2026-09-14-portable-souls-and-git-workspaces.md)
+- [Portable souls and Git workspaces (2026-09-14, superseded record)](https://github.com/awebai/oats/blob/7838d3ca70772f63854b198601fbc45437c2e999/docs/design/2026-09-14-portable-souls-and-git-workspaces.md)
 
 # Citations
 
-1. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/team-as-config-entity.md` (2026-07-14); SHA-256 `4fc3986d0823561662afd5a1f62dd6fbb79e1243696e3232503f59c374d6c288`.
-2. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/team-scope-and-cross-repo-spawn.md` (2026-07-25, rejected `repos` list and local-first lookup); SHA-256 `53a823d4c027ada6eb792b84c8811d2267200c7722bae9c1155aa095df4e6ba1`.
-3. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/distribution-packages-config-profiles-and-requirements.md` (2026-07-26, option 7); SHA-256 `c9109cecd0d4622152718436afe5836ea56e00bf7afa52b261eb13da683fb9cc`.
-4. Supersession: `docs/design/2026-09-14-portable-souls-and-git-workspaces.md`, sections on discovery and admission.
-5. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/git-workspace-versus-development-package.md` (2026-09-20), reciprocal-admission clause; `docs/workspace-adoption.md`, qualification of reciprocal admission.
+1. Migrated from agents/oats-expert/soul/knowledge and agents/cli-dev/soul/knowledge @ 7838d3ca (team-as-config-entity, team-scope-and-cross-repo-spawn, distribution-packages-config-profiles-and-requirements, git-workspace-versus-development-package).
+2. Supersession: [Portable souls and Git-backed organizational workspaces](https://github.com/awebai/oats/blob/7838d3ca70772f63854b198601fbc45437c2e999/docs/design/2026-09-14-portable-souls-and-git-workspaces.md), discovery and admission.

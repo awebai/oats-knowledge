@@ -1,15 +1,13 @@
 ---
 type: Lesson
 title: The CLI as a machine boundary
-description: Once a command has machine consumers, one stdout envelope with stable codes is the whole contract, exit status is part of the answer, explanatory surfaces must not depend on deployment state, and a printed remedy is behaviour under test.
+description: Once a command has machine consumers, one stdout envelope with stable codes is the whole contract, exit status is part of the answer, explanatory surfaces must not depend on deployment state, a refusal names its cause on the first run, and a printed remedy is behaviour under test.
 tags: [kernel, cli, contract, json, diagnostics, exit-status]
 timestamp: 2026-09-22
 ---
 # Lesson
 
-Consolidated from CLI-contract reviews of 2026-07-24 → 2026-09-05 (cli-dev
-lessons, accepted by the kernel maintainer); elimination routes added
-2026-09-22. The
+Consolidated from CLI-contract reviews of 2026-07-24 → 2026-09-21. The
 process boundary decision makes the CLI the only surface independent
 consumers (Desktop, capability packages, other runtimes) may depend on. That
 choice carries obligations the code cannot state about itself.
@@ -37,9 +35,9 @@ a comment.
 **Anything whose job is to explain the tool must work when the deployment is
 broken.** Help, version and diagnostics either bypass deployment resolution
 entirely or turn resolution failures into findings — the doctor model. Routing
-help through capability dispatch meant a single unreadable ancestor lock made
-help itself fail, invisibly in isolated fixtures and only on a real machine
-whose home scope carried a superseded shape.
+help through capability dispatch meant a single unreadable lock in the old
+scope chain made help itself fail, invisibly in isolated fixtures and only on
+a real machine whose home scope carried a superseded shape.
 
 **A diagnostic that names a remedy is behaviour contract.** The refused
 operation can be correct in every observable way while the sentence it prints
@@ -50,6 +48,21 @@ the old command shape after a new refusal narrows what that command accepts,
 and the refusal's own tests cannot see stored strings — the review checks
 every persisted remedy when a command's acceptance narrows.
 
+**A refusal says what, not only where; one run instead of six.** On the
+2026-09-21 second-operator gate three failures with three causes rendered as
+one kernel template with the slot swapped: the operator saw *where* (slot,
+capability, document key) but not *what*, and needed several runs plus the
+adapter's source to learn a cause the provider had already made safe to
+print. The acceptance criterion for any refusal path is that the operator
+learns the cause on the first run. Every problem carries its attribution
+(slot, capability, origin, the operator's document key) and a reason distinct
+per cause; a bare unattributed refusal after selection is a kernel defect.
+Free text from executable code still never becomes kernel prose: the kernel
+relays a provider's answer as the provider's, marked as such (readiness
+items), and invents none. A provider may declare its fixed refusal sentences
+in its manifest (`binding.reasons`, bounded and validated); the kernel
+matches nothing against them today.
+
 **Identity keys are diagnostic vocabulary.** Every field that participates in
 a comparison must be nameable by the refusals that use it and must protect
 something; otherwise the message names the same target on both sides and the
@@ -57,11 +70,15 @@ key splits one operator-visible thing in two.
 
 # Related
 
-[A minimal process boundary avoids permanent private coupling](/nodes/oats-kernel-expert/decisions/minimal-process-boundary.md);
-[A refusal that needs the old bytes is a pre-commit gate](/nodes/oats-kernel-expert/lessons/refusal-belongs-before-commit.md).
+[A minimal process boundary avoids permanent private coupling](../decisions/minimal-process-boundary.md);
+[A refusal that needs the old bytes is a pre-commit gate](refusal-belongs-before-commit.md);
+[Kernel supplies provider-neutral messaging inputs](../decisions/messaging-capability-owns-provider-behaviour.md).
+
+# Current contracts
+
+- [Current desktop-cli-api.md](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md)
+- [Current capabilities.md, readiness check](https://github.com/awebai/oats/blob/main/docs/capabilities.md#readiness-check-bindingcheck)
 
 # Citations
 
-1. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/json-mode-cli-contract.md` (2026-07-24; SHA-256 `7517c0a7d71c4adb03cb7281e926025cb76a37424297eaca01f86d0a6073113a`) and `json-envelope-dispatch-boundary.md` (2026-07-26; SHA-256 `611060550c9af22aed4aea4d44b86991450df81114a58ccb8c992ebc56db0709`).
-2. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/usage-must-not-resolve-deployment-state.md` (2026-07-29); SHA-256 `29783f6ba56bbbef4530f1be5248778d01047cdee4100f179d374058e5e7fcea`.
-3. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/dry-run-exit-status-contract.md` (2026-07-28), `diagnostic-remedies-are-contracts.md` (2026-07-29), `retry-hint-sites-travel-in-packs.md` and `identity-key-fields-shape-the-diagnostic.md` (2026-09-05), `reconciliation-truthfulness-fixes.md` (2026-07-26), `runtime-contract-not-resolution-internals.md` (2026-07-27), principle only.
+1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (json-mode-cli-contract, json-envelope-dispatch-boundary, usage-must-not-resolve-deployment-state, dry-run-exit-status-contract, diagnostic-remedies-are-contracts, retry-hint-sites-travel-in-packs, identity-key-fields-shape-the-diagnostic, provider-problem-reasons-cross-the-wire).

@@ -29,7 +29,7 @@ exclusion.
 
 # Related
 
-[Preserve recovery authority until the outcome is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md).
+[Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md).
 
 # Current contracts
 
@@ -37,5 +37,4 @@ exclusion.
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/decisions/pid-liveness-fails-toward-refusing-to-write.md`; SHA-256 `f311a5f54d63bb390ef2e1233ae4664ee0cd1cc6a3f0dce01f50eada99a7a6c4`.
-2. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/ownership-token-lock-beats-threshold-ordering.md`; SHA-256 `15cec5b3f3ab50647b5262b6c692521d96b4785745f3690850c2296efd61468c`.
+1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (pid-liveness-fails-toward-refusing-to-write, ownership-token-lock-beats-threshold-ordering).

@@ -40,7 +40,9 @@ block owns a protocol, not whether some phrase appears.
 **Text composed for every instance may assert only what every instance has.**
 The fix for one contradiction wrote a knowledge-capture protocol into the
 kernel block; an instance without that capability has neither the files nor the
-command, and service agents have that layer suppressed by design. Anything a
+command. The same rule later moved the whole "You run on OATS" briefing out of
+the kernel into `oats.core` (0.26.0): the kernel now composes only the
+instance-boundary and work-mode blocks, which describe layout it creates. Anything a
 capability supplies — its files, commands, protocol — belongs in that
 capability's own injection, appearing exactly when the capability does. The
 kernel block's job is to state the invariant and defer. Likewise, a skill that
@@ -68,11 +70,10 @@ operator, public documentation says so in the section they would consult.
 
 # Related
 
-[Separate operational home from granted work authority](/nodes/oats-kernel-expert/decisions/home-work-authority.md);
-[Keep kernel responsibilities generic and capability runtimes complete](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md);
+[Separate operational home from granted work authority](../decisions/home-work-authority.md);
+[Keep kernel responsibilities generic and capability runtimes complete](../decisions/kernel-and-capability-responsibility.md);
 [External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md).
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/generated-instructions-executable-surface.md` (2026-07-27); SHA-256 `5ad73de51708527522ca490f5bffe0da56e23217f50de6c11a4a46e6c8107e4a`.
-2. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/shared-skill-spawn-paths-briefing-authority.md` (2026-07-27), environment-versus-work rule only.
+1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (generated-instructions-executable-surface, shared-skill-spawn-paths-briefing-authority).
