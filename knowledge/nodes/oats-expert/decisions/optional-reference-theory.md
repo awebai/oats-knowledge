@@ -35,27 +35,25 @@ capability merely for using different knowledge theory. Provider autonomy still
 preserves layer selection, configuration, lifecycle, executable trust, work-mode
 boundaries, and repository governance.
 
-**Where the line runs (reaffirmed 2026-09-16, helper contract accepted
-2026-09-17, redesign lead with the human).** Kernel contracts are: the
-selected provider and its exact approval; captured source and instance
-context; versioned opaque binding and invocation inputs; lifecycle ordering
-and required outcomes; independent helper execution; retained authority and
-custody obligations. Capability functionality is: the knowledge model and
-schema, storage and read views, episodic conventions and input selection,
-the harvester and its prompts, promotion policy, validation, retries, delivery
-and acceptance semantics. **No universal kernel harvester, mandatory
-state-file layout or Git publisher follows** from the kernel contracts. Helper
-injection is declared *per capability* (inherit, omit or file) for that
-capability's own injection only; omission is never consent; helper memory
-behaviour is reviewed as capability policy, never hardcoded reference-model
-policy in the captured path
-([kernel view](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md)).
+**Where the line runs (reaffirmed 2026-09-16/17, redesign lead with the
+human).** Kernel contracts are: the selected provider, the instance context,
+versioned opaque binding and invocation inputs, lifecycle ordering and
+required outcomes, and custody obligations. Capability functionality is: the
+knowledge model and schema, storage and read views, episodic conventions,
+the harvester and its prompts, promotion policy, validation, retries,
+delivery and acceptance semantics. **No universal kernel harvester, mandatory
+state-file layout or Git publisher follows** from the kernel contracts, and
+how a capability's own helpers are briefed is that capability's policy, never
+reference-model policy hardcoded in the kernel (the per-capability
+`helperInjection` manifest key that once expressed this is ignored since
+0.26) ([kernel view](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md)).
 The 2026-09-19 [flexible-knowledge decision](/nodes/oats-expert/decisions/flexible-knowledge-and-situated-instances.md)
 extends this: capabilities own their learning model and placement, not only
 their runtime.
 
-The knowledge-theory-expert is an authoring aid: it is not a required live
-dispatcher, universal harvester, or approval service. Operating a capability
+The knowledge-theory-expert (an `oats.framework` package soul) is an
+authoring aid: it is not a required live dispatcher, universal harvester, or
+approval service. Operating a capability
 should not depend on that expert being alive or on fetching mutable reference
 documentation at runtime. This records accepted rationale, not implementation
 completion or a particular deployment's configuration.
@@ -71,40 +69,27 @@ default or alternative — that teaches writing without an equally explicit
 index-first consult instruction is building an archive, not expertise.
 Re-deriving what the base already knows is a defect.
 
-**Cross-base corollary (2026-09-23, OSS coordinator; recorded from the
-2026-09-24 identity rehearsal).** "Consult first" does not stop at one's own
-node. Three rounds of design discussion about global identities for OATS
-instances converged on a careful conclusion that a sibling project had already
-decided and written down a month earlier — resident identities served through
-session grants — and had already shipped as a grant surface and a working
-messaging capability in a neighbouring deployment. Every problem the
-discussion enumerated was one the recorded decision had been written to
-avoid; the record surfaced only when the human said "we did work on this weeks
-ago". Before redesigning anything about identity, custody or lifecycle, read
-the other project's recorded decisions and the capabilities and docs its
-operating deployments already run, searching for the same nouns. A live
+**Cross-base corollary (2026-09-23).** "Consult first" does not stop at one's
+own node. Three rounds of design about global identities for OATS instances
+converged on a conclusion a sibling project had decided, written down and
+shipped a month earlier — resident identities served through session grants —
+and the record surfaced only when the human remembered it. Before redesigning
+anything about identity, custody or lifecycle, read the other project's
+recorded decisions and what its operating deployments already run; a live
 capability in a neighbouring workspace is evidence of an existing decision
-even when no package catalog carries it. For the reference theory this means
-the consult obligation is organisation-wide: a knowledge model that indexes
-only the local node leaves cross-project decisions to be re-derived, which is
-the same defect as the read-side gap above, one level up. The roster
-consequence — cross-project seams named in charters and read across bases —
-is recorded in the
-[2026-09-24 roster amendment](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md);
-the identity decision it produced is
+even when no catalog carries it. For the reference theory the consult
+obligation is organisation-wide: a model that indexes only the local node
+leaves cross-project decisions to be re-derived — the read-side gap one level
+up. The roster consequence (seams named and read across bases) is in the
+[roster decision](/nodes/oats-expert/decisions/domain-expert-rebuild.md); the
+identity decision it produced is
 [the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md).
 
-# Evidence
+# Current contracts
 
-Founder acceptance and same-day amendment, 2026-09-13, recorded in the OATS
-architecture decision `provider-neutral-knowledge-and-harvest` (Status, Decision
-1–4, Boundaries, and Citation 2).
+- [knowledge-theory.md](https://github.com/awebai/oats/blob/main/docs/knowledge-theory.md)
 
-Evidence: OKF input 947332ff26a4dfe521231a56529a86d83b28cd3ec6f49ccfec5fa13495750637
-(note content hash 7f18936875de6be7b6aff8e6d5738ef7c384365c15cfe14b7e55e50238cc9aba).
-Symmetry lesson: legacy `agents/oats-expert/soul/knowledge/lessons/okf-injection-read-side-gap.md`
-(2026-07-10). Contract-versus-functionality line and helper contract: legacy
-`decisions/provider-neutral-knowledge-and-harvest.md` amendments of 2026-09-16/17.
-Cross-base corollary: legacy
-`agents/oats-expert/soul/knowledge/inbox/check-the-record-before-redesigning-identity.md`
-(2026-09-23, landed with the 2026-09-24 identity-rehearsal inbox seeds, PR #121).
+# Citations
+
+1. Founder acceptance and same-day amendment, 2026-09-13.
+2. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/provider-neutral-knowledge-and-harvest` and its 2026-09-16/17 amendments; `lessons/okf-injection-read-side-gap`, 2026-07-10; `inbox/check-the-record-before-redesigning-identity`, 2026-09-23).

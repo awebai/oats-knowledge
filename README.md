@@ -15,7 +15,7 @@ copy of framework code, API tables, command manuals or old task/release queues.
   and [OKF package](https://github.com/awebai/oats-okf). Procedures belong in their
   maintained skills, not a second KB manual.
 - **Theory:** consult the single accepted
-  [optional-reference decision](knowledge/nodes/oats-expert/optional-reference-theory.md)
+  [optional-reference decision](knowledge/nodes/oats-expert/decisions/optional-reference-theory.md)
   and the [canonical authoring references](https://github.com/awebai/oats/tree/main/docs/knowledge-reference).
   This README does not restate the theory or require it for alternate providers.
 - **Deployment state:** bindings, owner registries, machine/account settings,
@@ -23,7 +23,7 @@ copy of framework code, API tables, command manuals or old task/release queues.
   recovery attic or raw legacy archive belongs in the active base.
 
 [`knowledge/okf-base.json`](knowledge/okf-base.json) declares the stable
-`oats-knowledge` identity and thirteen nonoverlapping nodes:
+`oats-knowledge` identity and twelve nonoverlapping nodes:
 
 | Node | Responsibility |
 | --- | --- |
@@ -31,12 +31,11 @@ copy of framework code, API tables, command manuals or old task/release queues.
 | `oats-kernel-expert` | Kernel/capability contract rationale, constraints and tradeoffs |
 | `oats-desktop-expert` | Product, interaction and integration judgment |
 | `market-research-expert` | Dated attributable research; no unsupported market claims |
-| `oats-assistant` | Persistent onboarding/adoption expertise; no user setup state |
-| `oats-operator-expert` | Deployment operation: onboarding/rebuild rationale, migration and cutover judgement |
+| `oats-operator-expert` | Deployment operation and first-time adoption: onboarding/rebuild rationale, migration and cutover judgement; no user setup state |
 | `integrations-expert` | Cross-package provider-integration judgement, read by the package experts |
 | `oats-okf-expert`, `oats-aweb-expert`, `oats-jira-expert`, `oats-linear-expert`, `oats-authoring-expert`, `oats-dev-expert` | One per official package: that package's facts, nothing cross-package |
 
-Market, assistant and the six package-expert nodes currently have navigation only: absence of researched
+Market and most package-expert nodes currently have navigation only: absence of researched
 knowledge is not permission to invent it. Owner UUIDs route responsibility,
 not access control. Declaring nodes does not register live owners, activate
 bindings or complete a cutover. The validation adapter pins the reviewed UUID
@@ -48,9 +47,8 @@ map; changes to it and base metadata require explicit ownership review.
    or rewrite only evidence-backed knowledge that changes future judgment;
    route procedural/API material to its canonical skill/docs instead.
 2. Prepare a branch and PR. Keep one concept home, cite sources, update indexes
-   and append to logs without rewriting existing history. Dated direction or
-   slow state needs a named owner and update-on-change rule; see
-   [current direction](knowledge/nodes/oats-expert/roadmap/current-direction.md).
+   and add a dated log entry; each log keeps its newest ~20 entries. Dated
+   direction lives in the framework's release notes, not in this base.
 3. Run whole-base strict validation and owner-mapping tests below. Cross-node
    links use the **base**, never an individual node, as their root namespace.
 4. Review semantic correctness, scope, freshness and ownership as well as CI.
@@ -64,7 +62,7 @@ map; changes to it and base metadata require explicit ownership review.
 
 Use **Node 22 and Git**. No npm install, framework checkout, private code,
 provider credentials, OATS runtime, bindings, scheduler or model is needed.
-Acquire the public OKF **2.0.0** source at this immutable commit in a disposable
+Acquire the public OKF **v2.1.1** source at this immutable commit in a disposable
 location **outside this repository**, then run:
 
 ```sh
@@ -83,7 +81,7 @@ whole-base** concept validator and requires **zero errors and warnings**. It
 uses the same pinned public source's metadata/declaration checks for base
 structure, canonical nonoverlapping node paths, required navigation/history,
 unowned or hidden files, and owner resolution. Local assertions enforce the
-thirteen reviewed UUIDs. Tests include malformed metadata, owner drift, unauthorized
+twelve reviewed UUIDs. Tests include malformed metadata, owner drift, unauthorized
 cross-node ownership and warning-as-failure cases, without provisioning anything.
 These pinned helpers are a CI adapter, not a promise of a stable runtime API.
 

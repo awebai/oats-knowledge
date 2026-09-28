@@ -54,10 +54,10 @@ constraint in the public schema, tested in both directions.
 
 # Related
 
-[Preserve recovery authority until the outcome is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md);
-[Hook failures and error messages are output channels](/nodes/oats-kernel-expert/lessons/hook-and-error-channels-disclose.md);
-[Keep kernel responsibilities generic and capability runtimes complete](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md).
+[Preserve recovery authority until the outcome is proven](../decisions/preserve-authority-until-cleanup-is-proven.md);
+[Hook failures and error messages are output channels](hook-and-error-channels-disclose.md);
+[Keep kernel responsibilities generic and capability runtimes complete](../decisions/kernel-and-capability-responsibility.md).
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/required-hook-guarantee-first-user.md` (2026-07-27); SHA-256 `6d6de9919b34773fe5ae82fb0c3cade56adebd8f316df4be73276dcf87801e39`.
+1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (required-hook-guarantee-first-user).

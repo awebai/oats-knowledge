@@ -13,7 +13,11 @@ historical task unfolded. Explicit sparse relations preserve that lightweight
 purpose. Attached work already establishes ownership; contradictory relation
 choices should not fabricate an independent work owner. Attached service
 agents are children of the tree owner so retirement responsibility stays
-local; a non-attached overseer expresses its topology explicitly.
+local; a non-attached overseer expresses its topology explicitly. One
+consequence (2026-07-26): a parent relation re-points only the anchor's
+recorded lineage, so one spawn cannot become the parent of two existing
+instances and there is no re-parent verb; bringing another party under an
+overseer is an agreement between the parties, not a graph edit.
 
 **Lineage is explicit-only.** Deriving a parent from ambient environment
 ("whoever's instance variable is set") was rejected even when gated on the
@@ -46,16 +50,14 @@ theoretically be made more elaborate.
 # Related
 
 [Identity and relationships must stay legible under ambiguity](/nodes/oats-desktop-expert/lessons/identity-and-relationship-legibility.md);
-[Preserve recovery authority until the outcome is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md);
-[Identity and location belong to the resolved object](/nodes/oats-kernel-expert/lessons/resolved-object-not-referring-string.md).
+[Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md);
+[Identity and location belong to the resolved object](../lessons/resolved-object-not-referring-string.md).
 
 # Current contracts
 
-- [Current souls-and-instances.md](https://github.com/awebai/oats/blob/main/docs/souls-and-instances.md)
+- [Current souls-and-instances.md, spawning and coordinating](https://github.com/awebai/oats/blob/main/docs/souls-and-instances.md#spawning-and-coordinating-with-other-agents)
 
 # Citations
 
-1. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/spawn-relations-live-lineage.md`; SHA-256 `0b88cab5103f66195d7b213dbacbfa1f00078b4b9c425ca92c5089414dcc10e6`.
-2. OATS rationale source `agents/cli-dev/soul/knowledge/decisions/spawn-lineage-explicit-only.md` (2026-07-26); SHA-256 `b5dc865196831936ce820dc141ce355c4527eaf4d96708712a924b89adca6fba`.
-3. OATS rationale source `agents/cli-dev/soul/knowledge/decisions/attached-spawns-child-of-work-owner.md` (2026-07-25); SHA-256 `4c27d34c1767268d66b55742d48359ff23415ee751d6c5dd27fc860d2732db81`.
-4. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/lineage-edge-ambiguity-posture.md` and `relation-policy-migration-and-retire-splice.md` (2026-07-25), qualifier and repair-ownership rationale only.
+1. Migrated from agents/oats-expert/soul/knowledge and agents/cli-dev/soul/knowledge @ 7838d3ca (spawn-relations-live-lineage, spawn-lineage-explicit-only, attached-spawns-child-of-work-owner, lineage-edge-ambiguity-posture, relation-policy-migration-and-retire-splice).
+2. Migrated from agents/dev-coordinator/soul/knowledge/lessons/relation-parent-repoints-only-anchor.md @ 7838d3ca.

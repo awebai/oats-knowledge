@@ -67,7 +67,9 @@ spawn ([messaging root placement decides the team](/nodes/oats-operator-expert/l
 
 # Citations
 
-- Legacy inbox note `a-locally-minted-oats-identity-has-no-cross-team-first-contact-address.md`
-  of the second deployment's maintainer (2026-09-21); the per-spawn identity
-  decision of 2026-09-24 in the oats-expert node
-  ([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md)).
+- oats.aweb `identity` setting (`mode: local` mints an instance-local team
+  identity; `mode: global` acts as a named resident through a session grant),
+  [`capabilities/oats-aweb/oats.json`](https://github.com/awebai/oats/blob/main/capabilities/oats-aweb/oats.json).
+- The per-spawn identity decision:
+  [the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md).
+- Migrated from agents/oats-expert/soul/knowledge/inbox/a-locally-minted-oats-identity-has-no-cross-team-first-contact-address.md @ 7838d3ca.

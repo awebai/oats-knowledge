@@ -24,9 +24,11 @@ Creation, roster presence, attachment readiness and task completion are separate
 
 Ignoring a stale response does not undo its mutation. Reconcile partial successes before retrying so a timeout or dismissed view does not create duplicate actions. A generation guard cannot substitute for transactional ownership of effects.
 
+**Close can arrive before mount settles** (2026-07-22 … 2026-07-23). A tab closed while its view or terminal was still mounting fell back to module-wide cleanup and blanked a healthy sibling tab, and a terminal closed during its pending open leaked an attached client. Whenever cleanup depends on a value an in-flight operation will produce, close waits for settle and then cleans up once with that mount's own disposer; a late resource arriving for a dead owner is released at once. Track what actually happened: a rejected mount and a fulfilled legacy mount both lack a disposer, but only the latter may use the module-wide fallback. Setup that needs cleanup (handlers, observers, focus) runs inside the lifecycle's ready callback, because code after `await start()` has no ordering with close. A tab key stays reserved until cleanup completes, and a reopen during that window waits on the reservation instead of being dropped.
+
 # Related
 
-[Identity and relationships must stay legible under ambiguity](/nodes/oats-desktop-expert/lessons/identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](/nodes/oats-desktop-expert/lessons/keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](/nodes/oats-desktop-expert/decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](/nodes/oats-desktop-expert/lessons/browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
+[Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
 
 # Current contracts
 
@@ -34,8 +36,5 @@ Ignoring a stale response does not undo its mutation. Reconcile partial successe
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/pending-intent-data-currency.md`; SHA-256 `f275cdfb63b53932f12b4850771c3f3f7a1077ef1ef04f90545a04621ca4c108`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/guard-both-completion-paths.md`; SHA-256 `75e0af59ab712e81776b94bb1e26a5746a1def0ceb68c8efd51f3060229f6209`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/poll-repaint-wipes-form-input.md`; SHA-256 `ac3d8c3c564ca39f3f64dac68e136ce60609e6490d19f07aea2925b9001ab3f0`.
-4. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/post-spawn-roster-snapshot-lag.md`; SHA-256 `664803bec243aa9fd70da6bb97f3dab9c314215a9d1da762e4625bfcc214cb61`.
-5. OATS rationale source `agents/ux-designer/soul/knowledge/lessons/latest-intent-and-mutation-ownership.md`; SHA-256 `e368f2e2d53acbfd3378d88763f2052f4fe19a716d76c181addc7eff3aad7063`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/async-mount-close-race.md and decisions/view-mount-disposer-contract.md @ 7838d3ca.

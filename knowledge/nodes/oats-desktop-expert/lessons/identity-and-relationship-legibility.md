@@ -25,6 +25,16 @@ or grouping (UX design role, 2026-07-25). A globally ambiguous name can look uni
 resurrecting an edge that was correctly refused earlier. Showing disconnected
 nodes is safer than hiding an agent or manufacturing lineage.
 
+**Scope travels with the request** (2026-07-22 … 2026-07-23). Instance names
+repeat across workspaces, and an unscoped first-match lookup once let an
+Interrupt clicked in one workspace reach a same-named agent in another, and
+marked a stopped instance running because its namesake elsewhere was. An
+instance-addressed request carries its workspace end to end; the server
+resolves only inside that scope, never falls back to the first match
+anywhere, and refuses a bare name that is ambiguous within the scope. Scoping
+is classified by route family, not per endpoint, so a new route under the
+family is pinned by construction and fails safe.
+
 # Degrade to a forest, never to an error
 
 Malformed parentage must never break the overview (decided 2026-07-24): a
@@ -54,9 +64,9 @@ kernel's bounded live graph.
 
 # Related
 
-[Agent-centered navigation makes the action target legible](/nodes/oats-desktop-expert/decisions/agent-centered-navigation.md);
-[Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md);
-[Accessibility is proven on effective colours, not token pairs](/nodes/oats-desktop-expert/lessons/effective-contrast-over-token-pairs.md);
+[Agent-centered navigation makes the action target legible](../decisions/agent-centered-navigation.md);
+[Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md);
+[Accessibility is proven on effective colours, not token pairs](effective-contrast-over-token-pairs.md);
 [Live lineage is deliberately bounded](/nodes/oats-kernel-expert/decisions/bounded-live-lineage.md).
 
 # Current contracts
@@ -65,7 +75,5 @@ kernel's bounded live graph.
 
 # Citations
 
-1. OATS rationale source `agents/ux-designer/soul/knowledge/lessons/team-roster-identity-resolution-scope.md`; SHA-256 `a81cd389177b035cfcbd9df77bd25bae93c68adb9892273efa3b8d581e55d96f`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/cluster-composite-identity.md`; SHA-256 `432064b1abd504436825657de0d4a0e85baea65f3651a7c84f19a7e928e1168f`.
-3. OATS rationale source `agents/ux-designer/soul/knowledge/decisions/interactive-agent-hierarchy-design.md`; SHA-256 `9c99bf9509e839e179b7553597c3203ead682413a78ef7d6a5edf9f767bd3b4c`.
-4. OATS rationale source `agents/ux-designer/soul/knowledge/lessons/cluster-identity-internal-key-vs-label.md`; SHA-256 `c48cebcf737af2a14144b17a8923015d6b784aa504d220767c8913ea6cabb9bf`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/workspace-scoped-instance-routing.md, workspace-scoped-snapshot-lookups.md and route-family-workspace-pinning.md @ 7838d3ca.

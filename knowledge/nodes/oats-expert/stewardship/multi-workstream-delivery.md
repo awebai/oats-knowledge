@@ -5,9 +5,9 @@ description: When sibling workstreams block on a shared contract, ship the froze
 tags: [stewardship, delivery, integration, contracts]
 timestamp: 2026-09-20
 ---
-**Owner: oats-expert. Origin 2026-07-26/27 (package-engine delivery across
-parallel workstreams); extended 2026-09-20. Update-on-change: revise if the way official packages
-integrate across repositories changes.**
+**Owner: oats-expert. Origin 2026-07-26/27; extended 2026-09-20.
+Update-on-change: revise if the way official packages integrate across
+repositories changes.**
 
 # Freeze the contract first
 
@@ -17,10 +17,8 @@ schemas, a design document with exact signatures and normalized identities,
 and a stable error-code table that doubles as the machine-readable output
 taxonomy. Implementation follows in each workstream against the frozen text.
 Sibling branches are *read* (show a path at their head), never merged from,
-until integration. Judgment calls made while freezing — such as keying a lock
-by the identity in the acquired manifest rather than the source string, or
-keeping the catalog resolver an injection point so tests use fixtures — belong
-in the contract document, where they move with the code.
+until integration. Judgement calls made while freezing belong in the contract
+document, where they move with the code.
 
 # Adopt, then adapt
 
@@ -50,14 +48,12 @@ deployment's handoff, never in a reusable soul.
 Git reporting an auto-merge with no conflict only means the hunks did not
 textually collide; it is not evidence the other side's delta survived.
 Reverse-apply each side's post-base patch against the merged tree with a
-check-only apply: it succeeds only if every added line is present and every
-removed line absent. Run it per side per auto-merged file. On the delivery
-that motivated it the check found nothing missing — its value was converting
-"Git did not complain" into a reportable verification, which is what a
-maintainer reviewing an integration head needs
+check-only apply, per side per auto-merged file. Its value is converting "Git
+did not complain" into a reportable verification, which is what a maintainer
+reviewing an integration head needs
 ([review protocol](/nodes/oats-expert/stewardship/review-protocol.md)).
 
 # Citations
 
-1. Legacy `agents/cli-dev/soul/knowledge/lessons/` `frozen-interface-first-delivery` (2026-07-26), `gate2-seam-teardown-execution` (07-27), `prove-auto-merge-preserved-both-deltas` (07-27).
-2. Legacy `agents/oats-expert/soul/knowledge/stewardship/delivery-log.md` lessons of 2026-09-20 on independence and version-scoped briefings.
+1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (`lessons/frozen-interface-first-delivery`, `gate2-seam-teardown-execution`, `prove-auto-merge-preserved-both-deltas`, 2026-07-26/27).
+2. Migrated from agents/oats-expert/soul/knowledge/stewardship @ 7838d3ca (delivery-log lessons of 2026-09-20 on independence and version-scoped briefings).

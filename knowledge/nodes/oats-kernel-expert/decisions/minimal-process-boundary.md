@@ -36,15 +36,12 @@ this choice; this node does not duplicate its succession decision.
 # Related
 
 [One standalone Desktop product, no hidden operational kernel](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md);
-[The CLI as a machine boundary](/nodes/oats-kernel-expert/lessons/machine-boundary-contract.md).
+[The CLI as a machine boundary](../lessons/machine-boundary-contract.md).
 
 # Current contracts
 
-- [Current package-runtime-api.md](https://github.com/awebai/oats/blob/main/docs/design/package-runtime-api.md)
 - [Current desktop-cli-api.md](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md)
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/decisions/package-runtime-boundary-structured-cli.md`; SHA-256 `3a6e3a0c14ba21ffb8998ea2f5c02d327f9e5416f0e8277e9ec1eb498544c9e9`.
-2. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/standalone-cli.md` (2026-07-10/14); SHA-256 `e3747624f026d43c8fc57ca0f8b464d16d0abf8eaa1a99fa87a310624f4057e3`.
-3. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/distribution-packages-config-profiles-and-requirements.md` (2026-07-26, section 7); SHA-256 `c9109cecd0d4622152718436afe5836ea56e00bf7afa52b261eb13da683fb9cc`.
+1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (package-runtime-boundary-structured-cli, standalone-cli, distribution-packages-config-profiles-and-requirements).

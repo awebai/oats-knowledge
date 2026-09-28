@@ -22,9 +22,11 @@ One effective action policy should govern displayed hints, explicit unbinds, key
 
 Event ownership matters before dispatch: a late no-op after preventDefault still breaks a native control. Application shortcuts must neither consume ordinary typing nor send terminal bytes before claiming a chord. Unit policy checks and real input evidence serve different parts of this boundary.
 
+Integration limitation (2026-07-26): `KeyboardEvent.key` reports the shifted character, so a default chord such as Mod+Shift+\ parses and round-trips yet never fires unless the engine aliases the shifted character (`|`) to its base key. Every default built on shifted punctuation needs that alias and a test that dispatches the real shifted event, not a parse round-trip.
+
 # Related
 
-[Agent-centered navigation makes the action target legible](/nodes/oats-desktop-expert/decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md); [Browser-owned state and accessibility under repaint](/nodes/oats-desktop-expert/lessons/browser-owned-state-and-accessibility-under-repaint.md).
+[Agent-centered navigation makes the action target legible](../decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md).
 
 # Current contracts
 
@@ -33,6 +35,5 @@ Event ownership matters before dispatch: a late no-op after preventDefault still
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/decisions/terminal-focus-intent.md`; SHA-256 `b4ab02022106d89c2c15751019d61f7801e4e7c3341435b9ff6fcf52f6108bb9`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/keybinding-dispatch-guards-in-engine.md`; SHA-256 `e994558f1a4d654ce7c382dde2a295e61cb6fa18219d66478b5904a8bee7f730`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/keybindings-terminal-allowlist-by-action-id.md`; SHA-256 `0c585d33e1a4a859a20c20cdff1232ef8e5c2e25fcb3ccc68a0cbb6f9cca0dbe`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shifted-punctuation-default-chords.md @ 7838d3ca.

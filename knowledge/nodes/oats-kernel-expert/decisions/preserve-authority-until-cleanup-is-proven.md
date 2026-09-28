@@ -43,7 +43,7 @@ observed external completion. Keep exact recovery recipes with the current
 owning implementation, not in a generalized permission to delete state.
 
 **Recovery derives truth from the object, not from spawn-time metadata**
-(lesson 2026-09-21, redesign lead). Retirement
+(lesson 2026-09-21). Retirement
 recovery reconstructed a worktree's branch from the metadata recorded at
 spawn; a worktree that had legitimately switched branches during its task
 could then never pass the recovery comparison, and the instance became
@@ -52,19 +52,37 @@ refusal itself was fail-closed and *correct*: never edit the peer's metadata,
 switch its branch or force-clean its home to make retirement pass — that is
 exactly the unverified cleanup this decision forbids and it destroys the
 evidence. Verify preservation by hand, record it, and leave the instance
-retiring until recovery is corrected. The rule: recovery derives the branch from the
+retiring until recovery is corrected. The rule, now in the kernel: recovery derives the branch from the
 worktree while it exists and falls back to recorded metadata only when the
 worktree is gone, recording the drift as a typed observation. Whether a
-worktree-mode instance may drift branches silently at all — record the switch
-or forbid it — is a separate Decision, not a patch.
+worktree-mode instance may drift branches silently at all is a separate
+decision, not a patch.
+
+**Recovery proofs measure; recovery primitives fail catchably**
+(2026-07-29 → 2026-09-05). Restoring a work tree's staged state once copied
+every index row "because copying everything cannot lose anything"; on a real
+index that was about 19,000 Git launches and read as a hang. Its safety was an
+assumption about what the recovered clone held. The replacement asks the
+destination once which staged objects it lacks, copies only those, and
+re-checks the *whole* staged set before installing the index: measure,
+repair, re-measure, then commit. That is stronger, not weaker, because it
+holds however the clone was made. A proof set contains only what the
+destination should hold: gitlink rows (mode 160000) name nested-repository
+commits that are correctly absent there and are restored by another
+mechanism, so including them makes the proof fail on every submodule.
+Recovery code also must not use a primitive whose failure is a process
+abort: Node 22's recursive `cpSync` dies on an unreadable directory with no
+catch, `finally` or rollback running, so the kernel copies hostile trees with
+its own hand-walked copy where `EACCES` is an ordinary error. The regression
+for such a failure runs in a child process; in-process it takes the test
+runner down instead of failing.
 
 # Related
 
 [External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
-[A refusal that needs the old bytes is a pre-commit gate](/nodes/oats-kernel-expert/lessons/refusal-belongs-before-commit.md);
-[A fail-closed guarantee is proven by its first real user](/nodes/oats-kernel-expert/lessons/fail-closed-mechanism-proven-by-first-user.md);
-[Identity and location belong to the resolved object](/nodes/oats-kernel-expert/lessons/resolved-object-not-referring-string.md);
-[A promised replacement guarantee needs an external identity witness](/nodes/oats-kernel-expert/decisions/external-witness-for-captured-session-identity.md).
+[A refusal that needs the old bytes is a pre-commit gate](../lessons/refusal-belongs-before-commit.md);
+[A fail-closed guarantee is proven by its first real user](../lessons/fail-closed-mechanism-proven-by-first-user.md);
+[Identity and location belong to the resolved object](../lessons/resolved-object-not-referring-string.md).
 
 # Current contracts
 
@@ -73,9 +91,5 @@ or forbid it — is a separate Decision, not a patch.
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/rollback-retain-retry-state.md`; SHA-256 `9b4175f1c538f8a8764355cb681d5990d8e18d16d3a3fa66ca03eefe58e31ffa`.
-2. OATS rationale source `agents/dev-coordinator/soul/knowledge/lessons/compose-atomic-engine-operations-with-an-outer-command-journal.md`; SHA-256 `c9ac9a50284545b9697c1a26a860382ab7a4c05e860c0b3aba64b22005458a78`.
-3. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/cross-instance-writes-commit-last.md` (2026-07-25); SHA-256 `099cf46627333686b46707ebbb0c69db0cd5935df9899c8adad62c0655f932bf`.
-4. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/single-implementation-guarantee.md` (2026-07-27); SHA-256 `2ee9e42ccbe1aa71d9540b7ac2cbaf2df8c4dd680de5deb4d83c6569e6800d81`.
-5. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/rollback-probes-argv-and-fail-closed.md` (2026-07-28), three-outcome probe rationale only.
-6. OATS rationale source `agents/oats-expert/soul/knowledge/lessons/retire-recovery-uses-recorded-branch-not-checked-out-branch.md` (2026-09-21), rule and conduct only.
+1. Migrated from agents/cli-dev/soul/knowledge, agents/dev-coordinator/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (rollback-retain-retry-state, compose-atomic-engine-operations-with-an-outer-command-journal, cross-instance-writes-commit-last, single-implementation-guarantee, rollback-probes-argv-and-fail-closed, retire-recovery-uses-recorded-branch-not-checked-out-branch).
+2. Migrated from agents/cli-dev/soul/knowledge/lessons/batch-existence-check-is-a-measurement.md, gitlink-rows-must-leave-the-proof-set.md, cpsync-aborts-on-unreadable-dirs.md, playbooks/test-process-aborting-regressions.md and agents/dev-coordinator/soul/knowledge/lessons/node-recursive-cpsync-can-bypass-javascript-cleanup.md @ 7838d3ca.

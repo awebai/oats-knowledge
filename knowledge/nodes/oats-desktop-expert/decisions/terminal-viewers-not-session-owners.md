@@ -33,7 +33,7 @@ supported seams, not copied tmux internals. Closing a viewer, losing its
 source or quitting Desktop must not become an operation on a sibling session.
 Existing viewers must also survive a replacement of Desktop's own backend
 server, because they attach to the session source, not to the server (see
-[Workspace admission is privileged and transactional](/nodes/oats-desktop-expert/decisions/privileged-workspace-admission.md)).
+[Workspace admission is privileged and transactional](privileged-workspace-admission.md)).
 
 # Integration limitations discovered (2026-07-23 … 2026-07-25)
 
@@ -54,28 +54,27 @@ server, because they attach to the session source, not to the server (see
   use, so a Shift+Enter newline must be translated locally to the runtime's
   raw-linefeed newline alias — and the whole chord suppressed across every
   key event phase, or the widget's own keypress path still submits.
+- **A newline sent as keys is an Enter press** (2026-07-22). Multi-line text
+  delivered with `send-keys` submits, or lets a shell execute, line by line.
+  Pastes and any whole-text payload go through a multiplexer buffer as one
+  bracketed paste (`load-buffer`, then `paste-buffer -p`); only ordinary
+  keydown bytes use `send-keys`.
 
 # Related
 
-[Identity and relationships must stay legible under ambiguity](/nodes/oats-desktop-expert/lessons/identity-and-relationship-legibility.md);
-[Keyboard policy follows actions and user intent](/nodes/oats-desktop-expert/lessons/keyboard-focus-and-action-ownership.md);
-[Browser-owned state and accessibility under repaint](/nodes/oats-desktop-expert/lessons/browser-owned-state-and-accessibility-under-repaint.md) (copy in a mouse-mode viewer);
-[The loopback interface is Desktop's trust boundary](/nodes/oats-desktop-expert/decisions/loopback-trust-boundary-and-transport-simplicity.md).
+[Identity and relationships must stay legible under ambiguity](../lessons/identity-and-relationship-legibility.md);
+[Keyboard policy follows actions and user intent](../lessons/keyboard-focus-and-action-ownership.md);
+[Browser-owned state and accessibility under repaint](../lessons/browser-owned-state-and-accessibility-under-repaint.md) (copy in a mouse-mode viewer);
+[The loopback interface is Desktop's trust boundary](loopback-trust-boundary-and-transport-simplicity.md).
 
 # Current contracts
 
 - [Current tmux-target.mjs](https://github.com/awebai/oats/blob/main/packages/desktop/tmux-target.mjs)
 - [Current herdr-target.mjs](https://github.com/awebai/oats/blob/main/packages/desktop/herdr-target.mjs)
 - [Current remote-target.mjs](https://github.com/awebai/oats/blob/main/packages/desktop/remote-target.mjs)
+- [Current terminal-owner-leases.md](https://github.com/awebai/oats/blob/main/packages/desktop/docs/terminal-owner-leases.md)
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/decisions/desktop-terminal-direct-attach.md`; SHA-256 `ae26bdee3ae563983f9fb412cc5d8188c046f0bd4fb81b16e0e052db46e831df`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/desktop-terminal-link-window-viewer-isolation.md`; SHA-256 `b326aaa14e07fe5b757491bd139c6edcd4403b1fe96ddfd06ad42accb28a2bac`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/terminal-resource-cap-in-owning-process.md`; SHA-256 `2bb46b9acb64541abf34c1c8c89e2a2a71b6c0c42653d81b813fdd84b1640ad8`.
-4. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/decisions/terminal-input-unification.md` (human direction 2026-07-22); SHA-256 `7366c53041aa2dda1b185af6188c9c771cc70feb012f9489996b1c5ceaa7fbb6`.
-5. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/references/desktop-panel-decisions.md` (deferred messaging sidebar); SHA-256 `6b36baec26d56de09caf938baa08d4a67edcffea9fb7f6cb016911fcee4b81f6`.
-6. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/anchor-tmux-attach-targets.md`; SHA-256 `59133f19a2b556ca7581920229ae92c1810ac6aa4216b6d648b93c498e29d7ff`.
-7. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/tmux-anchored-targets-and-display-message-fallback.md`; SHA-256 `77d2f3c0489aa6dfaeeeca8c2c5ed5bd80727edfdee3e886bf4f0a771a558906`.
-8. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/provision-locked-key-tables.md`; SHA-256 `5bd6af4bbebe0b06b899682db41e511a6b040721f6271b8374428b3ca3016c0d`.
-9. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/shift-enter-newline-via-ctrl-j-alias.md`; SHA-256 `6ad59c64aca1bf130bf09e5ca5abc08b152308e9a1d60e54498bbabe01b39c8e`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
+2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/multiline-send-bracketed-paste.md @ 7838d3ca.

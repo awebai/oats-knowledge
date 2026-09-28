@@ -1,18 +1,20 @@
 ---
 type: Reference
-title: How oats.aweb attaches a grant home to the resident's custody service (1.13.1)
-description: The spawn hook's attachment contract from oats.aweb 1.13.1: the concrete socket from the custody preflight goes to the mint, the grant record is read back from disk, attachment is proven by the custody status command run as the grant home (never by whoami), a failed proof revokes and removes the fresh grant, renewal keeps the old grant until the new one is proven, and readiness inspects the newest grant home.
+title: How oats.aweb attaches a grant home to the resident's custody service (1.16.1)
+description: The spawn hook's attachment contract, introduced in oats.aweb 1.13.1 and current in 1.16.1: the concrete socket from the custody preflight goes to the mint, the grant record is read back from disk, attachment is proven by the custody status command run as the grant home (never by whoami), a failed proof revokes and removes the fresh grant, renewal keeps the old grant until the new one is proven, and readiness inspects the newest grant home.
 tags: [oats.aweb, grants, custody, spawn-hook, readiness, renewal]
 timestamp: 2026-09-25
 ---
 
-Facts of the package from release 1.13.1 (client floor `CUSTODY_ATTACH_MIN`
-= aw 1.36.3, exported from the hook's wire module and read by both the
-runtime gate and the readiness diagnostic). The layer contract this
+Facts of the package from release 1.13.1, verified against the 1.16.1 mirror.
+In 1.16.1 the client floor is one exported constant, `AW_MIN` = aw 1.36.13 in
+the binding-wire module, read by the runtime gate, the readiness diagnostic
+and the wake-daemon check; it replaced the separate custody-attachment floor
+of earlier releases (`CUSTODY_ATTACH_MIN`, aw 1.36.3 at 1.13.1). The layer contract this
 implements is
 [what a messaging provider must do to serve a resident through grants](/nodes/integrations-expert/references/what-a-messaging-provider-must-do-to-serve-a-resident-through-grants.md);
 why the attachment exists at all is
-[a grant home's custody block](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md).
+[a grant is proven per path at the receiver](/nodes/integrations-expert/lessons/a-grant-home-needs-a-custody-reference-for-encrypted-receive.md).
 
 # Schema
 
@@ -41,8 +43,9 @@ why the attachment exists at all is
    environment in place; the launch environment switches only after the new
    grant is fully proven.
 7. **Readiness looks at the newest grant home.** Renewed grants live in
-   `.aweb-identity*` siblings; the readiness check inspects the newest, not
-   only the original `.aweb-identity` directory.
+   `.aweb-identity-<n>` siblings; the readiness check inspects the newest, not
+   only the original `.aweb-identity` directory, and reports a home without
+   the locator as a `custody` problem ("retire and respawn on aw >= 1.36.13").
 
 # Examples
 

@@ -28,13 +28,13 @@ guarantee this is not modal, whatever its attributes say.
 repaints defer while a non-collapsed selection is anchored inside the surface
 or a form holds unsubmitted input; the skipped frame retries later. Idle
 networking is not permission to rebuild the UI (see
-[Async completion must still own the user's intent](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md)).
+[Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md)).
 
 **Colour alone must not carry a distinction** (parent vs sibling, active vs
 stale); see
-[Identity and relationships must stay legible under ambiguity](/nodes/oats-desktop-expert/lessons/identity-and-relationship-legibility.md)
+[Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md)
 and
-[Accessibility is proven on effective colours, not token pairs](/nodes/oats-desktop-expert/lessons/effective-contrast-over-token-pairs.md).
+[Accessibility is proven on effective colours, not token pairs](effective-contrast-over-token-pairs.md).
 
 # Integration limitations that shape copy
 
@@ -61,8 +61,8 @@ behaviour to prove, not an attribute to declare.
 
 # Related
 
-[Keyboard policy follows actions and user intent](/nodes/oats-desktop-expert/lessons/keyboard-focus-and-action-ownership.md);
-[Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md).
+[Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md);
+[Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md).
 
 # Current contracts
 
@@ -70,7 +70,4 @@ behaviour to prove, not an attribute to declare.
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/modal-rerender-focus-restoration.md`; SHA-256 `b8132a8a0e1638f8051540761e99bbc977ceb7a9a18c45ff2eb611040caf328d`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/polling-innerhtml-repaints-destroy-selection.md`; SHA-256 `12371488489d11c7f9f3013159ec6ea2c0683d703b0ed59af02254bb318f2138`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/tmux-mouse-on-xterm-selection-copy.md`; SHA-256 `c76a601a64c336cea18129497c763988b4ef22adfc9d7838a10acd2ea672ab93`.
-4. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/dialog-recorder-teardown-and-override-sanitization.md` (accessibility residual only: modality must be enforced, not declared); SHA-256 `ad1563baf1cd0a8eed99215a459a685b8d5b6070b6ccb73095ef34e8c455b3a7`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.

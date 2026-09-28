@@ -1,109 +1,84 @@
 ---
 type: Decision
 title: Integrity, origin and consent are different proofs
-description: Contained reproducible bytes, consistent provenance and explicit host-install consent answer distinct trust questions.
+description: Membership trusts member capabilities and declaring a package trusts it; the lock proves reproducible contained bytes, not approval; host-install consent is a separate, explicit step.
 tags: [kernel, trust, integrity, consent, packages, security]
 timestamp: 2026-09-24
 ---
-> **Amended 2026-09-24 (human decision): package approval is removed.**
-> Declaring a package in the workspace's `packages:` IS the trust decision.
-> There's no per-version executable approval: `oats sync` has no approve step,
-> the lock carries no `approved` record, and `E_PACKAGE_UNAPPROVED` is gone
-> (OATS 0.26.0).
->
-> What stays:
-> - **Integrity:** the lock pins commit + content digest. `oats sync`
->   recomputes it and refuses drift (`E_PACKAGE_INTEGRITY`).
-> - **Origin:** provenance consistency.
-> - **Containment:** manifest paths resolve inside the hashed tree.
-> - **Host-install consent:** unaffected.
->
-> Read the paragraphs below about per-capability approval as the history of
-> the classic and 0.25 kernels, not current behaviour.
-
 # Rationale
 
-Founder decisions of 2026-07-12 (scope as trust boundary), 2026-07-26
-(per-capability approval, separate host-install consent) and 2026-07-29
-(provenance consistency). A digest can match while the artifact tells a
-different origin story from the lock. Approval therefore needs provenance
-consistency as well as content integrity. Acquisition from a local directory
-does not turn acquired content into locally authored authority; official
-discovery is not executable approval either. Trust every capability in an
-official package automatically was rejected: repository identity is not
-consent to independently updated executable code.
+Each proof answers one question, and none implies another.
 
-**The configuration scope is the trust boundary.** A capability authored at a
-scope is trusted with that scope; an acquired one needs a lock and an integrity
-match, so location alone can never confer trust and an acquired artifact cannot
-masquerade as authored by dropping its lock. Resetting trust on every restore
-was rejected as theatre.
+**Trust is membership or declaration.** A member capability is trusted by the
+reciprocal membership handshake: whoever can push to the member decides what
+runs, the same model every team already accepts for committed `.agents/skills/`.
+A package comes from outside that boundary and is trusted by its declaration
+in the workspace's `packages:` (human decision 2026-09-24, OATS 0.26.0). The
+earlier per-version executable approval was removed because people declare a
+package only when they trust it; a second approval stacked on that
+declaration was ceremony, not a boundary
+([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)).
+A spawn admits only a locked package the workspace *still* declares.
 
-A trust boundary must contain the actual runtime bytes. Escaping manifest
-paths, mutable hoisted resources and package-staging dependencies undermine
-that boundary even when the manifest itself is hashed. Resolve an escaping path
-by rejecting it or by hashing its real target; the trusted-framework exception
-for kernel-hoisted resources never extends to external packages. Generated
-provenance inside the digest must be replayable from exact locked data, not
-today's tool version. Classify a spelling's policy class *before*
-normalization erases it: a remote manifest's home-relative path is host-ambient
-however absolute it resolves. A persisted field that is later re-parsed as
-input is itself a trust boundary and must be validated against the writer's
-exact grammar, not its prefix — read-only strictness is not enough once some
-path turns the value back into a command — and "absent" must never collapse
-with "present but malformed". Argument vectors remove shell injection, not
-option injection
-([hook failures and error messages are output channels](/nodes/oats-kernel-expert/lessons/hook-and-error-channels-disclose.md)
-owns that rule); the lock-system consequence is a remote reference that
-silently selects nothing and reports the wrong pin — a fail-open on the pin,
-the worst failure a lock system can have.
+**Removed: configuration scope as the trust boundary.** From 2026-07-12 the
+classic kernel trusted a capability authored at a configuration scope and
+required a lock and integrity match for an acquired one, so location alone
+could not confer trust. v2 removed scopes: location is never version, and a
+directory's position confers nothing. What survived is the principle that
+trust is decided at one explicit, reviewable place.
 
-Check order is not cosmetic: missing → drifted → provenance → untrusted,
-because reporting "untrusted" for drifted bytes sends the operator to the
-wrong repair.
+**Integrity is reproducibility, not approval.** The lock pins each package's
+commit and content digest; a moved tag or drifted content is
+`E_PACKAGE_INTEGRITY`, and at spawn the lock's capability list must match the
+package at the locked commit. Drift is a refusal, never a diff: a command that
+fell back to current source bytes when the locked ones changed would let
+whoever edits the source present arbitrary bytes as "upstream". Advancing is
+an explicit `oats sync` against a changed declaration.
 
-**Keep separate decisions separate**: acquiring a package, activating behavior,
-approving executable surfaces and installing host requirements authorize
-different effects. None silently implies the others. Host-requirement recipes
-are allowlisted structured data producing argument vectors, with consent,
-execution and verification as separate steps — never shell strings; a
-consented install that fails is fatal, an unaccepted one is not. A
-runtime-package requirement is not a path requirement (founder ruling
-2026-07-28: a messaging capability used from a runtime *requires* that
-runtime's package rather than relying on an ambient host install): detect it
-through the runtime's own contract, treat identity as per-runtime, accept that
-an install plan may be a sequence covered by one consent, remember that
-installed is not enabled, and yield no consentable plan for an unknown
-runtime. Verify through the exact executable and scope the session will use,
-and prefer a runtime's machine output over its human rendering whenever a
-decision depends on a field. None of these consents asserts that a *secret
-value is present*: credential presence is a per-human runtime fact, so
-integrations surface a missing credential through an advisory spawn warning
-and an actionable first-use failure, never through checked-in configuration
-(2026-07-10, restated 2026-09-20 against the current requirement kinds).
+**Origin needs its own check.** A digest can match while the artifact tells a
+different origin story from the lock (2026-07-29), so provenance consistency
+is checked beside content. Check order is not cosmetic: missing → drifted →
+provenance, because reporting the wrong class sends the operator to the wrong
+repair.
 
-Matching checksums do not authenticate a sender or grant permission to alter
-credentials. Current per-capability closure and consent mechanics belong in the
-package contract, not historical dependency-hash recipes.
+**A trust boundary must contain the actual runtime bytes.** Escaping manifest
+paths, symlinks out of a fetched tree and resources borrowed from staging
+undermine a boundary even when the manifest is hashed; v2 refuses symlinks
+in fetched trees (except the soul's `CLAUDE.md` alias) and traversal in remote
+tree names. Classify a value's policy class *before* normalization erases it.
+A persisted field that is later re-parsed as input is itself a trust boundary:
+validate it against the writer's exact grammar, and never let "absent"
+collapse with "present but malformed". Argument vectors remove shell injection,
+not option injection
+([hook failures and error messages are output channels](../lessons/hook-and-error-channels-disclose.md)
+owns that rule); in a lock system its consequence is a reference that silently
+selects nothing and reports the wrong pin.
+
+**Host-install consent is separate from declaring a package.** A capability's
+`requires` names host commands and harness packages. OATS never installs
+either silently: a harness package is verified at spawn in that harness's own
+package list, never installed there, and a missing one fails the spawn with
+the consent command that fixes it. It is raised only for deployments that use
+that harness; installed is not enabled; identity ignores version selectors.
+Verify through the exact executable and scope the session will use, preferring
+the harness's machine output over its human rendering. None of these proofs
+asserts that a *secret* is present: credential presence is a per-human runtime
+fact, surfaced as an advisory warning or a first-use failure, never as
+checked-in configuration.
 
 # Related
 
-[Capability resources must outlive package staging](/nodes/oats-kernel-expert/decisions/contained-capability-lifetime.md);
-[Hook failures and error messages are output channels](/nodes/oats-kernel-expert/lessons/hook-and-error-channels-disclose.md);
-[Identity and location belong to the resolved object](/nodes/oats-kernel-expert/lessons/resolved-object-not-referring-string.md).
+[Capability resources must outlive package staging](contained-capability-lifetime.md);
+[Identity and location belong to the resolved object](../lessons/resolved-object-not-referring-string.md);
+[Harness authentication is native and user-managed](harness-native-authentication.md).
 
 # Current contracts
 
-- [Current packages.md](https://github.com/awebai/oats/blob/main/docs/packages.md)
+- [Current packages.md, Trust](https://github.com/awebai/oats/blob/main/docs/packages.md#trust)
+- [Current workspaces.md, Membership and trust](https://github.com/awebai/oats/blob/main/docs/workspaces.md#membership-and-trust)
 - [Current capabilities.md](https://github.com/awebai/oats/blob/main/docs/capabilities.md)
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/integrity-alone-cannot-see-disputed-origin.md`; SHA-256 `e8b5835e738f83369391d400e6e93ca6dd235e3b585e27d5a9c3cf609dcb0d56`.
-2. OATS rationale source `agents/dev-coordinator/soul/knowledge/lessons/hashed-generated-provenance-must-be-replayable.md`; SHA-256 `a50dff1dba27fb203299023fd7028ec84f2f00553de3c49b6dea3d2281befe47`.
-3. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/distribution-packages-config-profiles-and-requirements.md`; SHA-256 `c9109cecd0d4622152718436afe5836ea56e00bf7afa52b261eb13da683fb9cc`.
-4. OATS rationale source `agents/oats-expert/soul/knowledge/decisions/scoped-capability-store-and-templates.md` (2026-07-12, trust-boundary rationale only); SHA-256 `4376ec5c9d15359a6cf03df123c4939beccc9ea082e0bffe806b041849372c08`.
-5. OATS rationale source `agents/integrations-expert/soul/knowledge/lessons/capability-artifact-paths-must-be-integrity-bounded.md` (2026-07-11); SHA-256 `a988383d4b16792cf65e61c8fcab00654d5492128ea5d7e24e279d8ee9c44e74`.
-6. OATS rationale source `agents/integrations-expert/soul/knowledge/decisions/linear-task-interface-selection.md` (2026-07-10, credential-presence rationale only); SHA-256 `518b4e0277740bd8ce96ba8742f9d4199ad94913814d10443945f4e18d8b93cd`.
-7. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/runtime-package-requirements.md` (2026-07-28); SHA-256 `b6ac44624494e769054a9481c0acf2a3b915c0d973eb3fe7521aafbffe5edc18`.
-8. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/lock-source-strictness-prevents-reclassification.md` (SHA-256 `486aa777d35f9e4d5c3c464754702617ed9214a92165072c8dedee1a21ea9897`), `public-refs-are-option-injection-vectors.md` (SHA-256 `fd161c4df5e551eeaaa9635100cc2528cb221fc725773a0c14c08e5ed672fbf3`), `local-path-policy-before-expansion.md`, `requirement-recipes-data-allowlist.md`, `session-runtime-executable-scope-probe.md` (2026-07-26/28), principle only.
+1. Migrated from agents/cli-dev/soul/knowledge, agents/oats-expert/soul/knowledge and agents/integrations-expert/soul/knowledge @ 7838d3ca (integrity-alone-cannot-see-disputed-origin, distribution-packages-config-profiles-and-requirements, scoped-capability-store-and-templates, capability-artifact-paths-must-be-integrity-bounded, linear-task-interface-selection, runtime-package-requirements, lock-source-strictness-prevents-reclassification, public-refs-are-option-injection-vectors, config-diff-fails-closed-on-drifted-source).
+2. [OATS 0.26.0 release notes](https://github.com/awebai/oats/blob/main/docs/release-notes/v0.26.0.md), "Package approval".

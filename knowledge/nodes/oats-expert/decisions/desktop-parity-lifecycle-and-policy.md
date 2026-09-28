@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: "Desktop parity: the design's semantics win where safe; where they imply authority OATS lacks, the UI tells the truth"
-description: Five policy questions the Desktop redesign forced on the kernel, decided 2026-09-22 by the redesign lead under delegated human authority. Remove retains worktree, branch and PR by default with the worktree re-homed outside the instance; Stop is a first-class recursive lifecycle action; "Enrol" means workspace member admission with a receipt and "signed by" means a verified Git signature or nothing; child-spawn permission is enforced at the spawn route; automatic PR is default off, draft, first-push-triggered and owned by the ADE's forge connection.
+description: Five policy questions the Desktop redesign forced on the kernel, decided 2026-09-22 under delegated human authority — Remove retains and re-homes work, Stop is a recursive lifecycle action, membership and trust rows render only what the kernel established, child-spawn permission is enforced at the spawn route, automatic PR is ADE-owned — and the rule that the kernel's JSON is the Desktop's model.
 tags: [decision, desktop-parity, lifecycle, retire, stop, enrollment, trust, signature, child-spawns, pull-request]
 timestamp: 2026-09-22
 ---
@@ -67,53 +67,23 @@ stale plan cannot act on a changed roster.
 owners ([terminal viewers are not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md)),
 so closing one proves nothing about the agent's state.
 
-# 3. "Enrol workspace" means member admission; "signed by" means a verified signature or nothing
+# 3. Membership and trust rows render only what the kernel established
 
-> **Superseded in part (OATS 0.26.0).** Package approval was removed by
-> human decision (declaring a package in `packages:` is the trust decision),
-> and readiness was rewritten on the workspace model. So:
-> - there is **no `trusted` check and no signature verification**, and no
->   "Trusted · signed by X", "unsigned" or "signature unknown" row;
-> - `enrolled` became **`member`**: the soul's member repository confirmed by
->   the reciprocal membership discovery, never a separate admission receipt.
->   A standalone view reads `not-applicable`; an unreadable workspace reads
->   `unknown`;
-> - readiness gains **`providers`**: each bound provider's own binding check,
->   relayed verbatim.
->
-> What stands from the trust boundary is integrity, origin, containment and
-> host-install consent
-> ([integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md)),
-> and the rule that the UI never renders a fact the kernel did not produce.
-> Read the enrolment-receipt and signature paragraphs below as the 0.25
-> design.
+The 2026-09-22 answer read "Enrol" as workspace member admission with a
+receipt and "signed by" as a verified Git signature or nothing. Workspace
+model v2 and the removal of package approval (0.26.0) changed the facts
+underneath, and the rows followed them: the readiness row is **`member`** —
+the soul's repository confirmed by the reciprocal membership discovery,
+`not-applicable` in a standalone view, `unknown` when the workspace cannot be
+read — and there is no trusted/signed row at all. Each bound provider's own
+binding check is relayed verbatim as **`providers`**. What stands is the
+principle: a catalog URL, a repository owner or a byte hash is never a signer
+([integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md)),
+"Skip" never renders `pass`, and "policy allows child spawns" renders from
+the **enforced** policy (§4) with its origin.
 
-**Decision.** *Enrollment* is **workspace member admission**: this
-deployment's repository is recorded as a member of the workspace definition
-and the member repository records the backlink, through the existing
-reciprocal membership contract
-([workspace definition versus package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md);
-its revision-pinning half was superseded the following day by
-[workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
-which keeps the reciprocal handshake as the whole trust decision),
-producing a receipt that names both documents' revisions. It is not team
-registration, not native login and not onboarding. Until admission exists the
-readiness check reads `not-applicable` for standalone deployments and `fail`
-with the exact remedy for workspace-scoped ones; "Skip" leaves it
-`not-applicable`, never `pass`.
-
-"Trusted · signed by X" renders **only** when the acquired artifact's source
-commit or tag carries a **verified Git signature** whose signer the kernel
-can name; otherwise the row says "Trusted · unsigned" or "signature unknown".
-A catalog URL, a repository owner or a byte hash is never a signer — integrity
-and origin are different proofs
-([integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md)).
-"Policy allows child spawns and worktrees" renders from the **enforced**
-policy (§4) with its origin; advisory or unknown policy renders as unknown.
-
-*Rejected:* letting "enrolled" or "signed by" render from weaker facts so the
-design's cards look complete — the cards would assert a trust or membership
-state nobody established.
+*Rejected:* letting membership or trust rows render from weaker facts so the
+design's cards look complete — they would assert a state nobody established.
 
 # 4. Child-spawn permission is enforced by the spawn route
 
@@ -155,21 +125,32 @@ dispatch contract) are in
 - The Knowledge and Tasks frames stay excluded by human direction; their
   navigation entries state unavailability rather than hiding.
 
+# The kernel's JSON is the Desktop's model (2026-09-24)
+
+When the Desktop was rebuilt for workspace model v2 the human ruled "not
+adapt — natively built for it": every shown fact comes from the kernel's JSON
+outputs, the Desktop parses no deployment file, every mutation is a kernel
+verb, and UI capabilities are gated on the kernel's reported **features, not
+versions**. A missing fact is kernel work, never a Desktop-side parser. The
+0.24 readers were removed, not extended, and no 0.24 maintenance line was
+kept ([release judgement](/nodes/oats-expert/stewardship/release-traps.md)).
+
 # Consequences
 
-- **Kernel:** retention plan and worktree re-homing in retirement; a stop
-  route; a membership-admission command with receipt; signature
-  verification on acquired artifacts; an enforced child-spawn policy; typed
-  lifecycle events. Each lands as its own reviewed change; the Desktop slices
-  that depend on them wait for them rather than simulating them.
+- **Kernel:** retention plan and worktree re-homing in retirement, a stop
+  route, an enforced child-spawn policy and typed lifecycle events — each as
+  its own reviewed change; Desktop slices that depend on one wait for it
+  rather than simulating it.
 - **Program:** forge connections are ADE/workstation integrations, not
-  capabilities; the working names for a Git or forge capability were retired.
+  capabilities.
 - **Desktop:** renders these semantics and nothing stronger — unknown is shown
   as unknown ([async intent and truthful outcomes](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md)).
-  Desktop delivery of these semantics is now sequenced by the 2026-09-24
-  Phase F plan for a native workspace-v2 build
-  ([current direction](/nodes/oats-expert/roadmap/current-direction.md), item 3).
+
+# Current contracts
+
+- [desktop-cli-api.md](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md) (lifecycle plans, retire retention, `childSpawns`, readiness)
 
 # Citations
 
-1. Legacy `agents/oats-expert/soul/knowledge/decisions/desktop-parity-lifecycle-and-policy.md` (2026-09-22, redesign lead; §5 amended the same day by human correction).
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/desktop-parity-lifecycle-and-policy`, 2026-09-22; `decisions/desktop-is-built-for-workspace-v2`, 2026-09-24).
+2. [Desktop Phase F boundary](https://github.com/awebai/oats/blob/7838d3ca70772f63854b198601fbc45437c2e999/docs/design/2026-09-24-desktop-phase-f-boundary.md) (design record).

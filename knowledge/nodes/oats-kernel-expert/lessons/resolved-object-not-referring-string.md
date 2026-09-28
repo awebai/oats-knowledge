@@ -55,17 +55,38 @@ resolve only the request, and contain by exact root or root-plus-separator
 Two products, two reviews, one conclusion: the convergence is evidence for
 the rule, not a duplicate record of it.
 
-The legacy single-capability grammar stays loose on purpose: those artifacts
-are named by the basename of their source, never by a declared identifier, and
-tightening it would strand published standalone capabilities.
+**Guard the descriptor you read, not the path you checked** (2026-09-19).
+A temporary ancestor redirect during open can leave a foreign descriptor even
+when the named path is normal again; an earlier stat and a later root check
+do not establish which opened file supplied the bytes. Bind the descriptor to
+the physically contained source *before* reading, because a refusal after a
+foreign read cannot undo it. For the same reason a path cannot back a promise
+that a directory was not *replaced*: a path can name a different object after
+deletion and recreation, and a marker inside the directory is replaced with
+it. Such a promise needs a witness kept outside the protected root, and a
+version constant that claims the guarantee must cover every dependent read and
+write boundary, not only the writer.
+
+**The disambiguator must reach every projection** (2026-09-05). Exact-home
+retirement made the action pick the right one of two same-named remote
+instances, while the roster that decides which row the operator may act on
+still joined saved routes by name alone and gave the route to whichever twin
+the host listed first. The exact-home retire refused the mismatch, but
+routes that still addressed by name reached the other home, and the
+name-keyed saved-route store could not even represent two colliding routes.
+A guard's scope is the layer it lives in. Once a guard says "same name, not
+the same thing", grep the name it disambiguates and check every join, cache
+key, store and route keyed on it; fail-closed at the action does not rescue
+a wrong offer. The roster now joins by name and home, and a colliding routed
+spawn is refused or reported rather than overwriting.
 
 # Related
 
-[Separate operational home from granted work authority](/nodes/oats-kernel-expert/decisions/home-work-authority.md);
-[Live lineage is deliberately bounded](/nodes/oats-kernel-expert/decisions/bounded-live-lineage.md);
-[Integrity, origin and consent are different proofs](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
+[Separate operational home from granted work authority](../decisions/home-work-authority.md);
+[Live lineage is deliberately bounded](../decisions/bounded-live-lineage.md);
+[Integrity, origin and consent are different proofs](../decisions/trust-approval-and-consent-boundaries.md).
 
 # Citations
 
-1. OATS rationale source `agents/cli-dev/soul/knowledge/lessons/placement-guards-resolve-destination.md` (2026-07-28); SHA-256 `1a848d0cc822ed98f39a4fff3ce9d99c0d0bbbed8aae01b61654c8ac089e89f0`.
-2. OATS rationale sources `agents/cli-dev/soul/knowledge/lessons/canonical-agents-root-git-identity.md`, `caller-controlled-instance-name-containment.md`, `names-are-not-identity.md`, `path-first-resolution-round-trip.md`, `component-walk-classifies-broken-links.md`, `payload-root-subtree-extraction.md`, `symlink-containment-walker-throws.md`, `canonical-worktree-verification.md`, `decisions/adopted-writes-never-follow-a-symlink.md`, `decisions/capability-id-grammar-and-containment-proof.md` (2026-07-24 → 2026-07-29), principle only; machine-specific verification paragraphs dropped.
+1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (placement-guards-resolve-destination, names-are-not-identity, path-first-resolution-round-trip, symlink-containment-walker-throws, canonical-worktree-verification, adopted-writes-never-follow-a-symlink, captured-session-storage-identity; principle only).
+2. Migrated from agents/cli-dev/soul/knowledge/lessons/guard-the-projection-not-just-the-action.md @ 7838d3ca.

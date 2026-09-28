@@ -9,11 +9,17 @@ timestamp: 2026-07-24
 
 Decided 2026-07-24. Renderer choices are not arbitrary filesystem or process
 authority. The renderer never scans the filesystem; suggestions come from
-bounded, validated sources — known roots, siblings of already-known
-deployment roots, and recents revalidated on use. A native directory picker
-is an explicit privileged admission path, not a reason to trust every
-renderer-supplied path. Recents remain input to revalidate, not
-authorization.
+bounded, validated sources — deployments the app already knows and recents
+revalidated on use. A native directory picker is an explicit privileged
+admission path, not a reason to trust every renderer-supplied path. Recents
+remain input to revalidate, not authorization.
+
+Since Phase F (2026-09-24) admission checks only that the directory holds a
+regular, non-symlink `oats-local.yaml`; what the deployment contains is the
+kernel's to read and validate (`oats workspace status --json`), so admission
+parses nothing and the earlier sibling-root discovery is gone. A picked folder
+without a deployment is offered onboarding through the kernel, never
+scaffolded by Desktop.
 
 A responding server may belong to another workspace or an incompatible
 application. Never kill or extend a foreign server merely because it occupies
@@ -21,7 +27,7 @@ a convenient port. Commit workspace, recents and trust only after the
 intended owner and readiness are established; rollback must restore trust as
 well as process state. Existing terminal viewers survive the replacement of
 Desktop's own server because they attach to the session source, not to the
-server ([Terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md)).
+server ([Terminal tabs are viewers, not session owners](terminal-viewers-not-session-owners.md)).
 
 Discovery, native picker and non-dismissible mutation have different
 lifetimes. A picker can cover discovery without invalidating it, while an
@@ -50,20 +56,16 @@ canonicalise-once / compare-resolved-objects rule independently
 
 # Related
 
-[Identity and relationships must stay legible under ambiguity](/nodes/oats-desktop-expert/lessons/identity-and-relationship-legibility.md);
-[Async completion must still own the user's intent](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md);
-[The loopback interface is Desktop's trust boundary](/nodes/oats-desktop-expert/decisions/loopback-trust-boundary-and-transport-simplicity.md);
-[Verification judgment for Desktop's privileged surfaces](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md).
+[Identity and relationships must stay legible under ambiguity](../lessons/identity-and-relationship-legibility.md);
+[Async completion must still own the user's intent](../lessons/asynchronous-intent-and-truthful-outcomes.md);
+[The loopback interface is Desktop's trust boundary](loopback-trust-boundary-and-transport-simplicity.md);
+[Verification judgment for Desktop's privileged surfaces](../lessons/verification-judgment-for-privileged-surfaces.md).
 
 # Current contracts
 
 - [Current workspace-registry.mjs](https://github.com/awebai/oats/blob/main/packages/desktop/workspace-registry.mjs)
+- [Current desktop-deployment-model.md](https://github.com/awebai/oats/blob/main/packages/desktop/docs/desktop-deployment-model.md)
 
 # Citations
 
-1. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/decisions/desktop-workspace-add-privileged-contract.md`; SHA-256 `8e0e6d49d36ebee93f2a9cceafa258826cb7dd084d6d54eab5d54e9c719a133e`.
-2. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/privileged-state-transitions-transactions.md`; SHA-256 `ff439d1a14000d4051bbfaae43926ed31398ac981ee7dc9b0677f485b928197b`.
-3. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/server-reuse-identity-probe.md`; SHA-256 `58946af75d69955a241c39b211cde38fcd5a456f3cb71af1d55d66153a6e0407`.
-4. OATS rationale source `agents/ux-designer/soul/knowledge/lessons/latest-intent-and-mutation-ownership.md`; SHA-256 `e368f2e2d53acbfd3378d88763f2052f4fe19a716d76c181addc7eff3aad7063`.
-5. OATS rationale source `agents/ux-designer/soul/knowledge/decisions/workspace-manager-privileged-boundary.md`; SHA-256 `ad3d03876caa66ababd5796ca8f06844d3f48d8ebf8c768f1e88cab48d713ecd`.
-6. OATS rationale source `agents/oats-desktop-engineer/soul/knowledge/lessons/file-endpoint-realpath-guard.md`; SHA-256 `b210b45e5bc384a1e415c844669b560ab9e12fe95dda8c4de13bd6e50a36d0d4`.
+1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.

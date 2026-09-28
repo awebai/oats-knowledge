@@ -7,8 +7,7 @@ timestamp: 2026-09-24
 ---
 
 Learned 2026-09-24 while giving a knowledge provider typed errors for an
-unreachable, missing or shallow Git base, promoted from a developer
-instance's harvest that was not allowed to ride its feature branch.
+unreachable, missing or shallow Git base.
 
 # Rule
 
@@ -38,5 +37,5 @@ remedy is wrong, and the provider's own qualification semantics (what counts
 as an authority failure versus a transport failure) silently change under a
 feature that was meant to be additive.
 
-See also [integration guidance names only verbs the target CLI exposes](/nodes/integrations-expert/lessons/guidance-names-only-verbs-the-target-cli-exposes.md)
-for the companion rule that readiness must report what the hook will do.
+See also [a fallback the contract defines is a warning](/nodes/integrations-expert/lessons/a-fallback-the-contract-defines-is-a-warning-not-a-readiness-problem.md)
+for the companion rule that readiness reports what the hook will do.

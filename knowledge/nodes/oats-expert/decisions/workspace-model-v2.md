@@ -5,31 +5,17 @@ description: One workspace per organisation whose reciprocal membership is the w
 tags: [workspace, membership, capabilities, packages, provenance, materialization, teams, harness, supersession]
 timestamp: 2026-09-24
 ---
-> **Amended 2026-09-24 (human decision): package approval is removed.**
-> Declaring a package in the workspace's `packages:` IS the trust decision.
-> There's no per-version executable approval: `oats sync` has no approve
-> step, the lock carries no `approved` record, and there's no
-> `E_PACKAGE_UNAPPROVED` (OATS 0.26.0). The lock still pins commit +
-> integrity, and `oats sync` refuses drift (`E_PACKAGE_INTEGRITY`). Read any
-> mention below of approving package executables as the 0.25 design, not
-> current behaviour. See
-> [integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md).
-
 # Decision
 
-Accepted by the human 2026-09-23 on the redesign lead's proposal, worked
-out with the maintainer in one sitting after a critique that the model
-shipped three days earlier was "complicating this":
-provenance declared per soul per capability, three files each knowing about
-versions, a workspace file importing its own members' souls, and a deployment
-configuration repeating activation for every capability. Four refinements
-came from the team review the same day; two clarification rounds followed —
-the first patch's team review (2026-09-23) and an operator's first real
-rebuild (2026-09-24, led by the OSS coordinator). No decision has been
-reversed; two were corrected in their examples. The worked example (an
-imaginary organisation with three teams and five repositories) and the
-normative contract text live in the framework repository's design documents;
-this concept is the record of *what was decided and why*.
+Accepted by the human 2026-09-23 on the redesign lead's proposal. The model
+it replaced declared provenance per soul per capability, had three files each
+knowing about versions, a workspace file importing its own members' souls,
+and a deployment configuration repeating activation for every capability.
+Refinements came from a team review the same day, the first patch's review
+(2026-09-23) and an operator's first real rebuild (2026-09-24). One human
+decision followed on 2026-09-24: package approval was removed (OATS 0.26.0).
+The normative text lives in the framework's reference pages; this concept is
+the record of *what was decided and why*.
 
 **Supersedes** the revision-pinned membership of
 [a workspace definition is not a package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md)
@@ -50,7 +36,7 @@ is versioned:
 | Source kind | Versioned | Trust |
 |---|---|---|
 | A member repository (or the soul's own repository) | no — always the member's latest state | membership |
-| A package | yes — the version pinned once, in the workspace; the lock records exact commit and integrity | executables approved once per version, recorded in the lock |
+| A package | yes — the version pinned once, in the workspace; the lock records exact commit and integrity | the declaration in the workspace's `packages:` |
 
 A soul names each capability **with where it comes from — a location, never
 a version**. The workspace says which package version; materialization
@@ -70,26 +56,26 @@ Resolution is a handshake check plus a lookup.
    model is the one every team already accepts for a repository's committed
    agent skills: who can push is the boundary, the branch's latest state is
    what runs. No per-operator trust lists, no per-capability approval for
-   members. Packages keep a one-time executable approval per version because
-   they come from outside that boundary. Every layer of approval stacked on a
-   team's own code was ceremony; the model now spends its rigour where the
-   boundary actually is — packages from outside, the handshake, integrity.
+   members. Every layer of approval stacked on a team's own code was
+   ceremony; the model spends its rigour where the boundary actually is —
+   packages from outside, the handshake, integrity. Packages at first kept a
+   one-time executable approval per version; the human removed it on
+   2026-09-24 (0.26.0): declaring a package *is* the trust decision, and the
+   lock keeps commit and integrity so a moved tag or an edited payload is
+   refused.
 3. **Discoverable by default.** Every soul and capability definition in a
    member is a workspace item; an item that wants to stay internal says so in
    its own definition. No export lists anywhere.
 4. **The handshake is observed with the operator's own read access to both
    halves, in one access context.** An unreadable half is *unconfirmed*,
    never a half-success — reading the workspace repository *is* being in the
-   workspace. Clarified 2026-09-23 (team review): a repository without a
-   backlink is a schema error, not a standalone view; the standalone view is
-   a **member** whose workspace host cannot be read *for access reasons*
-   (denied or not found). A network or timeout failure is surfaced as-is: an
-   offline laptop must never be silently downgraded to "public contributor".
-   The view is marked on everything it produces — the discovery, the roster,
-   every instance spawned from it. Refined 2026-09-23 (first-patch review):
-   "the operator's own access" includes SSH; a remote is fetched in the form
-   it was written so a private repository is never probed over an unintended
-   transport and thereby degraded to standalone.
+   workspace. A repository without a backlink is a schema error; the
+   standalone view is a **member** whose workspace host cannot be read *for
+   access reasons*, marked as such on everything it produces. A network
+   failure is surfaced as-is: an offline laptop must never be silently
+   downgraded to "public contributor", and a remote is fetched in the form it
+   was written so a private repository is never degraded by an unintended
+   transport.
 5. **Mixed public/private organisations host the workspace file in a private
    repository that is not a public member.** The workspace file is readable
    by everyone who may see the member *list*; public contributors then get
@@ -128,43 +114,36 @@ Resolution is a handshake check plus a lookup.
     visible. This invariant is what everything downstream already relies on
     (retire baselines, confirmed apply, Desktop-reported facts); full copies
     make it free.
-11. **Made literal 2026-09-23 (first-patch review): the invariant covers the
-    soul body too.** A soul is fetched per commit into an immutable,
-    never-removed directory; a pointer to the current commit is swapped
-    atomically; each instance links its own commit directory. A preview that
-    fetches a newer commit touches nothing an instance links, so path-pinned
-    provider state stays valid per instance — and is per commit, which the
-    rebuild guide states. In-place recompose of a module home is refused; the
-    refresh is a new spawn.
+11. **The invariant covers the soul body too** (2026-09-23): each instance
+    uses the soul exactly at the commit it was spawned from, so a preview that
+    fetches a newer commit changes nothing a running instance relies on, and
+    path-pinned provider state stays valid per instance. The refresh is a new
+    spawn, never an in-place recompose.
 12. **Drift is shown, not prevented.** Status and roster show, per instance,
     each module's and the soul's source and commit, and whether the member
-    has moved since or the capability is gone. Refined 2026-09-23: drift is
-    reported *with a cause* — the recorded revision splits declarations from
-    payload, so a settings-only change on a machine is not mistaken for a
-    member that moved. A moved soul is information about *new* spawns, never
-    a change under a running one.
+    has moved since or the capability is gone, *with a cause*, so a
+    settings-only change on a machine is not mistaken for a member that
+    moved. A moved soul is information about *new* spawns, never a change
+    under a running one.
 
 ## Nothing is installed; no migration
 
 13. **Nothing is installed.** A package is a place to fetch from with a
     version attached; a member is a place to fetch from without one. No
     installed-capability directory, no activation step; a fetch cache may
-    exist as invisible plumbing. The lock carries the per-version executable
-    approval next to the commit it approved; a moved tag fails integrity and
-    asks again. Refined 2026-09-23: the approval is **re-verified at spawn**
-    — the executables digest is recomputed at the locked commit and must
-    equal the approved one; writing the approval was never the gate, the
-    spawn is. Refined 2026-09-24 (operator rebuild): approval works without a
-    terminal, naming exactly the entry the resolution contains, and the
-    digest is always computed, never typed.
+    exist as invisible plumbing. The lock records the commit and integrity
+    of each package version; a moved tag or a tampered payload fails
+    integrity, and the check that matters runs at spawn, not when the lock
+    was written. (The 0.25 per-version executable approval was removed by
+    human decision on 2026-09-24.)
 14. **No migration; the previous line keeps working.** v1 declaration files
     are errors naming the schema, not fallbacks — the
     [pre-adoption precedent](/nodes/oats-expert/decisions/clean-contract-precedent.md)
     applied. "No migration" means no converter and no dual-schema reader: the
     previous kernel line spawns its deployments indefinitely, the new line
-    reads only v2 files, and an operator rebuilds when ready with a written
-    rebuild guide that ships with the schemas. The init/use/install/restore
-    verbs and the deployment activation file go away.
+    reads only v2 files, and an operator rebuilds when ready from the written
+    reference. The init/use/install/restore verbs and the deployment
+    activation file go away.
 
 ## Remotes, not clones; the layout is the operator's
 
@@ -176,15 +155,10 @@ Resolution is a handshake check plus a lookup.
 16. **The deployment layout is the operator's.** Onboarding *asks for* (or
     accepts) the directory where agents will live — usually the folder
     already holding the member clones — and adds what the kernel needs
-    there. There is no named folder convention: operator feedback
-    (2026-09-23) showed a taught workspace-folder name working against this
-    very sentence. Spawning a soul from a repository not yet cloned is a
-    guided clone-then-spawn. Refined 2026-09-24: the clone lookup has one
-    taught, enforced order (explicit flag, then the operator's clone map,
-    then a member-named directory beside the agents root), a miss names its
-    remedies, and a directory whose remotes name another repository is a
-    mismatch, not a match. The coordination soul's workspace work mode is the
-    deployment directory itself, no branch.
+    there. There is no named folder convention: a taught folder name worked
+    against this very sentence. The clone lookup has one taught, enforced
+    order, a miss names its remedies, and a directory whose remotes name
+    another repository is a mismatch, not a match.
 
 ## Teams are labels; providers own what a label means
 
@@ -226,12 +200,11 @@ Resolution is a handshake check plus a lookup.
     The per-soul blocks of the deployment configuration disappear; their
     per-instance content moves to spawn time. The binding validation contract
     runs unchanged over the merged payload
-    ([kernel view of bindings](/nodes/oats-kernel-expert/decisions/operator-bindings-flat-map-declared-ownership.md)).
-    Refined 2026-09-24: the merged payload is **inspectable before it is
-    bound** (spawn preview shows what each provider receives), and a
-    provider's operator-level command run before any instance exists
-    resolves exactly as a spawn of that soul would — never "the newest
-    instance's copy", never an unlocked cache read.
+    ([kernel view of payloads](/nodes/oats-kernel-expert/decisions/soul-declares-kind-config-assigns-policy.md)).
+    The merged payload is **inspectable before it is bound** (the spawn
+    preview shows what each provider receives), and a provider command run
+    before any instance exists resolves exactly as a spawn of that soul
+    would.
 21. **Slot emptiness resolves in one direction.** A soul's "none" for a slot
     empties it and drops whatever layer-bearing capability the *workspace
     defaults* contributed; only a soul contradicting *itself* is an error.
@@ -244,11 +217,9 @@ Resolution is a handshake check plus a lookup.
     intact, capability skills are copied into the instance's skills
     directory, and machine-level and repository-level skills resolve exactly
     as without OATS. OATS keeps composing instructions and pinning
-    model/provider settings. This extends
-    [native launch](/nodes/oats-kernel-expert/decisions/native-launch-strict-pi-only.md)
-    to the Pi harness and to skills; refined 2026-09-23, it applies to every
-    launch the new kernel performs, previous-line homes included, with no
-    per-home posture switch. Ambient-skill exclusion at launch is removed.
+    model/provider settings; ambient-skill exclusion at launch is removed for
+    every launch
+    ([native launch](/nodes/oats-kernel-expert/decisions/harness-native-launch.md)).
 23. **Duplicate skill names.** Within the OATS-composed set a duplicate is a
     spawn error naming both capabilities. Between a composed skill and an
     ambient one the harness's own precedence decides and OATS does not
@@ -265,12 +236,12 @@ Resolution is a handshake check plus a lookup.
     that capability** — an ordinary member soul, global team, discoverable
     and spawnable by anyone in the workspace, the natural owner of its
     package's changes. This is the per-package expert the
-    [roster amendment of 2026-09-24](/nodes/oats-expert/decisions/roster-amendment-operator-and-integration-experts.md)
+    [roster amendment of 2026-09-24](/nodes/oats-expert/decisions/domain-expert-rebuild.md)
     later admitted.
 26. **The official core is the kernel's default, in the standalone case
     too.** A soul spawned from a member whose workspace cannot be read gets
     its own-repository capabilities *plus* the official core from the
-    catalog, approved through the operator's lock like any package; without
+    catalog, resolved through the operator's lock like any package; without
     it the standalone spawn is the hollow agent the framework already
     refuses. Clarified 2026-09-23: the default is a default, not an addition
     — *any* mention of the core in a soul (any source, or off) suppresses it
@@ -285,7 +256,7 @@ Resolution is a handshake check plus a lookup.
     architecture.** The core must let an agent work well inside an instance
     under the new model from its seat; setup must teach the whole
     architecture and its best practices — the handshake and why, member tier
-    versus package tier and the non-collapse rule, packages/lock/approval,
+    versus package tier and the non-collapse rule, packages and the lock,
     catalog versus Git references, the deployment directory with no naming
     convention, private/external/standalone cases, the three payload homes,
     and what is deliberately not versioned. Skills are snapshot-tested
@@ -311,9 +282,9 @@ per-soul store inheritance (stores are declared once in the workspace);
 ambient-skill exclusion at launch.
 
 Kept: kernel-neutral provider payloads and the binding validation contract;
-the lock, extended with approval; executable approval for packages
-([integrity, origin and consent are different proofs](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md));
-retained resolutions, decision revisions and the confirmed-apply contract;
+the lock (commit and integrity per package version —
+[integrity, origin and consent are different proofs](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md));
+decision revisions and the confirmed-apply contract;
 the official catalog as discovery; every published Desktop CLI contract
 (previews report what was materialized from where, at which commit); the
 canonical-plus-alias instance construction.
@@ -321,7 +292,7 @@ canonical-plus-alias instance construction.
 # Routing
 
 The mechanics named above only as far as the decision needs them — clone
-lookup order, per-commit soul cache, spawn-time approval verification,
+lookup order, per-commit soul cache, spawn-time integrity verification,
 remote-form fetching, error taxonomy — are kernel contract and belong to the
 kernel node as constraints once recorded there; the rebuild guide's
 judgement (deployment directory, cutover, mixed public/private hosting,
@@ -329,7 +300,12 @@ per-team messaging identities in practice) belongs to the operator node; what
 each provider version actually reads from its payload belongs to that
 package's expert.
 
+# Current contracts
+
+- [workspaces.md](https://github.com/awebai/oats/blob/main/docs/workspaces.md)
+- [packages.md](https://github.com/awebai/oats/blob/main/docs/packages.md)
+
 # Citations
 
-1. Legacy `agents/oats-expert/soul/knowledge/decisions/workspace-model-v2.md` (2026-09-23, appended 2026-09-23 and 2026-09-24).
-2. Framework design documents `docs/design/2026-09-23-simplified-workspace-model.md` and `docs/design/2026-09-23-workspace-module-contracts.md` (normative text, "0.25.1 fix round" and "0.25.2 operator-rebuild round"), and `docs/rebuild-to-v2.md`, [awebai/oats](https://github.com/awebai/oats).
+1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/workspace-model-v2`, 2026-09-23, appended 2026-09-23/24).
+2. Design records [simplified workspace model](https://github.com/awebai/oats/blob/7838d3ca70772f63854b198601fbc45437c2e999/docs/design/2026-09-23-simplified-workspace-model.md) and [workspace module contracts](https://github.com/awebai/oats/blob/main/docs/design/2026-09-23-workspace-module-contracts.md) in awebai/oats.
