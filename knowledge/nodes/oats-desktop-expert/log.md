@@ -1,5 +1,10 @@
 # oats-desktop-expert log
 
+## 2026-09-29
+
+* **Update**: this node now covers Desktop UX and design (the designer soul was removed; awebai/oats#311). Added [One design authority, a stated quality bar, and a native terminal](decisions/design-direction-and-quality-bar.md): the expert owns design direction and the developer implements it, the quality bar, and the terminal-geometry reversal of the Redesign v3 typography (awebai/oats#307).
+* **Update**: [Async completion](lessons/asynchronous-intent-and-truthful-outcomes.md) gains single-flight side-effecting pipelines enforced at the handler. A second gap check of the legacy `ux-designer` base found everything else already carried or deliberately dropped.
+
 ## 2026-09-28
 
 * **Update**: imported 14 lessons from the legacy soul trees — each re-verified against main: close-before-mount-settles into [Async completion](lessons/asynchronous-intent-and-truthful-outcomes.md); off-request-path collection and lower-trust snapshot producers into [The loopback interface](decisions/loopback-trust-boundary-and-transport-simplicity.md); bracketed paste into [Terminal tabs are viewers](decisions/terminal-viewers-not-session-owners.md); request-carried workspace scope into [Identity and relationships](lessons/identity-and-relationship-legibility.md); shifted-punctuation chords into [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md); shell reachability and removal inventories into [Verification judgment](lessons/verification-judgment-for-privileged-surfaces.md).
