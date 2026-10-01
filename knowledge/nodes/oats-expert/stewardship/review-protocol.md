@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Contributed work reaches main only through PRs judged by the maintainer's four gates against exact heads; reviewers are fresh, tests must agree with the requirement rather than the code, a lone gate gets a second reader, and knowledge PRs get a semantic read.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-09-22
+timestamp: 2026-10-01
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -100,6 +100,16 @@ every window a single lead gated. The first such re-review, of a few days of
 lead-only merges, found two security defects (an argv flag injection and an
 arbitrary file write); its findings landed as follow-ups, never reverts.
 
+## Paired maintainers cross-review and plan releases together (2026-10-01)
+
+The human directed the participating maintainers to review one another's work
+and plan releases together [4]. The maintainer's recorded rationale is to
+build the second reader into the pairing from the start, rather than routinely
+needing an after-the-fact review of lone-gate windows [5]. This adds a paired working
+arrangement; it does not remove the lone-gate fallback or relax head-bound
+review. The direction records how the pair coordinates, not a standing grant
+of merge or release authority to future instances.
+
 # A test that agrees with the code is not evidence (consolidated 2026-09-06)
 
 The recurring defect in this repository's review history is a test that agrees
@@ -191,3 +201,5 @@ dislodge than the original.
 1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/dev-team-and-review-flow`, 2026-07-21/27, and the 2026-07 review lessons), with lessons from agents/dev-coordinator, agents/docs-expert, agents/oats-coordinator and agents/cli-dev knowledge @ 7838d3ca (crossed mail, stale base, reviewer deaths, schema-migration aliases, review routing, the testing-honesty family).
 2. Migrated from agents/oats-expert/soul/knowledge/stewardship @ 7838d3ca (delivery-log, 2026-09-24 → 2026-09-27: squash orphan and patch verification, head-bound ACKs, human redirection recorded before review, removal sweeps and every-entry-point probes, the lone-gate re-review, additive fields and consumer-first renames, producer trust gaps, stand-in providers, one-way-call assertions, security review of knowledge changes).
 3. Migrated from agents/oats-expert/soul/knowledge/lessons/window-gone-completed-vs-killed-triage.md @ 7838d3ca.
+4. Harvested 2026-10-01 (paired maintainers). OKF input c15a51880924deaff3fb01859f1c90b8aa09ad3a815c75af48410a708b5862c3 (turns t1:e06654b04457084a49aa064a418ef9a08d6f2e8fd0c0090c1c0edc683f99b78a).
+5. Harvested 2026-10-01 (paired maintainers). OKF input 6fe3e66661e1fb9bcef9dd2a99d0d8c0f3ebcc7aa9882e1a1d6591edc1cb899c (note maintainer-pairing-agreement.md; second-reader rationale only, not the still-proposed operating terms).

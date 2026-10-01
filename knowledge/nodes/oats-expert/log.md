@@ -1,5 +1,10 @@
 # oats-expert log
 
+## 2026-10-01
+
+* **Update**: knowledge-maintainer review of the harvest below: the paired-maintainers section names the human by role, as the rest of the base does, and its evidence moves verbatim under [review protocol](/nodes/oats-expert/stewardship/review-protocol.md) `# Citations` (4, 5).
+* **Harvest**: [Review protocol](/nodes/oats-expert/stewardship/review-protocol.md) gains the human-directed maintainer pairing: cross-review and joint release planning, with the note's rationale of building in the second reader. The lone-gate fallback remains; unaccepted operating terms and instance-specific authority are not promoted. Evidence: OKF inputs c15a51880924deaff3fb01859f1c90b8aa09ad3a815c75af48410a708b5862c3 and 6fe3e66661e1fb9bcef9dd2a99d0d8c0f3ebcc7aa9882e1a1d6591edc1cb899c.
+
 ## 2026-09-28
 
 * **Update**: imported 1 lesson from the legacy soul trees — [review protocol](/nodes/oats-expert/stewardship/review-protocol.md) *Fresh eyes*: a vanished reviewer window with no wake event is triaged from the full message history and the session tail before it is called killed.
