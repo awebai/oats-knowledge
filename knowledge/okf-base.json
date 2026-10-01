@@ -45,6 +45,10 @@
     "oats-authoring-expert": {
       "path": "nodes/oats-authoring-expert",
       "owner": "a324f1de-0f6a-451c-8417-91ba1f402455"
+    },
+    "oats-setup-admin": {
+      "path": "nodes/oats-setup-admin",
+      "owner": "d9ccb5f0-1c69-406c-a4c8-0a2e0f41c76e"
     }
   }
 }
