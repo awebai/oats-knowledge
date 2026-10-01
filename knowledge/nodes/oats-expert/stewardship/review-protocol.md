@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Contributed work reaches main only through PRs judged by the maintainer's four gates against exact heads; reviewers are fresh, tests must agree with the requirement rather than the code, a lone gate gets a second reader, and knowledge PRs get a semantic read.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-09-22
+timestamp: 2026-10-01
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -99,6 +99,19 @@ price when one lead gates alone: schedule a second maintainer's re-review of
 every window a single lead gated. The first such re-review, of a few days of
 lead-only merges, found two security defects (an argv flag injection and an
 arbitrary file write); its findings landed as follow-ups, never reverts.
+
+## Paired maintainers cross-review and plan releases together (2026-10-01)
+
+Pepe directed the participating maintainers to review one another's work and
+plan releases together. The maintainer's recorded rationale is to build the
+second reader into the pairing from the start, rather than routinely needing
+an after-the-fact review of lone-gate windows. This adds a paired working
+arrangement; it does not remove the lone-gate fallback or relax head-bound
+review. The direction records how the pair coordinates, not a standing grant
+of merge or release authority to future instances.
+
+Evidence: OKF input c15a51880924deaff3fb01859f1c90b8aa09ad3a815c75af48410a708b5862c3 (turns t1:e06654b04457084a49aa064a418ef9a08d6f2e8fd0c0090c1c0edc683f99b78a).
+Evidence: OKF input 6fe3e66661e1fb9bcef9dd2a99d0d8c0f3ebcc7aa9882e1a1d6591edc1cb899c (note maintainer-pairing-agreement.md; second-reader rationale only, not the still-proposed operating terms).
 
 # A test that agrees with the code is not evidence (consolidated 2026-09-06)
 
