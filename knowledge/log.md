@@ -1,5 +1,9 @@
 # Knowledge log
 
+## 2026-10-01
+
+* **Creation**: Chartered the [oats-setup-admin](/nodes/oats-setup-admin/index.md) node for the setup-admin soul, which gains the oats.okf knowledge slot: the judgement of administering a workspace's OATS config, never deployment state; distinct from [oats-operator-expert](/nodes/oats-operator-expert/index.md). The base declares twelve nodes.
+
 ## 2026-09-28
 
 * **Removal**: The `oats-dev-expert` node, retired with `oats.dev` (the `oats.engineering` package replaced it, oats#283). It held no researched knowledge; the base declares eleven nodes. The roster in [domain-expert rebuild](/nodes/oats-expert/decisions/domain-expert-rebuild.md) is updated.

@@ -32,8 +32,9 @@ copy of framework code, API tables, command manuals or old task/release queues.
 | `oats-desktop-expert` | Product, interaction and integration judgment |
 | `market-research-expert` | Dated attributable research; no unsupported market claims |
 | `oats-operator-expert` | Deployment operation and first-time adoption: onboarding/rebuild rationale, migration and cutover judgement; no user setup state |
+| `oats-setup-admin` | Administering a workspace's OATS config: which changes went wrong and why, how refusals were read, what verification caught; no deployment state |
 | `integrations-expert` | Cross-package provider-integration judgement, read by the package experts |
-| `oats-okf-expert`, `oats-aweb-expert`, `oats-jira-expert`, `oats-linear-expert`, `oats-authoring-expert`, `oats-dev-expert` | One per official package: that package's facts, nothing cross-package |
+| `oats-okf-expert`, `oats-aweb-expert`, `oats-jira-expert`, `oats-linear-expert`, `oats-authoring-expert` | One per official package: that package's facts, nothing cross-package |
 
 Market and most package-expert nodes currently have navigation only: absence of researched
 knowledge is not permission to invent it. Owner UUIDs route responsibility,
