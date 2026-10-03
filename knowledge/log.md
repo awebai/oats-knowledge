@@ -2,7 +2,7 @@
 
 ## 2026-10-03
 
-* **Update**: The oats-expert node moved, notes unchanged, to [oats-maintainer](/nodes/oats-maintainer/index.md), owned by the new oats-maintainer soul (the OATS maintainer). The oats-expert soul stays the generalist expert that leads cross-area work, with a fresh [oats-expert](/nodes/oats-expert/index.md) node under its unchanged owner. Links across the base point at the moved node; the base declares thirteen nodes.
+* **Update**: The oats-expert node moved, notes unchanged, to [oats-maintainer](/nodes/oats-maintainer/index.md), owned by the new oats-maintainer soul (the OATS maintainer). The oats-expert soul stays the generalist expert that leads cross-area work, with a fresh [oats-expert](/nodes/oats-expert/index.md) node under its unchanged owner. Links across the base point at the moved node, and the seven node indexes whose cross-reference was labelled `oats-expert` (market-research, authoring, aweb, desktop, jira, linear, okf) now label it `oats-maintainer`; no other note text changed. The base declares thirteen nodes.
 
 ## 2026-10-01
 
