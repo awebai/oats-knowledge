@@ -9,3 +9,4 @@ Product, design and security decisions with their rationale and rejected alterna
 * [Workspace admission is privileged and transactional](privileged-workspace-admission.md) - Workspaces are admitted only from validated sources, after identity and readiness are established.
 * [Editor groups own layout and close succession](editor-group-layout-ownership.md) - Persistent groups, not per-tab split slots, own ordered work and focus.
 * [One design authority, a stated quality bar, and a native terminal](design-direction-and-quality-bar.md) - The expert owns UX and design direction and the developer implements it; the terminal keeps native geometry.
+* [Calibrate terminal stroke weight per theme without changing cell geometry](per-theme-terminal-stroke-weight.md) - Theme-specific stroke weight matches the native terminal reference without changing cell geometry or adding a user setting.

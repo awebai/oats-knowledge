@@ -3,7 +3,7 @@ type: Decision
 title: One design authority, a stated quality bar, and a native terminal
 description: The Desktop expert owns UX and design direction and the developer implements it; the quality bar is calm, coherent and accessible; a visual redesign never restyles the native terminal surface.
 tags: [desktop, design, ux, quality, accessibility, terminal, ownership]
-timestamp: 2026-09-29
+timestamp: 2026-10-03
 ---
 # Rationale
 
@@ -49,6 +49,12 @@ typography for a terminal region is not a spec for the live terminal. Test
 it against a real TUI (box drawing, the cursor at an input line) before
 adopting it.
 
+# Related calibration
+
+The [per-theme stroke-weight decision](per-theme-terminal-stroke-weight.md)
+records a later native-fidelity calibration that leaves cell geometry intact;
+it does not supersede the geometry rule above.
+
 # Current contracts
 
 - [Current souls/oats-desktop-expert/AGENTS.md](https://github.com/awebai/oats/blob/main/souls/oats-desktop-expert/AGENTS.md)
@@ -60,3 +66,4 @@ adopting it.
 1. Human direction 2026-09-29, relayed by oats-expert-lead: "keep only desktop expert and desktop developer, and the expert is also a UX expert"; awebai/oats#311.
 2. Human request 2026-09-29 (terminal "looks off" against OAS and the early redesign); awebai/oats#307 @ a5abfd86, reverting the terminal typography of awebai/oats#137 to 060de502 (2026-07-23, "preserve native terminal geometry").
 3. The removed designer soul's principles and quality bar, souls/oats-desktop-designer/AGENTS.md @ a5abfd86.
+4. Harvested 2026-10-03 (related calibration cross-reference only). OKF input 52ae035e267fc3fc2ba75e4b53bfe341946d81480e306ab1f4735a16e5f56332 (note per-theme-terminal-weight.md).

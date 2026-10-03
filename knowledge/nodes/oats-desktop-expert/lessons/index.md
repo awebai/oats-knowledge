@@ -9,3 +9,4 @@ Discoveries, integration limitations and verification judgment that the reposito
 * [Accessibility is proven on effective colours, not token pairs](effective-contrast-over-token-pairs.md) - Contrast is checked on every colour the user actually sees, not on token pairs.
 * [Verification judgment for Desktop's privileged surfaces](verification-judgment-for-privileged-surfaces.md) - Prove guards at the real boundary and never launch the packaged app on an operator's machine.
 * [macOS installers — what ad-hoc signing fixes and what it cannot](macos-adhoc-signing-decision.md) - Complete ad-hoc signing fixes "damaged" bundles; only Developer ID plus notarization removes the warning.
+* [Terminal stroke-weight comparisons depend on polarity and platform](terminal-weight-polarity-and-platform-scope.md) - A macOS Retina comparison found polarity-dependent Chromium stroke coverage, so native-terminal calibration must control colours and remain scoped to the measured platform.

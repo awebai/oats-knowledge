@@ -1,5 +1,11 @@
 # oats-desktop-expert log
 
+## 2026-10-03
+
+* **Harvest**: added [Per-theme terminal stroke weight](decisions/per-theme-terminal-stroke-weight.md), preserving the rationale for theme-specific calibration and the rejected global-weight, setting, renderer and contrast alternatives; no native-geometry decision is superseded.
+* **Harvest**: added [Terminal weight polarity and platform scope](lessons/terminal-weight-polarity-and-platform-scope.md), merging the source's macOS Retina measurements and their platform limitation into one lesson; no Linux, Windows or low-density match is claimed.
+* **Update**: linked the calibration from [Design direction and quality bar](decisions/design-direction-and-quality-bar.md) without changing its native-cell-geometry rule. The harvest relies on the three source notes; the two captured record windows contain startup material, not the later experiments or review.
+
 ## 2026-09-29
 
 * **Update**: this node now covers Desktop UX and design (the designer soul was removed; awebai/oats#311). Added [One design authority, a stated quality bar, and a native terminal](decisions/design-direction-and-quality-bar.md): the expert owns design direction and the developer implements it, the quality bar, and the terminal-geometry reversal of the Redesign v3 typography (awebai/oats#307).
