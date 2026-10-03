@@ -3,7 +3,7 @@ type: Decision
 title: One design authority, a stated quality bar, and a native terminal
 description: The Desktop expert owns UX and design direction and the developer implements it; the quality bar is calm, coherent and accessible; a visual redesign never restyles the native terminal surface.
 tags: [desktop, design, ux, quality, accessibility, terminal, ownership]
-timestamp: 2026-09-29
+timestamp: 2026-10-03
 ---
 # Rationale
 
@@ -48,6 +48,14 @@ design tokens may theme its colours but not its cell geometry. A mockup's
 typography for a terminal region is not a spec for the live terminal. Test
 it against a real TUI (box drawing, the cursor at an input line) before
 adopting it.
+
+# Related calibration
+
+The [per-theme stroke-weight decision](per-theme-terminal-stroke-weight.md)
+records a later native-fidelity calibration that leaves cell geometry intact;
+it does not supersede the geometry rule above.
+
+Evidence: OKF input 52ae035e267fc3fc2ba75e4b53bfe341946d81480e306ab1f4735a16e5f56332 (note per-theme-terminal-weight.md).
 
 # Current contracts
 
