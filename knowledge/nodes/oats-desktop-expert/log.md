@@ -2,6 +2,7 @@
 
 ## 2026-10-03
 
+* **Harvest**: added [Needs-input attention preserves liveness and roster recognition](decisions/needs-input-preserves-liveness-and-recognition.md), preserving the source expert's marker, collapsed-parent and fixed-label rationale and rejected dot-recolouring, row-reordering and visible-age alternatives. The note is the design evidence; the captured records contain startup material and the opening brief, not later verification or acceptance. Existing design, accessibility and CLI-authority decisions are not superseded.
 * **Harvest**: added [Per-theme terminal stroke weight](decisions/per-theme-terminal-stroke-weight.md), preserving the rationale for theme-specific calibration and the rejected global-weight, setting, renderer and contrast alternatives; no native-geometry decision is superseded.
 * **Harvest**: added [Terminal weight polarity and platform scope](lessons/terminal-weight-polarity-and-platform-scope.md), merging the source's macOS Retina measurements and their platform limitation into one lesson; no Linux, Windows or low-density match is claimed.
 * **Update**: linked the calibration from [Design direction and quality bar](decisions/design-direction-and-quality-bar.md) without changing its native-cell-geometry rule. The harvest relies on the three source notes; the two captured record windows contain startup material, not the later experiments or review.
