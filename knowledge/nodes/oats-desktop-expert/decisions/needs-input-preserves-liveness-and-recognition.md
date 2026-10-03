@@ -58,9 +58,9 @@ of attention and liveness above.
   model and feature-gating boundary. This concept does not duplicate the
   attention-field schema or producer contract.
 
-# Evidence
+# Citations
 
-Evidence: OKF input fa37da7c49b2c4e7779f222d9d69135b87adb69dd0dad01ba05792de408f1912 (note needs-input-marker-design.md).
+1. OKF input fa37da7c49b2c4e7779f222d9d69135b87adb69dd0dad01ba05792de408f1912 (note needs-input-marker-design.md).
 
 The captured transcript windows contain startup material and the opening
 brief, not the later design work or implementation verification. The design
