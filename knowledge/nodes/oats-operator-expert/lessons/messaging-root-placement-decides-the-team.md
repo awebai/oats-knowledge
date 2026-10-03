@@ -100,9 +100,9 @@ recipe.
   first messaging soul is spawned and after the fresh provider state is laid
   down ([cutover is sequenced per deployment](/nodes/oats-operator-expert/playbooks/cutover-is-sequenced-per-deployment.md)).
 - The outsider verifying a rebuild checks certificates against the intended
-  team, not roster presence ([second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
+  team, not roster presence ([second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md)).
 - The clean-v2 stance that made the old team scope disappear is recorded in
-  [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md).
+  [workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md).
 
 # Routed
 

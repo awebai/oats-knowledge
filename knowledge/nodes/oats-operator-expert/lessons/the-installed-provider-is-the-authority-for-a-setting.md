@@ -60,7 +60,7 @@ a grammar nothing reads.
 - **Verify by behaviour.** After a spawn, look at what the provider did —
   which team it joined, which owner it recorded, which state root it wrote —
   not at what the payload said. This is what an acceptance run on a fresh rig
-  exercises ([second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
+  exercises ([second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md)).
 - **Keep declared intent that the provider does not yet honour.** Where the
   kernel delivers a per-team intent the installed provider ignores, leave the
   declared block in the workspace file: it documents intent and the next

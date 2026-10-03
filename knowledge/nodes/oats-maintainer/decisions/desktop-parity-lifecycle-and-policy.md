@@ -22,7 +22,7 @@ stronger, consistent with the CLI remaining authoritative for every mutation
 §5 records its **amended** form: the automatic-PR owner moved from "a
 provider capability" to the ADE's workstation forge connection on the same
 day, by human correction — see
-[a forge connection is a workstation fact, not a capability](/nodes/oats-expert/decisions/forge-connection-is-a-workstation-fact.md).
+[a forge connection is a workstation fact, not a capability](/nodes/oats-maintainer/decisions/forge-connection-is-a-workstation-fact.md).
 The kernel-side constraints these decisions create, and the Desktop rule for
 rendering them, are recorded in the kernel and Desktop nodes, not here.
 
@@ -116,7 +116,7 @@ labelled as such.
 
 Rationale and the rejected first draft (a forge *capability* with a kernel
 dispatch contract) are in
-[a forge connection is a workstation fact](/nodes/oats-expert/decisions/forge-connection-is-a-workstation-fact.md).
+[a forge connection is a workstation fact](/nodes/oats-maintainer/decisions/forge-connection-is-a-workstation-fact.md).
 
 # Also confirmed
 
@@ -133,7 +133,7 @@ outputs, the Desktop parses no deployment file, every mutation is a kernel
 verb, and UI capabilities are gated on the kernel's reported **features, not
 versions**. A missing fact is kernel work, never a Desktop-side parser. The
 0.24 readers were removed, not extended, and no 0.24 maintenance line was
-kept ([release judgement](/nodes/oats-expert/stewardship/release-traps.md)).
+kept ([release judgement](/nodes/oats-maintainer/stewardship/release-traps.md)).
 
 # Consequences
 

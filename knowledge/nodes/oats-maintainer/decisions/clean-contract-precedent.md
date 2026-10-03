@@ -11,7 +11,7 @@ Decided repeatedly with the founder between 2026-07-11 and 2026-07-29 and
 applied each time a young contract changed shape: the 2026-07 pre-release
 `workspace.yaml` *configuration file* (unrelated to, and not an ancestor of,
 the `oats-workspace.yaml` Git-hosted workspace *definition* introduced
-2026-09-20 — see [a workspace definition is not a package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md)),
+2026-09-20 — see [a workspace definition is not a package](/nodes/oats-maintainer/decisions/workspace-definition-is-not-a-package.md)),
 the first global capability store, the `groups:` config
 shape, `from: bundled`, and the transitional package-root lock. In every case
 the old shape was **removed outright** — no discovery, no translation, no dual
@@ -34,7 +34,7 @@ It applies only to shapes with **no supported adoption**. Published
 commitments — immutable package tags, locks that shipped in a release, souls
 that real deployments created — keep reader compatibility, and a compatibility
 claim must be proven at the public boundary, not only in the loader (see
-[compatibility and migration claims need proof](/nodes/oats-expert/stewardship/review-protocol.md)
+[compatibility and migration claims need proof](/nodes/oats-maintainer/stewardship/review-protocol.md)
 and the kernel's
 [evidence-bounded compatibility decision](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md)).
 Where a supported migration exists it is all-or-nothing per scope — the

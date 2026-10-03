@@ -48,5 +48,5 @@ view directories; an opt-in materialized copy (dropped from the same-day
 `refresh` as an alias (emulation that misleads); a ref override (lets a
 reader widen what counts as accepted).
 
-Related: [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)
+Related: [workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)
 (package repositories carry their expert soul).

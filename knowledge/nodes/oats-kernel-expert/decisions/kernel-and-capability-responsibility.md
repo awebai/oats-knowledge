@@ -72,7 +72,7 @@ release, with a packaging test.
 
 # Related
 
-[Optional reference theory](/nodes/oats-expert/decisions/optional-reference-theory.md);
+[Optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md);
 [A minimal process boundary avoids permanent private coupling](minimal-process-boundary.md);
 [Soul declares identity; the workspace versions; the host supplies facts](soul-declares-kind-config-assigns-policy.md);
 [Kernel-composed text is executable surface](../lessons/kernel-composed-text-is-executable-surface.md);

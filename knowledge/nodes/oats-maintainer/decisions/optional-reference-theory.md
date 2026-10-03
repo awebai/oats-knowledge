@@ -47,7 +47,7 @@ how a capability's own helpers are briefed is that capability's policy, never
 reference-model policy hardcoded in the kernel (the per-capability
 `helperInjection` manifest key that once expressed this is ignored since
 0.26) ([kernel view](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md)).
-The 2026-09-19 [flexible-knowledge decision](/nodes/oats-expert/decisions/flexible-knowledge-and-situated-instances.md)
+The 2026-09-19 [flexible-knowledge decision](/nodes/oats-maintainer/decisions/flexible-knowledge-and-situated-instances.md)
 extends this: capabilities own their learning model and placement, not only
 their runtime.
 
@@ -81,9 +81,9 @@ even when no catalog carries it. For the reference theory the consult
 obligation is organisation-wide: a model that indexes only the local node
 leaves cross-project decisions to be re-derived — the read-side gap one level
 up. The roster consequence (seams named and read across bases) is in the
-[roster decision](/nodes/oats-expert/decisions/domain-expert-rebuild.md); the
+[roster decision](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md); the
 identity decision it produced is
-[the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md).
+[the served identity is a messaging-layer fact](/nodes/oats-maintainer/decisions/served-identity-is-a-messaging-layer-fact.md).
 
 # Current contracts
 

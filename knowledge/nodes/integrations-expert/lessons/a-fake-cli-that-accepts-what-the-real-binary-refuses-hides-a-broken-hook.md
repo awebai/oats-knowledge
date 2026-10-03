@@ -56,9 +56,9 @@ printed one-line JSON where the tool prints an indented document, answered
 every revoke with success, and admitted a command the tool's identity-home
 policy refused. The reviewer's general form of the defect is in the
 maintainer's protocol
-([a test that agrees with the code is not evidence](/nodes/oats-expert/stewardship/review-protocol.md));
+([a test that agrees with the code is not evidence](/nodes/oats-maintainer/stewardship/review-protocol.md));
 the rehearsal is the outsider stance applied to a provider
-([second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
+([second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md)).
 
 # Consequences
 

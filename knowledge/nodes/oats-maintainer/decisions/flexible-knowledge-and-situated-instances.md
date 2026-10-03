@@ -50,13 +50,13 @@ public explanation carries the full theory.
   identity to a changing roster.
 - A capability-owned model gives a simple default and deliberate evolution
   without a universal kernel mode switch, consistent with the
-  [optional reference theory](/nodes/oats-expert/decisions/optional-reference-theory.md).
+  [optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md).
 
 # Supersession and scope
 
 Supersedes the mandatory topic-first reading of the 2026-09-16 exploration.
 **Narrows** the 2026-09-13
-[external custody decision](/nodes/oats-expert/decisions/external-knowledge-custody.md)
+[external custody decision](/nodes/oats-maintainer/decisions/external-knowledge-custody.md)
 to the *default integration*: external placement is the default's choice, not
 a kernel prohibition on co-located knowledge. Accepting the architecture
 changed no API field, capability behaviour, binding or live writer; automatic

@@ -15,7 +15,7 @@ which each soul's bundle lived under `soul/knowledge/` and instance learning
 was harvested into it.
 
 **Scoped 2026-09-19** by the
-[flexible-knowledge decision](/nodes/oats-expert/decisions/flexible-knowledge-and-situated-instances.md):
+[flexible-knowledge decision](/nodes/oats-maintainer/decisions/flexible-knowledge-and-situated-instances.md):
 external placement is the *default integration's* choice, not a kernel rule
 against co-located knowledge under another capability. PR-only Git delivery
 and source-independent judgment are unchanged by that scoping.
@@ -46,16 +46,16 @@ The working-agent write prohibition is instructional, not filesystem
 isolation. Ownership routes maintenance; reads select initial context. Neither
 supplies repository access control. These are default OKF choices, not extra
 kernel doctrine imposed on other knowledge capabilities
-([optional reference theory](/nodes/oats-expert/decisions/optional-reference-theory.md)).
+([optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md)).
 
 # Consequences
 
 Episodic notes stay in the instance home and never change a branch tip.
 Knowledge arrives as separate reviewed changes to the external base, judged by
 the maintainer under the
-[review protocol](/nodes/oats-expert/stewardship/review-protocol.md). Adoption
+[review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md). Adoption
 claims about knowledge follow
-[adoption evidence discipline](/nodes/oats-expert/lessons/adoption-evidence-and-approved-scope.md).
+[adoption evidence discipline](/nodes/oats-maintainer/lessons/adoption-evidence-and-approved-scope.md).
 
 # Current contracts
 

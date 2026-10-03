@@ -9,9 +9,9 @@ timestamp: 2026-09-20
 
 Decided 2026-09-20 with the human (oats-expert as maintainer). The core's
 delivery was amended 2026-09-23 by
-[workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)
+[workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)
 (point 26); who holds the setup capability follows the
-[roster](/nodes/oats-expert/decisions/domain-expert-rebuild.md).
+[roster](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md).
 
 # Context
 
@@ -72,7 +72,7 @@ through), but nobody had stated that this list is *what defines officialness*.
   ([kernel view](/nodes/oats-kernel-expert/decisions/soul-declares-kind-config-assigns-policy.md)).
 - **Kernel releases and capability releases decouple**: the distribution
   package carries its own tag, so capability content ships without a kernel
-  cut, under the [release judgement](/nodes/oats-expert/stewardship/release-traps.md).
+  cut, under the [release judgement](/nodes/oats-maintainer/stewardship/release-traps.md).
 - User-facing onboarding judgement is the
   [operator node's](/nodes/oats-operator-expert/index.md) to hold.
 

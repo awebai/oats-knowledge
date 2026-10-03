@@ -14,4 +14,4 @@ Desktop product rationale and its UX and design: information architecture, inter
 * [Verification judgment for Desktop's privileged surfaces](lessons/verification-judgment-for-privileged-surfaces.md) - Prove guards at the real boundary and never launch the packaged app on an operator's machine.
 * [One design authority, a stated quality bar, and a native terminal](decisions/design-direction-and-quality-bar.md) - The expert owns design direction, the developer builds it, and a redesign never restyles the terminal.
 
-Cross-node reads: the process-boundary and bounded-lineage rationale live in [oats-kernel-expert](/nodes/oats-kernel-expert/index.md); cross-domain direction in [oats-expert](/nodes/oats-expert/index.md).
+Cross-node reads: the process-boundary and bounded-lineage rationale live in [oats-kernel-expert](/nodes/oats-kernel-expert/index.md); cross-domain direction in [oats-maintainer](/nodes/oats-maintainer/index.md).

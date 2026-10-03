@@ -4,7 +4,8 @@ okf_version: "0.1"
 
 # OATS knowledge
 
-* [oats-expert](nodes/oats-expert/index.md) - Overall OATS direction, motivations, cross-domain planning and adoption judgment.
+* [oats-maintainer](nodes/oats-maintainer/index.md) - Overall OATS direction, motivations, cross-domain planning and adoption judgment.
+* [oats-expert](nodes/oats-expert/index.md) - What the generalist OATS expert learns leading cross-area work.
 * [oats-kernel-expert](nodes/oats-kernel-expert/index.md) - Kernel-to-capability contract rationale, deliberate constraints, compatibility and trust tradeoffs.
 * [oats-desktop-expert](nodes/oats-desktop-expert/index.md) - Desktop product/interaction rationale, accessibility, integration limitations and verification judgment.
 * [market-research-expert](nodes/market-research-expert/index.md) - Dated attributable research, fair scoped comparisons and positioning evidence; no facts invented.

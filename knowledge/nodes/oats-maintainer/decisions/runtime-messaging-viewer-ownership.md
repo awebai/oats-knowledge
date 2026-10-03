@@ -32,7 +32,7 @@ unchanged:
   identity. A message consumed by proxy is exactly the invisible loss that
   made polling unsafe; submission is not consumption, and qualification checks
   the actual fetch/reply path
-  ([adoption evidence](/nodes/oats-expert/lessons/adoption-evidence-and-approved-scope.md)).
+  ([adoption evidence](/nodes/oats-maintainer/lessons/adoption-evidence-and-approved-scope.md)).
 - **Replaying a saved launch command as "restart".** Rejected: it proves
   nothing about who holds the identity. Recovery of a standing seat is a fresh
   supported execution receipt with **exactly one live identity holder**, a

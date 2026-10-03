@@ -23,7 +23,7 @@ release.
   discovery, so a version drift between them is a correctness bug. The
   distribution package (`oats.framework`) is the deliberate exception: its
   tag is decoupled so capability content ships without a kernel cut
-  ([official capabilities](/nodes/oats-expert/decisions/official-capabilities-and-reviewed-marketplace.md)).
+  ([official capabilities](/nodes/oats-maintainer/decisions/official-capabilities-and-reviewed-marketplace.md)).
 - **Kernel first, providers floor on it (2026-09-21).** When a kernel release
   introduces manifest fields, the provider releases that declare them are cut
   after it and floor on it, because every earlier kernel's closed validator
@@ -143,7 +143,7 @@ them to the decision that owns it.
 
 A release claim names the exact tag, the published artifact, the installed
 version and execution evidence from the published artifact — never a read of
-the diff ([adoption evidence](/nodes/oats-expert/lessons/adoption-evidence-and-approved-scope.md)).
+the diff ([adoption evidence](/nodes/oats-maintainer/lessons/adoption-evidence-and-approved-scope.md)).
 Release notes state what is **not** in the cut when related work ships in
 later provider releases, so an independent re-run starts from a correct
 expectation. **State the tag's own commit, not the last code merge**: the tag
@@ -153,7 +153,7 @@ compares them.
 
 # Related
 
-[How the OATS project ships and reviews](/nodes/oats-expert/stewardship/review-protocol.md).
+[How the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md).
 
 # Citations
 

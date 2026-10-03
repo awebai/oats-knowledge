@@ -83,7 +83,7 @@ commit, because a one-spawn test cannot tell an identity key from a path key.
 - **Accepting on a mixed pair.** A new kernel with an old provider (or the
   reverse) proves nothing about what deployments will install; accept only the
   published combination (see
-  [second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
+  [second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md)).
 
 # Consequences
 

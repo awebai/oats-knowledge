@@ -12,7 +12,7 @@ Accepted 2026-09-22 by human direction, recorded by the redesign lead.
 `oats.forge` *capability* reached through a new kernel additive-view dispatch
 contract), which was never accepted. **Amends** the automatic-pull-request
 clause (§5) of
-[Desktop parity: lifecycle and policy](/nodes/oats-expert/decisions/desktop-parity-lifecycle-and-policy.md):
+[Desktop parity: lifecycle and policy](/nodes/oats-maintainer/decisions/desktop-parity-lifecycle-and-policy.md):
 automatic PR is *ADE-owned*, not "provider-owned", because there is no
 provider capability for it to belong to.
 
@@ -55,7 +55,7 @@ not involved in connections at all.
   and never puts one on the wire or in the renderer. This is the same stance
   as [harness authentication is native](/nodes/oats-kernel-expert/decisions/harness-native-authentication.md)
   and the refusal to be a second custodian of host credentials in
-  [runtime, messaging and viewer ownership](/nodes/oats-expert/decisions/runtime-messaging-viewer-ownership.md).
+  [runtime, messaging and viewer ownership](/nodes/oats-maintainer/decisions/runtime-messaging-viewer-ownership.md).
 - **Forge reads are performed by the Desktop server** at its existing guarded
   boundary — not by the renderer and not by the kernel — under the same
   discipline as its other command-running routes

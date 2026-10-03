@@ -44,11 +44,11 @@ stated; other concepts link here instead of restating it.
   `oats.setup` for a deployment's config, never harvested) and
   `knowledge-theory-expert` (an `oats.framework` package soul, an optional
   authoring aid — see
-  [optional reference theory](/nodes/oats-expert/decisions/optional-reference-theory.md)).
+  [optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md)).
 - **Dropped:** `oats-assistant` (merged into the operator expert),
   `dev-coordinator`, `docs-expert`, `lead`, `oats-coordinator`. Release
   stewardship is not a soul: it is authority plus a procedure, held as
-  [release judgement](/nodes/oats-expert/stewardship/release-traps.md) in
+  [release judgement](/nodes/oats-maintainer/stewardship/release-traps.md) in
   this node and read by whoever holds the authority.
 
 An expert may implement when assigned. Implementation is a task, not a reason
@@ -95,7 +95,7 @@ package expert on the seam **reads** that node, and the other project reads
 the operator and integration nodes, through a read-only reference across
 bases. The messaging and knowledge package experts name their seams in their
 charters. Otherwise two rosters re-derive each other's decisions — see the
-[cross-base consult corollary](/nodes/oats-expert/decisions/optional-reference-theory.md).
+[cross-base consult corollary](/nodes/oats-maintainer/decisions/optional-reference-theory.md).
 A read edge grants no write; no soul infers write authority from a sole
 readable store, and private locators and credentials belong to the
 deployment, never to a shared soul definition.
@@ -135,13 +135,13 @@ state.
 - **One maintainer soul per package in place of the domain experts** (the
   2026-07-26 shape) — package experts own facts beside the domain roster,
   never the cross-package architecture
-  ([official development dogfoods the workspace](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md)).
+  ([official development dogfoods the workspace](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md)).
 
 # Related
 
 [One standalone Desktop product, no hidden operational kernel](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md);
-[External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
-[Centralised per-soul knowledge is the default](/nodes/oats-expert/decisions/flexible-knowledge-and-situated-instances.md).
+[External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
+[Centralised per-soul knowledge is the default](/nodes/oats-maintainer/decisions/flexible-knowledge-and-situated-instances.md).
 
 # Citations
 
