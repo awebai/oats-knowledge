@@ -73,8 +73,7 @@ machine; the
 still apply. Preserve the rationale and measurement scope here rather than
 turning this lesson into a copy of a launch script.
 
-# Evidence
+# Citations
 
-Evidence: OKF input 0590885b914749481ead86e99a959cb92ae9dfa52483e81778c713b0a2ff2702 (note terminal-weight-is-polarity-dependent.md).
-
-Evidence: OKF input 341a6a23b424277e8154e002af7848c17420ea9de6e99f47fdeaa2adae414a0b (note terminal-weight-measured-macos-only.md).
+1. Harvested 2026-10-03. OKF input 0590885b914749481ead86e99a959cb92ae9dfa52483e81778c713b0a2ff2702 (note terminal-weight-is-polarity-dependent.md).
+2. Harvested 2026-10-03. OKF input 341a6a23b424277e8154e002af7848c17420ea9de6e99f47fdeaa2adae414a0b (note terminal-weight-measured-macos-only.md).

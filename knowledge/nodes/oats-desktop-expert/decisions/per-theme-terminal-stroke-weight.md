@@ -49,6 +49,7 @@ The calibration was measured on macOS Retina only. Follow the linked
 measurement lesson before adapting it to another platform or pixel density;
 do not treat these weights as universal native-terminal matches.
 
-# Evidence
+# Citations
 
-Evidence: OKF input 52ae035e267fc3fc2ba75e4b53bfe341946d81480e306ab1f4735a16e5f56332 (note per-theme-terminal-weight.md).
+1. Harvested 2026-10-03. OKF input 52ae035e267fc3fc2ba75e4b53bfe341946d81480e306ab1f4735a16e5f56332 (note per-theme-terminal-weight.md).
+2. Shipped as awebai/oats#539 @ ce5ba76e (`--term-font-weight` per theme).
