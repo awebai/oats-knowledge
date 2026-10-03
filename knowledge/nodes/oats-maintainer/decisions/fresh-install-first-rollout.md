@@ -14,7 +14,7 @@ critical path without helping a small early rollout whose operators could
 provision fresh state. The same judgement shaped the 0.25 line: no converter
 and no dual-schema reader — the previous kernel keeps running its
 deployments, and an operator rebuilds when ready
-([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md),
+([workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md),
 point 14). The Portable Souls captured path itself was removed in 0.26; the
 rollout judgement outlived it.
 
@@ -40,7 +40,7 @@ rollout judgement outlived it.
 A rollout is judged on a working fresh path — workspace, resolution,
 instance lifecycle — with real provider acceptance, proven by an operator who
 did not write it
-([second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md)).
+([second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md)).
 A single-backend or inert-adapter result is not a finished rollout, and
 deferred historical conversion is tracked explicitly and never marked
 complete. The Desktop follows infrastructure; screenshots do not substitute

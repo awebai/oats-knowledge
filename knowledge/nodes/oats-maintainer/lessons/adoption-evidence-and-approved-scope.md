@@ -17,7 +17,7 @@ seeded answer. Do not promote one of these observations into all the others.
 A **release** claim likewise needs the exact source tag, the published
 artifact, the installed version and execution evidence against it; a green
 source checkout is not a published installation, and "it is on main" is not
-"it is released" (see [release judgement](/nodes/oats-expert/stewardship/release-traps.md)).
+"it is released" (see [release judgement](/nodes/oats-maintainer/stewardship/release-traps.md)).
 
 A resolution gate does not prove every independently targetable capability
 is spawnable: composition resolves only what the selected soul activates, so
@@ -49,15 +49,15 @@ permission to add a product surface the human did not request.
 
 The same separation applies to operations. Messaging can deliver a wake hint
 without owning execution or acknowledging work for the recipient
-([runtime, messaging and viewers have separate owners](/nodes/oats-expert/decisions/runtime-messaging-viewer-ownership.md)).
+([runtime, messaging and viewers have separate owners](/nodes/oats-maintainer/decisions/runtime-messaging-viewer-ownership.md)).
 Runtime permission flags do not confer task authorisation. Report the observed
 result, remaining uncertainty and next authorised check, rather than calling a
 handoff, green probe or missing error successful adoption.
 
 # Related
 
-[External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
-[second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md).
+[External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
+[second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md).
 
 # Current contracts
 

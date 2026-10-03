@@ -50,7 +50,7 @@ integrations, not a choice.
 - Onboarding conversations about a tasks layer open with this operating-model
   split, not with a command demo; a connected tracker is availability
   evidence, not proof that a workflow runs end to end
-  ([adoption evidence and approved scope](/nodes/oats-expert/lessons/adoption-evidence-and-approved-scope.md)).
+  ([adoption evidence and approved scope](/nodes/oats-maintainer/lessons/adoption-evidence-and-approved-scope.md)).
 - The shipped Linear skill carries an explicit not-supported list and an
   escalate-on-persistent-failure rule, confirming the lesson held.
 - Rejected: documenting only command recipes (users then assume UI-only

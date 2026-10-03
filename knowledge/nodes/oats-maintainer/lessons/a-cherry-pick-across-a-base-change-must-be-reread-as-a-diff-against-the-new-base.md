@@ -25,5 +25,5 @@ the full three-dot diff against the remote main, hunk by hunk, and for
 documentation compare each touched example against what main now says.
 Green tests do not cover prose, and a version bump inside a dead example is
 exactly the shape a parity test cannot see. This is the same check as
-[review the whole PR merge range for scope](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md),
+[review the whole PR merge range for scope](/nodes/oats-maintainer/lessons/pr-branch-merge-range-scope.md),
 applied to content rather than to paths.

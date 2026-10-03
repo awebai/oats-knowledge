@@ -15,7 +15,7 @@ copy of framework code, API tables, command manuals or old task/release queues.
   and [OKF package](https://github.com/awebai/oats-okf). Procedures belong in their
   maintained skills, not a second KB manual.
 - **Theory:** consult the single accepted
-  [optional-reference decision](knowledge/nodes/oats-expert/decisions/optional-reference-theory.md)
+  [optional-reference decision](knowledge/nodes/oats-maintainer/decisions/optional-reference-theory.md)
   and the [canonical authoring references](https://github.com/awebai/oats/tree/main/docs/knowledge-reference).
   This README does not restate the theory or require it for alternate providers.
 - **Deployment state:** bindings, owner registries, machine/account settings,
@@ -23,11 +23,12 @@ copy of framework code, API tables, command manuals or old task/release queues.
   recovery attic or raw legacy archive belongs in the active base.
 
 [`knowledge/okf-base.json`](knowledge/okf-base.json) declares the stable
-`oats-knowledge` identity and twelve nonoverlapping nodes:
+`oats-knowledge` identity and thirteen nonoverlapping nodes:
 
 | Node | Responsibility |
 | --- | --- |
-| `oats-expert` | Overall direction, motivations, cross-domain planning and adoption judgment |
+| `oats-maintainer` | Overall direction, motivations, cross-domain planning and adoption judgment |
+| `oats-expert` | What the generalist expert learns leading cross-area OATS work |
 | `oats-kernel-expert` | Kernel/capability contract rationale, constraints and tradeoffs |
 | `oats-desktop-expert` | Product, interaction and integration judgment |
 | `market-research-expert` | Dated attributable research; no unsupported market claims |
@@ -82,7 +83,7 @@ whole-base** concept validator and requires **zero errors and warnings**. It
 uses the same pinned public source's metadata/declaration checks for base
 structure, canonical nonoverlapping node paths, required navigation/history,
 unowned or hidden files, and owner resolution. Local assertions enforce the
-twelve reviewed UUIDs. Tests include malformed metadata, owner drift, unauthorized
+thirteen reviewed UUIDs. Tests include malformed metadata, owner drift, unauthorized
 cross-node ownership and warning-as-failure cases, without provisioning anything.
 These pinned helpers are a CI adapter, not a promise of a stable runtime API.
 

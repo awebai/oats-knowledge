@@ -81,7 +81,7 @@ operator, public documentation says so in the section they would consult.
 
 [Separate operational home from granted work authority](../decisions/home-work-authority.md);
 [Keep kernel responsibilities generic and capability runtimes complete](../decisions/kernel-and-capability-responsibility.md);
-[External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md).
+[External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md).
 
 # Citations
 

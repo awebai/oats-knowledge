@@ -18,13 +18,13 @@ The normative text lives in the framework's reference pages; this concept is
 the record of *what was decided and why*.
 
 **Supersedes** the revision-pinned membership of
-[a workspace definition is not a package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md)
+[a workspace definition is not a package](/nodes/oats-maintainer/decisions/workspace-definition-is-not-a-package.md)
 (members are no longer imported by pinned revision; the four-responsibility
 split itself stands) and the "workspace pins reviewed source revisions"
 clause of
-[official development dogfoods the workspace](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md).
+[official development dogfoods the workspace](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md).
 **Amends** point 2 of
-[operating OATS is capability content](/nodes/oats-expert/decisions/official-capabilities-and-reviewed-marketplace.md)
+[operating OATS is capability content](/nodes/oats-maintainer/decisions/official-capabilities-and-reviewed-marketplace.md)
 — see "Official capabilities under v2" below.
 
 # The rule
@@ -103,7 +103,7 @@ Resolution is a handshake check plus a lookup.
 9. **The official marketplace stays** as the reviewed list of official
    packages: it is the only way a package becomes *pinnable by id*; a
    package outside it is written as a Git reference with a ref
-   ([official capabilities decision](/nodes/oats-expert/decisions/official-capabilities-and-reviewed-marketplace.md)).
+   ([official capabilities decision](/nodes/oats-maintainer/decisions/official-capabilities-and-reviewed-marketplace.md)).
 
 ## Full materialization; a running instance never changes under itself
 
@@ -138,7 +138,7 @@ Resolution is a handshake check plus a lookup.
     human decision on 2026-09-24.)
 14. **No migration; the previous line keeps working.** v1 declaration files
     are errors naming the schema, not fallbacks — the
-    [pre-adoption precedent](/nodes/oats-expert/decisions/clean-contract-precedent.md)
+    [pre-adoption precedent](/nodes/oats-maintainer/decisions/clean-contract-precedent.md)
     applied. "No migration" means no converter and no dual-schema reader: the
     previous kernel line spawns its deployments indefinitely, the new line
     reads only v2 files, and an operator rebuilds when ready from the written
@@ -231,12 +231,12 @@ Resolution is a handshake check plus a lookup.
 24. **Every repository of the project's own workspace is converted to the
     new format; the kernel reads nothing else.** Not optional — the project
     dogfoods the model it offers
-    ([dogfooding decision](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md)).
+    ([dogfooding decision](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md)).
 25. **Every package repository carries a member soul that is the expert in
     that capability** — an ordinary member soul, global team, discoverable
     and spawnable by anyone in the workspace, the natural owner of its
     package's changes. This is the per-package expert the
-    [roster amendment of 2026-09-24](/nodes/oats-expert/decisions/domain-expert-rebuild.md)
+    [roster amendment of 2026-09-24](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md)
     later admitted.
 26. **The official core is the kernel's default, in the standalone case
     too.** A soul spawned from a member whose workspace cannot be read gets

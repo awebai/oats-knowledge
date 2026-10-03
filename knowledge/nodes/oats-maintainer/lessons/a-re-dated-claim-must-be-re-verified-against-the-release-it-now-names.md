@@ -42,7 +42,7 @@ the authority of a freshly updated version number.
 - Reviewing a release's docs means grepping for version-qualified claims
   and re-verifying each, not diffing the version literals.
 - The same discipline as
-  [re-reading a cherry-pick against the new base](/nodes/oats-expert/lessons/a-cherry-pick-across-a-base-change-must-be-reread-as-a-diff-against-the-new-base.md):
+  [re-reading a cherry-pick against the new base](/nodes/oats-maintainer/lessons/a-cherry-pick-across-a-base-change-must-be-reread-as-a-diff-against-the-new-base.md):
   green mechanical checks do not cover prose, and
-  [the merge range is the scope](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md)
+  [the merge range is the scope](/nodes/oats-maintainer/lessons/pr-branch-merge-range-scope.md)
   includes every touched sentence.

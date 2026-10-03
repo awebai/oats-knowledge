@@ -51,7 +51,7 @@ Reverse-apply each side's post-base patch against the merged tree with a
 check-only apply, per side per auto-merged file. Its value is converting "Git
 did not complain" into a reportable verification, which is what a maintainer
 reviewing an integration head needs
-([review protocol](/nodes/oats-expert/stewardship/review-protocol.md)).
+([review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md)).
 
 # Citations
 

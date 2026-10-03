@@ -16,7 +16,7 @@ reusable behaviour.
 
 Its 2026-09-20 *mechanics* — members imported by reviewed immutable revision,
 per-repository export lists — were superseded on 2026-09-23 by
-[workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md):
+[workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md):
 members are discovered at latest state, everything a member carries is
 discoverable unless it marks itself private, and packages are the only
 versioned source. The separation of responsibilities below is what this
@@ -73,7 +73,7 @@ development package's distinct purpose without adding a repository.
   needs a reason.
 - **A config-template package as the composition mechanism** — it did not
   exercise Git workspaces, which is what the project must dogfood
-  ([dogfooding decision](/nodes/oats-expert/decisions/official-development-dogfoods-the-workspace.md));
+  ([dogfooding decision](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md));
   under v2 the per-deployment configuration file is gone altogether.
 - **Imports by reviewed revision** (the 2026-09-20 mechanic) — a member
   frozen at a revision is a package by another name; the reviewed,

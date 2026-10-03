@@ -35,7 +35,7 @@ imagined, not the shape the spec allows.
 
 # Related
 
-[Review the whole PR merge range for scope](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md)
+[Review the whole PR merge range for scope](/nodes/oats-maintainer/lessons/pr-branch-merge-range-scope.md)
 and
-[a commit cherry-picked across a base change must be re-read as a diff against the new base](/nodes/oats-expert/lessons/a-cherry-pick-across-a-base-change-must-be-reread-as-a-diff-against-the-new-base.md):
+[a commit cherry-picked across a base change must be re-read as a diff against the new base](/nodes/oats-maintainer/lessons/a-cherry-pick-across-a-base-change-must-be-reread-as-a-diff-against-the-new-base.md):
 the same review discipline, applied to scope and to rebased hunks.

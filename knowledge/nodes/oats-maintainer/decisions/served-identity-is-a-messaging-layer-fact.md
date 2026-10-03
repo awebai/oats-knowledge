@@ -23,7 +23,7 @@ is. It refines the kernel/capability split for messaging
 ([kernel supplies provider-neutral intent; the capability owns identity](/nodes/oats-kernel-expert/decisions/messaging-capability-owns-provider-behaviour.md))
 and follows from the earlier ownership decision that the messaging capability,
 not the kernel, owns identity
-([runtime, messaging and viewers have separate owners](/nodes/oats-expert/decisions/runtime-messaging-viewer-ownership.md)).
+([runtime, messaging and viewers have separate owners](/nodes/oats-maintainer/decisions/runtime-messaging-viewer-ownership.md)).
 
 # Options considered
 

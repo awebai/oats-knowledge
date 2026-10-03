@@ -26,5 +26,5 @@ node.
 
 ## Read alongside
 
-* [Second-operator acceptance](/nodes/oats-expert/lessons/second-operator-acceptance.md) - how a rebuild or a published definition is accepted by an operator without authoring state.
+* [Second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md) - how a rebuild or a published definition is accepted by an operator without authoring state.
 * [oats-kernel-expert](/nodes/oats-kernel-expert/index.md) - the contracts an operator's configuration must respect.

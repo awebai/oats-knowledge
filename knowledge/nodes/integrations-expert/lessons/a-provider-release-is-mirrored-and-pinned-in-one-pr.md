@@ -34,5 +34,5 @@ wall of missing-module failures is an environment fact, not a verdict.
 
 The general release judgement (source, tag, pin; pin, bump and mirror bytes
 land together) is the framework's
-[release traps](/nodes/oats-expert/stewardship/release-traps.md); this lesson
+[release traps](/nodes/oats-maintainer/stewardship/release-traps.md); this lesson
 is the provider-mirror instance of it.

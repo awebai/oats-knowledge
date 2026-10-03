@@ -36,7 +36,7 @@ is the whole of its contribution to what the agent sees.
    trust model: suppression defended against content that membership now
    trusts, since a repository's committed `.agents/skills/` is exactly as
    trusted as its committed capabilities
-   ([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)).
+   ([workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)).
 
 Do not rebuild isolation adapters (per-instance config homes, HOME or profile
 swaps, exclusion lists) to recover exclusivity; each was an option of the

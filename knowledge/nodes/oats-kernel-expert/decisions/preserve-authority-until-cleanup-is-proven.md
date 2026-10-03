@@ -79,7 +79,7 @@ runner down instead of failing.
 
 # Related
 
-[External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
+[External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
 [A refusal that needs the old bytes is a pre-commit gate](../lessons/refusal-belongs-before-commit.md);
 [A fail-closed guarantee is proven by its first real user](../lessons/fail-closed-mechanism-proven-by-first-user.md);
 [Identity and location belong to the resolved object](../lessons/resolved-object-not-referring-string.md).
