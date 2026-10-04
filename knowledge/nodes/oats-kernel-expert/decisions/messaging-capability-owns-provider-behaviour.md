@@ -11,7 +11,7 @@ Decided 2026-09-16 by the redesign lead; the boundary survived the removal of
 the captured path unchanged in substance. It refines the
 [kernel/capability split](kernel-and-capability-responsibility.md) for the
 messaging slot and complements the
-[runtime/messaging/viewer ownership decision](/nodes/oats-expert/decisions/runtime-messaging-viewer-ownership.md).
+[runtime/messaging/viewer ownership decision](/nodes/oats-maintainer/decisions/runtime-messaging-viewer-ownership.md).
 
 **Kernel responsibility.** Select the slot's provider, copy it into the home,
 and give its hooks, commands and readiness check generic inputs: the merged

@@ -89,7 +89,7 @@ provider's own; the kernel does not match them against `binding.reasons`.
 - **Nullable means nullable.** Validate `team`, `instance` and `home` as
   string-or-null; a validator that refuses null turns the common single-team
   setup into unknown (see
-  [review a validator against every nullable field the wire spec names](/nodes/oats-expert/lessons/review-a-validator-against-every-nullable-field-the-wire-spec-names.md)).
+  [review a validator against every nullable field the wire spec names](/nodes/oats-maintainer/lessons/review-a-validator-against-every-nullable-field-the-wire-spec-names.md)).
 - **Nothing else on stdout.** Diagnostics go to stderr; the JSON line is the
   whole of stdout.
 

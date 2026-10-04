@@ -31,7 +31,7 @@ claim an entry was retained unless the result can still resolve it. The
 workspace model applied this in its strongest form (0.25.0): no converter and
 no dual-schema reader; the previous kernel line keeps running its deployments
 and an operator rebuilds on the new model
-([pre-adoption contracts are removed, not translated](/nodes/oats-expert/decisions/clean-contract-precedent.md)).
+([pre-adoption contracts are removed, not translated](/nodes/oats-maintainer/decisions/clean-contract-precedent.md)).
 A lock written by 0.26.0 is unreadable by an earlier kernel, so every kernel
 of a deployment moves together; the refusal (`E_LOCK_SCHEMA`) is the honest
 outcome, never a repair.
@@ -59,7 +59,7 @@ a cheap reversible step plus a deliberate one.
 # Related
 
 [A refusal that needs the old bytes is a pre-commit gate](../lessons/refusal-belongs-before-commit.md);
-[Pre-adoption contracts are removed, not translated](/nodes/oats-expert/decisions/clean-contract-precedent.md).
+[Pre-adoption contracts are removed, not translated](/nodes/oats-maintainer/decisions/clean-contract-precedent.md).
 
 # Current contracts
 

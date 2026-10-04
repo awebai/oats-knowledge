@@ -27,7 +27,7 @@ per-agent messaging identities, a spawn skill) and from an agent-native
 multi-repository engineering practice in which each repository carries its
 own specialists. It deliberately builds on open standards rather than
 inventing formats — see
-[What OATS borrowed and where it diverges](/nodes/oats-expert/references/standards-genealogy.md).
+[What OATS borrowed and where it diverges](/nodes/oats-maintainer/references/standards-genealogy.md).
 
 # Rationale
 
@@ -61,7 +61,7 @@ they do not lead it.
 Continuity is an opportunity, not automatic learning: a new instance becomes
 better informed only when useful evidence has been judged, delivered, accepted
 and read. Where knowledge lives and who holds custody of it is decided in
-[external knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md),
+[external knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md),
 not here. No knowledge integration is compulsory,
 and managed context selection is not whole-harness isolation. Layer
 implementations are judged for runtime neutrality even when they bind one

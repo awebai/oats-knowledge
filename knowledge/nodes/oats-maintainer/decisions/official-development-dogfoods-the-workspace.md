@@ -14,7 +14,7 @@ inside it — the topology offered to any adopting team with several
 repositories. Expertise is not centralised in the kernel repository, and
 cross-package architecture has **one stewardship gate** (`oats-expert`) so the
 packages do not drift into isolated directions. Who holds which role is the
-[roster decision](/nodes/oats-expert/decisions/domain-expert-rebuild.md).
+[roster decision](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md).
 
 # How the shape changed
 
@@ -23,9 +23,9 @@ packages do not drift into isolated directions. Who holds which role is the
   durable maintainer soul per package repository.
 - **2026-09-20:** the boundary became a **Git-shared workspace definition**
   hosted in the framework repository
-  ([a workspace definition is not a package](/nodes/oats-expert/decisions/workspace-definition-is-not-a-package.md)).
+  ([a workspace definition is not a package](/nodes/oats-maintainer/decisions/workspace-definition-is-not-a-package.md)).
   Membership is discovery, not activation.
-- **2026-09-23:** [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)
+- **2026-09-23:** [workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)
   dropped pinned member revisions: a member is discovered at its **latest
   state**, the reciprocal membership handshake is the whole trust decision for
   member content, and a team that wants frozen capabilities publishes them as

@@ -6,7 +6,7 @@
 
 ## 2026-09-22
 
-* **Update**: [Node index](/nodes/market-research-expert/index.md) gained its charter, the statement that the node is intentionally empty, and its first open question (the positioning in [Durable specialization](/nodes/oats-expert/decisions/durable-specialization.md)).
+* **Update**: [Node index](/nodes/market-research-expert/index.md) gained its charter, the statement that the node is intentionally empty, and its first open question (the positioning in [Durable specialization](/nodes/oats-maintainer/decisions/durable-specialization.md)).
 
 ## 2026-09-21
 

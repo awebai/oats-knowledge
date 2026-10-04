@@ -46,7 +46,7 @@ ignorant of what the key means.
   ([place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md)).
 - The kernel's side of the rule (the host-only item of the served-identity
   decision) is
-  [the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md).
+  [the served identity is a messaging-layer fact](/nodes/oats-maintainer/decisions/served-identity-is-a-messaging-layer-fact.md).
 
 # Citations
 

@@ -20,7 +20,7 @@ go to the human first. Only a maintainer that **owns `main`** pushes
 directly; a checkout-mode maintainer whose local `main` is never pushed
 delivers by pull request. The knowledge base is the one stewardship surface
 that moved to PR-only learning
-([external knowledge custody](/nodes/oats-expert/decisions/external-knowledge-custody.md));
+([external knowledge custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md));
 a later decision extending PR-only elsewhere must name this paragraph as
 superseded. Enforcement is discipline plus the gate, not git hooks.
 
@@ -68,7 +68,7 @@ guard on the full approved object id — a handback is final only when
 reviewer-driven commits are settled, because even a test-only nit moves the
 head past the green run. When told "still broken", the first triage is SHA
 drift, not a missing fix. Review the **whole merge range**
-([merge-range scope](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md));
+([merge-range scope](/nodes/oats-maintainer/lessons/pr-branch-merge-range-scope.md));
 a verification command supplied by the party being verified bounds the answer
 to what they included. After a squash, prove the landed patch equals the
 approved one (compare patches, not trees, when main moved in between), and
@@ -162,7 +162,7 @@ representative *pre-migration* artifacts; the maintainer returns any
 compatibility or migration PR without fixture tests of legacy artifacts
 against the current schema. When a ruling replaces a transitional model, every
 sentence describing the old behaviour is re-verified
-([clean-contract precedent](/nodes/oats-expert/decisions/clean-contract-precedent.md)).
+([clean-contract precedent](/nodes/oats-maintainer/decisions/clean-contract-precedent.md)).
 
 An **additive field on a closed-shape contract is breaking** for every strict
 consumer already released: make the consumer tolerant first, then ship the
@@ -192,9 +192,9 @@ dislodge than the original.
 
 # Related
 
-[External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
-[Release judgement for the tag-driven lane](/nodes/oats-expert/stewardship/release-traps.md);
-[Cross-workstream delivery](/nodes/oats-expert/stewardship/multi-workstream-delivery.md).
+[External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
+[Release judgement for the tag-driven lane](/nodes/oats-maintainer/stewardship/release-traps.md);
+[Cross-workstream delivery](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md).
 
 # Citations
 

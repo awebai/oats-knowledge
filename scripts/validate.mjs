@@ -13,6 +13,7 @@ export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // Accepted curation identity reservations. Changing this roster/map requires
 // explicit ownership review; it must not be inferred from directory names.
 export const OWNERS = Object.freeze({
+  'oats-maintainer': '065e17c8-54eb-4f80-86b0-41ce59684922',
   'oats-expert': 'c448f593-9b2d-4c48-a679-1c468bda5beb',
   'oats-kernel-expert': '4f532e2d-72f6-4dd0-9743-c9eeab2809ba',
   'oats-desktop-expert': '76085278-3874-4382-9f7a-f11de3dbceb4',

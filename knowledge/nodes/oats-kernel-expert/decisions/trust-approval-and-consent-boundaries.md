@@ -17,7 +17,7 @@ in the workspace's `packages:` (human decision 2026-09-24, OATS 0.26.0). The
 earlier per-version executable approval was removed because people declare a
 package only when they trust it; a second approval stacked on that
 declaration was ceremony, not a boundary
-([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)).
+([workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)).
 A spawn admits only a locked package the workspace *still* declares.
 
 **Removed: configuration scope as the trust boundary.** From 2026-07-12 the

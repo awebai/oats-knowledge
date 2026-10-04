@@ -52,7 +52,7 @@ deployment file.
 
 A forge (GitHub) connection is a workstation fact, not a capability: it lives
 in Desktop as a per-machine Connection under the forge CLI's own credential
-custody ([forge connection is a workstation fact](/nodes/oats-expert/decisions/forge-connection-is-a-workstation-fact.md)).
+custody ([forge connection is a workstation fact](/nodes/oats-maintainer/decisions/forge-connection-is-a-workstation-fact.md)).
 
 # Consequences for what Desktop sees and sends
 

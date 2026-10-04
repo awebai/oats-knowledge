@@ -120,8 +120,8 @@ that a provider did not yet read.
 
 # Related
 
-[Adoption evidence and approved scope](/nodes/oats-expert/lessons/adoption-evidence-and-approved-scope.md);
-[fresh-install-first rollout](/nodes/oats-expert/decisions/fresh-install-first-rollout.md);
+[Adoption evidence and approved scope](/nodes/oats-maintainer/lessons/adoption-evidence-and-approved-scope.md);
+[fresh-install-first rollout](/nodes/oats-maintainer/decisions/fresh-install-first-rollout.md);
 [the installed provider is the authority for a setting](/nodes/oats-operator-expert/lessons/the-installed-provider-is-the-authority-for-a-setting.md).
 
 # Citations

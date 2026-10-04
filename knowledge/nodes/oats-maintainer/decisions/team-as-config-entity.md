@@ -6,7 +6,7 @@ tags: [decision, config, team, aweb, discovery, messaging, supersession]
 timestamp: 2026-09-24
 ---
 > **Superseded by the workspace model.** Under
-> [workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)
+> [workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)
 > the deployment boundary is the deployment directory and teams are labels
 > declared in the workspace file; there is no `team:` block in a config
 > scope. What survives from this decision is the contract that an

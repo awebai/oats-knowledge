@@ -14,7 +14,7 @@ configuration cascade assigned capabilities to global, family or soul
 targets. The Portable Souls amendment (2026-09-14/20) moved the soul's
 intrinsic needs into the soul; workspace model v2 (2026-09-23, 0.25.0) kept
 that direction and removed the cascade entirely
-([workspace model v2](/nodes/oats-expert/decisions/workspace-model-v2.md)).
+([workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md)).
 
 **Where each fact lives now.**
 
@@ -71,7 +71,7 @@ line changes.
 
 [Keep kernel responsibilities generic and capability runtimes complete](kernel-and-capability-responsibility.md);
 [Integrity, origin and consent are different proofs](trust-approval-and-consent-boundaries.md);
-[Operating OATS is capability content](/nodes/oats-expert/decisions/official-capabilities-and-reviewed-marketplace.md).
+[Operating OATS is capability content](/nodes/oats-maintainer/decisions/official-capabilities-and-reviewed-marketplace.md).
 
 # Current contracts
 

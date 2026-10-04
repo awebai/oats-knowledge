@@ -49,4 +49,4 @@ variable as an external home, and the hook had passed it on without knowing.
   emits its own locator and touches nothing foreign.
 - The kernel persists launch-hook meta for exactly this reason; a provider
   that renews credentials relies on that persistence
-  ([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md)).
+  ([the served identity is a messaging-layer fact](/nodes/oats-maintainer/decisions/served-identity-is-a-messaging-layer-fact.md)).

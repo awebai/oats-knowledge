@@ -31,7 +31,7 @@ remote main first.
 - **A reviewer lists the merge range's paths before reading any diff** and
   treats soul paths as out of scope; a branch that does not contain the current
   remote main and shows many non-merge commits is the tell (see
-  [review the whole PR merge range for scope](/nodes/oats-expert/lessons/pr-branch-merge-range-scope.md)).
+  [review the whole PR merge range for scope](/nodes/oats-maintainer/lessons/pr-branch-merge-range-scope.md)).
 - **Nothing commits onto a shared tree's main that its committer cannot
   push.** When an instance does not own pushes to the canonical branch, its
   deliveries are a branch plus a pull request. oats.okf now delivers harvests

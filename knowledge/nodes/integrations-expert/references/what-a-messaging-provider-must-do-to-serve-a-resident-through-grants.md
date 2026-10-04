@@ -40,7 +40,7 @@ changes it: the mode (instance-lifetime or served resident), the alias and
 team, the address or none, the resident's name or none, and for a served
 resident the grant's identifier, expiry and scopes. The kernel copies it to
 the roster and the instance inspection without interpreting it
-([the served identity is a messaging-layer fact](/nodes/oats-expert/decisions/served-identity-is-a-messaging-layer-fact.md);
+([the served identity is a messaging-layer fact](/nodes/oats-maintainer/decisions/served-identity-is-a-messaging-layer-fact.md);
 the key's shape is in
 [integrations.md](https://github.com/awebai/oats/blob/main/docs/integrations.md)).
 

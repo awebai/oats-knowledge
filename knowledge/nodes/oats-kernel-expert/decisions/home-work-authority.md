@@ -43,7 +43,7 @@ work-mode privileges.
 
 # Related
 
-[External knowledge needs source-independent custody](/nodes/oats-expert/decisions/external-knowledge-custody.md);
+[External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
 [Kernel-composed text is executable surface](../lessons/kernel-composed-text-is-executable-surface.md);
 [Identity and location belong to the resolved object](../lessons/resolved-object-not-referring-string.md).
 
