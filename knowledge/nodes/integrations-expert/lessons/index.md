@@ -20,6 +20,7 @@ Hook, testing and release discipline learned building providers against the kern
 ## Acceptance against the real tool
 
 * [A fake CLI that accepts what the real binary refuses hides a broken hook](a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) - Fakes model refusals; the gate is the whole lifecycle on the published binary; one exported floor; the rehearsal controls which binary runs.
+* [A delivery acknowledgement must name the stage its receipt proves](acknowledgement-stage-must-match-receipt.md) - Delivery state is recorded only after the component that owns the agreed stage acknowledges that stage; callback completion and whole-turn waits can prove the wrong thing.
 * [Integration guidance and local validation follow the real contract](guidance-names-only-verbs-the-target-cli-exposes.md) - Name only verbs the CLI exposes, read the manifest over prose, and validate a service-defined value the same way in every path.
 * [A client view that contradicts the source of truth is a client defect](a-failing-readiness-diagnostic-is-not-a-missing-fact.md) - Read the authoritative source and the message-level envelope, and never rewrite a live identity to satisfy a view.
 * [A grant is proven per path at the receiver](a-grant-home-needs-a-custody-reference-for-encrypted-receive.md) - Custody attachment is necessary, not sufficient; scopes do not name the endpoints a path calls, so rehearse each path and direction.

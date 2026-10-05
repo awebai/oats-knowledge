@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-10-05
+
+* **Harvest**: Added [A delivery acknowledgement must name the stage its receipt proves](/nodes/integrations-expert/lessons/acknowledgement-stage-must-match-receipt.md), tightening provider acceptance around delivery marks and admission-stage evidence.
+
 ## 2026-09-28
 
 * **Update**: audit pass — 47 files to 29: the lessons index is one line per entry; overlapping lessons merged into single homes (cleanup truthfulness, real-binary acceptance, guidance against the real contract, defined fallbacks, client-view defects, per-path grant proof, kernel-consumed documents, provider-owned state and verbs, wrapper and support matrix, payload-root containment, wake-daemon readiness); [host-only settings](/nodes/integrations-expert/lessons/a-merged-provider-payload-cannot-enforce-host-only-keys.md) is the one hostOnly home; the mirror lesson is renamed [a provider release is mirrored and pinned in one PR](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md); facts brought to oats.aweb 1.16.1 (one aw floor 1.36.13, live receive for joined teams, wake-daemon readiness implemented); the classic-path soul-declaration lesson deleted as obsolete; PR numbers and legacy citations collapsed.
