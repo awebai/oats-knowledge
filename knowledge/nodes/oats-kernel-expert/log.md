@@ -2,6 +2,7 @@
 
 ## 2026-10-08
 
+* **Fix**: maintainer review of the harvest reconciled [observation-must-not-harm-the-observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md) with the concurrently merged lazy-fetch harvest (both paragraphs and both evidence notes kept), and added the verified awebai/oats#809 citation to [retire-git-reads-preserve-baseline-semantics](/nodes/oats-kernel-expert/decisions/retire-git-reads-preserve-baseline-semantics.md).
 * **Harvest**: added [Retire Git reads preserve the spawn baseline's configuration semantics](/nodes/oats-kernel-expert/decisions/retire-git-reads-preserve-baseline-semantics.md), preserving the rationale for distinct retirement and observation profiles, rejected alternatives, filter-driver residual and explicit baseline-transition condition from the oats-kernel-expert-retire-recovery proposal and named note.
 * **Update**: clarified that the isolation profile in [Observation must not harm the observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md) describes the instance Git observation API, and linked the separate retirement decision; the observation policy and fail-closed recovery rule are unchanged.
 * **Fix**: maintainer review of the harvest restored the security-boundary framing of [observation-must-not-harm-the-observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md)'s description, added the Git 2.44 floor for `GIT_NO_LAZY_FETCH`, and cited the verified awebai/oats#809.

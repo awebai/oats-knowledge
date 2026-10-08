@@ -44,7 +44,7 @@ configuration does not make that repository configuration trusted.
 - **Neutralize every filter during retirement status:** can change status
   semantics too. A filter driver named by repository-local configuration and
   selected by `.gitattributes` can still run during status. This is a recorded
-  residual of the stabilization decision, not a claim that retirement reads
+  residual of this decision, not a claim that retirement reads
   are a sandbox or fully helper-free.
 
 The distinction is scoped to retirement reads that feed the baseline
@@ -70,3 +70,10 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recover
 The proposal identifies [awebai/oats#809](https://github.com/awebai/oats/pull/809)
 as the implementation review; its merge and approval history were not
 independently audited by this harvest.
+
+Verified by the knowledge maintainer at review of the harvest: awebai/oats#809
+merged on 2026-10-08 with APPROVE verdicts from both maintainers posted on the
+PR. Its description records keeping global and system configuration because
+the spawn baseline was taken under them, documents the filter-driver
+residual, and lists turning off filter drivers and isolating retire from
+global configuration as out of scope.

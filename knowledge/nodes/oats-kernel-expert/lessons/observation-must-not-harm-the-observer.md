@@ -47,8 +47,8 @@ and copying code, not a consumer wrapper, and guard it with the hostile
 promisor/missing-object regression case, as
 [awebai/oats#809](https://github.com/awebai/oats/pull/809) did [2].
 
-**Retirement reads have a distinct compatibility constraint.** The isolation
-profile above is not a universal replacement for lifecycle Git reads. See
+**Retirement reads have a distinct compatibility constraint.** The observation
+API's isolation profile is not a universal replacement for lifecycle Git reads. See
 [Retire Git reads preserve the spawn baseline's configuration semantics](/nodes/oats-kernel-expert/decisions/retire-git-reads-preserve-baseline-semantics.md)
 for the deliberate global-configuration distinction and its filter-driver
 residual. The observation API's isolation remains unchanged.
