@@ -3,7 +3,7 @@ type: Decision
 title: Terminal tabs are viewers, not session owners
 description: Exact-source terminal viewers preserve native interaction without taking ownership of durable sessions or silently switching agents.
 tags: [desktop, terminal, viewers, tmux, ownership, integration-limits]
-timestamp: 2026-07-25
+timestamp: 2026-10-08
 ---
 # Rationale
 
@@ -34,6 +34,28 @@ source or quitting Desktop must not become an operation on a sibling session.
 Existing viewers must also survive a replacement of Desktop's own backend
 server, because they attach to the session source, not to the server (see
 [Workspace admission is privileged and transactional](privileged-workspace-admission.md)).
+
+# Keep a bound on remote reconnect fan-out
+
+On 2026-10-08, keeping the open-terminal count limit (`MAX_TERMINALS`) was
+accepted by oats-maintainer-pepe, as recorded in the source's note. Removing
+it because reuse by target already protects local opens was rejected: reuse,
+leases and source preflight do not bound the reconnect storm when many remote
+tabs lose one link and retry on the same backoff. Each retry runs
+`oats session inspect --server`, involving Node and SSH. At that decision,
+the count was the only bound on that fan-out.
+
+**Removal first requires a bound on reconnect attempts in flight.** That is
+a new mechanism, not deletion of a redundant constant. This applies the
+creating-process resource rule above rather than granting the UI ownership
+of sessions.
+
+The retained limit was 200, raised from 20 at Pepe's request on 2026-10-04.
+Twenty was a choice, not a measured resource threshold. The cited Linux,
+tmux 3.7 measurements found about 24 MB in tmux for 200 viewers plus about
+5 MB per client, with no idle CPU reported. Those scoped measurements
+supported retaining the higher allowance; they are not a cross-platform
+capacity guarantee or a substitute for bounding concurrent reconnect work.
 
 # Integration limitations discovered (2026-07-23 … 2026-07-25)
 
@@ -78,3 +100,5 @@ server, because they attach to the session source, not to the server (see
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/multiline-send-bracketed-paste.md @ 7838d3ca.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/628-terminal-count-stays.md. The source records the acceptance and measurements associated with [awebai/oats#628](https://github.com/awebai/oats/issues/628); this harvest did not independently reproduce them.

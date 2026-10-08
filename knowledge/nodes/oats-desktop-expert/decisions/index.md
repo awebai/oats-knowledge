@@ -7,6 +7,7 @@ Product, design and security decisions with their rationale and rejected alterna
 * [Agent-centered navigation makes the action target legible](agent-centered-navigation.md) - A stable roster and one authoritative inspection flow keep launch intent explicit.
 * [Terminal tabs are viewers, not session owners](terminal-viewers-not-session-owners.md) - Exact-source viewers preserve native interaction without owning durable sessions.
 * [Workspace admission is privileged and transactional](privileged-workspace-admission.md) - Workspaces are admitted only from validated sources, after identity and readiness are established.
+* [The bundled server ends with its app owner, without interrupting CLI children](bundled-server-owner-lifetime.md) - An owner-only stdin pipe bounds the bundled server's lifetime across app crashes without claiming authority over another app's server or in-flight CLI work.
 * [Editor groups own layout and close succession](editor-group-layout-ownership.md) - Persistent groups, not per-tab split slots, own ordered work and focus.
 * [One design authority, a stated quality bar, and a native terminal](design-direction-and-quality-bar.md) - The expert owns UX and design direction and the developer implements it; the terminal keeps native geometry.
 * [Calibrate terminal stroke weight per theme without changing cell geometry](per-theme-terminal-stroke-weight.md) - Theme-specific stroke weight matches the native terminal reference without changing cell geometry or adding a user setting.

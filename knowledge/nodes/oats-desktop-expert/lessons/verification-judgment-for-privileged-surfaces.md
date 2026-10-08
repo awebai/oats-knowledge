@@ -3,7 +3,7 @@ type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
 description: Security and race guards on the loopback server, IPC proxy, file viewers and terminal attach are proven only by driving the real boundary and failing when the guard is removed; review loops end when findings turn into test-strength findings; packaged GUI launches are never verification on an operator's machine, and selecting tests by name or file never isolates their native effects.
 tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
-timestamp: 2026-09-24
+timestamp: 2026-10-08
 ---
 # Lesson
 
@@ -43,6 +43,24 @@ rounds 2026-07-22 … 2026-07-25.
    evidence — the published artifact behaving correctly — is a better
    late-slice confidence source than more unit tests.
 
+# Source-slicing tests are part of a main-process change
+
+Learned 2026-10-08: developer review and expert verification both missed a
+failure that CI caught when a `main.mjs` block gained a new dependency.
+Some tests slice the Electron entry point as text and execute blocks in
+`node:vm` with hand-built contexts. A newly referenced symbol can be absent
+from that context, making the block throw and the test fail far from the
+change; helper-module tests do not exercise that seam.
+
+This is verification debt, not a preferred testing architecture. The first
+elimination route is point 3 above: extract logic into importable modules
+and shrink `main.mjs` to bindings. Until that seam is eliminated, every
+`main.mjs` change must inventory the tests that read and execute its source,
+include them in local verification, and have the expert check that coverage.
+Discover the current readers rather than preserving a fixed file list or
+count in knowledge. The isolation rules below still apply: required coverage
+is not permission to run native effects on the operator's machine.
+
 # Operator-machine safety is part of verification judgment
 
 Two separate incidents (2026-07-24) hung an operator's laptop with dozens of
@@ -60,8 +78,12 @@ CI-harness requirement, not a licence to launch locally. The standing rule:
   cleanup to an exact PID, an owned path, or an exact anchored multiplexer
   target. A terminal viewer only ever detaches its own client. A fix on main
   does not protect a stale worktree still running the old code.
-- Electron's `before-quit` does not fire on signals; a child server leaks on
-  a plain kill unless the shutdown path is wired to signal handlers.
+- Quit callbacks and signal handlers cannot establish child-server lifetime
+  across crashes or SIGKILL. The 2026-10-08
+  [owner-lifetime decision](../decisions/bundled-server-owner-lifetime.md)
+  replaces this lesson's earlier signal-handler remedy. Its no-child-signal
+  rule governs application shutdown; scoped process-group reaping in a
+  throwaway CI harness is a different authority, not an app cleanup strategy.
 
 # Selecting tests is not isolating their effects
 
@@ -114,10 +136,11 @@ reachability suite is inverted rather than deleted.
 
 # Elimination route
 
-The individual traps here have already become tests and harness structure in
-the repository; that is where they belong. What stays knowledge is the
-judgment: which evidence counts, when a review loop is over, and what may not
-be run on a human's machine.
+Individual traps belong in tests and harness structure in the repository;
+many here already have that protection. The source-slicing seam remains
+explicit debt until entry-point logic is importable. What stays knowledge
+is the judgment: which evidence counts, when a review loop is over, and what
+may not be run on a human's machine.
 
 # Related
 
@@ -130,3 +153,5 @@ be run on a human's machine.
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shell-nav-reachability-manifest.md, shared-renderer-harness-enumeration-test.md, dormant-surface-removal-inventory.md, scope-rollback-absence-pins.md and agents/oats-expert/soul/knowledge/lessons/surface-removal-inventory-user-guidance.md @ 7838d3ca.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/main-mjs-source-tests.md; notes/698-server-owner-lifeline.md. The source records the missed VM-context dependency and CI failure in [awebai/oats#806](https://github.com/awebai/oats/pull/806); this harvest did not rerun the suite.
