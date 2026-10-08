@@ -1,5 +1,11 @@
 # oats-desktop-expert log
 
+## 2026-10-08
+
+* **Update**: added [Identity marks show a two-letter abbreviation](decisions/two-letter-identity-marks.md) (awebai/oats#768), with the rejected roster-relative, colour-only and declared-mark alternatives and the 1px stack consequence.
+* **Update**: added [A soul's page shows its own and its composed AGENTS.md](decisions/soul-instructions-own-and-composed.md) (awebai/oats#751, #768, #792, #795, #797): why the composed text is an opt-in field of `inspect --soul`, and why routed souls needed the host to report its own features.
+* **Update**: added [An idle child may be an undelivered wake](lessons/idle-child-may-be-an-undelivered-wake.md), the coordinator's side of a wedged broker registration, linking the integrations and maintainer concepts that own delivery instead of duplicating them. Written by the expert from its own instance notes (harvest was off for that instance), at the maintainer's request.
+
 ## 2026-10-03
 
 * **Harvest**: added [Needs-input attention preserves liveness and roster recognition](decisions/needs-input-preserves-liveness-and-recognition.md), preserving the source expert's marker, collapsed-parent and fixed-label rationale and rejected dot-recolouring, row-reordering and visible-age alternatives. The note is the design evidence; the captured records contain startup material and the opening brief, not later verification or acceptance. Existing design, accessibility and CLI-authority decisions are not superseded.
@@ -29,20 +35,3 @@
 * **Fix**: dating and attribution added to [Editor groups](decisions/editor-group-layout-ownership.md), [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md), [Async completion](lessons/asynchronous-intent-and-truthful-outcomes.md) and [Identity and relationships](lessons/identity-and-relationship-legibility.md), from the legacy source timestamps.
 * **Update**: [Workspace admission](decisions/privileged-workspace-admission.md) states that its canonicalise-once rule is a Desktop finding, independent of the kernel's resolved-object lesson, and links it.
 * **Fix**: log normalised newest-first; section indexes renamed; cross-node reads use base-rooted links.
-
-## 2026-09-21
-
-* **Harvest**: legacy-bundle synthesis of `oats-desktop-engineer` and `ux-designer`. Added [The loopback interface is Desktop's trust boundary](decisions/loopback-trust-boundary-and-transport-simplicity.md), [Verification judgment for Desktop's privileged surfaces](lessons/verification-judgment-for-privileged-surfaces.md), [macOS installers](lessons/macos-adhoc-signing-decision.md), [Browser-owned state and accessibility under repaint](lessons/browser-owned-state-and-accessibility-under-repaint.md) and [Accessibility is proven on effective colours](lessons/effective-contrast-over-token-pairs.md).
-* **Update**: [Terminal tabs are viewers](decisions/terminal-viewers-not-session-owners.md) gains the one-input-surface acceptance (2026-07-22), the deferred messaging sidebar and an integration-limitations section.
-* **Update**: [One standalone Desktop product](decisions/standalone-product-and-cli-authority.md) dates the acceptance (2026-07-24) and adds tolerant observation, advisory model input and empty-task semantics.
-* **Update**: [Agent-centered navigation](decisions/agent-centered-navigation.md) adds workspace-scoped artifact tabs, return-to-prior-stage and the workspace switcher; dates the 2026-09-07 supersession of selection-opens-spawn.
-* **Update**: [Workspace admission](decisions/privileged-workspace-admission.md) adds immutable admitted roots and validated workspace-derived candidates, and viewer survival across server replacement.
-* **Update**: [Identity and relationships](lessons/identity-and-relationship-legibility.md) adds degrade-to-forest, qualified-identity tie-breaking and category-labels-are-not-cluster-names.
-* **Update**: every concept carries `tags` and its original decision/lesson `timestamp`; section indexes added.
-* **Deprecation**: superseded legacy claims not carried: browser-panel/chat/diff/Jira views, tmux as the sole terminal seam, the per-tab pending-slot split model, the kernel-bridge transition narrative, pre-portable-souls layouts, selection-opens-spawn, and version/PR/release ledger facts.
-
-## 2026-09-13
-
-* **Creation**: curated rationale prepared for independent review.
-* **Fix**: [Editor group ownership](decisions/editor-group-layout-ownership.md) separates layout ownership from workspace restoration.
-* **Update**: editorial donor-exclusion commentary removed from [Desktop CLI authority](decisions/standalone-product-and-cli-authority.md).
