@@ -39,7 +39,8 @@ symlink (the name exists, yet the lock reads as vanished on every pass).
 
 # Related
 
-[Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md).
+[Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md);
+[Process identity must survive different readers and host conventions](/nodes/oats-kernel-expert/lessons/process-identity-across-readers-and-hosts.md).
 
 # Current contracts
 
