@@ -1,5 +1,11 @@
 # oats-desktop-expert log
 
+## 2026-10-08
+
+* **Update**: added [Identity marks show a two-letter abbreviation](decisions/two-letter-identity-marks.md) (awebai/oats#768), with the rejected roster-relative, colour-only and declared-mark alternatives and the 1px stack consequence.
+* **Update**: added [A soul's page shows its own and its composed AGENTS.md](decisions/soul-instructions-own-and-composed.md) (awebai/oats#751, #768, #792, #795, #797): why the composed text is an opt-in field of `inspect --soul`, and why routed souls needed the host to report its own features.
+* **Update**: added [An idle child may be an undelivered wake](lessons/idle-child-may-be-an-undelivered-wake.md), the coordinator's side of a wedged broker registration, linking the integrations and maintainer concepts that own delivery instead of duplicating them. Written by the expert from its own instance notes (harvest was off for that instance), at the maintainer's request.
+
 ## 2026-10-03
 
 * **Harvest**: added [Needs-input attention preserves liveness and roster recognition](decisions/needs-input-preserves-liveness-and-recognition.md), preserving the source expert's marker, collapsed-parent and fixed-label rationale and rejected dot-recolouring, row-reordering and visible-age alternatives. The note is the design evidence; the captured records contain startup material and the opening brief, not later verification or acceptance. Existing design, accessibility and CLI-authority decisions are not superseded.
