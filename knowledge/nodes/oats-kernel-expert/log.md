@@ -1,5 +1,11 @@
 # oats-kernel-expert log
 
+## 2026-10-08
+
+* **Harvest**: added [Unknown hook events are forward-tolerant unless required](/nodes/oats-kernel-expert/decisions/forward-tolerant-hook-events.md), preserving the composition rationale, rejected alternatives, required-hook refusal and pre-0.49.0 compatibility limit from the oats-kernel-expert-worktree-setup proposal and named note.
+* **Fix**: maintainer review of the harvest corrected [forward-tolerant-hook-events](/nodes/oats-kernel-expert/decisions/forward-tolerant-hook-events.md) from "shipped in 0.49.0" to merged for the still-unreleased 0.49.0, and added the verified awebai/oats#800 citation.
+* **Update**: explicitly partly superseded the closed-validator floor rule in [Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md) for non-required hook event names from 0.49.0; other manifest fields, unknown required events and migration decisions are unchanged.
+
 ## 2026-09-28
 
 * **Update**: imported 18 lessons from the legacy soul trees — each re-verified against main. New: [per-command-enumerations-drift-from-the-dispatch](lessons/per-command-enumerations-drift-from-the-dispatch.md), [an-integrity-value-proves-only-the-bytes-it-covered](lessons/an-integrity-value-proves-only-the-bytes-it-covered.md), [observation-must-not-harm-the-observer](lessons/observation-must-not-harm-the-observer.md). Merged: bounded retry into [record-lock-liveness-tradeoff](decisions/record-lock-liveness-tradeoff.md); measured recovery proofs, gitlink exclusion and abort-free copying into [preserve-authority-until-cleanup-is-proven](decisions/preserve-authority-until-cleanup-is-proven.md); the projection disambiguator into [resolved-object-not-referring-string](lessons/resolved-object-not-referring-string.md); skill availability into [kernel-composed-text-is-executable-surface](lessons/kernel-composed-text-is-executable-surface.md); feature advertisement into [machine-boundary-contract](lessons/machine-boundary-contract.md); per-harness launch argv and model translation into [harness-native-launch](decisions/harness-native-launch.md); the anchor-only parent relation into [bounded-live-lineage](decisions/bounded-live-lineage.md).
