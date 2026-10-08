@@ -16,4 +16,5 @@ okf_version: "0.1"
 * [oats-jira-expert](nodes/oats-jira-expert/index.md) - Jira tasks package expert (`oats.jira`, repository `oats-jira`): that package's facts.
 * [oats-linear-expert](nodes/oats-linear-expert/index.md) - Linear tasks package expert (`oats.linear`, repository `oats-linear`): that package's facts.
 * [oats-authoring-expert](nodes/oats-authoring-expert/index.md) - Authoring package expert (`oats.authoring`, repository `oats-authoring`): that package's facts.
+* [oats-apps-expert](nodes/oats-apps-expert/index.md) - App guidance package expert (`oats.apps`: `oats.folio`, `oats.library`; repository `oats-apps`): that package's facts.
 * [oats-setup-admin](nodes/oats-setup-admin/index.md) - Judgement from administering a workspace's OATS config: which changes went wrong and why, how refusals were read, what verification caught. Never one deployment's state.

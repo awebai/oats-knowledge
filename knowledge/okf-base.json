@@ -53,6 +53,10 @@
     "oats-setup-admin": {
       "path": "nodes/oats-setup-admin",
       "owner": "d9ccb5f0-1c69-406c-a4c8-0a2e0f41c76e"
+    },
+    "oats-apps-expert": {
+      "path": "nodes/oats-apps-expert",
+      "owner": "6d8e9505-f2d2-4cd5-8a10-2beec836e733"
     }
   }
 }
