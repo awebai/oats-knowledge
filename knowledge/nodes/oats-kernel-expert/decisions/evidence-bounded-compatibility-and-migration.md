@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Compatibility follows supported adoption, not every intermediate format
-description: Supported published commitments deserve compatibility while unrepresentable migrations must refuse rather than lose state; a closed manifest validator makes every new field a floor bump, and a kernel upgrade is separable from a provider floor.
+description: Supported adoption bounds compatibility, unrepresentable migrations refuse, and manifest floors remain explicit with a narrow non-required-hook exception from 0.49.0.
 tags: [kernel, compatibility, migration, locks, packages, manifests]
-timestamp: 2026-09-19
+timestamp: 2026-10-08
 ---
 # Rationale
 
@@ -36,14 +36,23 @@ A lock written by 0.26.0 is unreadable by an earlier kernel, so every kernel
 of a deployment moves together; the refusal (`E_LOCK_SCHEMA`) is the honest
 outcome, never a repair.
 
-**A closed manifest validator makes every new manifest field a hard floor
-bump** (2026-09-21). Earlier kernels reject the whole manifest at load, not
-just the new feature. Ship the kernel that reads the field first; providers
+**Historical rule (2026-09-21): a closed manifest validator makes every new
+manifest field a hard floor bump.** Earlier kernels reject the whole manifest
+at load, not just the new feature. Ship the kernel that reads the field first; providers
 that declare it floor on that kernel; never publish a provider release with a
 field its floor kernel cannot load. The mirror image governs removal: a field
 the kernel stops using is kept in the schema as tolerated-and-ignored
 (`helperInjection`, hook `inputs` since 0.26.0), because deleting it would
 reject every manifest that still carries it.
+
+**Partly superseded, 2026-10-08:**
+[Unknown hook events are forward-tolerant unless required](forward-tolerant-hook-events.md)
+introduces one exception from OATS 0.49.0: a non-required hook event name may
+be unknown without rejecting the capability. Declaration validation stays
+strict. Other new manifest fields and unknown required events still need a
+kernel that supports them. Pre-0.49.0 kernels still reject every unknown
+event, so provider floors and upgrading every composing host before adoption
+remain necessary; this is not retroactive compatibility.
 
 **A kernel upgrade is separable from a provider floor** (2026-09-19). A
 release note that pins a new provider version invites the reading that
@@ -70,3 +79,5 @@ a cheap reversible step plus a deliberate one.
 
 1. Migrated from agents/cli-dev/soul/knowledge, agents/dev-coordinator/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (mixed-scope-migration-refuses-whole, replace-unadopted-transitional-formats-in-place, legacy-capability-root-discriminator, guided-official-migration-shape, kernel-upgrade-separable-from-provider-floor, provider-problem-reasons-cross-the-wire).
 2. [OATS 0.26.0 release notes](https://github.com/awebai/oats/blob/main/docs/release-notes/v0.26.0.md).
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/forward-tolerant-hook-events.md (partial supersession only).
