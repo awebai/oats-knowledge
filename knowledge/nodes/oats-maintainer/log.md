@@ -1,5 +1,9 @@
 # oats-maintainer log
 
+## 2026-10-07
+
+* **Update**: [the OATS soul roster](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md) adds the `oats-apps-expert` package expert (package `oats.apps`, repository `oats-apps`, capabilities `oats.folio` and `oats.library`), so its six package experts are listed again; dated amendment line and citation added.
+
 ## 2026-10-03
 
 * **Update**: node moved from `nodes/oats-expert` to `nodes/oats-maintainer` and is owned by the new oats-maintainer soul (the OATS maintainer); the oats-expert soul stays the generalist expert, with a fresh [oats-expert](/nodes/oats-expert/index.md) node. Links across the base point here, and the node indexes that labelled the link `oats-expert` now label it `oats-maintainer`; the notes in this node are unchanged.

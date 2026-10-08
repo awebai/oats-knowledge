@@ -14,10 +14,12 @@ are ephemeral, knowledge is centralised); amended 2026-09-24 by the lead and
 the OSS coordinator under delegated authority (operator and integration
 nodes, package experts, promotion routing, seams); amended 2026-09-28 by the
 human (developer souls in the framework repository; the assistant and the
-coordination souls dropped). This concept is the **one** place the roster is
-stated; other concepts link here instead of restating it.
+coordination souls dropped); amended 2026-10-07 by the oats-maintainer, owner
+of this node (the `oats-apps-expert` package expert for `oats.apps`). This
+concept is the **one** place the roster is stated; other concepts link here
+instead of restating it.
 
-# The roster today (2026-09-28)
+# The roster today (2026-10-07)
 
 - **Domain experts, each owning a node:** `oats-expert` (overall direction,
   cross-cutting rationale, the single cross-package stewardship gate),
@@ -31,7 +33,9 @@ stated; other concepts link here instead of restating it.
 - **Package experts, one member soul per official package repository**, each
   owning the node for **that package's facts** and nothing cross-package:
   `oats-okf-expert`, `oats-aweb-expert`, `oats-jira-expert`,
-  `oats-linear-expert`, `oats-authoring-expert`. (`oats-dev-expert` was retired
+  `oats-linear-expert`, `oats-authoring-expert`, and `oats-apps-expert`
+  (package `oats.apps`, repository `oats-apps`, capabilities `oats.folio` and
+  `oats.library`). (`oats-dev-expert` was retired
   on 2026-09-28 with `oats.dev`, which `oats.engineering` replaced.) They sit
   *beside* the domain roster; cross-package architecture stays with
   `oats-expert`.
@@ -148,3 +152,4 @@ state.
 1. Direct human direction 2026-09-13 (domain experts instead of engineering roles; strict audit of soul knowledge) and 2026-09-28 (developer souls, dropped souls).
 2. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (`decisions/expert-souls-and-knowledge-rebuild`, `five-souls-are-the-roster-knowledge-centralised`, `roster-amendment-operator-and-integration-experts`, `portable-role-editions-and-bootstrap`).
 3. Developer souls: [awebai/oats#279](https://github.com/awebai/oats/pull/279); a source that owns no destination is retained, not dropped: `capabilities/oats-okf/lib/worker.mjs` (`E_OWNER`) in awebai/oats.
+4. `oats-apps-expert`: the oats-maintainer node owner's disposition on [awebai/oats-knowledge#57](https://github.com/awebai/oats-knowledge/pull/57), 2026-10-07.
