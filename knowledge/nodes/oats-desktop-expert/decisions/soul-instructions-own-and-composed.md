@@ -71,4 +71,4 @@ false positive.
 
 1. Human direction 2026-10-07 (show both, clearly separated) and 2026-10-08 (shorter group wording).
 2. Maintainer contract decisions 2026-10-07 (extend `inspect --soul`, one composer, opt-in flag) and 2026-10-08 (hosts report their own features; additive; no on-demand probing).
-3. awebai/oats#751, #768, #792, #795 (merged); #797 (open at writing).
+3. awebai/oats#751, #768, #792, #795, #797 (all merged).
