@@ -3,7 +3,7 @@ type: Decision
 title: Workspace admission is privileged and transactional
 description: Validated suggestions or a privileged picker admit workspaces only after identity, readiness and rollback authority are established.
 tags: [desktop, security, workspaces, privileged-process, transactions]
-timestamp: 2026-07-24
+timestamp: 2026-10-08
 ---
 # Rationale
 
@@ -28,6 +28,10 @@ intended owner and readiness are established; rollback must restore trust as
 well as process state. Existing terminal viewers survive the replacement of
 Desktop's own server because they attach to the session source, not to the
 server ([Terminal tabs are viewers, not session owners](terminal-viewers-not-session-owners.md)).
+The 2026-10-08 [bundled-server lifetime decision](bundled-server-owner-lifetime.md)
+refines this boundary: owning the server means bounding its lifetime even
+when the app crashes, not claiming another app's server or cancelling
+in-flight kernel work. It preserves the foreign-server prohibition.
 
 Discovery, native picker and non-dismissible mutation have different
 lifetimes. A picker can cover discovery without invalidating it, while an
@@ -69,3 +73,5 @@ canonicalise-once / compare-resolved-objects rule independently
 # Citations
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/698-server-owner-lifeline.md.
