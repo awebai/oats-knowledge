@@ -3,6 +3,7 @@
 ## 2026-10-08
 
 * **Harvest**: Refined [cleanup truthfulness and retry credentials](/nodes/integrations-expert/lessons/a-hook-reports-only-the-cleanup-it-confirmed.md): excluding credentials from recovery removes an accidental backup, so key-dependent cleanup failures must exit nonzero; only an exactly recognized key-independent handoff may leave an obligation without retaining the member key. Added enforcement-floor rationale and regression gates, with source-only evidence limits; no hosted post-retirement authentication claim is accepted.
+* **Review**: restored the meta-before-failing and re-check rules to the lesson's description and index lines (knowledge-maintainer review of the harvest).
 
 ## 2026-10-05
 

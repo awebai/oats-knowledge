@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: A hook reports only the cleanup it confirmed, and keeps the credential a retry needs
-description: Report only confirmed cleanup, retain credentials for key-dependent retries, and pair credential exclusion from retirement recovery with fail-closed hooks.
+description: Emit meta before failing, report only confirmed cleanup, re-check uncertain effects, retain credentials for key-dependent retries, and pair credential exclusion from retirement recovery with fail-closed hooks.
 tags: [lesson, integrations, hooks, compensation, retire, external-state, truthfulness]
 timestamp: 2026-10-08
 ---
