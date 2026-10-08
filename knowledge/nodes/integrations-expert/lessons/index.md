@@ -5,7 +5,7 @@ Hook, testing and release discipline learned building providers against the kern
 ## Hooks and provider state
 
 * [A lifecycle hook never trusts the ambient environment](a-lifecycle-hook-never-trusts-the-ambient-environment.md) - Inputs come from the payload, persisted meta or the instance home, because the invoker may be another instance.
-* [A hook reports only the cleanup it confirmed, and keeps the credential a retry needs](a-hook-reports-only-the-cleanup-it-confirmed.md) - Emit meta before failing, claim only confirmed effects, re-check uncertain ones, and delete a local key only after the remote record is gone.
+* [A hook reports only the cleanup it confirmed, and keeps the credential a retry needs](a-hook-reports-only-the-cleanup-it-confirmed.md) - Report only confirmed cleanup, retain credentials for key-dependent retries, and pair credential exclusion from retirement recovery with fail-closed hooks.
 * [Settings reach hooks as a payload, and the brief tells the agent where they are](settings-reach-hooks-as-a-payload-and-the-brief-tells-the-agent-where-they-are.md) - One merged payload in, one brief line and persisted meta out; advisory hooks warn, required hooks fail.
 * [Host-only settings are declared in the manifest and refused by the resolver](a-merged-provider-payload-cannot-enforce-host-only-keys.md) - The node's one home for hostOnly: machine facts come only from the host file, and the resolver, not the provider, refuses them elsewhere.
 * [A provider that owns an in-life lifecycle owns its state file and its verbs](a-provider-command-never-rewrites-the-kernels-instance-record.md) - Keep in-life state in a provider file mirrored through hook meta, never in instance.json, and teach the provider's verbs, not the native mutations.

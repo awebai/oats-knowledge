@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-10-08
+
+* **Harvest**: Refined [cleanup truthfulness and retry credentials](/nodes/integrations-expert/lessons/a-hook-reports-only-the-cleanup-it-confirmed.md): excluding credentials from recovery removes an accidental backup, so key-dependent cleanup failures must exit nonzero; only an exactly recognized key-independent handoff may leave an obligation without retaining the member key. Added enforcement-floor rationale and regression gates, with source-only evidence limits; no hosted post-retirement authentication claim is accepted.
+
 ## 2026-10-05
 
 * **Harvest**: Added [A delivery acknowledgement must name the stage its receipt proves](/nodes/integrations-expert/lessons/acknowledgement-stage-must-match-receipt.md), tightening provider acceptance around delivery marks and admission-stage evidence.
