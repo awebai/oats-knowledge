@@ -4,7 +4,7 @@ Discoveries, integration limitations and verification judgment that the reposito
 
 * [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md) - Key by qualified identity and resolve ambiguity over the full roster before filtering.
 * [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md) - Focus intent, effective bindings and event ownership must agree without consuming native input.
-* [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md) - Background work preserves drafts and reports creation, readiness and success separately.
+* [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md) - Background work preserves intent and separates creation, readiness and success; lifecycle confirmations reflect conditional kernel effects.
 * [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) - A live selection, open form or focused modal control is a repaint barrier; declared modality is not containment.
 * [Accessibility is proven on effective colours, not token pairs](effective-contrast-over-token-pairs.md) - Contrast is checked on every colour the user actually sees, not on token pairs.
 * [Verification judgment for Desktop's privileged surfaces](verification-judgment-for-privileged-surfaces.md) - Prove guards at the real boundary and never launch the packaged app on an operator's machine.

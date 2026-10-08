@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Async completion must still own the user's intent
-description: Background work must preserve drafts and distinguish creation, visibility, readiness and task success without targeting replacement context.
+description: Background work preserves intent and separates creation, readiness and success; lifecycle confirmations reflect conditional kernel effects.
 tags: [desktop, async, intent, mutations, truthfulness]
-timestamp: 2026-07-26
+timestamp: 2026-10-08
 ---
 # Rationale
 
@@ -26,6 +26,34 @@ Ignoring a stale response does not undo its mutation. Reconcile partial successe
 
 **Close can arrive before mount settles** (2026-07-22 … 2026-07-23). A tab closed while its view or terminal was still mounting fell back to module-wide cleanup and blanked a healthy sibling tab, and a terminal closed during its pending open leaked an attached client. Whenever cleanup depends on a value an in-flight operation will produce, close waits for settle and then cleans up once with that mount's own disposer; a late resource arriving for a dead owner is released at once. Track what actually happened: a rejected mount and a fulfilled legacy mount both lack a disposer, but only the latter may use the module-wide fallback. Setup that needs cleanup (handlers, observers, focus) runs inside the lifecycle's ready callback, because code after `await start()` has no ordering with close. A tab key stays reserved until cleanup completes, and a reopen during that window waits on the reservation instead of being dropped.
 
+# Confirmations follow effect conditions, not the usual case
+
+Learned 2026-10-08: Retire of a leftover home from an interrupted spawn can
+remove that spawn's branch when the worktree is actually removed and the
+branch remains at its creation commit. The source reports that two plan
+statements and a discard warning each promised branch preservation; two
+verification returns were needed to find all three. A truthful final receipt
+does not repair a false promise made when asking the operator to confirm.
+
+For every sentence in a destructive confirmation, identify the kernel
+condition under which it would be false. Distinguish conditional branch
+cleanup from unrelated effects rather than combining objects into a blanket
+assurance. The current kernel contract owns the exact cleanup rules; Desktop
+must express those conditions without independently reimplementing them.
+
+The elimination route is one shared presentation helper for statements about
+the same object, used by the plan, confirmation and discard warning, with
+regressions for both the effect and no-effect cases. Duplicating confident
+wording at each surface invites drift even after the first instance is
+fixed. Tests should assert that the surfaces agree on the conditional
+meaning, not merely that each contains a reassuring sentence. The lesson is
+the review stance and why shared derivation matters, not a substitute for
+that code and test work.
+
+For the request-side distinction between an interrupted request, confirmed
+rollback and cleanup still owed, see
+[Preview-bounded spawn outcomes](../decisions/preview-bounded-spawn-outcomes.md).
+
 # Related
 
 [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
@@ -38,3 +66,5 @@ Ignoring a stale response does not undo its mutation. Reconcile partial successe
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge and agents/ux-designer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/async-mount-close-race.md and decisions/view-mount-disposer-contract.md @ 7838d3ca.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, 2026-10-08; notes/long-spawn-transport-decision.md. The proposal reports the conditional branch-cleanup finding, repeated verification returns and a forced-interruption run whose retire reported `spawnCompensation`, associated with [awebai/oats#801](https://github.com/awebai/oats/pull/801) and [#819](https://github.com/awebai/oats/pull/819). These outcomes are source-reported, not rerun by this harvest; the shared-helper and regression guidance names the elimination route rather than asserting its implementation.

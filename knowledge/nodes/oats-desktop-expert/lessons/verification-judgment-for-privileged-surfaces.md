@@ -43,6 +43,32 @@ rounds 2026-07-22 … 2026-07-25.
    evidence — the published artifact behaving correctly — is a better
    late-slice confidence source than more unit tests.
 
+# Additive acceptance is not operator-visible parity
+
+Learned in the 2026-10-08 kernel-parity work: a kernel test can honestly prove
+that Desktop accepts an additive JSON field while the operator sees none of
+it. Allowlist projections rebuild known keys and silently omit the new one.
+The source reports that `spawnInProgress` disappeared along that path, so an
+in-progress spawn looked stopped and offered lifecycle actions, while the
+retire receipt hid `spawnCompensation`. Parsing success was evidence of
+non-rejection, not of a truthful display.
+
+For each operator-relevant addition, trace the invocation and returned field
+through every projection to the rendered state and available actions. Keep
+the new field tolerant: an absent or malformed optional value drops that
+field, not the whole document. Do not replace allowlisting with blind
+passthrough to make parity tests green. Feature authority still comes from
+[the kernel's declarations](../decisions/standalone-product-and-cli-authority.md).
+
+The elimination route is composition-level regression coverage: carry a
+representative kernel answer through the actual projections into the view,
+assert the visible meaning and action availability, and cover absent and
+malformed optional values. Such a test must fail if an intermediate
+projection drops the field. Parser acceptance tests remain useful for
+compatibility, but cannot stand in for that consumer proof. This is the
+field-level form of the shell-reachability lesson below, not a permanent
+inventory of projection function names.
+
 # Source-slicing tests are part of a main-process change
 
 Learned 2026-10-08: developer review and expert verification both missed a
@@ -155,3 +181,5 @@ may not be run on a human's machine.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shell-nav-reachability-manifest.md, shared-renderer-harness-enumeration-test.md, dormant-surface-removal-inventory.md, scope-rollback-absence-pins.md and agents/oats-expert/soul/knowledge/lessons/surface-removal-inventory-user-guidance.md @ 7838d3ca.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/main-mjs-source-tests.md; notes/698-server-owner-lifeline.md. The source records the missed VM-context dependency and CI failure in [awebai/oats#806](https://github.com/awebai/oats/pull/806); this harvest did not rerun the suite.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, 2026-10-08; notes/long-spawn-transport-decision.md. The source reports the additive-field display failures in the parity work associated with [awebai/oats#815](https://github.com/awebai/oats/pull/815) and [#819](https://github.com/awebai/oats/pull/819). This harvest did not audit those implementations; the composition-test guidance is the elimination route, not a claim that every seam already has coverage.
