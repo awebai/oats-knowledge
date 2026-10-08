@@ -2,6 +2,7 @@
 
 ## 2026-10-08
 
+* **Harvest**: extended [Code that observes another agent's tree must not be able to harm the observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md) with the lazy-fetch helper path, deliberate missing-object refusal, and the distinction between old-Git CLI compatibility and enforced helper suppression, from the oats-kernel-expert-retire-recovery proposal and named note.
 * **Harvest**: added [Unknown hook events are forward-tolerant unless required](/nodes/oats-kernel-expert/decisions/forward-tolerant-hook-events.md), preserving the composition rationale, rejected alternatives, required-hook refusal and pre-0.49.0 compatibility limit from the oats-kernel-expert-worktree-setup proposal and named note.
 * **Fix**: maintainer review of the harvest corrected [forward-tolerant-hook-events](/nodes/oats-kernel-expert/decisions/forward-tolerant-hook-events.md) from "shipped in 0.49.0" to merged for the still-unreleased 0.49.0, and added the verified awebai/oats#800 citation.
 * **Update**: explicitly partly superseded the closed-validator floor rule in [Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md) for non-required hook event names from 0.49.0; other manifest fields, unknown required events and migration decisions are unchanged.
