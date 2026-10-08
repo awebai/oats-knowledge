@@ -14,10 +14,10 @@ const mutate = change => {
   return { ...files, 'okf-base.json': encode(candidate) };
 };
 
-test('whole base has the thirteen reviewed owner UUIDs and resolvable declarations', () => {
+test('whole base has the fourteen reviewed owner UUIDs and resolvable declarations', () => {
   const result = validateOwnership(files, okf);
   assert.equal(result.id, BASE_ID);
-  assert.equal(Object.keys(result.nodes).length, 13);
+  assert.equal(Object.keys(result.nodes).length, 14);
   for (const [name, owner] of Object.entries(OWNERS)) assert.equal(result.nodes[name].owner, owner);
 });
 

@@ -26,6 +26,7 @@ export const OWNERS = Object.freeze({
   'oats-linear-expert': '307b0cef-7d93-40a7-8e2c-f0ad615e59e6',
   'oats-authoring-expert': 'a324f1de-0f6a-451c-8417-91ba1f402455',
   'oats-setup-admin': 'd9ccb5f0-1c69-406c-a4c8-0a2e0f41c76e',
+  'oats-apps-expert': '6d8e9505-f2d2-4cd5-8a10-2beec836e733',
 });
 
 export async function loadOkf(source = process.env.OKF_SOURCE) {
