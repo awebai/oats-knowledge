@@ -79,6 +79,11 @@ runner down instead of failing.
 
 # Related
 
+[Home process scans state their visibility limit](/nodes/oats-kernel-expert/decisions/home-process-scan-has-an-explicit-visibility-limit.md)
+distinguishes unreadable entries from failure of the scan itself;
+[a missing tmux socket does not prove server exit](/nodes/oats-kernel-expert/lessons/missing-tmux-socket-does-not-prove-server-exit.md)
+records why endpoint loss needs evidence about the work.
+
 [Recovery completeness must be measured against the source, not Git's advertised refs](/nodes/oats-kernel-expert/lessons/recovery-completeness-needs-source-refs.md)
 records a transport visibility trap in nested-repository preservation.
 
