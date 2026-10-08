@@ -10,7 +10,8 @@ timestamp: 2026-10-08
 The proposal and backing note record agreement on 2026-10-08 by OATS
 maintainers `oats-expert-juan` and `oats-maintainer-lfx`: tolerate unknown hook
 event names only when the capability author has not declared the hook
-required. The decision was shipped in OATS 0.49.0 [1].
+required. The implementation merged on 2026-10-08 for OATS 0.49.0, which was
+still unreleased on that date [1][2].
 
 A closed event set made adding one event reject the whole capability on an
 older host, not merely disable the new step. Every soul composing that
@@ -72,3 +73,4 @@ unrelated blocker.
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/forward-tolerant-hook-events.md.
 
 1. The proposal and note identify [awebai/oats#800](https://github.com/awebai/oats/pull/800), merged as `598d0044`, as the implementation; see [OATS 0.49.0 release notes](https://github.com/awebai/oats/blob/main/docs/release-notes/v0.49.0.md).
+2. Maintainer verification, 2026-10-08: [awebai/oats#800](https://github.com/awebai/oats/pull/800) (merged as `598d0044`) records the maintainers' decision, the required/non-required boundary, the pre-0.49.0 limit, and that this supersession goes through the knowledge proposal path; the 0.49.0 release notes on main (marked Unreleased) describe the same contract.
