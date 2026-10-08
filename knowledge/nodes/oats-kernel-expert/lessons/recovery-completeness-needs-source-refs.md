@@ -57,3 +57,11 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recover
 The probe and repair are source-reported from the review of
 [awebai/oats#817](https://github.com/awebai/oats/pull/817). The harvest did not
 repeat the probe or independently audit the implementation or its test suite.
+
+Verified by the knowledge maintainer at review of the harvest: awebai/oats#817,
+merged 2026-10-08, reads nested-repository branches from the source's own
+`refs/heads` instead of the clone's remote-tracking refs, fetches tips by id
+over protocol v2, and requires the copy's branch listing to match the source.
+Its description records the reviewer's `uploadpack.hideRefs` probe losing a
+branch, its reflog and its unique commits while retirement succeeded, and a
+hidden-branch regression test that fails at the PR's first commit.

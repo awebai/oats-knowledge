@@ -61,3 +61,12 @@ The proposal identifies [awebai/oats#657](https://github.com/awebai/oats/issues/
 as the recovery requirement and [awebai/oats#817](https://github.com/awebai/oats/pull/817)
 as its implementation. The harvest did not independently audit that
 implementation or its approval history.
+
+Verified by the knowledge maintainer at review of the harvest: awebai/oats#657
+records that a nested repository's recovery copy carried only the status
+settings of its local config and asked to copy it or say plainly what is
+dropped. awebai/oats#817, merged 2026-10-08 and closing #657, keeps local
+config out beyond the status settings, documents the omission, and gives
+hooks, fsmonitor, filters and credential helpers as the reason. Its approval
+is recorded in the PR description as an agent adversarial review and the
+source's lead verification, not a human acceptance.
