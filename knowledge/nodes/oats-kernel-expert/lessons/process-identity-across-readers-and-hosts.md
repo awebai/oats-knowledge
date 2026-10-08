@@ -60,6 +60,13 @@ not silently replace that record-store decision's separately documented
 foreign/unreadable-holder age fallback. Nor does an operator override prove
 cleanup; [recovery authority stays until the outcome is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md).
 
+# Related
+
+[Home process scans state their visibility limit](/nodes/oats-kernel-expert/decisions/home-process-scan-has-an-explicit-visibility-limit.md)
+covers scanning for home membership, not verifying a recorded PID. Its
+unreadable-entry tradeoff does not supersede this lesson's unknown-identity
+refusal.
+
 # Elimination route
 
 The fix belongs in the shared process-identity machinery and the lifecycle

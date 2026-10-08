@@ -1,5 +1,6 @@
 # Lessons
 
+* [A missing tmux socket does not prove the server exited](missing-tmux-socket-does-not-prove-server-exit.md) - A tmux server can retain sessions after its socket file is removed, so a missing endpoint needs independent liveness evidence before lifecycle code treats work as stopped.
 * [Recovery completeness must be measured against the source, not Git's advertised refs](recovery-completeness-needs-source-refs.md) - A successful Git transport copy can omit hidden branches, so recovery must derive its required refs from the source and verify the destination against that independent set.
 * [Process identity must survive different readers and host conventions](process-identity-across-readers-and-hosts.md) - A persisted PID and start token need environment-stable readers, existence checks independent of ps output, and an explicit unknown result that blocks destructive recovery.
 * [A refusal that needs the old bytes is a pre-commit gate, never a post-hoc rollback](refusal-belongs-before-commit.md) - Decide inside the transaction while the old state is live; "do it, then undo it" is safe only for a pure inverse.
