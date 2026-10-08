@@ -1,7 +1,6 @@
 # Decisions
 
 * [Home process scans state their visibility limit instead of refusing on every unreadable process](home-process-scan-has-an-explicit-visibility-limit.md) - A home-wide process scan accepts a documented inspection blind spot because rejecting unreadable processes would prevent ordinary lifecycle work, while failure of the scan itself remains unknown.
-
 * [Keep kernel responsibilities generic and capability runtimes complete](kernel-and-capability-responsibility.md) - The kernel resolves, copies and runs the lifecycle through generic seams; capabilities own concrete behaviour, including operating on OATS.
 * [Soul declares identity and where its capabilities come from; the workspace versions; the host supplies facts](soul-declares-kind-config-assigns-policy.md) - Location in the soul, versions in the workspace, host and spawn facts in their own homes; packages never carry deployment policy.
 * [Integrity, origin and consent are different proofs](trust-approval-and-consent-boundaries.md) - Membership and declaration are trust; the lock proves contained reproducible bytes; host-install consent is separate.
