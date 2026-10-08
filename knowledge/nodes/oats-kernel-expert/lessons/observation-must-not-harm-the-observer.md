@@ -77,6 +77,9 @@ cannot fix what the producer executes.
 
 # Related
 
+[Recovery copies preserve work, not repository-local Git behavior](/nodes/oats-kernel-expert/decisions/recovery-copies-do-not-inherit-local-git-config.md)
+applies the helper-execution concern to configuration left for a later operator.
+
 [Identity and location belong to the resolved object](resolved-object-not-referring-string.md);
 [Hook failures and error messages are output channels](hook-and-error-channels-disclose.md);
 [The loopback interface is Desktop's trust boundary](/nodes/oats-desktop-expert/decisions/loopback-trust-boundary-and-transport-simplicity.md).
