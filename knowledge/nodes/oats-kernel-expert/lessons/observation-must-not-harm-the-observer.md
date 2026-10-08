@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Code that observes another agent's tree must not be able to harm the observer
-description: Helper-free read-only Git includes suppressing lazy fetch; process signals need verified PIDs and untrusted entries must not be followed or read blocking.
+description: Observing a tree someone else works in is a security boundary; Git reads must be helper-free (repo-local config and lazy fetch both run executables) and non-writing, signals need verified PIDs, and untrusted entries are never followed or read blocking.
 tags: [kernel, security, git, process, observation, desktop]
 timestamp: 2026-10-08
 ---
@@ -36,17 +36,16 @@ missing staged blob: the recovery copier's object read ran the remote's
 configured executable.
 
 Use `GIT_NO_LAZY_FETCH=1` in the Git environments that observe or copy another
-agent's state, on Git versions that honor it. The deliberate cost is a
+agent's state; Git honors it from 2.44 [2]. The deliberate cost is a
 missing-object failure (or retirement refusal) for a genuine partial clone,
 rather than executing helpers or fetching over the network. The environment
 variable was chosen over `--no-lazy-fetch` to avoid rejecting every command
 on older Git that does not recognize the option; where Git ignores the
-variable, however, this protection is **not enforced**. CLI compatibility is
+variable (before 2.44), however, this protection is **not enforced**. CLI compatibility is
 not proof of helper-free observation. Eliminate the path in the observing
 and copying code, not a consumer wrapper, and guard it with the hostile
-promisor/missing-object regression case; the proposal identifies
-[awebai/oats#809](https://github.com/awebai/oats/pull/809) as the implementation
-fix.
+promisor/missing-object regression case, as
+[awebai/oats#809](https://github.com/awebai/oats/pull/809) did [2].
 
 **Never signal an unverified PID.** A failed spawn reports `pid: 0`, and
 signalling `-0` addresses the caller's own process group: a timeout kill on a
@@ -87,3 +86,4 @@ cannot fix what the producer executes.
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recovery, 2026-10-08; notes/lesson-lazy-fetch-is-a-helper-path.md.
 
 1. Migrated from agents/oats-expert/soul/knowledge/lessons/read-only-git-observation-is-a-security-boundary.md, never-signal-a-pid-you-did-not-verify.md and agents/oats-desktop-engineer/soul/knowledge/lessons/untrusted-worktree-entries-lstat-before-reading.md @ 7838d3ca.
+2. [awebai/oats#809](https://github.com/awebai/oats/pull/809), merged 2026-10-08: sets `GIT_NO_LAZY_FETCH=1` for retire's Git reads and the instance Git observation, documents the Git 2.44 floor, and adds the promisor reproducer as regression tests that skip on older Git. Verified by the knowledge maintainer at review of the harvest.
