@@ -3,7 +3,7 @@ type: Lesson
 title: Code that observes another agent's tree must not be able to harm the observer
 description: Observing a tree someone else works in is a security boundary; repo-local git config can run executables and plain reads write, a failed spawn's pid 0 signals the caller's own process group, and untracked entries must never be followed or read blocking.
 tags: [kernel, security, git, process, observation, desktop]
-timestamp: 2026-09-22
+timestamp: 2026-10-08
 ---
 # Lesson
 
@@ -17,7 +17,7 @@ prove, not a property it has by default.
 nothing about Git's own configured helpers. Repo-local config can name an
 external diff, a textconv driver, an fsmonitor or hooks, all of which run
 executables (a diff driver's output even becomes the patch), and `status`
-refreshes the index, which is a write. A kernel observation therefore
+refreshes the index, which is a write. The instance Git observation API therefore
 disables helpers explicitly, does not inherit the caller's Git environment or
 global config, takes no optional locks, derives an index revision without
 writing, diffs against the captured object id rather than a moving ref, and
@@ -25,6 +25,12 @@ re-verifies after the read: HEAD, index or file content that moved during the
 read is refused with the fresh observation (`E_STALE_OBSERVATION`), because a
 consumer's own generation guards cannot detect an internally inconsistent
 result.
+
+**Retirement reads have a distinct compatibility constraint.** The isolation
+profile above is not a universal replacement for lifecycle Git reads. See
+[Retire Git reads preserve the spawn baseline's configuration semantics](/nodes/oats-kernel-expert/decisions/retire-git-reads-preserve-baseline-semantics.md)
+for the deliberate global-configuration distinction and its filter-driver
+residual. The observation API's isolation remains unchanged.
 
 **Never signal an unverified PID.** A failed spawn reports `pid: 0`, and
 signalling `-0` addresses the caller's own process group: a timeout kill on a
@@ -61,5 +67,7 @@ cannot fix what the producer executes.
 - [Current process-group.mjs](https://github.com/awebai/oats/blob/main/lib/process-group.mjs)
 
 # Citations
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recovery, 2026-10-08; notes/decision-retire-git-read-profile.md.
 
 1. Migrated from agents/oats-expert/soul/knowledge/lessons/read-only-git-observation-is-a-security-boundary.md, never-signal-a-pid-you-did-not-verify.md and agents/oats-desktop-engineer/soul/knowledge/lessons/untrusted-worktree-entries-lstat-before-reading.md @ 7838d3ca.

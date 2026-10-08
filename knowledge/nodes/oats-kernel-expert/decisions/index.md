@@ -12,6 +12,7 @@
 * [Separate operational home from granted work authority](home-work-authority.md) - Lifecycle identity stays outside disposable work, so work topology never becomes operational or knowledge authority.
 * [Live lineage is deliberately bounded](bounded-live-lineage.md) - Sparse explicit relations favour truthful ambiguity refusal over a permanent history or multi-file transaction promise.
 * [Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md) - Partial failures retain the identity and obligations a retry needs; recovery derives truth from the object.
+* [Retire Git reads preserve the spawn baseline's configuration semantics](retire-git-reads-preserve-baseline-semantics.md) - Retire keeps operator global and system Git configuration to remain comparable with the spawn baseline, so its read profile must not be unified with fully isolated observation without an explicit baseline transition.
 * [Record locks favor recoverable refusal over live-holder theft](record-lock-liveness-tradeoff.md) - Lock age never overrides a live local holder; the foreign-lock fallback and check-unlink race stay explicit limits.
 * [A minimal process boundary avoids permanent private coupling](minimal-process-boundary.md) - A structured public CLI lets independent consumers evolve without freezing private kernel functions.
 * [Configured scope is not messaging membership](configured-team-boundary.md) - A declared configuration boundary establishes team scope independently of ambient messaging identity.
