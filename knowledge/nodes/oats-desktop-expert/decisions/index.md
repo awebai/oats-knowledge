@@ -3,6 +3,7 @@
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
 * [One standalone Desktop product, no hidden operational kernel](standalone-product-and-cli-authority.md) - The installed CLI is the model Desktop renders and the only way it changes a deployment.
+* [Shared Desktop code keeps one relative path in the repository and package](shared-code-keeps-one-relative-path.md) - Preserve one source and one relative import path for shared client code, avoiding stale generated copies while making packaging boundaries explicit and testable.
 * [The loopback interface is Desktop's trust boundary](loopback-trust-boundary-and-transport-simplicity.md) - Loopback-only bind with Host and Origin guards, because the backend types into agent terminals.
 * [Agent-centered navigation makes the action target legible](agent-centered-navigation.md) - A stable roster and one authoritative inspection flow keep launch intent explicit.
 * [Terminal tabs are viewers, not session owners](terminal-viewers-not-session-owners.md) - Exact-source viewers preserve native interaction without owning durable sessions.

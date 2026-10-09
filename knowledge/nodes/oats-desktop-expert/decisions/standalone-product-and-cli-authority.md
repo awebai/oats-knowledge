@@ -81,6 +81,7 @@ custody ([forge connection is a workstation fact](/nodes/oats-maintainer/decisio
 
 # Related
 
+[Shared Desktop code keeps one relative path in the repository and package](shared-code-keeps-one-relative-path.md) (packaging rationale, not a change to CLI authority or product succession);
 [Agent-centered navigation makes the action target legible](agent-centered-navigation.md);
 [Async completion must still own the user's intent](../lessons/asynchronous-intent-and-truthful-outcomes.md);
 [The loopback interface is Desktop's trust boundary](loopback-trust-boundary-and-transport-simplicity.md);
