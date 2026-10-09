@@ -60,6 +60,7 @@ perform that transition.
 
 # Related
 
+- [Version baseline digests independently of baseline authority](/nodes/oats-kernel-expert/decisions/baseline-digests-have-an-independent-version.md) explains why digest evolution must not invalidate lifecycle authority; it does not supersede this configuration-profile decision.
 - [Observation must not harm the observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md) owns the observation API's isolation rationale.
 - [Preserve recovery authority until the outcome is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md) owns the fail-closed recovery and retention rule.
 
