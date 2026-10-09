@@ -79,6 +79,10 @@ runner down instead of failing.
 
 # Related
 
+[Retirement leftovers are reported as facts, not deletion verdicts](/nodes/oats-kernel-expert/decisions/retire-leftovers-are-facts-not-deletion-verdicts.md)
+keeps commit reachability separate from preservation of uncommitted work and
+records why leftover reporting uses information rather than a cleanup verdict.
+
 [Home process scans state their visibility limit](/nodes/oats-kernel-expert/decisions/home-process-scan-has-an-explicit-visibility-limit.md)
 distinguishes unreadable entries from failure of the scan itself;
 [a missing tmux socket does not prove server exit](/nodes/oats-kernel-expert/lessons/missing-tmux-socket-does-not-prove-server-exit.md)
