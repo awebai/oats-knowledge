@@ -1,5 +1,10 @@
 # oats-desktop-expert log
 
+## 2026-10-09
+
+* **Harvest**: added [Shared-code packaging](decisions/shared-code-keeps-one-relative-path.md), preserving the expert's spike decision, rejected copy/symlink/bundle/dependency alternatives, expanded release guards and asar-only fallback. The spike was closed unmerged; no shipped extraction, human acceptance or change to product succession is claimed.
+* **Harvest**: refined [Verification judgment](lessons/verification-judgment-for-privileged-surfaces.md#linux-can-exercise-the-packaged-shell-in-ci) with the source-reported single Linux packaged-shell launch under xvfb, its static-graph-only evidence and the permanent CI-gate elimination route. This narrows the source's earlier static-only assumption, not the operator-machine safety rule; macOS, the AppImage launcher and on-demand views remain unproven.
+
 ## 2026-10-08
 
 * **Harvest**: added [Preview-bounded spawn outcomes](decisions/preview-bounded-spawn-outcomes.md), preserving the confirmed-preview deadline, transport-owned interruption, bounded response, scoped concurrency and typed compensation rationale with rejected alternatives. It complements bundled-server lifetime without promising broker recovery after server death.

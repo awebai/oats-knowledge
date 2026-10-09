@@ -3,7 +3,7 @@ type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
 description: Security and race guards on the loopback server, IPC proxy, file viewers and terminal attach are proven only by driving the real boundary and failing when the guard is removed; review loops end when findings turn into test-strength findings; packaged GUI launches are never verification on an operator's machine, and selecting tests by name or file never isolates their native effects.
 tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
-timestamp: 2026-10-08
+timestamp: 2026-10-09
 ---
 # Lesson
 
@@ -111,6 +111,30 @@ CI-harness requirement, not a licence to launch locally. The standing rule:
   rule governs application shutdown; scoped process-group reaping in a
   throwaway CI harness is a different authority, not an app cleanup strategy.
 
+# Linux can exercise the packaged shell in CI
+
+Learned 2026-10-09: the source reports that the existing packaged-app smoke's
+launch phase ran under `xvfb-run` on a hosted Ubuntu runner and reached the
+shell. A workflow that skips GUI launch on every platform must not be read
+as proof that CI cannot exercise the renderer. Its macOS window-server
+rationale does not establish a Linux limitation. For a packaged path, CSP or
+import-map question, a throwaway Linux runner can supply runtime evidence
+without launching on an operator's machine.
+
+The observation was one launch of the **unpacked packaged app**, not the
+AppImage's own launcher. Reaching the shell proves the shell's static module
+graph loaded; it does not exercise on-demand views and says nothing about a
+macOS window. Do not generalize one passing launch to all renderer paths or
+runner configurations. This supplied the renderer-side evidence for the
+[shared-code packaging decision](../decisions/shared-code-keeps-one-relative-path.md).
+
+The elimination route is a permanent Linux packaged-launch gate in installer
+and release workflows, with scoped CI cleanup and assertions for the paths
+whose loading matters. The source recommended that change to maintainers;
+this lesson does not assert it was adopted. Static artifact checks remain
+useful but cannot substitute for execution of the packaged renderer. The
+operator-machine prohibition above is unchanged.
+
 # Selecting tests is not isolating their effects
 
 Learned 2026-09-24 during terminal-ownership qualification. Desktop's suites
@@ -183,3 +207,5 @@ may not be run on a human's machine.
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/main-mjs-source-tests.md; notes/698-server-owner-lifeline.md. The source records the missed VM-context dependency and CI failure in [awebai/oats#806](https://github.com/awebai/oats/pull/806); this harvest did not rerun the suite.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, 2026-10-08; notes/long-spawn-transport-decision.md. The source reports the additive-field display failures in the parity work associated with [awebai/oats#815](https://github.com/awebai/oats/pull/815) and [#819](https://github.com/awebai/oats/pull/819). This harvest did not audit those implementations; the composition-test guidance is the elimination route, not a claim that every seam already has coverage.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-tui-readers, 2026-10-09; notes/packaged-window-launch-on-linux-ci.md; notes/spike-verdict-extraction-first.md. The source records one successful Linux launch in [Build Installers run 37978310828, job 113982106046](https://github.com/awebai/oats/actions/runs/37978310828/job/113982106046), from the unmerged spike [awebai/oats#857](https://github.com/awebai/oats/pull/857) at `f6d0ed7d`. This harvest did not rerun the launch. This later observation narrows the earlier packaging note's assumption that renderer reach had only static evidence in CI.
