@@ -71,3 +71,25 @@ The source attributes the implementation and tests to
 [awebai/oats#858](https://github.com/awebai/oats/pull/858), with tmux 3.7c in its
 reported probes. This harvest did not rerun the experiments or independently
 verify the implementation's completion.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-09,
+by reading [awebai/oats#858](https://github.com/awebai/oats/pull/858) at head
+`b90a46ff`; nothing was run. The pull request was open, not merged, with
+APPROVE verdicts from both maintainers posted on it. Its diff adds the QUIT
+listener before the viewer is prepared and never removes it; the handler
+reads the detach mark before it stops the attach; and a QUIT with no mark
+answers a forced status, because the cleanup ends the client with tmux's own
+0. Its tests put a `tmux` shim first on the command's PATH that sends QUIT to
+its parent during preparation, at the marker read, at the cleanup and just
+after the client exits, asserting the status and that nothing is left. Its
+description lists the mutations this lesson names.
+
+That diff applies the full-lifetime rule **to QUIT under a keyed attach
+only**. The decision on
+[awebai/oats#856](https://github.com/awebai/oats/issues/856) keeps a plain
+attach exactly as it was, and the pull request leaves its HUP, TERM and INT
+handlers where they were: added after the viewer is prepared and removed
+before the final cleanup. Do not read this lesson as a statement that every
+signal is covered there, and treat widening the plain path as a change of
+default behaviour that needs its own decision. The verdicts establish
+maintainer review of the pull request, not human acceptance.
