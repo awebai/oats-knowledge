@@ -59,6 +59,11 @@ owns the general machine-consumer, truthful-diagnostic and feature-advertisement
 obligations. This decision records the narrower retirement-summary tradeoff
 without replacing that contract guidance.
 
+[How the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md)
+owns the rule that an additive field on a closed-shape contract is breaking
+for strict consumers already released, which is why the destination field
+was a separate contract decision rather than part of this repair.
+
 # Citations
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recovery, 2026-10-09; notes/decision-retire-plan-notes-are-bounded-summaries.md.
@@ -70,3 +75,13 @@ for [#658](https://github.com/awebai/oats/issues/658),
 repair [#853](https://github.com/awebai/oats/pull/853). These are source-reported
 evidence pointers; implementation and delivery history were not independently
 audited by this harvest.
+
+Verified by the knowledge maintainer at review of the harvest: awebai/oats#813
+merged on 2026-10-08 and #834 and the test-only #853 on 2026-10-09, each with
+APPROVE verdicts from both maintainers posted on the PR. #813's description
+records that a path is never cut and that whatever does not fit is left to
+the plan's fact fields or the receipt, keeps the plan and receipt shapes
+unchanged, and lists new fields of any kind as out of scope. #834's records
+that a destination for the primary work tree was deliberately not added to
+the plan because it would change a shape Desktop reads. The raised-limit and
+dropped-note alternatives rest on the source's note alone.

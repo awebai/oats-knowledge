@@ -2,6 +2,7 @@
 
 ## 2026-10-09
 
+* **Fix**: maintainer review of the retire-recovery harvest added verified awebai/oats#829 citations to [baseline-digests-have-an-independent-version](/nodes/oats-kernel-expert/decisions/baseline-digests-have-an-independent-version.md) and verified #813, #834 and #853 citations to [retire-plan-notes-are-bounded-summaries](/nodes/oats-kernel-expert/decisions/retire-plan-notes-are-bounded-summaries.md), and linked the latter to the maintainer node's closed-shape contract rule; the claims that rest on the source's notes alone are named as such.
 * **Harvest**: added [Version baseline digests independently of baseline authority](/nodes/oats-kernel-expert/decisions/baseline-digests-have-an-independent-version.md), preserving the authority-version separation, rejected compatibility alternatives and accepted legacy limits from the oats-kernel-expert-retire-recovery proposal and named note; the reported maintainer agreement is attributed, not independently established.
 * **Harvest**: added [Retire plan notes are bounded summaries, not the full fact record](/nodes/oats-kernel-expert/decisions/retire-plan-notes-are-bounded-summaries.md), preserving the rejected truncation, raised-limit, silent-drop and opportunistic-field alternatives from the same proposal and named note; numerical limits and test-fixture details remain with code and tests.
 * **Update**: linked the new decisions from the existing retirement Git-profile decision and CLI machine-boundary lesson without changing or superseding their policies.

@@ -63,3 +63,13 @@ for [#660](https://github.com/awebai/oats/issues/660) and
 [#661](https://github.com/awebai/oats/issues/661) as the implementation
 context. Implementation, merge and approval history were not independently
 audited by this harvest.
+
+Verified by the knowledge maintainer at review of the harvest: awebai/oats#829
+merged on 2026-10-08, closing #660 and #661, with APPROVE verdicts from both
+maintainers posted on the PR. Its description records the digest's own
+version beside an unchanged baseline version because that version also gates
+runtime authority, directory-home authority and the provider disposable-home
+exclusions, the legacy digest frozen byte for byte for a baseline without the
+field, an unknown value matching nothing, and rewriting existing baselines as
+out of scope because they keep their evidence. The missing-version-as-unknown
+alternative rests on the source's note alone.
