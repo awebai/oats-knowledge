@@ -85,6 +85,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[A raw-mode terminal child does not protect its wrapper's whole lifetime](/nodes/oats-kernel-expert/lessons/terminal-child-signal-gaps.md)
+explains how a terminal signal during setup or teardown can bypass cleanup
+and replace the command's semantic exit status.
+
 [Retire plan notes are bounded summaries, not the full fact record](/nodes/oats-kernel-expert/decisions/retire-plan-notes-are-bounded-summaries.md)
 records why a summary-size repair preserves full facts without silently
 extending the plan's JSON shape.
