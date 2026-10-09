@@ -3,7 +3,7 @@ type: Lesson
 title: A missing tmux socket does not prove the server exited
 description: A tmux server can retain sessions after its socket file is removed, so a missing endpoint needs independent liveness evidence before lifecycle code treats work as stopped.
 tags: [kernel, tmux, process, liveness, lifecycle, recovery]
-timestamp: 2026-10-08
+timestamp: 2026-10-09
 ---
 # Discovery
 
@@ -48,6 +48,35 @@ question, because the new home has no existing work to inspect. The source
 identified this boundary in awebai/oats#839 [2]. Do not generalize a proof
 about one existing home's work into a proof about every session on the server.
 
+# Missing-socket refusal includes the invoking shell
+
+The follow-up decision is deliberately conservative about processes the scan
+**does find** [3]. When an instance's recorded tmux socket file is missing,
+start, restart and stop refuse if the per-home scan finds a process working
+in the home. This includes a shell left there by the operator and the shell
+invoking the command from that directory. The refusal names the PID and
+program, so an intentional safety boundary does not look like unexplained
+failure.
+
+**Exempting the caller's parent was rejected.** When a harness runs `oats`
+directly, that parent can be the harness itself: exactly the process the scan
+exists to find. The kernel cannot safely distinguish that relationship from
+an interactive shell invoking the same command. Removing the apparent
+inconvenience would therefore remove the evidence in the case that most needs
+it. Do not turn caller ancestry into a liveness exemption.
+
+The trigger is loss of a **recorded** endpoint. A scaffold created without a
+launch that never recorded a socket has no endpoint to have lost, and is not
+scanned on that basis. OATS may identify tmux's socket-recreation remedy, but
+does not send the signal itself because it cannot verify the target PID.
+That preserves the signal boundary above, rather than making a diagnostic
+hint authority to act.
+
+This decision does not strengthen the scan's visibility or change the
+[unreadable-process tradeoff](/nodes/oats-kernel-expert/decisions/home-process-scan-has-an-explicit-visibility-limit.md).
+An unreadable entry, a failed scan and a visible process in the target home
+remain different observations.
+
 # Elimination route
 
 The behavioral fix belongs in shared lifecycle liveness classification and
@@ -61,7 +90,10 @@ alone cannot prove.
 The proposal points to such a real-tmux test and the lifecycle repair in
 awebai/oats#838 [1]. This lesson preserves why the distinction exists and
 why a per-home check has a shared-server boundary; it is not a substitute for
-those tests or a claim that every lifecycle gap has been fixed.
+those tests or a claim that every lifecycle gap has been fixed. Regression
+coverage for the follow-up decision should distinguish an invoking shell
+from a harness that directly invokes the command, and preserve refusal in
+both cases rather than "fixing" one with a parent exclusion.
 
 # Citations
 
@@ -69,3 +101,7 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recover
 
 1. The proposal reports the tmux 3.7c probe, lifecycle consequences and real-tmux regression in [awebai/oats#838](https://github.com/awebai/oats/pull/838), addressing [awebai/oats#624](https://github.com/awebai/oats/issues/624). The named note `notes/decision-625-scan-blind-spot.md` corroborates only the scan decision and the fact that a tmux probe was reported; detailed probe results come from the proposal. The harvest did not read the source log, replay the experiment or audit the implementation.
 2. [awebai/oats#839](https://github.com/awebai/oats/issues/839) is the source's reference for the shared-server spawn boundary, not a claim about the issue's current state.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recovery, 2026-10-09; notes/decision-missing-socket-any-process-in-home-blocks.md.
+
+3. The follow-up proposal and named note supply the caller-parent rejection, invoking-shell refusal, never-recorded-socket distinction and non-signalling remedy rationale for [awebai/oats#838](https://github.com/awebai/oats/pull/838). The note dates the decision to 2026-10-08; the proposal reports approval by both maintainers with this behavior stated at hand-over. That approval is source-attributed, not independently verified or established as human acceptance. The harvest did not inspect acceptance messages or audit implementation/merge history.
