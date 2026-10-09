@@ -85,6 +85,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[Retire plan notes are bounded summaries, not the full fact record](/nodes/oats-kernel-expert/decisions/retire-plan-notes-are-bounded-summaries.md)
+records why a summary-size repair preserves full facts without silently
+extending the plan's JSON shape.
+
 [A minimal process boundary avoids permanent private coupling](../decisions/minimal-process-boundary.md);
 [A refusal that needs the old bytes is a pre-commit gate](refusal-belongs-before-commit.md);
 [Kernel supplies provider-neutral messaging inputs](../decisions/messaging-capability-owns-provider-behaviour.md).
