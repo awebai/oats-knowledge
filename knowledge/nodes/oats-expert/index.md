@@ -4,4 +4,4 @@ The generalist OATS expert: what it learns leading work that spans several areas
 
 ## Sections
 
-* [Lessons](lessons/index.md) - Cross-area planning and integration judgment.
+* [Lessons](lessons/index.md) - Cross-area planning, coordination and integration judgment.
