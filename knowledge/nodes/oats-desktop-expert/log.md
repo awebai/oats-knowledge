@@ -2,6 +2,11 @@
 
 ## 2026-10-09
 
+* **Harvest**: added [Informed manual actions](decisions/informed-manual-actions-match-cli-authority.md), applying CLI authority to capability-source Test: informed one-run intent, not a Desktop-only automation-trust gate. Preserved the rejected hidden/one-click/probing alternatives and the reason to raise execution effects as a kernel contract question.
+* **Harvest**: added [Attributed source prose](decisions/source-prose-is-an-attributed-quote.md), distinguishing safe text from apparent product endorsement and preserving visible/accessibility attribution plus the older-state reason for a Desktop filter. Existing privileged-window input rules remain unchanged.
+* **Harvest**: added [Coupled Desktop/kernel landings](lessons/coupled-kernel-and-desktop-landings.md), preserving the consumer-specific dual-tree evidence and reason to hold a producer that would make Desktop wrong. General release authority remains in maintainer stewardship; a notes-only rebase's range-diff does not waive head-bound approval.
+* **Harvest**: extended [Truthful async outcomes](lessons/asynchronous-intent-and-truthful-outcomes.md) with precise no-execution conditions, ordinary recorded-state reads and reuse of an existing truthful stale-page outcome instead of result-retention state. The original effect-conditioned lifecycle guidance from harvest #64 remains; the new section supplies distinct review counterexamples and transport-level elimination routes.
+
 * **Harvest**: added [Shared-code packaging](decisions/shared-code-keeps-one-relative-path.md), preserving the expert's spike decision, rejected copy/symlink/bundle/dependency alternatives, expanded release guards and asar-only fallback. The spike was closed unmerged; no shipped extraction, human acceptance or change to product succession is claimed.
 * **Harvest**: refined [Verification judgment](lessons/verification-judgment-for-privileged-surfaces.md#linux-can-exercise-the-packaged-shell-in-ci) with the source-reported single Linux packaged-shell launch under xvfb, its static-graph-only evidence and the permanent CI-gate elimination route. This narrows the source's earlier static-only assumption, not the operator-machine safety rule; macOS, the AppImage launcher and on-demand views remain unproven.
 
