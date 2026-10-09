@@ -65,9 +65,12 @@ an interactive shell invoking the same command. Removing the apparent
 inconvenience would therefore remove the evidence in the case that most needs
 it. Do not turn caller ancestry into a liveness exemption.
 
-The trigger is loss of a **recorded** endpoint. A scaffold created without a
-launch that never recorded a socket has no endpoint to have lost, and is not
-scanned on that basis. OATS may identify tmux's socket-recreation remedy, but
+The trigger is loss of an endpoint the home was **launched on**. A scaffold
+that records neither a socket nor a launch has no endpoint to have lost, and
+is not scanned on that basis. A launched home that records no socket reads
+the default server and is covered like any other [4]; the exemption is the
+never-launched scaffold, not every home without a recorded socket. OATS may
+identify tmux's socket-recreation remedy, but
 does not send the signal itself because it cannot verify the target PID.
 That preserves the signal boundary above, rather than making a diagnostic
 hint authority to act.
@@ -105,3 +108,4 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recover
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recovery, 2026-10-09; notes/decision-missing-socket-any-process-in-home-blocks.md.
 
 3. The follow-up proposal and named note supply the caller-parent rejection, invoking-shell refusal, never-recorded-socket distinction and non-signalling remedy rationale for [awebai/oats#838](https://github.com/awebai/oats/pull/838). The note dates the decision to 2026-10-08; the proposal reports approval by both maintainers with this behavior stated at hand-over. That approval is source-attributed, not independently verified or established as human acceptance. The harvest did not inspect acceptance messages or audit implementation/merge history.
+4. Verified by the knowledge maintainer at review of the harvest. [awebai/oats#838](https://github.com/awebai/oats/pull/838) merged on 2026-10-09 with APPROVE verdicts from both maintainers posted on the PR. Its description lists as an accepted trade-off that any process working in the home blocks start and stop while the socket is missing, the shell that runs the command included, and that excluding the caller's parent would exclude a harness that runs `oats` directly; one verdict accepts those limits as stated, and a macOS run quoted in the review shows the refusal naming each PID with its program and the remedy named, not performed. The [repository's missing-socket rule](https://github.com/awebai/oats/blob/main/docs/execution-targets.md#missing-socket) is the current contract: it applies to every tmux server OATS reads, including a home that records no socket and reads the default server, and exempts only a home that records neither a socket nor a launch. It states the rule, not the rejected exemption, which is why that rationale is kept here. The verdicts establish maintainer review of the PR, not human acceptance; the reason OATS does not send the signal rests on the source's note and the accepted signal boundary.

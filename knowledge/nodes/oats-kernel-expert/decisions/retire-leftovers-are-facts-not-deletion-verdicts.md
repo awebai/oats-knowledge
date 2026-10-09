@@ -43,8 +43,9 @@ output collection was interchangeable:
   the stabilization repair.
 
 These are the reasons for the reviewed scope, not a permanent prohibition on
-an explicitly reviewed future status or disposal interface. The proposal's
-disposal guards were not accepted and are not a disposal contract here.
+an explicitly reviewed future status or disposal interface. The disposal verb
+was deferred together with its planned guards [2]; a plan recorded on an
+issue is not a reviewed disposal contract, and none is promoted here.
 Current output shapes and inspection/restoration steps belong in the
 [repository's lifecycle documentation](https://github.com/awebai/oats/blob/main/docs/souls-and-instances.md),
 not in a second operational recipe.
@@ -57,14 +58,21 @@ content filters are configured, and declining reads of submodule worktrees,
 as applications of that boundary [1]. Report the affected fact as unknown
 and explain why rather than weakening the observer to obtain a value.
 
-The general helper-free observation policy, its Git-version limits and the
-separate retirement-baseline constraint remain in
+The general helper-free observation policy and its Git-version limits remain in
 [Observation must not harm the observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md).
-This decision neither replaces those policies nor certifies every listing
-implementation as inert.
+Declining a filtered status here does not contradict
+[Retire Git reads preserve the spawn baseline's configuration semantics](/nodes/oats-kernel-expert/decisions/retire-git-reads-preserve-baseline-semantics.md),
+whose recorded residual lets a repository-named filter run during
+retirement's own status. Retirement compares against a stored spawn baseline
+and must keep its semantics; a leftover listing has no baseline to stay
+comparable with, so it can decline [2]. Do not unify the two in either
+direction on the strength of this decision, which neither replaces those
+policies nor certifies every listing implementation as inert.
 
 # Citations
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-recovery, 2026-10-09; notes/decision-retire-leftovers-facts-not-conclusions.md and notes/plan-703.md.
 
 1. The proposal and decision note supply the decision, rejected placements and source-attributed agreement by both maintainers during the 2026-10-08/09 review of [awebai/oats#703](https://github.com/awebai/oats/issues/703), with documentation in [#813](https://github.com/awebai/oats/pull/813) and doctor information in [#836](https://github.com/awebai/oats/pull/836). The plan note supplies the earlier alternatives; its example still used a "unique" label, which the later decision explicitly rejects. The harvest did not inspect acceptance messages or independently audit implementation or merge history; the attribution is not proof of human acceptance. No current issue state or approval of the deferred disposal plan is inferred.
+
+2. Verified by the knowledge maintainer at review of the harvest. The plan comment on [awebai/oats#703](https://github.com/awebai/oats/issues/703) of 2026-10-08 records the scope as agreed by both maintainers: documentation, then doctor information lines with no new key and the retirement plan untouched, with status rows carrying a new key and a dispose verb deferred as new surfaces. A correction on the issue the same day withdraws the plan's "unique by definition" sentence: a retire that retains the worktree leaves the same uncommitted bytes in the recovery copy and in the retained worktree, so what holds is only that they are in no commit. [#813](https://github.com/awebai/oats/pull/813) merged on 2026-10-08 and [#836](https://github.com/awebai/oats/pull/836) on 2026-10-09, each with APPROVE verdicts from both maintainers posted on the PR. #836's description records the facts-never-conclusions rule with a test asserting the three labels are absent, the declined status under a configured content filter, never entering submodules, and that doctor declines filters where retirement cannot because doctor has no baseline. The repository's `docs/desktop-cli-api.md` documents doctor's warnings as the capability-warning shape and its information as lines. The verdicts establish maintainer review of those PRs, not human acceptance of this concept; the reasons given for rejecting the warnings and plan placements rest on the source's note.
