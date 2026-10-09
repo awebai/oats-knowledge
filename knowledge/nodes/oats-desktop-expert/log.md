@@ -2,6 +2,7 @@
 
 ## 2026-10-09
 
+* **Update**: explicitly narrowed the human-accepted 2026-07-24 [Standalone Desktop decision](decisions/standalone-product-and-cli-authority.md#terminal-client-exception-2026-10-09) to permit a preview terminal client on three limits: no second model, nothing in `lib/`, no session ownership. Recorded the shared-reader ownership consequence and preview rollback, preserving CLI authority and Desktop's viewer contract. Acceptance by both maintainer sides with their humans' agreement is source-reported, not independently verified by this harvest; permission is not a shipping claim.
 * **Harvest**: added [Shared-code packaging](decisions/shared-code-keeps-one-relative-path.md), preserving the expert's spike decision, rejected copy/symlink/bundle/dependency alternatives, expanded release guards and asar-only fallback. The spike was closed unmerged; no shipped extraction, human acceptance or change to product succession is claimed.
 * **Harvest**: refined [Verification judgment](lessons/verification-judgment-for-privileged-surfaces.md#linux-can-exercise-the-packaged-shell-in-ci) with the source-reported single Linux packaged-shell launch under xvfb, its static-graph-only evidence and the permanent CI-gate elimination route. This narrows the source's earlier static-only assumption, not the operator-machine safety rule; macOS, the AppImage launcher and on-demand views remain unproven.
 
