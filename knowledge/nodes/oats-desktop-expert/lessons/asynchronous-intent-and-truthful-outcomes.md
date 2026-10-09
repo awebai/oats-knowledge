@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Async completion must still own the user's intent
-description: Background work preserves intent and separates creation, readiness and success; lifecycle confirmations reflect conditional kernel effects.
+description: Background work preserves intent and separates creation, readiness and success; confirmations describe effect boundaries without suppressing unrelated reads or inventing stale-result state.
 tags: [desktop, async, intent, mutations, truthfulness]
-timestamp: 2026-10-08
+timestamp: 2026-10-09
 ---
 # Rationale
 
@@ -54,6 +54,32 @@ For the request-side distinction between an interrupted request, confirmed
 rollback and cleanup still owed, see
 [Preview-bounded spawn outcomes](../decisions/preview-bounded-spawn-outcomes.md).
 
+# Bound the confirm's effects, not unrelated observation
+
+The capability-trigger review exposed a different way to overstate a
+confirmation condition. The source translated a no-execution requirement
+into a ban on status reads when opening the confirm. That stronger condition
+withheld ordinary recorded history and introduced an unnecessary read
+button. A page reading recorded state is not the confirmation running the
+source. Name the prohibited effect precisely; do not turn it into a ban on
+all activity nearby.
+
+The same review tried to preserve a test result across a stale-page re-read.
+That extra state introduced a race. An existing outcome already described
+the case: on a kernel enforcing explicit source-run intent, an unflagged
+stale press ran no source. Reuse that truthful no-run path rather than adding
+result-retention state merely to keep a rare case visible. This is not a
+rule to discard uncertain mutation outcomes: reconcile those as above.
+
+The elimination route is an effect-level transport regression, not just a
+handler assertion. Across every observed request, prove opening, cancelling
+or escaping sends no test and no request carries execution intent; after
+confirmation, prove exactly one flagged test. Pair the negative case with a
+positive source-run control so a dead transport cannot pass it. The
+[manual-action decision](../decisions/informed-manual-actions-match-cli-authority.md)
+owns the consent and trust policy; the lesson here is to specify that policy
+without accidentally designing extra controls or state.
+
 # Related
 
 [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
@@ -68,3 +94,5 @@ rollback and cleanup still owed, see
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/async-mount-close-race.md and decisions/view-mount-disposer-contract.md @ 7838d3ca.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, 2026-10-08; notes/long-spawn-transport-decision.md. The proposal reports the conditional branch-cleanup finding, repeated verification returns and a forced-interruption run whose retire reported `spawnCompensation`, associated with [awebai/oats#801](https://github.com/awebai/oats/pull/801) and [#819](https://github.com/awebai/oats/pull/819). These outcomes are source-reported, not rerun by this harvest; the shared-helper and regression guidance names the elimination route rather than asserting its implementation.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, received 2026-10-09. The proposal reports the overconstrained history read, stale-result race and existing no-run path in [awebai/oats#850](https://github.com/awebai/oats/pull/850). These review findings are supported by the proposal, not by the narrower manual-action backing note, and were not independently audited or rerun. No claim is made that every proposed regression is already implemented.

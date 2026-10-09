@@ -3,6 +3,8 @@
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
 * [One standalone Desktop product, no hidden operational kernel](standalone-product-and-cli-authority.md) - The installed CLI is the model Desktop renders and the only way it changes a deployment.
+* [Manual execution keeps CLI authority and requires an informed press](informed-manual-actions-match-cli-authority.md) - When a Desktop verb gains an execution effect, preserve the CLI's manual-action authority and map informed confirmation to the kernel's explicit intent flag rather than adding a trust gate.
+* [Source-supplied prose is an attributed quote, not Desktop's voice](source-prose-is-an-attributed-quote.md) - Display prose from trigger sources, trigger files and capability manifests as visibly attributed text so untrusted words cannot impersonate Desktop's own explanation.
 * [Shared Desktop code keeps one relative path in the repository and package](shared-code-keeps-one-relative-path.md) - Preserve one source and one relative import path for shared client code, avoiding stale generated copies while making packaging boundaries explicit and testable.
 * [The loopback interface is Desktop's trust boundary](loopback-trust-boundary-and-transport-simplicity.md) - Loopback-only bind with Host and Origin guards, because the backend types into agent terminals.
 * [Agent-centered navigation makes the action target legible](agent-centered-navigation.md) - A stable roster and one authoritative inspection flow keep launch intent explicit.
