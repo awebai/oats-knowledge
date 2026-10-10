@@ -114,3 +114,29 @@ before implementation. The named notes report tmux 3.7c probes on
 2026-10-09 and 2026-10-10, and the later `C-h` decision supersedes the
 initial note's inclusion of that key. This harvest did not rerun those
 experiments or independently audit the implementation and approval history.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-10,
+by reading the issue, the pull request and the repository's docs at
+`c18c700f`; nothing was run. On
+[awebai/oats#856](https://github.com/awebai/oats/issues/856) both
+maintainer sides answered on 2026-10-09: one recommends a caller-chosen,
+opt-in key because a fixed key is taken from every agent's input and no
+single key is free in every harness, and keeps a default exit as a separate
+call; the other agrees on terms that add a key table per viewer, the
+feature name and a refusal, never a silent drop, for a host without it.
+[awebai/oats#858](https://github.com/awebai/oats/pull/858) merged on
+2026-10-10 at `c18c700f`, with APPROVE verdicts from both maintainers bound
+to its final head. Its description gives status 20 for a leave by the key,
+tmux answering 0 for a detach and for a window that ended, the mark the
+binding sets, 0 for an `oats` stopped by HUP, TERM or INT, and the
+`set -e` cost. One verdict on the earlier head raised `C-h` as a question
+to settle before release, because a closed grammar can be widened later but
+not narrowed; a later commit refuses it and both final verdicts name that.
+The docs listed under Current contracts state the grammar, the refused
+names with their reasons, the copy-mode limit and the probe under
+`--print`; the open follow-up on the other refusals is undecided.
+
+Neither the issue nor the pull request records the three rejected status
+alternatives above, or the first consumer's confirmation: those rest on the
+source's notes alone. The verdicts establish maintainer review of the pull
+request, not human acceptance.
