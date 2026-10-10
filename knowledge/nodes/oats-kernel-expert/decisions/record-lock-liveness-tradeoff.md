@@ -39,6 +39,10 @@ symlink (the name exists, yet the lock reads as vanished on every pass).
 
 # Related
 
+[Retire exclusion belongs to a whole-run claim, not a plan or retry key](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
+applies the refusal asymmetry to retirement, with distinct no-wait and
+no-force-bypass decisions; it does not replace this record-store policy.
+
 [Preserve recovery authority until the outcome is proven](preserve-authority-until-cleanup-is-proven.md);
 [Process identity must survive different readers and host conventions](/nodes/oats-kernel-expert/lessons/process-identity-across-readers-and-hosts.md).
 
