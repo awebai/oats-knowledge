@@ -1,5 +1,6 @@
 # Lessons
 
+* [A tmux viewer's key table is server state, not session state](tmux-viewer-key-tables-are-server-state.md) - Viewer-specific bindings need isolated table ownership and cleanup, while copy-mode and prefix precedence limit what a session key table can promise.
 * [A raw-mode terminal child does not protect its wrapper's whole lifetime](terminal-child-signal-gaps.md) - Terminal signal handling must cover setup through cleanup, preserving the child's outcome before teardown instead of relying on raw mode or a normal-exit test.
 * [A missing tmux socket does not prove the server exited](missing-tmux-socket-does-not-prove-server-exit.md) - A tmux server can retain sessions after its socket file is removed, so a missing endpoint needs independent liveness evidence before lifecycle code treats work as stopped.
 * [Recovery completeness must be measured against the source, not Git's advertised refs](recovery-completeness-needs-source-refs.md) - A successful Git transport copy can omit hidden branches, so recovery must derive its required refs from the source and verify the destination against that independent set.
