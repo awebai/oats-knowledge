@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-10-10
+
+* **Harvest**: added [The viewer detach key is caller-chosen and has its own exit status](/nodes/oats-kernel-expert/decisions/viewer-detach-key-is-caller-chosen.md), preserving the opt-in and per-viewer boundary, new-status rationale, rejected key grammars and host feature-detection requirement from the oats-kernel-expert-attach-detach-key proposal and three named notes. The grammar's universal-terminal claim is narrowed to its evidenced rationale; the later C-h exclusion is retained. Exact implementation recipes, the already accepted signal-lifetime lesson and the undecided broader refusal follow-up are not promoted again. The CLI machine-boundary lesson gains a related link only; no accepted policy is superseded.
+
 ## 2026-10-09
 
 * **Fix**: maintainer review of the attach-detach-key harvest added a verified citation to [terminal-child-signal-gaps](/nodes/oats-kernel-expert/lessons/terminal-child-signal-gaps.md): awebai/oats#858, read while open with both maintainers' APPROVE verdicts, supports the listener lifetime, the mark read before cleanup, the forced status and the PATH-shim signal tests, and applies the full-lifetime rule to QUIT under a keyed attach only; the plain attach's HUP, TERM and INT handling is unchanged by the decision on awebai/oats#856. The lessons index listing was rejoined into one list. No claim of the harvest was rewritten; no policy is superseded.

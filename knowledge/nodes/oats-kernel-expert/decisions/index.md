@@ -1,5 +1,6 @@
 # Decisions
 
+* [The viewer detach key is caller-chosen and has its own exit status](viewer-detach-key-is-caller-chosen.md) - An opt-in per-viewer key preserves harness input and legacy exit meanings, while a narrow grammar and positive feature detection prevent unsafe silent fallback.
 * [Retirement leftovers are reported as facts, not deletion verdicts](retire-leftovers-are-facts-not-deletion-verdicts.md) - Commit reachability cannot establish preservation of uncommitted work, so leftover listings report bounded facts rather than declaring recovery copies or retained worktrees redundant or safe to delete.
 * [Home process scans state their visibility limit instead of refusing on every unreadable process](home-process-scan-has-an-explicit-visibility-limit.md) - A home-wide process scan accepts a documented inspection blind spot because rejecting unreadable processes would prevent ordinary lifecycle work, while failure of the scan itself remains unknown.
 * [Keep kernel responsibilities generic and capability runtimes complete](kernel-and-capability-responsibility.md) - The kernel resolves, copies and runs the lifecycle through generic seams; capabilities own concrete behaviour, including operating on OATS.
