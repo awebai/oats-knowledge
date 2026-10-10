@@ -1,5 +1,10 @@
 # oats-okf-expert log
 
+## 2026-10-10
+
+* **Harvest**: record the source-reported [personal-data exclusion decision](/nodes/oats-okf-expert/decisions/personal-data-exclusion-is-not-a-publication-guarantee.md), its shared-wording rationale, the rejected prompt-only publication hold and the limits of source opt-out; acceptance is not independently verified by this harvest, and no existing decision is superseded.
+* **Fix**: remove the undated "current release 4.0.3" assertion from the node index; keep the reported 5.0.2 release as dated evidence in the decision, not another unmaintained current-release snapshot. The consultation decision's explicitly historical 4.0.3 scope is unchanged.
+
 ## 2026-09-28
 
 * **Update**: audit pass — [consult decision](/nodes/oats-okf-expert/decisions/consult-explores-accepted-knowledge-remotely-no-per-instance-copy.md) brought current to oats.okf 4.0.3 (`read` removed in 4.0.0, `okf-consultation` skill, consultation independent of harvest, 4.0.1 containment), rejected alternatives made explicit, sequencing and process residue removed; node index trimmed.
