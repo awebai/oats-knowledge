@@ -1,5 +1,8 @@
 # Lessons
 
+* [Verified recovery does not prove that a home stays removed](verified-recovery-does-not-prove-home-removal.md) - Stop-retire overlap preserved work in the reported probes but could recreate or strand a receipt-only home, so cross-command exclusion must cover removal and late writes as well as preservation.
+* [A holderless lifecycle marker cannot support safe recovery](holderless-markers-cannot-support-safe-recovery.md) - Killed start and stop probes left permanent busy markers, while removing a live start's marker admitted two unmanageable harnesses, so recovery needs holder evidence rather than an age or deletion hint.
+* [Narrow race evidence needs unpaused controls and bounded fixtures](narrow-race-evidence-needs-unpaused-controls.md) - An exact CLI pause establishes a possible interleaving, not its ordinary reachability, so pair it with unpaused trials and measured window width while bounding fixture resource use.
 * [A tmux viewer's key table is server state, not session state](tmux-viewer-key-tables-are-server-state.md) - Viewer-specific bindings need isolated table ownership and cleanup, while copy-mode and prefix precedence limit what a session key table can promise.
 * [A raw-mode terminal child does not protect its wrapper's whole lifetime](terminal-child-signal-gaps.md) - Terminal signal handling must cover setup through cleanup, preserving the child's outcome before teardown instead of relying on raw mode or a normal-exit test.
 * [A missing tmux socket does not prove the server exited](missing-tmux-socket-does-not-prove-server-exit.md) - A tmux server can retain sessions after its socket file is removed, so a missing endpoint needs independent liveness evidence before lifecycle code treats work as stopped.
@@ -9,7 +12,7 @@
 * [Identity and location belong to the resolved object, never to the string that named it](resolved-object-not-referring-string.md) - Guards compare canonical resolved objects and opened descriptors, never lexical paths or names.
 * [Kernel-composed instructions are executable surface and may assert only what every instance has](kernel-composed-text-is-executable-surface.md) - Instructions beat code; shared text states the invariant, and capability content lives in its own inject.
 * [Hook failures and error messages are output channels](hook-and-error-channels-disclose.md) - Argument vectors stop injection, not disclosure; credential-bearing failures are rebuilt and minted secrets suppressed.
-* [The CLI as a machine boundary](machine-boundary-contract.md) - One stdout envelope, exit status as answer, explanations that survive a broken deployment, and refusals that name their cause.
+* [The CLI as a machine boundary](machine-boundary-contract.md) - A machine CLI owes one stdout envelope, stable typed codes and phase-aware refusals, semantic exit status, deployment-independent explanations and tested remedies.
 * [A kernel fail-closed guarantee is proven only by its first real capability user](fail-closed-mechanism-proven-by-first-user.md) - Enforcement, its intended user and the schema must move together.
 * [A CLI decision made in two layers, or copied per command, drifts](per-command-enumerations-drift-from-the-dispatch.md) - Route coarsely and refuse precisely, pin hand-copied mirrors, and make per-command fallbacks structural.
 * [An integrity value proves only the exact bytes it covered](an-integrity-value-proves-only-the-bytes-it-covered.md) - Digest raw bytes, never a decoded string; a content-derived id proves content, not authorship.
