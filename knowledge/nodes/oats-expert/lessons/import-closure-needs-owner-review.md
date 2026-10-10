@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Review shared code with its owner before estimating a second client
-description: Before estimating a second client, have the owning expert review the proposed shared set for client-specific wording, callers outside the set and runtime assumptions that import closure cannot validate.
+description: Before estimating a second client, have the owner review shared modules and their callers for client-specific language, composition, transaction rules and runtime assumptions; repeated gaps call for a broader audit.
 tags: [integration, shared-code, planning, second-consumer]
-timestamp: 2026-10-09
+timestamp: 2026-10-10
 ---
 # Import closure is not an interface review
 
@@ -39,6 +39,27 @@ domain judgment, not a permanent map of those modules.
 These are prompts for a semantic review, not an exhaustive checklist or a
 claim that every second-client estimate will grow.
 
+# Review the callers' decisions, not just the shared modules
+
+The 2026-10-10 refinement makes the caller question explicit: ask the owner
+to examine every caller of the proposed shared set in the first client,
+against the second client's intended scope, and identify decisions that the
+second client would otherwise repeat. A module review alone can miss the
+composition root that turns reader results into view inputs and failure
+states, or the transaction boundary that preserves invariants between calls.
+Key lifetime, replay of settled outcomes and retry restrictions are examples
+of decisions to locate, not contracts to reconstruct in the new client.
+Sharing low-level readers does not by itself share these rules.
+
+If the same kind of omission appears in two different specs, treat the
+second finding as evidence that the review scope may be too narrow. Request
+the broader caller audit before extending the plan one small PR at a time.
+In the source's effort, a missing view-input composition led to review of
+one caller; the subsequent all-caller audit exposed a wider boundary layer.
+That pattern changed the estimate after it had already informed the scope
+exception. It supports this escalation trigger, not a prediction that every
+client has the same layers or that every estimate must grow.
+
 # Turn findings into owned prerequisites
 
 For findings that require shared-interface changes, agree small changes with
@@ -67,7 +88,12 @@ for missing client vocabulary and for child processes launched under a
 contaminated instance environment. Such tests can prevent known regressions;
 they cannot decide which inherited assumptions matter to a not-yet-built
 consumer or whether the estimate presented to maintainers covers them.
-That up-front judgment is the durable lesson. No new CI gate is claimed.
+That up-front judgment is the durable lesson. For newly found caller rules,
+prefer one owner-reviewed implementation over a second client's copy, and
+pin its composition and transaction behavior with regressions. Existing
+Desktop rationale for [truthful async outcomes](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md)
+remains there; this lesson changes the scope of the planning review, not
+those contracts. No new CI gate is claimed.
 
 # Evidence and limits
 
@@ -80,3 +106,13 @@ agreement. Those are source-reported planning outcomes, not independently
 audited acceptance or a claim that the changes shipped. The notes date the
 findings to 2026-10-10; this harvest's UTC receipt is 2026-10-09. No timezone
 explanation or independent chronology is inferred.
+
+Evidence: OKF proposal from oats-expert/oats-expert-tui, 2026-10-10;
+notes/desktop-expert-gaps-in-the-shared-set.md (item 6);
+notes/desktop-boundary-layer-and-two-stages.md.
+
+The refinement's notes report the missing composition, the subsequent
+boundary audit and the generalist's spot-check of three files. These are
+source-reported findings, not a code audit by this harvest. The proposed
+staging checkpoint was a recommendation awaiting maintainer judgment, not
+an accepted direction or evidence that extraction shipped.
