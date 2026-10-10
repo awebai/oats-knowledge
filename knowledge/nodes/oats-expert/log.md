@@ -1,5 +1,9 @@
 # oats-expert log
 
+## 2026-10-10
+
+* **Update**: refine [owner review before estimating shared-client work](/nodes/oats-expert/lessons/import-closure-needs-owner-review.md) to name the full caller audit: composition and transaction decisions can remain outside shared modules; repeated omissions across specs trigger a broader review rather than another isolated prerequisite. Preserve the earlier lesson and maintainer authority; omit changing estimates, code inventories and unapproved staging. Evidence: OKF proposal from oats-expert/oats-expert-tui; notes/desktop-expert-gaps-in-the-shared-set.md (item 6); notes/desktop-boundary-layer-and-two-stages.md.
+
 ## 2026-10-09
 
 * **Harvest**: [Test feasibility before choosing between owners](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md) records the generalist's lesson from a CI spike that overturned its configuration-based recommendation: request a bounded experiment before choosing between testable feasibility claims. Preserve the authorization and evidence limits; link the Desktop packaging decision rather than duplicate it. Evidence: OKF proposal from oats-expert/oats-expert-tui; notes/spike-settled-extraction-first.md.
