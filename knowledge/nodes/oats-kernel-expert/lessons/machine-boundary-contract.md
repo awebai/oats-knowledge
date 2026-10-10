@@ -85,6 +85,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[The viewer detach key is caller-chosen and has its own exit status](/nodes/oats-kernel-expert/decisions/viewer-detach-key-is-caller-chosen.md)
+records why opting into a keyboard exit preserves old status meanings and
+requires host feature detection even for a printed attach command.
+
 [A raw-mode terminal child does not protect its wrapper's whole lifetime](/nodes/oats-kernel-expert/lessons/terminal-child-signal-gaps.md)
 explains how a terminal signal during setup or teardown can bypass cleanup
 and replace the command's semantic exit status.
