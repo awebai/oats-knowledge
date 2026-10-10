@@ -91,6 +91,11 @@ prove its hook children stopped. Cross-command coordination and surviving
 hooks were explicitly left for separate decisions; this record supplies no
 takeover policy for them.
 
+[Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md)
+adds source-reported stop-retire overlap evidence for this boundary: work
+preservation and late-writer cleanup need separate proofs. It does not
+extend this decision's claim to other commands.
+
 The [process-identity lesson](/nodes/oats-kernel-expert/lessons/process-identity-across-readers-and-hosts.md)
 keeps the distinct unreaped-holder limitation and its elimination route.
 In particular, matching PID/start identity is not proof of ability to act,

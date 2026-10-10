@@ -39,6 +39,10 @@ symlink (the name exists, yet the lock reads as vanished on every pass).
 
 # Related
 
+[A holderless lifecycle marker cannot support safe recovery](/nodes/oats-kernel-expert/lessons/holderless-markers-cannot-support-safe-recovery.md)
+records killed start/stop and live-marker-removal findings where there was
+no holder identity to assess; it does not replace this record-store policy.
+
 [Retire exclusion belongs to a whole-run claim, not a plan or retry key](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
 applies the refusal asymmetry to retirement, with distinct no-wait and
 no-force-bypass decisions; it does not replace this record-store policy.
