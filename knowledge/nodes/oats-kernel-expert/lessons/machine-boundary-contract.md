@@ -85,6 +85,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[Retire exclusion belongs to a whole-run claim, not a plan or retry key](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
+separates exclusion from plan freshness and replay of an already recorded
+outcome; neither existing guard serializes an in-flight retirement.
+
 [The viewer detach key is caller-chosen and has its own exit status](/nodes/oats-kernel-expert/decisions/viewer-detach-key-is-caller-chosen.md)
 records why opting into a keyboard exit preserves old status meanings and
 requires host feature detection even for a printed attach command.
