@@ -95,6 +95,11 @@ Desktop rationale for [truthful async outcomes](/nodes/oats-desktop-expert/lesso
 remains there; this lesson changes the scope of the planning review, not
 those contracts. No new CI gate is claimed.
 
+For the later handover check, [run the consumer spec against the built
+producer](/nodes/oats-expert/lessons/run-consumer-spec-against-built-producer.md):
+an owner-reviewed shared interface can still be composed incorrectly by the
+lead's consumer spec.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/oats-expert-tui, received 2026-10-09;
