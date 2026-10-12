@@ -27,7 +27,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Packaging and release
 
-* [A provider release is mirrored and pinned in one PR after the tag](a-provider-release-is-mirrored-and-pinned-in-one-pr.md) - Tag in the package repository, then one framework PR carries the tag-identical payload and every pin; the gate runs the Desktop suite.
+* [A provider release is tagged first, then mirrored and pinned in one re-proven framework PR](a-provider-release-is-mirrored-and-pinned-in-one-pr.md) - Tag first, then review mirror and pins together; specify affected local test files separately from CI suites, and re-prove a pin after another shared-file change lands.
 * [Prefer a narrow integration-owned wrapper, and document its support matrix](prefer-a-narrow-integration-owned-wrapper-over-a-third-party-cli.md) - Own a JSON-first wrapper with credentials from the environment, and state what is supported, human-only or unsupported.
 
 ## Messaging service seams

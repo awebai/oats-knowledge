@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-10-12
+
+* **Harvest**: Refined the [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md) to distinguish one affected test file per local run on a shared host from CI suites and tarball smoke, and to plan pin-owner re-verification after overlapping changes land. This clarifies the formerly unqualified gate, preserves tag-first/one-PR/Desktop acceptance, and links existing merge-proof and review judgment; maintainer merge-order policy is not promoted into this node. The proposal's 2026-10-12–13 guidance is source-reported, not independently established human acceptance.
+
 ## 2026-10-08
 
 * **Harvest**: Refined [cleanup truthfulness and retry credentials](/nodes/integrations-expert/lessons/a-hook-reports-only-the-cleanup-it-confirmed.md): excluding credentials from recovery removes an accidental backup, so key-dependent cleanup failures must exit nonzero; only an exactly recognized key-independent handoff may leave an obligation without retaining the member key. Added enforcement-floor rationale and regression gates, with source-only evidence limits; no hosted post-retirement authentication claim is accepted.
