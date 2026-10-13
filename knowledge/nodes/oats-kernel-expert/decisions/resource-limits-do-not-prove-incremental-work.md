@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: Resource limits do not prove bounded or incremental reconciliation
-description: Reconciliation acceptance measures memory and new-content work with resource caps disabled, then proves continued progress with caps enabled, because a bounded wrapper can conceal an unbounded algorithm or repeated non-progress.
+description: Reconciliation acceptance separately qualifies memory, staged-data backing storage, content work and durability work with caps disabled, then proves continued progress with caps enabled.
 tags: [kernel, reconciliation, performance, evidence, resource-limits]
 timestamp: 2026-10-13
 ---
@@ -29,6 +29,38 @@ Acceptance needs separate evidence:
    One successful capped pass does not establish that later passes reach
    the backlog or finish the required work.
 
+## Storage and durability refinement — 2026-10-13
+
+The acceptance dimensions above also require an explicit account of where
+staged data lives and how much durability work a pass performs. Process RSS
+and content-byte counters alone cannot establish total resource cost:
+
+- Moving staged payloads out of the heap into system temporary storage can
+  move memory pressure into tmpfs, outside process RSS. Name and qualify the
+  backing storage instead of treating a spill as proof that memory pressure
+  disappeared.
+- An unchanged pass can avoid historical content reads yet still perform
+  synchronous database transactions proportional to stream count. Count
+  connection and transaction work separately from bytes read and records
+  parsed; neither content bounds nor RSS establishes latency or completion.
+
+The source reports that a Linux btrfs/tmpfs probe exposed both gaps after
+large-source scaling, deterministic read-work regressions and independent
+review had passed [3]. That is the reason for extending the acceptance
+model. The timing evidence was one run per tree, under unequal light load,
+through library calls only: it warrants investigation and qualified
+disclosure, not a universal slowdown factor or service-level qualification.
+The note's later small SQL experiment supports structural amplification;
+it did not measure fsyncs. These are source-reported findings, not
+measurements reproduced by this harvest.
+
+The note reports acceptance of scratch storage on the record volume and an
+explicit deferral of transaction amortization, with Linux service acceptance
+and disclosure still required [3]. A scoped deferral does not establish that
+the durability cost is solved. This refinement adds evidence dimensions to
+the existing decision; it does not replace the content-work or progress
+requirements.
+
 A capped worker can repeatedly stop at the same point while respecting
 every limit. Streaming can remove a large allocation while still rereading
 the entire journal on every invocation. Neither result alone proves both
@@ -41,7 +73,14 @@ worker that cannot make progress.
 Correct the algorithm and retain small deterministic allocation and
 content-work regressions in the permanent suite. Count bytes read and
 records parsed for unchanged input, small growth and fresh processes; keep
-large scaling measurements outside ordinary CI. These checks enforce the
+large scaling measurements outside ordinary CI. Choose backing storage for
+temporary payloads explicitly and provide cleanup that respects ownership.
+Retain deterministic connection/transaction-work regressions, and qualify
+first-upgrade and no-op passes on representative storage where durable
+commits matter before accepting the bounded service. Preserve sync and
+crash guarantees; weakening them to improve a benchmark changes the
+contract being measured. Disclose resource dimensions left unmeasured.
+These checks enforce the
 acceptance distinction; the durable decision records why success under
 caps cannot substitute for them. This records implementation direction,
 not completed fixes, landed tests or measured performance.
@@ -59,6 +98,8 @@ measurement does not remove that fixture discipline.
 # Citations
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes, 2026-10-13; notes/resource-limits-do-not-prove-incremental-work.md.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes, 2026-10-13; notes/resource-evidence-includes-storage.md.
 
 1. The proposal and named note attribute algorithm-first direction to the
    founder and agreement to both maintainer lanes in
@@ -102,3 +143,10 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes,
    no fix, test or measurement was checked. The comments are maintainer-lane
    records posted from the two maintainers' accounts; beyond the first
    one's own attribution they are not evidence of human acceptance.
+3. The storage refinement's proposal and named note cite the
+   [maintainer return](https://github.com/awebai/oats/pull/1114#issuecomment-6155040571),
+   [probe and evidence boundaries](https://github.com/awebai/oats/pull/1114#issuecomment-6155076265)
+   and [lead's scoped deferral](https://github.com/awebai/oats/pull/1114#issuecomment-6155143669).
+   These links are reviewer evidence pointers: this harvest read the
+   proposal and named note, not those discussions, and does not independently
+   establish acceptance or claim that a transaction fix is complete.
