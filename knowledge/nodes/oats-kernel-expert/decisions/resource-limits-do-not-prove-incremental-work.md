@@ -29,6 +29,13 @@ Acceptance needs separate evidence:
    One successful capped pass does not establish that later passes reach
    the backlog or finish the required work.
 
+A capped worker can repeatedly stop at the same point while respecting
+every limit. Streaming can remove a large allocation while still rereading
+the entire journal on every invocation. Neither result alone proves both
+memory boundedness and incremental work. Keep the limits as defense, but do
+not use them to excuse input-size allocations, historical rescans or a
+worker that cannot make progress.
+
 ## Storage and durability refinement — 2026-10-13
 
 The acceptance dimensions above also require an explicit account of where
@@ -61,12 +68,15 @@ the durability cost is solved. This refinement adds evidence dimensions to
 the existing decision; it does not replace the content-work or progress
 requirements.
 
-A capped worker can repeatedly stop at the same point while respecting
-every limit. Streaming can remove a large allocation while still rereading
-the entire journal on every invocation. Neither result alone proves both
-memory boundedness and incremental work. Keep the limits as defense, but do
-not use them to excuse input-size allocations, historical rescans or a
-worker that cannot make progress.
+Maintainer verification qualifies the account of the probe [4]. The fixed
+transaction cost of a pass with nothing new had already been read in the
+code, and carried into the later service's acceptance, before the probe's
+results were returned.
+What the probe added was the staging in temporary storage and the cost of
+the first pass after an upgrade, which the return calls the larger part. The
+return also gives the reason the earlier measurements missed that cost: they
+ran on a host where a sync is nearly free. Where a qualification runs is
+therefore part of the evidence, not a detail of it.
 
 # Elimination route
 
@@ -150,3 +160,51 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes,
    These links are reviewer evidence pointers: this harvest read the
    proposal and named note, not those discussions, and does not independently
    establish acceptance or claim that a transaction fix is complete.
+4. Verified by the knowledge maintainer at review of the storage refinement
+   on 2026-10-13. [awebai/oats#1114](https://github.com/awebai/oats/pull/1114)
+   is the standalone algorithm prerequisite of awebai/oats#1108. Comment
+   6155040571 is the release lane's return of a head the other maintainer
+   side had approved, from running that head beside main on a Linux host
+   whose record root was on btrfs and whose temporary directory was tmpfs.
+   Its second finding is that snapshots and a claims database were staged in
+   the system temporary directory, which on such a host is memory or swap
+   that the process's own RSS does not show, on the first pass after the
+   upgrade and on every recovery. The path was confirmed by an ordinary pass
+   failing when the temporary directory was missing; no memory held in tmpfs
+   was measured. Its third finding is the durability cost over 2,000
+   five-line transcripts: a first pass and its index rebuild slower than
+   main by large one-run factors, and passes with nothing new or one added
+   line slower by smaller ones, read there as a database connection opened
+   per append and per stream and several synced commits where main syncs
+   once. The same comment says the earlier limits-off measurements did not
+   see this because they ran on a host where a sync is nearly free. The
+   fixed cost of a pass with nothing new was not first exposed by the probe:
+   [comment 6154585899](https://github.com/awebai/oats/pull/1114#issuecomment-6154585899),
+   which the citation above does not name, had read it in the code, each
+   stream opening the capture database and taking a write transaction at
+   least twice per pass, and
+   [comment 6154599350](https://github.com/awebai/oats/pull/1114#issuecomment-6154599350)
+   records it as an acceptance requirement of the later service, measured
+   over 1,300 or more streams against the deadline. Comment 6155076265
+   gives the probe and its limits as the refinement states them: library
+   calls with no capture lock, status file or root discovery, one run per
+   tree, the head's while the host did other light work and main's alone.
+   It adds that a rerun on a quiet Linux runner is the number to quote.
+   Comment 6155143669 is the lead's deferral, taking an exit the return had
+   offered in advance: the cost goes beyond passing one connection down,
+   because validation and checkpoint state and the per-stream index commits
+   have separate transaction and lock lifetimes, so the redesign goes to the
+   later service with first-upgrade and no-op measurements beside the
+   previous release on a Linux runner and with connection and transaction
+   counts, and the pull request discloses the remaining first-pass cost. The
+   same comment places scratch privately inside the record root, with
+   cleanup under the capture lock removing only recognized allocations whose
+   local owner is demonstrably dead. The other maintainer side concurs with
+   the return and withdraws its approval of that head in
+   [comment 6155075299](https://github.com/awebai/oats/pull/1114#issuecomment-6155075299).
+   The small SQL experiment rests on the source's note alone: none of these
+   comments carries it, and the pull request's description says of its SQL
+   counts only that they are not fsync or timing claims. The pull request
+   was open and unmerged at review, and no fix, test or measurement was
+   checked. The comments are maintainer-lane records posted from the two
+   maintainers' accounts, not evidence of human acceptance.
