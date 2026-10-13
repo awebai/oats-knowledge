@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-10-13
+
+* **Update**: merged the upgrade-check refinement into [Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md) from the oats-kernel-expert-launch-pins proposal and named note. Distinguish pre-upgrade checks using outgoing releases from diagnostics added by the upgrade, retaining the source-reported false-clean trap, released-binary verification and concrete regression-test elimination route. The backport rejection is case-specific, not a new release policy; test results and maintainer agreement remain attributed to the source. The decisions index matches the new description and the CLI machine-boundary lesson gains a related link. No accepted decision is superseded.
+
 ## 2026-10-10
 
 * **Harvest**: added [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md) from the oats-kernel-expert-lifecycle-overlaps proposal and named stop-retire note. Preserve the measured separation between work recovery and late-writer cleanup, with version-scoped probes and a kernel coordination/regression route; reject universal no-work-loss and production-frequency claims. The retire-only claim gains a related link, not a wider exclusion promise.

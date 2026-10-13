@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Compatibility follows supported adoption, not every intermediate format
-description: Supported adoption bounds compatibility, unrepresentable migrations refuse, and manifest floors remain explicit with a narrow non-required-hook exception from 0.49.0.
+description: Supported adoption bounds compatibility, unrepresentable migrations refuse, manifest floors retain the narrow non-required-hook exception from 0.49.0, and pre-upgrade checks are proven on outgoing releases.
 tags: [kernel, compatibility, migration, locks, packages, manifests]
-timestamp: 2026-10-08
+timestamp: 2026-10-13
 ---
 # Rationale
 
@@ -65,6 +65,40 @@ versioned consumer with its own kernel band (a Desktop client's band usually
 bites first). Separating them turns one blocked all-or-nothing migration into
 a cheap reversible step plus a deliberate one.
 
+# Upgrade instructions share the compatibility boundary
+
+**A check before an upgrade must run on the version being left** (lesson
+reported 2026-10-12–13). When a kernel change turns a previously silent
+condition into a refusal, distinguish the operator's before-upgrade check
+from the after-upgrade diagnostic. The latter may use the new diagnostic;
+the former must use only commands and output available on the supported
+releases being left. Run the actual pre-upgrade check on those released
+binaries with both affected and unaffected fixtures. Reading the new code,
+or merely finding the old output field in source, is not execution evidence.
+
+The source reports that the initial upgrade guidance for the launch-key
+refusal pointed at `oats doctor`, although the diagnostic for unmatched keys
+was itself part of the change. The released doctor could therefore appear
+clean precisely where the upgrade would introduce a refusal. The replacement
+kept the new doctor as the after-upgrade step and supplied a before-upgrade
+comparison in operator language plus a script using already-released output.
+The named note reports running that script against released 0.51.0 and
+0.52.0 kernels with matching and non-matching keys [3]. These are
+source-reported results, not runs reproduced by this harvest.
+
+The rejected alternatives in this case were a backport release solely to
+supply the check, and guidance that required upgrading before the operator
+could discover the problem. The former adds an intermediate release to what
+should be a check of existing deployments; the latter defeats the purpose
+of a before-upgrade check. This is not a general prohibition on backports.
+
+**Elimination route:** keep the concrete published check executable and test
+it against the supported outgoing release binaries, asserting both affected
+and unaffected outcomes. Such release-documentation regression coverage can
+catch the wrong diagnostic or output assumption; this lesson preserves why
+the old-release side belongs in that test matrix. It does not claim that an
+automated gate has shipped or replace the kernel's own refusal tests.
+
 # Related
 
 [A refusal that needs the old bytes is a pre-commit gate](../lessons/refusal-belongs-before-commit.md);
@@ -79,5 +113,14 @@ a cheap reversible step plus a deliberate one.
 
 1. Migrated from agents/cli-dev/soul/knowledge, agents/dev-coordinator/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (mixed-scope-migration-refuses-whole, replace-unadopted-transitional-formats-in-place, legacy-capability-root-discriminator, guided-official-migration-shape, kernel-upgrade-separable-from-provider-floor, provider-problem-reasons-cross-the-wire).
 2. [OATS 0.26.0 release notes](https://github.com/awebai/oats/blob/main/docs/release-notes/v0.26.0.md).
+3. The proposal and named note attribute the upgrade-guidance correction to
+   [awebai/oats#989](https://github.com/awebai/oats/issues/989), comment
+   6133085132, on 2026-10-12, and the released-version runs to 2026-10-13.
+   The proposal additionally identifies
+   [awebai/oats#1020](https://github.com/awebai/oats/pull/1020) as the review
+   context. Maintainer agreement and test outcomes are source-reported; this
+   harvest did not independently audit those reviews, release tags or runs.
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/forward-tolerant-hook-events.md (partial supersession only).
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2026-10-13; notes/upgrade-check-runs-on-the-released-version.md (upgrade-check refinement only).
