@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-10-12
+
+* **Harvest**: Refined [real-binary lifecycle acceptance](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md): a scratch deployment isolates only redirected state, not the host; inspect state lookup before choosing the rehearsal, name exercised and unrun branches, and distinguish operator execution from source inspection. Scheduler evidence remains explicitly second-hand; no new installation authority is implied.
+
 ## 2026-10-08
 
 * **Harvest**: Refined [cleanup truthfulness and retry credentials](/nodes/integrations-expert/lessons/a-hook-reports-only-the-cleanup-it-confirmed.md): excluding credentials from recovery removes an accidental backup, so key-dependent cleanup failures must exit nonzero; only an exactly recognized key-independent handoff may leave an obligation without retaining the member key. Added enforcement-floor rationale and regression gates, with source-only evidence limits; no hosted post-retirement authentication claim is accepted.
