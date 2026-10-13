@@ -1,5 +1,7 @@
 # Decisions
 
+* [Cache fetch negotiates before one whole-pack retry](cache-fetch-negotiates-before-one-whole-retry.md) - A filtered cache keeps cheap negotiated fetches, then retries once without negotiation on an unknown failure because advertised commits can imply missing delta bases and negotiated non-thin HTTPS fetch was unavailable.
+* [Cache fetch cleanup waits out possible writers](cache-fetch-cleanup-waits-out-possible-writers.md) - Failed-fetch temporary files are reclaimed only after the longest fetch can have elapsed because a new write lock and a before-and-after listing cannot establish ownership against older lock-free Git writers.
 * [Proven unmatched launch pins refuse fall-through; unchecked pins stay visible](unmatched-launch-pins-refuse-fallthrough.md) - An unmatched host launch pin blocks launches that would fall through, but incomplete discovery cannot prove a mismatch and must remain visibly unchecked.
 * [A partial catalog remains an answer in both CLI forms](partial-catalog-remains-an-answer.md) - Exposing catalog problems preserves successful partial-answer semantics across text and JSON, the established diagnostic stream, and the distinction between a problem and a missing item.
 * [Retire exclusion belongs to a whole-run claim, not a plan or retry key](retire-exclusion-is-a-whole-run-claim.md) - A per-home claim covers every retire apply path and its authoritative reads, separating exclusion from plan freshness and outcome replay while refusing contention without a force bypass.
