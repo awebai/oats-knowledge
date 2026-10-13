@@ -1,5 +1,9 @@
 # oats-expert log
 
+## 2026-10-13
+
+* **Harvest**: add [necessity checks for copied consumer inputs](/nodes/oats-expert/lessons/prove-copied-inputs-are-needed.md): a successful composition walk does not justify every retained input; compare omission cases and inspect the required paths before duplicating derived state. Keep composition correctness and input necessity distinct, and name shared derivation plus contract/boundary tests as the elimination route. Evidence: OKF proposal from oats-expert/oats-expert-tui; notes/spec-3-inputs.md. Findings and tests are source-reported.
+
 ## 2026-10-10
 
 * **Update**: refine [owner review before estimating shared-client work](/nodes/oats-expert/lessons/import-closure-needs-owner-review.md) to name the full caller audit: composition and transaction decisions can remain outside shared modules; repeated omissions across specs trigger a broader review rather than another isolated prerequisite. Preserve the earlier lesson and maintainer authority; omit changing estimates, code inventories and unapproved staging. Evidence: OKF proposal from oats-expert/oats-expert-tui; notes/desktop-expert-gaps-in-the-shared-set.md (item 6); notes/desktop-boundary-layer-and-two-stages.md.
