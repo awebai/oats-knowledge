@@ -77,6 +77,10 @@ cannot fix what the producer executes.
 
 # Related
 
+[Resource limits do not prove bounded or incremental reconciliation](/nodes/oats-kernel-expert/decisions/resource-limits-do-not-prove-incremental-work.md)
+records the separate acceptance distinction between a protective cap,
+algorithmic memory/work behavior and continued progress.
+
 [Cache fetch negotiates before one whole-pack retry](/nodes/oats-kernel-expert/decisions/cache-fetch-negotiates-before-one-whole-retry.md)
 records a separate consequence of disabling lazy fetch in a filtered remote
 cache and why the repair preserves that prohibition rather than enabling it.
