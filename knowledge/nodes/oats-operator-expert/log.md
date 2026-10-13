@@ -1,5 +1,9 @@
 # oats-operator-expert log
 
+## 2026-10-13
+
+* **Harvest**: [Check the target provider's host requirements before sync](/nodes/oats-operator-expert/lessons/check-target-provider-host-requirements-before-sync.md) — promote the operator's target-version check and host-first sequencing judgment; distinguish reported green pre-sync checks, source-inspected spawn refusal and second-hand post-sync readiness failure. Name plan-time requirement comparison as the elimination route, and cross-link the existing provider-settings lesson without changing its rule.
+
 ## 2026-09-28
 
 * **Update**: audit pass against main (0.30 line) — merged the oats-assistant node ([tracker integrations are partial surfaces](/nodes/oats-operator-expert/lessons/tracker-integrations-are-partial-surfaces.md) moved here; the node is deleted); deleted the outsider-verification playbook, whose method is folded into [second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md); folded the fresh-provider-state playbook into [cutover is sequenced per deployment](/nodes/oats-operator-expert/playbooks/cutover-is-sequenced-per-deployment.md) (retire under the old kernel first; 0.26+ refuses old homes); folded the unpushed-harvest lesson into [a shared checkout's local main leaks](/nodes/oats-operator-expert/lessons/a-shared-checkouts-local-main-leaks-into-every-spawned-worktree.md); deleted the captured-route, linked-worktree and zsh lessons (obsolete or not OATS); [shared checkout](/nodes/oats-operator-expert/lessons/shared-checkout-serves-a-stale-soul.md) restated for remote-read souls; citations point at current docs and collapse legacy provenance; index describes first-time adopter onboarding. Team-model passages left for the held team pass.

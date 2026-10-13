@@ -16,6 +16,7 @@ node.
 * [A kernel cutover is sequenced per deployment](playbooks/cutover-is-sequenced-per-deployment.md) - Retire under the kernel that made the homes, rebuild on fresh provider state, hold the previous kernel until the last deployment has moved.
 * [A resident's custody is a host fact](decisions/resident-custody-is-a-host-fact.md) - One custody host per resident, declared locally, with custody services co-located and failing closed.
 * [The installed provider is the authority for a setting](lessons/the-installed-provider-is-the-authority-for-a-setting.md) - The preview proves delivery, not effect; configure against what the locked provider reads.
+* [Check the target provider's host requirements before sync](lessons/check-target-provider-host-requirements-before-sync.md) - Green checks against the current lock do not establish readiness for a moving provider; compare the target version's host requirements and satisfy them before writing the new lock.
 * [Tracker integrations are partial surfaces](lessons/tracker-integrations-are-partial-surfaces.md) - Set an adopter's expectations about a tasks integration before promising a workflow.
 
 ## Sections
