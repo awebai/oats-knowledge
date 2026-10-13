@@ -120,6 +120,24 @@ automated gate has shipped or replace the kernel's own refusal tests.
    [awebai/oats#1020](https://github.com/awebai/oats/pull/1020) as the review
    context. Maintainer agreement and test outcomes are source-reported; this
    harvest did not independently audit those reviews, release tags or runs.
+4. Verified by the knowledge maintainer at review of the harvest on
+   2026-10-13. On awebai/oats#989 the release-lane decision of 2026-10-12
+   asked for a notes step that ran `oats doctor` before upgrading; the kernel
+   lead's specification answered that the 0.52 doctor cannot report these
+   keys and proposed a check from output the released kernels already give;
+   and comment 6133085132 accepts that correction. The first wording was
+   therefore corrected at the specification stage and never reached
+   published notes. The accepted wording makes the after-upgrade doctor run
+   the upgrade step and offers the before-upgrade check as one sentence in
+   the operator's words, with the script after it. awebai/oats#1020 merged
+   on 2026-10-13 with both maintainer sides approving the head that merged;
+   its release-notes entry carries that wording and names 0.51.0 and 0.52.0
+   for the script. The threads record a trial of the script on 0.51.0 and a
+   check that the output field has that form at both release tags, the kind
+   of evidence this lesson calls insufficient. The 0.52.0 run, the affected
+   and unaffected fixtures and both rejected alternatives appear in neither
+   thread and rest on the source's note alone, which this review did not
+   read.
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/forward-tolerant-hook-events.md (partial supersession only).
 
