@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-10-13
+
+* **Harvest**: added [Proven unmatched launch pins refuse fall-through; unchecked pins stay visible](/nodes/oats-kernel-expert/decisions/unmatched-launch-pins-refuse-fallthrough.md) from the oats-kernel-expert-launch-pins proposal and its two named notes. Preserve refusal rather than warning, the scope over fall-through launches, per-key proof and visible uncertainty, missing-record semantics, pin-before-remove ordering and rejected whole-read/public-row alternatives in one decision. Acceptance is source-reported, not independently established human acceptance. Omit release status and cache implementation details; do not generalize unchecked allowance to destructive recovery. The configuration-placement decision gains a related link only; no policy is superseded.
+
 ## 2026-10-10
 
 * **Harvest**: added [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md) from the oats-kernel-expert-lifecycle-overlaps proposal and named stop-retire note. Preserve the measured separation between work recovery and late-writer cleanup, with version-scoped probes and a kernel coordination/regression route; reject universal no-work-loss and production-frequency claims. The retire-only claim gains a related link, not a wider exclusion promise.
