@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-10-13
+
+* **Update**: merged the pre-approval grammar lesson from the oats-kernel-expert-launch-pins proposal and named note into [A CLI decision made in two layers, or copied per command, drifts](/nodes/oats-kernel-expert/lessons/per-command-enumerations-drift-from-the-dispatch.md). Compare a proposed writer's flags with write semantics and the shared admission rule, not its read sibling; preserve why reused name resolution could defeat launch-key validation without claiming a stale write occurred. Runtime refusal was already correct in the source's account, so the remaining prevention route belongs in specification guidance or executable grammar checks, not another flag table. Incident and agreement remain source-reported; no human-accepted decision is superseded. The description and lessons index now expose this refinement.
+
 ## 2026-10-10
 
 * **Harvest**: added [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md) from the oats-kernel-expert-lifecycle-overlaps proposal and named stop-retire note. Preserve the measured separation between work recovery and late-writer cleanup, with version-scoped probes and a kernel coordination/regression route; reject universal no-work-loss and production-frequency claims. The retire-only claim gains a related link, not a wider exclusion promise.
