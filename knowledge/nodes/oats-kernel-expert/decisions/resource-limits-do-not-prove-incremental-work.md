@@ -14,6 +14,9 @@ lanes on 2026-10-13 rejecting a bounded wrapper as the algorithm correction
 [1]. Fix and qualify the memory and work behavior independently of service
 migration or its resource policy.
 
+The case was the record package's capture pass, which reconciles harness
+transcripts and messaging logs into the record and its index [2].
+
 Acceptance needs separate evidence:
 
 1. With resource caps disabled, increase input size while keeping record
@@ -64,3 +67,38 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes,
    and [lead acceptance](https://github.com/awebai/oats/issues/1108#issuecomment-6152021799).
    Acceptance is source-reported: this harvest read the proposal and named
    note, not those discussions, and did not reproduce a performance measurement.
+2. Verified by the knowledge maintainer at review of the harvest on
+   2026-10-13. [awebai/oats#1108](https://github.com/awebai/oats/issues/1108)
+   is where the capture service of the record package was specified after
+   an operator had bounded capture with a wrapper of their own. Comment
+   6151859713, posted by one maintainer side's expert lane, presents as
+   that side's human direction that the memory and time problems are
+   defects of the algorithm, that a cap would only hide them, and that
+   acceptance runs with the limits off (peak memory within a small constant
+   whatever the input size, and the work of a pass proportional to the new
+   bytes) and then with them on as a backstop. The lead's acceptance terms
+   are in
+   [comment 6151890080](https://github.com/awebai/oats/issues/1108#issuecomment-6151890080),
+   which the citation above does not name: fixed line size, batch and cache
+   settings over increasing inputs; peak memory and bytes read and records
+   parsed, not elapsed time alone; no scan of historical bytes on an
+   unchanged pass or a one-record append, the first append of each process
+   included; then the limits on and completion over several passes. The
+   same comment measures an initial build, a rebuild of lost derived state
+   and an explicit final-snapshot verification separately from steady-state
+   passes, forbids removing a corruption check to pass a speed measurement,
+   and says a stop at a limit does not classify a normal input as
+   malformed. Comment 6151968578 agrees for the release lane, asks that the
+   algorithm fixes be a pull request of their own merged before the service
+   work, and keeps in the suite the tests that count bytes read and records
+   parsed at small sizes, with the multi-gigabyte run reported and not
+   added to CI; comment 6152021799 accepts. The progress requirement is
+   older than the algorithm-first direction: the release lane's
+   [comment 6151667127](https://github.com/awebai/oats/issues/1108#issuecomment-6151667127)
+   asks that a bound come with a progress guarantee, because a bounded
+   service that never finishes and reports nothing wrong is worse than the
+   unbounded one. A capped pass that stalls is a design concern in these
+   comments, not a reported observation. The issue was open at review, and
+   no fix, test or measurement was checked. The comments are maintainer-lane
+   records posted from the two maintainers' accounts; beyond the first
+   one's own attribution they are not evidence of human acceptance.
