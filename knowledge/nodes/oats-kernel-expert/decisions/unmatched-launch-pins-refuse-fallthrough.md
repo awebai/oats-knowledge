@@ -26,6 +26,13 @@ so it cannot prove that an otherwise unpinned launch is unrelated [1].
 already be running on the account the pin was intended to avoid. Visibility
 after launch is not enforcement of launch intent [1].
 
+**Two other scopes were rejected in the same decision [3].** Refusing only
+a launch whose soul shares the unmatched key's bare name is a guess about
+the typo: a misspelled bare name would still fall through. Refusing to load
+the host file at all is too wide: a soul that moved to another package
+after a sync would stop every command of the deployment, not only the
+launches at risk.
+
 # Prove mismatch per key, not per discovery run
 
 A key absent from the offered-soul list is not necessarily unmatched: the
@@ -65,6 +72,12 @@ turn an unestablished mismatch into a refusal. The rejected fail-closed
 alternative would therefore violate the very condition that authorizes
 this check: refusal requires a demonstrated mismatch [2].
 
+The older-producer case is the reasoning, not an observed path. The
+implementing change states that the parsed discovery cache is kept per
+kernel build, so another build's entries are never read [3]. The rule was
+approved with that stated: it is an evidence rule, not a workaround for a
+known stale producer.
+
 This is an evidence rule, not a universal instruction to allow operations
 on unknown inputs. In particular, it does not relax the separate
 [recorded-process identity refusal](/nodes/oats-kernel-expert/lessons/process-identity-across-readers-and-hosts.md).
@@ -87,6 +100,13 @@ and regression coverage for incomplete reads, absent records, unaffected
 explicit choices and remedy ordering; a stored decision is not a substitute
 for those checks.
 
+# Current contract
+
+The repository's [launch preferences documentation](https://github.com/awebai/oats/blob/main/docs/configuration.md#launch-preferences)
+owns the current refused and unaffected launches, the unchecked cases and
+the remedy commands. The cases above show where the proof boundary falls;
+the documentation wins where they differ.
+
 # Related
 
 [The host supplies host-only facts](/nodes/oats-kernel-expert/decisions/soul-declares-kind-config-assigns-policy.md)
@@ -102,3 +122,4 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2
 
 1. The proposal attributes the refusal, scope and remedy decision to the maintainer on [awebai/oats#989, comment 6132760026](https://github.com/awebai/oats/issues/989#issuecomment-6132760026), dated 2026-10-12. The first named note supplies the per-key rationale and rejected public-row tagging, and reports acceptance of the contract in [comment 6133085132](https://github.com/awebai/oats/issues/989#issuecomment-6133085132). Warning rejection and remedy ordering are supplied by the proposal.
 2. The second named note records the lead's missing-record decision after the [awebai/oats#1013 review, comment 6134144159](https://github.com/awebai/oats/pull/1013#issuecomment-6134144159). The proposal reports both maintainers' approval on 2026-10-13 in [awebai/oats#1020, comment 6135330102](https://github.com/awebai/oats/pull/1020#issuecomment-6135330102) and [comment 6135386118](https://github.com/awebai/oats/pull/1020#issuecomment-6135386118). These are source-reported acceptance references, not independently audited human acceptance, implementation or release evidence. No existing decision is superseded.
+3. Verified by the knowledge maintainer at review of the harvest on 2026-10-13. On [awebai/oats#989](https://github.com/awebai/oats/issues/989), comment 6132760026 of 2026-10-12 states the refusal, its fall-through scope, the unaffected own-entry and command-line launches, the rejected warning, and two further rejected scopes: the same bare name only, and refusing to load the file. The kernel lead's specification on that issue the same day (comment 6132905319) gives the unmatched and unchecked cases by key source and the pin-then-remove order with its reason, and proposes the unchecked information line because a deployment with one unreadable member would otherwise hear nothing about a misspelled bare key. Comment 6133085132 accepts those cases as written, the order, and the line as information that refuses nothing. The issue reports a package-qualified key under the wrong package falling through to the wildcard. Comment 6134144159 on [awebai/oats#1013](https://github.com/awebai/oats/pull/1013) leaves open what a discovery without its skipped-soul record is taken for. [awebai/oats#1020](https://github.com/awebai/oats/pull/1020), merged on 2026-10-13 with both maintainer sides approving the head that merged, answers it as recorded here, rejects refusing on such a read, and states the per-build cache. The repository's `docs/configuration.md` documents the refusal, the remedy order and the unchecked cases. The rejected whole-discovery gate and the rejected tagging of public `problems` rows appear in none of these; they rest on the source's note, which this review did not read. The comments are maintainer-lane records posted from the two maintainers' accounts, not evidence of human acceptance, and no release was checked.
