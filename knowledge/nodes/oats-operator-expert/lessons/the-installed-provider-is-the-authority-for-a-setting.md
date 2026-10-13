@@ -72,6 +72,11 @@ a grammar nothing reads.
 - Where a setting belongs is the second half:
   [place each fact at the scope that owns it](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md).
 
+For an upgrade's related but distinct sequencing judgment, see
+[check the target provider's host requirements before sync](/nodes/oats-operator-expert/lessons/check-target-provider-host-requirements-before-sync.md):
+current-lock checks do not establish that the host satisfies the next
+provider's tool requirements.
+
 # Routed
 
 - Which keys a provider version honours → that package's expert. Rehearsing a
