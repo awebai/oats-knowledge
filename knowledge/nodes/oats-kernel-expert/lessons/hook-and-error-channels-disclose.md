@@ -67,6 +67,13 @@ explicit code-inspection-only caveat on an issue did not prevent that;
 entry-point evidence changed which defect was being decided. These are
 source-reported investigations, not experiments rerun by this harvest.
 
+The second correction narrowed its downstream claim; it did not remove it.
+The refused forms were the http(s) ones. The parser admits an `ssh://` URL
+written with a password, and from some entry points that form reaches the
+read failure's message and fields [3]. An entry-point run sorts input forms
+between layers, so report which form each layer answered, not one verdict
+for the whole claim.
+
 **Upstream rejection does not settle an exported renderer's own promise.**
 In the first case the source reports that the maintainer retained a small
 constructor fix even after lifting the reachability gate: the exported
@@ -91,6 +98,10 @@ guidance; no such automation or skill change is claimed here.
 owns the output contract; the reachability check above establishes which
 layer's output is actually under review.
 
+[Narrow race evidence needs unpaused controls and bounded fixtures](/nodes/oats-kernel-expert/lessons/narrow-race-evidence-needs-unpaused-controls.md)
+draws the same line for interleavings: a constructed failure shows that a
+path can fail, not that the unmodified command reaches it.
+
 [Integrity, origin and consent are different proofs](../decisions/trust-approval-and-consent-boundaries.md);
 [A fail-closed guarantee is proven by its first real user](fail-closed-mechanism-proven-by-first-user.md).
 
@@ -101,3 +112,4 @@ layer's output is actually under review.
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2026-10-13; notes/schema-refuses-what-a-constructor-cannot-print.md; notes/look-for-the-existing-function-before-accepting-a-new-one.md.
 
 2. The proposal and named notes attribute the launch-pin correction and constructor rationale to [awebai/oats#1064](https://github.com/awebai/oats/issues/1064), the earlier schema diagnostic surface to [#1069](https://github.com/awebai/oats/issues/1069), and the remote-reference correction to [#1077](https://github.com/awebai/oats/issues/1077). This harvest did not inspect those issues, audit the implementation, reproduce the runs or independently establish human acceptance; it preserves the investigation conclusion and source-reported rationale, not a current defect or release-status inventory.
+3. Verified by the knowledge maintainer at review of the harvest on 2026-10-13. [awebai/oats#1064](https://github.com/awebai/oats/issues/1064) was filed from the Desktop lane on a direct call of the constructor, and says that the path from a file was read through the parser and not run through the CLI. Comment 6136093305 then made the fix a condition of the 0.53.0 tag and asked for a test that starts from a file. The kernel lead's run in comment 6136116150, on the installed 0.51.0 with the key pattern stated to be the same on main, got the schema refusal from `oats souls`, `oats doctor` and a spawn preview, and found the key raw in that refusal's pointer. Comment 6136177995 withdraws the gate and calls its own reason wrong. It keeps the function's change, because a function that renders a command does not rest on every caller having validated its input, and it keeps the file-driven test with its expectation changed to the schema refusal, so that a later widening of the key pattern shows. The promise at stake is the contract page's sentence about the refusal's texts, which the thread calls the constructor's documented sentence. [awebai/oats#1058](https://github.com/awebai/oats/pull/1058), merged on 2026-10-13 with both maintainer sides approving the head that merged, closes #1064 and describes both tests: the three commands on a file, and the constructors handed such keys directly. [awebai/oats#1069](https://github.com/awebai/oats/issues/1069), open at review, records the pointer finding as older than 0.53.0 and not a gate. [awebai/oats#1077](https://github.com/awebai/oats/issues/1077), open at review, was filed as read from the code and not run. Its first decision (comment 6136806788) asks for a run before the build and decides the direction on the reading. The author's correction (comment 6136869892) says the parser admits no http(s) URL with user information, that its refusal repeats the reference as written in the message and in a details field, and that an `ssh://` URL with a password is admitted; comment 6136880387 restates the scope on it. The fixture matrix in comment 6137105445 shows that form reaching the read failure from a catalog package source and from a direct read, while a configured workspace member is refused by the schema in either form. These comments are lead-lane and maintainer-lane records posted from the two maintainers' accounts, not evidence of human acceptance. This review did not read the source's notes, and checked no release.
