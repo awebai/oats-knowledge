@@ -37,6 +37,11 @@ check can eliminate that failure; it cannot decide when competing expert
 judgments warrant an experiment. This lesson preserves that coordination
 judgment, not a substitute for tests or a new release procedure.
 
+Related checks apply the same stance to different decisions: [establish the
+cause before changing a restore baseline](/nodes/oats-expert/lessons/control-before-changing-a-restore-baseline.md),
+and [inspect the producer before declaring a client limitation permanent](/nodes/oats-expert/lessons/inspect-the-producer-before-making-an-exception-permanent.md).
+Neither is a reason to duplicate this lesson's draft-spike procedure.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/oats-expert-tui, 2026-10-09;
