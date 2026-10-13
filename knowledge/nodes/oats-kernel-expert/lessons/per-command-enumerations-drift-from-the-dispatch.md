@@ -86,11 +86,26 @@ not a second table of accepted flags.
 
 - [Current servers.md](https://github.com/awebai/oats/blob/main/docs/servers.md)
 - [Current oats.mjs](https://github.com/awebai/oats/blob/main/bin/oats.mjs)
-- [Current desktop-cli-api.md, observation reuse](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md#observation-reuse)
+- [Current desktop-cli-api.md, observation reuse](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md#observation-reuse-feature-observe-max-age-oats-0311)
 
 # Citations
 
 1. Migrated from agents/cli-dev/soul/knowledge/lessons/dispatch-allowlist-strands-its-own-guard.md, help-allowlist-mirrors-the-dispatch-chain.md, snapshot-before-registry-is-per-command.md and task-flag-boolean-crash.md @ 7838d3ca.
 2. The source reports the grammar correction on [awebai/oats#990](https://github.com/awebai/oats/issues/990#issuecomment-6133192790); the proposal also names [maintainer confirmation](https://github.com/awebai/oats/issues/990#issuecomment-6133200511). The incident and agreement are source-reported, not independently audited human acceptance. This harvest did not inspect the implementation or reproduce a stale write.
+3. Verified by the knowledge maintainer at review of the harvest on
+   2026-10-13. On awebai/oats#990 the kernel lead's specification carries
+   `[--max-age <s>]` on both `set` and `remove`; the decision that follows
+   accepts the grammar as given; the correction cited in [2] withdraws the
+   flag, naming the standing rule and the stale-key reason; and the
+   confirmation cited in [2] says the grammar was accepted without reading
+   that rule. The confirmation is signed as the maintainer's side; this
+   review did not establish it as a human acceptance. The repository's
+   contract states the refusal, in the observation-reuse refusals and in the
+   `oats soul launch` section's live read, but not the stale-key reason,
+   which this lesson preserves. The thread attributes the discovery to the
+   developer's reading of the code; that it began as a question about the
+   `observation` answer rests on the source's note alone, which this review
+   did not read. awebai/oats#1013 merged on 2026-10-12; its implementation
+   was not audited here.
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2026-10-13; notes/write-verbs-refuse-max-age.md (incident dated 2026-10-12).

@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A fake CLI that accepts what the real binary refuses hides a broken hook — a provider that drives an external CLI is accepted on the whole lifecycle against the published binary
-description: Unit tests with a fake prove a hook against the fake's contract, not the tool's; the fake must model refusals, admission rules and output shape for the version it claims, the release gate is the feature's whole lifecycle run against the published binary, the floor is the version where every step works, exported once, and the rehearsal controls which binary actually runs.
+description: Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
 tags: [lesson, integrations, hooks, testing, fake-cli, rehearsal, acceptance, versioning]
-timestamp: 2026-09-24
+timestamp: 2026-10-12
 ---
 
 Learned 2026-09-23/24 across five review rounds of one messaging provider,
@@ -28,11 +28,13 @@ identity home.
    the failure must be about the input, never about the policy.
 3. **The gate is the feature's whole lifecycle** (for a membership: join,
    send, read, leave) run against the published binary on a scratch
-   deployment with a disposable identity. An admitted first command is not an
-   operable identity: when a tool fix names one command, ask the tool's owner
-   for the whole path before building on it. Run such gates only where the
-   human designates, leave residue for the tool's owner to inspect, and report
-   exact command/error pairs; never improvise cleanup through admin commands.
+   deployment with a disposable identity, with its isolation limits made
+   explicit (see the scratch-deployment boundary below). An admitted first
+   command is not an operable identity: when a tool fix names one command, ask
+   the tool's owner for the whole path before building on it. Run such gates
+   only where the human designates, leave residue for the tool's owner to
+   inspect, and report exact command/error pairs; never improvise cleanup
+   through admin commands.
 4. **The floor is the version where every step works, and it has one
    exported source.** The runtime gate, the readiness remedy and any docs
    example a test pins import the same constant (oats.aweb 1.16.1: `AW_MIN` in
@@ -47,6 +49,36 @@ identity home.
    manifest and lock, and a capability must ship no dependency closure.
 6. **When the rehearsal finds a refusal the fake accepted, fix the fake in the
    same round as the hook**, naming the tool's source of truth in the test.
+
+# Scratch-deployment boundary
+
+**Before choosing a scratch deployment to prove a line, ask which state the
+command reads.** Relocating a deployment isolates only the state actually
+placed or redirected there. It does not by itself isolate a per-user service,
+machine-managed settings, inherited `PATH`, or a running daemon. Read the
+selected release's state lookup, not only its command usage, before choosing
+the rehearsal environment.
+
+The source's 2026-10-12 report corrected its earlier assumption that a scratch
+deployment could show only a missing scheduler. Another lead's probes instead
+observed an installed, active scheduler across three published kernel versions,
+despite isolating the deployment and registry. The source did not run those
+scheduler probes itself. The durable finding is the mistaken isolation
+assumption, not a claim about where every version stores a scheduler unit.
+
+A rehearsal record names the branch actually exercised and the branch left
+unrun. Reading installed status proves neither the missing-state branch nor a
+fresh installation. An operator-only step needs the operator's run; otherwise
+state that it was inspected in source, not executed. Do not replace missing
+real-binary evidence with a fake or infer permission to change the host just
+to manufacture the other branch.
+
+Where supported state control can make both branches reproducible, put that
+control in real-binary regression tests. That is the elimination route for a
+specific coverage gap; the review judgment is to expose any remaining limit
+rather than equate a temporary directory with a clean host. This refines the
+rehearsal gate, not the operator's separate
+[configuration-placement judgment](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md).
 
 # Why
 
@@ -73,5 +105,6 @@ the rehearsal is the outsider stance applied to a provider
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/integrations-expert-developer-skill-lines, 2026-10-12; notes/a-scratch-deployment-does-not-isolate-host-state.md. Scheduler results are source-reported observations from another lead, not independently reproduced by the source or this harvest.
 - Migrated from agents/integrations-expert/soul/knowledge @ dade3270.
 - Migrated from agents/oats-expert/soul/knowledge/inbox @ 26f2caef (the tool facts went to the messaging package expert).
