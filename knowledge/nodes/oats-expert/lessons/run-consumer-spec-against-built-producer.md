@@ -36,6 +36,11 @@ lead's actual consumer spec uses the built interface correctly. It also
 precedes the implementation-level [coupled-consumer verification](/nodes/oats-desktop-expert/lessons/coupled-kernel-and-desktop-landings.md).
 Neither check replaces the other.
 
+A composition that passes with all the first client's inputs supplied has
+not shown that each input is needed: [a passing composition does not prove
+every copied input is needed](/nodes/oats-expert/lessons/prove-copied-inputs-are-needed.md)
+owns that separate question.
+
 # Elimination route
 
 Keep one owner-reviewed composition for shared rules. Turn the useful probe
