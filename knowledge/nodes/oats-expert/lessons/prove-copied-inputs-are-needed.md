@@ -44,6 +44,11 @@ which parts of the first client's composition should **not** become the
 second client's obligations? Checking that a composition is correct and
 checking that every retained input is necessary are different judgments.
 
+The correctness check has its own home: [run the consumer spec against the
+built producer](/nodes/oats-expert/lessons/run-consumer-spec-against-built-producer.md)
+before handover. A composition can pass that check, with every input
+supplied, and still carry state the second client does not need.
+
 # Elimination route
 
 Prefer deriving a value in its shared owner over maintaining another copy

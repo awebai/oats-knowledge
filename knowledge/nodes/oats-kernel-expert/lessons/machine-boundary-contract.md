@@ -105,6 +105,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md)
+extends the tested-remedy obligation to upgrade guidance: a before-upgrade
+check is proven on the outgoing releases, not only on the new diagnostic.
+
 [Retire exclusion belongs to a whole-run claim, not a plan or retry key](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
 separates exclusion from plan freshness and replay of an already recorded
 outcome; neither existing guard serializes an in-flight retirement.
