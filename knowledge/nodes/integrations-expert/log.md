@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-10-13
+
+* **Review**: kept the Desktop-suite gate and the tag-identical mirror in the [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)'s description and index line, and stated that the maintainer node's own local-gate wording is left unchanged (knowledge-maintainer review of the harvest).
+
 ## 2026-10-12
 
 * **Harvest**: Refined the [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md) to distinguish one affected test file per local run on a shared host from CI suites and tarball smoke, and to plan pin-owner re-verification after overlapping changes land. This clarifies the formerly unqualified gate, preserves tag-first/one-PR/Desktop acceptance, and links existing merge-proof and review judgment; maintainer merge-order policy is not promoted into this node. The proposal's 2026-10-12–13 guidance is source-reported, not independently established human acceptance.

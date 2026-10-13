@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: A provider release is tagged first, then mirrored and pinned in one re-proven framework PR
-description: Tag first, then review mirror and pins together; specify affected local test files separately from CI suites, and re-prove a pin after another shared-file change lands.
+description: Tag first, then review the tag-identical mirror and every pin as one diff; the gate keeps the Desktop suite, with the suites in CI and only named affected test files run locally, and a pin is re-proven after another shared-file change lands.
 tags: [integrations, release, mirror, catalog, pins, desktop, tests]
 timestamp: 2026-10-12
 ---
@@ -71,6 +71,10 @@ The general rule that a conflict-free auto-merge is not semantic proof stays
 in [cross-workstream delivery](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md).
 Head-bound approval and fresh-review requirements stay in
 [review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md).
+That concept's wording for the maintainer's own local gate (the affected
+suites) is not changed here: this lesson governs what an integration lead
+writes into a developer's spec for the pin lane, and whether the shared-host
+limit also binds the maintainer's gate is for that node's owner to settle.
 The general release judgement (source, tag, pin; pin, bump and mirror bytes
 land together) is the framework's
 [release traps](/nodes/oats-maintainer/stewardship/release-traps.md); this lesson
