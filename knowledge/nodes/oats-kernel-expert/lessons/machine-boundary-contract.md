@@ -123,6 +123,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md)
+extends the tested-remedy obligation to upgrade guidance: a before-upgrade
+check is proven on the outgoing releases, not only on the new diagnostic.
+
 [Retire exclusion belongs to a whole-run claim, not a plan or retry key](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
 separates exclusion from plan freshness and replay of an already recorded
 outcome; neither existing guard serializes an in-flight retirement.
@@ -160,3 +164,4 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-lifecycle-over
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2026-10-13; notes/partial-cache-have-lines-assume-unfiltered-history.md; notes/cache-fetch-negotiates-then-retries-whole.md.
 
 4. The proposal and notes attribute the misleading `network` classification to [awebai/oats#1059](https://github.com/awebai/oats/issues/1059), with the repair attributed to [awebai/oats#1075](https://github.com/awebai/oats/pull/1075). The diagnostic-line bounds and maintainer agreement are reported by the proposal; this harvest did not reproduce the failure, audit sanitization or independently establish human acceptance.
+5. Verified by the knowledge maintainer at review of the harvest on 2026-10-13. [awebai/oats#1059](https://github.com/awebai/oats/issues/1059) reports the unrecognized Git failure answered as `network` and the investigation it misdirected; [comment 6135851592](https://github.com/awebai/oats/issues/1059#issuecomment-6135851592) records the contract point as agreed by both maintainer sides: an unclassified failure is `unknown` with Git's last line, and the reason field gains no value. [awebai/oats#1075](https://github.com/awebai/oats/pull/1075), merged on 2026-10-13 with both maintainer sides approving the head that merged, states the diagnostic line's scrub (one bounded line, no control sequences, no URL user information) and the removal of object ids before classification. The comments are maintainer-lane records posted from the two maintainers' accounts, not evidence of human acceptance, and no release was checked.
