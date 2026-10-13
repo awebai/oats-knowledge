@@ -101,6 +101,10 @@ automated gate has shipped or replace the kernel's own refusal tests.
 
 # Related
 
+[A partial catalog remains an answer in both CLI forms](partial-catalog-remains-an-answer.md)
+applies this compatibility boundary to diagnostic visibility: exposing more
+problems does not by itself authorize a stream or exit-status migration.
+
 [A refusal that needs the old bytes is a pre-commit gate](../lessons/refusal-belongs-before-commit.md);
 [Pre-adoption contracts are removed, not translated](/nodes/oats-maintainer/decisions/clean-contract-precedent.md).
 
