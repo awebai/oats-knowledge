@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: The CLI as a machine boundary
-description: A machine CLI owes one stdout envelope, stable typed codes and phase-aware refusals, semantic exit status, deployment-independent explanations and tested remedies.
+description: A machine CLI owes one stdout envelope, honest failure classification and phase-aware refusals, stable typed codes, semantic exit status, deployment-independent explanations and tested remedies.
 tags: [kernel, cli, contract, json, diagnostics, exit-status]
-timestamp: 2026-10-10
+timestamp: 2026-10-13
 ---
 # Lesson
 
@@ -43,6 +43,24 @@ post-hook and receipt-write failures, checking the envelope, exit status
 and truthful preservation details. This is knowledge debt, not a new code
 table or a claim that the repair has shipped; the kernel owner should update
 this finding when that coverage and contract are established [3].
+
+**An unclassified failure is not a diagnosis** (2026-10-13). The source's
+remote-cache investigation found that the kernel's fallback called an
+unrecognized Git failure `network`. That label sent investigation toward a
+healthy network instead of the filtered cache's missing delta base. The
+recorded decision keeps such a failure `unknown`, with Git's last diagnostic
+line, rather than inventing a cause [4]. Preserve uncertainty explicitly;
+a category should name evidence, not fill a required field with a plausible
+explanation.
+
+That diagnostic is still an [output channel](hook-and-error-channels-disclose.md):
+retain useful evidence as one bounded line without control characters or URL
+user information, not raw stderr. Classification can also decide recovery:
+the [cache fetch decision](/nodes/oats-kernel-expert/decisions/cache-fetch-negotiates-before-one-whole-retry.md)
+records why falsely matching authentication text inside an object id skips a
+needed retry. The elimination route is the classifier and failure-path tests
+for genuinely classified errors, unrecognized text and sanitized diagnostics;
+this lesson is not a new reason-code table or a substitute for those tests.
 
 **Exit status is part of the answer.** Any state that blocks apply blocks
 preview with the same exit contract; only side effects differ, and the full
@@ -138,3 +156,7 @@ extending the plan's JSON shape.
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-lifecycle-overlaps, 2026-10-10; notes/raw-errno-passes-as-a-kernel-code.md; notes/866-stop-overlapping-retire.md.
 
 3. The named notes report the three-site pattern on OATS 0.50.0 at `ae9308b2`, attributed to [awebai/oats#866](https://github.com/awebai/oats/issues/866), [#891](https://github.com/awebai/oats/issues/891) and [#892](https://github.com/awebai/oats/issues/892), with an earlier related claim review in [#874](https://github.com/awebai/oats/issues/874). This harvest did not audit code or rerun the failures; it retains the cross-site design conclusion rather than the source-line inventory.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2026-10-13; notes/partial-cache-have-lines-assume-unfiltered-history.md; notes/cache-fetch-negotiates-then-retries-whole.md.
+
+4. The proposal and notes attribute the misleading `network` classification to [awebai/oats#1059](https://github.com/awebai/oats/issues/1059), with the repair attributed to [awebai/oats#1075](https://github.com/awebai/oats/pull/1075). The diagnostic-line bounds and maintainer agreement are reported by the proposal; this harvest did not reproduce the failure, audit sanitization or independently establish human acceptance.

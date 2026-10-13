@@ -1,5 +1,11 @@
 # oats-kernel-expert log
 
+## 2026-10-13
+
+* **Harvest**: added [Cache fetch negotiates before one whole-pack retry](/nodes/oats-kernel-expert/decisions/cache-fetch-negotiates-before-one-whole-retry.md) from the oats-kernel-expert-launch-pins proposal and two named notes. Preserve the missing-delta-base discovery, measured negotiation tradeoff, rejected wording-based retry and non-thin HTTPS limitation, classifier dependency and revisit condition. Measurements and Git 2.55 findings remain source-attributed, not universal rates or timeless limitations; code/tests are the enforcement route. The observation lesson gains a related link without changing its security boundary.
+* **Harvest**: added [Cache fetch cleanup waits out possible writers](/nodes/oats-kernel-expert/decisions/cache-fetch-cleanup-waits-out-possible-writers.md), preserving the source-reported review correction from immediate cleanup to lifetime-bounded age cleanup and the deferred per-fetch quarantine. A new lock does not establish ownership against older lock-free writers; the record-lock policy is not superseded. Exact current timeout and shipped-version bookkeeping are not promoted.
+* **Update**: merged the misleading `network` fallback and truthful `unknown` decision into [The CLI as a machine boundary](/nodes/oats-kernel-expert/lessons/machine-boundary-contract.md), linking the existing output-channel lesson rather than duplicating its general policy. Its description and lessons listing now name honest classification. No accepted human decision is superseded; maintainer agreement, implementation and regression results remain source-reported.
+
 ## 2026-10-10
 
 * **Harvest**: added [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md) from the oats-kernel-expert-lifecycle-overlaps proposal and named stop-retire note. Preserve the measured separation between work recovery and late-writer cleanup, with version-scoped probes and a kernel coordination/regression route; reject universal no-work-loss and production-frequency claims. The retire-only claim gains a related link, not a wider exclusion promise.

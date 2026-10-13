@@ -1,5 +1,7 @@
 # Decisions
 
+* [Cache fetch negotiates before one whole-pack retry](cache-fetch-negotiates-before-one-whole-retry.md) - A filtered cache keeps cheap negotiated fetches, then retries once without negotiation on an unknown failure because advertised commits can imply missing delta bases and negotiated non-thin HTTPS fetch was unavailable.
+* [Cache fetch cleanup waits out possible writers](cache-fetch-cleanup-waits-out-possible-writers.md) - Failed-fetch temporary files are reclaimed only after the longest fetch can have elapsed because a new write lock and a before-and-after listing cannot establish ownership against older lock-free Git writers.
 * [Retire exclusion belongs to a whole-run claim, not a plan or retry key](retire-exclusion-is-a-whole-run-claim.md) - A per-home claim covers every retire apply path and its authoritative reads, separating exclusion from plan freshness and outcome replay while refusing contention without a force bypass.
 * [The viewer detach key is caller-chosen and has its own exit status](viewer-detach-key-is-caller-chosen.md) - An opt-in per-viewer key preserves harness input and legacy exit meanings, while a narrow grammar and positive feature detection prevent unsafe silent fallback.
 * [Retirement leftovers are reported as facts, not deletion verdicts](retire-leftovers-are-facts-not-deletion-verdicts.md) - Commit reachability cannot establish preservation of uncommitted work, so leftover listings report bounded facts rather than declaring recovery copies or retained worktrees redundant or safe to delete.
