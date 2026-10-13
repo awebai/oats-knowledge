@@ -1,5 +1,6 @@
 # Decisions
 
+* [Proven unmatched launch pins refuse fall-through; unchecked pins stay visible](unmatched-launch-pins-refuse-fallthrough.md) - An unmatched host launch pin blocks launches that would fall through, but incomplete discovery cannot prove a mismatch and must remain visibly unchecked.
 * [Retire exclusion belongs to a whole-run claim, not a plan or retry key](retire-exclusion-is-a-whole-run-claim.md) - A per-home claim covers every retire apply path and its authoritative reads, separating exclusion from plan freshness and outcome replay while refusing contention without a force bypass.
 * [The viewer detach key is caller-chosen and has its own exit status](viewer-detach-key-is-caller-chosen.md) - An opt-in per-viewer key preserves harness input and legacy exit meanings, while a narrow grammar and positive feature detection prevent unsafe silent fallback.
 * [Retirement leftovers are reported as facts, not deletion verdicts](retire-leftovers-are-facts-not-deletion-verdicts.md) - Commit reachability cannot establish preservation of uncommitted work, so leftover listings report bounded facts rather than declaring recovery copies or retained worktrees redundant or safe to delete.
