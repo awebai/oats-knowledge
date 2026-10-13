@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-10-13
+
+* **Update**: merged the entry-point reachability lesson into [Hook failures and error messages are output channels](/nodes/oats-kernel-expert/lessons/hook-and-error-channels-disclose.md) from the oats-kernel-expert-launch-pins proposal and its two named notes. Preserve why sink-only evidence mislocated two reported defects, why the rejecting layer's output still needs review, and why an exported renderer's own safety promise can justify a small direct-tested fix without a reachable downstream defect. Name the code/test and verification-guidance elimination routes; omit the separate code-discoverable helper-search advice and implementation inventory. The existing disclosure policy remains unchanged; no human-accepted decision is superseded.
+
 ## 2026-10-10
 
 * **Harvest**: added [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md) from the oats-kernel-expert-lifecycle-overlaps proposal and named stop-retire note. Preserve the measured separation between work recovery and late-writer cleanup, with version-scoped probes and a kernel coordination/regression route; reject universal no-work-loss and production-frequency claims. The retire-only claim gains a related link, not a wider exclusion promise.
