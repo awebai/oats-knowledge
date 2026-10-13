@@ -23,6 +23,11 @@ one diagnostic list across streams. A general stream migration requires a
 separate coordinated compatibility decision; a visibility repair does not
 authorize it.
 
+A non-zero exit for a partial listing was rejected in the same decision [3].
+It would make the text form disagree with the JSON answer of the same read,
+and on a host that still carries the cache-fetch defect of awebai/oats#1059
+it would fail the listing each time a pin moves.
+
 **A diagnostic is not evidence that an item is absent.** The source's producer
 inspection found problems attached to retained but invalid or non-spawnable
 items, as well as missing informational metadata [2]. A nonempty problem list
@@ -69,3 +74,33 @@ the proposal and its named note, not those discussions or the kernel
 implementation, and does not independently establish human acceptance.
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes, 2026-10-13; notes/partial-catalog-answer.md.
+
+3. Verified by the knowledge maintainer at review of the harvest on
+   2026-10-13. [awebai/oats#1098](https://github.com/awebai/oats/issues/1098)
+   reports the soul listing in text form leaving out package souls it could
+   not read, with a successful exit and no message, while the JSON form
+   carries a problem for each. The kernel lead's proposal there sent the new
+   rows to stderr to protect scripts that read the text form. The
+   release-lane decision in comment 6150347222 keeps them in the place and
+   form the command already uses for problem rows, for the soul and
+   capability listings alike, keeps the successful exit because the JSON
+   form already answers the same read as a success, and rejects both stderr
+   and a non-zero exit with the reasons given above; a move of problem rows
+   to stderr is named there as a question for every listing and the doctor
+   at once. Comment 6150371757 agrees and withdraws stderr. The producer
+   inspection is in
+   [comment 6150603106](https://github.com/awebai/oats/issues/1098#issuecomment-6150603106),
+   which the citations above do not name: it lists a name and directory
+   mismatch, colliding package souls and member package-manifest problems
+   as rows whose item stays in the listing, and comment 6150627062 agrees
+   for that reason that no closing sentence calls the listing incomplete.
+   The item context is bounded by the same comments: it is built only from
+   fields a row already carries, it adds no JSON field and no second
+   sentence, and comment 6150685531 withholds an external row's source
+   reference until the repository has one function that prints such a
+   reference. That items were non-spawnable and that some rows concern
+   missing informational metadata appear in no comment and rest on the
+   source's note alone, which this review did not read. The issue and the
+   pull request that carries the fix were open and unmerged at review, and
+   no release was checked. The comments are maintainer-lane records posted
+   from the two maintainers' accounts, not evidence of human acceptance.
