@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Terminal tabs are viewers, not session owners
-description: Exact-source terminal viewers preserve native interaction without taking ownership of durable sessions or silently switching agents.
-tags: [desktop, terminal, viewers, tmux, ownership, integration-limits]
-timestamp: 2026-10-08
+description: Exact-source terminal viewers preserve native interaction and atomic redraws without owning durable sessions, changing other clients or silently switching agents.
+tags: [desktop, terminal, viewers, tmux, ownership, integration-limits, synchronized-output]
+timestamp: 2026-10-14
 ---
 # Rationale
 
@@ -57,6 +57,46 @@ tmux 3.7 measurements found about 24 MB in tmux for 200 viewers plus about
 supported retaining the higher allowance; they are not a cross-platform
 capacity guarantee or a substitute for bounding concurrent reconnect work.
 
+# Synchronized redraws without session ownership
+
+The source expert's 2026-10-14 choice is **synchronized output end to end**
+for Desktop's tmux viewers. A redraw can hide the cursor, draw, then restore
+and position it. If transport delivery splits those bytes across a paint,
+the terminal can show the intermediate hidden cursor or partial drawing.
+DOM assertions and a successful final frame do not prove atomic terminal
+painting. This is a native-fidelity issue, not a reason to change
+[cell geometry](design-direction-and-quality-bar.md).
+
+The source's tmux 3.7c investigation found that xterm.js did not receive
+automatic `sync` feature detection. The viewer client therefore requests
+`sync` explicitly; the terminal must also honor DEC 2026 begin/end markers.
+Either half alone is insufficient. The proposed `-T sync` path is gated to
+tmux 3.2 or later rather than breaking the supported 3.0 baseline. Keep the
+feature client-local: server-wide `terminal-features` would change other
+clients, including the operator's own, and violate the viewer's scope.
+
+Because xterm 5.5 ignored mode 2026, the chosen bridge holds a marked block
+and delivers it to xterm in one write, with a safety flush so an unfinished
+block cannot hold the display indefinitely. This is a stopgap, not a second
+permanent renderer: retire the hold when the consumer uses xterm 6's native
+2026 handling. Reject timer-coalescing of all output: it adds latency yet
+still permits splits wider than the timer. Reject an opt-in CLI flag with
+no identified consumer need. The major xterm upgrade was deliberately
+separated from the fix because it also touches fit, scrollbar and WebGL
+behavior near other work.
+
+The evidence establishes a split-redraw mechanism and remedy, not its
+frequency on a real remote link. The source reports that explicit `sync`
+changed observed keystroke redraws from unwrapped to wrapped, and that
+replaying deliberately split recorded redraws exposed intermediate states
+on xterm 5.5 but not on xterm 6's synchronized keystroke redraws. The
+proposal additionally reports that the Desktop bridge avoided those states.
+Local and idle loopback samples do not establish remote exposure. The
+proposal reported the implementation PRs as pending; this records design
+rationale, not a shipment receipt or universal claim about all tmux/xterm
+versions. The regression route is split-stream replay through the consumer
+write path, rather than repeating unbounded live captures.
+
 # Integration limitations discovered (2026-07-23 … 2026-07-25)
 
 - **tmux `-t` targets prefix-match unless anchored.** With stale roster data
@@ -102,3 +142,5 @@ capacity guarantee or a substitute for bounding concurrent reconnect work.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/multiline-send-bracketed-paste.md @ 7838d3ca.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/628-terminal-count-stays.md. The source records the acceptance and measurements associated with [awebai/oats#628](https://github.com/awebai/oats/issues/628); this harvest did not independently reproduce them.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-cursor-flicker, 2026-10-14; notes/cursor-flicker-split-redraw-cause.md. Investigation: [awebai/oats#1193](https://github.com/awebai/oats/issues/1193); proposed fixes: [#1195](https://github.com/awebai/oats/pull/1195) and [#1196](https://github.com/awebai/oats/pull/1196); native-support retirement route: [#1194](https://github.com/awebai/oats/issues/1194). Measurements, review and implementation status are source-reported, not independently reproduced or audited. Exact hidden-cursor counts are omitted because the proposal and note disagree; the note supports the mechanism, not the proposal's bridge-result count.

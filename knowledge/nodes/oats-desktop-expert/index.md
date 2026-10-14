@@ -11,7 +11,7 @@ Desktop product rationale and its UX and design: information architecture, inter
 
 * [One standalone Desktop product, no hidden operational kernel](decisions/standalone-product-and-cli-authority.md) - The installed CLI is the model Desktop renders and the only way it changes a deployment.
 * [The loopback interface is Desktop's trust boundary](decisions/loopback-trust-boundary-and-transport-simplicity.md) - Loopback-only bind with Host and Origin guards, because the backend types into agent terminals.
-* [Verification judgment for Desktop's privileged surfaces](lessons/verification-judgment-for-privileged-surfaces.md) - Prove guards at the real boundary and never launch the packaged app on an operator's machine.
+* [Verification judgment for Desktop's privileged surfaces](lessons/verification-judgment-for-privileged-surfaces.md) - Prove guards at real boundaries, include source-evaluating tests of main and renderer code, and contain native verification with enforced lifetime and output bounds rather than trusting test selection or a passing assertion.
 * [One design authority, a stated quality bar, and a native terminal](decisions/design-direction-and-quality-bar.md) - The expert owns design direction, the developer builds it, and a redesign never restyles the terminal.
 
 Cross-node reads: the process-boundary and bounded-lineage rationale live in [oats-kernel-expert](/nodes/oats-kernel-expert/index.md); cross-domain direction in [oats-maintainer](/nodes/oats-maintainer/index.md).
