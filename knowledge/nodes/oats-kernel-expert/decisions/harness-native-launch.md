@@ -84,6 +84,10 @@ pane) hold for every harness:
 
 # Related
 
+[The trust writer refuses metadata it cannot preserve](trust-writer-refuses-unpreserved-metadata.md)
+records why a metadata-preservation refusal keeps atomic replacement intact
+and directs trust acceptance through the harness's own dialog.
+
 [Keep kernel responsibilities generic and capability runtimes complete](kernel-and-capability-responsibility.md);
 [Harness authentication is native and user-managed](harness-native-authentication.md).
 
