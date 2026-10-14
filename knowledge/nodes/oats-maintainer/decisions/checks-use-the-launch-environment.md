@@ -38,14 +38,17 @@ process and identifies that source where it emits a warning or refusal.
 Configuration references deliberately resolved from the spawner are not
 silently reinterpreted by this decision.
 
-# Related failure, not an accepted fix
+# Related failure, decided in the kernel node
 
 The 2026-10-14 proposal reports a channel-delivery launch inheriting a stale
 `AWEB_DELIVERY=session` from tmux. Clearing it and restarting restored delivery.
-It proposes that a provider-declared variable omitted from that launch's
-payload be explicitly unset, rather than inherited. This supports the same
-coherence concern, but the proposal calls the kernel fix proposed: it is
-**not** recorded here as an accepted unset rule or a shipped repair.
+It proposed that a provider-declared variable omitted from that launch's
+payload be explicitly unset, rather than inherited. When that proposal was
+harvested, the fix was still only proposed. It was decided the same day, and
+the kernel node owns it: [a provider-declared launch variable is the
+provider's to decide](/nodes/oats-kernel-expert/decisions/declared-launch-variable-is-the-providers.md).
+This concept does not restate that rule. It still requires checks to read
+the resulting absence through the same launch-environment answer.
 
 The [hook-input lesson](/nodes/integrations-expert/lessons/a-lifecycle-hook-never-trusts-the-ambient-environment.md)
 owns the separate rule about what a provider hook reads and passes to its own

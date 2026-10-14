@@ -83,3 +83,11 @@ They report implementation merged in
 also reports a private-tmux-server regression. These are source-reported
 acceptance, implementation and test accounts, not independently verified
 human acceptance or reproduced test results from this harvest.
+
+Maintainer-verified citation (knowledge-maintainer review, 2026-10-14): on
+awebai/oats#1123, comment 6168116963 proposes the removal rule and comment
+6168302461 records the release lane's agreement to it ("decided by both
+sides"); comment 6168443110 records the `new-session` correction and the
+launch-configuration exception. awebai/oats#1135 merged on 2026-10-14 at
+`08a66b75`. These are maintainer-lane decisions, not a separate human
+acceptance record, and the regression tests were not rerun.

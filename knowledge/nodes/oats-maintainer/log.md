@@ -2,6 +2,7 @@
 
 ## 2026-10-14
 
+* **Review**: the [launch-check decision](/nodes/oats-maintainer/decisions/checks-use-the-launch-environment.md)'s related-failure section now says the unset rule it recorded as proposed was decided the same day. It links the kernel node's [declared-launch-variable decision](/nodes/oats-kernel-expert/decisions/declared-launch-variable-is-the-providers.md) as the canonical home instead of restating the rule. The launch-check decision itself is unchanged (knowledge-maintainer review of the kernel harvest).
 * **Harvest**: [Launch-environment coherence](/nodes/oats-maintainer/decisions/checks-use-the-launch-environment.md) records checks against the actual launch context, the explicit preview qualification, and the distinct proposal-only unset-variable remedy without claiming acceptance or shipment.
 * **Harvest**: [Reference display](/nodes/oats-maintainer/decisions/reference-display-is-rebuilt-or-withheld.md) records why construction replaced strip-based redaction and the same-day plain-value refinement; links the existing kernel disclosure lesson rather than duplicating its reachability rule.
 * **Harvest**: [Package-owned bounded capture](/nodes/oats-maintainer/decisions/capture-service-is-package-owned-and-bounded.md) records service ownership, migration rationale and source-reported cross-pass scheduling direction; leaves algorithm and resource-evidence requirements in their existing kernel concept.
