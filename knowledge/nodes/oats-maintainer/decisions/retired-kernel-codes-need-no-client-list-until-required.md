@@ -14,8 +14,9 @@ until the band's floor passes the removal, **provided that rendering remains
 true and is not harmful**. Less specific is not necessarily incorrect.
 
 Do not maintain a retired-kernel-code list in `packages/client` in advance of
-need. Reconsider it when a concrete removal would leave a false or harmful
-reading, not merely because the current kernel no longer emits a name.
+need. Reconsider it when a concrete removal would leave a false, misleading
+or blocking reading [3], not merely because the current kernel no longer
+emits a name; decide the list then, as a general rule.
 
 # Why this choice matters
 
@@ -27,8 +28,11 @@ not necessarily require preserving every specialized phrase.
 The source's example is `E_ROSTER_BUDGET`, removed by awebai/oats#1118. It
 reports that a 0.55.0 Desktop reading a 0.54.x CLI uses the generic
 “Not reached (CODE)” rendering rather than “Timed out”. The row remains true;
-the loss is specificity, not a false account of the outcome [1]. These
-versions describe the decision's evidence, not a permanent support band.
+the loss is specificity, not a false account of the outcome [1]. The
+loss was also judged small: the usual upgrade order (Desktop first, then the
+CLI) confines it mostly to the window between the two installs, and the next
+read retries the server anyway [3]. These versions describe the decision's
+evidence, not a permanent support band.
 
 The source also reports that restoring the literal code would fail the
 client code-name test: the name was no longer emitted by the current kernel
@@ -40,10 +44,11 @@ was deferred.
 # Rejected alternatives
 
 - **A retired-code list now**, with removal versions accepted by the name
-  test: machinery before a removal actually needs it.
-- **Moving the client's floor to 0.55.0 for this case**: disproportionate to
-  one row's wording. This is not a prohibition on future justified floor
-  changes.
+  test: a new rule that the name test, its readers and every later removal
+  would carry, for one sentence in a short, rare window [3].
+- **Moving the client's floor to 0.55.0 for this case**: it gains nothing over
+  waiting, since the floor passes the removal in its own time [3]. This is
+  not a prohibition on future justified floor changes.
 
 # Review consequence
 
@@ -75,7 +80,17 @@ error-code rendering; it does not supersede that rule or the
    closure and the rendering example are source-reported, not independently
    audited by this harvest.
 2. The proposal identifies `test/client-own-codes.test.mjs` at
-   `6e9cf9be` and [awebai/oats#1047](https://github.com/awebai/oats/pull/1047).
+   `6e9cf9be` and [awebai/oats#1047](https://github.com/awebai/oats/issues/1047).
    The test result is source-reported, not reproduced by this harvest.
+3. Verified by the knowledge maintainer at review on 2026-10-14. On
+   awebai/oats#1122 the LFX lane first recommended the retired-code list,
+   after finding that restoring the literal code fails the own-codes test of
+   awebai/oats#1047 (an issue, not a PR); the other maintainer side chose to
+   accept the generic reading and build nothing, giving the upgrade-window,
+   retry and carried-rule reasons above, and naming a later misleading or
+   blocking reading as the time to add the list. The LFX lane recorded the
+   agreement and closed the issue as not planned on 2026-10-14. The test
+   file at `6e9cf9be` cites awebai/oats#1047. This review did not run the
+   test or read the source's note.
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-lfx, 2026-10-14; notes/a-retired-kernel-code-gets-no-client-list-until-needed.md.
