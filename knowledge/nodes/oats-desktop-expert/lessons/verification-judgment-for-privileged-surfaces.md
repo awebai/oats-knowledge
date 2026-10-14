@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
-description: Security and race guards on the loopback server, IPC proxy, file viewers and terminal attach are proven only by driving the real boundary and failing when the guard is removed; review loops end when findings turn into test-strength findings; packaged GUI launches are never verification on an operator's machine, and selecting tests by name or file never isolates their native effects.
+description: Prove guards at real boundaries, include source-evaluating tests of main and renderer code, and contain native verification with enforced lifetime and output bounds rather than trusting test selection or a passing assertion.
 tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
-timestamp: 2026-10-09
+timestamp: 2026-10-14
 ---
 # Lesson
 
@@ -69,7 +69,7 @@ compatibility, but cannot stand in for that consumer proof. This is the
 field-level form of the shell-reachability lesson below, not a permanent
 inventory of projection function names.
 
-# Source-slicing tests are part of a main-process change
+# Source-evaluating tests include renderer modules, not only main
 
 Learned 2026-10-08: developer review and expert verification both missed a
 failure that CI caught when a `main.mjs` block gained a new dependency.
@@ -78,14 +78,28 @@ Some tests slice the Electron entry point as text and execute blocks in
 from that context, making the block throw and the test fail far from the
 change; helper-module tests do not exercise that seam.
 
+The 2026-10-14 finding broadens this lesson's earlier main-process-only
+scope. A renderer mutation test rebuilt `createTerminalTab` from source
+with a hand-listed dependency object. A new module-scope import was absent
+from that object, so the mutated copy threw before reaching its intended
+assertion. Developer review, reviewer and expert verification missed it;
+CI exposed the fixture failure. A red mutation run caused by a missing
+dependency is not evidence that the intended guard was challenged.
+
 This is verification debt, not a preferred testing architecture. The first
-elimination route is point 3 above: extract logic into importable modules
-and shrink `main.mjs` to bindings. Until that seam is eliminated, every
-`main.mjs` change must inventory the tests that read and execute its source,
-include them in local verification, and have the expert check that coverage.
-Discover the current readers rather than preserving a fixed file list or
-count in knowledge. The isolation rules below still apply: required coverage
-is not permission to run native effects on the operator's machine.
+elimination route is point 3 above: extract logic into importable modules,
+shrink entry points to bindings, and mutate through injected dependencies
+rather than evaluating source text with a second hand-maintained scope.
+Extraction alone does not close the seam if a test still rebuilds the
+extracted renderer function as text. Until eliminated, a change to a
+source-evaluated module, especially a new module-scope symbol, must inventory
+its source readers and their evaluation contexts and include those tests in
+permitted verification. Discover the current readers rather than preserving
+a fixed file list or count. The generalist's
+[affected-test inventory lesson](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md)
+owns the handback coverage check; this section owns the specific VM-context
+debt. The isolation rules below still apply: required coverage is not
+permission to run native effects on the operator's machine.
 
 # Operator-machine safety is part of verification judgment
 
@@ -110,6 +124,32 @@ CI-harness requirement, not a licence to launch locally. The standing rule:
   replaces this lesson's earlier signal-handler remedy. Its no-child-signal
   rule governs application shutdown; scoped process-group reaping in a
   throwaway CI harness is a different authority, not an app cleanup strategy.
+
+## A passing live terminal check can still exhaust the host
+
+The source reports a distinct 2026-10-14 incident: a live tmux attach check
+passed, but its `script` capture remained running and accumulated enough
+output to exhaust host resources; systemd-oomd killed the developer's
+session. Finishing the assertion was not finishing the experiment. An
+isolated tmux server prevents session interference, not resource exhaustion.
+
+Prefer recorded streams and injected fakes. When a live tmux/PTY check is
+otherwise authorized, enforce both a hard lifetime deadline and a reader
+that stops at a fixed byte budget, then verify by the exact owned PIDs that
+its capture/client processes have ended. A time limit alone does not bound
+high-rate output, and a byte limit alone does not end an idle producer.
+Neither permission to run nor authority to kill unrelated processes follows
+from these bounds; the packaged-app prohibition and native-effect isolation
+rules remain unchanged.
+
+The elimination route is a bounded capture harness that owns its processes,
+enforces both limits and proves teardown on success, timeout and early
+reader termination. This is a required protection, not a claim that such a
+harness already ships. The kernel's
+[bounded-fixture lesson](/nodes/oats-kernel-expert/lessons/narrow-race-evidence-needs-unpaused-controls.md#bound-the-experiment-not-just-the-last-cleanup)
+owns the general experimental-resource principle; the added Desktop lesson
+is that live terminal evidence can leave a growing capture after a passing
+check. A reminder to clean up afterwards does not enforce either bound.
 
 # Linux can exercise the packaged shell in CI
 
@@ -203,6 +243,8 @@ may not be run on a human's machine.
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shell-nav-reachability-manifest.md, shared-renderer-harness-enumeration-test.md, dormant-surface-removal-inventory.md, scope-rollback-absence-pins.md and agents/oats-expert/soul/knowledge/lessons/surface-removal-inventory-user-guidance.md @ 7838d3ca.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-cursor-flicker, 2026-10-14; notes/renderer-source-slicing-deps.md; notes/live-tmux-checks-bounded.md. The source identifies the renderer fixture failure in [awebai/oats#1196](https://github.com/awebai/oats/pull/1196), [CI run 38605929920](https://github.com/awebai/oats/actions/runs/38605929920), and the capture incident during [#1193](https://github.com/awebai/oats/issues/1193). These are source-reported observations; this harvest did not rerun the tests or reproduce the host failure.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/main-mjs-source-tests.md; notes/698-server-owner-lifeline.md. The source records the missed VM-context dependency and CI failure in [awebai/oats#806](https://github.com/awebai/oats/pull/806); this harvest did not rerun the suite.
 
