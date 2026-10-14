@@ -1,5 +1,7 @@
 # Lessons
 
+* [The spec author rechecks dictated words against the build](recheck-dictated-words-against-the-build.md) - When a spec fixes user-facing wording, the author requests wording discrepancies at handback and checks the sentences against the built cases before the PR opens.
+* [Compare a code-reading leaning with alternatives before specifying it](compare-a-leaning-with-alternatives-before-specifying.md) - Before a risky implementation assumption becomes a spec, compare the lead's preferred approach with plausible alternatives under the same state-preservation and interruption checks.
 * [A passing composition does not prove every copied input is needed](prove-copied-inputs-are-needed.md) - Before requiring a second client to retain state copied from the first, compare its composition with and without each candidate input and establish which consumer path actually needs it.
 * [Run the consumer spec against the built producer before handover](run-consumer-spec-against-built-producer.md) - When a consumer spec predates its shared producer, exercise its compositions against the built code before handing it to the developer; matching names does not establish matching behavior.
 * [Establish the cause before changing a restore-test baseline](control-before-changing-a-restore-baseline.md) - Before changing what a restore test compares against to cure a platform-specific failure, use controls to distinguish the program's effect from the harness or environment's effect.

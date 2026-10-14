@@ -1,5 +1,11 @@
 # oats-expert log
 
+## 2026-10-14
+
+* **Harvest**: add [the author's recheck of dictated words](/nodes/oats-expert/lessons/recheck-dictated-words-against-the-build.md): exact compliance can preserve stale prose, so request discrepancy handback and resolve counted or exhaustive claims against the built cases before opening the PR. Name generated enumerations, completeness tests and specification guidance as elimination routes. Evidence: OKF proposal from oats-expert/polaris-oats-expert-tui; notes/spec-words-kept-to-the-letter-need-a-check-against-the-build.md. Observations remain source-reported.
+* **Harvest**: add [comparison of the lead's own leaning with alternatives](/nodes/oats-expert/lessons/compare-a-leaning-with-alternatives-before-specifying.md): a code-reading preference needs common state-preservation and interruption checks before becoming a spec, even without an owner disagreement. Retain the spike's untested paths and regression route, not a terminal implementation recipe or blanket acceptance. Evidence: OKF proposal from oats-expert/polaris-oats-expert-tui; notes/spike-open-here-lend-the-terminal.md; notes/detach-key-interface-for-the-tui.md.
+* **Update**: cross-link the new lessons from [consumer-spec verification](/nodes/oats-expert/lessons/run-consumer-spec-against-built-producer.md) and [feasibility disputes](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md), respectively; preserve the accepted lessons' scope and claims.
+
 ## 2026-10-13
 
 * **Harvest**: add [necessity checks for copied consumer inputs](/nodes/oats-expert/lessons/prove-copied-inputs-are-needed.md): a successful composition walk does not justify every retained input; compare omission cases and inspect the required paths before duplicating derived state. Keep composition correctness and input necessity distinct, and name shared derivation plus contract/boundary tests as the elimination route. Evidence: OKF proposal from oats-expert/oats-expert-tui; notes/spec-3-inputs.md. Findings and tests are source-reported.

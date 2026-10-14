@@ -42,6 +42,11 @@ cause before changing a restore baseline](/nodes/oats-expert/lessons/control-bef
 and [inspect the producer before declaring a client limitation permanent](/nodes/oats-expert/lessons/inspect-the-producer-before-making-an-exception-permanent.md).
 Neither is a reason to duplicate this lesson's draft-spike procedure.
 
+When no owners disagree but the lead has an untested preference,
+[compare that leaning with alternatives before specifying it](/nodes/oats-expert/lessons/compare-a-leaning-with-alternatives-before-specifying.md).
+That lesson owns the common state-preservation and interruption comparison,
+not this bounded draft-PR process for settling a feasibility dispute.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/oats-expert-tui, 2026-10-09;
