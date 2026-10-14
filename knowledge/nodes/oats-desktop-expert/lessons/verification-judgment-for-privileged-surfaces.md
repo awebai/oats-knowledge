@@ -234,6 +234,10 @@ may not be run on a human's machine.
 
 # Related
 
+[Blocked live verification needs an owned handback](blocked-live-verification-needs-an-owned-handback.md)
+records who carries the remaining evidence when an agent cannot launch the
+app; it does not waive live acceptance or the safety rules above.
+
 [The loopback interface is Desktop's trust boundary](../decisions/loopback-trust-boundary-and-transport-simplicity.md);
 [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md);
 [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md);

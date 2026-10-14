@@ -1,9 +1,9 @@
 ---
 type: Decision
-title: A soul's page shows its own AGENTS.md and the composed one, read through a flagged field of the soul inspection
-description: The soul page reads the soul's own instructions and the AGENTS.md a spawn would write, separating the soul's part from every injected part; the composed text is an opt-in field of `inspect --soul` because its cost is paid only where it is shown, and routed souls needed the host to report its own features.
-tags: [desktop, souls, instructions, composition, feature-gating, latency, remote]
-timestamp: 2026-10-08
+title: A soul's instructions and own skills come from opt-in inspection
+description: Keep soul-authored content distinct from injected instructions, and read composed instructions and own skills through opt-in inspection fields gated by the authoritative host's features.
+tags: [desktop, souls, instructions, skills, composition, feature-gating, latency, remote]
+timestamp: 2026-10-14
 ---
 # Decision and rationale
 
@@ -15,7 +15,8 @@ follow-up is #795 (kernel) and #797 (Desktop).
 injects. A soul's page needed the same for what the soul tells its instances.
 The human asked for *both* the soul's own AGENTS.md and the AGENTS.md a new
 instance gets once capabilities apply, "making it very clear" which part is
-whose. The Instructions section is one tree with two groups. "This soul" holds
+whose. The original Instructions design was one tree with two groups (the
+2026-10-14 skills extension is below). "This soul" holds
 the soul's own AGENTS.md. "Instance" holds AGENTS.md "after spawn, with
 injects": the composed document, made of parts. The soul's part is headed
 **From this soul**; every other part is headed **Injected by …**, with Open
@@ -52,6 +53,51 @@ array is unknown, and unknown means not supported. Hosts too old to report
 read as unknown until they upgrade: a self-healing false negative, never a
 false positive.
 
+# Own skills extend the same inspection boundary (2026-10-14)
+
+The source reports agreement on a soul's **own** skills, not the skills its
+capabilities contribute. They belong with its instructions: a Skills group
+between This soul and Instance makes authorship distinct while letting the
+person read the files. This extends the earlier two-group design without
+changing the separation of soul-authored and injected content.
+
+Use an opt-in `oats inspect --soul <name> --skills` field, not another reader. The
+reported choice carries file text inline under a finite aggregate budget,
+listing omitted files rather than pretending their text was read. Only the
+page that needs it pays for the content, and a routed soul answers in one
+call. Rejected alternatives:
+
+- **Per-file reads:** enlarge the CLI surface and charge a routed round
+  trip for each file.
+- **A new `souls show` verb:** forks the established soul inspection surface
+  and needs separate routing.
+- **Desktop reading the soul directory:** cannot read a routed soul's local
+  files and recreates the second model rejected by CLI authority.
+
+The `soul-skills` gate applies at the server boundary, not merely in the
+renderer. Local use needs the CLI's declared feature; routed use also needs
+`server-probe-features` and the held host roster row's declaration of
+`soul-skills`. Otherwise the server drops the flag. A renderer request is
+intent, not evidence of support; neither a version guess nor an optimistic
+request followed by refusal supplies that evidence.
+
+The view must distinguish unsupported reporting, a known empty list, a
+reported listing failure and an unreadable contract. Reject a malformed
+skills answer as a whole rather than display a plausible partial inventory;
+this does not reject the rest of the soul inspection. Keep the group and an
+explanation instead of guessing contents. The formal shapes, budget and UI
+sentences belong in the current contract and tests, not a second knowledge
+specification.
+
+Skill names, descriptions and file contents remain the soul's words, never
+Desktop-authored assertions. Apply the existing
+[source-attribution decision](source-prose-is-an-attributed-quote.md), with
+text or a strict file reader that admits no raw HTML, images or fetched
+content. Spawn is the authority for which skills are the soul's own: reuse
+its enumeration and pin inspection against its preview in a regression,
+rather than maintain another discovery rule in Desktop. This is the
+elimination route for inventory drift, not a code-layout map.
+
 # Related
 
 - [One standalone Desktop product](standalone-product-and-cli-authority.md):
@@ -72,3 +118,14 @@ false positive.
 1. Human direction 2026-10-07 (show both, clearly separated) and 2026-10-08 (shorter group wording).
 2. Maintainer contract decisions 2026-10-07 (extend `inspect --soul`, one composer, opt-in flag) and 2026-10-08 (hosts report their own features; additive; no on-demand probing).
 3. awebai/oats#751, #768, #792, #795, #797 (all merged).
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-soul-skills, 2026-10-14.
+
+For the skills extension, the proposal identifies contract agreement in
+[awebai/oats#1144](https://github.com/awebai/oats/issues/1144) and reports the
+kernel and Desktop changes merged in
+[#1178](https://github.com/awebai/oats/pull/1178) and
+[#1201](https://github.com/awebai/oats/pull/1201). No backing note was named.
+Agreement, implementation and regression results are source-reported, not
+independently audited by this harvest; no new human-acceptance receipt is
+inferred.
