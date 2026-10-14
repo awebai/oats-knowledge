@@ -69,3 +69,16 @@ additionally reports both maintainer sides' approval of
 These are source-reported observations and review claims: this harvest did
 not inspect those reviews, reproduce the macOS behavior or independently
 establish human acceptance. No merge or release is asserted.
+
+Verified by the knowledge maintainer at review of the harvest on 2026-10-14.
+The description of [#1138](https://github.com/awebai/oats/pull/1138)
+attributes the decision to the kernel expert and states the three rejected
+alternatives and their reasons, the harness's own trust dialog with the
+`harness-trust` readiness item as the way forward, and refusals named from a
+closed set of fixed wording that never echoes file content. Both maintainer
+sides posted APPROVE on the PR at `7b9b7d09` and carried it to a later head
+after a conflict resolution; the lane approval relies on the separate
+launch-time reader parsing the file only. A comment on #1109 adds that the
+CI macOS runner does not set the attribute, so CI does not see the refusal.
+These are maintainer-lane records, not evidence of human acceptance; #1109
+and #1138 were open at this review and no release was checked.

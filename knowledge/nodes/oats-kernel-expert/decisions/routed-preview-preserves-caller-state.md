@@ -43,8 +43,9 @@ forbidden; the refusal precedes the potentially effectful spawn request.
 
 This is the routed-spawn application of the existing
 [advertise-before-call rule](/nodes/oats-kernel-expert/lessons/machine-boundary-contract.md),
-not a new general compatibility rule. Rejecting every combination of
-`--server` and `--preview` was also rejected: advertised support permits
+not a new general compatibility rule. Refusing every combination of
+`--server` and `--preview` was kept only as the fallback had exact
+forwarding proved impossible, and was not chosen: advertised support permits
 exact forwarding without removing the useful operation from capable hosts.
 The [compatibility decision](evidence-bounded-compatibility-and-migration.md)
 remains canonical for supported-adoption and migration policy.
@@ -78,3 +79,18 @@ Maintainer agreement and the repeated cross-version observations are
 source-reported; the byte-identical test requirement is reported in the
 proposal. This harvest did not inspect the discussions, reproduce the bug
 or independently establish human acceptance. No merge or release is asserted.
+
+Verified by the knowledge maintainer at review of the harvest on 2026-10-14.
+On [awebai/oats#610](https://github.com/awebai/oats/issues/610), a direction
+comment of 2026-10-14 states that a routed preview forwards to the host and
+writes nothing locally, and names refusing `--preview` with `--server` as the
+fallback only if forwarding cannot be made exact. One maintainer side's
+proposal the same day (comment 6169068279) gives the caller-side refusals
+before forwarding, the `spawn-preview-2` refusal before anything is sent and
+its reason, the host's answer plus `server` and `target` with the one route
+warning, and why a plain relay like routed retirement planning was rejected.
+Comment 6169073092 accepts it as written and asks for the byte-identical test
+of the caller's saved routes and files. The comments are maintainer-lane
+records, not evidence of human acceptance;
+[#1147](https://github.com/awebai/oats/pull/1147) was open at this review and
+no implementation or release was checked.
