@@ -2,6 +2,8 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [A shard number does not identify the same tests after main moves](shard-membership-is-run-specific.md) - Before attributing a CI hang to a Desktop change, establish test membership in that exact run rather than treating absence from one shard's log as evidence of a hang.
+* [Splitting an agreed rule across PRs also needs agreement](staging-an-agreed-rule-needs-agreement.md) - A Desktop implementation plan cannot silently narrow an agreed rule; obtain agreement on omitted cases before building a staged delivery and verify every included case through its actual defaults.
 * [Tests of kernel text own the client's reading, not the kernel's sentences](kernel-text-tests-own-the-client-reading.md) - Test the client's handling of live producer text without freezing relations between kernel sentences, and derive forbidden-text checks from the producer rather than copied wording.
 * [Nested deadlines must let the inner outcome reach the view](nested-deadlines-must-let-the-inner-outcome-arrive.md) - A view's promise to show a bounded kernel answer requires every enclosing wait to outlast the inner one, including intermediary proxy classes omitted by endpoint-only review.
 
