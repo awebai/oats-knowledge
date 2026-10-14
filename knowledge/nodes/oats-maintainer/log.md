@@ -1,5 +1,11 @@
 # oats-maintainer log
 
+## 2026-10-14
+
+* **Harvest**: [Review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md) explicitly supersedes the 2026-10-01 pairing's operating terms with one accountable maintainer per lane, one second reader per PR and forge-owned PR state; preserves joint release planning and the lone-gate fallback. Records why duplicate reads and routine merge/tag notices were rejected. Human and both-side acceptance on 2026-10-13 is source-reported, with references for human-decision review.
+* **Harvest**: [Review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md) replaces mandatory approver reconfirmation after every approved-head rebase with evidence-bound verdict carry: unchanged PR delta and green updated-head CI, all-`=` range-diff for owner rebases, both readers for changed content, and changed-test coverage on the trial merge when the base moved. The merge-queue alternative remains explicit; older note procedures are historical, not competing current rules. Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-lfx, 2026-10-14; notes/a-human-gate-gets-a-time.md; notes/merge-rule-base-moved.md.
+* **Fix**: [Review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md) names oats-maintainer as its owner, matching the 2026-10-03 node transfer and the current ownership records; both navigation descriptions now match the concept.
+
 ## 2026-10-07
 
 * **Update**: [the OATS soul roster](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md) adds the `oats-apps-expert` package expert (package `oats.apps`, repository `oats-apps`, capabilities `oats.folio` and `oats.library`), so its six package experts are listed again; dated amendment line and citation added.
