@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: How the OATS project ships and reviews
-description: Contributed work reaches main only through PRs judged by the maintainer's four gates against exact heads; reviewers are fresh, tests must agree with the requirement rather than the code, a lone gate gets a second reader, and knowledge PRs get a semantic read.
+description: Maintainer review binds four gates to exact content, requires evidence for affected paths outside PR CI before hand-over, uses fresh and second readers, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-01
+timestamp: 2026-10-14
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -77,6 +77,36 @@ commit "in the PR" can be orphaned by the squash. A rebase that moves an
 approved head needs the approver's confirmation that the PR's own delta is
 unchanged. Where the platform refuses an author's own approval, the verdict
 is still recorded durably on the PR.
+
+# Evidence outside PR CI belongs before hand-over
+
+The source reports a review starting with an affected macOS path still unrun,
+with that run deferred to the merge gate. The subsequent run failed nine of
+ten tests and hung on the last. It was not a pass, and the investigation later
+traced fixture isolation to a runtime-version difference rather than the
+platform first suspected. Reviewing first would have bound a verdict to a
+head whose required evidence could still force it to change.
+
+Require results for the affected path before accepting the owner's hand-over,
+not merely a promise to obtain them before merge. This includes affected
+Desktop suites or platform-specific paths absent from PR CI. A stand-in can
+qualify logic but not the real service manager's behavior it models.
+
+The exception is evidence that cannot change the code under review, such as a
+later artifact signature. Nor does this require every neighboring test to
+pass regardless of an established baseline failure: the source records a
+bounded exception where the platform-dependent function ran, the larger test
+file failed identically on main, the limit was disclosed in hand-over and
+verdict, and the test problem had an owner. A baseline failure is not evidence
+for or against the change; establish it rather than asserting it.
+
+The structural route is a targeted runner for paths omitted from ordinary
+PR CI, with platform-provided run identity and exact head evidence. The note
+reports that such a manually triggered macOS runner was added; a clean runner
+still cannot prove isolation against a live host service it does not have.
+Keep that limit explicit rather than replacing the missing real-world check
+with a green simulated one. This refines evidence timing, not the authority
+to merge or the paired-maintainer arrangement below.
 
 # Delegating implementation
 
@@ -203,3 +233,12 @@ dislodge than the original.
 3. Migrated from agents/oats-expert/soul/knowledge/lessons/window-gone-completed-vs-killed-triage.md @ 7838d3ca.
 4. Harvested 2026-10-01 (paired maintainers). OKF input c15a51880924deaff3fb01859f1c90b8aa09ad3a815c75af48410a708b5862c3 (turns t1:e06654b04457084a49aa064a418ef9a08d6f2e8fd0c0090c1c0edc683f99b78a).
 5. Harvested 2026-10-01 (paired maintainers). OKF input 6fe3e66661e1fb9bcef9dd2a99d0d8c0f3ebcc7aa9882e1a1d6591edc1cb899c (note maintainer-pairing-agreement.md; second-reader rationale only, not the still-proposed operating terms).
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-pepe, 2026-10-14; notes/a-path-ci-does-not-run-is-run-before-the-hand-over.md.
+
+The note dates the initial [awebai/oats#1000](https://github.com/awebai/oats/pull/1000)
+incident to 2026-10-12, rather than the proposal's 2026-10-13, and records later
+qualifications for [#1056](https://github.com/awebai/oats/issues/1056) and
+[#1102](https://github.com/awebai/oats/pull/1102). Runs, causes and accepted
+exceptions are source-reported; this harvest did not reproduce or independently
+audit them.

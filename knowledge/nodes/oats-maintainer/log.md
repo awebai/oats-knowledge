@@ -2,6 +2,12 @@
 
 ## 2026-10-14
 
+* **Harvest**: [Launch-environment coherence](/nodes/oats-maintainer/decisions/checks-use-the-launch-environment.md) records checks against the actual launch context, the explicit preview qualification, and the distinct proposal-only unset-variable remedy without claiming acceptance or shipment.
+* **Harvest**: [Reference display](/nodes/oats-maintainer/decisions/reference-display-is-rebuilt-or-withheld.md) records why construction replaced strip-based redaction and the same-day plain-value refinement; links the existing kernel disclosure lesson rather than duplicating its reachability rule.
+* **Harvest**: [Package-owned bounded capture](/nodes/oats-maintainer/decisions/capture-service-is-package-owned-and-bounded.md) records service ownership, migration rationale and source-reported cross-pass scheduling direction; leaves algorithm and resource-evidence requirements in their existing kernel concept.
+* **Update**: [Release judgment](/nodes/oats-maintainer/stewardship/release-traps.md) gains released-state upgrade rehearsal with its explicit nonautomatic tag hold, metadata-versus-tarball verification and escaped-pin coverage; the existing no-republish and single-source-version rules remain canonical. Correct its owner to oats-maintainer following the recorded node transfer, and the claim that stale pins fail only the release lane: the source reports prep CI catching them.
+* **Update**: [Review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md) requires affected-path evidence outside PR CI before hand-over, retaining the non-code-changing and demonstrated-baseline-failure exceptions. Paired-review and verdict-carry policies are unchanged.
+
 * **Review**: aligned the [retired-code decision](/nodes/oats-maintainer/decisions/retired-kernel-codes-need-no-client-list-until-required.md)'s reconsideration trigger and rejected-alternative reasons with the record on awebai/oats#1122, added the upgrade-window rationale and a maintainer-verified citation, and corrected the awebai/oats#1047 link to the issue (knowledge-maintainer review of the harvest).
 * **Harvest**: [Retired kernel codes need no client list until a removal requires one](/nodes/oats-maintainer/decisions/retired-kernel-codes-need-no-client-list-until-required.md) records the source-reported decision to accept truthful generic rendering across the client's supported band, defer a retired-code list until needed, and reject a floor move for one row's wording; links the broader compatibility and clean-contract precedents without superseding them.
 

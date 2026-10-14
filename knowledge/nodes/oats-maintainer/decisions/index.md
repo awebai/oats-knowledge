@@ -1,5 +1,9 @@
 # Decisions
 
+* [A launch check judges the environment the launch will have](checks-use-the-launch-environment.md) - Launch checks share the launched process's environment model, disclose what they cannot establish, and never pass by silently substituting the spawner's account.
+* [Reference display is rebuilt from recognized parts or withheld](reference-display-is-rebuilt-or-withheld.md) - One allow-list renderer serves messages and JSON alike, accepting the diagnostic cost of withholding unrecognized references rather than trying to strip every possible credential span.
+* [The capture service belongs to the record package and runs bounded passes](capture-service-is-package-owned-and-bounded.md) - Capture direction replaces the unbounded watcher with package-owned periodic passes, retaining progress and failure isolation while avoiding a second in-pass scheduling mode.
+
 * [Durable specialization preserves judgment across sessions](durable-specialization.md) - Agent expertise is a versioned project artifact; durable specialist roles keep reviewed judgement without replacing native sessions.
 * [The OATS soul roster: expert domains own knowledge nodes, developers own none](domain-expert-rebuild.md) - The one canonical roster: domain and package experts own nodes, developer and admin souls own none, release stewardship is a Playbook.
 * [Optional reference theory, capability-owned runtime](optional-reference-theory.md) - OATS offers an adoptable reference knowledge theory while each capability owns its runtime and may choose another model.

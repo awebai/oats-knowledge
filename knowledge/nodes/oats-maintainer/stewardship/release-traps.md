@@ -1,11 +1,11 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Publication is irreversible and idempotent per version, so it runs before fragile housekeeping, is never re-tagged, and is proven only on the installed artifact from outside the checkout; a provider release is mirrored and pinned in one PR, every version literal is a release step, a pin that can lag names its lag, and breaking provider and kernel releases move in lockstep.
+description: Release judgment distinguishes publication from artifact availability, rehearses changed upgrade paths from released state, and treats source, tag, mirror and every form of version pin as one coordinated change.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-09-21
+timestamp: 2026-10-14
 ---
-**Owner: oats-expert. Update-on-change: whoever changes the release workflow,
+**Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
 change.** The release procedure is the `git-tag-release` skill and the
 repository's [release lane](https://github.com/awebai/oats/blob/main/docs/release-lane.md);
@@ -60,6 +60,18 @@ fixes the order of everything else:
   can take minutes to become visible; a "not found" in that window is a
   reason to wait and re-query, never to retag or republish.
 
+**Refinement, 2026-10-14:** metadata visibility and tarball availability are
+separate observations. The source reports that 0.55.0's metadata, tag commit
+and checksum were visible while its kernel tarball still returned 404 for
+about seventeen minutes; the tarball then arrived with the expected checksum.
+That interval is not evidence that publication failed. Recheck artifact
+availability without publishing again; verify the served bytes against the
+published checksum before the clean-install check. Do not treat metadata
+alone as successful artifact verification, or seventeen minutes as a bound.
+Release-verification automation should handle delayed availability explicitly
+and leave verification incomplete when its bounded check cannot obtain the
+artifact. This extends the existing no-republish rule, not a retry permission.
+
 # What the pre-merge gate cannot rehearse
 
 Anything that only runs on a tag has never run when the PR is reviewed. A
@@ -87,6 +99,36 @@ days while every PR looked fine.
   green says nothing about a firewalled machine (2026-07-29), so the room
   publishes its own local package.
 
+# Rehearse upgrades from released state
+
+When a release changes remotes, locks or packages, a fresh-install smoke
+cannot qualify the upgrade path. The source's 0.53.0 rehearsal addressed a
+cache-fetch failure that depended on state left by earlier releases: a fresh
+local remote in a test did not recreate that history.
+
+Start with released kernels that real deployments use, let each build its
+own cache and lock, and run the candidate artifact against what each left
+behind, without hand repair between them. Isolation must come from explicit
+disposable environment and storage inputs, not a promise not to touch the
+host. Record both the candidate commit and what the rehearsal did not cover;
+an upgrade run does not establish Desktop, real-spawn or service behavior it
+never exercised.
+
+**Gate qualification:** the note does not make an unfinished rehearsal an
+automatic tag hold. Arrange it before the tag, read available evidence, and
+have the maintainers explicitly decide if it is not finished. A regression
+found in time affects the gate; an existing defect is not automatically a
+blocker for the release that revealed it. Give that defect an owner and an
+Upgrade-note remedy. The proposal's unconditional gate wording is narrowed
+by this explicit qualification in its backing note.
+
+The elimination route is a repeatable release-verification matrix that builds
+state with outgoing releases before testing the candidate; keep the historical
+fixture, not only a fresh-install test. This is an acceptance lesson, not a
+claim that such a permanent matrix has landed. Operator-side prerequisite
+sequencing has its canonical home in
+[check the target provider's host requirements before sync](/nodes/oats-operator-expert/lessons/check-target-provider-host-requirements-before-sync.md).
+
 # Source → tag → pin, proven from both sides
 
 An official capability exists in three places that must agree: its
@@ -112,12 +154,19 @@ version and lock move in the same commit (2026-07-24). A version sweep limited
 to the test tree missed a pin in a release script and forced a recut
 (2026-09-20); the sweep covers tests, release and smoke scripts, docs, mirrors
 and CI workflows. Pinned-version tests are a feature — they catch silent
-drift at the cost that every release touches them — and each one left behind
-fails the release lane, not the PR gate. Either the sweep enumerates them, or
-— the preferable elimination — they read the version from the catalog so
+drift at the cost that every release touches them — and a leftover can fail
+either the prep PR's CI or the later release lane. Either the sweep enumerates
+them, or — the preferable elimination — they read the version from the catalog so
 there is one literal to move. A post-publication probe carried from release to
 release goes stale the same way: rebuild its expected versions from the tag
 each time.
+
+**Refinement, 2026-10-14:** a plain-literal sweep misses an escaped regular
+expression representing the same version. The source reports two such pins
+left in the 0.55.0 prep, caught by PR CI. Until the version is derived from one
+source, cover both the plain and escaped forms, with expected replacement
+counts checked before writing. This is temporary release-prep knowledge debt,
+not a second canonical version source or a reason to weaken the pinned tests.
 
 # A pin that can lag names its lag
 
@@ -160,3 +209,11 @@ compares them.
 1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (release lessons 2026-07-10 → 2026-09-22, `decisions/desktop-public-release-contract` amendment, `decisions/desktop-is-built-for-workspace-v2`), agents/cli-dev/soul/knowledge @ 7838d3ca (release-lane lessons, 2026-07-21 → 2026-07-29) and agents/oats-coordinator/soul/knowledge @ 7838d3ca (`release-lane`, `payload-publication`).
 2. Migrated from agents/oats-expert/soul/knowledge/stewardship @ 7838d3ca (delivery-log: the lead's 2026-09-24 release playbook entries; the 0.29.0 lockstep, stale-probe and shallow-clone lessons).
 3. Mirror + pin in one PR as practised by [awebai/oats#264](https://github.com/awebai/oats/pull/264) and [#266](https://github.com/awebai/oats/pull/266).
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-pepe, 2026-10-14; notes/an-upgrade-is-rehearsed-from-released-kernels-before-the-tag.md; notes/a-published-tarball-can-lag-its-metadata.md; notes/a-release-prep-greps-escaped-version-pins.md.
+
+The notes report the 0.53.0 rehearsal prompted by
+[awebai/oats#1059](https://github.com/awebai/oats/issues/1059), the 0.55.0
+publication (run 38546688491), and escaped pins in
+[#1120](https://github.com/awebai/oats/pull/1120). These are source-reported
+observations; this harvest did not reproduce the rehearsal or registry reads.
