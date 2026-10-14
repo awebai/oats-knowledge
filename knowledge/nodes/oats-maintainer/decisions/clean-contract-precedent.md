@@ -48,6 +48,10 @@ the command); and narrative documentation written for the replaced model must be
 grepped sentence by sentence and re-verified, because prose describing the old
 behaviour survives renames.
 
+For the distinct case of a removed kernel error code still emitted within a
+client's supported band, see
+[retired kernel codes need no client list until required](/nodes/oats-maintainer/decisions/retired-kernel-codes-need-no-client-list-until-required.md).
+
 # Rejected alternatives
 
 - Auto-migrating loaders for pre-release shapes (rejected 2026-07-13 for the
