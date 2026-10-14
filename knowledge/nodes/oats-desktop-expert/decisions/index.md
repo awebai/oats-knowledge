@@ -2,6 +2,8 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [A filtered roster answer must not erase groups it did not ask about](filtered-roster-preserves-unasked-groups.md) - Narrow roster replacement to the requested workspace scope while retaining unasked groups as old observations, so filtering cannot forget machines or erase the route back to another workspace.
+* [An unreached host keeps Stop and Retire available through a fresh plan](unreached-host-actions-use-the-plan.md) - Keep unknown remote rows actionable through the kernel's routed plan rather than hide Stop and Retire on the strength of an earlier failed roster read.
 * [Shared readers separate client terms from attributed kernel prose](shared-readers-separate-client-terms-and-kernel-prose.md) - Keep one shared interpretation of codes, require each caller's terms explicitly, and return attributed kernel prose as separate parts rather than a string clients must parse.
 * [Shared terminal opening keeps invocation context and client scope](shared-terminal-opening-keeps-context-and-client-scope.md) - Interpret attach outcomes with the facts that give them meaning, add a client-specific action without changing another client's menu, and preserve both kernel refusal texts.
 * [A client probe must not turn kernel unknown into a confident state](kernel-unknown-is-not-refined-by-a-client-probe.md) - Preserve a kernel-unknown row and its recorded session facts rather than manufacture liveness or terminal eligibility from a weaker client probe.
