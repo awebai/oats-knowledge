@@ -2,6 +2,7 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [Blocked live verification needs an owned handback](blocked-live-verification-needs-an-owned-handback.md) - When an agent cannot run Desktop live, name what automated evidence leaves unproven and turn those gaps into concrete human checks rather than silently waive live verification.
 * [Tests of kernel text own the client's reading, not the kernel's sentences](kernel-text-tests-own-the-client-reading.md) - Test the client's handling of live producer text without freezing relations between kernel sentences, and derive forbidden-text checks from the producer rather than copied wording.
 * [Nested deadlines must let the inner outcome reach the view](nested-deadlines-must-let-the-inner-outcome-arrive.md) - A view's promise to show a bounded kernel answer requires every enclosing wait to outlast the inner one, including intermediary proxy classes omitted by endpoint-only review.
 
