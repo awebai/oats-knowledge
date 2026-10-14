@@ -46,6 +46,11 @@ A later, prose-specific responsibility remains with the spec author:
 before opening the PR. Correctly built compositions do not establish that
 wording fixed earlier in the spec still describes them.
 
+After implementation, [check the affected-test inventory at handback](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md):
+when suites run only in CI, a green list of selected files can omit existing
+tests of changed surfaces. That selection check is distinct from proving
+the spec's composition here.
+
 # Elimination route
 
 Keep one owner-reviewed composition for shared rules. Turn the useful probe
