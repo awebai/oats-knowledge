@@ -1,5 +1,10 @@
 # oats-expert log
 
+## 2026-10-14
+
+* **Harvest**: add [maintainer-first remedy advice for an outside-adopter relay](/nodes/oats-expert/lessons/relay-own-readings-through-the-maintainer.md): preserve the distinction between the expert's proposed reading and the project's accepted answer, without changing maintainer authority or copying incident remedies. Evidence: OKF proposal from oats-expert/polaris-oats-expert-lfx-support; notes/relay-own-reading-goes-to-maintainer-not-adopter.md. Events and acceptance are source-reported.
+* **Harvest**: add [dated host-read facts for cross-workspace gates](/nodes/oats-expert/lessons/date-host-read-facts-before-an-adoption-gate.md): separate host enumeration, attribution and observation freshness; link operator sequencing and maintainer acceptance rather than duplicate them. Evidence: OKF proposal from oats-expert/polaris-oats-expert-lfx-support; notes/read-adopter-host-facts-on-the-host.md. No current host inventory or independently verified gate result is claimed.
+
 ## 2026-10-13
 
 * **Harvest**: add [necessity checks for copied consumer inputs](/nodes/oats-expert/lessons/prove-copied-inputs-are-needed.md): a successful composition walk does not justify every retained input; compare omission cases and inspect the required paths before duplicating derived state. Keep composition correctness and input necessity distinct, and name shared derivation plus contract/boundary tests as the elimination route. Evidence: OKF proposal from oats-expert/oats-expert-tui; notes/spec-3-inputs.md. Findings and tests are source-reported.
