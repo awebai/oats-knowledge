@@ -1,5 +1,8 @@
 # Lessons
 
+* [Send a relay's own reading to the maintainer before offering a remedy](relay-own-readings-through-the-maintainer.md) - When acting as the OATS contact for an outside adopter, submit your own diagnosis or workaround to the maintainer first and relay only the accepted answer without adding a remedy.
+* [Date host-read facts before a cross-workspace adoption gate](date-host-read-facts-before-an-adoption-gate.md) - Before a version-dependent adoption gate, enumerate the adopter's hosts from team presence and require each version to be read on the named host with its observation time and reporting route.
+
 * [A passing composition does not prove every copied input is needed](prove-copied-inputs-are-needed.md) - Before requiring a second client to retain state copied from the first, compare its composition with and without each candidate input and establish which consumer path actually needs it.
 * [Run the consumer spec against the built producer before handover](run-consumer-spec-against-built-producer.md) - When a consumer spec predates its shared producer, exercise its compositions against the built code before handing it to the developer; matching names does not establish matching behavior.
 * [Establish the cause before changing a restore-test baseline](control-before-changing-a-restore-baseline.md) - Before changing what a restore test compares against to cure a platform-specific failure, use controls to distinguish the program's effect from the harness or environment's effect.
