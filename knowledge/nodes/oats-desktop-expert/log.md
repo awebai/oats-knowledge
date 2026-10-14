@@ -1,5 +1,14 @@
 # oats-desktop-expert log
 
+## 2026-10-14
+
+* **Harvest**: added [Shared terms and kernel prose](decisions/shared-readers-separate-client-terms-and-kernel-prose.md): explicit client terms, rejected neutral/default/global wording, module-brand tradeoff and separately attributed parts. Existing visual-attribution and packaging decisions remain canonical; terminal-product permission stays with pending knowledge PR #72.
+* **Harvest**: added [Shared terminal opening](decisions/shared-terminal-opening-keeps-context-and-client-scope.md): contextual exit interpretation, a client-specific action beside the existing menu list, and preservation of both preflight texts. Omitted an API inventory; linked the generalist's existing consumer-spec lesson instead of duplicating it.
+* **Harvest**: added [Kernel unknown is not client-probed](decisions/kernel-unknown-is-not-refined-by-a-client-probe.md), preserving the weaker-observer rationale, explicit-unknown predicate and accepted refresh delay, including session display and terminal eligibility.
+* **Harvest**: added [Remove's owned-worktree fact](decisions/remove-wording-needs-an-owned-worktree-fact.md), preserving why a record mode and retention default are insufficient and why the producer feature requires an explicit boolean. The note's later agreed/built status is reported, not independently certified.
+* **Harvest**: added [Kernel-text test ownership](lessons/kernel-text-tests-own-the-client-reading.md), keeping the live-text cross-PR failure and stale absence-vocabulary lesson with repository enforcement routes. Existing positive-control judgment and maintainer merge authority are linked, not superseded.
+* **Harvest**: added [Nested deadline review](lessons/nested-deadlines-must-let-the-inner-outcome-arrive.md), generalizing the missed-proxy finding to enclosing waits. Linked it from [Preview-bounded spawn outcomes](decisions/preview-bounded-spawn-outcomes.md) without changing that decision's separate response and job lifetimes. The blanket claim that every outer request must wait for the whole operation is not adopted.
+
 ## 2026-10-09
 
 * **Harvest**: added [Informed manual actions](decisions/informed-manual-actions-match-cli-authority.md), applying CLI authority to capability-source Test: informed one-run intent, not a Desktop-only automation-trust gate. Preserved the rejected hidden/one-click/probing alternatives and the reason to raise execution effects as a kernel contract question.

@@ -2,6 +2,11 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [Shared readers separate client terms from attributed kernel prose](shared-readers-separate-client-terms-and-kernel-prose.md) - Keep one shared interpretation of codes, require each caller's terms explicitly, and return attributed kernel prose as separate parts rather than a string clients must parse.
+* [Shared terminal opening keeps invocation context and client scope](shared-terminal-opening-keeps-context-and-client-scope.md) - Interpret attach outcomes with the facts that give them meaning, add a client-specific action without changing another client's menu, and preserve both kernel refusal texts.
+* [A client probe must not turn kernel unknown into a confident state](kernel-unknown-is-not-refined-by-a-client-probe.md) - Preserve a kernel-unknown row and its recorded session facts rather than manufacture liveness or terminal eligibility from a weaker client probe.
+* [Remove wording needs an owned-worktree fact, not a mode or default](remove-wording-needs-an-owned-worktree-fact.md) - Base Remove's worktree promises on the kernel's explicit ownership fact because a recorded work mode and a retention default do not establish what belongs to the instance.
+
 * [One standalone Desktop product, no hidden operational kernel](standalone-product-and-cli-authority.md) - The installed CLI is the model Desktop renders and the only way it changes a deployment.
 * [Manual execution keeps CLI authority and requires an informed press](informed-manual-actions-match-cli-authority.md) - When a Desktop verb gains an execution effect, preserve the CLI's manual-action authority and map informed confirmation to the kernel's explicit intent flag rather than adding a trust gate.
 * [Source-supplied prose is an attributed quote, not Desktop's voice](source-prose-is-an-attributed-quote.md) - Display prose from trigger sources, trigger files and capability manifests as visibly attributed text so untrusted words cannot impersonate Desktop's own explanation.
