@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: How the OATS project ships and reviews
-description: Maintainer review binds four gates to exact content, requires evidence for affected paths outside PR CI before hand-over, uses fresh and second readers, and judges tests against requirements rather than implementations.
+description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, and requires timely, safely obtained verification.
 tags: [stewardship, review, pull-requests, process]
 timestamp: 2026-10-14
 ---
@@ -40,6 +40,23 @@ human redirects a slice, the amendment is recorded in the design record
 **before** the review, so the direction gate reviews against what was asked,
 not against a frame the human has since changed.
 
+## A declared deferral still needs the decision's permission
+
+When a PR openly leaves part of a decided rule for a later PR, read the
+original decision before accepting the split. If that decision does not
+permit the staging, return the PR or have the same deciders agree the split
+first. An explicit deferral in a PR description is not itself a decision
+amendment.
+
+The source reports approving a staged change that retained an old start
+kill deadline, then a second reader finding that the decision covered starts
+as well as apply. The description made the omission visible but also made it
+look intentional; checking implementation against that description missed
+the actual direction constraint. This refines the direction-first gate,
+not the authority to change a decision. Put the decision and any authorized
+split in the review evidence; the operating check belongs in the existing
+`direction-gate` skill rather than in a competing implementation plan.
+
 # Fresh eyes
 
 Every substantive commit gets a **fresh, ephemeral reviewer**: diff-only, no
@@ -77,6 +94,44 @@ commit "in the PR" can be orphaned by the squash. A rebase that moves an
 approved head needs the approver's confirmation that the PR's own delta is
 unchanged. Where the platform refuses an author's own approval, the verdict
 is still recorded durably on the PR.
+
+# A batch window preserves same-area integration evidence
+
+The source reports a same-area merge rule agreed by both maintainer sides
+on 2026-10-10 and a 2026-10-14 batch that violated it: a PR whose base moved
+through a same-area merge must be brought up to date and CI-green on that
+combination before it merges. Same area includes shared files and the same
+lane's code and tests, even when they share no file. A shared docs page or
+workflow counts too. A clean textual merge cannot prove this integration,
+and a guard on the approved head does not guard the base.
+
+The narrow release-notes exception is a clean merge where the next version's
+aggregate notes file is the only shared file. It does not exempt two PRs
+correcting the same per-change entry file. Nor does absence of shared files
+establish that changes are unrelated: one PR can change a sentence in the
+producer while another adds a test that expects its old wording.
+
+Updating approved PRs onto one common main and running CI in parallel can
+save redundant rounds. It does not freeze main for the later merges. Before
+each merge in the batch, compare the PR with what has already landed, by
+changed files and by code/test dependency. Same-area changes need another
+update and CI run; independent changes need no serial CI round merely because
+they belong to the batch. Watch main's CI on every merge commit and stop the
+batch at the first red. This makes failures attributable and avoids feeding
+a broken base into every lane's queue.
+
+In the reported batch, two individually green client/Desktop PRs shared no
+file but disagreed on the withheld-text wording. Main went red after the
+second merge and stayed red until a fix-forward. The successful parallel
+update round did not establish that the successive combinations were green.
+
+This is an integration-evidence requirement, not a new rule for carrying
+review verdicts across an update or choosing merge-update versus rebase.
+It also grants no file-nonoverlap shortcut around affected-test checks.
+The structural elimination route is a merge queue that verifies each
+prospective combination; without that enforcement, the residual judgment
+belongs in `pr-review`. A local trial merge can reveal a bad combination,
+but does not replace the same-area updated-head CI requirement.
 
 # Evidence outside PR CI belongs before hand-over
 
@@ -120,6 +175,22 @@ wrong product — check whether `main` moved before each round. Behavioural
 conflicts return to the implementer who owns the logic; only mechanical,
 append-only unions are the maintainer's. Distinguish environment failures
 from PR defects before returning.
+
+## A brief that may lead to live terminal checks carries their safety gate
+
+A maintainer's brief that may lead to a real-terminal check must point the
+lead to the existing
+[bounded live-terminal verification lesson](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md#a-passing-live-terminal-check-can-still-exhaust-the-host)
+and make satisfying it part of the assignment, rather than leaving safety
+implicit in a request for live evidence. That concept owns the bounds and
+harness teardown requirements; a second checklist here would drift. The
+briefing hook belongs in `launch-work`, while enforced containment belongs
+in the verification harness.
+
+When a capture runs away, ask its owner or the human to end it. A permission
+refusal is not permission to find a different route to the same kill.
+Requiring live evidence or bounding a check grants neither permission to run
+an otherwise forbidden experiment nor authority over unrelated processes.
 
 # A lone gate gets a second reader (2026-09-27)
 
@@ -242,3 +313,16 @@ qualifications for [#1056](https://github.com/awebai/oats/issues/1056) and
 [#1102](https://github.com/awebai/oats/pull/1102). Runs, causes and accepted
 exceptions are source-reported; this harvest did not reproduce or independently
 audit them.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-lfx, 2026-10-14; notes/a-batch-window-keeps-the-same-area-rule.md; notes/merge-rule-base-moved.md; notes/merge-on-old-base-run-the-combination.md; notes/a-pr-that-defers-part-of-a-decided-rule-cites-the-split.md; notes/a-real-terminal-check-is-bounded-and-cleans-up.md.
+
+The source reports the batch failure in
+[awebai/oats#1151](https://github.com/awebai/oats/pull/1151) with
+[#1155](https://github.com/awebai/oats/pull/1155), fixed forward by
+[#1203](https://github.com/awebai/oats/pull/1203); the unauthorized staging in
+[#1164](https://github.com/awebai/oats/pull/1164) against the decision in
+[#855](https://github.com/awebai/oats/issues/855); and the terminal-capture
+incident during [#1193](https://github.com/awebai/oats/issues/1193). Agreement,
+CI results and incidents are source-reported, not independently audited by
+this harvest. The base-moved note's later qualifications are not reduced to
+the proposal's earlier head-guard/clean-merge-only path for unrelated files.
