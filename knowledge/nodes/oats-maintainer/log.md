@@ -1,5 +1,10 @@
 # oats-maintainer log
 
+## 2026-10-14
+
+* **Review**: aligned the [retired-code decision](/nodes/oats-maintainer/decisions/retired-kernel-codes-need-no-client-list-until-required.md)'s reconsideration trigger and rejected-alternative reasons with the record on awebai/oats#1122, added the upgrade-window rationale and a maintainer-verified citation, and corrected the awebai/oats#1047 link to the issue (knowledge-maintainer review of the harvest).
+* **Harvest**: [Retired kernel codes need no client list until a removal requires one](/nodes/oats-maintainer/decisions/retired-kernel-codes-need-no-client-list-until-required.md) records the source-reported decision to accept truthful generic rendering across the client's supported band, defer a retired-code list until needed, and reject a floor move for one row's wording; links the broader compatibility and clean-contract precedents without superseding them.
+
 ## 2026-10-07
 
 * **Update**: [the OATS soul roster](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md) adds the `oats-apps-expert` package expert (package `oats.apps`, repository `oats-apps`, capabilities `oats.folio` and `oats.library`), so its six package experts are listed again; dated amendment line and citation added.
