@@ -1,5 +1,6 @@
 # Lessons
 
+* [Verify host-bound fixes on the reproducing host](verify-host-bound-fixes-on-the-reproducing-host.md) - When the fixing host lacks the runtime that exposes a bug, obtain exact-head evidence on the reproducing host using the same minimal repro and a no-fix control, with harness failures reported separately.
 * [Check the affected-test inventory, not only the green runs](check-affected-test-inventory-at-handback.md) - When full suites run only in CI, require a search-derived inventory of test files consuming changed surfaces at handback and check its coverage against the diff, with a result or non-run reason for each file.
 * [The spec author rechecks dictated words against the build](recheck-dictated-words-against-the-build.md) - When a spec fixes user-facing wording, the author requests wording discrepancies at handback and checks the sentences against the built cases before the PR opens.
 * [Compare a code-reading leaning with alternatives before specifying it](compare-a-leaning-with-alternatives-before-specifying.md) - Before a risky implementation assumption becomes a spec, compare the lead's preferred approach with plausible alternatives under the same state-preservation and interruption checks.
