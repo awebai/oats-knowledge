@@ -2,6 +2,9 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [Tests of kernel text own the client's reading, not the kernel's sentences](kernel-text-tests-own-the-client-reading.md) - Test the client's handling of live producer text without freezing relations between kernel sentences, and derive forbidden-text checks from the producer rather than copied wording.
+* [Nested deadlines must let the inner outcome reach the view](nested-deadlines-must-let-the-inner-outcome-arrive.md) - A view's promise to show a bounded kernel answer requires every enclosing wait to outlast the inner one, including intermediary proxy classes omitted by endpoint-only review.
+
 * [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md) - Key by qualified identity and resolve ambiguity over the full roster before filtering.
 * [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md) - Focus intent, effective bindings and event ownership must agree without consuming native input.
 * [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md) - Background work preserves intent and separates creation, readiness and success; confirmations describe effect boundaries without suppressing unrelated reads or inventing stale-result state.

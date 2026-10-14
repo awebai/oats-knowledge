@@ -69,6 +69,10 @@ preserves the evidence Desktop needs to tell these outcomes apart.
 
 # Related
 
+[Nested deadlines](../lessons/nested-deadlines-must-let-the-inner-outcome-arrive.md)
+extends the deadline-review judgment to intermediary waits on other routes;
+it does not replace the short-response/retained-job choice above.
+
 This applies [declared CLI feature authority](standalone-product-and-cli-authority.md)
 and the separation of creation, readiness and success in
 [truthful async outcomes](../lessons/asynchronous-intent-and-truthful-outcomes.md).
