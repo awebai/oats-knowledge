@@ -1,5 +1,7 @@
 # Lessons
 
+* [The spec author rechecks dictated words against the build](recheck-dictated-words-against-the-build.md) - When a spec fixes user-facing wording, the author requests wording discrepancies at handback and checks the sentences against the built cases before the PR opens.
+* [Compare a code-reading leaning with alternatives before specifying it](compare-a-leaning-with-alternatives-before-specifying.md) - Before a risky implementation assumption becomes a spec, compare the lead's preferred approach with plausible alternatives under the same state-preservation and interruption checks.
 * [Send a relay's own reading to the maintainer before offering a remedy](relay-own-readings-through-the-maintainer.md) - When acting as the OATS contact for an outside adopter, submit your own diagnosis or workaround to the maintainer first and relay only the accepted answer without adding a remedy.
 * [Date host-read facts before a cross-workspace adoption gate](date-host-read-facts-before-an-adoption-gate.md) - Before a version-dependent adoption gate, enumerate the adopter's hosts from team presence and require each version to be read on the named host with its observation time and reporting route.
 * [A passing composition does not prove every copied input is needed](prove-copied-inputs-are-needed.md) - Before requiring a second client to retain state copied from the first, compare its composition with and without each candidate input and establish which consumer path actually needs it.
