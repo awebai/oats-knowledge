@@ -3,7 +3,7 @@ type: Lesson
 title: Keyboard policy follows actions and user intent
 description: Focus intent, effective bindings and event ownership must agree without consuming native terminal or control input.
 tags: [desktop, keyboard, focus, keybindings, terminal]
-timestamp: 2026-07-26
+timestamp: 2026-10-14
 ---
 # Rationale
 
@@ -24,6 +24,39 @@ Event ownership matters before dispatch: a late no-op after preventDefault still
 
 Integration limitation (2026-07-26): `KeyboardEvent.key` reports the shifted character, so a default chord such as Mod+Shift+\ parses and round-trips yet never fires unless the engine aliases the shifted character (`|`) to its base key. Every default built on shifted punctuation needs that alias and a test that dispatches the real shifted event, not a parse round-trip.
 
+# Linux and Windows terminal chords preserve the program's input
+
+The source expert's 2026-10-14 decision makes the earlier collision-review
+requirement concrete: an app chord may fire in a focused terminal on Linux
+or Windows only if the installed xterm sends nothing for it, or if its output
+remains available to the program through a plainer key. The recorded aliases
+are Ctrl+3 to Esc, Ctrl+Tab to Tab, Ctrl+Shift+Tab to Shift+Tab, and
+Ctrl+Shift+Alt+W to Ctrl+Alt+W. Ctrl+Shift+F6, the explicit leave-terminal
+action, is the one deliberate exception to this input-preservation rule.
+
+Plain Ctrl+letter, Alt+key, function keys and Ctrl+PgUp/PgDn otherwise belong
+to the terminal program. App actions needed from a terminal use suitable
+Ctrl+Shift+letter defaults: the reported sidebar, instance-panel and filter
+choices are Ctrl+Shift+B, Ctrl+Shift+I and Ctrl+Shift+F. macOS retains its
+Command-key policy. These are platform-scoped choices, not permission to
+allow every similarly shaped chord or bypass collision review after a rebind.
+
+The rejected alternative was an unexplained per-action allowlist: it left
+other app actions unreachable from a Linux terminal without explaining which
+input the application could safely claim. The first proposed replacement,
+"no output", was also too strong: checking the installed xterm evaluator
+exposed four already-allowed aliases with output. Preserving a plainer route
+to those bytes, rather than pretending the chords emit nothing, explains the
+tradeoff without silently changing the rule.
+
+The elimination route for drift is the exact-output CI guard reported with
+the decision: evaluate each allowlisted chord through the installed xterm's
+own key evaluation and assert its expected output, including the aliases and
+explicit exception. An upgrade that changes that output requires review;
+a hand-maintained assumption that a chord is empty is not evidence. This
+supplements, rather than replaces, real event-ownership and focus testing.
+The current shortcut documentation owns the full binding table.
+
 # Related
 
 [Agent-centered navigation makes the action target legible](../decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md).
@@ -37,3 +70,5 @@ Integration limitation (2026-07-26): `KeyboardEvent.key` reports the shifted cha
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shifted-punctuation-default-chords.md @ 7838d3ca.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-linux-shell, 2026-10-14; notes/linux-terminal-shortcut-rule.md. The source reports maintainer acceptance before implementation and the exact-output guard in [awebai/oats#1160](https://github.com/awebai/oats/pull/1160), merged as `4f21918f`, against xterm.js 5.5.0. Acceptance, merge and test results are source-reported, not independently audited by this harvest. See [the current keyboard contract](https://github.com/awebai/oats/blob/main/docs/desktop-keyboard.md).
