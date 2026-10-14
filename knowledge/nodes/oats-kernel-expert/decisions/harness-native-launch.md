@@ -84,6 +84,10 @@ pane) hold for every harness:
 
 # Related
 
+[A provider-declared launch variable is the provider's to decide](declared-launch-variable-is-the-providers.md)
+records why an omitted declared name is removed at the launch boundary rather
+than inherited; this is not general isolation of native harness settings.
+
 [The trust writer refuses metadata it cannot preserve](trust-writer-refuses-unpreserved-metadata.md)
 records why a metadata-preservation refusal keeps atomic replacement intact
 and directs trust acceptance through the harness's own dialog.
