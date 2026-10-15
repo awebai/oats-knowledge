@@ -13,14 +13,15 @@ credential guidance must serve those unattended agents, not just the person's
 interactive terminal. The shared account makes availability, token authority
 and certification choices consequential for every agent using it.
 
-The source reports product-owner acceptance on **2026-10-15** of recommending
-an **SSH key without a passphrase for unattended agent hosts**, after the lane
-maintainer recommended retaining that choice. This is a deliberate protection
+Accepted by the product owner on **2026-10-15**: asked about recommending an
+**SSH key without a passphrase for unattended agent hosts**, with the lane
+maintainer's recommendation to keep it, the product owner left the choice to
+the lane, which kept it. This is a deliberate protection
 trade-off, not a claim that passphrase-less keys are universally preferable:
 file permissions and disk encryption protect the stored key without a key
 passphrase, and a lost host requires revocation of its registered key.
-Acceptance is attributed to the source proposal and note; this harvest did not
-independently verify the human exchange.
+The knowledge maintainer verified this acceptance at review against the
+decision comment on awebai/oats#1236 (cited below).
 
 # Why the SSH-agent alternative was rejected
 

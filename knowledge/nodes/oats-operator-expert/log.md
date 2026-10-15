@@ -3,6 +3,7 @@
 ## 2026-10-15
 
 * **Harvest**: [Host Git credentials must work for unattended agents](/nodes/oats-operator-expert/decisions/host-git-credentials-must-work-unattended.md) — preserve the source-reported human acceptance of the unattended key trade-off, rejection of an implicit SSH-agent dependency, shared-token least privilege and storage continuity, and the person's sign-off responsibility. Link native forge custody and scope placement without changing their rules; keep commands in the setup skill and live GitHub/macOS verification explicitly unclaimed.
+* **Update**: [Host Git credentials must work for unattended agents](/nodes/oats-operator-expert/decisions/host-git-credentials-must-work-unattended.md) — maintainer review verified the product-owner acceptance on awebai/oats#1236 and recorded it in place of the harvest's unverified attribution.
 
 ## 2026-10-13
 
