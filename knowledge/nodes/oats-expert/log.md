@@ -1,5 +1,10 @@
 # oats-expert log
 
+## 2026-10-15
+
+* **Harvest**: extend [feasibility before committing to a plan](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md) beyond owner disagreements to inherited CI limitations: trace the age and independence of observations before planning hardware, rental or recurring manual work; request a bounded, authorized spike and make costly alternatives conditional on its result. Retain the unknown macOS outcome, existing safety/authorization bounds and one canonical home. Evidence: OKF proposal from oats-expert/oats-expert-qa-rigs, 2026-10-14; notes/macos-launch-claim-single-observation.md. The history search and absence of a known retry remain source-reported.
+* **Update**: broaden that lesson's title and navigation description, retaining its stable path, and clarify the related link from [comparison of a lead's own leaning](/nodes/oats-expert/lessons/compare-a-leaning-with-alternatives-before-specifying.md); the comparison lesson's substantive claim is unchanged.
+
 ## 2026-10-14
 
 * **Harvest**: add [verification of host-bound fixes on the reproducing host](/nodes/oats-expert/lessons/verify-host-bound-fixes-on-the-reproducing-host.md): separate implementation location from runtime evidence, compare an exact-head module with a no-fix control in the diagnostic repro, and distinguish completed behavior from missing or stale measurements. Preserve module-level and causal limits; name real-boundary regression coverage and capture-harness repair as elimination routes. Evidence: OKF proposal from oats-expert/oats-expert-app-blank-state; notes/cross-machine-fix-verification-by-repro.md. Results remain source-reported.
