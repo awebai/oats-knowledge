@@ -89,3 +89,15 @@ The source reports #1189 merged on 2026-10-15 and names
 reflog and shared-stash follow-ups. These are source-reported evidence
 pointers, not a maintained issue-status ledger. This harvest did not inspect
 the implementation discussions or reproduce the probes and test results.
+
+Verified by the knowledge maintainer at review of the harvest:
+awebai/oats#1189, merged 2026-10-15 and closing #1038, records that
+path-by-path recovery dropped reftable operation refs and the stash, dropped
+a link at a copied name, and carried file refs without their objects while
+`git status --porcelain` agreed. It carries a frozen operation-ref list never
+read from the source, checks each id as a full object id, carries named
+objects before writing refs, always clones the recovery with file-backed
+refs, refuses the retire when a Git step fails, and extends the before- and
+after-hook comparison through the copier's own readers. It refuses a
+reftable ref whose object the source lacks, since Git will not write it.
+#1181 (nested reftable reflogs) and #1182 (shared stash) were open at review.
