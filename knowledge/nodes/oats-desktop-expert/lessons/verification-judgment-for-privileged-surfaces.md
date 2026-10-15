@@ -3,7 +3,7 @@ type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
 description: Prove guards at real boundaries, include source-evaluating tests of main and renderer code, and contain native verification with enforced lifetime and output bounds rather than trusting test selection or a passing assertion.
 tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
-timestamp: 2026-10-14
+timestamp: 2026-10-15
 ---
 # Lesson
 
@@ -224,6 +224,30 @@ change deleted), so a removal is an inventory, pinned by absence tests that
 also assert one kept surface so they cannot pass on an empty scan, and the
 reachability suite is inverted rather than deleted.
 
+## Establish shipped reach before escalating a duplicated rule
+
+The 2026-10-15 spawn extraction supplied the reverse counterexample: two
+renderer rules disagreed, but the source found that the packaged shell always
+supplied the store, leaving the dialog's alternate runner reachable only in
+the view harness and tests. Reconciling those rules did not change what a
+shipped user saw. The source reports that the maintainer consequently treated
+that reconciliation as internal, without a release-note entry.
+
+Before presenting duplicated behavior as a product decision, establish which
+copy each shipped path reaches under its actual dependency wiring. A harness
+can make a fallback look like a second product path; its existence and tests
+do not establish user-visible disagreement. Conversely, no release note for
+this reconciliation was not a finding that the whole extraction was inert:
+[spawn session isolation](../decisions/preview-bounded-spawn-outcomes.md#a-separate-session-does-not-remove-spawns-deadline)
+was a separate behavior change. Release scope follows the actual effect, not
+the umbrella refactor's name.
+
+The elimination route is one shared rule where possible, plus composition
+coverage using the shipped dependency configuration. Test-only fallback
+coverage should be identified as such. Keep the reachability check as
+judgment before escalation, not a permanent map of renderer call sites or a
+blanket exemption from release notes.
+
 # Elimination route
 
 Individual traps belong in tests and harness structure in the repository;
@@ -251,3 +275,5 @@ Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-back
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, 2026-10-08; notes/long-spawn-transport-decision.md. The source reports the additive-field display failures in the parity work associated with [awebai/oats#815](https://github.com/awebai/oats/pull/815) and [#819](https://github.com/awebai/oats/pull/819). This harvest did not audit those implementations; the composition-test guidance is the elimination route, not a claim that every seam already has coverage.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-tui-readers, 2026-10-09; notes/packaged-window-launch-on-linux-ci.md; notes/spike-verdict-extraction-first.md. The source records one successful Linux launch in [Build Installers run 37978310828, job 113982106046](https://github.com/awebai/oats/actions/runs/37978310828/job/113982106046), from the unmerged spike [awebai/oats#857](https://github.com/awebai/oats/pull/857) at `f6d0ed7d`. This harvest did not rerun the launch. This later observation narrows the earlier packaging note's assumption that renderer reach had only static evidence in CI.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-client-spawn, 2026-10-15; notes/a-renderer-copy-the-packaged-app-never-runs.md. The source identifies the reachability finding and internal-change disposition in [awebai/oats#855, comment 6191749055](https://github.com/awebai/oats/issues/855#issuecomment-6191749055), during the spawn extraction reported in [#1241](https://github.com/awebai/oats/pull/1241). Reachability and maintainer disposition are source-reported; this harvest did not inspect the implementation or run the packaged app.
