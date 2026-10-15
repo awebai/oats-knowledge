@@ -57,3 +57,11 @@ source-reported, not independently audited by this harvest. The cited
 refinement records the proposed shape; it is not presented as proof of both
 maintainers' approval. See the separate
 [exact-shape approval lesson](/nodes/oats-kernel-expert/lessons/contract-approval-does-not-carry-across-refinement.md).
+
+Knowledge-maintainer review, 2026-10-15: the cited refinement comment states
+both reasons recorded here (a member ref canonicalizes to the member's key,
+and the ref parser refuses a bare key), and #1148 merged on 2026-10-14 with
+both maintainer sides approving the `--workspace-key` shape. The repository's
+contract states that keys are never parsed as references but not why; that
+rationale is what this decision adds. This records maintainer-lane agreement,
+not human acceptance.

@@ -55,3 +55,10 @@ and reports the maintainer's correction on
 The incident and correction are source-reported; this harvest did not audit
 the discussions or establish independent human acceptance. No existing
 human-accepted decision is superseded.
+
+Knowledge-maintainer review, 2026-10-15: on #1148 the lane maintainer's
+approval states that the PR merges only after the other side agrees to the
+refined contract on #1124, because the earlier yes covered the ref wording
+and the PR builds the key form. The other side's later approval names the
+key shape. This corroborates the reported correction; it is not a human
+acceptance of this lesson.
