@@ -95,7 +95,7 @@ tmux version's hooks fail or that SIGKILL cleanup is now guaranteed.
 The 2026-10-09 review below correctly described the then-unchanged plain
 attach path, but its warning that widening HUP/TERM/INT lifetime still needed
 a decision is superseded by the 2026-10-15 proposal. The source reports that
-the LFX maintainer treated coverage from before preparation through completed
+the LFX maintainer lane treated coverage from before preparation through completed
 cleanup as a repair without a contract change, implemented in
 [awebai/oats#1249](https://github.com/awebai/oats/pull/1249). Preserve the
 reason: exit meanings do not change merely because those handlers now cover
@@ -178,3 +178,17 @@ probe and green Node 22/Ubuntu CI with dash. The harvest verified the named
 notes against the captured hashes, but did not rerun probes, inspect the
 implementation or independently audit its merge and CI results. macOS was
 not run, and the tmux signal-handler behavior was not qualified per version.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-15,
+by reading [awebai/oats#1249](https://github.com/awebai/oats/pull/1249) and
+its discussion; nothing was run. It merged on 2026-10-15 at `26effa92` from
+head `89d5039a`, with APPROVE verdicts from both maintainer lanes bound to that
+head and CI reported green. Its diff installs the HUP/TERM/INT listeners
+before preparation and removes them only after cleanup, passes `detached: true`
+to every viewer tmux call but not to the client, and yields two `setImmediate`
+hops before spawning the client. Its description states no contract change,
+rejects inherited ignores and tmux-side self-destruction for the reasons
+above, lists the same four mutations, names Node 26.8.2 with tmux 3.7c
+locally and Node 22, dash and macOS as left to CI, and keeps plain-attach
+SIGQUIT and SIGKILL cleanup out of scope. The verdicts establish maintainer
+review, not human acceptance.
