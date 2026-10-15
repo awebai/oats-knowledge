@@ -1,5 +1,10 @@
 # oats-desktop-expert log
 
+## 2026-10-15
+
+* **Update**: refined [Terminal viewers](decisions/terminal-viewers-not-session-owners.md) with lease-local unshown-output preservation and the asymmetric cost behind a fail-closed anchored version gate. Replaced the earlier pending account with dated, owned, source-reported bridge shipment; kept parser parity and native xterm retirement explicitly unproven. Added regression routes without changing session ownership or native geometry.
+* **Harvest**: added [xterm internal-mirror upgrade liability](lessons/xterm-internal-mirrors-upgrade-liability.md), preserving the silent-fallback finding and why private-member survival is not behavioral compatibility. Kept the inspected fit, scroll and CSS couplings as dated examples, not an exhaustive code inventory; named public APIs, removal of copies and installed-dependency consumer tests as elimination routes.
+
 ## 2026-10-14
 
 * **Harvest**: added [Run-specific shard membership](lessons/shard-membership-is-run-specific.md), preserving the mistaken-attribution lesson and exact-run comparison, with CI inventory/reporting as the elimination route. Last output and a green rerun do not establish the culprit.
