@@ -85,6 +85,10 @@ to remove a claim whose holder has not been established safe to displace.
 
 # Boundaries and related decisions
 
+[A retire revision binds reviewed facts, not selected exceptions](/nodes/oats-kernel-expert/decisions/retire-revision-binds-reviewed-facts.md)
+refines which reviewed facts freshness covers and why exception lists were
+rejected. It preserves the distinction between exclusion, freshness and replay.
+
 This is retirement-against-retirement exclusion, not a claim that every
 lifecycle command or roster reader participates. Nor does a dead holder
 prove its hook children stopped. Cross-command coordination and surviving
