@@ -1,5 +1,6 @@
 # Decisions
 
+* [The pi fresh-home signal comes from runtime sessions filtered to the incarnation](pi-fresh-home-uses-runtime-sessions.md) - The pi bridge uses earlier filed sessions for the current home incarnation to gate its startup resume nudge, avoiding provider-template coupling, home markers and a new kernel-history dependency.
 * [Recovery preserves Git state across ref formats, not just paths](recovery-preserves-git-state-across-ref-formats.md) - Retirement recovery preserves a fixed set of Git operation refs and their available objects across ref formats, because path copies and matching status can silently omit them and the comparison must cover what the copier promises.
 * [A fixture's tmux directory preserves evidence of unfinished cleanup](fixture-tmux-directory-preserves-cleanup-evidence.md) - A fixture's private tmux directory stays outside its removable base because relocating it inside would let base deletion hide an unended fixture and its surviving server.
 * [Shorten SSH fixture paths without moving nested runs beyond the guard](ssh-fixture-paths-preserve-nested-run-visibility.md) - SSH socket pressure is handled in fixture path budgets rather than by lowering the runner's relocation threshold, because a nested run must remain visible to its outer leftover guard.
