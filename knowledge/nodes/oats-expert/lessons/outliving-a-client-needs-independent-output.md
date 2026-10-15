@@ -40,7 +40,11 @@ every CLI. This lesson adds the output-dependency review for cross-client
 integration; it neither changes that decision nor claims Desktop already
 uses the terminal client's output arrangement. An owner-lifeline pipe meant
 to end the bundled server is a different contract from output of kernel work
-that must survive it.
+that must survive it. Likewise, the kernel's
+[holderless-marker probes](/nodes/oats-kernel-expert/lessons/holderless-markers-cannot-support-safe-recovery.md)
+saw a stop finish after its reader closed its pipes. Such command-specific
+observations show a closed reader did not always break the work; they do
+not establish the guarantee this boundary removes the need for.
 
 # Elimination route
 
