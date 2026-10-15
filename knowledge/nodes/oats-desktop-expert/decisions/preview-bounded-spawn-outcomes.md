@@ -1,8 +1,8 @@
 ---
 type: Decision
 title: Spawn deadlines follow the confirmed preview, not the request lifetime
-description: Isolate spawn applies from client hang-up while retaining the confirmed-preview deadline, short response and typed compensation outcomes rather than treating transport loss as failure or permission to retry.
-tags: [desktop, spawn, deadlines, transport, compensation, truthfulness]
+description: Bind spawn work to the confirmed preview, isolate it from client hang-up, and use bounded targeted observation without weakening deadlines or typed compensation outcomes.
+tags: [desktop, spawn, deadlines, transport, compensation, truthfulness, observations]
 timestamp: 2026-10-15
 ---
 # Decision and rationale
@@ -70,6 +70,64 @@ creation, a returned child, deadline TERM/grace/KILL behavior, and receipt of
 the kernel's final envelope. Do not let a generic lifecycle timeout helper
 silently remove spawn's intentional interruption policy.
 
+# Reuse the confirmed preview and observe only the created deployment
+
+The source's 2026-10-15 refinement [3] removes redundant reads without
+removing prepare or weakening the decision fence. Previously, a 60-second
+preview cache could expire while the operator typed a task, adding a second
+live preview at prepare. Reuse the confirmed preview for the prepared
+intent's lifetime (300 seconds in this decision): the kernel's valued
+`--expect-decision` fence still refuses a mismatch with `E_DECISION_STALE`,
+which the client presents as drifted. Skipping prepare was rejected because
+prepare creates the intent record.
+
+This is fidelity to the confirmed decision, not a claim of global freshness.
+The kernel's [preview-bound observation exception](/nodes/oats-kernel-expert/decisions/preview-bound-apply-may-reuse-observations.md)
+owns apply-side `--max-age` admission and feature gating; it is not a general
+cache permission or permission to reuse the harness-package gate.
+
+After a created apply, observe **only the spawned deployment**, immediately,
+rather than queueing behind a full cycle over every deployment and a later
+poll. Use a separate on-demand observer with no timer and no loop: the
+background refresh remains the single recurring read loop. The chosen
+on-demand bound is two slots overall; for each deployment one read runs and
+one waits, and further requests coalesce onto the waiting read. This permits
+targeted work without making every spawn an unbounded fan-out.
+
+This changes nothing in [transport simplicity](loopback-trust-boundary-and-transport-simplicity.md#transport-simplicity):
+its one refresh in flight governs the recurring snapshot refresh, which keeps
+it. The post-spawn reads are a separate, bounded path beside that cycle, run
+out of process like it and never on the request path that carries keystrokes.
+
+Stamp observations when they start; the newest start wins publication. An
+older background cycle must not overwrite a newer post-spawn observation.
+Only a successful observation that publishes satisfies the created answer's
+observation wait; a failed, busy or kept result does not count as fresh
+publication. Bound that wait to the smaller of five seconds and the time
+remaining in the 50-second answer window. It does not extend the work's
+preview-derived deadline or turn an unobserved row into a failed spawn.
+
+On a created outcome, the renderer follows with an immediate read. Terminal
+opening may reuse the roster answer that showed readiness only while it is
+still the newest answer for the same workspace. Creation alone is not
+attachment readiness; retain the [async outcome distinctions](../lessons/asynchronous-intent-and-truthful-outcomes.md).
+
+A new backend-to-renderer push channel was rejected: the bounded wait gets
+the desired improvement without another transport. A faster background
+refresh was also rejected because it spends CPU on every deployment all the
+time. This keeps [transport simplicity](loopback-trust-boundary-and-transport-simplicity.md#transport-simplicity)
+and asynchronous collection, rather than moving synchronous roster work
+onto input handling. The addition is a bounded on-demand read, not a second
+refresh loop or a change to the existing session/deadline policy.
+
+Enforce these choices in composition regressions: matching, stale and
+expired preview cases; bounded/coalesced reads across deployments;
+overlapping observations completed out of order; non-publishing results;
+and a nearly exhausted answer window. Those are enforcement routes, not a
+claim that this harvest audited their coverage. The
+[latency lesson](../lessons/measure-spawn-latency-without-spawning.md) owns the
+measurement method and the limits of the reported gains.
+
 # A compensated failure is a known outcome
 
 Gate this interpretation on the declared `worktree-event` feature, not a
@@ -134,3 +192,25 @@ Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-client-spawn
    at `60ca0ba1`, with a Changed release-note entry. Agreement, implementation
    and release-note disposition are source-reported; this harvest did not
    audit the implementation or reproduce signal behavior.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-client-spawn, 2026-10-15; notes/a-spawn-reads-only-what-it-changed.md.
+
+3. The source identifies the investigation and LFX maintainer's K1/K2
+   decisions in [awebai/oats#1246](https://github.com/awebai/oats/issues/1246),
+   and reports the Desktop changes in [#1260](https://github.com/awebai/oats/pull/1260)
+   and [#1263](https://github.com/awebai/oats/pull/1263), with kernel support
+   in [#1259](https://github.com/awebai/oats/pull/1259). Acceptance,
+   implementation and measurements are source-reported; no separate human
+   acceptance receipt is established, and this harvest did not inspect those
+   implementations or run Desktop.
+4. Checked by the knowledge maintainer at review of the harvest on
+   2026-10-15. The merged #1260 (2026-10-15) states prepare's 300-second
+   reuse with the `--expect-decision` fence unchanged, the on-demand
+   post-spawn observer with no timer or loop, newest-start publication, the
+   created answer's wait of at most min(5 s, the remainder of the answer
+   window, never past 50 s), and at most two post-spawn reads beside the
+   cycle's own, one running and one waiting per deployment. It reports the
+   decision as approved by the LFX maintainer. The merged #1263 (2026-10-15)
+   passes `--max-age` on apply only where the kernel advertises
+   `spawn-apply-max-age`. No separate human acceptance is established, and
+   the tests these PRs name were not read or run here.
