@@ -28,9 +28,9 @@ so the rejected approach does not remain advice for the next reader.
 
 # What this adds to the existing experiment lessons
 
-[Test feasibility before choosing between owners](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md)
-addresses a disagreement that a bounded CI spike can settle. This lesson
-requires no disagreement: the assumption belongs to the lead itself, and
+[Test feasibility before committing to a plan](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md)
+addresses testable feasibility disputes and inherited CI limitations. Here
+the assumption belongs to the lead itself, and
 the important evidence may be state restoration or a visible interaction,
 not CI. Its distinct check is a comparison of alternatives under common
 observations before the spec fixes the choice. It grants no authorization
