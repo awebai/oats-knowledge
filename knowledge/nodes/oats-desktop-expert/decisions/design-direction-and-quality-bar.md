@@ -55,6 +55,21 @@ The [per-theme stroke-weight decision](per-theme-terminal-stroke-weight.md)
 records a later native-fidelity calibration that leaves cell geometry intact;
 it does not supersede the geometry rule above.
 
+# Applications of the quality bar
+
+The source-reported product-owner choices from the 2026-10-14 Teams and
+Setup review apply this direction without superseding it:
+
+- [Team instance scope](team-instance-lists-state-their-observation-scope.md):
+  a partial view names whose instances and which machines it covers.
+- [Chrome typography](chrome-typography-follows-information-role.md):
+  names and secondary machine strings have distinct roles; terminal styling
+  stays outside this hierarchy.
+- [Overview and developer disclosure](technical-models-use-overview-and-developer-disclosure.md):
+  purpose comes before mechanism, with technical detail available on demand.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-teams-design, 2026-10-15; notes/teams-setup-design-direction.md.
+
 # Current contracts
 
 - [Current souls/oats-desktop-expert/AGENTS.md](https://github.com/awebai/oats/blob/main/souls/oats-desktop-expert/AGENTS.md)
