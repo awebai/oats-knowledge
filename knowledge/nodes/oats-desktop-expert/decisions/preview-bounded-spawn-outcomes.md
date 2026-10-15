@@ -94,6 +94,11 @@ on-demand bound is two slots overall; for each deployment one read runs and
 one waits, and further requests coalesce onto the waiting read. This permits
 targeted work without making every spawn an unbounded fan-out.
 
+This changes nothing in [transport simplicity](loopback-trust-boundary-and-transport-simplicity.md#transport-simplicity):
+its one refresh in flight governs the recurring snapshot refresh, which keeps
+it. The post-spawn reads are a separate, bounded path beside that cycle, run
+out of process like it and never on the request path that carries keystrokes.
+
 Stamp observations when they start; the newest start wins publication. An
 older background cycle must not overwrite a newer post-spawn observation.
 Only a successful observation that publishes satisfies the created answer's
@@ -198,3 +203,14 @@ Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-client-spawn
    implementation and measurements are source-reported; no separate human
    acceptance receipt is established, and this harvest did not inspect those
    implementations or run Desktop.
+4. Checked by the knowledge maintainer at review of the harvest on
+   2026-10-15. The merged #1260 (2026-10-15) states prepare's 300-second
+   reuse with the `--expect-decision` fence unchanged, the on-demand
+   post-spawn observer with no timer or loop, newest-start publication, the
+   created answer's wait of at most min(5 s, the remainder of the answer
+   window, never past 50 s), and at most two post-spawn reads beside the
+   cycle's own, one running and one waiting per deployment. It reports the
+   decision as approved by the LFX maintainer. The merged #1263 (2026-10-15)
+   passes `--max-age` on apply only where the kernel advertises
+   `spawn-apply-max-age`. No separate human acceptance is established, and
+   the tests these PRs name were not read or run here.

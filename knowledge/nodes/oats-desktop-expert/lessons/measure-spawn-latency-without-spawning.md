@@ -53,7 +53,8 @@ spawn and 11–16 seconds for an expert spawn. Its phase ranges were aweb hooks
 2.6–3.7 seconds, OKF hooks 0.6–5.1 seconds, kernel live re-resolution
 1.4–2.4 seconds, Desktop's prepare miss 1.4–2.4 seconds and post-apply wait
 1–3 seconds. **These are measured parts added together, not one timed
-end-to-end run.** Host load varied from 2.4 to 9. They explain the ownership
+end-to-end run.** Reads were timed at load 2.4–3.7, and the later fixture
+comparisons ran at 3.0–9.0. They explain the ownership
 judgment on that deployment, not permanent budgets or universal bottlenecks.
 
 For a Desktop before/after comparison, interleave builds press by press on
@@ -86,3 +87,10 @@ Measurements and implementation are source-reported, not reproduced or
 independently audited by this harvest. The accepted kernel lesson linked
 above owns the later child-cost correction from #1259; this Desktop lesson
 owns the phase-ownership and comparison judgment.
+
+Checked by the knowledge maintainer at review of the harvest on 2026-10-15:
+the cited #1246 comment gives the same phase ranges, owners and totals, and
+states that nothing was spawned on the measured deployment and that the sums
+are additions of measured parts, not one timed run. The merged #1260 reports
+the interleaved headless fixture runs, five per cell, and states that kernel
+and provider costs fall outside them. Nothing was reproduced here.

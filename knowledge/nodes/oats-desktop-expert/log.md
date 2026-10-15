@@ -2,6 +2,7 @@
 
 ## 2026-10-15
 
+* **Review**: stated that the [post-spawn reads](decisions/preview-bounded-spawn-outcomes.md#reuse-the-confirmed-preview-and-observe-only-the-created-deployment) leave the transport decision's one refresh in flight unchanged, separated the two load ranges in the [latency lesson](lessons/measure-spawn-latency-without-spawning.md), and added maintainer-checked citations from awebai/oats#1246, #1260 and #1263 (knowledge-maintainer review of the harvest).
 * **Harvest**: added [Spawn latency attribution](lessons/measure-spawn-latency-without-spawning.md), preserving the phase-owner table, evidence without another real-deployment spawn and interleaved fixture comparison. Kept measured-part sums distinct from end-to-end timings; dropped the initial Git attribution in favor of the accepted kernel probe-cost correction.
 * **Update**: refined [Preview-bounded spawn outcomes](decisions/preview-bounded-spawn-outcomes.md#reuse-the-confirmed-preview-and-observe-only-the-created-deployment) with intent-lifetime preview reuse, the retained decision fence and bounded post-spawn observation of only the changed deployment. Recorded start-ordered publication, the separate answer wait and rejected push/faster-loop/skip-prepare alternatives; preserved session isolation, deadline authority and typed compensation.
 
