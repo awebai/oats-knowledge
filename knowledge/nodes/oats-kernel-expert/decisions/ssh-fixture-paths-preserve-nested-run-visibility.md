@@ -60,3 +60,12 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-env, 20
    paths. These are source-reported observations, not independently audited
    CI, implementation or acceptance receipts; no explicit human acceptance
    is inferred.
+2. Checked by the knowledge maintainer at review of the harvest. The
+   repository's
+   [implementation documentation](https://github.com/awebai/oats/blob/main/docs/implementation.md)
+   after [awebai/oats#1152](https://github.com/awebai/oats/pull/1152) (merged
+   2026-10-15) keeps the 20-character relocation to `/tmp`, states the
+   resolved-parent limit of 12 characters with the warning failure beyond it,
+   and names `test/left-behind.test.mjs` as pinning the rule with nested runs.
+   The rejection of the lower threshold itself appears in neither the PR nor
+   the docs; it rests on the source's note.

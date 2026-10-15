@@ -10,7 +10,7 @@ timestamp: 2026-10-15
 Fix a leftover by ending the fixture, not by relocating its private
 `TMUX_TMPDIR` inside the fixture's base. The external directory is deliberate:
 it leaves evidence for the root test run's leftover guard when a test deletes
-its base without ending the fixture [1]. External here means outside that
+its base without ending the fixture [1][2]. External here means outside that
 fixture base, not permission to move it outside the test run's guarded scope.
 
 Putting the tmux directory inside the base was rejected because recursive
@@ -55,3 +55,14 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-env, 20
    merge and test outcomes are source-reported; the harvest did not inspect
    the source work tree, replay the measurement or independently audit the PR.
    No explicit human acceptance is inferred.
+2. Verified by the knowledge maintainer at review of the harvest.
+   [awebai/oats#1152](https://github.com/awebai/oats/pull/1152) merged on
+   2026-10-15; its description gives the measured cause (files that removed
+   their fixture's base without ending it) and records the rejection of moving
+   `TMUX_TMPDIR` inside the base because the outside leftover is the sign of an
+   unended fixture. The repository's
+   [implementation documentation](https://github.com/awebai/oats/blob/main/docs/implementation.md)
+   now states the rule (the private directory is made beside the base, never
+   inside it, and the root run fails on it) but not the rejected relocation,
+   which is why that rationale is kept here. This establishes maintainer
+   review of the merged PR, not human acceptance.
