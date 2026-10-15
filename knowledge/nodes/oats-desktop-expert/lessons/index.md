@@ -2,6 +2,7 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [Pending lifecycle state is not evidence of failure](pending-lifecycle-state-is-not-failure.md) - Require producer liveness to interpret held lifecycle rows, keep unknown retirement outcomes non-failing with secondary recovery, and reconcile each local apply only against a later covering observation.
 * [Attribute spawn latency before choosing the component to fix](measure-spawn-latency-without-spawning.md) - Combine existing phase evidence with preview tracing, caller profiling and repeated read timings to assign spawn costs to their owners without creating an instance on the measured deployment.
 * [xterm upgrades must revalidate private reads and copied behavior](xterm-internal-mirrors-upgrade-liability.md) - A major xterm upgrade can leave private reads and copied algorithms working syntactically but wrong semantically, so qualify those dependencies against the new version rather than trusting a green build.
 * [A shard number does not identify the same tests after main moves](shard-membership-is-run-specific.md) - Before attributing a CI hang to a Desktop change, establish test membership in that exact run rather than treating absence from one shard's log as evidence of a hang.
