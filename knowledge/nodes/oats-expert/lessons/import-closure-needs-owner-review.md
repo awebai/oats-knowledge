@@ -1,9 +1,9 @@
 ---
 type: Lesson
-title: Review shared code with its owner before estimating a second client
-description: Before estimating a second client, have the owner review shared modules and their callers for client-specific language, composition, transaction rules and runtime assumptions; repeated gaps call for a broader audit.
-tags: [integration, shared-code, planning, second-consumer]
-timestamp: 2026-10-10
+title: Review shared-client prerequisites with their owner before depending on them
+description: Review shared modules and callers with their owner before estimating a second client, then isolate and test small shared prerequisites for owner review at an exact commit before building their consumers.
+tags: [integration, shared-code, planning, second-consumer, review]
+timestamp: 2026-10-15
 ---
 # Import closure is not an interface review
 
@@ -80,6 +80,31 @@ in [cross-workstream delivery](/nodes/oats-maintainer/stewardship/multi-workstre
 and shared-code packaging rationale lives in the
 [Desktop decision](/nodes/oats-desktop-expert/decisions/shared-code-keeps-one-relative-path.md).
 
+# During the build, make the shared prerequisite the first reviewable commit
+
+The 2026-10-15 refinement carries the same owner review into implementation.
+When a client PR needs a small shared-interface change that can properly
+travel in that PR, put the prerequisite first as its own tested commit. Ask
+the owning lead to read that exact commit before building the client code
+on it. The PR body should identify the shared area changed and the commit
+the owner reviewed, rather than implying that a whole client PR received an
+unspecified owner approval.
+
+The source reports that this kept the owner's review focused on one small
+change while its shape was still cheap to alter. The client work stayed in
+one PR rather than needing a separate prerequisite in another lane's queue.
+This is a useful sequencing choice, not a rule that every cross-owner change
+must fit one PR or that review always removes queueing. Changes requiring
+separate delivery or breaking-contract ordering still follow the
+maintainer's protocol. An owner read of the prerequisite is not approval of
+later consumer code or a replacement for whole-PR review.
+
+This extends, rather than replaces, the pre-estimate caller audit above:
+one review discovers the shared work; the later exact-commit read checks
+what will actually be built on. A concrete example is the client's
+[output-lifetime boundary](/nodes/oats-expert/lessons/outliving-a-client-needs-independent-output.md),
+where a shared execution seam was needed without copying lifecycle rules.
+
 # Elimination route
 
 Resolve concrete gaps in the shared interface or the consumer's explicit
@@ -88,7 +113,11 @@ for missing client vocabulary and for child processes launched under a
 contaminated instance environment. Such tests can prevent known regressions;
 they cannot decide which inherited assumptions matter to a not-yet-built
 consumer or whether the estimate presented to maintainers covers them.
-That up-front judgment is the durable lesson. For newly found caller rules,
+That up-front judgment is the durable lesson. During implementation, tests
+pin the shared prerequisite but cannot supply the owning expert's design
+judgment; the existing specification and review guidance is the place to
+operationalize that handoff, not a second gate maintained in knowledge.
+For newly found caller rules,
 prefer one owner-reviewed implementation over a second client's copy, and
 pin its composition and transaction behavior with regressions. Existing
 Desktop rationale for [truthful async outcomes](/nodes/oats-desktop-expert/lessons/asynchronous-intent-and-truthful-outcomes.md)
@@ -121,3 +150,14 @@ boundary audit and the generalist's spot-check of three files. These are
 source-reported findings, not a code audit by this harvest. The proposed
 staging checkpoint was a recommendation awaiting maintainer judgment, not
 an accepted direction or evidence that extraction shipped.
+
+Evidence: OKF proposal from oats-expert/polaris-oats-expert-tui, 2026-10-15;
+notes/shared-home-change-goes-first-with-its-owner-read.md.
+
+The source reports that the first commit of
+[awebai/oats#1212](https://github.com/awebai/oats/pull/1212), `605d1b24`,
+contained the shared prerequisite and its test, and that the shared area's
+lead accepted it on 2026-10-14 before the client code was built. The reported
+PR body identified the shared change and owner read. Review, sequencing and
+merge remain source-reported, not independently audited by this harvest;
+no new human acceptance or merge authority is inferred.

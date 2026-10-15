@@ -1,5 +1,12 @@
 # oats-expert log
 
+## 2026-10-15
+
+* **Harvest**: add [output independence for changes that outlive a client](/nodes/oats-expert/lessons/outliving-a-client-needs-independent-output.md): detachment and no signals leave a broken-pipe dependency unless output survives the client reader. Preserve rejected alternatives and post-exit-write regressions; link the Desktop no-child-signal decision without rewriting it or claiming Desktop parity. Evidence: OKF proposal from oats-expert/polaris-oats-expert-tui; notes/a-change-a-client-lets-go-writes-to-files.md. Results remain source-reported.
+* **Harvest**: add [state-aware real-terminal waits](/nodes/oats-expert/lessons/real-terminal-waits-prove-the-observed-state.md): establish the intended view and live fixture, account for joined-capture boundaries, and wait for closing transitions before the next key. Name harness controls and regressions as the elimination route, not a permanent manual checklist. Evidence: OKF proposal from oats-expert/polaris-oats-expert-tui; notes/real-terminal-waits-must-prove-the-state-they-claim.md; notes/capture-pane-j-glues-output-onto-a-full-typed-row.md. Observations remain source-reported.
+* **Update**: extend [shared-client owner review](/nodes/oats-expert/lessons/import-closure-needs-owner-review.md) from the pre-estimate audit to a small tested first commit read at its hash before consumer implementation. Preserve the earlier caller-audit rationale, separate-delivery limits and maintainer authority; update its title and index description without changing its canonical path. Evidence: OKF proposal from oats-expert/polaris-oats-expert-tui; notes/shared-home-change-goes-first-with-its-owner-read.md.
+* **Update**: link [restore-baseline controls](/nodes/oats-expert/lessons/control-before-changing-a-restore-baseline.md) to the terminal-observation lesson; its causal-investigation rule is unchanged.
+
 ## 2026-10-14
 
 * **Harvest**: add [verification of host-bound fixes on the reproducing host](/nodes/oats-expert/lessons/verify-host-bound-fixes-on-the-reproducing-host.md): separate implementation location from runtime evidence, compare an exact-head module with a no-fix control in the diagnostic repro, and distinguish completed behavior from missing or stale measurements. Preserve module-level and causal limits; name real-boundary regression coverage and capture-harness repair as elimination routes. Evidence: OKF proposal from oats-expert/oats-expert-app-blank-state; notes/cross-machine-fix-verification-by-repro.md. Results remain source-reported.
