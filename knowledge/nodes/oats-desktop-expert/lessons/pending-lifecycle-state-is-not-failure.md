@@ -65,6 +65,14 @@ code/contract enforcement routes, not claims that this harvest verified
 shipped coverage. The retained expertise is the failed inference and the
 reason conservative presentation still needs a reachable recovery path.
 
+# Related
+
+[A client probe must not turn kernel unknown into a confident state](../decisions/kernel-unknown-is-not-refined-by-a-client-probe.md)
+owns the roster-liveness counterpart: an unknown row is not refined into a
+confident state. [An unreached host keeps Stop and Retire available](../decisions/unreached-host-actions-use-the-plan.md)
+keeps recovery reachable on unknown remote rows through a fresh plan; this
+lesson applies the same stance to an unknown retirement outcome.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-retired-tabs, 2026-10-15; notes/retire-pending-reads-as-failure.md.
