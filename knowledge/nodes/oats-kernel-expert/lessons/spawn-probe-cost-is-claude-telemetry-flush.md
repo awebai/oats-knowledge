@@ -73,3 +73,16 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-spawn-resoluti
    [#1259](https://github.com/awebai/oats/pull/1259). Measurements, telemetry
    attribution, channel behavior, implementation and tests are source-reported;
    this harvest did not reproduce them or audit the implementation.
+2. Checked by the knowledge maintainer at review of the harvest on
+   2026-10-15. #1246's breakdown attributed about 0.9 s of `spawnSync` self
+   time to roughly 20 Git calls into the remote cache; the merged #1259
+   (2026-10-15) reports the child-process timeline that moved it to the
+   plugin probe, with the same per-call Git, probe and `DISABLE_TELEMETRY=1`
+   figures on Claude 2.1.288. Its diff sets the variable on the plugin listing
+   alone, with a code comment that it is never a launch's because it turns
+   channels off; adds `test/harness-probe-env.test.mjs` and changes
+   `test/pane-environment.test.mjs`; and lists the four rejected alternatives
+   as considered and not built. The repository's docs state the probe
+   override, not the misattribution or the rejections, which this lesson
+   preserves. The tests' assertions were not read and nothing was run or
+   reproduced here.

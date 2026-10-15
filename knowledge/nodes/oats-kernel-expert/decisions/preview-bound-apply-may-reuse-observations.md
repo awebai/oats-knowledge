@@ -63,3 +63,13 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-spawn-resoluti
    implementation merged in [#1259](https://github.com/awebai/oats/pull/1259).
    Maintainer acceptance and shipment are source-reported, not independently
    audited by this harvest. No separate human acceptance is established.
+2. Checked by the knowledge maintainer at review of the harvest on
+   2026-10-15. On #1246 the decision on K1 is signed as the LFX maintainer's:
+   accepted behind the `spawn-apply-max-age` feature, the decision fence
+   unchanged, the client passing `--max-age` only when the feature is
+   advertised. This review did not establish it as a human acceptance. The
+   merged #1259 (2026-10-15) admits the flag in the shared refusal rule,
+   keeps `--max-age` refused on an apply without `--expect-decision` or with
+   no value after it, and still refuses it through `--server`; its
+   description states that the answer carries no `observation` block. The
+   test assertions behind those cases were not read here.
