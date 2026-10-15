@@ -1,5 +1,7 @@
 # Decisions
 
+* [A consumer filter takes the identity the kernel already reported](consumer-filter-takes-the-reported-identity.md) - A Desktop-facing roster filter accepts the reported workspace key rather than reinterpreting a repository ref, because the consumer holds host identity and a member ref can resolve to a different key.
+
 * [A provider-declared launch variable is the provider's to decide](declared-launch-variable-is-the-providers.md) - A capability-declared launch variable omitted by both the hook payload and explicit launch configuration is removed at the launch boundary, because ambient sources are open-ended and provider-specific or tmux-only fixes cannot close the class.
 * [The trust writer refuses metadata it cannot preserve](trust-writer-refuses-unpreserved-metadata.md) - The native trust writer retains verified atomic replacement rather than stripping or speculatively copying file metadata, with a check-specific refusal and the harness's own trust dialog as the supported alternative.
 * [A routed preview preserves caller state and includes caller-only consequences](routed-preview-preserves-caller-state.md) - Routed spawn preview requires advertised host support, keeps apply's caller-side refusals, adds consequences only the caller knows, and never turns a preview answer into a saved route.

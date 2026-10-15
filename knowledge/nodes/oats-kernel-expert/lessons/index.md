@@ -1,5 +1,7 @@
 # Lessons
 
+* [Contract approval does not carry across a refinement](contract-approval-does-not-carry-across-refinement.md) - The kernel expert must obtain both maintainer sides' agreement to a changed contract shape before building it, because approval of earlier wording and a coordinating expert's agreement do not approve the refinement.
+
 * [Verified recovery does not prove that a home stays removed](verified-recovery-does-not-prove-home-removal.md) - Stop-retire overlap preserved work in the reported probes but could recreate or strand a receipt-only home, so cross-command exclusion must cover removal and late writes as well as preservation.
 * [A holderless lifecycle marker cannot support safe recovery](holderless-markers-cannot-support-safe-recovery.md) - Killed start and stop probes left permanent busy markers, while removing a live start's marker admitted two unmanageable harnesses, so recovery needs holder evidence rather than an age or deletion hint.
 * [Narrow race evidence needs unpaused controls and bounded fixtures](narrow-race-evidence-needs-unpaused-controls.md) - An exact CLI pause establishes a possible interleaving, not its ordinary reachability, so pair it with unpaused trials and measured window width while bounding fixture resource use.
