@@ -1,5 +1,6 @@
 # Lessons
 
+* [Interim docs create migration inputs for the later command](interim-docs-create-migration-inputs.md) - When interim docs teach a manual artifact that a later command will manage, name those copies in the command spec, justify adoption or refusal from their authorship and ownership, and plan the migration text with the command's docs follow-up.
 * [Outliving a client requires independent output, not only no signals](outliving-a-client-needs-independent-output.md) - A lifecycle change promised to outlive its client needs output destinations independent of that client's readers, because detachment and a no-signal policy alone leave a broken-pipe failure path.
 * [Real-terminal waits must prove the state they observe](real-terminal-waits-prove-the-observed-state.md) - Before trusting a real-terminal content or absence check, establish the intended view and fixture state, account for capture transformations, and wait for a closing transition before sending the next key.
 * [Verify host-bound fixes on the reproducing host](verify-host-bound-fixes-on-the-reproducing-host.md) - When the fixing host lacks the runtime that exposes a bug, obtain exact-head evidence on the reproducing host using the same minimal repro and a no-fix control, with harness failures reported separately.
