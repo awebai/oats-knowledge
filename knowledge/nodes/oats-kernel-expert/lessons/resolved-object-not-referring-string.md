@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Identity and location belong to the resolved object, never to the string that named it
-description: Every containment or ownership guard resolves the real destination and compares canonical objects; a lexical path or an instance name proves nothing about where creation lands or which instance is meant.
+description: Containment and ownership guards compare resolved objects rather than referring strings, including native on-disk directory spelling for case-insensitive identity checks and descriptor identity for reads.
 tags: [kernel, security, containment, symlinks, identity, spawn]
-timestamp: 2026-07-28
+timestamp: 2026-10-15
 ---
 # Lesson
 
@@ -80,6 +80,32 @@ key, store and route keyed on it; fail-closed at the action does not rescue
 a wrong offer. The roster now joins by name and home, and a colliding routed
 spawn is refused or reported rather than overwriting.
 
+# Case-insensitive directory identity needs native resolution
+
+The source reports a 2026-10-14 macOS counterexample to treating any realpath
+result as canonical directory spelling: Node's `fs.realpathSync` retained the
+caller's letter case for two spellings of the same existing extra-tree
+directory, while `fs.realpathSync.native` returned the same on-disk spelling
+for both [3]. A child attached through the differently cased spelling was
+missed by the owner lookup, and tree removal proceeded without the attached
+child refusal. Resolving links alone had not closed the identity check.
+
+For existing-directory ownership and attachment comparisons in this boundary,
+use native realpath results rather than the caller's casing. This sharpens
+"compare realpaths" above; it is not a claim that pathname equality proves
+all filesystem object identity or that a path stays stable after a check.
+Keep absent and dangling paths as distinct states. The source's retained
+lexical comparison for vanished paths is not evidence of an existing object
+and must not turn failed resolution into an affirmative ownership proof.
+
+The elimination route is the kernel's shared path-identity logic plus
+regressions that attach through differently cased aliases and exercise both
+tree-removal guards and retirement-plan coverage. The reported regression
+runs only on a case-insensitive filesystem: a green run that skips it on a
+case-sensitive runner supplies no evidence for this failure mode. Obtain
+and identify the case-insensitive run rather than relying on the host's OS
+name alone. This preserves the descriptor and check-to-effect limits above.
+
 # Related
 
 [Separate operational home from granted work authority](../decisions/home-work-authority.md);
@@ -90,3 +116,4 @@ spawn is refused or reported rather than overwriting.
 
 1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (placement-guards-resolve-destination, names-are-not-identity, path-first-resolution-round-trip, symlink-containment-walker-throws, canonical-worktree-verification, adopted-writes-never-follow-a-symlink, captured-session-storage-identity; principle only).
 2. Migrated from agents/cli-dev/soul/knowledge/lessons/guard-the-projection-not-just-the-action.md @ 7838d3ca.
+3. Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-lifecycle, 2026-10-14; notes/compare-existing-paths-in-their-on-disk-spelling.md. The source attributes the reproduction to adversarial review of [awebai/oats#964](https://github.com/awebai/oats/issues/964), implemented in [#1186](https://github.com/awebai/oats/pull/1186), and reports second-round approval and macOS [run 38595416560](https://github.com/awebai/oats/actions/runs/38595416560). The run and repair are source-reported, not independently reproduced or audited by this harvest; no universal realpath behavior or current shipment status is certified.

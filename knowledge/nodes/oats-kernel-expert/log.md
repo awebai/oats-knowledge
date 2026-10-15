@@ -1,5 +1,10 @@
 # oats-kernel-expert log
 
+## 2026-10-15
+
+* **Harvest**: added [A retire revision binds reviewed facts, not selected exceptions](/nodes/oats-kernel-expert/decisions/retire-revision-binds-reviewed-facts.md) from the oats-kernel-expert-lifecycle proposal and named revision note. Preserve the rejected conditional/missing-pairs alternatives, accepted one-time invalidation cost, stale-plan and receipt constraints, code-derived coverage and derivation-counterexample tests. Record the extra-tree only-when-present choice as explicitly superseded source history; the whole-run claim decision gains a related link, not a new exclusion guarantee. Agreement, probes and implementation remain source-reported, with no inferred human acceptance.
+* **Update**: refined [Identity and location belong to the resolved object](/nodes/oats-kernel-expert/lessons/resolved-object-not-referring-string.md) with the same source's named on-disk-spelling note. Preserve the reported macOS case-alias guard failure, native-resolution remedy and case-insensitive regression route, without turning lexical fallback for vanished paths into ownership proof or pathname equality into a universal object-identity claim. Existing descriptor and race limits remain; no accepted policy is superseded. Patch-equal verdict carry is dropped as pending maintainer harvest #98; baseline-failure comparison is dropped as already canonical in the maintainer review protocol through harvest #100, not copied into this node.
+
 ## 2026-10-14
 
 * **Review**: knowledge-maintainer review of the launch-environment harvest added a maintainer-verified citation to [A provider-declared launch variable is the provider's to decide](/nodes/oats-kernel-expert/decisions/declared-launch-variable-is-the-providers.md) from awebai/oats#1123 and the merged #1135. It records maintainer-lane agreement, not human acceptance. It also pointed the maintainer node's launch-check decision at this concept, so it no longer calls the unset rule only proposed. No decision is superseded.
