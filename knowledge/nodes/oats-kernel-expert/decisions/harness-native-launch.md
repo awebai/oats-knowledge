@@ -84,6 +84,10 @@ pane) hold for every harness:
 
 # Related
 
+[The pi fresh-home signal comes from runtime sessions](pi-fresh-home-uses-runtime-sessions.md)
+records why the startup resume nudge uses incarnation-filtered runtime history,
+not provider prose, a home marker or kernel launch counts.
+
 [A provider-declared launch variable is the provider's to decide](declared-launch-variable-is-the-providers.md)
 records why an omitted declared name is removed at the launch boundary rather
 than inherited; this is not general isolation of native harness settings.
