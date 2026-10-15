@@ -82,6 +82,8 @@ spawn is refused or reported rather than overwriting.
 
 # Related
 
+[A consumer filter takes the identity the kernel already reported](/nodes/oats-kernel-expert/decisions/consumer-filter-takes-the-reported-identity.md) applies the identity distinction at the CLI boundary without adding a filesystem containment rule.
+
 [Separate operational home from granted work authority](../decisions/home-work-authority.md);
 [Live lineage is deliberately bounded](../decisions/bounded-live-lineage.md);
 [Integrity, origin and consent are different proofs](../decisions/trust-approval-and-consent-boundaries.md).
