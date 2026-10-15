@@ -2,6 +2,7 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [Attribute spawn latency before choosing the component to fix](measure-spawn-latency-without-spawning.md) - Combine existing phase evidence with preview tracing, caller profiling and repeated read timings to assign spawn costs to their owners without creating an instance on the measured deployment.
 * [xterm upgrades must revalidate private reads and copied behavior](xterm-internal-mirrors-upgrade-liability.md) - A major xterm upgrade can leave private reads and copied algorithms working syntactically but wrong semantically, so qualify those dependencies against the new version rather than trusting a green build.
 * [A shard number does not identify the same tests after main moves](shard-membership-is-run-specific.md) - Before attributing a CI hang to a Desktop change, establish test membership in that exact run rather than treating absence from one shard's log as evidence of a hang.
 * [Splitting an agreed rule across PRs also needs agreement](staging-an-agreed-rule-needs-agreement.md) - A Desktop implementation plan cannot silently narrow an agreed rule; obtain agreement on omitted cases before building a staged delivery and verify every included case through its actual defaults.
