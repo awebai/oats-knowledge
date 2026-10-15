@@ -84,6 +84,10 @@ pane) hold for every harness:
 
 # Related
 
+[Spawn probe telemetry can masquerade as Git cost](/nodes/oats-kernel-expert/lessons/spawn-probe-cost-is-claude-telemetry-flush.md)
+records why the probe's telemetry optimization must not leak into the launch
+environment; it does not change native-launch policy.
+
 [The pi fresh-home signal comes from runtime sessions](pi-fresh-home-uses-runtime-sessions.md)
 records why the startup resume nudge uses incarnation-filtered runtime history,
 not provider prose, a home marker or kernel launch counts.

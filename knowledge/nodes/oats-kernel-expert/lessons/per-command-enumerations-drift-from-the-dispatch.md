@@ -3,7 +3,7 @@ type: Lesson
 title: A CLI decision made in two layers, or copied per command, drifts
 description: Keep CLI policy in one authoritative rule, pin unavoidable mirrors, make fallbacks structural, and check a proposed writer's flags against write semantics before approval.
 tags: [kernel, cli, dispatch, guards, flags, servers, review]
-timestamp: 2026-10-13
+timestamp: 2026-10-15
 ---
 # Lesson
 
@@ -75,6 +75,18 @@ semantic check in specification-authoring guidance, or check executable grammar
 examples against the shared policy where supported. No new tooling is claimed
 here. The lasting lesson is when and against which operations to check a draft,
 not a second table of accepted flags.
+
+## Explicit refinement: preview-bound spawn apply (2026-10-15)
+
+The earlier incident's read-only observation-reuse boundary now has one
+source-reported exception: [a preview-bound spawn apply may reuse observations](/nodes/oats-kernel-expert/decisions/preview-bound-apply-may-reuse-observations.md).
+That decision owns the exception and its rationale: a valued decision fence
+binds apply to the confirmed preview. The launch-preference writers above
+still refuse reuse, as does an apply without that fence. Keep the historical
+account and shared admission rule; do not treat this refinement as permission
+to copy read-side flags into other writers.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-spawn-resolution-speed, 2026-10-15; notes/preview-bound-apply-may-reuse-observations.md.
 
 # Related
 
