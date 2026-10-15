@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Spawn deadlines follow the confirmed preview, not the request lifetime
-description: A preview-derived deadline bounds long spawns while a short apply response and typed compensation outcomes prevent transport limits from becoming false failure or unsafe retry.
+description: Isolate spawn applies from client hang-up while retaining the confirmed-preview deadline, short response and typed compensation outcomes rather than treating transport loss as failure or permission to retry.
 tags: [desktop, spawn, deadlines, transport, compensation, truthfulness]
-timestamp: 2026-10-08
+timestamp: 2026-10-15
 ---
 # Decision and rationale
 
@@ -39,6 +39,36 @@ leaves CLI children alone without guaranteeing receipt of their result.
 Allow bounded concurrency across independent applies, while admitting only
 one apply per workspace and soul. One long spawn must not monopolize every
 workspace's apply capacity.
+
+# A separate session does not remove spawn's deadline
+
+The source records a 2026-10-15 maintainer decision [2]: a spawn apply is a
+change and must run in its own process session in every client. Otherwise a
+terminal's hang-up can reach the client's process group and interrupt
+worktree hooks. This adds session isolation to the earlier deadline decision;
+it does not replace that decision with the lifecycle apply/start rule that
+a wait deadline ends only the wait.
+
+**Spawn retains its preview-implied deadline signal.** A worktree-event
+kernel can compensate after interruption and return `E_INTERRUPTED`; the
+client must still read that answer and distinguish confirmed from unconfirmed
+cleanup as below. The client's execution adapter must return the child so
+the shared apply boundary can signal it. Moving spawn to a wait-only deadline
+was explicitly left as a separate decision, not an incidental consequence of
+sharing the process boundary.
+
+This is deadline authority, not shutdown cancellation. If the client exits,
+its timer no longer runs; the isolated spawn is left to the kernel's own
+per-hook bound. Keep the [server-shutdown no-signal rule](bundled-server-owner-lifetime.md).
+Session isolation alone does not prove completion after client death: the
+[output-lifetime lesson](/nodes/oats-expert/lessons/outliving-a-client-needs-independent-output.md)
+owns the remaining reader-dependency question. The proposal did not establish
+a terminal-client spawn implementation.
+
+Pin this distinction in process-boundary regressions: independent session
+creation, a returned child, deadline TERM/grace/KILL behavior, and receipt of
+the kernel's final envelope. Do not let a generic lifecycle timeout helper
+silently remove spawn's intentional interruption policy.
 
 # A compensated failure is a known outcome
 
@@ -95,3 +125,12 @@ Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-pari
    independently audited or rerun by this harvest. The note predates merge;
    the proposal records the later choice to retain typed codes rather than
    the note's possible generic-error fallback.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-client-spawn, 2026-10-15; notes/spawn-apply-is-the-one-signalled-change.md.
+
+2. The source identifies the maintainer's session-isolation and retained-deadline
+   decision in [awebai/oats#855, comment 6191749055](https://github.com/awebai/oats/issues/855#issuecomment-6191749055),
+   and reports implementation in [#1240](https://github.com/awebai/oats/pull/1240)
+   at `60ca0ba1`, with a Changed release-note entry. Agreement, implementation
+   and release-note disposition are source-reported; this harvest did not
+   audit the implementation or reproduce signal behavior.

@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Shared readers separate client terms from attributed kernel prose
-description: Keep one shared interpretation of codes, require each caller's terms explicitly, and return attributed kernel prose as separate parts rather than a string clients must parse.
+description: Share facts and code meanings, require explicit client terms, keep control-specific next steps in a closed code set worded by each client, and return attributed kernel prose as separate parts.
 tags: [desktop, shared-code, wording, attribution, rejected-alternatives]
-timestamp: 2026-10-14
+timestamp: 2026-10-15
 ---
 # Decision and rationale
 
@@ -30,6 +30,31 @@ than weaken that check. Packaged graph and shell tests are the enforcement
 route; this is not a claim that a single shell launch proves every view loads
 correctly. [Shared-code packaging](shared-code-keeps-one-relative-path.md)
 owns the packaging rationale.
+
+# A control-specific next step is a code, not another UI term
+
+The source's 2026-10-15 spawn refinement makes the client-only-remedy boundary
+explicit: a sentence mixing a shared fact with a step naming one client's
+control returns the fact plus a `next` code from a closed, frozen set. Each
+client supplies the wording for that step. Shared facts may retain generic
+actions, but must not name another client's dialog, menu or control.
+
+Keeping the full Desktop sentence beside a separate fact was rejected: the
+shared home would still contain one client's UI. Making every control a term
+was also rejected as a second description of the UI. The closed next-step
+vocabulary shares the intended action without making another client inherit
+the Desktop's controls. Adding a code is a shared `SURFACE` contract change;
+tell the other client's lead rather than treating it as a local copy edit.
+
+Preserve the first client's wording while splitting ownership. The reported
+regression pins every recomposed Desktop sentence byte-for-byte against the
+pre-split base tables. This intentionally owns Desktop-authored copy during
+the extraction; it is not permission to freeze the kernel's live prose, whose
+[test boundary remains different](../lessons/kernel-text-tests-own-the-client-reading.md).
+Review the retained facts for control-name leaks too: the source reports one
+schedule-control reference caught during review. Keep the code inventory and
+parity checks in the repository, not a second table here. The proposal does
+not establish that the terminal client's spawn has adopted this surface.
 
 # Keep the speaker at the reading boundary
 
@@ -73,3 +98,12 @@ the attributed parts in [awebai/oats#855](https://github.com/awebai/oats/issues/
 [#1094](https://github.com/awebai/oats/pull/1094). Acceptance, implementation
 and packaging checks are source-reported, not independently audited or run
 by this harvest.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-client-spawn, 2026-10-15; notes/spawn-words-are-facts-and-next-codes.md.
+
+The source reports the closed-next-step rule and rejected alternatives in
+[#855](https://github.com/awebai/oats/issues/855), with implementation in
+[#1250](https://github.com/awebai/oats/pull/1250) at `81bef3f1a`. It identifies
+`packages/desktop/test/spawn-words.test.mjs` as the base-table parity guard.
+The agreement, review finding, merge and test behavior are source-reported;
+this harvest did not audit the implementation or run that guard.
