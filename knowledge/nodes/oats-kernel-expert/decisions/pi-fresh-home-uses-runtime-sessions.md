@@ -87,3 +87,20 @@ birth-time qualifications. These are source-reported evidence, not an
 implementation audit or repeated probe by this harvest. No explicit human
 acceptance is supplied or inferred, and no accepted base decision is
 superseded.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-15,
+by reading [awebai/oats#1254](https://github.com/awebai/oats/pull/1254), its
+discussion and the bridge at `990cc76b`; nothing was run. It merged on
+2026-10-15 at `990cc76b` from head `398781d3`, with APPROVE verdicts from two
+maintainer lanes posted as comments and CI reported green. Its diff changes
+only the pi package: the startup nudge needs STATE.md to exist and an earlier
+`*.jsonl` that is not the current file, has a `session` header with the
+current cwd, and is timestamped at or after the home's birth time; a birth
+time of 0 or equal to ctime turns that filter off. Its description rejects the
+home marker and the kernel's launch count for the reasons above. Its tests
+cover fresh and restarted homes, the current file, another cwd, an earlier
+instance at the same path and pi 0.80.3's real `SessionManager`. The final
+review notes that no test exercises pi 1.x's user-message filing and that
+the reused-path tests skip where birth time equals ctime, so those two cases
+remain the enforcement target above. The verdicts establish maintainer
+review, not human acceptance.

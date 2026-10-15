@@ -65,3 +65,16 @@ wording with capability-disposable exclusions and supplies the deferred
 elimination routes. The investigation and reported merge were not
 independently reproduced or audited by this harvest; no human acceptance
 is inferred.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-15,
+by reading [awebai/oats#1254](https://github.com/awebai/oats/pull/1254) and
+its discussion, and the capability documentation at `990cc76b`; nothing was
+run. The pull request, merged on 2026-10-15 at `990cc76b`, records that its
+first review round rejected the bridge's home marker because retirement
+would keep a recovery copy of every started pi home and top-level `.oats-*`
+names belong to the kernel and capabilities; the merged bridge writes nothing
+in the home, and a test checks that a fresh home is left byte-for-byte
+unchanged. The capability documentation at that commit defines
+`retirement.disposable.home` as a capability manifest declaration of hidden
+top-level home entries. The verdicts establish maintainer review, not human
+acceptance.
