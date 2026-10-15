@@ -3,7 +3,7 @@ type: Decision
 title: Terminal tabs are viewers, not session owners
 description: Exact-source terminal viewers preserve native interaction and atomic redraws without owning durable sessions, changing other clients or silently switching agents.
 tags: [desktop, terminal, viewers, tmux, ownership, integration-limits, synchronized-output]
-timestamp: 2026-10-14
+timestamp: 2026-10-15
 ---
 # Rationale
 
@@ -70,7 +70,7 @@ painting. This is a native-fidelity issue, not a reason to change
 The source's tmux 3.7c investigation found that xterm.js did not receive
 automatic `sync` feature detection. The viewer client therefore requests
 `sync` explicitly; the terminal must also honor DEC 2026 begin/end markers.
-Either half alone is insufficient. The proposed `-T sync` path is gated to
+Either half alone is insufficient. The chosen `-T sync` path is gated to
 tmux 3.2 or later rather than breaking the supported 3.0 baseline. Keep the
 feature client-local: server-wide `terminal-features` would change other
 clients, including the operator's own, and violate the viewer's scope.
@@ -83,7 +83,8 @@ permanent renderer: retire the hold when the consumer uses xterm 6's native
 still permits splits wider than the timer. Reject an opt-in CLI flag with
 no identified consumer need. The major xterm upgrade was deliberately
 separated from the fix because it also touches fit, scrollbar and WebGL
-behavior near other work.
+behavior near other work. The [internal-mirror upgrade lesson](../lessons/xterm-internal-mirrors-upgrade-liability.md)
+explains why a green build alone cannot qualify that upgrade.
 
 The evidence establishes a split-redraw mechanism and remedy, not its
 frequency on a real remote link. The source reports that explicit `sync`
@@ -92,10 +93,47 @@ replaying deliberately split recorded redraws exposed intermediate states
 on xterm 5.5 but not on xterm 6's synchronized keystroke redraws. The
 proposal additionally reports that the Desktop bridge avoided those states.
 Local and idle loopback samples do not establish remote exposure. The
-proposal reported the implementation PRs as pending; this records design
-rationale, not a shipment receipt or universal claim about all tmux/xterm
-versions. The regression route is split-stream replay through the consumer
-write path, rather than repeating unbounded live captures.
+2026-10-14 proposal reported the implementation PRs as pending; the dated
+status update below replaces that pending account, not the limits of the
+experiment. No universal claim about all tmux/xterm versions follows. The
+regression route is split-stream replay through the consumer write path,
+rather than repeating unbounded live captures.
+
+## Lease boundaries preserve unshown output
+
+The 2026-10-15 refinement makes the hold a lease-local display obligation,
+not disposable latency. Bytes outside a `?2026h`…`?2026l` block go straight
+to xterm. Each lease gets a fresh hold; wherever that lease's data stops
+(exit, failed readiness, reconnect or close), flush its held bytes before
+showing the ended or reconnect state. Drop held bytes only after the
+terminal is disposed, and let no timer outlive the tab. Otherwise a cleanup
+that appears to reduce latency can discard the last redraw: those bytes
+have not been shown at all.
+
+The `-T sync` version check must fail closed with an anchored parse. A false
+yes makes an older tmux reject `-T`, preventing attachment; a false no only
+loses synchronization and retains the pre-fix viewing behavior. That
+asymmetry favors declining the optimization when version evidence is not
+recognized, not searching arbitrary output for a plausible version.
+
+These invariants belong in regressions, not only in this decision: exercise
+lease termination with held output through the real write/state path,
+assert ordering and timer cleanup, and keep both viewers' version decisions
+on a shared table including unrecognized input. Native xterm 6 support
+remains the architectural route for retiring the hold.
+
+## Bridge status — 2026-10-15
+
+Owner: **oats-desktop-expert**. Whoever changes the bridge, version gate or
+native-support migration updates this dated status in the same session.
+
+The source reports that #1195 (`74251518`) and #1196 (`dc199191`) shipped in
+0.56.0. It separately reports that the kernel parse is anchored while
+Desktop's is not, with #1215 aligning them on a shared table. The
+fail-closed rule above is therefore the required behavior, not a claim that
+both shipped parsers already satisfy it. This update does not establish
+completion of #1215 or of the xterm 6 retirement route (#1194). Shipment and
+implementation details are source-reported, not independently audited.
 
 # Integration limitations discovered (2026-07-23 … 2026-07-25)
 
@@ -144,3 +182,5 @@ write path, rather than repeating unbounded live captures.
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-backlog, 2026-10-08; notes/628-terminal-count-stays.md. The source records the acceptance and measurements associated with [awebai/oats#628](https://github.com/awebai/oats/issues/628); this harvest did not independently reproduce them.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-cursor-flicker, 2026-10-14; notes/cursor-flicker-split-redraw-cause.md. Investigation: [awebai/oats#1193](https://github.com/awebai/oats/issues/1193); proposed fixes: [#1195](https://github.com/awebai/oats/pull/1195) and [#1196](https://github.com/awebai/oats/pull/1196); native-support retirement route: [#1194](https://github.com/awebai/oats/issues/1194). Measurements, review and implementation status are source-reported, not independently reproduced or audited. Exact hidden-cursor counts are omitted because the proposal and note disagree; the note supports the mechanism, not the proposal's bridge-result count.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-cursor-flicker, 2026-10-15; notes/sync-gate-lease-and-version-gate.md. The follow-up reports shipment of the two fixes above and identifies [#1215](https://github.com/awebai/oats/issues/1215) as the parser-alignment work. It supports the lease-flush rationale and asymmetric version-gate failure cost; this harvest did not audit the fixes, release or follow-up completion.
