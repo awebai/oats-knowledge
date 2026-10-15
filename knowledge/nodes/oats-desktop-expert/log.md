@@ -2,6 +2,10 @@
 
 ## 2026-10-15
 
+* **Harvest**: extended [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md#palette-and-quick-open-must-be-reachable-from-the-terminal) with the source-reported human-requested Linux/Windows palette and Quick Open decision: terminal reachability, cross-platform K/P pairing, the explicit Ctrl+Shift+P reassignment and preserved user overrides with visible clashes. Kept the input-preservation rule and macOS policy; documented the action-based rebind consequence without claiming arbitrary overrides are safe.
+* **Fix**: corrected [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md)'s current-contract pointer to the Desktop package's documentation path.
+* **Triage**: dropped the event-spelling sweep as a separate lesson: the reported stale-chord test already failed in CI, and [Affected-test inventory](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md) owns the broader missed-consumer lesson. Prefer dependency-aware test selection and focused dispatch regressions over a permanent grep recipe.
+
 * **Update**: refined [Terminal viewers](decisions/terminal-viewers-not-session-owners.md) with lease-local unshown-output preservation and the asymmetric cost behind a fail-closed anchored version gate. Replaced the earlier pending account with dated, owned, source-reported bridge shipment; kept parser parity and native xterm retirement explicitly unproven. Added regression routes without changing session ownership or native geometry.
 * **Harvest**: added [xterm internal-mirror upgrade liability](lessons/xterm-internal-mirrors-upgrade-liability.md), preserving the silent-fallback finding and why private-member survival is not behavioral compatibility. Kept the inspected fit, scroll and CSS couplings as dated examples, not an exhaustive code inventory; named public APIs, removal of copies and installed-dependency consumer tests as elimination routes.
 
