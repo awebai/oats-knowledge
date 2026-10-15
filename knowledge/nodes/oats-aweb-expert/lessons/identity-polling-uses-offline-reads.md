@@ -23,7 +23,7 @@ proof that every kind of identity home has been qualified.
 
 Use the offline path when the publisher needs only those identifiers.
 Operations that actually need server-held state still need their own evidence;
-this decision does not replace interactive identity diagnostics generally.
+this lesson does not replace interactive identity diagnostics generally.
 
 The elimination route is the publisher's identity-reader adapter and tests
 that establish both offline operation and absence handling. The source
