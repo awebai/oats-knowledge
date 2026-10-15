@@ -3,7 +3,7 @@ type: Lesson
 title: Async completion must still own the user's intent
 description: Background work preserves intent and separates creation, readiness and success; confirmations describe effect boundaries without suppressing unrelated reads or inventing stale-result state.
 tags: [desktop, async, intent, mutations, truthfulness]
-timestamp: 2026-10-09
+timestamp: 2026-10-15
 ---
 # Rationale
 
@@ -81,6 +81,10 @@ owns the consent and trust policy; the lesson here is to specify that policy
 without accidentally designing extra controls or state.
 
 # Related
+
+[Pending lifecycle state is not evidence of failure](pending-lifecycle-state-is-not-failure.md)
+extends truthful outcomes to producer-reported held rows and per-apply
+reconciliation after a later covering observation.
 
 [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
 

@@ -19,9 +19,10 @@ session.
 A stale attach must fail closed rather than prefix-match another agent under
 the old label. In local tmux, grouped sessions were rejected because they
 share window membership: source death or navigation can reveal a sibling. An
-independent exact-source linked-window viewer preserves identity. Restricting
-navigation must still preserve usable scrollback, not install an inert key
-table.
+independent exact-source linked-window viewer is necessary but not sufficient:
+its client's destruction behavior must also be pinned, as the 2026-10-15
+refinement below records. Restricting navigation must still preserve usable
+scrollback, not install an inert key table.
 
 Resource limits and reuse belong to the process that creates viewers and
 PTYs. UI deduplication alone cannot bound reconnects or direct IPC calls.
@@ -34,6 +35,40 @@ source or quitting Desktop must not become an operation on a sibling session.
 Existing viewers must also survive a replacement of Desktop's own backend
 server, because they attach to the session source, not to the server (see
 [Workspace admission is privileged and transactional](privileged-workspace-admission.md)).
+
+# Source death must end the viewer, not redirect its client
+
+The 2026-10-15 finding corrects the assumption that linking only the exact
+source window is enough. A viewer session inherits tmux's global
+`detach-on-destroy`. With `off`, destroying its linked source window can
+destroy the viewer session yet move its attached client to the most recently
+used session. The old tab label then conceals a different agent receiving
+the operator's keystrokes. Locking navigation and testing only default tmux
+configuration do not establish identity preservation on source death.
+
+Pin `detach-on-destroy on` on every created viewer session, without changing
+the operator's global options or sessions. Audit inherited session options
+that control client behavior on destruction, not just the key table and
+prefix. The source's isolated two-viewer reproduction on Linux with tmux
+3.7c moved the client to the other viewer with global `off`; a session-local
+`on` made the client exit. This is scoped experimental evidence, not proof
+for every tmux version or a reason to copy tmux settings into other backends.
+
+The UI also needs the identity of the incarnation it opened: `createdAt`
+qualified by deployment and session-server context, not only the name.
+Automatic retirement reconciliation closes or rebinds a tab only when roster
+evidence establishes that this incarnation is gone; a namesake must not
+silently inherit it. Respect the roster's
+[observation scope](filtered-roster-preserves-unasked-groups.md): an unasked
+scope is not evidence of removal. This does not change explicit user closing
+or the viewer's independence from a replacement Desktop backend server.
+
+The enforcement route is to pin options in viewer creation and test source
+destruction with two distinct viewers under non-default global settings,
+asserting client exit and no sibling input. Pair that with tab-reconciliation
+regressions for reused names and scoped roster evidence. The durable lesson
+is why exact attachment alone was an incomplete guarantee; these checks
+belong in code, not in an operator's configuration checklist.
 
 # Keep a bound on remote reconnect fan-out
 
@@ -175,6 +210,8 @@ implementation details are source-reported, not independently audited.
 - [Current terminal-owner-leases.md](https://github.com/awebai/oats/blob/main/packages/desktop/docs/terminal-owner-leases.md)
 
 # Citations
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-retired-tabs, 2026-10-15; notes/viewer-detach-on-destroy-rebinds-tabs.md. The note supports the tmux reproduction and session-local remedy; the incarnation reconciliation rule comes from the proposal. The source associates these with [awebai/oats#1237](https://github.com/awebai/oats/issues/1237) and reports fixes in [#1238](https://github.com/awebai/oats/pull/1238) and [#1252](https://github.com/awebai/oats/pull/1252). This harvest did not rerun the reproduction or audit implementation and merge claims.
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/multiline-send-bracketed-paste.md @ 7838d3ca.
