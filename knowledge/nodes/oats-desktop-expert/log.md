@@ -2,6 +2,11 @@
 
 ## 2026-10-15
 
+* **Harvest**: added [Team instance scope](decisions/team-instance-lists-state-their-observation-scope.md), keeping the reason a user's observed deployments must not be labelled as the team's complete membership, and the rejected whole-team claim without a broader provider contract.
+* **Harvest**: added [Chrome typography](decisions/chrome-typography-follows-information-role.md), preserving the source-reported approved sans-name hierarchy, rejected colour-based emphasis and secondary-mono sizing relative to its corresponding sans step. The terminal and unreviewed shared styles remain outside the decision's rollout scope.
+* **Harvest**: added [Overview and developer disclosure](decisions/technical-models-use-overview-and-developer-disclosure.md), preserving why the product explanation leads with purpose and defers mechanism, with one shared source of state meanings. Native disclosure is not a substitute for accessibility verification.
+* **Update**: linked these additive applications from [Design direction and quality bar](decisions/design-direction-and-quality-bar.md); no earlier human-accepted decision is superseded. Acceptance and shipment remain source-reported rather than independently certified.
+
 * **Harvest**: extended [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md#palette-and-quick-open-must-be-reachable-from-the-terminal) with the source-reported human-requested Linux/Windows palette and Quick Open decision: terminal reachability, cross-platform K/P pairing, the explicit Ctrl+Shift+P reassignment and preserved user overrides with visible clashes. Kept the input-preservation rule and macOS policy; documented the action-based rebind consequence without claiming arbitrary overrides are safe.
 * **Fix**: corrected [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md)'s current-contract pointer to the Desktop package's documentation path.
 * **Triage**: dropped the event-spelling sweep as a separate lesson: the reported stale-chord test already failed in CI, and [Affected-test inventory](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md) owns the broader missed-consumer lesson. Prefer dependency-aware test selection and focused dispatch regressions over a permanent grep recipe.
