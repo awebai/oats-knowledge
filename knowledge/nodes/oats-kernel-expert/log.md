@@ -1,5 +1,10 @@
 # oats-kernel-expert log
 
+## 2026-10-16
+
+* **Harvest**: added [Pi bridge holds must not wait for their own run](/nodes/oats-kernel-expert/lessons/pi-bridge-holds-must-not-wait-for-their-own-run.md) from the oats-kernel-expert-pi-opening-deadlock proposal and two named notes. Preserve event-shape detection, rejected version and signal-wait alternatives, conditional welcome ordering and the opening-message evidence boundary; queued input alone is not a diagnosis. Runtime probes and review remain source-reported. The fresh-home decision gains a related link only; no accepted decision is superseded.
+* **Harvest**: added [Real-pi opening races need an executed CI gate](/nodes/oats-kernel-expert/lessons/real-pi-opening-races-need-an-executed-ci-gate.md) from the same proposal and lifecycle note. Preserve the dated skipped-CI and stale-runner/model findings with a named owner, update-on-change rule and real-runtime CI elimination route. Temporary version-qualified SDK/TUI evidence and sibling-pinning guidance are bounded to the reported checks, not a permanent manual policy. Drop the unexercised messaging wake-path theory, third-party incident detail and release bookkeeping.
+
 ## 2026-10-15
 
 * **Review**: knowledge-maintainer review of the spawn-resolution-speed harvest added maintainer-checked citations to [Spawn probe telemetry can masquerade as Git cost](/nodes/oats-kernel-expert/lessons/spawn-probe-cost-is-claude-telemetry-flush.md) and [A preview-bound spawn apply may reuse observations](/nodes/oats-kernel-expert/decisions/preview-bound-apply-may-reuse-observations.md): the merged awebai/oats#1259 confirms the probe-only `DISABLE_TELEMETRY=1`, its launch-environment regression file, the rejected alternatives, the fenced apply admission and the unfenced refusals; the K1 decision on awebai/oats#1246 is signed as the LFX maintainer's. No human acceptance is recorded and no decision is superseded.
