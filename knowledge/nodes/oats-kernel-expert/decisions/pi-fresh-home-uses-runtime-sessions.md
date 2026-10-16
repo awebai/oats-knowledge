@@ -72,6 +72,7 @@ not a claim that the supplied evidence proves that coverage already exists.
 
 # Related
 
+- [Pi bridge holds must not wait for their own run](/nodes/oats-kernel-expert/lessons/pi-bridge-holds-must-not-wait-for-their-own-run.md) distinguishes opening-task arrival from a welcome turn that makes the home appear healthy; it does not change this resume-nudge heuristic.
 - [Native harness launch](/nodes/oats-kernel-expert/decisions/harness-native-launch.md) retains the runtime's own discovery and settings; this decision does not restore an isolated pi profile.
 - [Kernel and capability responsibilities](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md) owns the generic boundary; the resume signal does not create a kernel knowledge-state convention.
 
