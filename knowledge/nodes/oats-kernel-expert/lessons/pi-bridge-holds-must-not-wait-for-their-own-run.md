@@ -84,3 +84,16 @@ audited by this harvest. The messaging extension's separate post-turn wake
 path was read, not exercised; no finding about that path is promoted.
 Maintainer review is not an explicit human-acceptance receipt, and no accepted
 base decision is superseded.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-16, by
+reading [awebai/oats#1324](https://github.com/awebai/oats/pull/1324), its
+discussion and the bridge at `6f362215`; nothing was run. It merged on
+2026-10-16 at `6f362215` from head `1d251a6f`, closing #1322, and changes only
+`packages/pi`. The bridge skips the `before_agent_start` hold when the event
+carries `messageType`, keeps the input-handler hold and releases waits on
+`session_shutdown`. Its description names no pi floor or band and keeps the
+bridge from sending or altering messages. It also states the conditional
+welcome ordering on pi 1.2 and later. The adversarial review's smaller fix
+(skip the hold rather than wait on `ctx.signal`) was taken. Two maintainer lanes
+approved in comments. Those verdicts establish maintainer review, not human
+acceptance.

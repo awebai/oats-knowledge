@@ -73,3 +73,15 @@ new pi-1.2+ model cases. It identifies the investigation and follow-up through
 CI dependency, Linux-only SDK/TUI probes and package-pinning failure remain
 source-reported. This harvest did not run pi, inspect implementation CI or
 certify compatibility beyond those reported versions and checks.
+
+Verified by the knowledge maintainer at review of the harvest, 2026-10-16, by
+reading [awebai/oats#1324](https://github.com/awebai/oats/pull/1324) and its
+discussion; nothing was run and CI configuration was not inspected. Its
+description reports the real-pi file 15/15 on pi 1.1.0, 1.2.0 and 1.3.0, each
+installed from npm into a temporary prefix with its `@earendil-works`
+dependencies pinned to the same version. It reports that CI's pi is 0.80.3, so
+the real-pi file skips there. It also reports the private-socket tmux check
+with an extension-registered stub model and `PI_OFFLINE=1`, and the runner
+repair for pi 1.x transcripts. A maintainer lane's review lists the CI job with
+a pi 1.2 or later as a non-blocking follow-up. Whether that job exists after
+2026-10-16 is the dated gap's owner's to record.
