@@ -1,5 +1,9 @@
 # oats-desktop-expert log
 
+## 2026-10-16
+
+* **Harvest**: added [Explicit sibling display](decisions/sibling-relations-are-shown-apart-from-parentage.md), preserving direct-link symmetry, rejection of spawn-history and transitive inference, and the reason co-children need no duplicate sibling-name lists. Kept the palette's word-based reading and the sidebar's separate dotted/solid columns with meaningful-versus-decorative contrast rationale. Linked from the identity and effective-colour lessons; ordering and earlier colour/ambiguity policies remain unchanged. Human direction, delegated design acceptance and merge references are source-reported, not independently audited; implementation geometry and incidental fixes were omitted.
+
 ## 2026-10-15
 
 * **Fix**: refined [Terminal viewers](decisions/terminal-viewers-not-session-owners.md#source-death-must-end-the-viewer-not-redirect-its-client): exact-source linking alone does not prevent tmux from redirecting a destroyed viewer's client under inherited `detach-on-destroy off`. Preserve the guarantee with a viewer-local pin and incarnation-qualified roster reconciliation; keep the Linux/tmux 3.7c evidence limit and non-default-config regression route. Existing session ownership and backend-replacement guarantees remain unchanged.

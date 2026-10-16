@@ -67,6 +67,7 @@ kernel's bounded live graph.
 [Agent-centered navigation makes the action target legible](../decisions/agent-centered-navigation.md);
 [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md);
 [Accessibility is proven on effective colours, not token pairs](effective-contrast-over-token-pairs.md);
+[Explicit sibling links are shown on both ends and apart from parentage](/nodes/oats-desktop-expert/decisions/sibling-relations-are-shown-apart-from-parentage.md) (the 2026-10-16 display decision applies the full-roster and no-colour-only rules);
 [Live lineage is deliberately bounded](/nodes/oats-kernel-expert/decisions/bounded-live-lineage.md).
 
 # Current contracts
