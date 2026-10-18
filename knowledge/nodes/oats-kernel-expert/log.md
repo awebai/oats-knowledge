@@ -1,5 +1,11 @@
 # oats-kernel-expert log
 
+## 2026-10-18
+
+* **Review**: knowledge-maintainer review of the caller-attribution harvest restored the accepted "Cross-deployment spawns stay operator-origin" sentence in [Live lineage is deliberately bounded](/nodes/oats-kernel-expert/decisions/bounded-live-lineage.md), which the harvest had dropped although it remains true. The founder-accepted text is now left intact and the refinement is annotated, not substituted. The maintainer checked awebai/oats#1371, both verdicts on awebai/oats#1372 and its merge at `cae03461`. Nothing was run. No human acceptance is inferred for the attribution decision and no human-accepted decision is superseded.
+* **Harvest**: added [Caller attribution is separate from explicit lineage](/nodes/oats-kernel-expert/decisions/caller-attribution-is-separate-from-lineage.md) from the oats-kernel-expert-upgrade-fixes proposal, with no named notes. Preserve the rejected relation-derived actor, accepted inherited-shell ambiguity, informational-only boundary, historical and remote limits, and future hook/operation context caveat. Checked the published issue, both maintainer verdicts and merge metadata; no implementation audit or test rerun is claimed.
+* **Update**: explicitly refine the earlier attribution wording in [Live lineage is deliberately bounded](/nodes/oats-kernel-expert/decisions/bounded-live-lineage.md) and link its canonical rationale. The human-accepted explicit-only lineage, attached ownership and child-spawn policy remain intact; no human-accepted decision is superseded.
+
 ## 2026-10-16
 
 * **Review**: knowledge-maintainer review of the pi-opening-deadlock harvest added maintainer-checked citations to [Pi bridge holds must not wait for their own run](/nodes/oats-kernel-expert/lessons/pi-bridge-holds-must-not-wait-for-their-own-run.md) and [Real-pi opening races need an executed CI gate](/nodes/oats-kernel-expert/lessons/real-pi-opening-races-need-an-executed-ci-gate.md). The merged awebai/oats#1324 at `6f362215` confirms the `messageType` skip, the `session_shutdown` release, no pi floor or band, the taken smaller fix and the skipped real-pi file in CI. Nothing was run. No human acceptance is recorded and no decision is superseded.
