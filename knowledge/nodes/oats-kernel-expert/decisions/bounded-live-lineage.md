@@ -3,7 +3,7 @@ type: Decision
 title: Live lineage is deliberately bounded
 description: Sparse explicit current relations favor truthful ambiguity refusal over a permanent history or multi-file transaction promise.
 tags: [kernel, lineage, spawn, relations, concurrency]
-timestamp: 2026-07-26
+timestamp: 2026-10-18
 ---
 # Rationale
 
@@ -23,10 +23,18 @@ overseer is an agreement between the parties, not a graph edit.
 ("whoever's instance variable is set") was rejected even when gated on the
 parent being alive, because a human terminal inside an agent's session window
 *is* an alive instance — the misattribution case is the alive case. Only
-explicit intent is safe. Cross-deployment spawns stay operator-origin: a parent
-outside the target deployment would be a dangling edge that deployment's own
-surfaces cannot resolve, so recording it would manufacture
-misattribution-shaped metadata.
+explicit intent is safe. A parent outside the target deployment would be a
+dangling edge that deployment's own surfaces cannot resolve, so recording it
+would manufacture misattribution-shaped metadata.
+
+**Attribution wording refined, 2026-10-18:** the earlier operator-origin
+statement does not make lineage an actor classifier. The maintainer's
+[caller-attribution decision](caller-attribution-is-separate-from-lineage.md)
+permits ambient same-deployment context for an informational label, accepting
+the inherited-human-shell ambiguity because the label gates no authority.
+Foreign-deployment context still cannot establish instance-origin there.
+This changes the attribution rationale, not the human-accepted explicit-only
+lineage rule above; the linked decision is its canonical explanation.
 
 Names are not globally unique. Refusing an ambiguous edge is preferable to
 silently linking the wrong instance. The disambiguator is an operation-time
@@ -61,3 +69,4 @@ theoretically be made more elaborate.
 
 1. Migrated from agents/oats-expert/soul/knowledge and agents/cli-dev/soul/knowledge @ 7838d3ca (spawn-relations-live-lineage, spawn-lineage-explicit-only, attached-spawns-child-of-work-owner, lineage-edge-ambiguity-posture, relation-policy-migration-and-retire-splice).
 2. Migrated from agents/dev-coordinator/soul/knowledge/lessons/relation-parent-repoints-only-anchor.md @ 7838d3ca.
+3. Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-upgrade-fixes, 2026-10-18. The attribution refinement is supported by [awebai/oats#1371](https://github.com/awebai/oats/issues/1371) and the two maintainer verdicts cited in the [caller-attribution decision](caller-attribution-is-separate-from-lineage.md); no backing notes were named.
