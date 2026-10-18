@@ -23,18 +23,20 @@ overseer is an agreement between the parties, not a graph edit.
 ("whoever's instance variable is set") was rejected even when gated on the
 parent being alive, because a human terminal inside an agent's session window
 *is* an alive instance — the misattribution case is the alive case. Only
-explicit intent is safe. A parent outside the target deployment would be a
-dangling edge that deployment's own surfaces cannot resolve, so recording it
-would manufacture misattribution-shaped metadata.
+explicit intent is safe. Cross-deployment spawns stay operator-origin: a parent
+outside the target deployment would be a dangling edge that deployment's own
+surfaces cannot resolve, so recording it would manufacture
+misattribution-shaped metadata.
 
 **Attribution wording refined, 2026-10-18:** the earlier operator-origin
 statement does not make lineage an actor classifier. The maintainer's
 [caller-attribution decision](caller-attribution-is-separate-from-lineage.md)
 permits ambient same-deployment context for an informational label, accepting
 the inherited-human-shell ambiguity because the label gates no authority.
-Foreign-deployment context still cannot establish instance-origin there.
-This changes the attribution rationale, not the human-accepted explicit-only
-lineage rule above; the linked decision is its canonical explanation.
+The cross-deployment statement above still holds: foreign-deployment context
+cannot establish instance-origin there. This changes the attribution
+rationale, not the human-accepted explicit-only lineage rule above; the linked
+decision is its canonical explanation.
 
 Names are not globally unique. Refusing an ambiguous edge is preferable to
 silently linking the wrong instance. The disambiguator is an operation-time
