@@ -1,5 +1,10 @@
 # integrations-expert log
 
+## 2026-10-19
+
+* **Harvest**: Added [post-confirmation config validation](/nodes/integrations-expert/lessons/config-validation-belongs-after-confirmation.md): preserve why a copied-byte cache cannot cover executable config inputs, why the validator must read the temporary copy, and why fresh validation, guarded writes and conservative removal are separate obligations. Name executable regression coverage and the limits of headless/read-only evidence; no live-session apply is certified and the kernel's decision-fenced spawn exception is unchanged.
+* **Harvest**: Added [recorded kernel paths for persisted launchers](/nodes/integrations-expert/lessons/persisted-launchers-need-recorded-kernel-paths.md), linked from the ambient-environment lesson without changing that lesson's input policy. Preserve the retirement and minimal-environment failures behind rejecting PATH persistence, and narrow the source's earlier upgrade-survival assertion: stable-Node selection can still yield a versioned path, so missing recorded paths need maintenance checks. No host-specific path or duplicate resolver algorithm is retained.
+
 ## 2026-10-13
 
 * **Review**: kept the Desktop-suite gate and the tag-identical mirror in the [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)'s description and index line, and stated that the maintainer node's own local-gate wording is left unchanged (knowledge-maintainer review of the harvest).

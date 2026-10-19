@@ -17,6 +17,11 @@ Hook, testing and release discipline learned building providers against the kern
 * [A fallback the contract defines is implemented in every path and is a warning](a-fallback-the-contract-defines-is-a-warning-not-a-readiness-problem.md) - Every mode and readiness take the defined default and warn; readiness derives the value exactly as spawn does.
 * [Type availability failures, but rethrow domain errors untouched](type-availability-failures-but-rethrow-domain-errors.md) - A typed availability wrapper catches only transport and unusable-source failures and lets custody, path and validation errors pass.
 
+## Host config and persistent commands
+
+* [Live config validation belongs after confirmation, not in a reusable preview cache](config-validation-belongs-after-confirmation.md) - Validate an isolated baseline and candidate after confirmation and just before an atomic guarded write, because unchanged copied bytes do not prove an executable config's dependencies stayed unchanged.
+* [Persisted launchers need recorded kernel paths, not the installer's PATH](persisted-launchers-need-recorded-kernel-paths.md) - Record and verify absolute CLI and Node paths for commands an integration leaves behind, reject instance shims, and detect paths lost to upgrades rather than promising that absolute means permanent.
+
 ## Acceptance against the real tool
 
 * [A fake CLI that accepts what the real binary refuses hides a broken hook](a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) - Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
