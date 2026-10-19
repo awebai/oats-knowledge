@@ -92,6 +92,11 @@ maintainer's protocol
 the rehearsal is the outsider stance applied to a provider
 ([second-operator acceptance](/nodes/oats-maintainer/lessons/second-operator-acceptance.md)).
 
+For timeout and interruption coverage, the related
+[hang-with-child lesson](/nodes/integrations-expert/lessons/a-fake-that-hangs-must-have-a-child.md)
+explains why the fake must also model descendants and why every caller needs
+its own cleanup evidence.
+
 # Consequences
 
 - A provider PR that touches a hook calling an external tool carries a
