@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-14
+timestamp: 2026-10-19
 ---
 # Rationale
 
@@ -29,13 +29,44 @@ reachability finding.
 
 # Recency belongs in the instance palette, not the roster
 
-The source expert's 2026-10-14 refinement keeps the roster stable while
-making return to the previous agent fast. The instance palette orders a
-Recent group by last focus, newest first, followed by never-focused instances
-in tree order. If the first recent entry is the active tab, the initial
-selection is the second recent entry when one exists: opening the palette
-and pressing Enter returns to the previous agent rather than selecting the
-current one again. This instance-switching choice does not supersede the
+The source expert's 2026-10-14 refinement kept the roster stable while
+making return to the previous agent fast: a flat Recent group led the palette,
+followed by never-focused instances in tree order. That flat-group design is
+**partially superseded (2026-10-19)** by the sidebar's tree ordered by subtree
+recency. The source reports the human owner's request and direct confirmation
+that a focused child lifts its ancestors and that independent runs re-form
+after ordering. Preserve the tree while bringing the path to recent work
+forward, rather than making recency and relationships competing views.
+
+- **Rank by the latest focus anywhere in the subtree.** Apply this at every
+  level: deployment sections, relation clusters, a cluster's roots and a
+  parent's children. A child stays under its parent; its focus lifts the
+  containing subtree relative to peers. Never-focused entries follow focused
+  ones in the sidebar's stable order.
+- **Order clusters and singles before forming display groups.** Each
+  multi-member cluster is a group; each run of consecutive singles becomes
+  an independent group in place. A previous independent run is not an
+  indivisible sorting unit.
+- **Order the full roster before applying a query.** Search projects that
+  order; typing must not re-rank the surviving groups. This complements the
+  [full-roster identity and ambiguity rule](../lessons/identity-and-relationship-legibility.md),
+  rather than deriving relationships from search results.
+- **Keep previous-agent opening, not a fixed second-row shortcut.** Initially
+  select the latest-focused listed instance that is not the terminal in
+  front, and bring it into view. With a query, select the latest-focused
+  match. Tree order means recency rank no longer equals row number.
+
+Reject a flat Recent group ahead of this tree: once the whole list follows
+recency, it repeats rows. Reject ranking each node only by its own focus: a
+fresh child would remain below its stale parent's less-recent siblings,
+contradicting the purpose of subtree ranking. Reject sorting an independent
+run as one block: a just-focused single would remain trapped behind a stale
+run. These are design tradeoffs, not interchangeable sorting implementations.
+
+The palette uses the sidebar's relationship cues as recorded in
+[Explicit sibling display](sibling-relations-are-shown-apart-from-parentage.md#one-relation-distinct-visual-and-accessible-readings).
+The sidebar's [name-order decision](roster-name-order-preserves-recognition.md)
+remains intact. This instance-switching choice does not supersede the
 soul-inspection and explicit-launch flow above.
 
 Reject reordering the sidebar roster by recency. It would make fast keyboard
@@ -84,3 +115,18 @@ between repositories inside one workspace.
 2. Founder-accepted direction 2026-07-26, "Desktop as the workspace view", carried in [Official OATS development runs on the architecture it offers adopters](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md).
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-linux-shell, 2026-10-14. The source identifies [awebai/oats#1158](https://github.com/awebai/oats/pull/1158) (`938837d0`) and [#1179](https://github.com/awebai/oats/pull/1179) (`b1e0ee0c`) for palette recency and roster reveal. These are source-reported implementation references, not independently audited shipment or human-acceptance receipts.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-recency-tree-design.md.
+
+For the partial supersession, the source reports the human owner's request
+through the lane maintainer and direct confirmation of both ordering readings
+on 2026-10-19. It identifies [awebai/oats#1383](https://github.com/awebai/oats/issues/1383)
+for design and [PR #1385](https://github.com/awebai/oats/pull/1385) for the merged
+implementation. Acceptance and shipment remain source-reported; this harvest
+did not audit the implementation or run Desktop. Ordering and query-projection
+regressions should enforce the decision; they do not replace its rationale.
+
+Maintainer check (2026-10-19, review of oats-knowledge#133): awebai/oats#1383
+records the owner's request and the subtree-recency, regrouping, query and
+previous-agent rules; PR #1385, merged 2026-10-19, names the flat Recent group
+as superseded. The superseded group carried no human-acceptance record.

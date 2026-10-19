@@ -3,7 +3,7 @@ type: Decision
 title: Name-ordered rosters preserve recognition across state changes
 description: Order roster bundles by their first root rather than liveness or member count, so starts, stops and a first child do not reprioritize the agents the operator is tracking.
 tags: [desktop, roster, ordering, lineage, recognition]
-timestamp: 2026-10-15
+timestamp: 2026-10-19
 ---
 # Decision and rationale
 
@@ -40,13 +40,16 @@ failure: the first child changed its root's category and jumped the bundle
 ahead of single instances. Name order and root-based placement address both
 without concealing liveness or lineage.
 
-This decision governs the shared roster order used by the Desktop sidebar,
-command palette and terminal list. It does **not** erase the palette's
-accepted [Recent group and previous-agent selection](agent-centered-navigation.md#recency-belongs-in-the-instance-palette-not-the-roster):
-base roster/tree order is distinct from that explicit recency view. The
-proposal does not establish a supersession of palette recency. The two
-unclustered pickers explicitly excluded by the source are also outside this
-decision; it is not a universal ban on running-first selection controls.
+This decision governs the shared base roster order used by the Desktop
+sidebar, command palette and terminal list. It does **not** erase the
+palette's explicit recency view. At the 2026-10-15 decision that view was a
+Recent group; the [2026-10-19 palette refinement](agent-centered-navigation.md#recency-belongs-in-the-instance-palette-not-the-roster)
+replaces that group with subtree-recency ordering and retains previous-agent
+selection. That refinement leaves this sidebar/name-order decision intact;
+shared base tree order is distinct from the palette's recency projection.
+The two unclustered pickers explicitly excluded by the original source are
+also outside this decision; it is not a universal ban on running-first
+selection controls.
 
 The [needs-input decision](needs-input-preserves-liveness-and-recognition.md)
 already rejects reordering by urgency. This extends that recognition
@@ -64,3 +67,5 @@ identifies [#1083](https://github.com/awebai/oats/issues/1083) as the earlier
 running-first choice and [PR #1271](https://github.com/awebai/oats/pull/1271)
 (`e8ad4026`) as the implementation. These are source-reported decision and
 shipment references, not independently audited acceptance or test receipts.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-recency-tree-design.md. The palette cross-reference was clarified on that date; this concept's roster-order decision was not superseded.
