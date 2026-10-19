@@ -104,3 +104,9 @@ It reports the human-owner request on 2026-10-19, effective-colour contrast
 checks by developer and reviewer, and visual placement checked on a static
 page with real CSS. These are source-reported evidence, not this harvest's
 measurements; no Electron or assistive-technology run is claimed.
+
+Maintainer check (2026-10-19, review of oats-knowledge#133): awebai/oats#1383
+records the owner's request for the sidebar's connectors in the palette, and
+PR #1385, merged 2026-10-19, names the palette half of #1312 as superseded. The
+human-requested part of the 2026-10-16 decision, the sidebar's separate lines,
+is unchanged; the palette's no-connector reading was delegated design.

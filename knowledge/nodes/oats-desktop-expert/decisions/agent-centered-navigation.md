@@ -125,3 +125,8 @@ for design and [PR #1385](https://github.com/awebai/oats/pull/1385) for the merg
 implementation. Acceptance and shipment remain source-reported; this harvest
 did not audit the implementation or run Desktop. Ordering and query-projection
 regressions should enforce the decision; they do not replace its rationale.
+
+Maintainer check (2026-10-19, review of oats-knowledge#133): awebai/oats#1383
+records the owner's request and the subtree-recency, regrouping, query and
+previous-agent rules; PR #1385, merged 2026-10-19, names the flat Recent group
+as superseded. The superseded group carried no human-acceptance record.
