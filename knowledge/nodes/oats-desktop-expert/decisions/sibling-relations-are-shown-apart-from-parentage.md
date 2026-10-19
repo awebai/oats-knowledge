@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Explicit sibling links are shown on both ends and apart from parentage
-description: Show only direct explicit sibling links on both endpoints, using words in the palette and a separate meaningful dotted line in the sidebar so siblinghood cannot be mistaken for parentage.
+description: Show only direct explicit sibling links on both endpoints, using separate dotted sibling and solid lineage cues in the sidebar and palette with an accessible word-based reading so siblinghood cannot be mistaken for parentage.
 tags: [desktop, siblings, lineage, roster, accessibility, rejected-alternatives]
-timestamp: 2026-10-16
+timestamp: 2026-10-19
 ---
 # Decision and rationale
 
@@ -42,28 +42,34 @@ not a change to the kernel's relationship or retirement policy.
 
 # One relation, distinct visual and accessible readings
 
-Keep siblings on the same column and indent children. Preserve that meaning
-across the two views without forcing the same drawing into each:
+Keep siblings on the same column and indent children. The 2026-10-16 decision
+used visible words and no connectors in the palette. That palette-only
+restriction is **partially superseded (2026-10-19)**: the source reports the
+human owner's request for the sidebar's tree and connectors in the palette.
+The sidebar decision and the direct-link semantics above remain unchanged.
 
 - **Sidebar:** the dotted sibling link joins the dots on their column; the
   solid parent-child lineage runs separately to its right. A shared column
   lets a solid line stand in for a dotted one and hides which relation is
   being shown. Separation is semantic, not merely a cosmetic offset.
-- **Palette:** use visible words such as “sibling of …” beside the name,
-  with the equivalent relation read once by assistive technology. The palette
-  has no connectors; adding a connector glyph or relying on colour is not
-  its relationship language. Keep sibling wording in one shared client home
-  so views do not acquire competing readings. This applies the existing
+- **Palette:** reuse the sidebar's connector builder and rules: a dotted
+  sibling link on the dot column and solid lineage separately to its right.
+  Keep the “under …” and “sibling of …” reading for assistive technology only,
+  with each relation spoken once rather than repeated. The shared drawing
+  keeps the palette a reading of the same tree, not a competing relationship
+  language. Keep relation wording in one shared client home under the existing
   [shared-reader wording boundary](/nodes/oats-desktop-expert/decisions/shared-readers-separate-client-terms-and-kernel-prose.md),
   not a second general wording policy.
 
 Once separated, the dotted sidebar line is the only sibling graphic on its
-column. Treat it as **meaningful**, meeting WCAG 1.4.11's 3:1 contrast against
-every row fill it crosses, including selection and themed surfaces. The solid
-lineage can remain decorative **because indentation independently conveys
-parentage**. Decorative status follows redundant meaning, not the fact that
-something is drawn as a line. A future redesign that removes the redundant
-cue must revisit that judgment.
+column. In the palette it is now the only **visible** sibling cue; an
+assistive-technology-only phrase does not make the graphic redundant for
+sighted users. Treat both as **meaningful**, meeting WCAG 1.4.11's 3:1 contrast
+against every effective fill they cross, including the palette surface and
+selection fill in every theme. The solid lineage can remain decorative
+**because indentation independently conveys parentage**. Decorative status
+follows redundant meaning, not the fact that something is drawn as a line.
+A future redesign that removes the redundant cue must revisit that judgment.
 
 Apply the [effective-colour inventory](/nodes/oats-desktop-expert/lessons/effective-contrast-over-token-pairs.md)
 rather than treating a token-pair check as proof. Pixel offsets, stroke
@@ -76,7 +82,7 @@ run by the harvest.
 
 This adds concrete sibling-display rationale to the existing no-colour-only
 rule. It does not supersede [name-ordered roster recognition](/nodes/oats-desktop-expert/decisions/roster-name-order-preserves-recognition.md)
-or the palette's separate recency behavior.
+or [the palette's subtree-recency ordering](agent-centered-navigation.md#recency-belongs-in-the-instance-palette-not-the-roster).
 
 # Evidence and limits
 
@@ -89,3 +95,12 @@ and comment 6214880493 for the design, [PR #1313](https://github.com/awebai/oats
 source-reported. The sidebar note reports static-page checks with real CSS,
 not Electron; this harvest did not audit those changes or establish live
 assistive-technology behavior.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-recency-tree-design.md.
+
+The partial supersession's source identifies [awebai/oats#1383](https://github.com/awebai/oats/issues/1383)
+for design and [PR #1385](https://github.com/awebai/oats/pull/1385) for implementation.
+It reports the human-owner request on 2026-10-19, effective-colour contrast
+checks by developer and reviewer, and visual placement checked on a static
+page with real CSS. These are source-reported evidence, not this harvest's
+measurements; no Electron or assistive-technology run is claimed.
