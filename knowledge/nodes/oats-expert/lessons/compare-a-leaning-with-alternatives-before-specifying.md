@@ -43,6 +43,11 @@ Do not weaken a comparison to make the favored candidate pass. The kernel's
 owns the wrapper-lifetime rationale; this lesson does not restate its
 implementation policy.
 
+[Registry population coverage](/nodes/oats-expert/lessons/registry-population-needs-user-path-coverage.md)
+is a distinct application: an apparently complete set of explicit writers
+can still miss a user path, while an unmeasured cost assumption rules out
+automatic population too early.
+
 # Elimination route
 
 Implement state ownership and restoration in the responsible boundary, and
