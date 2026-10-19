@@ -1,5 +1,11 @@
 # oats-expert log
 
+## 2026-10-19
+
+* **Harvest**: add [registry population coverage](/nodes/oats-expert/lessons/registry-population-needs-user-path-coverage.md): enumerate who never reaches explicit writers, assess the check-then-lock alternative and preserve removal intent under automatic addition. Keep the rationale rather than a registry contract or performance promise; name user-path and removal regressions as prevention routes. Evidence: OKF proposal from oats-expert/oats-expert-deployments-list; notes/registry-population-gap.md. One effort and one registry, source-reported.
+* **Harvest**: add [runner isolation for automatic per-user writes](/nodes/oats-expert/lessons/automatic-per-user-writes-need-runner-isolation.md): plan runner-owned isolation, a personal-file mutation guard, eligible positive fixtures and interruption cleanup with the side effect. Link existing cleanup and handback concepts rather than duplicate their rules; keep implementation details in code and tests. Evidence: OKF proposal from oats-expert/oats-expert-deployments-list; notes/per-user-file-test-isolation.md. CI and implementation outcomes remain source-reported.
+* **Update**: cross-link the new lessons from [comparison before specification](/nodes/oats-expert/lessons/compare-a-leaning-with-alternatives-before-specifying.md) and [affected-test inventory at handback](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md), preserving both existing claims.
+
 ## 2026-10-15
 
 * **Harvest**: add [interim docs as migration inputs](/nodes/oats-expert/lessons/interim-docs-create-migration-inputs.md): a docs-first plan must name the operator-made copies in the later command's spec, justify adoption or refusal, and plan the transition text with the docs follow-up. Preserve the operator-customization rationale without making generated origin takeover permission or changing the maintainer's capture-service decision. Name ownership enforcement, regression fixtures and specification guidance as prevention routes. Evidence: OKF proposal from oats-expert/oats-expert-onboarding-channels; notes/interim-docs-before-a-managing-command.md. One occurrence, source-reported.

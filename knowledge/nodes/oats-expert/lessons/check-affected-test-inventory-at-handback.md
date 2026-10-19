@@ -39,6 +39,11 @@ which tests the composition before developer handover. The maintainer's
 [evidence-before-hand-over rule](/nodes/oats-maintainer/stewardship/review-protocol.md#evidence-outside-pr-ci-belongs-before-hand-over)
 remains the authority for affected paths absent from PR CI.
 
+[Runner isolation for automatic per-user writes](/nodes/oats-expert/lessons/automatic-per-user-writes-need-runner-isolation.md)
+addresses an earlier boundary: a new side effect can expose personal state
+through unrelated CLI tests, so isolation and guards belong in the spec,
+not only in the later affected-test inventory.
+
 Prefer eliminating incidental coupling first: [consumer tests should own
 their reading, not copied producer sentences](/nodes/oats-desktop-expert/lessons/kernel-text-tests-own-the-client-reading.md).
 For real dependencies, dependency-aware test selection and automated
