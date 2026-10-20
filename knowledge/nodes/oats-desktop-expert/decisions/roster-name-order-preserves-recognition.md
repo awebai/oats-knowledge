@@ -44,9 +44,10 @@ This decision governs the shared base roster order used by the Desktop
 sidebar, command palette and terminal list. It does **not** erase the
 palette's explicit recency view. At the 2026-10-15 decision that view was a
 Recent group; the [2026-10-19 palette refinement](agent-centered-navigation.md#recency-belongs-in-the-instance-palette-not-the-roster)
-replaces that group with subtree-recency ordering and retains previous-agent
-selection. That refinement leaves this sidebar/name-order decision intact;
-shared base tree order is distinct from the palette's recency projection.
+replaces that group with subtree-recency ordering. The navigation concept
+also records the later same-day supersession of previous-agent opening.
+Neither change alters this sidebar/name-order decision; shared base tree
+order is distinct from the palette's recency projection.
 The two unclustered pickers explicitly excluded by the original source are
 also outside this decision; it is not a universal ban on running-first
 selection controls.
@@ -69,3 +70,5 @@ running-first choice and [PR #1271](https://github.com/awebai/oats/pull/1271)
 shipment references, not independently audited acceptance or test receipts.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-recency-tree-design.md. The palette cross-reference was clarified on that date; this concept's roster-order decision was not superseded.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-opens-first-row.md. The later opening-selection supersession is linked in the same canonical navigation concept; roster order remains unchanged.
