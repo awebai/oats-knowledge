@@ -295,6 +295,7 @@ dislodge than the original.
 
 [External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
 [Release judgement for the tag-driven lane](/nodes/oats-maintainer/stewardship/release-traps.md);
+[One release lane, project lanes defined by their maintainers](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md);
 [Cross-workstream delivery](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md).
 
 # Citations
