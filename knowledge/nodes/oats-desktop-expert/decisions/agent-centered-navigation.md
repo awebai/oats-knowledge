@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-19
+timestamp: 2026-10-23
 ---
 # Rationale
 
@@ -95,6 +95,32 @@ repository ownership. What defines a workspace has since changed (a Git-hosted
 workspace definition, and since Phase F a deployment directory whose facts come
 only from the kernel); the consequence has not: the switcher never moves
 between repositories inside one workspace.
+
+# Workspace tab order
+
+The source reports product-owner direction on **2026-10-23** to order
+Workspace's tabs **Souls, Capabilities, Teams, Setup**. This explicitly
+supersedes the source-reported **2026-09-28 Teams-first** ordering. The
+captured evidence names that replacement but supplies no further rationale
+for the precise order; none is inferred here.
+
+This changes the Workspace tab sequence, not the deployment-switcher model,
+instance-palette ordering or explicit launch intent above. The
+[workspace-defaults decision](workspace-defaults-show-scope-and-purpose.md)
+records what leads the Capabilities tab. The earlier Teams-first direction
+was never recorded as a concept in this base; its date is kept here so the
+supersession stays explicit.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-capabilities-workspace-defaults, 2026-10-23; notes/capabilities-defaults-design.md.
+
+The proposal identifies [awebai/oats#1489](https://github.com/awebai/oats/pull/1489)
+as implementation evidence.
+
+Maintainer check (2026-10-26, review of oats-knowledge#145): awebai/oats#1489,
+merged 2026-10-23, records the product owner's 2026-10-23 request for this
+order and states that it supersedes the 2026-09-28 Teams first order; Souls
+stays the default tab. The superseded order was the same human's earlier
+direction and carried no acceptance record in this base.
 
 # Related
 

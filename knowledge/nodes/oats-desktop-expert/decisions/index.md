@@ -2,6 +2,8 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [Workspace defaults show shared scope, Core and Additional groups, and purpose](workspace-defaults-show-scope-and-purpose.md) - Present workspace defaults above the capability catalogue with one visual grammar for Core and Additional groups, and explain their shared-working purpose without promising compulsory or automatic learning.
+* [Desktop copy names a soul's instances and instruction injection](desktop-copy-names-instances-and-injection.md) - Say a soul's instances rather than its agents, and describe capability instructions as injected into the instance's composed AGENTS.md so explanations preserve the definition/runtime and authored/injected distinctions.
 * [A team view names your instances, not the team's full membership](team-instance-lists-state-their-observation-scope.md) - Label team instance lists and counts as the user's observed deployments and state their machine scope, so a partial view never implies a complete team roster.
 * [Desktop chrome uses sans names and role-based type hierarchy](chrome-typography-follows-information-role.md) - Give primary names foreground sans at weight 600 and reserve monospace for secondary machine strings, using a short size-and-weight hierarchy instead of extra colours or uppercase labels.
 * [Explain a technical model with an overview and a closed developer disclosure](technical-models-use-overview-and-developer-disclosure.md) - Lead with one plain user-facing sentence and place developer-only mechanisms in a native disclosure, sharing state meanings with the visible rows rather than maintaining a second explanation.
