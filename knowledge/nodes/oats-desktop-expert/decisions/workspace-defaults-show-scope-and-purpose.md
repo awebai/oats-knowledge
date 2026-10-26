@@ -31,7 +31,7 @@ choice about where a mark is useful, not a change to the
 # Rejected alternatives
 
 - **The soul page's Core table.** Reuse would imply that the panel describes
-  one soul's setup, precisely the reading the brief excluded.
+  one soul's setup, precisely the reading the design brief excluded.
 - **A three-column slot strip followed by extra-default chips.** Initially
   approved, then explicitly replaced on 2026-10-23: the product owner wanted
   Core versus Additional made explicit while keeping the same UI for both.
@@ -82,6 +82,12 @@ final approval on 2026-10-23, and identify
 The replacement-copy correction is reported by the proposal. Acceptance,
 implementation and the review finding are source-reported; this harvest did
 not inspect the source session, audit the implementation or run Desktop.
+
+Maintainer check (2026-10-26, review of oats-knowledge#145): the Core and
+Additional groups, the unfiltered scope section and the purpose-first,
+knowledge-first copy are what awebai/oats#1489 merged on 2026-10-23. That PR's
+description still shows the earlier slot-strip design; its later commits
+replace it. The slot strip was never an accepted concept in this base.
 
 Current composition and observation contracts:
 [docs/desktop-cli-api.md](https://github.com/awebai/oats/blob/main/docs/desktop-cli-api.md).

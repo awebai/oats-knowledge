@@ -108,14 +108,19 @@ This changes the Workspace tab sequence, not the deployment-switcher model,
 instance-palette ordering or explicit launch intent above. The
 [workspace-defaults decision](workspace-defaults-show-scope-and-purpose.md)
 records what leads the Capabilities tab. The earlier Teams-first direction
-is not otherwise present in this accepted concept; retaining its date here
-makes the reported human-directed supersession explicit for review.
+was never recorded as a concept in this base; its date is kept here so the
+supersession stays explicit.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-capabilities-workspace-defaults, 2026-10-23; notes/capabilities-defaults-design.md.
 
 The proposal identifies [awebai/oats#1489](https://github.com/awebai/oats/pull/1489)
-as implementation evidence. Both the old direction and its replacement are
-source-reported, not independently audited acceptance receipts.
+as implementation evidence.
+
+Maintainer check (2026-10-26, review of oats-knowledge#145): awebai/oats#1489,
+merged 2026-10-23, records the product owner's 2026-10-23 request for this
+order and states that it supersedes the 2026-09-28 Teams first order; Souls
+stays the default tab. The superseded order was the same human's earlier
+direction and carried no acceptance record in this base.
 
 # Related
 
