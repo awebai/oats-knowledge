@@ -19,6 +19,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Host config and persistent commands
 
+* [Desktop persistence apply is a human handoff, not a classifier workaround](desktop-persistence-apply-is-a-human-handoff.md) - Agent-assisted desktop setup separates plan and check from the person's persistence-changing act, respects harness refusals, and limits each chosen option to its own effects.
 * [Live config validation belongs after confirmation, not in a reusable preview cache](config-validation-belongs-after-confirmation.md) - Validate an isolated baseline and candidate after confirmation and just before an atomic guarded write, because unchanged copied bytes do not prove an executable config's dependencies stayed unchanged.
 * [Persisted launchers need recorded kernel paths, not the installer's PATH](persisted-launchers-need-recorded-kernel-paths.md) - Record and verify absolute CLI and Node paths for commands an integration leaves behind, reject instance shims, and detect paths lost to upgrades rather than promising that absolute means permanent.
 

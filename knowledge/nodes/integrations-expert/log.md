@@ -1,5 +1,11 @@
 # integrations-expert log
 
+## 2026-10-26
+
+* **Harvest**: Added [the desktop persistence handoff](/nodes/integrations-expert/lessons/desktop-persistence-apply-is-a-human-handoff.md): preserve the reported classifier refusal and narrow-choice rationale without generalizing one Claude Code trial into a universal inability to run authorized operator commands. Name option-scoped writes and regressions as enforcement; no bypass or live apply is certified.
+* **Harvest**: Added [installer ownership of tools and state](/nodes/integrations-expert/decisions/installers-preserve-existing-tools-and-state.md): record the source-reported human direction of 2026-10-23, why a second install can shadow an existing tool, and why onboarding adopts rather than replaces state. Preserve separate consent and persisted-path boundaries; implementation and acceptance are not independently audited.
+* **Harvest**: Added [launcher prompts as the person's session input](/nodes/integrations-expert/decisions/launcher-prompts-use-the-persons-session-input.md): preserve the rejected mail route, single-attempt limit and attach path, narrowing an error's non-delivery claim to failure or uncertainty. Link existing receipt, identity and product decisions without superseding them or authorizing a new Desktop composer.
+
 ## 2026-10-19
 
 * **Harvest**: Added [a hang fake must have a child](/nodes/integrations-expert/lessons/a-fake-that-hangs-must-have-a-child.md): preserve why single-process hangs and coverage of only the first caller hide descendant leaks, require timeout and reader-SIGTERM evidence per call path, and name shared lifecycle handling plus executable regressions as the elimination route. Link real-binary acceptance and the kernel signal lesson without duplicating their rules; reported implementation tests were not rerun by the harvest.
