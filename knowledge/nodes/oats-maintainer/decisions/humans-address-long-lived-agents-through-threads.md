@@ -12,9 +12,12 @@ the direction was decided, after the design record had passed review and
 stage 1 (the `interaction` setting and brief text in oats.aweb) had merged
 unreleased. **Nothing is built or released**: the design record
 ([awebai/oats#1538](https://github.com/awebai/oats/issues/1538)) was closed at
-the reviewed head, and stage 1 (awebai/oats-aweb#154) was reverted
-(awebai/oats-aweb#156) before any oats.aweb release, so no release ships a
-setting whose promised behaviour does not exist. Until the effort resumes:
+the reviewed head, and a plain revert of stage 1 (awebai/oats-aweb#154) was
+opened (awebai/oats-aweb#156) before any oats.aweb release, so that no release
+ships a setting whose promised behaviour does not exist. At review on
+2026-10-26 the revert was still open and no oats.aweb tag contained stage 1;
+if oats.aweb is released before the revert merges, that release carries an
+`interaction` setting that does nothing. Until the effort resumes:
 
 - the human-accepted 2026-07-22 **one input surface** rule in
   [terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md)
@@ -40,7 +43,7 @@ Decided on 2026-10-26 by the lane's human (the shape, A–D below) and
 confirmed the same day by the release lane's human, with the coherence
 conditions below, on [awebai/oats#1103](https://github.com/awebai/oats/issues/1103).
 The effort was launched and then paused the same day; the one merged stage
-was reverted, so there is no implementation to read as evidence.
+is being reverted, so there is no implementation to read as evidence.
 
 - **A.** A human may address an agent through **threads** in Desktop, as an
   alternative to typing into the agent's terminal.
@@ -152,4 +155,9 @@ record the deferral (verified aweb mail, 2026-10-26), the closing of
 awebai/oats#1538 after its review, the merge of awebai/oats-aweb#154 and its
 revert in awebai/oats-aweb#156 (merge pending when proposed), and the aweb
 project's acceptance of a read-only conversation listing. None of it is
-independently verified by this harvest.
+independently verified by this harvest. The knowledge maintainer's review
+(2026-10-26) verified on GitHub: the lane's human closed awebai/oats#1538 at
+14:07Z on 2026-10-26 with a comment cancelling the initiative for now and
+noting it can be reopened at the reviewed head; awebai/oats-aweb#154 merged at
+13:30Z; awebai/oats-aweb#156 was open, unmerged, with the same human as
+author; the latest oats.aweb tag (v1.31.0, 2026-10-23) predates #154.

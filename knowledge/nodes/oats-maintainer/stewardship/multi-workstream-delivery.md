@@ -39,8 +39,8 @@ not exist. So in a shared package:
 
 Learned on 2026-10-26 when the threaded human channel was
 [deferred](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md)
-the day its stage 1 (the `interaction` setting in oats.aweb) merged; the stage
-was reverted before any release. The lesson applies to every multi-stage
+the day its stage 1 (the `interaction` setting in oats.aweb) merged; a revert
+was opened before any release. The lesson applies to every multi-stage
 effort across the OATS package repositories
 ([official development runs on the architecture it offers adopters](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md)).
 
@@ -81,4 +81,4 @@ reviewing an integration head needs
 
 1. Migrated from agents/cli-dev/soul/knowledge @ 7838d3ca (`lessons/frozen-interface-first-delivery`, `gate2-seam-teardown-execution`, `prove-auto-merge-preserved-both-deltas`, 2026-07-26/27).
 2. Migrated from agents/oats-expert/soul/knowledge/stewardship @ 7838d3ca (delivery-log lessons of 2026-09-20 on independence and version-scoped briefings).
-3. The shared-package contract-stage section: OKF proposal from oats-maintainer/oats-threaded-agent-ux-maintainer, 2026-10-26; notes/threaded-channel-deferred.md. The merge of awebai/oats-aweb#154 and its revert in awebai/oats-aweb#156 are source-reported.
+3. The shared-package contract-stage section: OKF proposal from oats-maintainer/oats-threaded-agent-ux-maintainer, 2026-10-26; notes/threaded-channel-deferred.md. The merge of awebai/oats-aweb#154 and the revert awebai/oats-aweb#156 (open, unmerged, before any oats.aweb release) were checked on GitHub by the knowledge maintainer's review, 2026-10-26.
