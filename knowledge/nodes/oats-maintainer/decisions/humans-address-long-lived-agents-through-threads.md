@@ -1,17 +1,46 @@
 ---
 type: Decision
 title: A human addresses a long-lived agent through threads that are aweb conversations; the soul declares an interaction kind in its messaging settings
-description: Threads in Desktop are aweb mail conversations between the human's own identity and the agent, read and sent through the messaging capability's JSON surface and keyed by a soul-level interaction kind in the messaging capability's settings; no second messaging channel, no UI layout in the kernel contract.
-tags: [desktop, messaging, aweb, threads, human-interaction, soul-settings, direction]
+description: Deferred on 2026-10-26, the day it was decided, with nothing built or released, so the 2026-07-22 one-input-surface rule stands; the design to resume from is threads as aweb mail conversations between the human's own identity and the agent, read and sent through the messaging capability's JSON surface and keyed by a soul-level interaction kind in the messaging capability's settings, with no second messaging channel and no UI layout in the kernel contract.
+tags: [desktop, messaging, aweb, threads, human-interaction, soul-settings, direction, deferred]
 timestamp: 2026-10-26
 ---
-# Decision
+# Status: deferred, not reversed (2026-10-26)
+
+The lane's human cancelled the initiative for now on 2026-10-26, the same day
+the direction was decided, after the design record had passed review and
+stage 1 (the `interaction` setting and brief text in oats.aweb) had merged
+unreleased. **Nothing is built or released**: the design record
+([awebai/oats#1538](https://github.com/awebai/oats/issues/1538)) was closed at
+the reviewed head, and stage 1 (awebai/oats-aweb#154) was reverted
+(awebai/oats-aweb#156) before any oats.aweb release, so no release ships a
+setting whose promised behaviour does not exist. Until the effort resumes:
+
+- the human-accepted 2026-07-22 **one input surface** rule in
+  [terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md)
+  **is in effect** for every soul; Desktop implements it and nothing else;
+- no soul sets `settings.oats.aweb.interaction: threads`, no Desktop thread
+  view or inbox panel is built, and no one-line wake is shipped;
+- the release lane's human's approval of the direction is **history**, not a
+  current instruction to build.
+
+The direction below is kept as the design to resume from, and its coherence
+rules keep their value. **Resumption point** (source-reported): reopen the
+design record at its closed head; redo stage 1 from the reverted diff; stage 2
+waits on aweb's read-only conversation listing, accepted by the aweb project
+as a non-acking read over the existing endpoint, while a non-acking
+*presentation* (a wake that does not ack) waits on aweb's own design, because
+presentation's ack is what stops redelivery and what session recovery relies
+on. Whether the effort resumes is unknown. Resuming is the lane's human's
+call, as cancelling was.
+
+# Decision (2026-10-26; deferred the same day, see above)
 
 Decided on 2026-10-26 by the lane's human (the shape, A–D below) and
 confirmed the same day by the release lane's human, with the coherence
 conditions below, on [awebai/oats#1103](https://github.com/awebai/oats/issues/1103).
-The effort is launched; nothing of it had merged when this was recorded, so
-the implementation is not evidence yet.
+The effort was launched and then paused the same day; the one merged stage
+was reverted, so there is no implementation to read as evidence.
 
 - **A.** A human may address an agent through **threads** in Desktop, as an
   alternative to typing into the agent's terminal.
@@ -86,16 +115,20 @@ does one way).
   contract, which stays runtime- and client-neutral.
 - **A Desktop-native conversation store**: a second messaging channel.
 
-# What this supersedes
+# What this would supersede, once resumed and built
 
-This supersedes, for souls that declare `threads`, the human-accepted
-2026-07-22 **one input surface** rule and the 2026-07-17 **the app is the
-human's window, the messaging layer is the agents' channel** position recorded
-in [terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md).
+When built, this supersedes, for souls that declare `threads`, the
+human-accepted 2026-07-22 **one input surface** rule and the 2026-07-17 **the
+app is the human's window, the messaging layer is the agents' channel**
+position recorded in
+[terminal tabs are viewers, not session owners](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md).
 The 2026-07-22 rule was the release lane's human's own direction, so only that
-human supersedes it, and did. Terminal souls keep the one input surface; the
-viewer-not-owner rule for terminals is untouched. The Desktop expert's node
-owns that concept and records the supersession there.
+human supersedes it, and approved the direction on 2026-10-26. **With the
+effort deferred the same day, that supersession is not in effect**: the
+2026-07-22 rule stands for every soul, and the Desktop expert's concept
+rightly still states it. Terminal souls keep the one input surface in any
+case; the viewer-not-owner rule for terminals is untouched. The Desktop
+expert's node owns that concept and records any future supersession there.
 
 # Citations
 
@@ -108,4 +141,15 @@ human's confirmation in a comment on
 [awebai/oats#1103](https://github.com/awebai/oats/issues/1103). Acceptance,
 the launched effort and the sequencing condition (nothing lands on main before
 the pending release tag; one second reader per PR) are source-reported, not
+independently verified by this harvest.
+
+Deferral: OKF proposal from oats-maintainer/oats-threaded-agent-ux-maintainer,
+2026-10-26 (second proposal, after the cancellation);
+notes/threaded-channel-deferred.md and
+notes/threaded-human-channel-direction.md. The source reports the lane's
+human's cancellation in session on 2026-10-26, the release lane's request to
+record the deferral (verified aweb mail, 2026-10-26), the closing of
+awebai/oats#1538 after its review, the merge of awebai/oats-aweb#154 and its
+revert in awebai/oats-aweb#156 (merge pending when proposed), and the aweb
+project's acceptance of a read-only conversation listing. None of it is
 independently verified by this harvest.
