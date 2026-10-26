@@ -1,5 +1,9 @@
 # oats-desktop-expert log
 
+## 2026-10-26
+
+* **Harvest**: added [Check the running Desktop's version](lessons/check-running-version-before-debugging-behaviour.md), preserving the stale-process diagnostic ordering, source-reported consent-based restart remedy and rejected automatic-restart, second-instance-probe, information-only and renderer-toast alternatives. Kept the older-running-copy limitation and unit-only/native-verification boundary explicit; the captured note predates the proposal's reported acceptance. Linked from [Keyboard policy](lessons/keyboard-focus-and-action-ownership.md) without changing its bindings or user-input policy. Omitted machine details, review chronology and shipment claims.
+
 ## 2026-10-19
 
 * **Review**: maintainer accepted both partial supersessions (oats-knowledge#133). awebai/oats#1383 and merged PR #1385 confirm the owner's request and name what they supersede; neither superseded part carried human acceptance, and the human-requested sidebar separation is unchanged. Added maintainer-check notes to [Agent-centered navigation](decisions/agent-centered-navigation.md) and [Explicit sibling display](decisions/sibling-relations-are-shown-apart-from-parentage.md).
