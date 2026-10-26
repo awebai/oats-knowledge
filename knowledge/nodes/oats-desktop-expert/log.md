@@ -1,5 +1,12 @@
 # oats-desktop-expert log
 
+## 2026-10-26
+
+* **Harvest**: added [Workspace defaults](decisions/workspace-defaults-show-scope-and-purpose.md), preserving workspace scope, Core/Additional with one visual grammar, and the rationale against copying a soul's table or filtering scope facts with the catalogue. Record the source-reported 2026-10-23 replacement of the initially approved slot-strip design. Keep purpose-first, knowledge-first copy conditional on a knowledge capability and truthful to composition; the maintainer-owned product direction remains linked, not duplicated.
+* **Update**: refined [Technical explanations](decisions/technical-models-use-overview-and-developer-disclosure.md#tab-concepts-use-an-information-modal) with the product-owner's reported choice of a toolbar information modal for Souls/Capabilities definitions. Setup's inline overview and closed developer disclosure remain unchanged, as does the accessibility verification bar.
+* **Update**: added [Workspace tab order](decisions/agent-centered-navigation.md#workspace-tab-order), explicitly recording Souls, Capabilities, Teams, Setup as the source-reported 2026-10-23 supersession of the 2026-09-28 Teams-first direction. No additional ordering rationale is supplied by the evidence; palette, roster and deployment-switcher policies are unchanged. Human acceptance requires maintainer review, not inference from this harvest.
+* **Harvest**: added [Desktop composition vocabulary](decisions/desktop-copy-names-instances-and-injection.md): say a soul's instances and explicit injection into the instance's composed AGENTS.md. Preserve the generic use of agent and link the existing inspection decision instead of restating its layout. Acceptance and implementation references are source-reported; no source session or live UI was inspected.
+
 ## 2026-10-19
 
 * **Review**: maintainer accepted both partial supersessions (oats-knowledge#133). awebai/oats#1383 and merged PR #1385 confirm the owner's request and name what they supersede; neither superseded part carried human acceptance, and the human-requested sidebar separation is unchanged. Added maintainer-check notes to [Agent-centered navigation](decisions/agent-centered-navigation.md) and [Explicit sibling display](decisions/sibling-relations-are-shown-apart-from-parentage.md).
