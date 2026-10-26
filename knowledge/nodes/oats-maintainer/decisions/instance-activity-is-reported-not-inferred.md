@@ -21,7 +21,7 @@ The field is a reported observation, not a kernel or client inference.
 
 This applies the existing
 [runtime, messaging and viewer ownership split](runtime-messaging-viewer-ownership.md)
-and the rule that [kernel JSON is the Desktop's model](desktop-parity-lifecycle-and-policy.md#the-kernels-json-is-the-desktops-model).
+and the rule that [kernel JSON is the Desktop's model](desktop-parity-lifecycle-and-policy.md#the-kernels-json-is-the-desktops-model-2026-09-24).
 It does not move harness-specific turn detection into the kernel or grant
 viewers session ownership.
 
