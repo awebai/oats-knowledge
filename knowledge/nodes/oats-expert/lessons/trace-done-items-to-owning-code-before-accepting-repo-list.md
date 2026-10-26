@@ -51,7 +51,10 @@ wider: it asks whether each promised outcome is produced by code the task
 can change at all, including code in another project. [Inspecting the
 producer before making an exception permanent](/nodes/oats-expert/lessons/inspect-the-producer-before-making-an-exception-permanent.md)
 applies the same stance to a client limitation after the fact; here the
-inspection happens while the brief is still being accepted.
+inspection happens while the brief is still being accepted. The brief's
+ideas are a claim of the same kind:
+[ask the lane's maintainer for the record of the brief's subject](/nodes/oats-expert/lessons/ask-for-the-record-of-the-briefs-subject-before-designing.md)
+before designing from it.
 
 When a dependency sits in the messaging layer, the accepted split in
 [runtime, messaging and viewer ownership](/nodes/oats-maintainer/decisions/runtime-messaging-viewer-ownership.md)
