@@ -1,5 +1,10 @@
 # oats-maintainer log
 
+## 2026-10-26
+
+* **Harvest**: [A human addresses a long-lived agent through threads that are aweb conversations](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md) records the 2026-10-26 direction (threads as aweb conversations, read-only inbox panel, `settings.oats.aweb.interaction`, one-line wake for threads souls), its rejected alternatives and the release lane's coherence conditions; for threads souls it supersedes the human-accepted 2026-07-22 one-input-surface and 2026-07-17 window/channel positions held in the Desktop expert's [terminal-viewers decision](/nodes/oats-desktop-expert/decisions/terminal-viewers-not-session-owners.md), which that node's owner records there. [Runtime, messaging and viewer ownership](/nodes/oats-maintainer/decisions/runtime-messaging-viewer-ownership.md) links it. Evidence: OKF proposal from oats-maintainer/oats-threaded-agent-ux-maintainer, 2026-10-26; notes/threaded-human-channel-direction.md.
+* **Harvest**: [One release lane, project lanes defined by their maintainers](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md) records the release lane's human's 2026-10-26 lane model: one release lane for final review, merge and tags; project lanes defined by their own maintainers without sign-off; one second reader per PR and release ownership unchanged. Supersedes the ask-the-release-lane-for-your-lane rule, which the base never held; the lane-owned review refinement pending in harvest #98 is refined, not duplicated. [Review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md) links it. Evidence: notes/project-lanes-defined-by-maintainers.md.
+
 ## 2026-10-14
 
 * **Review**: kept the fresh-and-second-reader and test-honesty sections in the [review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md)'s description and index listings, which the batch-integration harvest had dropped while those sections remain (knowledge-maintainer review of harvest #109).

@@ -41,6 +41,13 @@ unchanged:
   are reached through the operator's existing SSH configuration; the server
   registry stores no keys.
 
+# Related
+
+[A human addresses a long-lived agent through threads that are aweb conversations](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md)
+applies this split to human-to-agent threads: the messaging capability owns
+the conversations and the interaction kind, Desktop is a client that reads
+through a capability verb and never consumes mail for the agent.
+
 # Current contracts
 
 Mechanics live with the code and move with it: `docs/execution-targets.md`,
