@@ -49,7 +49,11 @@ Before proposing a framework for a terminal client:
 - **name the packaging decisions for the maintainer**: a framework and its
   UI library bring a dependency tree into the project's package, and a
   pseudo-terminal binding without prebuilt binaries for a supported platform
-  is a release question, not a detail.
+  is a release question, not a detail. For the same reason the framework
+  choice never appears in a design draft as a "decision for the
+  requester": it is a release-lane structural call made before any design
+  spec sets, and the draft routes it there
+  ([each decision item has an owner](/nodes/oats-expert/lessons/ask-for-the-record-of-the-briefs-subject-before-designing.md)).
 
 # Rejected
 
@@ -79,7 +83,9 @@ lead's way of answering the request, not either decision.
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/ui-ux-redesign-expert, 2026-10-26;
-notes/ink-chrome-yes-terminal-pane-no.md.
+notes/ink-chrome-yes-terminal-pane-no.md. The routing of the framework
+choice to the release lane rather than the requester:
+notes/supersession-each-goes-to-its-human.md, same proposal and date.
 
 The source reports measurements by its research subagent on one machine with
 Ink 8.0.0: roughly 10 ms per frame typical and roughly 30 ms worst at a
