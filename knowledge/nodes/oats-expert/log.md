@@ -1,5 +1,11 @@
 # oats-expert log
 
+## 2026-10-26
+
+* **Harvest**: add [tracing each "done" item to its owning code](/nodes/oats-expert/lessons/trace-done-items-to-owning-code-before-accepting-repo-list.md): before a cross-area spec adopts the brief's repository list, open the code that produces each promised outcome and name its repository, owner, symbol and version; a dependency outside the named repositories is a maintainer decision before building. Keep the planning method; the messaging CLI and shared delivery-library facts stay with their owners. Evidence: OKF proposal from oats-expert/oats-expert-threaded-channel; notes/trace-done-items-to-owning-code-before-accepting-repo-list.md; notes/one-line-wake-lives-in-channel-core.md; notes/aw-mail-read-and-ack-semantics.md. One task, source-reported.
+* **Harvest**: add [reading a human's refusal of a custody question as design direction](/nodes/oats-expert/lessons/human-refusal-of-a-custody-question-is-design-direction.md): when the human declines an identity or custody question posed in the system's vocabulary, hide the concept, decide the mechanics with the domain experts and the maintainer, and let the human review behaviour only. The chosen custody mechanics remain under review in their owners' records and are not promoted here; no human words are quoted. Evidence: OKF proposal from oats-expert/oats-expert-threaded-channel; notes/human-direction-identity-is-invisible.md.
+* **Update**: cross-link the done-item tracing lesson from [shared-client owner review](/nodes/oats-expert/lessons/import-closure-needs-owner-review.md) and [producer inspection before a permanent exception](/nodes/oats-expert/lessons/inspect-the-producer-before-making-an-exception-permanent.md); both existing claims are unchanged.
+
 ## 2026-10-19
 
 * **Harvest**: add [registry population coverage](/nodes/oats-expert/lessons/registry-population-needs-user-path-coverage.md): enumerate who never reaches explicit writers, assess the check-then-lock alternative and preserve removal intent under automatic addition. Keep the rationale rather than a registry contract or performance promise; name user-path and removal regressions as prevention routes. Evidence: OKF proposal from oats-expert/oats-expert-deployments-list; notes/registry-population-gap.md. One effort and one registry, source-reported.
