@@ -43,6 +43,11 @@ unchanged:
 
 # Related
 
+[Working and idle are producer-reported facts, not terminal heuristics](/nodes/oats-maintainer/decisions/instance-activity-is-reported-not-inferred.md)
+records the 2026-10-26 source-reported activity contract, not yet built or
+released at proposal time: producers observe turns, the kernel records the
+fact and clients do not infer it from terminal output.
+
 [A human addresses a long-lived agent through threads that are aweb conversations](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md)
 (deferred on 2026-10-26, nothing built) would apply this split to
 human-to-agent threads: the messaging capability owns
