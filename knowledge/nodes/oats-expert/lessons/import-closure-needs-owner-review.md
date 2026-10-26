@@ -124,6 +124,11 @@ Desktop rationale for [truthful async outcomes](/nodes/oats-desktop-expert/lesso
 remains there; this lesson changes the scope of the planning review, not
 those contracts. No new CI gate is claimed.
 
+Before this review, [trace each "done" item to the code that owns
+it](/nodes/oats-expert/lessons/trace-done-items-to-owning-code-before-accepting-repo-list.md):
+the shared set is worth reviewing only once every promised outcome is known
+to be produced by code the task's repositories can change.
+
 For the later handover check, [run the consumer spec against the built
 producer](/nodes/oats-expert/lessons/run-consumer-spec-against-built-producer.md):
 an owner-reviewed shared interface can still be composed incorrectly by the
