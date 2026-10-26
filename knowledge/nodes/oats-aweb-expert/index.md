@@ -9,5 +9,5 @@ The references record package facts verified against oats.aweb 1.16.1. Decisions
 ## Sections
 
 * [References](references/index.md) - How the package applies the protocol's identity and custody model at each release.
-* [Decisions](decisions/index.md) - Health-publisher evidence, measured caching choices and rejected duplicate locking.
-* [Lessons](lessons/index.md) - External CLI findings that change messaging-provider implementation choices.
+* [Decisions](decisions/index.md) - Health-publisher evidence, measured caching choices, rejected duplicate locking, and the threaded human channel's alias derivation and `interaction` validation.
+* [Lessons](lessons/index.md) - External CLI findings that change messaging-provider implementation and review choices.
