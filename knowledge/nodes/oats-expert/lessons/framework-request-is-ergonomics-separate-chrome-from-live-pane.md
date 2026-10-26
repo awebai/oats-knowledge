@@ -26,7 +26,7 @@ The honest answer separates two parts of a terminal client:
   framework that rebuilds the whole cell grid per frame sets a frame floor
   the pane must live under; a "real multiplexer pane in a hole" is
   impossible because a multiplexer client owns the whole TTY; and polling a
-  multiplexer's captured screen (the project's current hosting mechanism)
+  multiplexer's captured screen (the source's hosting mechanism, as it reported it on 2026-10-26)
   caps fidelity: no scrollback, guessed tab stops, no mouse, slow close
   detection.
 
@@ -69,10 +69,12 @@ This is a terminal-client instance of two general lessons:
 (here the human's leaning, not the lead's) and
 [test feasibility before committing to a plan](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md).
 The terminal client's product boundary and the rendering architecture it
-finally adopts are the terminal client owner's decisions, recorded in the
-Desktop expert's node
-([one standalone product, with the terminal-client exception](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md));
-this lesson is the lead's way of answering the request, not that decision.
+finally adopts are its owners' decisions, not this lesson's. The accepted
+product decision is
+[one standalone Desktop product](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md);
+whether a terminal client is permitted as a product beside it is a separate
+question for its owners that this lesson does not answer. This lesson is the
+lead's way of answering the request, not either decision.
 
 # Evidence and limits
 

@@ -13,7 +13,7 @@ client) gives the designer two ways to fail. Arguing from taste leaves every
 drop contestable and every keep homeless. Letting each client's expert design
 its own client first and reconciling later produces two products in one
 name, and the reconciliation then has to undo work that is already loved.
-The project wants one product in two bodies.
+The source's brief asked for one product in two bodies.
 
 # Method: inventory, then one design, rendered twice
 
@@ -52,7 +52,7 @@ lives in the mockup generator, not in a reviewer's eye.
 # Rejected
 
 - Each client's expert designing its own client first, then reconciling:
-  the user wants one product in two bodies, and the reconciliation with the
+  the brief asked for one product in two bodies, and the reconciliation with the
   lane's recorded decisions has to happen once, in the shared design, with
   supersessions named.
 
