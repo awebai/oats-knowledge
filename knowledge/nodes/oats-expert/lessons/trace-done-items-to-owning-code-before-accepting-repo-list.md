@@ -66,6 +66,10 @@ change as a messaging-capability release), is the maintainer's accepted
 [threads decision](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md).
 Both decisions stay in the maintainer's node and are not restated here.
 
+For instruction dependencies, [plan dependent soul text to land with its
+capability pin](/nodes/oats-expert/lessons/soul-text-lands-with-its-capability-pin.md):
+the producer's source merge is not yet the version the soul composes.
+
 # Elimination route
 
 The durable fix is a spec template or planning skill that requires, per

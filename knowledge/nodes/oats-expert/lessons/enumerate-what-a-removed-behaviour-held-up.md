@@ -75,6 +75,10 @@ placement and Desktop mechanics belong to that domain's owner. Its
 [privileged-surface verification lesson](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md)
 owns proving guards through the real boundary.
 
+The instruction-editing counterpart is [preserving load triggers during
+condensation](/nodes/oats-expert/lessons/condensing-instructions-preserves-load-triggers.md):
+a complete rule list can still misstate which situations load the new home.
+
 # Elimination route
 
 Once an invariant is identified, preserve it in the authority's architecture
