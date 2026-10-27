@@ -240,8 +240,11 @@ import and plan-write cases using disposable surrogate operator state, and
 assert that only fixture deployments are discovered and acted on. The
 existing generalist isolation lesson owns the broader runner obligation;
 this refinement preserves the discovered client-sweep hazard and why socket
-and profile isolation alone were insufficient. Exact setup steps belong in
-repository verification guidance; no completed harness coverage is claimed.
+and profile isolation alone were insufficient. The operational rule, with
+its exact environment, fixture and cleanup steps, now lives in the
+repository's `electron-live-verification` skill ("Keep the probe off the
+operator's sessions too", awebai/oats#1585); that skill is authoritative for
+how, and this lesson keeps why. No completed harness coverage is claimed.
 
 # Linux can exercise the packaged shell in CI
 
