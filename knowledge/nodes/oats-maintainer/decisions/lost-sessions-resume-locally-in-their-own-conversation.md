@@ -39,6 +39,43 @@ The [runtime ownership decision](/nodes/oats-maintainer/decisions/runtime-messag
 still requires a supported execution receipt and one live identity holder;
 resuming a conversation does not bypass those requirements.
 
+# Launch-environment fidelity and the legacy exception
+
+The later 2026-10-27 ruling makes the same-launch-settings promise concrete:
+**resume must not silently launch with changed resolved launch-environment
+values**. Reusing the same recipe is insufficient when a reference resolves
+to a different value. This extends the [launch-check environment decision](/nodes/oats-maintainer/decisions/checks-use-the-launch-environment.md)
+across starts rather than letting a check of today's environment stand in
+for evidence about the previous launch.
+
+- An unresolved `{fromEnv}` reference refuses the start. The source reports
+  this refusal already applies to every start; it is not a resume-only rule.
+- Record a per-home keyed digest (HMAC) of each resolved value at every
+  start, in kernel-private storage, and compare it only at resume. A changed
+  value refuses resume. Retain the digest, never the value, and keep it out
+  of `instance.json`. The choice detects changed resolutions without keeping
+  their potentially sensitive contents as recovery state.
+- **A pre-feature home with no digest resumes with a warning, not a
+  refusal.** This is the explicit compatibility exception: refusing every
+  such home would prevent the first reboot after upgrade from recovering
+  existing instances. The warning admits that historical equality could
+  not be checked; it does not certify unchanged values. This exception is
+  not permission to ignore a detected change or an unresolved reference.
+
+A session started by hand outside OATS resumes through its OATS launch.
+**Never capture or replay the process's argv** to reconstruct an ad-hoc
+launch; custom commands belong in launch configuration. Recovery preserves
+the declared launch, not an arbitrary command discovered in a process. The
+kernel's [execution-only selector decision](/nodes/oats-kernel-expert/decisions/resume-selector-and-notice-are-execution-only.md)
+owns the separate persistence boundary for transient resume arguments.
+
+This records a comparison of resolved launch values, not proof that every
+ambient process variable is identical. Nor does a missing-digest warning
+waive any independent recovery eligibility, lifecycle or identity check.
+Enforce the comparison at the launch boundary and cover missing references,
+changed values, warning-only legacy homes, ordinary starts and configured
+custom launches in regressions. These are review targets, not test results.
+
 # Conversation and prompt boundaries
 
 Find the conversation through native runtime records filtered to the
@@ -64,6 +101,13 @@ rule in `docs/desktop-instance-start.md` at `a5961dfa` and reports no recorded
 rationale for it. This is a deliberate exception, not a silent change to all
 start behavior; the harvest did not independently establish the old rule's
 acceptance history.
+
+The launch-environment refinement also explicitly qualifies the original
+same-settings promise: known changed resolutions refuse resume, while a
+legacy home without comparison history may resume with a warning. Preserve
+the original acceptance record and this exception together rather than
+silently claiming universal historical equality. Ordinary Start/Restart
+remain fresh; the digest comparison is resume-only.
 
 # Rejected alternatives
 
@@ -91,9 +135,18 @@ then selected them. This is source-reported delegated acceptance, not an
 independently audited conversation or direct human specification of every
 mechanism.
 
-At proposal time nothing was built. This record preserves the chosen shape,
-scope and rejected alternatives, not a release claim, verified recovery
-behavior or a fixed CLI spelling.
+The launch-environment refinement is attributed by the source to the
+product owner's 2026-10-27 direction and the maintainer's ensuing rulings.
+This is source-reported acceptance, not independently audited private
+correspondence or proof that the human specified every digest mechanism.
+The legacy warning is an explicit qualification of the human-delegated
+same-settings decision above; accepting that qualification requires the
+human-supersession review gate, not an unlogged rewrite.
+
+At the initial proposal checkpoint nothing was built; at the refinement
+checkpoint the source reports work in progress. This record preserves the
+chosen shape, scope and rejected alternatives, not a release claim, verified
+recovery behavior or a fixed CLI spelling.
 
 # Citations
 
@@ -104,3 +157,10 @@ The source identifies its design and gate correspondence and code at
 `d5443cc3` as context. Only the captured proposal and named note were used as
 source evidence; this harvest did not read the correspondence, audit the
 implementation repository or exercise any harness resume behavior.
+
+Evidence for the launch-environment refinement: OKF proposal from
+oats-maintainer/polaris-oats-maintainer-kernel, 2026-10-27;
+notes/session-resume-gate.md. The note's final launch-environment paragraph
+and the proposal supply the changed-value refusal, keyed-digest choice,
+legacy warning and configured-launch boundary. The missing-reference rule
+is reported as already implemented, not independently verified here.

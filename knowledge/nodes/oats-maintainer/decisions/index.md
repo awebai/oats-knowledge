@@ -1,5 +1,6 @@
 # Decisions
 
+* [Background is presentation, not identity or lifecycle](background-is-presentation-not-lifecycle.md) - Background is an instance-owned presentation choice with a soul default, not identity or lifecycle policy; ancestor-based client placement avoids inherited state and a separate presentation record survives restarts.
 * [Parent-child lines require declared shared work, not inferred organisation](parent-child-lines-require-declared-shared-work.md) - Keep parent-child placement while drawing its connector only from a parent-bound shared-work declaration, with coordination guidance owned by capabilities rather than the kernel or oats.core.
 * [Lost sessions resume locally through the kernel into their own conversation](lost-sessions-resume-locally-in-their-own-conversation.md) - Lost-session recovery reuses the instance's own harness conversation and launch settings through one kernel primitive and a local-machine sweep, without turning client opening into authority to restart remote agents.
 * [A client-created tmux server needs its own cgroup](client-created-tmux-server-needs-its-own-cgroup.md) - When a client becomes the usual creator of the OATS tmux server on a systemd host, server placement must keep the agents outside the client's cgroup so a whole-cgroup kill does not take them down together.

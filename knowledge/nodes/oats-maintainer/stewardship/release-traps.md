@@ -3,7 +3,7 @@ type: Lesson
 title: Release judgement for the tag-driven lane
 description: Release judgment distinguishes publication from artifact availability, rehearses changed upgrade paths from released state, and treats source, tag, mirror and every form of version pin as one coordinated change.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -39,6 +39,22 @@ release.
 - **No maintenance line for a version nobody runs (2026-09-24, agreed with
   the human).** In-flight work that began against a superseded line lands on
   `main` and ships in the next release; the old release branch is left inert.
+
+# Shared-soul keys wait for every reader
+
+The 2026-10-27 background-instance gate adds the deployment-side consequence
+of kernel-first release order: **a committed soul gains a new schema key
+only after every deployment reading that soul runs a kernel that accepts
+it**. A released parser is not an installed parser. Otherwise a shared soul
+can become unreadable to a still-old deployment even though the feature's
+kernel release exists.
+
+The source cites the earlier launch-declaration rollout as precedent. This
+is not an automatic upgrade authorization or a claim that those deployments
+have moved. Keep deployment acceptance evidence in the rollout, and make
+schema compatibility a checked adoption gate rather than a memory-only
+warning. The [background decision](/nodes/oats-maintainer/decisions/background-is-presentation-not-lifecycle.md)
+is the motivating application, not a second home for the general rule.
 
 # Publish first, housekeep second
 
@@ -217,3 +233,9 @@ The notes report the 0.53.0 rehearsal prompted by
 publication (run 38546688491), and escaped pins in
 [#1120](https://github.com/awebai/oats/pull/1120). These are source-reported
 observations; this harvest did not reproduce the rehearsal or registry reads.
+
+Evidence for the shared-soul schema gate: OKF proposal from
+oats-maintainer/polaris-oats-maintainer-kernel, 2026-10-27;
+notes/background-instances-gate.md. The rule and launch-declaration precedent
+are source-reported; this harvest did not inspect any deployment's installed
+kernel or certify rollout readiness.
