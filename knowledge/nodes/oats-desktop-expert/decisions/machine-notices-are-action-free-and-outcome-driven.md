@@ -34,8 +34,10 @@ readiness diagnostics already have the operator and roster surfaces; raising
 them at every open trains people to dismiss the summary that should tell
 them something happened to a home.
 
-Repeated standing refusals follow the [shared trigger's news rule](observation-triggered-recovery-settles-targets.md#report-news-not-the-standing-answer).
-Sweep-level host warnings are different from home outcomes: include each
+A standing refusal the kernel repeats is not news: report it once per
+home/reason/code in a client run, and again only after that home recovers.
+Resumes, fresh starts and blocked outcomes are events of their sweep, not
+duplicates. Sweep-level host warnings are different from home outcomes: include each
 once per client run in the next notice justified by a home. A quiet sweep
 must not consume that once-only opportunity, because no warning was shown.
 Receiving diagnostic data and presenting it to the person are distinct facts.
@@ -58,11 +60,12 @@ Evidence: OKF proposal from oats-desktop-expert/session-resume-desktop-expert,
 2026-10-27; notes/machine-scoped-notice-survives-workspace-switch.md;
 notes/resume-notice-only-for-home-outcomes.md.
 
-The older note's opt-out examples are historical: the proposal reports that
-product direction removed opt-outs. They are not a concurrent preference
-requirement. The decision retained here is outcome-driven presentation, not
-who may opt out or which homes the kernel may recover. The source identifies
+The older note's opt-out examples are not part of this decision. The
+decision retained here is outcome-driven presentation, not who may opt out,
+when sweeps run or which homes the kernel may recover; those belong to the
+[maintainer's recovery decision](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md).
+The source identifies
 [awebai/oats#1564](https://github.com/awebai/oats/pull/1564), then unmerged, and
-reports notification tests and a live launch notice. Continuous grouping was
-unit-tested rather than proved live; this harvest did not audit or rerun the
+reports notification tests and a live launch notice. Grouping across
+sweeps was unit-tested rather than proved live; this harvest did not audit or rerun the
 implementation and makes no shipment or real-deployment recovery claim.
