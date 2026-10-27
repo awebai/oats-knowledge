@@ -128,6 +128,14 @@ reported reversal are source evidence, not independently audited acceptance
 or shipment; maintainer review and live Electron evidence were pending at
 capture.
 
+Maintainer check (2026-10-27, review of oats-knowledge#153): awebai/oats#1560
+merged 2026-10-27; its description records the human's request for wrapping
+and that terminal-client wrapping is undecided, and the Desktop keyboard
+contract on main now documents the wrap and the one-workspace line. The
+superseded No wrap rule carried no acceptance record in this base, and the
+reversal is the same human's later direction. Live Electron behavior was not
+checked by this review.
+
 # Workspace tab order
 
 The source reports product-owner direction on **2026-10-23** to order

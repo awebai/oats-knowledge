@@ -74,3 +74,11 @@ with maintainer review and live Electron evidence still pending. Those are
 source-reported evidence limits, not shipment, human acceptance of every
 exception, or live verification by this harvest. The decision record grants
 no permission to run Desktop on the operator's machine.
+
+Maintainer check (2026-10-27, review of oats-knowledge#153): awebai/oats#1560
+merged 2026-10-27. Its description and the Desktop documentation on main
+match the transit surfaces, identity and region-landing restoration, the
+single intent ticket, the workspace-list exception, the explicit-destination
+exception and the take-over layout's retained focus. The rejected page-memory
+and layout-descriptor expansions remain source-reported. Live Electron
+behavior was not checked by this review.
