@@ -3,7 +3,7 @@ type: Lesson
 title: Check the affected-test inventory, not only the green runs
 description: When full suites run only in CI, require a search-derived inventory of test files consuming changed surfaces at handback and check its coverage against the diff, with a result or non-run reason for each file.
 tags: [verification, handover, testing, coordination]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 # A run list hides tests nobody thought to run
 
@@ -28,6 +28,35 @@ that every possible affected test was found. A non-run reason discloses
 missing evidence, not permission to waive it. Preserve local execution
 limits and CI's full-suite gate; this lesson does not authorize broader
 local runs or change maintainer acceptance requirements.
+
+# Text readers are consumers even without imports
+
+The 2026-10-27 refinement makes the search obligation more specific. Test
+consumers include function extractors, export or manifest inventories,
+whole-module scanners and rendered-output assertions, not only importers.
+They can depend on comments, labels and the **form** of a value even when
+runtime meaning is unchanged.
+
+Brief the inventory search before implementation, then check it at handback:
+
+- Search test roots for changed function names and old literals, including
+  readers that reconstruct a function with a separate dependency context.
+- When a representation changes, search its alternate spellings: `.prop`,
+  `'prop'`, `"prop"`, property-access helpers such as
+  `getPropertyValue("prop")`, and the old displayed value. A dot-property
+  search alone misses a test passing the property name as a string.
+- Include scanners that consume the whole shipped module, even for a
+  comment-only edit; their rules can match text without naming the changed
+  function. Discover those readers from the current repository rather than
+  treating a fixed list of test files as complete.
+
+These are ways to expose a search blind spot, not a proof of exhaustive
+coverage or a requirement to preserve incidental source syntax. Keep each
+non-run explicit when the permitted environment cannot execute a reader.
+The Desktop-owned
+[source-evaluation lesson](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md#source-evaluating-tests-include-renderer-modules-not-only-main)
+owns the hand-maintained evaluation-context failure and its extraction
+remedy; the generalist owns making those readers visible in the handback.
 
 # Distinct responsibility and elimination route
 
@@ -67,3 +96,16 @@ These are source-reported observations, not independently reproduced runs.
 The local-run restriction is the reported context, not a new project-wide
 policy established by this harvest or proof that search alone caused the
 later green result.
+
+Evidence: OKF proposal from oats-expert/oats-expert-workspace-sidebar,
+2026-10-27; notes/source-extracting-harnesses.md.
+
+Across one Desktop/TUI effort, the source reports repeated CI failures from
+omitted source readers: a newly called helper absent from an extracted
+function's context, a comment mistaken for a computed import, and CSS
+property readers missed after a shorthand-to-longhands change. In the last
+case, a dot-property search missed a string-argument read. The reports span
+2026-10-22 through 2026-10-27; no implementation or CI run was independently
+reproduced by this harvest. The reported local dependency gap explains why
+selected green runs failed to expose the omissions; it is not a permanent
+host limitation or permission to replace execution with search.
