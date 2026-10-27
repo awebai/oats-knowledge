@@ -84,6 +84,12 @@ pane) hold for every harness:
 
 # Related
 
+[Report-only prompt recognition may use derived labels](report-only-prompt-recognition-may-use-derived-labels.md)
+keeps its no-input evidence bar separate from captured full-screen gates for
+keystrokes. [Resume selectors and notices are execution-only](resume-selector-and-notice-are-execution-only.md)
+explains why a lost-session launch must not persist conversation-specific
+arguments into later ordinary starts.
+
 [Per-agent scopes are probe-guarded and execution-only](agent-scopes-are-probe-guarded-and-execution-only.md)
 records resource-placement tradeoffs, not a skill sandbox or a change to native
 settings. [A native start belongs to the launch, not each rendering of its command](/nodes/oats-kernel-expert/lessons/native-start-is-prepared-once-per-launch.md)
