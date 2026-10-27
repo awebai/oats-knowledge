@@ -1,5 +1,6 @@
 # Decisions
 
+* [Launch-value verification is private and best-effort](launch-value-verification-is-private-and-best-effort.md) - A launch-value verifier must resist low-entropy guessing without becoming credential custody, and recording failure must not become a new reason to fail a start.
 * [Report-only prompt recognition may use derived labels](report-only-prompt-recognition-may-use-derived-labels.md) - A recogniser that cannot send input may match derived whole option labels together, because a false waiting report has a different consequence from an unwanted keystroke.
 * [Resume lookup uses the recorded incarnation and exact home](resume-lookup-uses-recorded-incarnation-and-exact-home.md) - Resume conversation lookup uses recorded creation and start times with exact home cwd, because native receipts survive same-name respawns and a newest-conversation lookup is not a complete-history inventory.
 * [Resume selectors and notices are execution-only](resume-selector-and-notice-are-execution-only.md) - Resume selectors and notices belong only to the current execution, because persisting them would make later ordinary starts reopen an old conversation and break pi transcript-root certification.
