@@ -2,6 +2,7 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [Removing a row's visible menu trigger must not remove its actions](row-context-menu-preserves-action-reachability.md) - Keep sidebar instance actions in the row's context menu without a visible ellipsis trigger, because a panel tied to an active terminal cannot serve rows with no terminal.
 * [Non-cancellable kernel work unlinks output at spawn](noncancellable-kernel-work-unlinks-output-at-spawn.md) - A shared file-output boundary unlinks its temporary names immediately after spawn and reads through retained descriptors, because a Desktop crash can skip every cleanup callback.
 * [Machine-scoped notices are action-free and driven by home outcomes](machine-notices-are-action-free-and-outcome-driven.md) - Preserve an inert machine-wide summary across workspace changes only as an app-scoped sticky notice, and create recovery notices for home outcomes rather than routine sweep diagnostics.
 
