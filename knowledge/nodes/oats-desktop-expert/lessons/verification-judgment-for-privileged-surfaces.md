@@ -3,7 +3,7 @@ type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
 description: Prove guards at real boundaries, include source-evaluating tests of main and renderer code, and contain native verification with enforced lifetime and output bounds rather than trusting test selection or a passing assertion.
 tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
-timestamp: 2026-10-15
+timestamp: 2026-10-27
 ---
 # Lesson
 
@@ -151,6 +151,54 @@ owns the general experimental-resource principle; the added Desktop lesson
 is that live terminal evidence can leave a growing capture after a passing
 check. A reminder to clean up afterwards does not enforce either bound.
 
+## Agent-free fixtures can prove Desktop input arrival
+
+The source's 2026-10-27 workspace-switch check found a way to exercise real
+focus and PTY input without running agents or using the operator's deployment:
+two disposable deployments, each with a directory-mode fixture soul whose
+launch executable runs `cat`. A bare shell was a misleading substitute: the
+kernel correctly classified it as a shell rather than a running harness, so
+Desktop offered Start instead of a terminal. The need to establish the
+[intended runtime state](/nodes/oats-expert/lessons/real-terminal-waits-prove-the-observed-state.md)
+is already canonical; `cat` is the reported Desktop fixture that stayed
+eligible, not a change to the kernel's liveness rule or proof of bounded
+teardown.
+
+The useful verification choices were:
+
+- Isolate HOME, XDG storage and OATS_HOME_DIR, with a private tmux server and
+  Desktop user-data directory; select the test CLI and a dedicated Desktop
+  port rather than inherit the operator's instance or tmux selectors. This
+  applies [runner-owned isolation](/nodes/oats-expert/lessons/automatic-per-user-writes-need-runner-isolation.md),
+  not a second policy for personal storage.
+- Budget the **complete socket path**, not just the temporary directory.
+  The source's long scratch path exceeded its Unix socket limit; a short,
+  private TMUX_TMPDIR worked. Shortening must still preserve
+  [fixture cleanup evidence](/nodes/oats-kernel-expert/decisions/fixture-tmux-directory-preserves-cleanup-evidence.md),
+  not move the socket beyond the runner's ownership or leftover guard.
+- The reported check used unpackaged Electron with its own user-data
+  directory, loopback-only CDP and a pre-seeded disposable workspace set.
+  Drive actual input through CDP, then check a distinct typed marker in the
+  intended pane using `tmux capture-pane` on the private socket. A DOM focus
+  assertion or a successful input dispatch alone does not prove PTY arrival.
+
+This is evidence of a feasible fixture, **not permission to launch Electron**.
+The packaged-app prohibition, actual lane restrictions and authorized-run
+boundary above remain unchanged; an unpackaged build is not a workaround for
+a lane that forbids Electron itself. Isolation also does not replace hard
+lifetime and output bounds or verified owned-process teardown. Window
+closure or loss of OS focus interrupts the intended check; that step must
+not count as successful evidence or by itself identify a product defect.
+Re-establish the intended view and focus before drawing a conclusion.
+
+The elimination route is a reusable, effect-isolated integration harness that
+owns fixture launches, private storage/socket paths, marker assertions and
+bounded teardown. Test the runtime eligibility and path-budget failures in
+that harness instead of relying on a remembered manual recipe. Exact launch
+flags, file formats and setup steps belong in repository verification code
+and guidance, not a second operational runbook here. No such harness or skill
+change is claimed by this harvest.
+
 # Linux can exercise the packaged shell in CI
 
 Learned 2026-10-09: the source reports that the existing packaged-app smoke's
@@ -264,6 +312,15 @@ may not be run on a human's machine.
 [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md).
 
 # Citations
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/live-desktop-fixture-without-agents.md.
+
+For the agent-free fixture finding, the proposal reports live click-switch,
+previous/next and wrap checks of [awebai/oats#1560](https://github.com/awebai/oats/pull/1560).
+Roster-row restoration was not checked live. Test-window closures on a shared
+desktop had no established cause; no window-manager or operator attribution
+is promoted. These are source-reported results, not a run by this harvest or
+proof of packaged-app, cross-platform or every focus-path behavior.
 
 1. Migrated from agents/oats-desktop-engineer/soul/knowledge @ 7838d3ca.
 2. Migrated from agents/oats-desktop-engineer/soul/knowledge/lessons/shell-nav-reachability-manifest.md, shared-renderer-harness-enumeration-test.md, dormant-surface-removal-inventory.md, scope-rollback-absence-pins.md and agents/oats-expert/soul/knowledge/lessons/surface-removal-inventory-user-guidance.md @ 7838d3ca.
