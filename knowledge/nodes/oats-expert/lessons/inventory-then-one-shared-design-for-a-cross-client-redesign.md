@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A cross-client redesign starts with a classified feature inventory and one shared design that each client renders
-description: Before drawing anything for two clients, inventory every feature of the existing clients and classify each as essential, useful, nice-to-have or internal plumbing; derive one design from the human's questions and have each client's proposal render that same design, so parity is a ledger and comments on either apply to both.
-tags: [design, redesign, clients, parity, inventory, mockups, method]
-timestamp: 2026-10-26
+description: Before drawing anything for two clients, inventory every feature of the existing clients and classify each as essential, useful, nice-to-have or internal plumbing; derive one design from the human's questions and have each client's proposal render that same design, so parity is a ledger and comments on either apply to both; when the proposals become one interactive prototype, both renderers draw only from shared selectors and the build asserts no cut words and the keyboard model in both frames.
+tags: [design, redesign, clients, parity, inventory, mockups, prototype, method]
+timestamp: 2026-10-27
 ---
 # Taste cannot carry a two-client redesign
 
@@ -49,6 +49,37 @@ The source's brief asked for one product in two bodies.
 Both are the elimination route for their own class of defect: the check
 lives in the mockup generator, not in a reviewer's eye.
 
+# When the mockups become one prototype: one state, two renderers
+
+Once the two renderings are side by side in one interactive prototype (the
+source's second round had a DOM frame for the Desktop client and a cell-grid
+frame for the terminal client, driven by the same tour of states), the
+parity ledger becomes a property of the code and can be enforced:
+
+- **Every fact a renderer needs comes from a shared selector**, never from
+  raw state. Hints for the current screen, the context card, the home
+  model, palette rows and settings items are each one function both
+  renderers call; the renderers only draw. The source reports that the two
+  frames drifted *only* where a renderer had read raw state instead of a
+  selector, so a drift is a missing selector, and the fix is to add one,
+  not to patch the frame that disagrees.
+- **"No cut words" is asserted at build time in both frames**, not only in
+  the cell grid. The grid keeps the bounds-checked buffer that throws; the
+  DOM frame gets a headless pass that fails on any leaf text outside its
+  pane box. The source's build-gate pass found six overflows in the
+  terminal frame's narrow mode that the eye had missed across review
+  rounds; the narrow mode is where fixed intros and legends overflow first,
+  so intros wrap and legends are gated on available width.
+- **The keyboard model runs end to end in Node.** A synthetic-key scenario
+  walks the whole key model against the shared state, with no browser. It
+  found a title bug (a first clause split on a version number) that no
+  visual check had caught.
+
+The frame assertions and the key scenario are the elimination route for
+the prototype's own defects, in the same sense as the bounds-checked buffer
+above: the cost is one build script, and the alternative is a human reading
+over a hundred frames for a cut word.
+
 # Rejected
 
 - Each client's expert designing its own client first, then reconciling:
@@ -70,10 +101,16 @@ authority over either client.
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/ui-ux-redesign-expert, 2026-10-26;
-notes/redesign-method-inventory-then-shared-design.md.
+notes/redesign-method-inventory-then-shared-design.md. The one-state,
+two-renderers section: OKF proposal from oats-expert/ui-ux-redesign-expert,
+2026-10-27; notes/prototype-one-state-two-renderers.md;
+notes/round2-choices.md.
 
 One effort, one human, two clients, source-reported; this harvest did not
-read the inventory, the shared design or the two published proposals, and
-the proportion of plumbing found is the source's figure for one product at
-one date, not a property of Desktop. The method is what is promoted; the
-classification labels are the ones that worked once, not a fixed taxonomy.
+read the inventory, the shared design, the published proposals or the
+prototype's build script, and the proportion of plumbing found is the
+source's figure for one product at one date, not a property of Desktop. The
+six overflows and the title bug are the source's counts from one build of
+one prototype. The method is what is promoted; the classification labels
+are the ones that worked once, not a fixed taxonomy, and the selector names
+are the source's, not a required vocabulary.
