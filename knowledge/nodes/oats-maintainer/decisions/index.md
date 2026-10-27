@@ -1,5 +1,6 @@
 # Decisions
 
+* [Private observation writes must not change the read](read-side-observations-must-not-change-the-read.md) - A read command may retain kernel-private observations only without changing its answer, exit code or output, with atomic writes, fail-closed missing history, documented privacy and host-local ownership.
 * [Lost sessions resume locally through the kernel into their own conversation](lost-sessions-resume-locally-in-their-own-conversation.md) - Lost-session recovery reuses the instance's own harness conversation and launch settings through one kernel primitive and a local-machine sweep, without turning client opening into authority to restart remote agents.
 * [A client-created tmux server needs its own cgroup](client-created-tmux-server-needs-its-own-cgroup.md) - When a client becomes the usual creator of the OATS tmux server on a systemd host, server placement must keep the agents outside the client's cgroup so a whole-cgroup kill does not take them down together.
 * [A client reads reported host facts but may check its own local tool](client-local-tools-and-reported-host-facts.md) - Clients consume kernel-reported host capabilities rather than copying host rules, while a client-owned local tool may be checked locally with mirrored behavior pinned by a cross-owner test.
