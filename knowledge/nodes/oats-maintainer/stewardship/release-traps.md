@@ -281,6 +281,9 @@ compares them.
 # Related
 
 [How the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md).
+[Protect the last release blocker from merge churn](/nodes/oats-maintainer/lessons/protect-the-last-release-blocker-from-merge-churn.md)
+records the scheduling remedy for repeated same-area base updates; it does
+not relax the integration gate or replace the failed-tag containment rule.
 
 # Citations
 
