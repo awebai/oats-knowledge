@@ -43,6 +43,12 @@ unchanged:
 
 # Related
 
+[A client reads reported host facts but may check its own local tool](/nodes/oats-maintainer/decisions/client-local-tools-and-reported-host-facts.md)
+records the cross-client distinction: a host's viewer capabilities come from
+that host's kernel, while a client-owned local viewer may check its own tool
+under an explicit cross-owner test. This applies the ownership split rather
+than permitting a second deployment model.
+
 [Working and idle are producer-reported facts, not terminal heuristics](/nodes/oats-maintainer/decisions/instance-activity-is-reported-not-inferred.md)
 records the 2026-10-26 source-reported activity contract, not yet built or
 released at proposal time: producers observe turns, the kernel records the
