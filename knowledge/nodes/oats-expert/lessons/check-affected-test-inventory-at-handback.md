@@ -60,6 +60,11 @@ remedy; the generalist owns making those readers visible in the handback.
 
 # Distinct responsibility and elimination route
 
+When the maintainer identifies an overlapping open effort,
+[prepare an open-head trial and resolution handoff](trial-merge-before-the-merge-order-is-fixed.md)
+while the merge order is being chosen. That lesson owns the timing and
+transfer of combined-tree findings; this one owns discovery of the test set.
+
 The [provider mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)
 already separates named local files from CI suites. This lesson owns the
 lead's check that the named set reaches the change's consumers. It is later
