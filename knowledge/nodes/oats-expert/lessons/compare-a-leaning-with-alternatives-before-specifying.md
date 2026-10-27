@@ -48,6 +48,10 @@ is a distinct application: an apparently complete set of explicit writers
 can still miss a user path, while an unmeasured cost assumption rules out
 automatic population too early.
 
+[Asking whether children follow when moving tree rows](/nodes/oats-expert/lessons/ask-whether-children-follow-when-hiding-tree-rows.md)
+addresses a different uncertainty: an experiment can compare implementation
+outcomes, but cannot select the human's intended descendant placement.
+
 # Elimination route
 
 Implement state ownership and restoration in the responsible boundary, and
