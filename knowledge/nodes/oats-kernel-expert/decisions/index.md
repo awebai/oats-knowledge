@@ -1,5 +1,6 @@
 # Decisions
 
+* [Per-agent scopes are probe-guarded and execution-only](agent-scopes-are-probe-guarded-and-execution-only.md) - Per-agent scope placement uses a real probe in the launch environment and adds no home marker, accepting a residual exit-classification ambiguity rather than changing retirement or process observation.
 * [Caller attribution is separate from explicit lineage](caller-attribution-is-separate-from-lineage.md) - Ambient instance context may inform descriptive caller attribution because it gates no authority, while lineage still requires explicit intent.
 * [A preview-bound spawn apply may reuse observations](preview-bound-apply-may-reuse-observations.md) - Spawn apply may reuse observations only when a valued preview-decision fence binds the result to what was confirmed, rather than granting observation reuse to writers generally.
 * [The pi fresh-home signal comes from runtime sessions filtered to the incarnation](pi-fresh-home-uses-runtime-sessions.md) - The pi bridge uses earlier filed sessions for the current home incarnation to gate its startup resume nudge, avoiding provider-template coupling, home markers and a new kernel-history dependency.
