@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror and every form of version pin.
+description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror and pins with the framework release that carries them.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-27
 ---
@@ -224,6 +224,39 @@ order and why the gate includes the Desktop suite are the integration node's
 [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md).
 Catalog identity is discovery, not trust
 ([integrity, origin and consent](/nodes/oats-kernel-expert/decisions/trust-approval-and-consent-boundaries.md)).
+
+## Plan the okf tag before the framework release that carries its pin (2026-10-27)
+
+When a kernel cut includes both a new oats.okf and a framework release, plan
+**the okf tag before framework release preparation**. The source reports
+that onboarding names the catalog's okf version and a test keeps them equal:
+advancing that pin changes packaged setup instructions, so it needs a
+framework release too. While that coupling remains, a catalog pin is not
+release-neutral text. Include it in the already-required mirror-and-pin PR
+before cutting the framework tag, rather than discovering a second framework
+patch after the first tag is immutable.
+
+The observed cost was an extra framework tag and review cycle on the kernel
+release's critical path. If okf's second read is not ready, either wait to
+cut the framework release or deliberately budget the follow-up patch and
+kernel re-pin. This is a scheduling choice, not permission to skip the second
+read or to override the kernel-first compatibility rule above. The source
+reports this ordering failure once; it is not evidence that every provider
+pin always requires a framework release.
+
+Treat the duplicated onboarding version as release-planning debt. Prefer
+one reviewed version source for that text; while the coupling remains, make
+it explicit in the release dependency plan and check it before the framework
+tag. These are elimination targets, not automation delivered by this lesson.
+
+Evidence: OKF proposal from oats-maintainer/pepe-release-maintainer,
+2026-10-27; notes/okf-release-before-framework-release.md. The source reports
+that [awebai/oats#1597](https://github.com/awebai/oats/pull/1597) cut the first
+framework release before okf was ready, so
+[#1607](https://github.com/awebai/oats/pull/1607) needed the follow-up and
+[#1606](https://github.com/awebai/oats/pull/1606) re-pinned it. The ordering,
+coupling and cost are source-reported, not independently audited release or
+CI receipts.
 
 # Every version literal is a release step
 
