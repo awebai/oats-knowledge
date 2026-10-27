@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Retire exclusion belongs to a whole-run claim, not a plan or retry key
-description: A per-home claim covers every retire apply path and its authoritative reads, separating exclusion from plan freshness and outcome replay while refusing contention without a force bypass.
-tags: [kernel, lifecycle, retire, concurrency, fail-closed]
-timestamp: 2026-10-10
+description: A per-home claim covers retirement and resume with their authoritative reads, separating exclusion from freshness and replay while treating lifecycle-busy automatic recovery as a skip rather than a judged loss.
+tags: [kernel, lifecycle, retire, resume, concurrency, fail-closed]
+timestamp: 2026-10-27
 ---
 # Decision
 
@@ -83,22 +83,69 @@ An unreadable-holder refusal instead identifies the claim needing operator
 attention and a by-hand verification/recovery route. It is not permission
 to remove a claim whose holder has not been established safe to displace.
 
+# Refinement: automatic resume joins the whole-run claim
+
+The 2026-10-27 proposal extends this decision to `session start --resume`:
+a resume takes the same lifecycle claim, as a `resume` holder, for its whole
+start [5][6]. Read the owed retirement, partial upgrade and whether the session
+is still lost under that claim. A sweep's earlier status read is only a
+prefilter; it is not atomic with the start that follows.
+
+The source reports that a sweep on OATS 0.69.1 resumed homes during
+retirement. Two gaps combined: retirement's own window termination omitted
+the intentional-stop record, and the automatic starter acted beside the
+lifecycle claim instead of inside it. The claim closes the live overlap;
+[recording stop intent before termination](/nodes/oats-kernel-expert/decisions/stop-intent-recording-is-before-termination-and-best-effort.md)
+addresses the separate classification gap.
+
+**Skip a home held by a lifecycle act, or with a retirement owed; do not
+refuse its loss as a recovery verdict.** A refusal is recorded, judged and
+counted against the recovery loop guard. A lifecycle act decides the home's
+next state itself, so contention is not evidence that recovery has failed.
+This is an automatic-sweep exception to refusal-shaped contention, not a
+change to retirement's before-effect refusal or permission to bypass a claim.
+
+Rejected alternatives explain the span:
+
+- A read-only claim check, as used by worktree add, leaves time for retirement
+  to begin after the check and before the resumed window exists.
+- A separate resume lock creates two locks whose acquisition must be ordered.
+- Claiming only window creation complicates a start lasting seconds without
+  buying enough to justify a smaller critical section. A retire arriving
+  during resume may instead receive the existing busy refusal and be retried
+  after resume releases the claim.
+- Extending the change to ordinary starts was rejected as outside this bug:
+  those are explicit acts, not the automatic recovery being coordinated.
+
+The prevention route is shared claim acquisition and authoritative reads in
+the start path, with regression cases for a sweep during a held retire,
+between retirement's stop and removal, and a retire arriving during resume.
+The source reports these races fail with the fix reverted; this harvest did
+not execute them. The policy deciding which losses qualify remains in the
+[maintainer-owned recovery decision](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md),
+not in a competing sweep-side eligibility rule.
+
 # Boundaries and related decisions
 
 [A retire revision binds reviewed facts, not selected exceptions](/nodes/oats-kernel-expert/decisions/retire-revision-binds-reviewed-facts.md)
 refines which reviewed facts freshness covers and why exception lists were
 rejected. It preserves the distinction between exclusion, freshness and replay.
 
-This is retirement-against-retirement exclusion, not a claim that every
-lifecycle command or roster reader participates. Nor does a dead holder
-prove its hook children stopped. Cross-command coordination and surviving
-hooks were explicitly left for separate decisions; this record supplies no
-takeover policy for them.
+The original 2026-10-10 decision covered retirement against retirement and
+left cross-command coordination for later decisions. The dated resume
+refinement above explicitly extends that scope: the source reports stop and
+upgrade already sharing the claim, and chooses that same claim for resume.
+It does not establish that every lifecycle command or roster reader
+participates. Ordinary start beside retirement remains unguarded by this
+change. A restart whose relaunch fails may still read lost; the source
+reports only its start lock covering it while it runs. Nor does a dead
+holder prove its hook children stopped. No new takeover policy is supplied.
 
 [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md)
-adds source-reported stop-retire overlap evidence for this boundary: work
-preservation and late-writer cleanup need separate proofs. It does not
-extend this decision's claim to other commands.
+adds historical stop-retire overlap evidence for this boundary: work
+preservation and late-writer cleanup need separate proofs. The resume
+refinement is not proof that every late-writer or surviving-hook case in
+that lesson has been eliminated.
 
 The [process-identity lesson](/nodes/oats-kernel-expert/lessons/process-identity-across-readers-and-hosts.md)
 keeps the distinct unreaped-holder limitation and its elimination route.
@@ -115,9 +162,13 @@ without changing the existing plan or replay obligations.
 
 # Citations
 
+Evidence: OKF proposal from oats-kernel-expert/session-resume-kernel-expert, 2026-10-27; notes/decision-resume-takes-the-lifecycle-claim.md; notes/decision-retire-stop-record-is-best-effort.md.
+
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-exclusive, 2026-10-10; notes/863-decision-retire-claim-shape.md; notes/863-evidence-retire-has-no-exclusion.md; notes/863-consumers-of-the-busy-refusal.md.
 
 1. The proposal and decision note attribute the decision, all-forms authoritative-read requirement, handoff exception and accepted response changes to the review of [awebai/oats#871](https://github.com/awebai/oats/pull/871), reported merged on 2026-10-10. The note's final as-merged account takes precedence over its earlier handover account. Maintainer-instance attribution is not inferred human acceptance; this harvest did not audit the implementation or approval history.
 2. The evidence note reports gate-established overlap while investigating [awebai/oats#863](https://github.com/awebai/oats/issues/863), and explicitly corrects the earlier unqualified plan-revision claim with the launched-home case. The harvest did not rerun the reproductions.
 3. The consumers note reports Desktop's before-effect interpretation of the busy code and host-side execution of remote retirement. Its renderer inventory and separately scoped diagnostic defect are not adopted as kernel knowledge.
 4. Verified by the knowledge maintainer at review of the harvest on 2026-10-10. [awebai/oats#871](https://github.com/awebai/oats/pull/871) merged on 2026-10-10 and closed awebai/oats#863. Its description and the two maintainer verdicts on it, both approving the head that merged, state the claim taken in the common retire operation for every apply form, every acted-on read made under it, the answer order, the immediate `E_LIFECYCLE_BUSY` refusal before any effect, no `--force` bypass, the completion's single wait for its own scheduler, the two changed answers and the claims directory left in place by design. awebai/oats#864, #865, #866, #870 and #874 were open at that review. The rejected directory lock, the rejected reuse of the spawn force escape and the reason for not waiting are not stated there; they rest on the source notes, which were not read at review. The verdicts are maintainer-instance records, not evidence of human acceptance, and no release was checked.
+5. The 2026-10-27 proposal and named notes report the mid-retire resume observation, whole-start claim choice, rejected alternatives, skip rationale and residual limits. The proposal identifies [awebai/oats#1599](https://github.com/awebai/oats/pull/1599) as the repair and reports reviewed, green-CI handover with mutation-sensitive race tests. Those are source-reported evidence, not an implementation audit, test rerun, shipment receipt or independently established human acceptance by this harvest.
+6. Checked by the knowledge maintainer at review on 2026-10-27: [awebai/oats#1599](https://github.com/awebai/oats/pull/1599) (part of awebai/oats#1559) was open, not merged. Its description states the whole-start `resume` claim, the re-reads under it, the `lifecycle-busy` skip that is never judged or counted against the loop guard, ordinary Start and Restart unchanged, and the three named race cases. It reports green CI and revert-sensitive tests; the maintainer did not rerun them. Until that PR merges and ships, treat this refinement as the chosen direction, not released behaviour.
