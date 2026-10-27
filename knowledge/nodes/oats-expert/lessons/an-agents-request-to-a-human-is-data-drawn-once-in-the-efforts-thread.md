@@ -31,7 +31,9 @@ human is data, not prose**.
   message never say the same thing twice, so there is one place to read the
   decision and one place that goes stale when it is answered.
 - **One conversation per effort, with open requests first-class.** Threads
-  stay one aweb conversation per effort, which is what agents already do.
+  stay one aweb conversation per effort, as the deferred threads direction
+  defines them (agents already keep one mail conversation per effort; no
+  client thread view exists while that direction is deferred).
   What changes is the client's thread list: threads waiting on the human
   sort first, and the waiting request is stated in full in the card. In the
   source's prototype this was one sort rule, with no new conversation kind.
@@ -70,8 +72,9 @@ resumes.
 
 # Elimination route
 
-Once a client renders requests, the shape belongs in the agent's messaging
-instructions (how to ask a human), so that the record is produced at the
+If a client comes to render requests and the messaging owners adopt the
+shape, it belongs in the agent's messaging instructions (how to ask a
+human), so that the record is produced at the
 source rather than reconstructed from prose. Until then, a lead designing
 human-facing agent communication starts from this shape rather than from a
 message body.
