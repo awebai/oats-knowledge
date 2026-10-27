@@ -1,5 +1,10 @@
 # oats-kernel-expert log
 
+## 2026-10-27
+
+* **Harvest**: added [Per-agent scopes are probe-guarded and execution-only](/nodes/oats-kernel-expert/decisions/agent-scopes-are-probe-guarded-and-execution-only.md) from the session-resume-kernel-expert proposal and named scope note. Preserve the real launch-environment probe, execution-only boundary, rejected marker/shell/env-only/pane alternatives and residual no-relaunch argument. Do not equate that argument with distinct failure attribution or acceptance of the stronger reported gate. The maintainer's server-placement and recovery decisions remain canonical and unchanged; implementation, CI and review stay source-reported, with no live reboot or oomd proof.
+* **Harvest**: added [A native start belongs to the launch, not each rendering of its command](/nodes/oats-kernel-expert/lessons/native-start-is-prepared-once-per-launch.md) from the same proposal and named receipt note. Preserve the undispatched-receipt failure, launch-owned preparation rationale and API/regression elimination route, without weakening history refusal or certifying coverage. Native launch gains related links only; no human-accepted decision is superseded.
+
 ## 2026-10-18
 
 * **Review**: knowledge-maintainer review of the caller-attribution harvest restored the accepted "Cross-deployment spawns stay operator-origin" sentence in [Live lineage is deliberately bounded](/nodes/oats-kernel-expert/decisions/bounded-live-lineage.md), which the harvest had dropped although it remains true. The founder-accepted text is now left intact and the refinement is annotated, not substituted. The maintainer checked awebai/oats#1371, both verdicts on awebai/oats#1372 and its merge at `cae03461`. Nothing was run. No human acceptance is inferred for the attribution decision and no human-accepted decision is superseded.
