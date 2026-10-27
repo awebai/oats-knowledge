@@ -101,6 +101,10 @@ result as CI evidence. The source's workflow accepts a ref and at most ten
 files per run; split a larger set across runs. This is selected-file
 coverage, not a full macOS suite or proof of untested platform paths. Check
 the current workflow's coverage rather than assuming this dated gap remains.
+This release-time rehearsal is the residual catch for what reached main; it
+does not relax the review-time rule that affected platform paths absent from
+PR CI are run before hand-over
+([evidence outside PR CI](/nodes/oats-maintainer/stewardship/review-protocol.md)).
 
 If the tag run nevertheless fails **before publication**, the release lane
 immediately freezes main with a hold issue so unrelated merges cannot enter
