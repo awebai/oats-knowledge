@@ -76,6 +76,28 @@ Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
 2026-10-27; notes/retire-authority.md. Human acceptance and the reported
 same-day use are source-reported, not independently audited correspondence.
 
+## Human-spawned leads and standing maintainers
+
+The source reports that the same direction explicitly covers top-level leads
+that the release lane's human spawned directly, in that human's lanes.
+The lane maintainer to whom a lead reports retires it when the effort is
+finished, even though it has no OATS parent. Otherwise a parent-only cleanup
+rule leaves these finished leads without an agent responsible for retirement
+and recreates the human queue the delegation was meant to remove.
+
+Standing lane maintainers are excluded: they are long-running lane owners,
+not finished effort leads, and leave only under their own lane-leaving rules.
+This clarification establishes neither retirement authority over unrelated
+instances nor the same top-level assignment for other humans' lanes. It does
+not replace the applicable finished-work, preservation or knowledge gates.
+Like the broader delegation, it belongs in composed engineering/maintainer
+guidance, not in a new core rule or a second operational checklist here.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27;
+notes/maintainers-retire-finished-experts.md. The source attributes this
+bounded direction to the release lane's human, relayed through that lane;
+acceptance is source-reported, not independently audited correspondence.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27; notes/coordination-policy-lives-in-capabilities.md.
