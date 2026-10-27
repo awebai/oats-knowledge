@@ -43,6 +43,16 @@ unchanged:
 
 # Related
 
+[Lost sessions resume locally through the kernel into their own conversation](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md)
+records the 2026-10-27 recovery direction: clients request a local-machine
+sweep through the kernel, not remote restarts or a second lifecycle. It
+preserves the execution-receipt and identity-holder requirements above.
+
+[A client-created tmux server needs its own cgroup](/nodes/oats-maintainer/decisions/client-created-tmux-server-needs-its-own-cgroup.md)
+records the resource-placement consequence when a client becomes the usual
+server creator on a systemd host; agents must not share the client's kill
+scope merely because it launched their server.
+
 [A client reads reported host facts but may check its own local tool](/nodes/oats-maintainer/decisions/client-local-tools-and-reported-host-facts.md)
 records the cross-client distinction: a host's viewer capabilities come from
 that host's kernel, while a client-owned local viewer may check its own tool
