@@ -1,5 +1,6 @@
 # Lessons
 
+* [Open a CI-only draft during kernel review convergence](draft-pr-runs-ci-during-convergence.md) - When the kernel branch needs a PR to trigger CI, the expert opens a clearly non-review draft on the first push so exact-head CI runs during convergence rather than starting only after acceptance.
 * [A native start belongs to the launch, not each rendering of its command](native-start-is-prepared-once-per-launch.md) - Preparing native-record state during command rendering can strand an undispatched pending receipt and make history unreadable, so one launch owns one prepared start reused by every render.
 * [Pi bridge holds must not wait for their own run](pi-bridge-holds-must-not-wait-for-their-own-run.md) - Detect pi's active-before-start lifecycle by the event's messageType rather than a version gate, because an idle wait inside that run deadlocks and apparent agent work can mask a missing opening task.
 * [Real-pi opening races need an executed CI gate](real-pi-opening-races-need-an-executed-ci-gate.md) - The opening-task deadlock escaped a green host-model suite while real-pi tests skipped, so bridge-hold changes need version-qualified real-runtime evidence until CI actually exercises the claimed lifecycle.
