@@ -56,9 +56,13 @@ explicitly replaces the font/size-default part of the historical 13px system
 monospace choice above: size choices and defaults follow the selected face,
 not the host. The original decision remains visible as history. Its rejection
 of mockup-driven row spacing, cursor distortion and vertical insets is not
-superseded, nor is the native-fidelity quality bar. The new decision records
-the source-reported visual acceptance and the human-review boundary for this
-refinement of an earlier human-accepted rule.
+superseded, nor is the native-fidelity quality bar. The product owner
+directed and approved the size change (awebai/oats#1539, #1595) and
+delegated this record's supersession to the maintainer review of
+oats-knowledge#178, which accepted it; the new decision records that
+evidence. By #1539 the default off Omarchy was already System font at 15px,
+so the 13px figure above had stopped describing the shipped default before
+this refinement.
 
 Evidence: OKF proposal from oats-desktop-expert/omarchy-font-size-expert, 2026-10-27; notes/terminal-size-belongs-to-its-face.md.
 

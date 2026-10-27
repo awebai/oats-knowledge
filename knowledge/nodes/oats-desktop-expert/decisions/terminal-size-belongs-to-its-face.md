@@ -9,7 +9,9 @@ timestamp: 2026-10-27
 
 The Desktop expert's recorded decision of 2026-10-27 is to keep an independent
 terminal size choice for each supported face selection: bundled Inconsolata
-and Omarchy's fontconfig monospace face. The selected face supplies its own
+and Omarchy's font in the terminals (fontconfig `monospace` on Linux, the
+system monospace on Windows; on macOS the terminals keep Inconsolata). The
+selected face supplies its own
 default on every host: 15px for Inconsolata and 13px for Omarchy's face.
 Changing size or resetting affects only the face in use; switching faces
 must not carry the previous face's chosen size into the new one.
@@ -52,11 +54,16 @@ calibration is not permission to reintroduce a transcript-style terminal.
 The [per-theme stroke-weight calibration](per-theme-terminal-stroke-weight.md)
 remains a separate decision.
 
-The source reports product-owner approval of the corrected live appearance
-on 2026-10-27. That is reported visual acceptance, not independent evidence
-that the human explicitly reviewed every persistence mechanism or this
-knowledge-record supersession. The knowledge review must resolve the
-human-acceptance gate on the earlier decision; the proposal is not a waiver.
+**Human acceptance.** The product owner directed the change: Omarchy's
+font with a smaller (13px) terminal default on Omarchy
+([awebai/oats#1539](https://github.com/awebai/oats/pull/1539), 2026-10-26).
+On 2026-10-27 they asked for the oversized-size fix and approved the running
+result, as recorded on
+[awebai/oats#1595](https://github.com/awebai/oats/pull/1595). On 2026-10-27
+the product owner delegated the knowledge-record decision to the
+maintainer's review of oats-knowledge#178, and that review accepted this
+refinement of the earlier human-accepted rule on the strength of that
+direction.
 
 # Verification and scope
 
@@ -81,4 +88,6 @@ The source identifies the earlier change in
 in [awebai/oats#1595](https://github.com/awebai/oats/pull/1595). It reports a
 stored-15-to-13 correction, face-local size writes and reset, and in-place
 resizing on a font switch. These are source-reported results, not tests or
-implementation/acceptance audits performed by this harvest.
+implementation/acceptance audits performed by this harvest. At review
+(2026-10-27) #1539 was merged; #1595 was approved for 0.69.2 but not yet
+merged, so current code remains the authority on what has shipped.
