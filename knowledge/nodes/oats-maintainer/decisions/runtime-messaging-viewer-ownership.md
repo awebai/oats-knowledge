@@ -43,6 +43,11 @@ unchanged:
 
 # Related
 
+[Parent-child lines require declared shared work, not inferred organisation](/nodes/oats-maintainer/decisions/parent-child-lines-require-declared-shared-work.md)
+records the 2026-10-27 source-reported direction: clients render a shared-work
+declaration, while capabilities own when a team's process sets it. The kernel
+and oats.core describe the mechanism neutrally, not a required organisation.
+
 [Lost sessions resume locally through the kernel into their own conversation](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md)
 records the 2026-10-27 recovery direction: clients request a local-machine
 sweep through the kernel, not remote restarts or a second lifecycle. It
