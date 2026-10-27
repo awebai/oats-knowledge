@@ -319,6 +319,44 @@ change deleted), so a removal is an inventory, pinned by absence tests that
 also assert one kept surface so they cannot pass on an empty scan, and the
 reachability suite is inverted rather than deleted.
 
+## Presentation removal includes reader states and suppression bookkeeping
+
+The 2026-10-27 notice-cleanup finding extends the removal inventory beyond
+renderers and words. A shared reader can retain distinctions that existed
+only to decide whether or what to present, while repeat-suppression records
+can look like control safeguards after their presentation has gone. Keeping
+them without checking leaves a dormant mechanism; deleting them by their
+names alone does not establish unchanged behavior.
+
+Before removing such bookkeeping, establish **which copy of the answer each
+control decision reads**: settlement, release and re-run decisions may use
+the run's answer or a filtered presentation copy. If filtering only serves
+the removed presentation and no remaining consumer needs it, remove the
+suppression and presentation-only reader states with that surface. If a
+control decision consumes the filtered copy, the bookkeeping is behavior:
+retain it unless a separate behavior change is intended and reviewed. A
+client's silence alone does not establish that a shared reader has no other
+consumer.
+
+The source reports that its feared re-settlement risk was resolved by this
+trace: the suppression filtered only the reader's presentation input, while
+settlement and completion used the unfiltered answer. The useful lesson is
+where to establish the no-behavior-change claim, not a permanent map of those
+functions. It applies the generalist's
+[shared-behavior inventory](/nodes/oats-expert/lessons/enumerate-what-a-removed-behaviour-held-up.md)
+to the boundary between presentation and control; the existing
+[Desktop no-notice decision](../decisions/machine-notices-are-action-free-and-outcome-driven.md)
+remains the product authority. This adds no TUI presentation decision or
+change to recovery policy.
+
+The elimination route is removal of unused distinctions and bookkeeping,
+with regressions at the seam they occupied: the reader receives the run's
+own answer, a repeated item still drives control as before, and an answer
+containing only repeats still completes. Those cases preserve the former
+control behavior rather than merely assert that the old notice words are
+absent. They do not authorize deleting suppression whose control role has
+not been established.
+
 ## Establish shipped reach before escalating a duplicated rule
 
 The 2026-10-15 spawn extraction supplied the reverse counterexample: two
@@ -359,6 +397,15 @@ may not be run on a human's machine.
 [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md).
 
 # Citations
+
+Evidence: OKF proposal from oats-desktop-expert/resume-notice-cleanup-expert, 2026-10-27; notes/removal-includes-presentation-only-reader-state.md; notes/answered-sweep-is-one-reading.md.
+
+For the presentation-removal refinement, the source identifies
+[awebai/oats#1605](https://github.com/awebai/oats/pull/1605), unmerged when
+proposed, and reports the response-copy trace and three seam regressions.
+This is one source-reported case, not an implementation audit or test run by
+this harvest. No live run was made or claimed; no merge, shipment or broader
+absence of control effects is inferred.
 
 Evidence: OKF proposal from oats-desktop-expert/test-desktop-sweep-expert, 2026-10-27; notes/test-desktop-needs-private-home-and-oats-home.md.
 
