@@ -20,7 +20,7 @@ down together. Closing a viewer is not the only way a client can accidentally
 own the lifetime of supposedly independent sessions.
 
 The source reports that the existing rule associated with
-[awebai/oats#915](https://github.com/awebai/oats/pull/915) places the server
+[awebai/oats#915](https://github.com/awebai/oats/issues/915) places the server
 separately only when its creator is inside a systemd service. The new
 maintainer requirement extends that rationale to client-created servers;
 retaining a service-only condition is not sufficient once the client is the
