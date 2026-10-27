@@ -62,5 +62,11 @@ during the latter's review loop. It reports inspecting workflow triggers at
 pushes did not. Those triggers are dated context to recheck in the repository,
 not a permanent workflow specification. The source's CI-only testing
 constraint explains the incident; it does not establish a project-wide ban
-on permitted local verification. These observations are source-reported,
-not independently reproduced runs, audited PR outcomes or human acceptance.
+on permitted local verification.
+
+Maintainer review, 2026-10-27, checked two of these reports on GitHub. At
+`27a07074` the PR workflow ran on pushes and pull requests to main and
+`release/**` only, and the Linux-tests workflow ran only on manual dispatch.
+Both cited PRs were opened as drafts and later marked ready for review. The
+caught CI failure, the CI runs and the PR outcomes were not audited, and
+none of this is human acceptance.
