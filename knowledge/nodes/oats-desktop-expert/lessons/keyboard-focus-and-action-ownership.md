@@ -87,6 +87,8 @@ user-choice tradeoffs.
 
 # Related
 
+[Workspace focus restoration](../decisions/workspace-switch-restores-focus-place.md) applies the intent rule to a deliberate return: remember the work place before transit, and yield to any later operator action.
+
 For post-upgrade reports, first [establish the running Desktop's version](check-running-version-before-debugging-behaviour.md); a newly opened window can still be old code.
 
 [Agent-centered navigation makes the action target legible](../decisions/agent-centered-navigation.md); [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md); [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md).

@@ -1,5 +1,10 @@
 # oats-desktop-expert log
 
+## 2026-10-27
+
+* **Harvest**: added [Workspace focus-place restoration](decisions/workspace-switch-restores-focus-place.md), filling the question left separate by [Editor groups](decisions/editor-group-layout-ownership.md). Preserve non-transit identity/region restoration, later-action precedence, list-focus and explicit-destination exceptions, and the rejected active-terminal, departure-element, page-memory and take-over-descriptor alternatives. Link the existing keyboard lesson rather than redefine its intent rule. Source-reported design and review evidence do not establish shipment or live Electron behavior.
+* **Update**: extended [Workspace navigation](decisions/agent-centered-navigation.md#desktop-workspace-moves-cycle-rather-than-report-an-end) with the source-reported 2026-10-27 human direction to wrap Desktop workspace moves, explicitly superseding the documented No wrap rule. Preserve the one-workspace explanation and client-opt-in rationale; terminal-client wrapping is not authorized by this decision. The old rule was not recorded in this base, and acceptance references were not independently audited.
+
 ## 2026-10-26
 
 * **Review**: maintainer accepted the harvest (oats-knowledge#145). Merged awebai/oats#1489 and its code on main confirm the Core/Additional defaults, the About modals, the instances/injection wording and the tab order, which names the Teams-first order it supersedes. Neither superseded design was an accepted concept here, so no human-accepted decision is replaced. Added maintainer-check notes to [Agent-centered navigation](decisions/agent-centered-navigation.md#workspace-tab-order) and [Workspace defaults](decisions/workspace-defaults-show-scope-and-purpose.md).

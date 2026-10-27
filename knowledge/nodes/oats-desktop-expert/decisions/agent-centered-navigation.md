@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-23
+timestamp: 2026-10-27
 ---
 # Rationale
 
@@ -95,6 +95,38 @@ repository ownership. What defines a workspace has since changed (a Git-hosted
 workspace definition, and since Phase F a deployment directory whose facts come
 only from the kernel); the consequence has not: the switcher never moves
 between repositories inside one workspace.
+
+## Desktop workspace moves cycle rather than report an end
+
+The source reports human direction on **2026-10-27**, relayed by the lane
+maintainer: Desktop's previous/next workspace actions wrap between the first
+and last openable workspace rows. This explicitly supersedes the earlier
+**No wrap** rule reported in the Desktop keyboard contract. An end message
+made ordinary navigation look like an error when cycling offered an obvious
+next destination. With only one openable workspace, do not move; give one
+visible line explaining that there is no other workspace to show rather than
+silently doing nothing.
+
+This is a Desktop decision, not approval to change the terminal client's
+navigation. When both clients share the stepping logic, make wrapping an
+explicit client opt-in instead of silently changing the shared default. The
+source reports that terminal-client wrapping had not been decided at capture.
+This applies the [shared-client scope boundary](shared-terminal-opening-keeps-context-and-client-scope.md)
+to navigation; reuse of a helper is not agreement to change another client.
+Keep both modes and the one-workspace case covered in shared-step regressions.
+
+Focus on arrival is a separate choice, recorded in
+[Workspace switching restores the operator's place](workspace-switch-restores-focus-place.md).
+This wrapping decision changes neither palette ordering nor workspace tab order.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md.
+
+The source identifies [awebai/oats#1560](https://github.com/awebai/oats/pull/1560)
+and the [Desktop keyboard contract](https://github.com/awebai/oats/blob/main/packages/desktop/docs/desktop-keyboard.md).
+The superseded rule was not recorded in this base. Human direction and the
+reported reversal are source evidence, not independently audited acceptance
+or shipment; maintainer review and live Electron evidence were pending at
+capture.
 
 # Workspace tab order
 
