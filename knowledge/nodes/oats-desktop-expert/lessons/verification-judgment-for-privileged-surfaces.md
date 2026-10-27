@@ -170,7 +170,8 @@ The useful verification choices were:
   Desktop user-data directory; select the test CLI and a dedicated Desktop
   port rather than inherit the operator's instance or tmux selectors. This
   applies [runner-owned isolation](/nodes/oats-expert/lessons/automatic-per-user-writes-need-runner-isolation.md),
-  not a second policy for personal storage.
+  not a second policy for personal storage. The sweep finding below makes
+  this an operator-session safety boundary, not just fixture hygiene.
 - Budget the **complete socket path**, not just the temporary directory.
   The source's long scratch path exceeded its Unix socket limit; a short,
   private TMUX_TMPDIR worked. Shortening must still preserve
@@ -198,6 +199,49 @@ that harness instead of relying on a remembered manual recipe. Exact launch
 flags, file formats and setup steps belong in repository verification code
 and guidance, not a second operational runbook here. No such harness or skill
 change is claimed by this harvest.
+
+### A private socket does not isolate a client-triggered machine sweep
+
+The source's later 2026-10-27 check exposed a stronger reason for the private
+homes above. With a client that invokes the machine session-resume sweep,
+a private TMUX_TMPDIR and Electron profile do not isolate the **inventory
+being swept**. A plan run with only a private socket directory still found
+the operator's deployments. Their homes were already running; no operator
+restart was observed. The hazard is that an eligible lost operator session
+could instead start on the probe's private server, outside the operator's
+usual view. A private socket can hide interference rather than prevent it.
+
+The reported mechanism crossed two storage boundaries: the deployments
+list, seen-running history and sweep lock used OATS_HOME_DIR, while the
+list's first-use legacy import consulted HOME independently. Redirecting
+only one home therefore did not establish isolation. Nor did the reported
+`fromEnv` launch-value digest check cover TMUX_TMPDIR: launch-value fidelity
+was not a substitute for isolating the probe's inventory and server.
+
+For an otherwise authorized Desktop or TUI probe, keep HOME, OATS_HOME_DIR
+and TMUX_TMPDIR private **for the client and every command that builds,
+starts or reads its fixture**, alongside the XDG/profile isolation above.
+Open only fixture deployments, but do not mistake that selection for sweep
+scope: the [recovery decision](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md)
+intentionally sweeps the machine inventory, not just open views. Stop
+fixture instances through their lifecycle before removing their private
+server, so cleanup records intentional stops rather than apparent losses.
+
+A sweep `--plan` is not a harmless way to inspect the operator's environment.
+The source reports that it started nothing but persisted seen-running
+history while listing. Inspect only the probe's own machine state; a
+no-start guarantee is not a no-write guarantee. This finding changes no
+recovery trigger, eligibility or launch-environment policy, and grants no
+permission to launch Electron or inspect the operator's sessions.
+
+Extend the integration-harness elimination route above to enforce one
+private environment across the whole fixture lifecycle. Regress the legacy
+import and plan-write cases using disposable surrogate operator state, and
+assert that only fixture deployments are discovered and acted on. The
+existing generalist isolation lesson owns the broader runner obligation;
+this refinement preserves the discovered client-sweep hazard and why socket
+and profile isolation alone were insufficient. Exact setup steps belong in
+repository verification guidance; no completed harness coverage is claimed.
 
 # Linux can exercise the packaged shell in CI
 
@@ -312,6 +356,21 @@ may not be run on a human's machine.
 [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md).
 
 # Citations
+
+Evidence: OKF proposal from oats-desktop-expert/test-desktop-sweep-expert, 2026-10-27; notes/test-desktop-needs-private-home-and-oats-home.md.
+
+For the sweep-isolation refinement, the source identifies
+[awebai/oats#1585](https://github.com/awebai/oats/pull/1585), checking the client
+sweep in [#1564](https://github.com/awebai/oats/pull/1564) over the kernel work
+in [#1563](https://github.com/awebai/oats/pull/1563). It reports one Linux run
+under Xvfb/X11 with private homes, a private socket and a guarded CLI wrapper:
+only the fixture deployment was swept, its stand-in returned `fresh` on that
+socket, the operator's window count was unchanged, and no probe window
+reached the operator's compositor. These are source-reported observations,
+not checks rerun by this harvest. They do not prove an operator-session
+restart, conversation resumption with a real harness, macOS behavior or
+complete host containment. The unsafe plan's history write is evidence of
+the hazard, not a recommended experiment or cleanup procedure.
 
 Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/live-desktop-fixture-without-agents.md.
 
