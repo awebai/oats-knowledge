@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses changed upgrade paths from released state, and treats source, tag, mirror and every form of version pin as one coordinated change.
+description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state, coordinates source, tag, mirror and pins, and pairs changes to shared instructional behaviour across separately released packages.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -39,6 +39,37 @@ release.
 - **No maintenance line for a version nobody runs (2026-09-24, agreed with
   the human).** In-flight work that began against a superseded line lands on
   `main` and ships in the next release; the old release branch is left inert.
+
+# Pair changes to shared instructional behaviour (2026-10-27)
+
+When separately released packages both state one behaviour and a change to
+only one would make composed instructions disagree, the maintainer asks the
+release lane to pair both changes in the **same release window**. Treat
+that shared meaning as a release dependency, even when both diffs are only
+text and neither alone appears to break an API.
+
+The source's example is retirement responsibility stated in the oats.core
+inject shipped by oats.framework and in oats.engineering skills. Independent
+release review can find each new text coherent while missing the interval
+in which an instance composes the new rule from one package with the old
+rule from the other. The source reports that the release lane paired these
+changes in its plan; that is planning evidence, not proof either shipped.
+
+This extends lockstep release judgment to instructional meaning. It does
+not require coupling unrelated text edits or approve the underlying
+retirement policy. Same-window publication alone also does not prove that
+a deployment's selected pins compose a coherent set: the generalist's
+[dependent-text planning lesson](/nodes/oats-expert/lessons/soul-text-lands-with-its-capability-pin.md)
+owns that pin dependency and composed-text check. The
+[ship-together evidence gate](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md#a-ship-together-set-needs-whole-set-evidence-before-its-first-merge-2026-10-27)
+remains distinct from deciding which changes need pairing.
+
+Prefer one capability-owned definition of a shared rule; where separate
+texts must remain, composition checks at the intended versions can catch
+known disagreements. Recording the pair in the release plan and enforcing
+its dependency is the prevention route, with the remaining semantic
+judgment in release review. This harvest claims no new enforcement or
+skill change has landed.
 
 # Publish first, housekeep second
 
@@ -217,3 +248,8 @@ The notes report the 0.53.0 rehearsal prompted by
 publication (run 38546688491), and escaped pins in
 [#1120](https://github.com/awebai/oats/pull/1120). These are source-reported
 observations; this harvest did not reproduce the rehearsal or registry reads.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/injection-effort-scope-gate.md. Cross-package retirement
+text and the release lane's paired plan are source-reported; no completed
+release or mixed-version deployment failure was independently verified.

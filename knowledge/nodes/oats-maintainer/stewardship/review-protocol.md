@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, requires timely, safely obtained verification, uses fresh and second readers, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -273,6 +273,32 @@ its producer, fix the producer and keep the consumer's guard as defence in
 depth. A stand-in producer proves only the shapes we assumed: before shipping a
 contract change, recapture the consumer's fixtures from the real producer.
 
+## Instruction precedence needs a cross-side decision (2026-10-27)
+
+The named contract list is not an exhaustive boundary for shared-behaviour
+judgment. Changing the order of composed instructions changes their
+precedence across deployments, even if no config key, manifest field, hook
+environment, Desktop JSON shape or lock format changes. Both maintainer
+sides decide that change on a decision issue **before implementation**;
+absence from the list is not permission for one lane to settle it alone.
+
+The source first treated order as a contract change only if a client read
+the instruction-source arrays positionally. After the other side objected,
+the source agreed that instruction precedence itself needed the cross-side
+decision. A positional JSON consumer still makes it a Desktop-JSON contract
+change outright, but proving there is no such consumer does not remove the
+precedence decision. This distinguishes the governance gate from the wire
+compatibility test rather than conflating them.
+
+The proposed order was still undecided at capture. This lesson records the
+agreed need to decide, **not acceptance of any particular ordering** or a
+guarantee about how a harness resolves conflicting prose. The existing
+[kernel composition lesson](/nodes/oats-kernel-expert/lessons/kernel-composed-text-is-executable-surface.md)
+owns composed-text coverage and structural assertions. The residual
+cross-side decision check belongs in the maintainer's direction gate;
+regressions should enforce the order once decided, not substitute a green
+ordering test for that agreement.
+
 # Knowledge PRs
 
 Strict validation proves structure, not truth. Validate the knowledge tree
@@ -327,3 +353,9 @@ incident during [#1193](https://github.com/awebai/oats/issues/1193). Agreement,
 CI results and incidents are source-reported, not independently audited by
 this harvest. The base-moved note's later qualifications are not reduced to
 the proposal's earlier head-guard/clean-merge-only path for unrelated files.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/injection-effort-scope-gate.md. The note's later update
+supersedes its initial positional-consumer-only gate for instruction
+precedence. Agreement to require a decision is source-reported; this
+harvest did not inspect private correspondence or decide the new order.
