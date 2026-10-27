@@ -59,7 +59,9 @@ Indentation still conveys parentage. The direct explicit sibling-link policy
 is not replaced by this proposal.
 
 That older concept includes human-requested design. The supersession requires
-human review, not a silent rewrite. Its decorative-line rationale depended on
+human review, not a silent rewrite: the human owner accepted it on 2026-10-27
+in the maintainer review of oats-knowledge#166, and the Desktop concept now
+records that it is partially superseded. Its decorative-line rationale depended on
 indentation conveying the same information as the line; it cannot simply be
 carried over when the line is the only visible shared-work cue. Updating the
 Desktop concept's rendering and accessibility judgment belongs to that node's
