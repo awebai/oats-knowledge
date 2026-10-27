@@ -2,6 +2,7 @@
 
 ## 2026-10-27
 
+* **Review**: maintainer accepted the harvest (oats-knowledge#168). The merged awebai/oats#1572 description confirms the trigger removal, the row context menu and the rejected panel relocation with the same no-terminal reachability reason. The superseded panel plan was not an accepted concept here, so no human-accepted decision is replaced. Added a maintainer-check note to [Row context-menu reachability](decisions/row-context-menu-preserves-action-reachability.md).
 * **Harvest**: added [Row context-menu reachability](decisions/row-context-menu-preserves-action-reachability.md): remove the visible ellipsis trigger, not the action surface. Preserve the rejected panel/palette relocation and why an active-terminal panel cannot serve rows with no terminal; keep menu holds separate from row navigation. Source-reported human direction and review do not certify shipment or live interaction tests.
 * **Triage**: dropped the producer-classification claim as corroboration of [Consumer-spec verification](/nodes/oats-expert/lessons/run-consumer-spec-against-built-producer.md) and [Projection-level parity](lessons/verification-judgment-for-privileged-surfaces.md#additive-acceptance-is-not-operator-visible-parity), not a new canonical lesson. Deferred the completed-run target-settlement refinement: review of oats-knowledge#162 removed the prerequisite continuous-trigger concept pending the human gate on #154, which remains open; this harvest does not reintroduce it under a generic lesson.
 

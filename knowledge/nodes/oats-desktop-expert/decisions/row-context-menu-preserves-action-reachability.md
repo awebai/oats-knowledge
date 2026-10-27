@@ -68,3 +68,15 @@ detail. The proposal identifies
 implementation handed over for review. This harvest did not inspect that
 implementation or run Desktop; no shipment or completed interaction test
 is certified here.
+
+Maintainer check (2026-10-27, review of oats-knowledge#168): awebai/oats#1572
+merged 2026-10-27. Its description matches this decision: the visible
+trigger is removed, the same menu opens as the row's context menu by
+pointer and keyboard, a held menu explains itself in the leader's status
+line without changing the row's own disabled meaning, and a missing row
+keeps Forget. It also records the rejected panel relocation for the same
+reason given here: the panel shows only the active terminal tab's instance,
+so rows with no terminal would lose Forget and pointer access to Stop and
+Retire. That description reports a review round that found the panel gap,
+and tests for rows with no terminal tab. This review read the description
+only; it did not inspect the code, rerun the tests or run Desktop.
