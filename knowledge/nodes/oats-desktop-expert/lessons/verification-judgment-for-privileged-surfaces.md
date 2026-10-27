@@ -391,6 +391,10 @@ may not be run on a human's machine.
 
 # Related
 
+[Platform-keyed tests and native baselines](platform-keyed-tests-need-explicit-platforms.md)
+adds the client-platform diagnosis case: explicit policy fixtures do not
+replace whole-surface evidence on the OS whose real processes fail.
+
 [The loopback interface is Desktop's trust boundary](../decisions/loopback-trust-boundary-and-transport-simplicity.md);
 [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md);
 [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md);
