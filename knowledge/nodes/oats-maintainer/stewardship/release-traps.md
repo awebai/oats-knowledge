@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses changed upgrade paths from released state, and treats source, tag, mirror and every form of version pin as one coordinated change.
+description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, and coordinates source, tag, mirror and every form of version pin.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -82,6 +82,40 @@ PRs, fail-fast off — has landed; the residual judgement is to distrust any
 history rather than the reviewer's report. Check `main`'s own CI, not only the
 PR's: a guard that fails only under CI's shallow clone once kept `main` red for
 days while every PR looked fine.
+
+## Rehearse changed macOS tests before the tag (2026-10-27)
+
+Installer verification does not establish that every platform's tests ran.
+The source reports that, for the 0.69.0 release, PR CI ran the Desktop suite
+on Linux only; macOS Desktop builds and their tests first ran in the tag
+workflow. Both macOS jobs then failed on an assertion that confused a
+symlinked temporary-directory path with its canonical path, and publication
+was skipped. The targeted macOS run passed with the fix. The lesson is the
+missing platform evidence and its cheap rehearsal, not a permanent inventory
+of what CI runs.
+
+Until that gap is eliminated, when a release's PRs add or change Desktop or
+client tests, the release lane runs the hand-started `macos-tests.yml` at the
+release-prep head over those test files **before tagging**, and reads the
+result as CI evidence. The source's workflow accepts a ref and at most ten
+files per run; split a larger set across runs. This is selected-file
+coverage, not a full macOS suite or proof of untested platform paths. Check
+the current workflow's coverage rather than assuming this dated gap remains.
+
+If the tag run nevertheless fails **before publication**, the release lane
+immediately freezes main with a hold issue so unrelated merges cannot enter
+the repair release. The source reports holding main while 0.69.1 carried
+0.69.0's content plus the fix. This containment rule does not decide whether
+to recut an unpublished version or use a fresh patch: the existing
+publication boundary above still applies. The fresh patch chosen for this
+incident is not a new prohibition on pre-publication recuts.
+
+This manual rehearsal is temporary release-verification debt. The preferred
+elimination route is macOS Desktop/client test coverage in PR CI, with the
+release gate requiring evidence for the candidate being tagged. That is not
+a claim such coverage has landed. Keep the remaining release judgment in
+the existing release skill, and remove the workaround only when the
+relevant platform path is actually covered before the tag.
 
 # Verify the artifact, not the diff
 
@@ -217,3 +251,13 @@ The notes report the 0.53.0 rehearsal prompted by
 publication (run 38546688491), and escaped pins in
 [#1120](https://github.com/awebai/oats/pull/1120). These are source-reported
 observations; this harvest did not reproduce the rehearsal or registry reads.
+
+Evidence: OKF proposal from oats-maintainer/pepe-release-maintainer,
+2026-10-27; notes/macos-desktop-tests-first-run-on-the-tag.md.
+
+The source identifies the regression from
+[awebai/oats#1564](https://github.com/awebai/oats/pull/1564), the repair
+[#1591](https://github.com/awebai/oats/pull/1591), and the main hold
+[#1590](https://github.com/awebai/oats/issues/1590). The platform coverage,
+failed release, passing targeted run and repair shipment are source-reported;
+this harvest did not audit the workflows or reproduce those runs.
