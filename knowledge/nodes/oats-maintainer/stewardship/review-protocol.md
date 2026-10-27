@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, requires timely, safely obtained verification, uses fresh and second readers, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -39,6 +39,10 @@ green, secure, mergeable PR in the wrong direction is still returned. When the
 human redirects a slice, the amendment is recorded in the design record
 **before** the review, so the direction gate reviews against what was asked,
 not against a frame the human has since changed.
+
+For instructions about when agents coordinate or retire children, apply the
+[capability-owned coordination policy boundary](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md):
+neutral mechanism documentation does not make core the owner of team policy.
 
 ## A declared deferral still needs the decision's permission
 
@@ -272,6 +276,43 @@ consumer-first, in one release. When a consumer's review finds a trust gap in
 its producer, fix the producer and keep the consumer's guard as defence in
 depth. A stand-in producer proves only the shapes we assumed: before shipping a
 contract change, recapture the consumer's fixtures from the real producer.
+
+## Package-private formats become shared contracts at the reader boundary (2026-10-27)
+
+A format written and read only within one package may evolve inside its
+lane, provided legacy input keeps its existing behavior: unambiguous old
+input still works, while ambiguous old input refuses with an error naming
+the fix. Package-private does not mean compatibility-free. Review who reads
+the format rather than escalating every file-format edit or treating every
+unlisted format as private.
+
+Once another package or the kernel reads it, its change is a shared contract
+decided by both maintainer sides. A change that needs a new kernel field or
+hook variable crosses that boundary too, even if the package still owns the
+file. This classifies the format dependency; it does not waive an independent
+shared-behaviour direction decision or weaken published compatibility promises.
+
+The source's precedent is the `Source:` line in an oats.okf proposal. The
+lane permitted an explicit incarnation while preserving the legacy line's
+unambiguous acceptance and ambiguous refusal, reusing incarnation data the
+kernel already published rather than requiring a new kernel contract.
+The point is the private reader/writer boundary and compatibility judgment,
+not a second specification of the harvest format.
+
+Legacy-input and ambiguity fixtures should enforce the promised behavior;
+the maintainer's `direction-gate` skill owns the remaining judgment about
+readers and cross-side agreement. This does not invoke the
+[pre-adoption removal precedent](/nodes/oats-maintainer/decisions/clean-contract-precedent.md)
+as permission to break a package's supported old inputs.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27; notes/reused-name-harvest-gate.md.
+
+The source records its lane ruling on
+[awebai/oats-okf#83](https://github.com/awebai/oats-okf/issues/83), identifying
+comment 6441169785, and reports its application in
+[#111](https://github.com/awebai/oats-okf/pull/111) with the other side's
+second read. These are source-reported decision and review references, not
+an independently audited implementation, test result or release receipt.
 
 # Knowledge PRs
 
