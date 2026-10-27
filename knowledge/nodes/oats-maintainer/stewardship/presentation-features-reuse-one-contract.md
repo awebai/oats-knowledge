@@ -5,6 +5,10 @@ description: Review new instance-presentation features against the established s
 tags: [stewardship, coherence, presentation, review]
 timestamp: 2026-10-27
 ---
+**Owner: oats-maintainer. Update-on-change: whoever changes how instance
+presentation facts are stored, read or mutated, or justifies a divergence
+from this family, revises this concept in the same change.**
+
 # Coherence ruling
 
 The source maintainer's 2026-10-27 review rule is to treat colour, background
