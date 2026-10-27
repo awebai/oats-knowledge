@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror and pins with the framework release that carries them.
+description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-27
 ---
