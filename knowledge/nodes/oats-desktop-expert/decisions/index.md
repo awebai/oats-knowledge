@@ -2,6 +2,9 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [Non-cancellable kernel work unlinks output at spawn](noncancellable-kernel-work-unlinks-output-at-spawn.md) - A shared file-output boundary unlinks its temporary names immediately after spawn and reads through retained descriptors, because a Desktop crash can skip every cleanup callback.
+* [Machine-scoped notices are action-free and driven by home outcomes](machine-notices-are-action-free-and-outcome-driven.md) - Preserve an inert machine-wide summary across workspace changes only as an app-scoped sticky notice, and create recovery notices for home outcomes rather than routine sweep diagnostics.
+
 * [Workspace defaults show shared scope, Core and Additional groups, and purpose](workspace-defaults-show-scope-and-purpose.md) - Present workspace defaults above the capability catalogue with one visual grammar for Core and Additional groups, and explain their shared-working purpose without promising compulsory or automatic learning.
 * [Desktop copy names a soul's instances and instruction injection](desktop-copy-names-instances-and-injection.md) - Say a soul's instances rather than its agents, and describe capability instructions as injected into the instance's composed AGENTS.md so explanations preserve the definition/runtime and authored/injected distinctions.
 * [A team view names your instances, not the team's full membership](team-instance-lists-state-their-observation-scope.md) - Label team instance lists and counts as the user's observed deployments and state their machine scope, so a partial view never implies a complete team roster.
