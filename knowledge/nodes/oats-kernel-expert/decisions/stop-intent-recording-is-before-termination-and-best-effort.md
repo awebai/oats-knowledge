@@ -65,3 +65,9 @@ residual. This harvest read the captured proposal and notes, not the private
 correspondence or implementation. Agreement, repair and test results remain
 source-reported; no human acceptance, completed all-path audit, test rerun or
 release is certified here.
+
+At maintainer review on 2026-10-27, awebai/oats#1599 was open, not merged.
+Its description states the single stop writer used by stop, idle stop and
+retire, the retire's write before termination, and the full-disk
+double-failure exception. Until it merges and ships, this is the chosen
+direction, not released behaviour.
