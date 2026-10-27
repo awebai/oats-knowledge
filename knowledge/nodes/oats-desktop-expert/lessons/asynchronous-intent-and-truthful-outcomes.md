@@ -82,6 +82,11 @@ without accidentally designing extra controls or state.
 
 # Related
 
+The [machine-scoped notice decision](../decisions/machine-notices-are-action-free-and-outcome-driven.md)
+adds a narrow app-lifetime exception for inert summaries, not for feedback
+whose actions can target a replaced workspace. It keeps context-bound intent
+ownership intact.
+
 [Pending lifecycle state is not evidence of failure](pending-lifecycle-state-is-not-failure.md)
 extends truthful outcomes to producer-reported held rows and per-apply
 reconciliation after a later covering observation.
