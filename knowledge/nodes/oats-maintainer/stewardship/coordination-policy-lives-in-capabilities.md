@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: Coordination policy lives in capabilities, not in the kernel or oats.core
-description: Review separates neutral lifecycle mechanisms from team coordination policy, including when to retire children, and keeps core authority wording from contradicting a composed capability.
+description: Review keeps team coordination policy out of neutral lifecycle mechanisms; OATS delegates finished-worker retirement to experts and lane maintainers without a fresh human request, through its composed capabilities.
 tags: [stewardship, coordination, capabilities, instructions, retirement]
 timestamp: 2026-10-27
 ---
@@ -46,6 +46,35 @@ Structural composition tests should check which capability owns a protocol;
 semantic neutrality still needs review, as the
 [composed-text lesson](/nodes/oats-kernel-expert/lessons/kernel-composed-text-is-executable-surface.md)
 explains. This harvest changes no skill and claims no new enforcement.
+
+# OATS delegates finished-worker retirement (2026-10-27)
+
+The source reports that the release lane's human directed this division of
+responsibility and directly confirmed it to the source maintainer that day:
+
+- Experts retire their own developers once the developer's work has merged.
+- A lane maintainer retires its lane's experts once their effort is done
+  and its PRs have merged.
+- Neither waits for a new human request for each such retirement.
+
+The reason is operational ownership, not eagerness to delete instances:
+waiting for the human to initiate each cleanup had left finished workers
+running. The retirement/resume incident made that backlog more visible but
+is not the basis of the delegation. The maintainer closes its own lane's
+finished effort rather than making routine cleanup another human queue.
+
+This is OATS's engineering policy, not a universal rule for all souls or
+permission over unrelated instances. It adds the delegation to the existing
+capability-placement decision without moving policy into the kernel or
+`oats.core`. Operational conditions and the cleanup procedure belong in the
+composed engineering/maintainer guidance (`keep-it-clean`), not in a second
+checklist here. The applicable lifecycle, work-preservation and knowledge
+capability requirements still apply; merged work does not waive a refusal.
+This record does not establish that the policy has shipped into every home.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
+2026-10-27; notes/retire-authority.md. Human acceptance and the reported
+same-day use are source-reported, not independently audited correspondence.
 
 # Evidence and limits
 

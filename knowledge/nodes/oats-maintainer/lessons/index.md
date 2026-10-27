@@ -1,5 +1,7 @@
 # Lessons
 
+* [Protect the last release blocker from merge churn](protect-the-last-release-blocker-from-merge-churn.md) - When one PR is the release's last blocker, arrange a temporary hold on competing merges to its paths so repeated base updates do not consume the critical path, without relaxing integration evidence.
+
 * [Adoption evidence and authority must match the claimed outcome](adoption-evidence-and-approved-scope.md) - Installation, execution, publication, consumption and learning are different evidence; classify a gap before adding anything.
 * [Second-operator acceptance — what the gate is for, how to read its failures, and the contract-siblings rule](second-operator-acceptance.md) - An outsider on the published combination, verifying by positive enumeration, is the acceptance gate; four failure classes, four owners.
 * [Review the whole PR merge range for scope, not only the intended feature files](pr-branch-merge-range-scope.md) - Unrelated local, stewardship or soul commits ride feature branches; list the merge range before running gates.
