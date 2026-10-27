@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, and coordinates source, tag, mirror and every form of version pin.
+description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror and every form of version pin.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-27
 ---
@@ -39,6 +39,46 @@ release.
 - **No maintenance line for a version nobody runs (2026-09-24, agreed with
   the human).** In-flight work that began against a superseded line lands on
   `main` and ships in the next release; the old release branch is left inert.
+
+# A package soul's new key is a package-wide rollout decision (2026-10-27)
+
+A small declaration change in one packaged soul can raise the kernel floor
+for **every adopter of that package**, not just users who spawn that soul.
+The source reports that the package validator ties the package floor to its
+capability floors: adding a newly accepted soul key therefore excludes an
+older deployment from that package release altogether, rather than merely
+causing a later spawn refusal. Review the package-wide adoption consequence,
+not the size of the soul diff.
+
+For this rollout, the maintainer's gate is **before the package PR merges**:
+the accepting kernel release is published, and each maintainer side confirms
+its affected deployments run it. A published release alone is not evidence
+of installation. This extends the kernel-first rule above to package-soul
+adoption; it does not authorize upgrading anyone's deployment or assert that
+all deployments have moved.
+
+Moving the new behavior into an unconditional spawn-time flag in a skill
+is not a compatibility escape. That route still requires a feature check
+against the kernel that will execute it. A different place to spell the
+request does not make an older kernel understand it.
+
+The motivating case is the proposed background default for the packaged
+knowledge harvester. At capture the package PR remained draft and gated;
+its floor increase and accompanying real-kernel CI changes were a plan,
+not a completed rollout. Keep exact versions in the package's release
+artifacts rather than maintaining a second version ledger here.
+
+Enforce declared-floor consistency and supported-kernel compatibility in
+validation and CI; those checks cannot establish that the participating
+deployments have actually upgraded. The remaining release gate needs that
+installation evidence. This harvest neither ran those checks nor inspected
+deployments, and claims no new enforcement was delivered.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
+2026-10-27; notes/background-instances-gate.md. The package-wide consequence
+and merge gate are source-reported from
+[awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113), not an
+independently audited validator or rollout receipt.
 
 # Publish first, housekeep second
 
