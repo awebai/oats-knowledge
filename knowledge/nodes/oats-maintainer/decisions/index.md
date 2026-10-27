@@ -1,7 +1,6 @@
 # Decisions
 
 * [A client reads reported host facts but may check its own local tool](client-local-tools-and-reported-host-facts.md) - Clients consume kernel-reported host capabilities rather than copying host rules, while a client-owned local tool may be checked locally with mirrored behavior pinned by a cross-owner test.
-
 * [Working and idle are producer-reported facts, not terminal heuristics](instance-activity-is-reported-not-inferred.md) - Harness producers report main-thread activity through one kernel writer, within the existing hook budget, so clients never infer idleness from terminal silence or turn unknown into idle.
 * [A human addresses a long-lived agent through threads that are aweb conversations; the soul declares an interaction kind in its messaging settings](humans-address-long-lived-agents-through-threads.md) - Deferred on 2026-10-26, the day it was decided, with nothing built or released, so the 2026-07-22 one-input-surface rule stands; the design to resume from is threads as aweb mail conversations between the human's own identity and the agent, read and sent through the messaging capability's JSON surface and keyed by a soul-level interaction kind in the messaging capability's settings, with no second messaging channel and no UI layout in the kernel contract.
 * [A launch check judges the environment the launch will have](checks-use-the-launch-environment.md) - Launch checks share the launched process's environment model, disclose what they cannot establish, and never pass by silently substituting the spawner's account.

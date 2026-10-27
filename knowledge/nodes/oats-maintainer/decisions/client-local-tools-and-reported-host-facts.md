@@ -33,8 +33,10 @@ not a remote kernel's viewer capabilities.
 The rejected alternative was requiring Desktop to obtain its local viewer's
 binding decision through the CLI's session-viewer report. That adds a CLI
 dependency without improving the local fact, and can conflate two different
-viewers. The agreement therefore removed the TUI's copy of the host rule
-while permitting the Desktop-local check under test enforcement.
+viewers. The release-lane agreement had the TUI drop its copy of the host
+rule; the Desktop second-read verdict then accepted the Desktop's own local
+tmux check, reading the agreement's "drop their copies" as being about naming
+keys per tab, with the viewer's binding tables pinned to the kernel's by test.
 
 This is not permission to infer kernel support from a kernel version number,
 parse deployment files or import private kernel behavior at runtime. The
