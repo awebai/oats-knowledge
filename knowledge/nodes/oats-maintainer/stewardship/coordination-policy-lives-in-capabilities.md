@@ -78,8 +78,8 @@ same-day use are source-reported, not independently audited correspondence.
 
 ## Human-spawned leads and standing maintainers
 
-The setup maintainer's proposal of 2026-10-27 explicitly includes top-level
-leads that the release lane's human spawned directly, for that human's lanes.
+The source reports that the same direction explicitly covers top-level leads
+that the release lane's human spawned directly, in that human's lanes.
 The lane maintainer to whom a lead reports retires it when the effort is
 finished, even though it has no OATS parent. Otherwise a parent-only cleanup
 rule leaves these finished leads without an agent responsible for retirement
