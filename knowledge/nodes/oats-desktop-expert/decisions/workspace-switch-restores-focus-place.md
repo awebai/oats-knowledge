@@ -51,11 +51,21 @@ steal it from a newer action.
 Three boundaries are deliberate:
 
 - A workspace step initiated with focus in the workspace list keeps focus
-  in that list, preserving the source-reported terminal-client parity.
+  in that list so the operator can keep browsing it. This is Desktop's own
+  choice, not terminal-client parity.
 - A switch made to reach its own destination, such as a Teams-board hand-off
   or followed view, is not followed by this competing restoration.
 - A take-over bringing a layout retains that layout's focus behavior; it
   does not apply the window's remembered place over the supplied layout.
+
+**Rationale correction (2026-10-27):** the earlier proposal misread the TUI's
+list-focus rule as precedent. The follow-up reports that a TUI move which
+opens a workspace hands focus to the instances list; focus stays in the
+workspace list only when nothing opens. Do not use that precedent to justify
+Desktop's different browsing choice or to change its behavior in the name of
+parity. This corrects the attribution, not the Desktop exception. The separate
+[wrap decision](agent-centered-navigation.md#desktop-workspace-moves-cycle-rather-than-report-an-end)
+now aligns workspace moves without requiring identical focus destinations.
 
 Protect these choices with arrival-path regressions covering the transit
 control, missing identity, repaint ordering and a later user action during
@@ -67,10 +77,11 @@ preserves why the destinations differ, not a second map of renderer helpers.
 Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-switch-focus-place.md.
 
 The source identifies [awebai/oats#1560](https://github.com/awebai/oats/pull/1560)
-as the implementation proposal and the terminal client's
-[Tabs contract](https://github.com/awebai/oats/blob/main/docs/tui.md#tabs)
-as the list-focus precedent. At capture it reports developer review approval,
-with maintainer review and live Electron evidence still pending. Those are
+as the implementation proposal. The earlier capture cited the terminal
+client's [Tabs contract](https://github.com/awebai/oats/blob/main/docs/tui.md#tabs)
+as a list-focus precedent; that attribution is corrected above. At that
+capture it reported developer review approval, with maintainer review and
+live Electron evidence still pending. Those are
 source-reported evidence limits, not shipment, human acceptance of every
 exception, or live verification by this harvest. The decision record grants
 no permission to run Desktop on the operator's machine.
@@ -82,3 +93,13 @@ single intent ticket, the workspace-list exception, the explicit-destination
 exception and the take-over layout's retained focus. The rejected page-memory
 and layout-descriptor expansions remain source-reported. Live Electron
 behavior was not checked by this review.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-switch-focus-place.md; notes/live-desktop-fixture-without-agents.md.
+
+The follow-up attributes the correction to the TUI developer's reading and
+identifies [awebai/oats#1565](https://github.com/awebai/oats/pull/1565). It also
+reports live click-switch, previous/next and wrap checks of #1560; roster-row
+restoration was not exercised live. The [fixture lesson](../lessons/verification-judgment-for-privileged-surfaces.md#agent-free-fixtures-can-prove-desktop-input-arrival)
+records that evidence's method and limits. Neither the TUI reading nor the
+live results were independently reproduced by this harvest; they do not
+establish live proof of every restoration path.
