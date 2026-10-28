@@ -1,5 +1,6 @@
 # Decisions
 
+* [The CLI compile cache stays in the per-user OATS home](compile-cache-stays-in-the-per-user-oats-home.md) - Keep the CLI's automatic compile cache in the existing per-user OATS home to avoid a shared-directory trust dependency, a second location override and an inherited hook-environment change.
 * [The pi bridge prefers the home's kernel shim over ambient discovery](pi-bridge-prefers-the-homes-kernel-shim.md) - The pi bridge explicitly consults the home's launching-kernel shim before ambient discovery, avoiding a new launch variable or public package-root field for a failure confined to an outside-instance wrapper.
 * [Stop intent is recorded before termination, but recording is best effort](stop-intent-recording-is-before-termination-and-best-effort.md) - Every intentional kernel stop attempts to record the ended start before termination, but a failed write must not block retirement, accepting a documented double-failure recovery ambiguity.
 * [Report-only prompt recognition may use derived labels](report-only-prompt-recognition-may-use-derived-labels.md) - A recogniser that cannot send input may match derived whole option labels together, because a false waiting report has a different consequence from an unwanted keystroke.

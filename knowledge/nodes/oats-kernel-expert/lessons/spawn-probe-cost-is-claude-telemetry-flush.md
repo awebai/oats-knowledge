@@ -84,6 +84,20 @@ explains why startup savings do not remove unchanged child waits.
 
 Evidence: OKF proposal from oats-kernel-expert/cli-language-evaluation-kernel-expert, 2026-10-28; notes/native-rewrite-keeps-node-and-the-waits.md; notes/cli-cost-is-startup-and-children-not-compute.md. The source identifies [awebai/oats#1630](https://github.com/awebai/oats/issues/1630); these later measurements were not reproduced by this harvest.
 
+# Later cache-location design
+
+A separate source proposal on 2026-10-28 selects an automatic cache for CLI
+startup generally, placed in the existing per-user OATS home rather than a
+shared temporary directory. The [compile-cache location decision](/nodes/oats-kernel-expert/decisions/compile-cache-stays-in-the-per-user-oats-home.md)
+owns that trust rationale, caller-control and hook-environment boundary,
+and cache-specific test-isolation tradeoff. This extends the workload
+refinement above with a selected design; the implementation was still open
+at that proposal's checkpoint, so it is not evidence that every CLI process
+already uses the cache. The original spawn-specific rejection and probe-only
+telemetry boundary remain historical and applicable in their stated scope.
+
+Evidence: OKF proposal from oats-kernel-expert/cli-startup-node-fixes-kernel-expert, 2026-10-28; notes/compile-cache-location.md.
+
 # Evidence
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-spawn-resolution-speed, 2026-10-15; notes/spawn-probe-cost-is-claude-telemetry-flush.md; notes/preview-bound-apply-may-reuse-observations.md.
