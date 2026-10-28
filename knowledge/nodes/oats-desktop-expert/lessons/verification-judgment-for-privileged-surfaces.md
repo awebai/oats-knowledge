@@ -391,6 +391,11 @@ may not be run on a human's machine.
 
 # Related
 
+[Signal tests must contain even regressed cleanup](signal-tests-must-contain-regressed-cleanup.md)
+adds the reparenting hazard: a test-owned child can acquire a foreign parent,
+so signal tests and their negative controls need a runner/namespace boundary
+and teardown that remains contained when the tested script regresses.
+
 [Platform-keyed tests and native baselines](platform-keyed-tests-need-explicit-platforms.md)
 adds the client-platform diagnosis case: explicit policy fixtures do not
 replace whole-surface evidence on the OS whose real processes fail.

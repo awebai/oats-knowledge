@@ -2,6 +2,7 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [Signal tests must contain even regressed cleanup](signal-tests-must-contain-regressed-cleanup.md) - Run real-process signal tests only on disposable CI runners or inside an isolated Linux PID namespace, and keep every signal target test-owned even when the code under test regresses.
 * [Platform-keyed tests need explicit platforms and a native baseline](platform-keyed-tests-need-explicit-platforms.md) - Pin platform-keyed policy cases independently of the host, and scope a platform failure with a whole-surface baseline on that OS rather than treating an in-process platform fake as native evidence.
 * [Pending lifecycle state is not evidence of failure](pending-lifecycle-state-is-not-failure.md) - Require producer liveness to interpret held lifecycle rows, keep unknown retirement outcomes non-failing with secondary recovery, and reconcile each local apply only against a later covering observation.
 * [Attribute spawn latency before choosing the component to fix](measure-spawn-latency-without-spawning.md) - Combine existing phase evidence with preview tracing, caller profiling and repeated read timings to assign spawn costs to their owners without creating an instance on the measured deployment.
