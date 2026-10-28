@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: How the OATS project ships and reviews
-description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, requires timely, safely obtained verification, uses fresh and second readers, aims release-prep second reads at hand-written claims, and judges tests against requirements rather than implementations.
+description: Maintainer review binds verdicts to content and issue-recorded contract decisions, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh and second readers, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
 timestamp: 2026-10-28
 ---
@@ -310,6 +310,83 @@ consumer-first, in one release. When a consumer's review finds a trust gap in
 its producer, fix the producer and keep the consumer's guard as defence in
 depth. A stand-in producer proves only the shapes we assumed: before shipping a
 contract change, recapture the consumer's fixtures from the real producer.
+
+## Contract agreement stays on the issue through implementation (2026-10-28)
+
+The source reports a useful practice across three product-contract cases:
+keep the proposal, both sides' answers and later amendments on the issue,
+so the implementation review can check what was built against what was
+actually decided. Mail directs the other side to that record; it is not a
+parallel decision record. The existing requirement to decide contracts
+before building them remains the authority boundary, not a new claim here.
+
+When a lead finds a contract question, stop the affected build and bring
+options to the lane maintainer. The maintainer's direction gate compares
+them with accepted decisions. Its issue proposal explains the client-visible
+change, alternatives, a recommendation with its decision basis, and the
+consequence for existing deployments: either why no action is needed or
+what must change. Do not assume every contract change is deployment-neutral.
+The other side's explicit answer and build conditions belong on that issue
+before building; carry references to both positions and those conditions
+into the lead's brief and PR review evidence. Inform the release lane when
+the bilateral decision is settled, not through a duplicate negotiation.
+
+A narrowing discovered during implementation still belongs on the issue
+before the PR if it changes the decided text. Fewer affected cases do not
+make it invisible to the other decider. Posting an amendment is not itself
+acceptance: the existing
+[decision-amendment gate](/nodes/oats-maintainer/stewardship/review-protocol.md#a-declared-deferral-still-needs-the-decisions-permission)
+continues to apply. This keeps a review from comparing the code only with
+the author's revised PR description while missing the agreed conditions.
+
+The reported compatibility judgment was to keep an existing error answer
+that clients already match rather than rename it merely for consistency
+inside the larger change. In the lifecycle-start case, the other side's
+answer kept `E_SESSION_START_BUSY` for two concurrent starts rather than
+relabelling them `E_LIFECYCLE_BUSY`; the later build-time narrowing that
+keeps every existing start-lock answer was posted on the issue, not agreed
+by the other side (see the verification note below). The spelling
+cleanup offered no compensating benefit for breaking client matching. This
+is an application of the
+[published-commitment boundary](/nodes/oats-maintainer/decisions/clean-contract-precedent.md#the-precedent-is-bounded),
+not a universal ban on an explicitly decided migration, a new error-code
+specification or permission to apply the pre-adoption removal rule to
+supported clients. Contract fixtures should enforce the preserved answer.
+
+**Limits:** these are three source-reported cases on 2026-10-27–28, with
+prompt replies, not a proven protocol for an absent or disagreeing side.
+One side's positions were posted by its lane maintainer; the source
+expressly says the human had not ruled on that representation. Record the
+practice without turning non-objection into human acceptance or granting
+future maintainers authority to decide on a human's behalf. Routine launch
+autonomy is not that delegation.
+
+The operating route is the existing maintainer `direction-gate` and review
+guidance. Prefer one linked issue record and review evidence requiring the
+agreed conditions; regression tests can enforce contract answers, but cannot
+supply the missing decision authority. No skill change or automated gate is
+claimed here.
+
+Evidence: OKF proposal from oats-maintainer/product-maintainer-pepe,
+2026-10-28; notes/contract-decisions-between-the-two-sides.md. The source
+identifies [session resume](https://github.com/awebai/oats/issues/1567#issuecomment-6439924216),
+[start's proposal](https://github.com/awebai/oats/issues/1602#issuecomment-6476048759),
+[answer with conditions](https://github.com/awebai/oats/issues/1602#issuecomment-6477039652)
+and [narrowing](https://github.com/awebai/oats/issues/1602#issuecomment-6477132396),
+and the [roster proposal](https://github.com/awebai/oats/issues/1628#issuecomment-6476678220)
+and [answer](https://github.com/awebai/oats/issues/1628#issuecomment-6477040132).
+Those are evidence locators from the source, not independently audited
+agreement, implementation, test or release receipts.
+
+Verified by the knowledge maintainer at review on 2026-10-28: the six cited
+comments exist and match the claims above. On awebai/oats#1602 the other
+side answered yes to the proposal and kept `E_SESSION_START_BUSY` for two
+concurrent starts, with three build conditions. The narrowing to every
+start-lock pair, with its follow-up precision, was posted by the proposing
+side with "unless you object" and had no recorded answer from the other side
+at review. So it is the kind of posted amendment the paragraph above says is
+not acceptance, not an agreed scope. On awebai/oats#1628 both sides' yes is
+recorded. #1602 was still open with no implementation merged at review.
 
 ## Package-private formats become shared contracts at the reader boundary (2026-10-27)
 
