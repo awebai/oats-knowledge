@@ -1,5 +1,6 @@
 # Lessons
 
+* [A file argument does not bound the repository test runner](a-file-argument-does-not-bound-the-repository-test-runner.md) - A single-file request through the repository runner unexpectedly selected the full suite, so kernel briefs need an explicit bounded invocation until runner semantics enforce the requested scope.
 * [A kernel rewrite does not remove unchanged child waits](kernel-rewrite-does-not-remove-child-waits.md) - Separate process startup and kernel compute from child waits before estimating a language rewrite's benefit, because measured warm-read gains do not remove provider, network or harness costs.
 * [Open a CI-only draft during kernel review convergence](draft-pr-runs-ci-during-convergence.md) - When the kernel branch needs a PR to trigger CI, the expert opens a clearly non-review draft on the first push so exact-head CI runs during convergence rather than starting only after acceptance.
 * [A native start belongs to the launch, not each rendering of its command](native-start-is-prepared-once-per-launch.md) - Preparing native-record state during command rendering can strand an undispatched pending receipt and make history unreadable, so one launch owns one prepared start reused by every render.
