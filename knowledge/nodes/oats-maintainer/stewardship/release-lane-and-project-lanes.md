@@ -1,14 +1,14 @@
 ---
 type: Decision
 title: One release lane does the final review, merge and tags; project lanes are defined by their own maintainers
-description: Besides the single release lane, every lane is a project lane that a maintainer defines on the lane map when its human's work needs it, with no sign-off; inside it the maintainer launches, reviews and names one second reader, and hands approved heads to the release lane.
+description: One release lane owns final review, merge and tags; maintainers define project lanes without sign-off, launch, review and name one second reader inside them, route package follow-ups by the lane map rather than by who opened the PR, and hand approved heads to the release lane.
 tags: [stewardship, lanes, release, review, process, multi-human]
-timestamp: 2026-10-26
+timestamp: 2026-10-28
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the lane map's
-rules, the release lane's ownership or the second-reader rule revises this
-concept in the same change.** The lane map itself lives in the repository
-with the release lane, not here.
+rules, the routing judgment, the release lane's ownership or the
+second-reader rule revises this concept in the same change.** The lane map
+itself lives in the repository with the release lane, not here.
 
 # Decision
 
@@ -41,6 +41,36 @@ final-review gate, not centralising who defines the project lanes above it.
 Any deployment that composes `oats.maintainer` with several humans meets the
 same situation.
 
+# Route package follow-ups by repository ownership (2026-10-28)
+
+Opening a package-repository PR as part of a project effort does not make
+that effort's lane the owner of subsequent work on the PR. Before launching
+a follow-up lead, check the repository's lane in the current map and that
+lane's open efforts. Route the follow-up to its maintainer; if an effort
+already covers it, hand over the PR, its head and the requested work rather
+than launching a second lead.
+
+The source reports that package-repository work belonged to `lane:setup`
+on 2026-10-28. Two lanes nevertheless assigned leads to the same package PR
+because one lane's earlier effort had opened it. The overlap required a
+handoff and withdrawal of the duplicate effort. The lesson is to resolve
+ownership **before launch**, not to synchronize two implementations after
+they have started. The lane map remains authoritative for assignments;
+this dated example is not a permanent package-to-lane roster.
+
+This is a maintainer lesson from source-reported experience, not part of
+the human-accepted 2026-10-26 decision above. It applies that decision's
+inside-your-lane boundary; it changes neither who may define a project lane
+nor the release lane's final gate. The
+[cross-workstream delivery lesson](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md#independence-needs-write-surfaces-not-titles-2026-09-20)
+owns the broader requirement for explicit write surfaces and an accountable
+integration lead. Here the additional judgment is that PR authorship is not
+routing authority. Keep the map as one source of assignment; lane-aware
+launch checks could prevent duplicate allocation. Until such enforcement
+exists, the check belongs in the maintainer's launch and handoff guidance,
+not a second roster or a kernel-wide coordination policy. No new enforcement
+or skill change is claimed here.
+
 # What this supersedes and what it keeps
 
 Supersedes the rule that a new maintainer asks the release lane (the keeper
@@ -63,3 +93,11 @@ the human's words relayed by the release lane in a comment on
 [awebai/oats#1103](https://github.com/awebai/oats/issues/1103) and the first
 project lane defined by its own maintainer the same day. Acceptance and the
 map edit are source-reported, not independently verified by this harvest.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
+2026-10-28; notes/package-repo-work-routes-to-lane-setup.md. The source
+identifies [awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113)
+as the overlap and [awebai/oats#1566](https://github.com/awebai/oats/issues/1566)
+as the lane map. The assignment, overlap and handoff are source-reported;
+this harvest did not audit the map or private correspondence, and does not
+claim fresh human acceptance, implementation or release.
