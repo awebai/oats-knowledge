@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Coordination policy lives in capabilities, not in the kernel or oats.core
-description: Review keeps team coordination policy out of neutral lifecycle mechanisms; OATS delegates finished-worker retirement to experts and lane maintainers without a fresh human request, through its composed capabilities.
+description: Review keeps coordination policy in composed capabilities; OATS delegates finished-child cleanup to parents and parentless-lead cleanup to the lead, reserving human-facing lifecycle messages for required decisions, approvals or input.
 tags: [stewardship, coordination, capabilities, instructions, retirement]
-timestamp: 2026-10-27
+timestamp: 2026-10-28
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes this coordination
 boundary records the new decision and its rationale here.**
@@ -53,8 +53,9 @@ The source reports that the release lane's human directed this division of
 responsibility and directly confirmed it to the source maintainer that day:
 
 - Experts retire their own developers once the developer's work has merged.
-- A lane maintainer retires its lane's experts once their effort is done
-  and its PRs have merged.
+- A lane maintainer retires its own child experts once their effort is done
+  and its PRs have merged; the parentless case follows the explicit
+  2026-10-28 supersession below.
 - Neither waits for a new human request for each such retirement.
 
 The reason is operational ownership, not eagerness to delete instances:
@@ -78,34 +79,100 @@ same-day use are source-reported, not independently audited correspondence.
 
 ## Human-spawned leads and standing maintainers
 
-The source reports that the same direction explicitly covers top-level leads
-that the release lane's human spawned directly, in that human's lanes.
-The lane maintainer to whom a lead reports retires it when the effort is
-finished, even though it has no OATS parent. Otherwise a parent-only cleanup
-rule leaves these finished leads without an agent responsible for retirement
-and recreates the human queue the delegation was meant to remove.
+**Supersession, 2026-10-28.** The earlier, human-directed assignment recorded
+on 2026-10-27 made the reporting lane's maintainer retire a finished lead
+spawned directly by that lane's human, even without an OATS parent. That
+assignment is superseded: in OATS's engineering process a finished lead with
+no OATS parent sends its done line to the maintainer it reports to and then
+retires itself. This covers both a directly human-started lead and a lead
+spawned with an unrelated relation. A maintainer retires only its own
+children, not a non-child lead merely because the lead reports to it.
 
-Standing lane maintainers are excluded: they are long-running lane owners,
+The source reports direct product-owner acceptance on 2026-10-28 of this
+self-retirement option on the source's recommendation. It reaches the same
+no-human-cleanup outcome with one rule for parentless leads while preserving
+the own-children-only boundary for retiring another instance. The rejected
+alternative retained maintainer retirement of a non-child lead: it needed a
+second retirement path and conflicted with that boundary. Leaving a finished
+parentless lead waiting for the human is not the replacement policy.
+
+Standing lane maintainers remain excluded: they are long-running lane owners,
 not finished effort leads, and leave only under their own lane-leaving rules.
-This clarification establishes neither retirement authority over unrelated
-instances nor the same top-level assignment for other humans' lanes. It does
-not replace the applicable finished-work, preservation or knowledge gates.
-Like the broader delegation, it belongs in composed engineering/maintainer
-guidance, not in a new core rule or a second operational checklist here.
+The supersession changes who performs finished-lead cleanup, not its
+finished-work, lifecycle, preservation or knowledge gates. It grants no
+power over unrelated instances and is not universal policy for every soul.
+The procedure remains in composed engineering/maintainer guidance, not a
+new core rule or a second operational checklist here.
 
-Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27;
-notes/maintainers-retire-finished-experts.md. The source attributes this
-bounded direction to the release lane's human, relayed through that lane;
-acceptance is source-reported, not independently audited correspondence.
+Historical evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/maintainers-retire-finished-experts.md. The source attributed
+the former bounded assignment to the release lane's human, relayed through
+that lane; that acceptance record is retained, not silently rewritten.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-28;
+notes/maintainers-retire-finished-experts.md. Later acceptance is
+source-reported, not independently audited correspondence. This explicitly
+replaces a human-accepted assignment; the source's report does not waive the
+human review required for that supersession.
+
+# Human communication is for required action (2026-10-28)
+
+The source reports direct product-owner direction that routine spawning,
+finished-worker cleanup and completion reporting should remain between
+agents. A human should hear what they must decide, approve or provide, not
+receive a progress report solely because they originally requested the
+work. Done lines go to the parent agent, or for a parentless lead to its
+reporting maintainer; reporting to a maintainer does not make that maintainer
+its OATS parent or transfer the lead's self-retirement duty.
+
+This extends the retirement rationale to the surrounding guidance: removing
+per-retire permission requests is insufficient if routine requester notices
+recreate the same human coordination queue. Review requester-facing language
+for whether it asks for a real human action. Routine outcome and launched-lead
+notices go to agent requesters; an actual need for a human to start a stopped
+maintainer, deal with a new standing maintainer seat, or act on cross-lane
+routing remains visible. The test is required action, not the label of the
+notice. It neither suppresses failures needing human help nor removes
+standing-maintainer lane-leaving rules.
+
+Keep this policy separate from authority. The task, human or composed
+capability must authorize a spawn; a capability-authorized helper does not
+need a fresh human permission round solely because it is a spawn. Resolve
+an unclear relation with the parent or task-giving agent before escalating
+the remaining uncertainty to the human. Neutral core authority documentation
+can support this without adopting OATS's communication policy.
+
+This is not a never-wait mandate and does not override an explicit approval,
+direction, safety or preservation gate. It does not change cross-side review
+or hold rules, which remain governed by the
+[review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md).
+The review judgment belongs in the existing `direction-gate` skill and the
+operational routing in composed engineering guidance, not a parallel
+knowledge procedure; no new skill or enforcement is delivered here.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-28;
+notes/maintainers-retire-finished-experts.md. The product-owner direction is
+source-reported, not independently audited correspondence.
+
+The source identifies merged changes in
+[awebai/oats-engineering#28](https://github.com/awebai/oats-engineering/pull/28),
+[#29](https://github.com/awebai/oats-engineering/pull/29) and
+[awebai/oats#1621](https://github.com/awebai/oats/pull/1621), but explicitly says
+they were not yet released or deployed at proposal time. These are
+source-reported implementation references, not this harvest's verification
+of shipment or the instructions present in any home.
 
 # Evidence and limits
 
 Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27; notes/coordination-policy-lives-in-capabilities.md.
 
-The source attributes the retirement direction to the product owner, relayed
-by the lead during [awebai/oats#1580](https://github.com/awebai/oats/pull/1580),
-and distinguishes it from the earlier shared-work direction. Acceptance is
-source-reported, not independently audited here. At capture the core change
-and engineering retirement change were not yet merged. This records the
-ownership decision and rejected design, not shipped policy, an operational
-retirement checklist or permission to retire any particular instance.
+For the original 2026-10-27 capability-placement decision, the source
+attributes the retirement direction to the product owner, relayed by the lead
+during [awebai/oats#1580](https://github.com/awebai/oats/pull/1580), and
+distinguishes it from the earlier shared-work direction. Acceptance is
+source-reported, not independently audited here. At that earlier capture the
+core change and engineering retirement change were not yet merged. The
+2026-10-28 evidence above separately records the later source-reported state.
+This records decisions and rejected designs, not a live shipment ledger, an
+operational retirement checklist or permission to retire any particular
+instance.
