@@ -3,7 +3,7 @@ type: Decision
 title: Retire exclusion belongs to a whole-run claim, not a plan or retry key
 description: A per-home claim covers retirement and resume with their authoritative reads, separating exclusion from freshness and replay while treating lifecycle-busy automatic recovery as a skip rather than a judged loss.
 tags: [kernel, lifecycle, retire, resume, concurrency, fail-closed]
-timestamp: 2026-10-27
+timestamp: 2026-10-28
 ---
 # Decision
 
@@ -137,9 +137,11 @@ refinement above explicitly extends that scope: the source reports stop and
 upgrade already sharing the claim, and chooses that same claim for resume.
 It does not establish that every lifecycle command or roster reader
 participates. Ordinary start beside retirement remains unguarded by this
-change. A restart whose relaunch fails may still read lost; the source
-reports only its start lock covering it while it runs. Nor does a dead
-holder prove its hook children stopped. No new takeover policy is supplied.
+change. The 2026-10-27 account also left failed-restart classification open.
+The [2026-10-28 restart refinement](/nodes/oats-kernel-expert/decisions/stop-intent-recording-is-before-termination-and-best-effort.md#refinement-restart-records-intent-before-its-stop)
+addresses that separate gap through stop recording, with explicit write-failure
+and refused-stop limits; it does not extend lifecycle-claim coverage. Nor does
+a dead holder prove its hook children stopped. No new takeover policy is supplied.
 
 [Verified recovery does not prove that a home stays removed](/nodes/oats-kernel-expert/lessons/verified-recovery-does-not-prove-home-removal.md)
 adds historical stop-retire overlap evidence for this boundary: work
@@ -161,6 +163,8 @@ and qualifies the replay/freshness discussion in the
 without changing the existing plan or replay obligations.
 
 # Citations
+
+Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-28; notes/1601-restart-records-before-termination.md. This updates the failed-restart boundary by reference to its canonical stop-intent decision; the source reported the repair still under review, not shipped.
 
 Evidence: OKF proposal from oats-kernel-expert/session-resume-kernel-expert, 2026-10-27; notes/decision-resume-takes-the-lifecycle-claim.md; notes/decision-retire-stop-record-is-best-effort.md.
 
