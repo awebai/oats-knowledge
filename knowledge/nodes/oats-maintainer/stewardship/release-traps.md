@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-28
 ---
@@ -182,6 +182,42 @@ release gate requiring evidence for the candidate being tagged. That is not
 a claim such coverage has landed. Keep the remaining release judgment in
 the existing release skill, and remove the workaround only when the
 relevant platform path is actually covered before the tag.
+
+## Rehearse newly taught commands before the package tag (2026-10-28)
+
+Reviewing instructional prose and passing package CI do not establish that
+its command examples work on the kernel agents will use. The source reports
+that engineering 1.17.0 taught self-retirement without the required instance
+name; the first parentless lead to follow it received a usage error, and
+1.17.1 was needed to repair the already-tagged guidance. The same release
+also exposed the separate
+[package-versus-mirror neutrality gap](/nodes/oats-maintainer/lessons/engineering-layer-neutrality-needs-package-side-checks.md).
+That gap has its own canonical lesson; a green check for either property
+is not evidence for the other.
+
+Until executable examples are covered at the package gate, check each newly
+taught command against a current released kernel **before tagging the
+package**. Use its help to check required arguments and, where supported,
+a non-mutating plan of the taught invocation. A help response alone is not
+evidence that the invocation is valid or that the real operation succeeds;
+name what the check did and did not exercise. This is not permission to
+rehearse retirement or other lifecycle effects on working instances.
+
+The extra patch and late discovery are the release lesson, not a permanent
+inventory of missing package tests. Prefer deriving examples from the CLI
+contract where practical, with package CI exercising documented invocations
+against a released kernel in disposable fixtures. Check current coverage
+before carrying forward the manual guard. Remaining release judgment belongs
+in the existing release skill; this harvest adds no skill or test and claims
+no automation has landed.
+
+Evidence: OKF proposal from oats-maintainer/pepe-release-maintainer,
+2026-10-28; notes/check-engineering-mirrors-against-oats-before-tagging.md.
+The source identifies [awebai/oats-engineering#28](https://github.com/awebai/oats-engineering/pull/28)
+and [awebai/oats#1623](https://github.com/awebai/oats/pull/1623) as the
+package and later kernel-prep context. The usage failure, package-CI gap
+and repair releases are source-reported; this harvest did not run those
+commands or audit their implementation.
 
 # Verify the artifact, not the diff
 
