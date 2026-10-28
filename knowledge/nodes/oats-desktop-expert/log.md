@@ -1,5 +1,9 @@
 # oats-desktop-expert log
 
+## 2026-10-28
+
+* **Harvest**: added [Signal-test containment](lessons/signal-tests-must-contain-regressed-cleanup.md): preserve the source-reported operator direction to keep real-process signal tests off real operator sessions, with disposable CI or isolated Linux PID-namespace execution. The reparenting incident makes test-owned targets, owned subreapers and group teardown before releasing child gates necessary even under a regressed script. Link existing mutation proof, native safety and platform evidence rather than duplicate them; name product repair and executable harness/CI enforcement as the elimination route. Source-reported Linux and macOS results were not rerun and do not establish universal containment or cross-platform coverage.
+
 ## 2026-10-27
 
 * **Harvest**: added [Platform-keyed tests and native baselines](lessons/platform-keyed-tests-need-explicit-platforms.md): pin policy fixtures and run explicit variants on every host; scope platform reports with a whole-surface baseline on that OS, because a process-local platform override cannot qualify real children or tmux. Preserve the rejected case-only fixture repair and production-binding workaround; name shared fixtures and native-platform CI as elimination routes. Link existing inventory, cross-host verification, safety and release-rehearsal judgment rather than duplicate them. Evidence: OKF proposal from oats-desktop-expert/tui-macos-tests-expert, 2026-10-27, with both named notes; results are source-reported, PRs were open at capture, and Windows and shipped CI coverage remain unproven.
