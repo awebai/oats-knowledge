@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: How the OATS project ships and reviews
-description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, requires timely, safely obtained verification, uses fresh and second readers, and judges tests against requirements rather than implementations.
+description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, requires timely, safely obtained verification, uses fresh and second readers, aims release-prep second reads at hand-written claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
 timestamp: 2026-10-28
 ---

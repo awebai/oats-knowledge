@@ -14,7 +14,10 @@ Before retrying a red check, establish whether the failure is transient on
 the tested revision or whether the needed fix exists only on a newer base.
 The latter needs a fresh run of the combination, not another attempt of the
 old run. A transient failure is a reason to retry; this is not a claim that
-flakes are the only possible reason to rerun CI.
+flakes are the only possible reason to rerun CI. Establishing which tests
+ran in that exact run is the
+[shard-membership lesson](/nodes/oats-desktop-expert/lessons/shard-membership-is-run-specific.md)'s
+concern, not repeated here.
 
 Updating the branch by merging main incorporates the fix and **changes the
 PR head**. Record and verify the resulting head and checks under the
@@ -48,3 +51,11 @@ It reports the unchanged-head retrigger in
 [#1250](https://github.com/awebai/oats/pull/1250). These are source-reported
 incidents, not independently audited CI results. The evidence does not
 establish every workflow's checkout strategy or event configuration.
+
+Verified by the knowledge maintainer at review on 2026-10-28 from public
+GitHub records: the cited `pull_request` run's first attempt started
+2026-10-14T18:44Z and failed; #1203 merged at 19:22Z; the second attempt
+started at 19:24Z and also failed. The rerun therefore postdated the fix, on
+2026-10-14 in UTC, where the note's 2026-10-15 is presumably local time.
+#1250 shows a close and reopen at 2026-10-15T14:04Z. The tested revision of
+each attempt and the retrigger's new run were not inspected.

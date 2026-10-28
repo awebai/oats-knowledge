@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: One release lane does the final review, merge and tags; project lanes are defined by their own maintainers
-description: One release lane owns final review, merge and tags; maintainers define project lanes without sign-off, launch, review and name one second reader inside them, route package follow-ups by the lane map rather than by who opened the PR, and hand approved heads to the release lane.
+description: One release lane owns final review, merge and tags; maintainers define project lanes without sign-off, launch, review and name one second reader inside them, route package follow-ups by the lane map rather than by who opened the PR, record changed lane practice on the map in the same session, and hand approved heads to the release lane.
 tags: [stewardship, lanes, release, review, process, multi-human]
 timestamp: 2026-10-28
 ---
