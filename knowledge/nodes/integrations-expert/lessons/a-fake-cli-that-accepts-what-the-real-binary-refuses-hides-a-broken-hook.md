@@ -97,6 +97,10 @@ For timeout and interruption coverage, the related
 explains why the fake must also model descendants and why every caller needs
 its own cleanup evidence.
 
+For package-kernel compatibility, [prove where the floor refuses](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md):
+a released-reader probe distinguishes a successful lock from discovery and
+composition failures, rather than inferring protection from the floor's intent.
+
 # Consequences
 
 - A provider PR that touches a hook calling an external tool carries a
