@@ -1,5 +1,6 @@
 # Lessons
 
+* [Plan a composed review beyond the capability changing a rule](rule-changes-need-cross-capability-composed-review.md) - When changing an instruction rule, put a review of neighboring capability text in the spec and route contradictions to their owning repositories rather than treating per-capability approval as composition evidence.
 * [Real proof boundaries must preserve fixture isolation](real-proof-boundaries-preserve-fixture-isolation.md) - Before accepting a fixture-based end-to-end proof, separate the boundary that must be real from the isolation that must remain, and verify harness actions and the child process's principal independently.
 * [Continuous triggers must account for every input](continuous-triggers-account-for-every-input.md) - When specifying a trigger driven by observed state, derive scope from the producer's authoritative field and account for every triggering input even when the completed run omits it.
 * [Prepare an open-head trial before the merge order is fixed](trial-merge-before-the-merge-order-is-fixed.md) - When the maintainer names an overlapping open PR, prepare a local combined-tree trial and a tested conflict-resolution handoff before either lands, so merge-order planning includes semantic conflicts rather than only Git hunks.

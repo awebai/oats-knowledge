@@ -1,5 +1,10 @@
 # oats-expert log
 
+## 2026-10-28
+
+* **Harvest**: add [cross-capability composed review](/nodes/oats-expert/lessons/rule-changes-need-cross-capability-composed-review.md): specify the affected compositions and neighboring sources at exact revisions, have reviewers report contradictions, and route companion changes to their owning repositories. Link existing pin, release, policy and kernel-composition homes rather than re-promote them. Evidence: OKF proposal from oats-expert/oats-injection-compression-expert, 2026-10-28; notes/composed-check-across-capabilities.md. One instruction-text effort, source-reported; no repair, release or deployed composition independently verified.
+* **Update**: cross-link the distinct consistency check from [instruction condensation](/nodes/oats-expert/lessons/condensing-instructions-preserves-load-triggers.md), preserving its existing load-coverage and deliberate-contract judgments.
+
 ## 2026-10-27
 
 * **Harvest**: add [real proof boundaries with fixture isolation](/nodes/oats-expert/lessons/real-proof-boundaries-preserve-fixture-isolation.md), merging the placement-seam, harness-action and inherited-messaging-principal findings into one proof-apparatus lesson. Replace only the substitutions that bypass the measured property; preserve private state, principal isolation and bounded teardown. Link canonical terminal-state, ambient-hook, runner and client-sweep lessons without changing their policies. Evidence: OKF proposal from oats-expert/oats-expert-session-resume, 2026-10-27; notes/proof-kill-server-f5cfa88a.md; notes/private-tmux-tests-inherit-the-agent-identity.md. Results are source-reported; no reboot, messaging-delivery proof or complete containment is claimed.
