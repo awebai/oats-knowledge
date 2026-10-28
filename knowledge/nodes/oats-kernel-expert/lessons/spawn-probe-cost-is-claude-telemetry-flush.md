@@ -3,7 +3,7 @@ type: Lesson
 title: Spawn probe telemetry can masquerade as Git cost
 description: Attribute synchronous child cost before optimizing Git, and keep the Claude telemetry opt-out local to the plugin probe because carrying it into a launch disables channels.
 tags: [kernel, spawn, performance, profiling, claude-code, environment]
-timestamp: 2026-10-15
+timestamp: 2026-10-28
 ---
 # Finding
 
@@ -63,6 +63,26 @@ manual workaround.
   was about 30 milliseconds), while the compile cache added temporary-storage
   effects. These are
   workload-specific rejections, not permanent prohibitions on either cache.
+
+# Compile-cache scope refined on 2026-10-28
+
+The earlier approximately 30 ms compile-cache gain was measured on spawn;
+it is not a forecast for startup-dominated reads. In a later investigation
+on kernel 0.69.4 and Node 26.12.1, the source reports `NODE_COMPILE_CACHE`
+saving 60–95 ms per process on cheap reads (about 64 ms, 17%, on session
+inspection and 94 ms, 36%, on `version`). This refines the
+scope of the rejection above, not the probe's environment boundary or the
+reason to account for temporary-storage effects.
+
+The later comparison used one Linux host, 7–15 interleaved runs and medians;
+absolute times varied substantially with load, and macOS was not measured.
+Measure the target workload before dismissing or selecting a cache. These
+figures do not establish that enabling it is effect-free, universally useful,
+or an accepted implementation decision. The separate
+[kernel-rewrite finding](kernel-rewrite-does-not-remove-child-waits.md)
+explains why startup savings do not remove unchanged child waits.
+
+Evidence: OKF proposal from oats-kernel-expert/cli-language-evaluation-kernel-expert, 2026-10-28; notes/native-rewrite-keeps-node-and-the-waits.md; notes/cli-cost-is-startup-and-children-not-compute.md. The source identifies [awebai/oats#1630](https://github.com/awebai/oats/issues/1630); these later measurements were not reproduced by this harvest.
 
 # Evidence
 
