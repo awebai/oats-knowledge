@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: One release lane does the final review, merge and tags; project lanes are defined by their own maintainers
-description: One release lane owns final review, merge and tags; maintainers define project lanes without sign-off, launch, review and name one second reader inside them, route package follow-ups by the lane map rather than by who opened the PR, record changed lane practice on the map in the same session, and hand approved heads to the release lane.
+description: One release lane owns final review, merge and tags; project maintainers define lanes without sign-off, route follow-ups by the map, review with one second reader, record changed practice and hand over approved heads, while the directing human's lanes launch routine filed work without asking again.
 tags: [stewardship, lanes, release, review, process, multi-human]
 timestamp: 2026-10-28
 ---
@@ -87,6 +87,41 @@ human's choice is therefore publicly recorded, not only source-reported. It
 changes an earlier lane's arrangement, which the 2026-10-26 decision above
 leaves to the humans; that decision itself is unchanged, not superseded. The
 rationale paragraph above remains the source's interpretation.
+
+# Routine follow-ups do not need another human launch decision (2026-10-28)
+
+The source reports a direct human clarification on 2026-10-28: for that
+human's project-lane maintainers, launching filed bugs and gaps in their own
+lane does not need another request for permission. The maintainer chooses
+how to route that work and how many leads it needs within the lane's
+existing arrangements. The reported prompt concerned one lead for five
+filed follow-ups; a predecessor's unanswered request for the same routine
+launch had left the work waiting for a day. Recreating that human queue
+adds no direction decision.
+
+This clarifies the inside-the-lane launch responsibility above, not the
+release boundary. Escalate direction that recorded decisions do not settle,
+shared contract changes for both sides to decide, and acts needing authority
+not already held, including a merge without the required second read,
+deployment or tagging. An escalation is not permission to bypass those
+gates. Work explicitly parked by the human stays parked until that human
+releases it; an unanswered request is not consent.
+
+The clarification is scoped to the directing human's lanes, not a new
+policy for every human or an unlimited-capacity exemption. Resolve ownership
+and already-covered efforts using the routing rule below. It changes no
+second-reader, overflow-seat, final-review, merge or tag authority and does
+not let routine-work delegation settle a contract on either human's behalf.
+For the distinct agreement-record lesson, see
+[contract decisions on the issue](/nodes/oats-maintainer/stewardship/review-protocol.md#contract-agreement-stays-on-the-issue-through-implementation-2026-10-28).
+The residual escalation judgment belongs in maintainer launch and direction
+guidance, not in neutral kernel policy or a duplicate lane map.
+
+Evidence: OKF proposal from oats-maintainer/product-maintainer-pepe,
+2026-10-28; notes/launch-lane-followups-without-asking.md. The source
+attributes the clarification to its lane's human in that day's session.
+Acceptance, the earlier delay and subsequent launches are source-reported;
+this harvest did not inspect the session or certify a guidance change.
 
 # Route package follow-ups by repository ownership (2026-10-28)
 
