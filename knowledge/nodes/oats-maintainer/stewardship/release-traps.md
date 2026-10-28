@@ -3,7 +3,7 @@ type: Lesson
 title: Release judgement for the tag-driven lane
 description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-27
+timestamp: 2026-10-28
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -44,11 +44,23 @@ release.
 
 A small declaration change in one packaged soul can raise the kernel floor
 for **every adopter of that package**, not just users who spawn that soul.
-The source reports that the package validator ties the package floor to its
-capability floors: adding a newly accepted soul key therefore excludes an
-older deployment from that package release altogether, rather than merely
-causing a later spawn refusal. Review the package-wide adoption consequence,
-not the size of the soul diff.
+Review the package-wide adoption consequence, not the size of the soul diff.
+
+**Correction, 2026-10-28:** the earlier account said that the floor excludes
+an older deployment from the package release altogether, rather than causing
+a later spawn refusal. The source-reported released-kernel rehearsal on
+**0.68.1** contradicts that failure-stage description: sync still locks the
+new package and reports the unknown soul key as a schema problem. Discovery
+drops that soul (`E_SOUL_UNKNOWN`); the raised capability floor refuses new
+spawns that compose the package (`E_CAPABILITY_INCOMPATIBLE`), with a re-pin
+remedy. Existing homes keep their captured composition and continue running;
+that is not a guarantee that their later service spawns will succeed.
+
+For adoption advice, distinguish **locked** from **usable for the next
+spawn**. Do not promise that sync itself will block the incompatible release.
+The failure-stage finding is limited to the reported old-reader experiment,
+not every earlier kernel or every command. This corrects the explanation,
+not the installed-kernel merge gate below.
 
 For this rollout, the maintainer's gate is **before the package PR merges**:
 the accepting kernel release is published, and each maintainer side confirms
@@ -69,16 +81,26 @@ not a completed rollout. Keep exact versions in the package's release
 artifacts rather than maintaining a second version ledger here.
 
 Enforce declared-floor consistency and supported-kernel compatibility in
-validation and CI; those checks cannot establish that the participating
-deployments have actually upgraded. The remaining release gate needs that
-installation evidence. This harvest neither ran those checks nor inspected
-deployments, and claims no new enforcement was delivered.
+validation and CI, including released-reader checks that distinguish locking,
+soul discovery and composition refusal; those checks cannot establish that
+the participating deployments have actually upgraded. The remaining release
+gate needs that installation evidence. This harvest neither ran those checks
+nor inspected deployments, and claims no new enforcement was delivered.
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
 2026-10-27; notes/background-instances-gate.md. The package-wide consequence
 and merge gate are source-reported from
 [awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113), not an
 independently audited validator or rollout receipt.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-28; notes/package-soul-new-key-floor.md. For the correction, the source
+identifies the rehearsals in
+[awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113) and
+[awebai/oats-cloning#6](https://github.com/awebai/oats-cloning/pull/6).
+The proposal also names accepting-kernel 0.69.2 checks; those do not establish
+failure behavior on additional old kernels. Neither package PR had merged at
+capture. This harvest did not run the binaries or establish rollout readiness.
 
 # Publish first, housekeep second
 
@@ -312,6 +334,10 @@ registry records that commit; a claim wrong by one commit fails a verifier who
 compares them.
 
 # Related
+
+[Engineering layer neutrality needs package-side checks](/nodes/oats-maintainer/lessons/engineering-layer-neutrality-needs-package-side-checks.md)
+records why a package's green CI can miss a provider-specific instruction
+that fails the later mirror-and-pin release gate.
 
 [How the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md).
 [Protect the last release blocker from merge churn](/nodes/oats-maintainer/lessons/protect-the-last-release-blocker-from-merge-churn.md)
