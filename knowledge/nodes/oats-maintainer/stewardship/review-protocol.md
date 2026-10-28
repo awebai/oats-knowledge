@@ -348,6 +348,39 @@ comment 6441169785, and reports its application in
 second read. These are source-reported decision and review references, not
 an independently audited implementation, test result or release receipt.
 
+# Release-prep second reads check hand-written claims (2026-10-28)
+
+Keep the mechanical checks that release entries were preserved and mirror
+payloads match their tags, but do not treat those checks as proof of the
+release's prose. The introduction, Upgrade section and provider entries
+written without a per-change entry need a semantic read against the doc or
+code that owns each claim. Spend the independent reader's attention there,
+not only on text the release tooling carried forward unchanged. The
+[provider mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)
+owns the parity check; it is not a new procedure here.
+
+The source reports several release-prep reads in which verbatim-entry and
+tree-id checks found no issue, while hand-written text needed correction.
+One Upgrade sentence incorrectly implied that upgrading a stopped home
+also started its session. Checking the owning lifecycle documentation
+exposed that conflation. The lesson is to verify the sentence's behavioral
+claim, not to preserve another copy of the upgrade command sequence.
+
+Automate entry preservation and mirror parity, and reduce duplicated
+behavioral instructions by linking to their authoritative documentation.
+The remaining editorial judgment belongs in the release-prep second-read
+guidance. This is not permission to skip generated material, weaken release
+gates or assume all errors occur in hand-written text; the small reported
+sample establishes a useful review focus, not a general defect rate.
+
+Evidence: OKF proposal from oats-maintainer/pepe-lfx-maintainer, 2026-10-28; notes/release-prep-second-read-checks-the-hand-written-parts.md.
+
+The proposal identifies reads of awebai/oats#1606, #1619, #1623 and #1622 on
+2026-10-27–28; the note specifically describes #1606 and the Upgrade claim
+in [#1623](https://github.com/awebai/oats/pull/1623), reported corrected at
+`ae2fa39e`. Review findings and the correction are source-reported, not
+independently audited implementation or release receipts.
+
 # Knowledge PRs
 
 Strict validation proves structure, not truth. Validate the knowledge tree

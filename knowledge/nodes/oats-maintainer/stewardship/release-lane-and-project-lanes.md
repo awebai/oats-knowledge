@@ -118,6 +118,35 @@ exists, the check belongs in the maintainer's launch and handoff guidance,
 not a second roster or a kernel-wide coordination policy. No new enforcement
 or skill change is claimed here.
 
+# Record changed lane practice on the map in the same session (2026-10-28)
+
+When an authorized change alters who merges, where a lane's PRs come from
+or who supplies its second read, record it on the canonical lane map in the
+same session, through the map's owner and existing review path. A private
+working log is not enough: successors and authors of maintainer guidance
+use the map, so an unrecorded change can be replaced by the old rule when
+that guidance is refreshed. Preserve a dated reference to the decision and
+its scope, not a verbatim copy of private correspondence.
+
+The source reports that a changed merge arrangement was logged privately
+on 2026-10-19 but omitted from the map. On 2026-10-27, both a soul draft and
+a map draft repeated the old arrangement; a second read caught it. The
+lesson is the publication gap, not the historical lane assignment. It
+neither authorizes a new arrangement nor changes the release lane's map,
+merge or tag authority.
+
+Prefer guidance that points to the map over duplicated operating rules;
+where a copy is necessary, make reconciliation with the canonical decision
+part of the guidance change. A map-update check belongs in maintainer
+handoff and policy-change guidance. Semantic agreement still needs review;
+no automated freshness check or skill change is claimed here.
+
+Evidence: OKF proposal from oats-maintainer/pepe-lfx-maintainer, 2026-10-28; notes/lanes-release-and-projects.md.
+
+The dates, omission and later correction are source-reported from one
+incident. This harvest did not inspect private logs or correspondence and
+does not certify the underlying arrangement as current policy.
+
 # What this supersedes and what it keeps
 
 Supersedes the rule that a new maintainer asks the release lane (the keeper

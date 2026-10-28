@@ -1,5 +1,6 @@
 # Lessons
 
+* [A failed-job rerun does not pick up a later base fix](a-rerun-does-not-pick-up-a-base-fix.md) - When PR CI failed on an old merge revision, rerunning that run does not test a fix subsequently merged to main; obtain fresh combination evidence and distinguish a branch update from an unchanged-head retrigger.
 * [Engineering layer neutrality needs package-side checks](engineering-layer-neutrality-needs-package-side-checks.md) - A provider-specific instruction can pass engineering-package CI yet fail the later OATS mirror gate, so review preserves layer-neutral wording until the package enforces that boundary itself.
 * [Protect the last release blocker from merge churn](protect-the-last-release-blocker-from-merge-churn.md) - When one PR is the release's last blocker, arrange a temporary hold on competing merges to its paths so repeated base updates do not consume the critical path, without relaxing integration evidence.
 * [Adoption evidence and authority must match the claimed outcome](adoption-evidence-and-approved-scope.md) - Installation, execution, publication, consumption and learning are different evidence; classify a gap before adding anything.
