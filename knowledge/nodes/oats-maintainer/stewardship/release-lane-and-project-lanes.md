@@ -44,9 +44,10 @@ same situation.
 # One product lane replaces separate kernel and Desktop lanes (2026-10-28)
 
 The source reports that the release lane's human chose `lane:product` on
-2026-10-28, replacing `lane:kernel` and `lane:desktop`, with one accountable
-maintainer per human for the combined area. The choice joins kernel/CLI
-work with its Desktop, TUI and shared-client consumers, including the
+2026-10-28, replacing `lane:kernel` and `lane:desktop`, with one maintainer
+per human for the combined area instead of one per former lane; further
+capacity for open-feature load is the map's overflow seat. The choice joins
+kernel/CLI work with its Desktop, TUI and shared-client consumers, including the
 Omarchy integration. The current lane map owns the exact coverage and
 staffing; this is the decision record, not another roster.
 
@@ -63,9 +64,9 @@ The source reports that the combined lane retains the earlier lanes'
 permission to merge only after release-lane sign-off, with the release lane
 as second reader; Omarchy tags also stay with the release lane. This is the
 existing-arrangements qualification above, not new independent merge or tag
-authority for every project lane. Additional workload capacity does not by
-itself create another accountable owner or another release authority; this
-change does not decide the separate overflow-seat operating terms.
+authority for every project lane. Adding maintainers for workload creates
+no further release authority; this record does not decide the separate
+overflow-seat operating terms.
 
 Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
 2026-10-28; notes/product-lane-replaces-kernel-and-desktop.md. The source
@@ -73,8 +74,19 @@ attributes the choice to the release lane's human, relayed by that lane,
 and identifies the [lane map](https://github.com/awebai/oats/issues/1566)
 and [soul-list update](https://github.com/awebai/oats/pull/1624). Acceptance,
 the preserved arrangement and those updates are source-reported, not
-independently audited correspondence or implementation receipts. The human
-review gate for refining the accepted lane model remains applicable.
+independently audited correspondence or implementation receipts.
+
+Verified by the knowledge maintainer at review on 2026-10-28: the lane map on
+[awebai/oats#1566](https://github.com/awebai/oats/issues/1566) records
+`lane:product` opened on 2026-10-28 on a human's recorded word, replacing
+`lane:kernel` and `lane:desktop`, merging once the release lane has signed
+off at that head, with the release lane's maintainer as second reader
+and awebai/oats-omarchy tags staying with the release lane; the
+[soul-list update](https://github.com/awebai/oats/pull/1624) is merged. The
+human's choice is therefore publicly recorded, not only source-reported. It
+changes an earlier lane's arrangement, which the 2026-10-26 decision above
+leaves to the humans; that decision itself is unchanged, not superseded. The
+rationale paragraph above remains the source's interpretation.
 
 # Route package follow-ups by repository ownership (2026-10-28)
 
