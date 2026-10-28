@@ -23,7 +23,7 @@ applied to every command:
 | Operation | Reported wall time | Attribution or comparison |
 | --- | --- | --- |
 | Session inspection | About 380 ms cold, 17 ms warm in-process | Avoiding repeated startup exposed a much smaller read operation. |
-| Live status | About 1.05 s | About 450 ms of network discovery; the observation-reuse variant was about 0.44 s. |
+| Live status | About 1.05 s | About 450 ms of network discovery; the `--max-age` variant, which reuses observations, was about 0.53 s. |
 | Readiness | About 2.3 s | About 1.2 s in two provider Node check children, outside the kernel's own computation. |
 | Spawn preview | About 1.6 s | About 450 ms network discovery and 460 ms harness probing, alongside about 280 ms kernel computation. |
 
@@ -76,3 +76,9 @@ earlier spawn evidence. Measurements and attribution are source-reported;
 this harvest verified the captured evidence hashes but did not reproduce the
 benchmarks or audit the implementation. The proposal explicitly withholds
 acceptance of its architectural recommendations.
+
+Checked by the knowledge maintainer at review on 2026-10-28 against #1630's
+body: the cold and warm session-inspection, live-status, readiness,
+spawn-preview, no-op-binary and compile-cache figures appear there. The
+live-status reuse figure was corrected to the issue's `--max-age 60` median.
+The tables were compared, not re-run.

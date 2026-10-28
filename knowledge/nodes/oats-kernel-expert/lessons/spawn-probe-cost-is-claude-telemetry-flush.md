@@ -69,7 +69,8 @@ manual workaround.
 The earlier approximately 30 ms compile-cache gain was measured on spawn;
 it is not a forecast for startup-dominated reads. In a later investigation
 on kernel 0.69.4 and Node 26.12.1, the source reports `NODE_COMPILE_CACHE`
-saving 60–95 ms per process on cheap reads, about 25–35%. This refines the
+saving 60–95 ms per process on cheap reads (about 64 ms, 17%, on session
+inspection and 94 ms, 36%, on `version`). This refines the
 scope of the rejection above, not the probe's environment boundary or the
 reason to account for temporary-storage effects.
 
