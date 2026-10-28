@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, gates adoption of a package soul's new key through compatible catalog or explicit-tag selection, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-28
 ---
@@ -59,33 +59,60 @@ that is not a guarantee that their later service spawns will succeed.
 For adoption advice, distinguish **locked** from **usable for the next
 spawn**. Do not promise that sync itself will block the incompatible release.
 The failure-stage finding is limited to the reported old-reader experiment,
-not every earlier kernel or every command. This corrects the explanation,
-not the installed-kernel merge gate below.
+not every earlier kernel or every command.
 
-For this rollout, the maintainer's gate is **before the package PR merges**:
-the accepting kernel release is published, and each maintainer side confirms
-its affected deployments run it. A published release alone is not evidence
-of installation. This extends the kernel-first rule above to package-soul
-adoption; it does not authorize upgrading anyone's deployment or assert that
-all deployments have moved.
+**Rollout refinement, 2026-10-28:** supersede the earlier requirement that
+every affected side already run the accepting kernel **before the package
+PR merges**. Ask each side **how it takes the package**, not just which
+kernel it runs. The compatibility gate belongs where the deployment adopts
+the floor-raising release:
+
+- A catalog-following deployment can remain on an older kernel while the
+  package change merges, provided the release lane moves the catalog to the
+  new package release only in a kernel release at or above its floor.
+- An explicitly chosen tag can also keep an older deployment on a compatible
+  package. The tag is not an exemption: selecting the floor-raising tag
+  requires an accepting kernel. Independently advancing the package ahead
+  of that kernel exposes the deployment to the refusal described above.
+- Keep each affected side's own second-read approval and record its adoption
+  route and the release lane's catalog condition. Under those conditions,
+  a side below the new floor need not hold the package merge merely until
+  it upgrades. Unknown adoption routes are not evidence of protection.
+
+This separates source merge from adoption rather than coupling a ready PR
+to every deployment's upgrade schedule. It does not relax the kernel-first
+package-release order above, authorize an upgrade or certify that any
+particular deployment is ready. A published accepting kernel and a green
+probe still do not prove that the deployment taking the new package runs it.
+The real-kernel rehearsal at the declared floor remains release evidence:
+record it in the package release PR before the tag, not as a substitute for
+compatible deployment selection.
 
 Moving the new behavior into an unconditional spawn-time flag in a skill
 is not a compatibility escape. That route still requires a feature check
 against the kernel that will execute it. A different place to spell the
 request does not make an older kernel understand it.
 
-The motivating case is the proposed background default for the packaged
-knowledge harvester. At capture the package PR remained draft and gated;
-its floor increase and accompanying real-kernel CI changes were a plan,
-not a completed rollout. Keep exact versions in the package's release
-artifacts rather than maintaining a second version ledger here.
+The motivating case was the background default for packaged service souls.
+The original 2026-10-27 proposal described a draft, gated change. The later
+2026-10-28 proposal reports that both package PRs merged after a second
+reader below the new floor approved on catalog/tag-selection grounds and the
+release lane accepted the catalog condition. This is one rollout across two
+packages and one other maintainer side, not a universal safety guarantee.
+Exposure from independently pinning ahead of the kernel is inferred from
+the accepted refusal findings, not an observed deployment failure in this
+rollout. Keep exact versions in release artifacts, not a second version
+ledger here.
 
 Enforce declared-floor consistency and supported-kernel compatibility in
 validation and CI, including released-reader checks that distinguish locking,
-soul discovery and composition refusal; those checks cannot establish that
-the participating deployments have actually upgraded. The remaining release
-gate needs that installation evidence. This harvest neither ran those checks
-nor inspected deployments, and claims no new enforcement was delivered.
+soul discovery and composition refusal. At catalog changes, check the selected
+package floor against the kernel release carrying it. These are prevention
+targets, not enforcement delivered by this harvest. The remaining judgment
+is the deployment's actual adoption route and second-read agreement; tests
+cannot establish those or prove an installed upgrade. The integration
+[released-refusal lesson](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md)
+remains canonical for the experiment, not the maintainer's rollout gate.
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
 2026-10-27; notes/background-instances-gate.md. The package-wide consequence
@@ -98,9 +125,25 @@ Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
 identifies the rehearsals in
 [awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113) and
 [awebai/oats-cloning#6](https://github.com/awebai/oats-cloning/pull/6).
-The proposal also names accepting-kernel 0.69.2 checks; those do not establish
-failure behavior on additional old kernels. Neither package PR had merged at
-capture. This harvest did not run the binaries or establish rollout readiness.
+The earlier proposal named accepting-kernel 0.69.2 checks and said neither
+package PR had merged at that capture; those checks do not establish failure
+behavior on additional old kernels.
+
+Evidence for the rollout refinement: OKF proposal from
+oats-maintainer/pepe-setup-maintainer, 2026-10-28;
+notes/package-soul-new-key-floor.md (updated capture). The source identifies
+the adoption-route explanation on
+[awebai/oats#1579](https://github.com/awebai/oats/issues/1579#issuecomment-6477062124),
+the second reads on
+[oats-okf#113](https://github.com/awebai/oats-okf/pull/113#issuecomment-6477061036)
+and [oats-cloning#6](https://github.com/awebai/oats-cloning/pull/6#issuecomment-6477061574),
+and the release lane's catalog condition on
+[the okf PR](https://github.com/awebai/oats-okf/pull/113#issuecomment-6477113344)
+and [the cloning PR](https://github.com/awebai/oats-cloning/pull/6#issuecomment-6477113895).
+Approvals, adoption routes and merges are source-reported, not independently
+audited receipts. The note records a request for the cloner's real-kernel
+rehearsal before the tag, not proof it completed. This harvest did not run
+the binaries, inspect deployments or establish release readiness.
 
 # Publish first, housekeep second
 
