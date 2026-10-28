@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and recorded decisions, preserves same-area integration evidence inside merge batches, requires timely, safely obtained verification, uses fresh and second readers, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-27
+timestamp: 2026-10-28
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -136,6 +136,40 @@ The structural elimination route is a merge queue that verifies each
 prospective combination; without that enforcement, the residual judgment
 belongs in `pr-review`. A local trial merge can reveal a bad combination,
 but does not replace the same-area updated-head CI requirement.
+
+## Trial-merge test selection must respect the operator-host boundary (2026-10-28)
+
+Before running a trial merge on an operator host, inspect the selected test
+files for real-process signalling or use of real tmux or `oats tui`. Exclude
+such files from the local run, even when they are among the PR's changed
+tests or the tests changed by intervening merges. For a PR needing those
+checks, bring the branch up to date and obtain the integration evidence in
+CI on a disposable runner instead. Pure file-reading and fake-terminal
+tests remain eligible locally when they have no such real effects; a name
+filter does not make a mixed module inert.
+
+The source reports that this routine review step selected a TUI signal test
+on 2026-10-28 and killed the user's systemd manager and its agents, followed
+by an operator-directed hold on those local runs. Private HOME,
+OATS_HOME_DIR and TMUX_TMPDIR did not contain the signal. The
+[signal-test containment lesson](/nodes/oats-desktop-expert/lessons/signal-tests-must-contain-regressed-cleanup.md)
+owns the reparenting rationale, runner/namespace boundary and cleanup proof;
+this refinement puts that boundary at the maintainer's test-selection point,
+not in a second reproduction recipe. Separate isolated reproduction remains
+subject to that lesson and the operator's restrictions.
+
+This qualifies local trial evidence; it does not waive affected-test
+coverage, same-area updated-head CI or existing review-verdict rules. A
+passing inert subset cannot stand in for the omitted integration checks.
+Enforce effect separation and containment in the test-launch harness and CI;
+until then, the selection and CI-routing check belongs in the existing
+`pr-review` skill. No skill or harness enforcement is claimed delivered here.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-desktop, 2026-10-28; notes/local-test-runs-can-kill-the-host.md.
+
+The incident and operator hold are source-reported; this harvest did not
+rerun the tests or independently audit
+[awebai/oats#1615](https://github.com/awebai/oats/issues/1615).
 
 # Evidence outside PR CI belongs before hand-over
 

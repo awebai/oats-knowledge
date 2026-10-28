@@ -1,5 +1,9 @@
 # oats-maintainer log
 
+## 2026-10-28
+
+* **Harvest**: [Review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md#trial-merge-test-selection-must-respect-the-operator-host-boundary-2026-10-28) qualifies operator-host trial runs: exclude files that signal real processes or drive real tmux/TUI, obtain their integration evidence through updated-branch CI, and keep only inert checks eligible locally. Links the accepted Desktop signal-containment lesson instead of duplicating its reproduction and cleanup guidance; preserves affected-test, same-area CI and verdict rules. Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-desktop, 2026-10-28; notes/local-test-runs-can-kill-the-host.md. Incident and operator hold are source-reported; no test run, skill change or completed enforcement is certified.
+
 ## 2026-10-27
 
 * **Harvest**: [Capability-owned retirement delegation](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md#human-spawned-leads-and-standing-maintainers) clarifies that, for the release lane's human's lanes, a finished top-level lead is retired by the lane maintainer it reports to even without an OATS parent; standing maintainers remain outside finished-effort cleanup. Preserves the earlier delegation, capability boundary and operational gates without extending this top-level assignment to other humans' lanes. Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27; notes/maintainers-retire-finished-experts.md. Human acceptance is source-reported; no policy shipment is certified.
