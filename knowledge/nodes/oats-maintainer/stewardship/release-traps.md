@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, gates adoption of a package soul's new key through compatible catalog or explicit-tag selection, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-28
 ---
@@ -40,6 +40,38 @@ release.
   the human).** In-flight work that began against a superseded line lands on
   `main` and ships in the next release; the old release branch is left inert.
 
+## A one-off package patch is not a maintenance line (2026-10-28)
+
+The no-maintenance-line decision above leaves superseded development on
+`main`; it does not require shipping a deliberately held change with a
+needed fix. When a package's `main` already contains a change held for a
+later minor, isolate the patch from the last released tag. Releasing `main`
+would ship the held change; postponing the fix would leave users with the
+bug. Neither follows from keeping old release branches inert.
+
+Use a one-off release branch for a reviewed release-prep containing only the
+fix and required release metadata, and tag that prep's merge commit. The
+next minor's cut records the patch section on `main`; the patch branch stays
+inert, with no further work targeted to it. Its existence is not a promise
+to maintain the old line. This is a package-release isolation choice, not a
+change to the kernel tag/reachability contract above, ordinary review gates,
+or the human-accepted prohibition on ongoing work for an unused old line.
+
+Keep the operational mechanics in the existing release skill. Release
+verification should check the candidate against the selected tag and allowed
+fix/metadata delta so held content cannot slip into the patch. This is a
+prevention target, not automation established by this harvest; it cannot
+decide whether the held change is ready or create a maintenance commitment.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-28; notes/patch-from-older-tag-is-not-a-maintenance-line.md.
+The source identifies [oats-aweb#160](https://github.com/awebai/oats-aweb/pull/160)
+as a patch prep from the prior release with
+[#159](https://github.com/awebai/oats-aweb/pull/159)'s fix, excluding
+[#158](https://github.com/awebai/oats-aweb/pull/158) held for the later minor.
+This is one source-reported release, second read and tag, not independently
+audited shipment evidence or a new human decision to support an old line.
+
 # A package soul's new key is a package-wide rollout decision (2026-10-27)
 
 A small declaration change in one packaged soul can raise the kernel floor
@@ -74,13 +106,29 @@ the floor-raising release:
   package. The tag is not an exemption: selecting the floor-raising tag
   requires an accepting kernel. Independently advancing the package ahead
   of that kernel exposes the deployment to the refusal described above.
+- **Shared-workspace refinement, 2026-10-28:** ask whether **any deployment**
+  follows the project's own workspace definition, not only how product
+  deployments take packages. A deployment following
+  `workspace: git:github.com/awebai/oats` takes the pins in that repository's
+  `oats-workspace.yaml` at its next sync. Those pins move when the PR merges,
+  before a kernel tag: hold every PR that advances them to the floor-raising
+  package with the `hold` label until the affected side confirms that the
+  consuming deployment runs a kernel at or above the floor. This includes
+  the framework prep carrying the okf pin with onboarding text, not just the
+  kernel prep. A published accepting kernel alone does not lift that hold.
 - Keep each affected side's own second-read approval and record its adoption
-  route and the release lane's catalog condition. Under those conditions,
+  routes across deployments and the applicable catalog or workspace-pin
+  condition. Under those conditions,
   a side below the new floor need not hold the package merge merely until
   it upgrades. Unknown adoption routes are not evidence of protection.
 
 This separates source merge from adoption rather than coupling a ready PR
-to every deployment's upgrade schedule. It does not relax the kernel-first
+to every deployment's upgrade schedule. The shared-workspace route narrows
+the earlier catalog/tag framing: a side's catalog answer can be correct for
+its product deployments while omitting its own maintainer deployment. Hold
+the PR that changes the consuming workspace's pins, regardless of which
+release prep it is called; a hold on only the later kernel prep is too late.
+It does not relax the kernel-first
 package-release order above, authorize an upgrade or certify that any
 particular deployment is ready. A published accepting kernel and a green
 probe still do not prove that the deployment taking the new package runs it.
@@ -107,9 +155,11 @@ ledger here.
 Enforce declared-floor consistency and supported-kernel compatibility in
 validation and CI, including released-reader checks that distinguish locking,
 soul discovery and composition refusal. At catalog changes, check the selected
-package floor against the kernel release carrying it. These are prevention
-targets, not enforcement delivered by this harvest. The remaining judgment
-is the deployment's actual adoption route and second-read agreement; tests
+package floor against the kernel release carrying it. Include shared-workspace
+pin changes in compatibility review and hold enforcement rather than keying
+the gate only to kernel-prep PRs. These are prevention targets, not enforcement
+delivered by this harvest. The remaining judgment is the deployment's actual
+adoption route and second-read agreement; tests
 cannot establish those or prove an installed upgrade. The integration
 [released-refusal lesson](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md)
 remains canonical for the experiment, not the maintainer's rollout gate.
@@ -144,6 +194,18 @@ Approvals, adoption routes and merges are source-reported, not independently
 audited receipts. The note records a request for the cloner's real-kernel
 rehearsal before the tag, not proof it completed. This harvest did not run
 the binaries, inspect deployments or establish release readiness.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-28; notes/package-floor-gate-met-by-pins.md. The source identifies the
+[release-plan adoption question](https://github.com/awebai/oats/issues/1571#issuecomment-6477231538),
+[the shared-workspace answer](https://github.com/awebai/oats/issues/1571#issuecomment-6477261137)
+and [the framework-prep precedent](https://github.com/awebai/oats/pull/1607).
+This extends the earlier catalog/tag account with one source-reported
+rollout and one other side. The hold had not been lifted at capture; no
+installed upgrade, completed rollout or independent deployment inspection
+is certified here. The workspace/package distinction remains in its
+[canonical decision](/nodes/oats-maintainer/decisions/workspace-definition-is-not-a-package.md),
+not a second workspace specification in this lesson.
 
 # Publish first, housekeep second
 
