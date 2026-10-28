@@ -19,10 +19,13 @@ maintainer is the human's ongoing working peer and must remain visible there
 by default. A shared word in the soul names does not make the roles
 interchangeable.
 
-**Rejected:** making the OATS maintainer background by default. This is a
-choice of defaults, not a ban on a deliberately selected per-instance
-presentation value, and not a rule that every short-lived soul automatically
-qualifies. It grants no new lifecycle or retirement authority.
+**Rejected:** making the OATS maintainer background by default. The question
+decided was which souls default to background, and the source records the
+answer for OATS maintainers in unqualified terms: they are not background.
+No separate ruling on a deliberately chosen per-instance value is recorded;
+do not read this record as permission to background a maintainer, and ask
+the human before doing so. Nor is it a rule that every short-lived soul
+automatically qualifies. It grants no new lifecycle or retirement authority.
 
 # Apply the package qualifier before broadening scope
 
