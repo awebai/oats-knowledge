@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: One release lane does the final review, merge and tags; project lanes are defined by their own maintainers
-description: One release lane owns final review, merge and tags; maintainers define project lanes without sign-off, route package follow-ups by the lane map rather than by who opened the PR, and hand approved heads to the release lane.
+description: One release lane owns final review, merge and tags; maintainers define project lanes without sign-off, launch, review and name one second reader inside them, route package follow-ups by the lane map rather than by who opened the PR, and hand approved heads to the release lane.
 tags: [stewardship, lanes, release, review, process, multi-human]
 timestamp: 2026-10-28
 ---
@@ -58,8 +58,10 @@ ownership **before launch**, not to synchronize two implementations after
 they have started. The lane map remains authoritative for assignments;
 this dated example is not a permanent package-to-lane roster.
 
-This applies the existing inside-your-lane boundary; it changes neither
-who may define a project lane nor the release lane's final gate. The
+This is a maintainer lesson from source-reported experience, not part of
+the human-accepted 2026-10-26 decision above. It applies that decision's
+inside-your-lane boundary; it changes neither who may define a project lane
+nor the release lane's final gate. The
 [cross-workstream delivery lesson](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md#independence-needs-write-surfaces-not-titles-2026-09-20)
 owns the broader requirement for explicit write surfaces and an accountable
 integration lead. Here the additional judgment is that PR authorship is not
