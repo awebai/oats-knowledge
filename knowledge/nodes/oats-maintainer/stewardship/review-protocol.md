@@ -341,9 +341,11 @@ the author's revised PR description while missing the agreed conditions.
 
 The reported compatibility judgment was to keep an existing error answer
 that clients already match rather than rename it merely for consistency
-inside the larger change. In the lifecycle-start case, the source reports
-keeping `E_SESSION_START_BUSY`, including the agreed starter-versus-starter
-scope, rather than relabelling those cases `E_LIFECYCLE_BUSY`. The spelling
+inside the larger change. In the lifecycle-start case, the other side's
+answer kept `E_SESSION_START_BUSY` for two concurrent starts rather than
+relabelling them `E_LIFECYCLE_BUSY`; the later build-time narrowing that
+keeps every existing start-lock answer was posted on the issue, not agreed
+by the other side (see the verification note below). The spelling
 cleanup offered no compensating benefit for breaking client matching. This
 is an application of the
 [published-commitment boundary](/nodes/oats-maintainer/decisions/clean-contract-precedent.md#the-precedent-is-bounded),
@@ -375,6 +377,16 @@ and the [roster proposal](https://github.com/awebai/oats/issues/1628#issuecommen
 and [answer](https://github.com/awebai/oats/issues/1628#issuecomment-6477040132).
 Those are evidence locators from the source, not independently audited
 agreement, implementation, test or release receipts.
+
+Verified by the knowledge maintainer at review on 2026-10-28: the six cited
+comments exist and match the claims above. On awebai/oats#1602 the other
+side answered yes to the proposal and kept `E_SESSION_START_BUSY` for two
+concurrent starts, with three build conditions. The narrowing to every
+start-lock pair, with its follow-up precision, was posted by the proposing
+side with "unless you object" and had no recorded answer from the other side
+at review. So it is the kind of posted amendment the paragraph above says is
+not acceptance, not an agreed scope. On awebai/oats#1628 both sides' yes is
+recorded. #1602 was still open with no implementation merged at review.
 
 ## Package-private formats become shared contracts at the reader boundary (2026-10-27)
 
