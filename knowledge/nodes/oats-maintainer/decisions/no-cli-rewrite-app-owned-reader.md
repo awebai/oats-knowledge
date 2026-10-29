@@ -84,7 +84,17 @@ The reader's request/reply format, feature probe, version and fallback rules
 are a public contract to take to the other maintainer side on the evaluation
 issue before implementation. Being told about the direction is not agreement
 to those details. This decision does not invent the protocol, certify that
-review happened, or supersede the existing process-boundary decision. The
+review happened, or supersede the existing process-boundary decision.
+
+On the same issue, the other side recorded no objection to the **shape**
+(app-owned, no service or socket, the kernel's own read code, CLI fallback)
+and named what it will check the contract for: every reply reflects the
+deployment at request time (warm code, not warm data, with any cache and its
+invalidation stated); replies indistinguishable from the CLI fallback,
+including envelope, error codes and unknown answers; and a feature probe and
+version rule matching the app's accepted CLI range, with remote routes
+proposed out of the first cut. Those are review criteria, not an agreed
+contract. The
 messaging node's [batched-query rationale](/nodes/oats-aweb-expert/decisions/readiness-cache-needs-measured-cost.md)
 remains a separate measured publisher concern, not proof this reader serves it.
 
@@ -100,3 +110,13 @@ as the decision record. It identifies
 [#1634](https://github.com/awebai/oats/pull/1634) as the Node fixes. These are
 source-provided evidence locators, not independently audited acceptance,
 merge, release or benchmark receipts from this harvest.
+
+Checked by the knowledge maintainer at review on 2026-10-29: the decision
+comment states the rejection of options D and E, the conjunctive
+reconsideration trigger, the `version` and `session inspect` timings, the
+app-owned shape and the ~0.1 CPU-second expectation; the issue body carries
+the ~0.2 native-per-poll ceiling and the 3–5% spawn estimate; #1632 and
+#1634 are merged. The other side's shape reply is
+[comment 6494985666](https://github.com/awebai/oats/issues/1630#issuecomment-6494985666).
+The rejection reasons for a system service, an in-process import and an agent
+reader come from the source notes and were not checked against the issue.
