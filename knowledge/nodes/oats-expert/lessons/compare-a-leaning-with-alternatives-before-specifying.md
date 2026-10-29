@@ -52,6 +52,10 @@ automatic population too early.
 addresses a different uncertainty: an experiment can compare implementation
 outcomes, but cannot select the human's intended descendant placement.
 
+For performance work, [profile the read's waits before designing concurrency](/nodes/oats-expert/lessons/profile-read-waits-before-designing-concurrency.md).
+Comparing candidates can show which is faster without identifying the cost
+that the proposed architecture should address.
+
 # Elimination route
 
 Implement state ownership and restoration in the responsible boundary, and
