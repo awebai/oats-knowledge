@@ -84,3 +84,11 @@ These are source-provided locators, not independently audited acceptance,
 implementation, release or benchmark receipts from this harvest. The
 agreement is reported between maintainer sides, not invented direct human
 approval of each term. No existing human-accepted direction is replaced.
+
+Checked by the knowledge maintainer at review on 2026-10-29: the reuse
+proposal states display-only use, live login for every execution decision
+whatever `--max-age`, head-only reuse for `trigger poll`, and no token value in
+the key, not even as a digest; the other side's reply calls the act-path test
+required; #1655 is merged. The asynchronous-only comparison figures come from
+the source note and were not found in those comments; the regression's content
+was not inspected.

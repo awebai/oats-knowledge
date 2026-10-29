@@ -177,3 +177,12 @@ and [conditional agreement](https://github.com/awebai/oats/issues/1630#issuecomm
 Agreement, completion and measurements in this refinement remain
 source-reported; this harvest did not audit the implementation, rerun tests
 or independently verify those later comments.
+
+Checked by the knowledge maintainer at review on 2026-10-29: the contract
+proposal states the TUI's shared child reader and its no-re-probe CLI
+fallback; the other side's reply agrees the wire format, probe and fallback
+rules with the three build conditions as summarized above; the reuse proposal
+carries the reported reader and CLI medians and the GitHub call rate; the
+pane-rule issue (#1641) is closed; and the reader, Desktop, TUI and
+login-reuse PRs (#1646, #1647, #1650, #1653–#1656) are merged. Test content,
+releases and the measurements themselves were not checked.
