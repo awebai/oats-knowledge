@@ -1,5 +1,9 @@
 # oats-expert log
 
+## 2026-10-29
+
+* **Update**: refine [affected-test inventory](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md) for tightened evidence rules: name the transitions where an old default hid uncertainty, inventory tests and runtime consumers waiting or acting across them, and state the transitional consequence as behavior in the PR. Preserve the existing surface search, feature-gate coverage and execution limits; link canonical guarantees, terminal-observation and client-unknown knowledge. Name shared unknown handling and deterministic transition regressions as prevention routes, not delivered repairs. Evidence: OKF proposal from oats-expert/app-owned-reader-expert, 2026-10-29; notes/evidence-tightening-surfaces-transitions.md. One source-reported change; no general race rate, complete inventory or universal retry guarantee is established.
+
 ## 2026-10-28
 
 * **Harvest**: add [cross-capability composed review](/nodes/oats-expert/lessons/rule-changes-need-cross-capability-composed-review.md): specify the affected compositions and neighboring sources at exact revisions, have reviewers report contradictions, and route companion changes to their owning repositories. Link existing pin, release, policy and kernel-composition homes rather than re-promote them. Evidence: OKF proposal from oats-expert/oats-injection-compression-expert, 2026-10-28; notes/composed-check-across-capabilities.md. One instruction-text effort, source-reported; no repair, release or deployed composition independently verified.

@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Check the affected-test inventory, not only the green runs
-description: At handback, check a search-derived inventory of tests consuming the changed surfaces, with a result or non-run reason for each file and evidence that gated behavior ran on a feature-enabled integration tree.
+description: Brief and check the affected-test inventory by changed surface and transition, with results or explicit gaps and evidence that gated behavior ran on a feature-enabled integration tree.
 tags: [verification, handover, testing, coordination]
-timestamp: 2026-10-27
+timestamp: 2026-10-29
 ---
 # A run list hides tests nobody thought to run
 
@@ -57,6 +57,39 @@ The Desktop-owned
 [source-evaluation lesson](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md#source-evaluating-tests-include-renderer-modules-not-only-main)
 owns the hand-maintained evaluation-context failure and its extraction
 remedy; the generalist owns making those readers visible in the handback.
+
+# Tightening an evidence rule exposes transition consumers
+
+Replacing an optimistic default such as false, idle or absent with
+**unknown unless established** can expose an observation gap during a state
+transition. A test may reach the changed rule only through a wait across
+that gap, so searching the rule's callers or literals alone can miss it.
+Selected green tests and an approving review do not make a later failure in
+such a wait an unrelated flake.
+
+For this kind of change, the lead's brief should:
+
+- Name the transitions where the old default could have filled an evidence
+  gap: exit, respawn, pane death and startup are candidates, not an exhaustive
+  list or a claim that every one is affected.
+- Inventory tests and runtime consumers that wait, poll or act across those
+  transitions, including indirect consumers. Give each a verification result,
+  an explicit execution gap, or an evidence-backed reason it cannot encounter
+  the race. Check this inventory at handback as well as the changed-surface
+  search; a reason is reviewable evidence, not proof of completeness.
+- State the user-visible transitional consequence in the PR as behavior for
+  review: what becomes unknown, which action may refuse, and what recovery
+  the contract permits. Do not hide it as test flakiness or infer that every
+  unknown permits a retry or that one retry must succeed.
+
+This extends the inventory's discovery method, not the liveness contract.
+The [shared-behavior guarantees lesson](enumerate-what-a-removed-behaviour-held-up.md)
+owns specifying guarantees the old behavior supplied; the
+[terminal-observation lesson](real-terminal-waits-prove-the-observed-state.md)
+owns proving that a wait reached its intended state. The Desktop's
+[unknown-state decision](/nodes/oats-desktop-expert/decisions/kernel-unknown-is-not-refined-by-a-client-probe.md)
+remains authoritative for client handling; this inventory does not authorize
+converting unknown back into a convenient default.
 
 # The right files can run with the changed behavior switched off
 
@@ -112,9 +145,15 @@ path assertions and feature-on/feature-off integration coverage so a gated
 no-op cannot count as new-behavior coverage. CI should exercise the relevant
 producer-consumer combination rather than rely on a stale branch base.
 These are test and CI enforcement targets, not delivered changes claimed
-here. The residual handback requirement belongs in specification and
-verification guidance, not a permanent list of test filenames in knowledge.
-No soul skill is changed.
+here. For a tightened evidence rule, prefer shared, explicit unknown handling
+over divergent consumer defaults; encode the permitted behavior in
+transition-aware waits and regressions that deliberately exercise the
+inconclusive interval. Do not rely on its chance occurrence in CI or weaken
+the producer's evidence rule to make a wait pass.
+
+The residual handback requirement belongs in specification and verification
+guidance, not a permanent list of test filenames in knowledge. No soul skill
+is changed.
 
 # Evidence and limits
 
@@ -155,3 +194,17 @@ and resume output on quit. The proposal reports later green CI, but this
 harvest did not audit those runs or repairs. Preserve the gate-state
 explanation and coverage requirement, not a permanent TUI-notice contract,
 a claim that every local test skipped, or a shipment receipt.
+
+Evidence: OKF proposal from oats-expert/app-owned-reader-expert, 2026-10-29;
+notes/evidence-tightening-surfaces-transitions.md.
+
+For [awebai/oats#1641](https://github.com/awebai/oats/issues/1641) and
+[PR #1644](https://github.com/awebai/oats/pull/1644), the source reports that
+requiring process-table proof of a fallback prompt exposed a brief interval
+when tmux still reported a live pane after its process had left the table.
+A harness-exit wait treated the truthful unknown as fatal. A transition-based
+inventory then found another racing test; the proposal reports green CI at
+the next head. This is one change in one repository, not a reproduced
+experiment or proof that transition search found every consumer. The local
+frequency measurement is not a general race rate, and the reported recovery
+is not a universal retry guarantee.
