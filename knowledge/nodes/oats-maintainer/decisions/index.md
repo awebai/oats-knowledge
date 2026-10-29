@@ -1,5 +1,6 @@
 # Decisions
 
+* [CLI speed comes from Node fixes and an app-owned warm reader, not a native rewrite](no-cli-rewrite-app-owned-reader.md) - Reject full and partial native CLI rewrites in favor of Node startup fixes and an app-owned warm reader that preserves kernel JSON authority without a separately installed daemon.
 * [Refresh maintainer context with a new instance after a coordination-skills release](fresh-maintainers-after-coordination-skills-releases.md) - For the directing human's lanes, use fresh maintainer instances after syncing coordination skills rather than upgrading retained context, defer occupied seats until their efforts land, and replace the release lane last.
 * [Background defaults belong to short-lived OKF services, not OATS maintainers](background-defaults-are-for-okf-services-not-oats-maintainers.md) - Default the OKF harvester and knowledge-maintainer to background, while keeping OATS maintainers visible as the human's working peers and respecting package-qualified request scope.
 * [Parent-child lines require declared shared work, not inferred organisation](parent-child-lines-require-declared-shared-work.md) - Keep parent-child placement while drawing its connector only from a parent-bound shared-work declaration, with coordination guidance owned by capabilities rather than the kernel or oats.core.

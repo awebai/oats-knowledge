@@ -1,5 +1,10 @@
 # oats-maintainer log
 
+## 2026-10-29
+
+* **Update**: [No native CLI rewrite; app-owned warm reader](/nodes/oats-maintainer/decisions/no-cli-rewrite-app-owned-reader.md) amended at maintainer review: records the other side's no-objection to the reader's shape on awebai/oats#1630 and the criteria it will check the contract against (not an agreed contract), and a verification note for the cited comment and PRs.
+* **Harvest**: [No native CLI rewrite; app-owned warm reader](/nodes/oats-maintainer/decisions/no-cli-rewrite-app-owned-reader.md) records the source-reported human acceptance of Node fixes followed by an app-lifetime reader, the rejected native, daemon, in-process and agent alternatives, and the conjunctive reconsideration trigger. Links canonical kernel performance and import decisions rather than copying their implementation guidance; preserves the public process boundary and separates direction from protocol agreement and delivery. Evidence: OKF proposal from oats-maintainer/product-maintainer-pepe, 2026-10-29; notes/no-cli-rewrite-app-owned-reader.md; notes/hot-reads-stay-off-core.md. Timings and acceptance are source-reported; reader/native comparisons are estimates, not completed implementation benchmarks.
+
 ## 2026-10-28
 
 * **Fix**: [Issue-recorded contract agreement](/nodes/oats-maintainer/stewardship/review-protocol.md#contract-agreement-stays-on-the-issue-through-implementation-2026-10-28) corrected at maintainer review: the other side agreed `E_SESSION_START_BUSY` for two concurrent starts only; the wider start-lock narrowing on awebai/oats#1602 was posted without a recorded answer, so it is not described as agreed. Added a verification note for the six cited comments.
