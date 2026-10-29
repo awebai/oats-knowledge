@@ -65,6 +65,11 @@ should require cost attribution before choosing a concurrency shape. These
 are prevention routes for their owners, not claims that instrumentation,
 tests or a fix have shipped; this harvest changes no skill or code.
 
+For the subsequent before/after report,
+[measure cached gains through the real client and across expiry](/nodes/oats-expert/lessons/measure-cached-gains-through-the-client-past-expiry.md)
+so the result includes client-side work, expiry refreshes and fallback counts,
+not only the warm path whose cost the profile helped explain.
+
 # Evidence
 
 Evidence: OKF proposal from oats-expert/app-owned-reader-expert, 2026-10-29; notes/poll-wall-time-is-one-network-call.md.

@@ -1,5 +1,6 @@
 # Lessons
 
+* [Measure cached gains through the real client and across expiry](measure-cached-gains-through-the-client-past-expiry.md) - A cache-backed before/after comparison must exercise each installation's real client path, include an observed expiry refresh and count fallbacks so warm-only samples and omitted client work do not misstate the gain.
 * [Profile a slow read's waits before designing concurrency](profile-read-waits-before-designing-concurrency.md) - Before specifying parallel reads, lanes or extra reader processes, obtain child invocation counts and wall times so an architectural comparison does not hide the wait that dominates the workload.
 * [An overdue handback needs a record check, not indefinite mail waiting](overdue-handbacks-need-a-record-check.md) - Give a delegated step an expected checkpoint and inspect authorized work records when it is overdue, because a lead and child can both wait on mail while useful work stays idle.
 * [Plan a composed review beyond the capability changing a rule](rule-changes-need-cross-capability-composed-review.md) - When changing an instruction rule, put a review of neighboring capability text in the spec and route contradictions to their owning repositories rather than treating per-capability approval as composition evidence.
