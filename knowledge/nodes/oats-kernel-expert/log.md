@@ -1,5 +1,10 @@
 # oats-kernel-expert log
 
+## 2026-10-29
+
+* **Harvest**: add [A warm process needs lifetime classification, not just a cache-reset list](/nodes/oats-kernel-expert/lessons/warm-process-state-needs-lifetime-classification.md), preserving the review's missed module-constant WeakMap key, live-child drain obligation, process-handler hazards and runtime-input installation boundary. Evidence: OKF proposal from oats-kernel-expert/warm-reader-kernel-expert, 2026-10-29; notes/warm-process-turns-lifetime-caches-into-data.md. Keep closure-accounting and multi-request equivalence gates as the elimination route, not completed coverage. Omit the current binding inventory and implementation chronology; link the canonical Git-observation, hot-read and app-owned-reader concepts rather than repeat them. Findings and specification incorporation remain source-reported code-review conclusions, not reproduced runtime failures or shipped guarantees; no decision is superseded.
+* **Update**: add a related link from [Hot-read imports preserve contracts and static boundaries](/nodes/oats-kernel-expert/decisions/hot-read-imports-preserve-contracts-and-static-boundaries.md) to the lifetime lesson; preserve the accepted extraction rationale unchanged.
+
 ## 2026-10-28
 
 * **Harvest**: add [Hot-read imports preserve contracts and static boundaries](/nodes/oats-kernel-expert/decisions/hot-read-imports-preserve-contracts-and-static-boundaries.md), preserving the narrow-table rationale, rejected per-handler and async API changes, missing-name tripwire, literal-specifier proof boundary, retained soul-resolution errors and accepted later packaged-fixture validation. Evidence: OKF proposal from oats-kernel-expert/cli-startup-node-fixes-kernel-expert, 2026-10-28; notes/hot-read-extraction-boundary.md. Record source-selected design, not human acceptance or released behavior; measurements, CI and equivalence remain source-reported. Link the existing workload and cache decisions rather than duplicate them; no accepted decision is superseded.

@@ -89,7 +89,11 @@ The [spawn-probe lesson](/nodes/oats-kernel-expert/lessons/spawn-probe-cost-is-c
 owns workload-specific cost attribution, and the
 [compile-cache decision](/nodes/oats-kernel-expert/decisions/compile-cache-stays-in-the-per-user-oats-home.md)
 owns cache placement and environment rationale. Neither is superseded by
-this import-boundary choice. The
+this import-boundary choice. The later
+[warm-process lifetime lesson](/nodes/oats-kernel-expert/lessons/warm-process-state-needs-lifetime-classification.md)
+explains why preserving one state owner is not enough when the same code is
+called repeatedly without process exit; it does not change this extraction
+decision. The
 [CLI drift lesson](/nodes/oats-kernel-expert/lessons/per-command-enumerations-drift-from-the-dispatch.md)
 explains why unavoidable dispatch mirrors need executable pins. Keep
 closure, fallback-order, export/state parity and error-path regressions with
