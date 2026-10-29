@@ -3,7 +3,7 @@ type: Lesson
 title: A fake CLI that accepts what the real binary refuses hides a broken hook — a provider that drives an external CLI is accepted on the whole lifecycle against the published binary
 description: Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
 tags: [lesson, integrations, hooks, testing, fake-cli, rehearsal, acceptance, versioning]
-timestamp: 2026-10-28
+timestamp: 2026-10-29
 ---
 
 Learned 2026-09-23/24 across five review rounds of one messaging provider,
@@ -112,6 +112,40 @@ rather than equate a temporary directory with a clean host. This refines the
 rehearsal gate, not the operator's separate
 [configuration-placement judgment](/nodes/oats-operator-expert/lessons/place-each-fact-at-the-scope-that-owns-it.md).
 
+# A migration must exercise the consumer's event model
+
+A provider migration that expects kernel-triggered work needs evidence from
+that consumer, not just successful changes in the external service. The
+source's 2026-10-29 review of a parked-PR migration found that a remove-label,
+close, reopen recipe had passed adversarial review and lead verification
+without checking whether the kernel could observe the transition. A later
+package-expert reading of the kernel exposed the gap: the inspected polling
+model could miss a close and reopen between polls. Forge success alone would
+not establish a new trigger event.
+
+Extend the rehearsal question from **which binary and state?** to **which
+observation makes the downstream work eligible?** For a transition inferred
+across polls, the intermediate state must be recorded by a successful,
+complete observation before the next change. A time delay or a successful
+but incomplete fetch is not that evidence. Check the consumer's reported
+event separately from completion of the work it starts.
+
+Include deduplication and retained-worker capacity in that investigation:
+a new external change need not create a new eligible key or free a worker
+slot. Do not clear deduplication history to manufacture a passing rerun;
+use the supported lifecycle and event paths within their existing authority.
+This lesson grants no authority to retire retained homes or mutate live PRs.
+
+The elimination route is an executable migration rehearsal against the
+selected kernel, with consumer observations as assertions. Regression cases
+should include transitions entirely between polls, failed or incomplete
+polls, already-seen events and occupied capacity, plus a positive case that
+actually produces the intended work. Exact status fields, fetch caps and
+commands belong in the kernel contract and the package's migration guidance,
+not a second versioned recipe here. The reported investigation inspected
+OATS 0.69.2/0.69.5 and live status fields; **the revised migration was not run
+live**, and source inspection is not acceptance of the recipe.
+
 # Why
 
 A green unit suite against a fake is a proof about the fake: in the rounds
@@ -146,6 +180,7 @@ composition failures, rather than inferring protection from the floor's intent.
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/okf-needs-human-removal-integrations-expert, 2026-10-29; notes/poller-triggers-need-an-observed-state-change.md. The missed-observation finding and kernel/status inspection are source-reported; neither the revised migration nor its proposed regression coverage was executed by this harvest.
 - Evidence: OKF proposal from integrations-expert/cloner-rehearsal-integrations-expert, 2026-10-28; notes/package-soul-rehearsal-scratch-workspace.md. The package-soul composition and deployment-list cleanup results are source-reported from one run on OATS 0.69.4, not independently reproduced by this harvest.
 - Evidence: OKF proposal from integrations-expert/integrations-expert-developer-skill-lines, 2026-10-12; notes/a-scratch-deployment-does-not-isolate-host-state.md. Scheduler results are source-reported observations from another lead, not independently reproduced by the source or this harvest.
 - Migrated from agents/integrations-expert/soul/knowledge @ dade3270.
