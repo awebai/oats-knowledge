@@ -17,7 +17,10 @@ When delegating a step, record when its next result is expected. If that
 checkpoint passes, inspect the records you are authorized to read before
 asking for status: the branch head and its time, review artifacts, explicit
 work-state or log entries, and lifecycle status. Use those observations to
-find the unresolved dependency. Then unblock it within your authority, ask
+find the unresolved dependency; when the child is waiting on mail you sent,
+one such dependency is
+[an undelivered wake](/nodes/oats-desktop-expert/lessons/idle-child-may-be-an-undelivered-wake.md),
+which that lesson owns. Then unblock it within your authority, ask
 one precise question whose answer changes the next action, or assign a
 ready independent piece when the child's availability is established.
 
