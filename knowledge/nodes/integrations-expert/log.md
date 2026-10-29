@@ -1,5 +1,10 @@
 # integrations-expert log
 
+## 2026-10-29
+
+* **Harvest**: Added [forge-account attribution limits](/nodes/integrations-expert/lessons/forge-account-attribution-does-not-prove-human-authorship.md): a shared-account record does not establish human authorship or independent approval; preserve relay attribution and name a protected approval boundary plus regression coverage as prevention routes. Link the operator's credential decision without changing it or waiving human-acceptance gates; the reported relay was not independently audited.
+* **Harvest**: Refined [real-binary rehearsal](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) with the missed consumer-observation gap: external state changes do not prove a polled transition, fresh dedup eligibility or available worker capacity. Preserve the rejected recipe's review failure and the need for successful complete observations; omit the versioned status/command recipe and make the absence of a live migration run explicit.
+
 ## 2026-10-28
 
 * **Harvest**: Refined the [scratch-deployment boundary](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md): a member-less, provider-free package-soul composition probe can avoid unrelated setup, but onboarding still writes a host deployment-list entry that tree deletion does not clean up. Preserve the source-reported 0.69.4 limit and retire/remove/delete ordering; link existing registry-removal and runner-isolation lessons rather than duplicate them. No universal hook-free or full-lifecycle acceptance claim is made.
