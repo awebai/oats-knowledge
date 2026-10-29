@@ -75,3 +75,15 @@ verified the captured note's hash but did not rerun benchmarks or inspect
 the implementation or separate spike report. Preserve the planning
 conclusion and its measured scope, not the current child-call inventory or
 an assertion that a network optimization has been accepted or delivered.
+
+Checked by the knowledge maintainer at review on 2026-10-29:
+[#1650](https://github.com/awebai/oats/pull/1650)'s body reports the warm
+reader halving tick CPU with wall time unchanged, because it answers the
+tick's two reads in turn, and names a second lane as a possible design.
+[Comment 6500978620](https://github.com/awebai/oats/issues/1630#issuecomment-6500978620)
+on #1630 attributes about 650–700 ms of wall time per tick to that one login
+call, and it also reports 11 interleaved runs. That comment measures a
+separately proposed login-reuse change, not the stand-in. The stand-in
+figures above (1034, 483 and 40–70 ms) do not appear in either record and
+remain source-reported. The change it proposes awaits the other maintainer
+side's answer there, and this lesson does not record that change as accepted.
