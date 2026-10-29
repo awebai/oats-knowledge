@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: CLI speed comes from Node fixes and an app-owned warm reader, not a native rewrite
-description: Reject full and partial native CLI rewrites in favor of Node startup fixes and an app-owned warm reader that preserves kernel JSON authority without a separately installed daemon.
+description: Reject native CLI rewrites in favor of Node fixes and an app-owned warm reader, with a source-reported bilateral contract preserving request freshness, installation checks and CLI fallback.
 tags: [direction, performance, cli, desktop, tui, rejected-alternatives]
 timestamp: 2026-10-29
 ---
@@ -27,9 +27,10 @@ The selected direction is:
   the app falls back to the CLI. There is no system service, socket or
   separate user installation or acceptance step for the reader.
 
-These are lifecycle and ownership constraints, not a claim that the reader
-has shipped. The app owns the process lifetime, not a second implementation
-of deployment facts. This preserves the
+These are lifecycle and ownership constraints, not a deployment or release
+receipt. The later agreement and reported implementation outcome are recorded
+below. The app owns the process lifetime, not a second implementation of
+deployment facts. This preserves the
 [public process boundary](/nodes/oats-kernel-expert/decisions/minimal-process-boundary.md)
 and [installed-kernel authority](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md),
 rather than permitting private kernel imports into a client or a hidden
@@ -81,22 +82,66 @@ after the app-owned reader. That is a trigger to reconsider, not automatic
 approval for a rewrite.
 
 The reader's request/reply format, feature probe, version and fallback rules
-are a public contract to take to the other maintainer side on the evaluation
-issue before implementation. Being told about the direction is not agreement
-to those details. This decision does not invent the protocol, certify that
-review happened, or supersede the existing process-boundary decision.
+are a public contract. The initial other-side response recorded no objection
+to the **shape** and supplied review criteria, not agreement to the detailed
+contract. Those
+criteria were request-time deployment facts (warm code, not warm data, with
+any cache and invalidation stated), CLI-equivalent envelopes/errors/unknowns,
+and a probe/version rule matching the app's accepted CLI range, with remote
+routes proposed out of the first cut.
 
-On the same issue, the other side recorded no objection to the **shape**
-(app-owned, no service or socket, the kernel's own read code, CLI fallback)
-and named what it will check the contract for: every reply reflects the
-deployment at request time (warm code, not warm data, with any cache and its
-invalidation stated); replies indistinguishable from the CLI fallback,
-including envelope, error codes and unknown answers; and a feature probe and
-version rule matching the app's accepted CLI range, with remote routes
-proposed out of the first cut. Those are review criteria, not an agreed
-contract. The
-messaging node's [batched-query rationale](/nodes/oats-aweb-expert/decisions/readiness-cache-needs-measured-cost.md)
-remains a separate measured publisher concern, not proof this reader serves it.
+## Contract agreement and accepted limits (2026-10-29)
+
+The later captured proposal reports that **both product sides agreed the
+contract before implementation** on the evaluation issue. This explicitly
+supersedes the earlier pending-contract classification, not the no-rewrite
+decision or the public process boundary. The other side attached three build
+conditions:
+
+1. Keep code warm, not deployment data: each request reads the deployment
+   afresh, with intentional observation reuse bounded separately.
+2. Require a CLI-versus-reader differential test with mutations and an
+   installation-stamp check on every request.
+3. Admit `status-liveness` only after the pane-rule fix.
+
+The TUI deliberately uses the same child reader through the shared client,
+not warm kernel calls in its own process: the client boundary forbids kernel
+imports. It does not re-probe; after an installation change it stays on CLI
+fallback for the remainder of that run. Preserve this accepted fallback cost
+rather than treating it as a forgotten optimization.
+
+The source reports that the conditions were met and the reader was built for
+both Desktop and TUI. That is a dated reported outcome, not a claim about a
+release or installation on any host. Changes to the agreed terms return to
+both sides under the existing
+[issue-recorded contract gate](/nodes/oats-maintainer/stewardship/review-protocol.md#contract-agreement-stays-on-the-issue-through-implementation-2026-10-28).
+The source reports bilateral maintainer agreement; it does not establish a
+new direct human acceptance of every protocol detail.
+
+The [kernel lifetime lesson](/nodes/oats-kernel-expert/lessons/warm-process-state-needs-lifetime-classification.md)
+owns the state-classification and installation-identity rationale. Keep
+executable differential and install-change checks with the implementation,
+not a second wire specification here. The subsequent
+[display-only observation-reuse decision](/nodes/oats-maintainer/decisions/observation-reuse-never-authorizes.md)
+owns the deliberate bounded staleness exception; keeping code warm does not
+permit undeclared process-lifetime data caches.
+
+## Reported follow-up measurement
+
+The source attributes interleaved runs on one real deployment to the lead,
+not to measurements repeated by the source or this harvest. It reports a
+warm-reader tick falling from about 1 s wall / 700 ms CPU to about 250 ms
+wall / 260 ms CPU once the login observation was reused, with GitHub calls
+falling from roughly one per five seconds per Desktop to one per minute.
+These are historical source-reported results, not cross-host budgets or a
+native-versus-Node benchmark. They do not prove the earlier 0.1 CPU-second
+expectation or remove the conjunctive reconsideration trigger.
+
+The generalist's [profiling lesson](/nodes/oats-expert/lessons/profile-read-waits-before-designing-concurrency.md)
+owns the attribution-before-concurrency conclusion and its separate stand-in
+experiment; do not conflate that control with the reported reuse outcome.
+The messaging node's [batched-query rationale](/nodes/oats-aweb-expert/decisions/readiness-cache-needs-measured-cost.md)
+remains a separate publisher concern, not proof this reader serves it.
 
 # Evidence
 
@@ -105,7 +150,7 @@ Evidence: OKF proposal from oats-maintainer/product-maintainer-pepe, 2026-10-29;
 The source identifies [awebai/oats#1630](https://github.com/awebai/oats/issues/1630)
 as the kernel 0.69.4 evaluation and
 [comment 6494974298](https://github.com/awebai/oats/issues/1630#issuecomment-6494974298)
-as the decision record. It identifies
+as the original direction record. It identifies
 [#1632](https://github.com/awebai/oats/pull/1632) and
 [#1634](https://github.com/awebai/oats/pull/1634) as the Node fixes. These are
 source-provided evidence locators, not independently audited acceptance,
@@ -120,3 +165,15 @@ the ~0.2 native-per-poll ceiling and the 3–5% spawn estimate; #1632 and
 [comment 6494985666](https://github.com/awebai/oats/issues/1630#issuecomment-6494985666).
 The rejection reasons for a system service, an in-process import and an agent
 reader come from the source notes and were not checked against the issue.
+That earlier review did not verify the later contract or reuse outcome.
+
+Evidence for the later agreement and outcome: OKF proposal from oats-maintainer/product-maintainer-pepe, 2026-10-29; notes/no-cli-rewrite-app-owned-reader.md.
+
+The updated source identifies the
+[contract proposal](https://github.com/awebai/oats/issues/1630#issuecomment-6495394874)
+and [other-side agreement with build conditions](https://github.com/awebai/oats/issues/1630#issuecomment-6495412442),
+plus the [reuse proposal](https://github.com/awebai/oats/issues/1630#issuecomment-6500978620)
+and [conditional agreement](https://github.com/awebai/oats/issues/1630#issuecomment-6501015544).
+Agreement, completion and measurements in this refinement remain
+source-reported; this harvest did not audit the implementation, rerun tests
+or independently verify those later comments.
