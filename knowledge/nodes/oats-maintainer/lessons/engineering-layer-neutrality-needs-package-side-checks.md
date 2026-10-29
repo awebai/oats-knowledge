@@ -99,3 +99,11 @@ inspect the implementation repositories or rerun their tests. It does not
 establish that every pinnable release is covered, that OATS's guard can
 already be removed, or that a release or deployed home has picked up the
 change. This knowledge edit delivers no test, skill or deployment change.
+
+Maintainer verification at review (2026-10-29): awebai/oats-engineering#33
+is merged as `7a079d99` with its `validate-and-test` check passing; its
+validator applies the two patterns to injects and skills and checks the
+reviewer's no-layer fallback, and its comments keep semantic neutrality a
+review obligation. At review, no engineering tag contained that commit (the
+latest was v1.17.2), so no pinnable release had yet passed the package-side
+check and the consumer guard's removal condition was unmet.
