@@ -22,8 +22,10 @@ This is cross-client direction, not a claim that the feature has shipped.
   approximation of the new declaration.
 - Each team's capabilities teach when its process sets the flag. The kernel
   and `oats.core` supply and neutrally describe the mechanism, never the
-  coordination policy. OATS's own convention belongs in `oats.engineering`
-  capabilities: experts set it on their developers, developers on their
+  coordination policy; this applies the general
+  [capability-owned coordination policy](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md)
+  boundary. OATS's own convention belongs in `oats.engineering` capabilities:
+  experts set it on their developers, developers on their
   reviewers, and maintainers do not set it on their experts. That convention
   is guidance for those capabilities, not a role classifier in the kernel
   or clients.

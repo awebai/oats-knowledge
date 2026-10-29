@@ -1,5 +1,10 @@
 # integrations-expert log
 
+## 2026-10-28
+
+* **Harvest**: Refined the [scratch-deployment boundary](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md): a member-less, provider-free package-soul composition probe can avoid unrelated setup, but onboarding still writes a host deployment-list entry that tree deletion does not clean up. Preserve the source-reported 0.69.4 limit and retire/remove/delete ordering; link existing registry-removal and runner-isolation lessons rather than duplicate them. No universal hook-free or full-lifecycle acceptance claim is made.
+* **Harvest**: Added [released-reader refusal probes](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md), linked from real-binary acceptance: preserve why a raised floor is an earlier composition refusal, not proof of sync exclusion or protection for existing homes. Keep the 0.68.1 results source-reported and version-bounded; name executable boundary coverage as the elimination route. Leave maintainer-owned release wording to its owner and omit the code-derived trigger schema inventory.
+
 ## 2026-10-26
 
 * **Harvest**: Added [the desktop persistence handoff](/nodes/integrations-expert/lessons/desktop-persistence-apply-is-a-human-handoff.md): preserve the reported classifier refusal and narrow-choice rationale without generalizing one Claude Code trial into a universal inability to run authorized operator commands. Name option-scoped writes and regressions as enforcement; no bypass or live apply is certified.

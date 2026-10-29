@@ -170,7 +170,8 @@ The useful verification choices were:
   Desktop user-data directory; select the test CLI and a dedicated Desktop
   port rather than inherit the operator's instance or tmux selectors. This
   applies [runner-owned isolation](/nodes/oats-expert/lessons/automatic-per-user-writes-need-runner-isolation.md),
-  not a second policy for personal storage.
+  not a second policy for personal storage. The sweep finding below makes
+  this an operator-session safety boundary, not just fixture hygiene.
 - Budget the **complete socket path**, not just the temporary directory.
   The source's long scratch path exceeded its Unix socket limit; a short,
   private TMUX_TMPDIR worked. Shortening must still preserve
@@ -198,6 +199,52 @@ that harness instead of relying on a remembered manual recipe. Exact launch
 flags, file formats and setup steps belong in repository verification code
 and guidance, not a second operational runbook here. No such harness or skill
 change is claimed by this harvest.
+
+### A private socket does not isolate a client-triggered machine sweep
+
+The source's later 2026-10-27 check exposed a stronger reason for the private
+homes above. With a client that invokes the machine session-resume sweep,
+a private TMUX_TMPDIR and Electron profile do not isolate the **inventory
+being swept**. A plan run with only a private socket directory still found
+the operator's deployments. Their homes were already running; no operator
+restart was observed. The hazard is that an eligible lost operator session
+could instead start on the probe's private server, outside the operator's
+usual view. A private socket can hide interference rather than prevent it.
+
+The reported mechanism crossed two storage boundaries: the deployments
+list, seen-running history and sweep lock used OATS_HOME_DIR, while the
+list's first-use legacy import consulted HOME independently. Redirecting
+only one home therefore did not establish isolation. Nor did the reported
+`fromEnv` launch-value digest check cover TMUX_TMPDIR: launch-value fidelity
+was not a substitute for isolating the probe's inventory and server.
+
+For an otherwise authorized Desktop or TUI probe, keep HOME, OATS_HOME_DIR
+and TMUX_TMPDIR private **for the client and every command that builds,
+starts or reads its fixture**, alongside the XDG/profile isolation above.
+Open only fixture deployments, but do not mistake that selection for sweep
+scope: the [recovery decision](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md)
+intentionally sweeps the machine inventory, not just open views. Stop
+fixture instances through their lifecycle before removing their private
+server, so cleanup records intentional stops rather than apparent losses.
+
+A sweep `--plan` is not a harmless way to inspect the operator's environment.
+The source reports that it started nothing but persisted seen-running
+history while listing. Inspect only the probe's own machine state; a
+no-start guarantee is not a no-write guarantee. This finding changes no
+recovery trigger, eligibility or launch-environment policy, and grants no
+permission to launch Electron or inspect the operator's sessions.
+
+Extend the integration-harness elimination route above to enforce one
+private environment across the whole fixture lifecycle. Regress the legacy
+import and plan-write cases using disposable surrogate operator state, and
+assert that only fixture deployments are discovered and acted on. The
+existing generalist isolation lesson owns the broader runner obligation;
+this refinement preserves the discovered client-sweep hazard and why socket
+and profile isolation alone were insufficient. The operational rule, with
+its exact environment, fixture and cleanup steps, now lives in the
+repository's `electron-live-verification` skill ("Keep the probe off the
+operator's sessions too", awebai/oats#1585); that skill is authoritative for
+how, and this lesson keeps why. No completed harness coverage is claimed.
 
 # Linux can exercise the packaged shell in CI
 
@@ -272,6 +319,44 @@ change deleted), so a removal is an inventory, pinned by absence tests that
 also assert one kept surface so they cannot pass on an empty scan, and the
 reachability suite is inverted rather than deleted.
 
+## Presentation removal includes reader states and suppression bookkeeping
+
+The 2026-10-27 notice-cleanup finding extends the removal inventory beyond
+renderers and words. A shared reader can retain distinctions that existed
+only to decide whether or what to present, while repeat-suppression records
+can look like control safeguards after their presentation has gone. Keeping
+them without checking leaves a dormant mechanism; deleting them by their
+names alone does not establish unchanged behavior.
+
+Before removing such bookkeeping, establish **which copy of the answer each
+control decision reads**: settlement, release and re-run decisions may use
+the run's answer or a filtered presentation copy. If filtering only serves
+the removed presentation and no remaining consumer needs it, remove the
+suppression and presentation-only reader states with that surface. If a
+control decision consumes the filtered copy, the bookkeeping is behavior:
+retain it unless a separate behavior change is intended and reviewed. A
+client's silence alone does not establish that a shared reader has no other
+consumer.
+
+The source reports that its feared re-settlement risk was resolved by this
+trace: the suppression filtered only the reader's presentation input, while
+settlement and completion used the unfiltered answer. The useful lesson is
+where to establish the no-behavior-change claim, not a permanent map of those
+functions. It applies the generalist's
+[shared-behavior inventory](/nodes/oats-expert/lessons/enumerate-what-a-removed-behaviour-held-up.md)
+to the boundary between presentation and control; the existing
+[Desktop no-notice decision](../decisions/machine-notices-are-action-free-and-outcome-driven.md)
+remains the product authority. This adds no TUI presentation decision or
+change to recovery policy.
+
+The elimination route is removal of unused distinctions and bookkeeping,
+with regressions at the seam they occupied: the reader receives the run's
+own answer, a repeated item still drives control as before, and an answer
+containing only repeats still completes. Those cases preserve the former
+control behavior rather than merely assert that the old notice words are
+absent. They do not authorize deleting suppression whose control role has
+not been established.
+
 ## Establish shipped reach before escalating a duplicated rule
 
 The 2026-10-15 spawn extraction supplied the reverse counterexample: two
@@ -306,12 +391,45 @@ may not be run on a human's machine.
 
 # Related
 
+[Signal tests must contain even regressed cleanup](signal-tests-must-contain-regressed-cleanup.md)
+adds the reparenting hazard: a test-owned child can acquire a foreign parent,
+so signal tests and their negative controls need a runner/namespace boundary
+and teardown that remains contained when the tested script regresses.
+
+[Platform-keyed tests and native baselines](platform-keyed-tests-need-explicit-platforms.md)
+adds the client-platform diagnosis case: explicit policy fixtures do not
+replace whole-surface evidence on the OS whose real processes fail.
+
 [The loopback interface is Desktop's trust boundary](../decisions/loopback-trust-boundary-and-transport-simplicity.md);
 [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md);
 [Async completion must still own the user's intent](asynchronous-intent-and-truthful-outcomes.md);
 [Terminal tabs are viewers, not session owners](../decisions/terminal-viewers-not-session-owners.md).
 
 # Citations
+
+Evidence: OKF proposal from oats-desktop-expert/resume-notice-cleanup-expert, 2026-10-27; notes/removal-includes-presentation-only-reader-state.md; notes/answered-sweep-is-one-reading.md.
+
+For the presentation-removal refinement, the source identifies
+[awebai/oats#1605](https://github.com/awebai/oats/pull/1605), unmerged when
+proposed, and reports the response-copy trace and three seam regressions.
+This is one source-reported case, not an implementation audit or test run by
+this harvest. No live run was made or claimed; no merge, shipment or broader
+absence of control effects is inferred.
+
+Evidence: OKF proposal from oats-desktop-expert/test-desktop-sweep-expert, 2026-10-27; notes/test-desktop-needs-private-home-and-oats-home.md.
+
+For the sweep-isolation refinement, the source identifies
+[awebai/oats#1585](https://github.com/awebai/oats/pull/1585), checking the client
+sweep in [#1564](https://github.com/awebai/oats/pull/1564) over the kernel work
+in [#1563](https://github.com/awebai/oats/pull/1563). It reports one Linux run
+under Xvfb/X11 with private homes, a private socket and a guarded CLI wrapper:
+only the fixture deployment was swept, its stand-in returned `fresh` on that
+socket, the operator's window count was unchanged, and no probe window
+reached the operator's compositor. These are source-reported observations,
+not checks rerun by this harvest. They do not prove an operator-session
+restart, conversation resumption with a real harness, macOS behavior or
+complete host containment. The unsafe plan's history write is evidence of
+the hazard, not a recommended experiment or cleanup procedure.
 
 Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/live-desktop-fixture-without-agents.md.
 

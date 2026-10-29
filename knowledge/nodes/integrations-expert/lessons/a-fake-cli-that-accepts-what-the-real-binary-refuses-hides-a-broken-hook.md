@@ -3,7 +3,7 @@ type: Lesson
 title: A fake CLI that accepts what the real binary refuses hides a broken hook — a provider that drives an external CLI is accepted on the whole lifecycle against the published binary
 description: Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
 tags: [lesson, integrations, hooks, testing, fake-cli, rehearsal, acceptance, versioning]
-timestamp: 2026-10-12
+timestamp: 2026-10-28
 ---
 
 Learned 2026-09-23/24 across five review rounds of one messaging provider,
@@ -53,7 +53,7 @@ identity home.
 # Scratch-deployment boundary
 
 **Before choosing a scratch deployment to prove a line, ask which state the
-command reads.** Relocating a deployment isolates only the state actually
+command reads and writes.** Relocating a deployment isolates only the state actually
 placed or redirected there. It does not by itself isolate a per-user service,
 machine-managed settings, inherited `PATH`, or a running daemon. Read the
 selected release's state lookup, not only its command usage, before choosing
@@ -72,6 +72,38 @@ fresh installation. An operator-only step needs the operator's run; otherwise
 state that it was inspected in source, not executed. Do not replace missing
 real-binary evidence with a fake or infer permission to change the host just
 to manufacture the other branch.
+
+## A small composition probe still has host-side cleanup
+
+The source's 2026-10-28 rehearsal on released OATS **0.69.4** used a local
+bare Git workspace containing only the candidate package pinned at a full
+commit OID, no member repositories, and `messaging` and `tasks` defaults set
+to `none`. Onboarding from that workspace synced and locked the package;
+a spawn preview followed by a `--no-launch` spawn exercised the packaged
+soul's composition without minting a messaging identity. This is a useful
+way to avoid unrelated repository and identity setup when those surfaces
+are outside the proof. The result is limited to one directory-mode soul
+with no providers, not a guarantee for every package or proof of a launched
+harness or the feature's whole lifecycle.
+
+Even that small probe wrote outside its scratch tree: onboarding registered
+the deployment in the host's per-user deployment list. The reported cleanup
+was to retire the instance, run `oats deployments remove <dir>`, then delete
+the scratch tree from a working directory outside it. Deleting only the tree
+would leave the host registration behind. The observed `removed: true`
+tombstone was not failed cleanup or a reason to hand-edit the list; the
+[registry population lesson](/nodes/oats-expert/lessons/registry-population-needs-user-path-coverage.md)
+owns why explicit removal must survive automatic addition. This refines the
+rehearsal's cleanup accounting, not authority to change unrelated host state.
+
+The generalist's [runner-isolation lesson](/nodes/oats-expert/lessons/automatic-per-user-writes-need-runner-isolation.md)
+already owns prevention of personal-state writes in tests. Apply it when
+turning this probe into reusable real-kernel coverage: isolate host storage
+through supported controls and assert registration/removal as well as
+composition, rather than treating removal of the temporary directory as the
+teardown assertion. No such regression implementation is certified here.
+
+## Elimination route
 
 Where supported state control can make both branches reproducible, put that
 control in real-binary regression tests. That is the elimination route for a
@@ -97,6 +129,10 @@ For timeout and interruption coverage, the related
 explains why the fake must also model descendants and why every caller needs
 its own cleanup evidence.
 
+For package-kernel compatibility, [prove where the floor refuses](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md):
+a released-reader probe distinguishes a successful lock from discovery and
+composition failures, rather than inferring protection from the floor's intent.
+
 # Consequences
 
 - A provider PR that touches a hook calling an external tool carries a
@@ -110,6 +146,7 @@ its own cleanup evidence.
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/cloner-rehearsal-integrations-expert, 2026-10-28; notes/package-soul-rehearsal-scratch-workspace.md. The package-soul composition and deployment-list cleanup results are source-reported from one run on OATS 0.69.4, not independently reproduced by this harvest.
 - Evidence: OKF proposal from integrations-expert/integrations-expert-developer-skill-lines, 2026-10-12; notes/a-scratch-deployment-does-not-isolate-host-state.md. Scheduler results are source-reported observations from another lead, not independently reproduced by the source or this harvest.
 - Migrated from agents/integrations-expert/soul/knowledge @ dade3270.
 - Migrated from agents/oats-expert/soul/knowledge/inbox @ 26f2caef (the tool facts went to the messaging package expert).

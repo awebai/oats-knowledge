@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Check the affected-test inventory, not only the green runs
-description: When full suites run only in CI, require a search-derived inventory of test files consuming changed surfaces at handback and check its coverage against the diff, with a result or non-run reason for each file.
+description: At handback, check a search-derived inventory of tests consuming the changed surfaces, with a result or non-run reason for each file and evidence that gated behavior ran on a feature-enabled integration tree.
 tags: [verification, handover, testing, coordination]
 timestamp: 2026-10-27
 ---
@@ -58,7 +58,37 @@ The Desktop-owned
 owns the hand-maintained evaluation-context failure and its extraction
 remedy; the generalist owns making those readers visible in the handback.
 
+# The right files can run with the changed behavior switched off
+
+The session-resume effort exposed a second coverage gap: the consumer branch
+was based on a kernel without the producer feature that enabled its sweep.
+Local real-tmux tests could run successfully without exercising that new
+behavior. CI's merge with feature-bearing main activated it and exposed
+fixture and user-output defects missed by the review loop. Naming and
+running the affected files was necessary but not sufficient.
+
+For a feature-gated change, the inventory must identify **the tree and gate
+state that each result covers**, not only the test filename. Once the
+producer is available, run the affected integration tests in the permitted
+combined tree with the producer feature enabled, matching the relevant CI
+composition. Establish that the intended path actually executed; gate-off
+compatibility remains useful evidence, but is not positive coverage of the
+new path. When tests must wait for CI, state that gap and check whether the
+CI tree will enable the feature rather than treating local green as an
+equivalent run.
+
+The kernel's [real-pi CI-gate lesson](/nodes/oats-kernel-expert/lessons/real-pi-opening-races-need-an-executed-ci-gate.md)
+owns its specific skipped-runtime gap. This addition concerns the lead's
+handback: a test may execute while the behavior inside it remains gated
+off. Neither case is cured by adding more readers of the same green result.
+
 # Distinct responsibility and elimination route
+
+When the maintainer identifies an overlapping open effort,
+[prepare an open-head trial and resolution handoff](trial-merge-before-the-merge-order-is-fixed.md)
+while the merge order is being chosen. That lesson owns the timing and
+transfer of combined-tree findings; this one owns discovery of the test set
+and whether its results exercised the changed behavior.
 
 The [provider mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)
 already separates named local files from CI suites. This lesson owns the
@@ -77,9 +107,14 @@ Prefer eliminating incidental coupling first: [consumer tests should own
 their reading, not copied producer sentences](/nodes/oats-desktop-expert/lessons/kernel-text-tests-own-the-client-reading.md).
 For real dependencies, dependency-aware test selection and automated
 comparison of affected files with reported evidence can reduce this manual
-inventory debt; neither is claimed delivered here. The residual handback
-requirement belongs in specification and verification guidance, not a
-permanent list of test filenames in knowledge. No soul skill is changed.
+inventory debt; neither is claimed delivered here. Add explicit positive
+path assertions and feature-on/feature-off integration coverage so a gated
+no-op cannot count as new-behavior coverage. CI should exercise the relevant
+producer-consumer combination rather than rely on a stale branch base.
+These are test and CI enforcement targets, not delivered changes claimed
+here. The residual handback requirement belongs in specification and
+verification guidance, not a permanent list of test filenames in knowledge.
+No soul skill is changed.
 
 # Evidence and limits
 
@@ -109,3 +144,14 @@ case, a dot-property search missed a string-argument read. The reports span
 reproduced by this harvest. The reported local dependency gap explains why
 selected green runs failed to expose the omissions; it is not a permanent
 host limitation or permission to replace execution with search.
+
+Evidence: OKF proposal from oats-expert/oats-expert-session-resume,
+2026-10-27; notes/feature-gated-consumer-tested-where-gate-is-off.md.
+
+For [awebai/oats#1581](https://github.com/awebai/oats/pull/1581), the source
+reports that CI's feature-enabled merge exposed a tmux fixture hold catching
+the sweep, a background notice replacing the answer to the person's own act,
+and resume output on quit. The proposal reports later green CI, but this
+harvest did not audit those runs or repairs. Preserve the gate-state
+explanation and coverage requirement, not a permanent TUI-notice contract,
+a claim that every local test skipped, or a shipment receipt.

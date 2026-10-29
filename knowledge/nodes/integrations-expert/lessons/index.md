@@ -34,6 +34,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Packaging and release
 
+* [Prove where a package's kernel floor refuses](package-kernel-floors-need-released-refusal-probes.md) - When a packaged soul gains a kernel key, probe the oldest supported released reader and distinguish locking, discovery and composition failures before choosing or describing the floor's protection.
 * [A provider release is tagged first, then mirrored and pinned in one re-proven framework PR](a-provider-release-is-mirrored-and-pinned-in-one-pr.md) - Tag first, then review the tag-identical mirror and every pin as one diff; the gate keeps the Desktop suite, with the suites in CI and only named affected test files run locally, and a pin is re-proven after another shared-file change lands.
 * [Prefer a narrow integration-owned wrapper, and document its support matrix](prefer-a-narrow-integration-owned-wrapper-over-a-third-party-cli.md) - Own a JSON-first wrapper with credentials from the environment, and state what is supported, human-only or unsupported.
 
