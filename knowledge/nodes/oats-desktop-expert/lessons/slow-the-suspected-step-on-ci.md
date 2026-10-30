@@ -45,9 +45,9 @@ To ask whether an earlier change narrowed the timing margin, record the
 completion of the suspected step and the competing leave event on both
 sides of that change, under comparable conditions. Whole-test duration can
 bury that interval in unrelated run noise. The source's probe compared both
-trees in one dispatch and found smaller margins without observing a lost
-race in either tree: evidence of a timing shift, not a measured failure-rate
-increase. The kernel's
+trees in paired runs dispatched seconds apart and found smaller margins
+without observing a lost race in either tree: evidence of a timing shift,
+not a measured failure-rate increase. The kernel's
 [constructed versus ordinary race evidence](/nodes/oats-kernel-expert/lessons/narrow-race-evidence-needs-unpaused-controls.md)
 owns that distinction; a forced failure and a green unpaused batch answer
 different questions. No fixed repetition count proves a rare race absent.
@@ -78,9 +78,12 @@ Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-tui-terminal
 For awebai/oats#1662, the source reports Linux named runs of one terminal
 test file: all nine delayed-add rows failed on main with the reported
 message; the first fix retained the SIGTERM failure; a later run exposed the
-sibling Ctrl+Z wait; and the final head with a 1.5-second delay and eight
-repetitions of the leave rows passed 83 of 83 tests. The proposal identifies
-runs 41048973649, 41048978387, 41050034758 and 41050763780 respectively.
+sibling Ctrl+Z wait; and the reviewed fix head with a 1.5-second delay and
+eight repetitions of the leave rows passed 83 of 83 tests. The proposal
+identifies runs 41048973649, 41048978387, 41050034758 and 41050763780
+respectively. The first two ran at four seconds and the last two at 1.5, so
+the named runs hold no 1.5-second result on unfixed main, and none covers
+the later merge of main into that pull request.
 
 The proposal's margin probes (41048964957 and 41048969398), with 30 samples
 per cell, report median margins of 488 to 206 ms idle and 969 to 453 ms
