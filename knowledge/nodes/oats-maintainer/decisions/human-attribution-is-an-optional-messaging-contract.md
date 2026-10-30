@@ -52,8 +52,10 @@ This records direction, not a completed contract or implementation. At
 capture the contract was undecided and nothing was built. Both sides must
 decide the contract before implementation; the
 [onboarding effort's lane arrangement](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md#onboarding-redesign-delegation-2026-10-30)
-owns review and release coordination. Wire fields, custody mechanics and
-provider commands are not specified by this concept.
+owns release coordination and the
+[release-only review decision](/nodes/oats-maintainer/stewardship/onboarding-redesign-release-only-review.md)
+owns review. Wire fields, custody mechanics and provider commands are not
+specified by this concept.
 
 Acceptance is **source-reported**: Pepe, directly to the release lane in
 session on 2026-10-30. The public

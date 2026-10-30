@@ -65,9 +65,20 @@ The architectural review bar remains
 with onboarding skills and flows matching the design. Earlier accepted
 product-lane comments on this effort's specifications still bind the PRs;
 removing that lane from the review queue does not erase its accepted
-constraints. No particular aweb design choice, harvester removal or other
-supersession of human-accepted direction is authorized by this delegation
-alone.
+constraints.
+
+This delegation selects no particular aweb design: Juan's side makes that
+choice. It decides no harvester removal, and it supersedes no human-accepted
+direction beyond the reviewer assignments above. The relay reads design
+responsibility as covering a choice then open on the brief, how an aweb
+account owner relates to the human identity tree: `lane:juan` decides it and
+records it there. `lane:product` had
+[called that state a departure](https://github.com/awebai/oats/issues/1665#issuecomment-6528339097)
+from the accepted
+[human-bound default](/nodes/oats-maintainer/decisions/human-attribution-is-an-optional-messaging-contract.md).
+This record does not settle whether the chosen design departs from that
+decision. If it does, that change is its own explicit supersession, citing
+the human's acceptance.
 
 # Acceptance and evidence limits
 
@@ -86,6 +97,15 @@ and continued release responsibility. Record this as **source-reported
 (relay at that comment)**, not verified human authorship. The private
 session was not inspected. This harvest certifies neither a settled
 bilateral contract nor implementation, release or deployment.
+
+Recorded at maintainer review on 2026-10-30: the relay exists under the cited
+account and says what is claimed above, so the acceptance stands as
+**source-reported (relay at that comment)**. The words it quotes from Pepe
+cover Juan's side deciding, no review requests to his lanes, the release
+lane's sign-off or return, and deployment. The merge go for area-lane PRs,
+sole contract participation and tagging are the lane's own statement of that
+direction. The lane map's `lane:juan` entry carried no note of this routing
+at review; the brief is where it is published.
 
 Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
 2026-10-30; notes/onboarding-redesign-juans-side-builds.md.
