@@ -57,10 +57,11 @@ run evidence until those controls reliably make missing coverage fail.
 
 The proposal identifies
 [awebai/oats-aweb#165](https://github.com/awebai/oats-aweb/pull/165)
-as the associated work. Its merge, release and deployment status were not
-established by this harvest. Passing the reported journeys and admission
-tests does **not** establish completed real invite acceptance on 1.36.51;
-the proposal explicitly leaves that path unproven.
+as the associated work. It was open and unmerged at maintainer review on
+2026-10-30; release and deployment are not established. Passing the
+reported journeys and admission tests does **not** establish completed real
+invite acceptance on 1.36.51; the proposal explicitly leaves that path
+unproven.
 
 # Evidence
 
@@ -71,3 +72,8 @@ The failures, matrix precondition, passing cases and injected-refusal result
 are source-reported observations, not experiments rerun by this harvest.
 The reusable finding is why nominal real-binary coverage missed drift, not
 a maintained CI-status ledger or a guarantee about all later aw releases.
+
+Maintainer review of 2026-10-30 read that pull request's diff at `133e00f7`:
+it carries the two-version matrix, the skip rejection, the journey's version
+pin and the version-gated rows the lesson describes. Its reported run results
+remain source-reported.

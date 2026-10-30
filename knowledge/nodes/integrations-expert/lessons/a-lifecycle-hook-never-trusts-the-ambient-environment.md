@@ -102,3 +102,10 @@ The source identifies aw source revision `14111b5b` and comparisons of real
 binaries at 1.36.42 and 1.36.43. These observations are source-reported, not
 independently reproduced by this harvest. They do not prove successful real
 invite acceptance, every identity mode, or behavior of all future versions.
+
+Maintainer review of 2026-10-30 read the release boundary on GitHub, not by
+running a binary: revision
+[`14111b5b`](https://github.com/awebai/aweb/commit/14111b5b0f58c7cb39a096bf614fdf337042fed0)
+is in awebai/aweb, says it removes the allowlist, and is contained in tag
+`aw-v1.36.43` but not `aw-v1.36.42`. The policy message is in the policy source
+at `aw-v1.36.42` and absent at `aw-v1.36.43`.
