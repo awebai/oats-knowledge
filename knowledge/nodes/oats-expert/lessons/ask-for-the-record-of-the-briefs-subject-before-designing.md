@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Before designing from a human's brief, and before offering a "decision for the requester", check the lane's records; a recorded decision makes the item a supersession request to its human
-description: A brief can read as a new idea when its author decided and parked the same direction hours earlier, and a draft's "decisions for the requester" can reverse what another human recently decided; ask the lane's maintainer for the record of each subject, resume a parked direction rather than inventing a second mechanism, address each item a recorded decision owns to the human who made it with citation, reason and loss, and publish the draft where the lane's readers can open it.
-tags: [planning, briefs, decisions, supersession, resumption, maintainer, cross-area, review]
-timestamp: 2026-10-26
+description: A brief can read as a new idea when its author decided and parked the same direction hours earlier, and a draft's "decisions for the requester" can reverse what another human recently decided; ask the lane's maintainer for the record of each subject, resume a parked direction rather than inventing a second mechanism, address each item a recorded decision owns to the human who made it with citation, reason and loss, mark it pending even when that human has delegated review and quote their words as a decision or a leaning, and publish the draft where the lane's readers can open it.
+tags: [planning, briefs, decisions, supersession, resumption, maintainer, cross-area, review, delegation]
+timestamp: 2026-10-30
 ---
 # A brief is written from the author's head, not from the records
 
@@ -90,6 +90,45 @@ The result is one decision message per human, each able to act on it. The
 source rebuilt its draft with an owner on every item; the saved round is
 the correction the maintainer would otherwise have had to send.
 
+# Rule: delegated review authority is not the human's call on a supersession
+
+The check holds when the human has stepped back from the review. A human
+who tells the maintainers to review another side's work "without my
+sign-off, I trust your verdicts" has delegated **review**: judging whether
+what the other side builds is right and ready. That delegation does not
+extend to superseding what the same human, or another human, has accepted;
+nothing in it is the deciding human's answer to a supersession request, and
+the knowledge doctrine's line (an agent alone does not overturn a human's
+decision) is unchanged by it.
+
+In a second effort by this soul (a cross-side onboarding redesign in which
+the other side built and this side's lanes reviewed under exactly such a
+mandate), the brief's knowledge section proposed removing a role that
+human-accepted decisions had established, and said only that this was "a
+decision for the human". The lane maintainer receiving the brief asked
+whether the human had made that call and for the human's exact words. The
+human had not: the words were "I am more inclined towards", a leaning. The
+brief was amended and accepted whole.
+
+So, for every item in a brief that would supersede a human-accepted
+decision, however broad the delegated review mandate:
+
+- say that the item **waits for that human's explicit call**, where the
+  item appears, and do not let the mandate's wording stand in for it;
+- **quote the human's own words and label them**: a decision ("do X") or a
+  leaning ("I am more inclined towards X"). A leaning is direction worth
+  recording and designing toward; it is not acceptance, and the brief must
+  not let a reader infer one from the other;
+- in the source's case the receiving maintainer checked exactly these two
+  things before accepting the brief; writing them in on the first draft is
+  the saved round.
+
+This extends the record check above: it applies to the lead's own brief's
+proposals, not only to the requester's items, and delegated authority held
+by the reviewers is not the human's call. When the same brief is built by
+the other side, its ownership table has its own two-sided reading; see
+[a cross-side brief names who builds and which lane reviews](/nodes/oats-expert/lessons/cross-side-brief-names-who-builds-and-which-lane-reviews.md).
+
 # How this relates to neighbouring lessons
 
 [Trace each "done" item to the code that owns it](/nodes/oats-expert/lessons/trace-done-items-to-owning-code-before-accepting-repo-list.md)
@@ -120,7 +159,18 @@ notes/threads-direction-resumes-not-restarts.md. The draft-stage rule,
 the supersession request's shape, the structural status of the framework
 choice and the readable-draft point: OKF proposal from
 oats-expert/ui-ux-redesign-expert, 2026-10-26;
-notes/supersession-each-goes-to-its-human.md.
+notes/supersession-each-goes-to-its-human.md. The delegated-review rule:
+OKF proposal from oats-expert/oats-workspace-onboarding-setup-expert,
+2026-10-30;
+notes/delegated-review-authority-and-builder-reviewer-split.md.
+
+The delegated-review case is one brief and one human, source-reported: the
+maintainer's questions, the human's quoted words and the brief's amendment
+and acceptance are the source's report; this harvest read neither the
+brief, the mail nor the human's session. Which role the brief proposed to
+remove, and whether that direction later became a decision, is not recorded
+here; the lesson is the brief-writing step and grants no authority over
+that or any other human-accepted decision.
 
 One effort and one human, source-reported: the lead received the pointer in
 verified mail from the Desktop lane's maintainer after its start notice, and
