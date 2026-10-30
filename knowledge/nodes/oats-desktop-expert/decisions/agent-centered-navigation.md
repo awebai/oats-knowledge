@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-27
+timestamp: 2026-10-30
 ---
 # Rationale
 
@@ -51,10 +51,21 @@ forward, rather than making recency and relationships competing views.
   order; typing must not re-rank the surviving groups. This complements the
   [full-roster identity and ambiguity rule](../lessons/identity-and-relationship-legibility.md),
   rather than deriving relationships from search results.
-- **Keep previous-agent opening, not a fixed second-row shortcut.** Initially
-  select the latest-focused listed instance that is not the terminal in
-  front, and bring it into view. With a query, select the latest-focused
-  match. Tree order means recency rank no longer equals row number.
+- **Open on the first selectable row.** With an empty query, start at the
+  top of the ordered tree: the root of the most recently focused path. With
+  a query, select the first match in the projected order.
+
+This opening rule **supersedes the previous-agent rule (2026-10-19)**, which
+the 2026-10-14 refinement set and the earlier same-day tree refinement kept.
+That rule selected the latest-focused listed instance other than the terminal
+in front, or the latest-focused match for a query. Under tree order that row can sit mid-list, on a child or in a second group, making the
+starting point seem arbitrary even when the order is correct. The source
+reports the human owner's later request, relayed through the lane maintainer,
+to start at the top instead. The accepted tradeoff is losing the palette-open
+then Enter shortcut back to the previous agent; the cycle chord still moves
+down from the top. Moving the previous agent to the first row instead would
+break subtree-recency order. This supersedes opening selection, not the
+ranking, regrouping or query-projection rules above.
 
 Reject a flat Recent group ahead of this tree: once the whole list follows
 recency, it repeats rows. Reject ranking each node only by its own focus: a
@@ -218,3 +229,27 @@ Maintainer check (2026-10-19, review of oats-knowledge#133): awebai/oats#1383
 records the owner's request and the subtree-recency, regrouping, query and
 previous-agent rules; PR #1385, merged 2026-10-19, names the flat Recent group
 as superseded. The superseded group carried no human-acceptance record.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-opens-first-row.md.
+
+For the later opening-selection supersession, the source reports the human
+owner's request through the lane maintainer on 2026-10-19, with the loss of
+previous-agent quick return stated and accepted. It identifies
+[awebai/oats#1391](https://github.com/awebai/oats/issues/1391) and
+[PR #1392](https://github.com/awebai/oats/pull/1392). These acceptance and merge
+references remain source-reported, not independently audited by this harvest.
+The previous-agent rule had human-confirmed direction, so this supersession
+needed the human's acceptance; the maintainer check below records it. The
+source reports a CI regression for opening selection, but no live Electron
+or assistive-technology run. Such regressions enforce the behavior, not the
+reason for choosing it.
+
+Maintainer check (2026-10-30, review of oats-knowledge#135): the human owner's
+acceptance is **source-reported (relay at
+[awebai/oats#1392](https://github.com/awebai/oats/pull/1392#issuecomment-6266656161))**.
+In that 2026-10-19 comment the lane maintainer reports the owner's direct
+request and the owner's acceptance of losing previous-agent opening. It is an
+agent's report, not the human's own record. awebai/oats#1391 states the same
+change and tradeoff, PR #1392 merged on 2026-10-19, and the Desktop keyboard
+contract on main documents first-row opening. Live Electron behavior was not
+checked by this review.

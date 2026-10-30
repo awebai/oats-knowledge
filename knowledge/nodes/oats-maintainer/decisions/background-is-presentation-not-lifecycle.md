@@ -15,7 +15,9 @@ policy or lifecycle distinction.
 The selected shape is a soul default with a per-spawn override, recorded in
 a kernel-owned presentation file with the home and changeable later through
 a CLI operation. Reuse the agreed colour feature's presentation-state shape
-rather than invent a new kind of state. Keep it outside `instance.json`:
+rather than invent a new kind of state; the
+[presentation coherence ruling](/nodes/oats-maintainer/stewardship/presentation-features-reuse-one-contract.md)
+owns that comparison. Keep it outside `instance.json`:
 the source reports that start and restart rewrite that record, whereas a
 presentation choice must survive those operations. Exact key, filename and
 command spellings belong to the implementation contract, not this decision.
@@ -43,7 +45,10 @@ shared semantic distinction, not a panel specification or messaging policy.
   two meanings.
 
 The [shared-soul rollout gate](/nodes/oats-maintainer/stewardship/release-traps.md#shared-soul-keys-wait-for-every-reader)
-owns when this new declaration may enter committed souls. Client-specific
+and the [package-soul gate](/nodes/oats-maintainer/stewardship/release-traps.md#a-package-souls-new-key-is-a-package-wide-rollout-decision-2026-10-27)
+own when this new declaration may enter a soul, and the
+[background-defaults decision](/nodes/oats-maintainer/decisions/background-defaults-are-for-okf-services-not-oats-maintainers.md)
+owns which souls take it. Client-specific
 section, control and attention rendering belongs to the Desktop node; its
 [attention decision](/nodes/oats-desktop-expert/decisions/needs-input-preserves-liveness-and-recognition.md)
 already explains why collapsed content must not hide a waiting agent. This
@@ -73,3 +78,12 @@ and captured note were used as source evidence; no private correspondence or
 external contract discussion was audited. The source says the work is still
 being built. Preserve the selected shape and rejected alternatives, not
 final-contract, implementation, release or live-behavior certainty.
+
+The 2026-10-30 review read both cited comments on GitHub. 6441887900 is the
+other maintainer side's yes to the contract, naming no inheritance, no
+workspace default and a flag outside `instance.json`. 6441920300 presents
+itself as the source's lane relaying the product owner's decisions on subtree
+placement and on no workspace or host default: a relay, not the human's own
+record. The "still being built" line above is out of date: `docs/desktop-cli-api.md`
+at `cea30878` describes the flag, soul and off-by-default layers and the
+later CLI change. The review read those docs and did not run the feature.
