@@ -1,5 +1,9 @@
 # oats-expert log
 
+## 2026-10-30
+
+* **Update**: maintainer review of oats-knowledge#72 pointed [a framework request is ergonomics, not architecture](/nodes/oats-expert/lessons/framework-request-is-ergonomics-separate-chrome-from-live-pane.md) at the now-recorded [terminal-client exception](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md#terminal-client-exception-2026-10-09), closing the open question the 2026-10-26 review noted. The lesson's own claims are unchanged.
+
 ## 2026-10-29
 
 * **Harvest**: add [measuring cached gains through the client and across expiry](/nodes/oats-expert/lessons/measure-cached-gains-through-the-client-past-expiry.md): pace interleaved comparisons beyond reuse lifetime, include an observed refresh and report tail samples, drive each installation's real client path including child work, and count fallbacks. Preserve the source-reported expiry and omitted-collector examples without claiming population tail bounds, cache-policy approval or delivered benchmark automation. Name maintained client-path benchmarks and expiry/path checks as prevention routes. Evidence: OKF proposal from oats-expert/app-owned-reader-expert, 2026-10-29; notes/measure-a-cached-gain-past-its-window.md.
