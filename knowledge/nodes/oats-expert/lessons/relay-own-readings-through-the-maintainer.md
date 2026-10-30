@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Send a relay's own reading to the maintainer before offering a remedy
-description: When acting as the OATS contact for an outside adopter, submit your own diagnosis or workaround to the maintainer first and relay only the accepted answer without adding a remedy.
+description: Submit a relay's own remedy to the maintainer first, then preserve the accepted answer's wording and attribution without adding fix-version promises or making general setup advice host-specific.
 tags: [coordination, adoption, relay, authority]
-timestamp: 2026-10-14
+timestamp: 2026-10-27
 ---
 # A relay's advice can become the project's answer
 
@@ -30,6 +30,35 @@ The maintainer reportedly checked it against the release tag and approved
 the text before the expert relayed it. The useful contrast is the order of
 acceptance and advice, not either incident's version or workaround.
 
+# Name the issue, not a release commitment
+
+When drafting an answer that cites a known bug, name its tracking issue
+without promising a fix version. A version supplied by the relay becomes a
+commitment the release lane never made; release timing belongs to that lane.
+Describe how a setup works in terms of the setup, not the adopter's named
+machine, so a general answer does not read as host-specific advice.
+
+This is about the answer's scope and authority, not a ban on attributed
+host facts in diagnostic evidence. The related [deployment-specifics
+lesson](/nodes/oats-expert/lessons/design-records-name-no-deployment-specifics.md)
+covers design records and release notes; here the risk is what the adopter
+understands the project's answer to promise.
+
+# Preserve the words and identify the reader
+
+An accepted answer may contain lines addressed to the relay rather than
+the adopter. Keep the words unchanged and mark those lines with an explicit
+relay annotation, such as `[to the relay]`, distinguished from the quoted
+text. Otherwise the adopter can read an instruction or promise addressed to
+the relay as addressed to itself. Substituting neutral words hides that
+ambiguity by changing whose words the adopter receives.
+
+If the answer misattributes a source, leave the quoted wording intact and
+add a separate correction after the quote, naming the evidence for that
+correction. Keep the maintainer's text and the relay's sourced addition
+visibly distinct. This clarifies the existing as-given rule; it does not
+permit adding a remedy or changing the answer's limits and holds.
+
 # Scope and elimination route
 
 The [maintainer's review and scope rules](/nodes/oats-maintainer/stewardship/review-protocol.md)
@@ -44,6 +73,10 @@ an original recommendation as the project's answer. If this role recurs,
 make the maintainer-first boundary explicit in the role's coordination skill
 through a separately reviewed change; this harvest changes no skill. The
 lesson preserves why that boundary matters, not a second messaging recipe.
+A recurring relay skill could also require a distinct annotation area and
+source-labelled corrections. Quote-preservation checks can catch changed
+words, but cannot decide the intended addressee or grant release authority;
+those judgments remain at the communication boundary.
 
 # Evidence and limits
 
@@ -55,3 +88,17 @@ check and maintainer acceptance are source-reported, not independently
 verified by this harvest. No human acceptance is inferred and no product
 decision is superseded. Third-party message text and incident-specific
 remedies are not reproduced.
+
+Evidence: OKF proposal from oats-expert/polaris-oats-expert-lfx-support,
+2026-10-27; notes/relay-answers-name-issues-not-fix-versions.md;
+notes/verbatim-relay-marks-lines-addressed-to-the-relay.md.
+
+The later proposal reports a maintainer's two wording edits on 2026-10-15:
+cite the issue without a fix version and remove the host name. It also
+contrasts a phrase substitution disclosed as a deviation on 2026-10-15
+with a 2026-10-16 relay that marked the relay-addressed lines and appended
+a correction attributing a version comparison to its actual source.
+These are source-reported communication lessons, not independently audited
+correspondence or proof of a release. No human acceptance is inferred;
+no product decision is superseded. The incidents' names, versions and
+message text are not reproduced.

@@ -71,6 +71,17 @@ selection fill in every theme. The solid lineage can remain decorative
 follows redundant meaning, not the fact that something is drawn as a line.
 A future redesign that removes the redundant cue must revisit that judgment.
 
+**Partially superseded (2026-10-27, human-accepted):** on hosts supporting
+the feature, a parent-child line is drawn only for a child that declares
+shared work with its parent, and that line is the flag's only visible mark
+([declared shared-work lines](/nodes/oats-maintainer/decisions/parent-child-lines-require-declared-shared-work.md)).
+The human owner accepted this supersession in the review of
+oats-knowledge#166. Indentation still conveys parentage, and the sibling-link
+rules above are unchanged. The line no longer repeats what indentation shows,
+so the decorative-lineage judgment above is the redesign case it names: it is
+open for this node's owner to revisit (assistive-technology reading of the
+flag, and contrast if the line becomes meaningful).
+
 Apply the [effective-colour inventory](/nodes/oats-desktop-expert/lessons/effective-contrast-over-token-pairs.md)
 rather than treating a token-pair check as proof. Pixel offsets, stroke
 construction and colour constants belong in the repository. Shared-reader

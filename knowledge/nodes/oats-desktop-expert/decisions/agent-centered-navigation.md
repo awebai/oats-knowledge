@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-27
+timestamp: 2026-10-30
 ---
 # Rationale
 
@@ -51,10 +51,21 @@ forward, rather than making recency and relationships competing views.
   order; typing must not re-rank the surviving groups. This complements the
   [full-roster identity and ambiguity rule](../lessons/identity-and-relationship-legibility.md),
   rather than deriving relationships from search results.
-- **Keep previous-agent opening, not a fixed second-row shortcut.** Initially
-  select the latest-focused listed instance that is not the terminal in
-  front, and bring it into view. With a query, select the latest-focused
-  match. Tree order means recency rank no longer equals row number.
+- **Open on the first selectable row.** With an empty query, start at the
+  top of the ordered tree: the root of the most recently focused path. With
+  a query, select the first match in the projected order.
+
+This opening rule **supersedes the previous-agent rule (2026-10-19)**, which
+the 2026-10-14 refinement set and the earlier same-day tree refinement kept.
+That rule selected the latest-focused listed instance other than the terminal
+in front, or the latest-focused match for a query. Under tree order that row can sit mid-list, on a child or in a second group, making the
+starting point seem arbitrary even when the order is correct. The source
+reports the human owner's later request, relayed through the lane maintainer,
+to start at the top instead. The accepted tradeoff is losing the palette-open
+then Enter shortcut back to the previous agent; the cycle chord still moves
+down from the top. Moving the previous agent to the first row instead would
+break subtree-recency order. This supersedes opening selection, not the
+ranking, regrouping or query-projection rules above.
 
 Reject a flat Recent group ahead of this tree: once the whole list follows
 recency, it repeats rows. Reject ranking each node only by its own focus: a
@@ -107,16 +118,26 @@ next destination. With only one openable workspace, do not move; give one
 visible line explaining that there is no other workspace to show rather than
 silently doing nothing.
 
-This is a Desktop decision, not approval to change the terminal client's
-navigation. When both clients share the stepping logic, make wrapping an
-explicit client opt-in instead of silently changing the shared default. The
-source reports that terminal-client wrapping had not been decided at capture.
-This applies the [shared-client scope boundary](shared-terminal-opening-keeps-context-and-client-scope.md)
-to navigation; reuse of a helper is not agreement to change another client.
-Keep both modes and the one-workspace case covered in shared-step regressions.
+The initial decision was Desktop-only: terminal-client wrapping was still
+undecided, so sharing the step logic did not authorize silently changing the
+other client. That open point is **resolved by the later 2026-10-27 decision**
+reported by the same source: the human delegated the parity call, and the
+expert chose wrapping in both Desktop and the TUI because one shared keymap
+should give a workspace-move key one behavior across clients. This explicitly
+supersedes the earlier requirement to leave the TUI unchanged pending that
+call; it does not reverse Desktop wrapping or authorize unrelated shared
+behavior changes. The [shared-client scope boundary](shared-terminal-opening-keeps-context-and-client-scope.md)
+still holds: deliberate agreement, not helper reuse, permits the change.
+
+Keep workspace moves distinct from the workspace list's own cursor. The
+previous/next workspace actions cycle; Up/Down browsing inside the list still
+stops at its ends in both clients. Cover that distinction and the one-workspace
+case in client-level regressions, not only shared-helper tests.
 
 Focus on arrival is a separate choice, recorded in
 [Workspace switching restores the operator's place](workspace-switch-restores-focus-place.md).
+Matching wrap behavior does not imply matching focus destinations: Desktop's
+list-initiated move keeps list focus as a browsing choice, not TUI parity.
 This wrapping decision changes neither palette ordering nor workspace tab order.
 
 Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md.
@@ -134,7 +155,19 @@ and that terminal-client wrapping is undecided, and the Desktop keyboard
 contract on main now documents the wrap and the one-workspace line. The
 superseded No wrap rule carried no acceptance record in this base, and the
 reversal is the same human's later direction. Live Electron behavior was not
-checked by this review.
+checked by this review. This is the earlier decision's review, not a check of
+the later TUI refinement.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md; notes/workspace-switch-focus-place.md.
+
+The follow-up proposal reports the delegated parity call and identifies
+[awebai/oats#1565](https://github.com/awebai/oats/pull/1565), still under
+maintainer review at capture, for TUI wrapping and the focus-comment
+correction. Delegation and the later decision remain source-reported; this
+harvest did not independently verify human acceptance, implementation or
+shipment. The earlier capture's pending live evidence is updated only by the
+source-reported, limited [fixture check](../lessons/verification-judgment-for-privileged-surfaces.md#agent-free-fixtures-can-prove-desktop-input-arrival),
+not by a new live run in this harvest.
 
 # Workspace tab order
 
@@ -196,3 +229,27 @@ Maintainer check (2026-10-19, review of oats-knowledge#133): awebai/oats#1383
 records the owner's request and the subtree-recency, regrouping, query and
 previous-agent rules; PR #1385, merged 2026-10-19, names the flat Recent group
 as superseded. The superseded group carried no human-acceptance record.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-opens-first-row.md.
+
+For the later opening-selection supersession, the source reports the human
+owner's request through the lane maintainer on 2026-10-19, with the loss of
+previous-agent quick return stated and accepted. It identifies
+[awebai/oats#1391](https://github.com/awebai/oats/issues/1391) and
+[PR #1392](https://github.com/awebai/oats/pull/1392). These acceptance and merge
+references remain source-reported, not independently audited by this harvest.
+The previous-agent rule had human-confirmed direction, so this supersession
+needed the human's acceptance; the maintainer check below records it. The
+source reports a CI regression for opening selection, but no live Electron
+or assistive-technology run. Such regressions enforce the behavior, not the
+reason for choosing it.
+
+Maintainer check (2026-10-30, review of oats-knowledge#135): the human owner's
+acceptance is **source-reported (relay at
+[awebai/oats#1392](https://github.com/awebai/oats/pull/1392#issuecomment-6266656161))**.
+In that 2026-10-19 comment the lane maintainer reports the owner's direct
+request and the owner's acceptance of losing previous-agent opening. It is an
+agent's report, not the human's own record. awebai/oats#1391 states the same
+change and tradeoff, PR #1392 merged on 2026-10-19, and the Desktop keyboard
+contract on main documents first-row opening. Live Electron behavior was not
+checked by this review.

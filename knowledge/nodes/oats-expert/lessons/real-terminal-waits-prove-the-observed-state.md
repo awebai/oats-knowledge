@@ -53,6 +53,12 @@ permission to blame every platform failure on the harness. The width
 observation is scoped to the reported environment; test the relevant capture
 behavior rather than assuming all terminal versions share it.
 
+For end-to-end checks through a reusable fixture,
+[separate the real proof boundary from fixture isolation](real-proof-boundaries-preserve-fixture-isolation.md):
+a real harness does not remove placement stubs, and a private tmux socket
+does not remove an inherited messaging principal. That lesson owns the
+fixture-boundary audit; this one owns the validity of the observed state.
+
 # Elimination route
 
 Encode view-aware waits and transition barriers in the test harness, and make

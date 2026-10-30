@@ -49,6 +49,11 @@ kernel work alone, not promising that Desktop retains a pending row or
 receives the result after its server has gone. It is not a general guarantee
 about every CLI's response to a closed pipe.
 
+The later [non-cancellable file-output decision](noncancellable-kernel-work-unlinks-output-at-spawn.md)
+adds crash-independent temporary-output cleanup for work such as the machine
+recovery sweep. It does not replace this server's intentional owner-lifeline
+pipe or broaden the server's shutdown authority.
+
 This refines the ownership boundary in
 [Workspace admission](privileged-workspace-admission.md) without authorizing
 replacement of a server the app did not start. It also follows the separation
