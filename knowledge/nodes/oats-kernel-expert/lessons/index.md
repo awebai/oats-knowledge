@@ -1,5 +1,6 @@
 # Lessons
 
+* [Failed-turn boundaries differ by harness and must be qualified live](failed-turn-boundaries-differ-by-harness.md) - Pi attempt completion, Claude's fire-and-forget failure hook and Codex's missing failure hooks impose different reporting limits, so qualify finality and hook effects against the actual harness lifecycle.
 * [A warm process needs lifetime classification, not just a cache-reset list](warm-process-state-needs-lifetime-classification.md) - A warm-reader review missed a process-long WeakMap and misclassified a live-child registry, so repeated kernel calls need explicit reset, drain and safe-with-reason lifetimes backed by closure and equivalence tests.
 * [A file argument does not bound the repository test runner](a-file-argument-does-not-bound-the-repository-test-runner.md) - A single-file request through the repository runner unexpectedly selected the full suite, so kernel briefs need an explicit bounded invocation until runner semantics enforce the requested scope.
 * [A kernel rewrite does not remove unchanged child waits](kernel-rewrite-does-not-remove-child-waits.md) - Separate process startup and kernel compute from child waits before estimating a language rewrite's benefit, because measured warm-read gains do not remove provider, network or harness costs.

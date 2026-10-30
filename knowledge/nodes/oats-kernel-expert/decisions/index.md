@@ -1,5 +1,6 @@
 # Decisions
 
+* [A failed turn reuses the waiting claim, not a new reason or activity state](failed-turn-reuses-the-waiting-claim.md) - Report a terminal provider error through the harness adapter's own attention claim because a message conveys the failure without extending the closed reason enum or overwriting the agent's claim.
 * [Retire's lineage repair falls back on any atomic-write failure](retire-lineage-repair-falls-back-on-any-atomic-write-failure.md) - Retire's lineage repair tries atomic replacement but falls back in place on any failure, preserving the legacy write's outcome rather than adding a new retirement refusal.
 * [Launch-value verification is private and best-effort](launch-value-verification-is-private-and-best-effort.md) - A launch-value verifier must resist low-entropy guessing without becoming credential custody, and recording failure must not become a new reason to fail a start.
 * [Hot-read imports preserve contracts and static boundaries](hot-read-imports-preserve-contracts-and-static-boundaries.md) - Use a narrow hot-read import table with re-exported leaves and literal specifiers to reduce startup work without changing synchronous consumers, non-hot commands or soul-resolution errors.
