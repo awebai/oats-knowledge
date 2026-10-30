@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them, and pairs changes to shared instructional behaviour across separately released packages.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, coordinates source, tag, mirror, every form of version pin and the framework release that carries them, pairs changes to shared instructional behaviour across separately released packages, and treats a package rename as a republish with a bin collision and a token deadline.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-30
 ---
@@ -294,6 +294,27 @@ Release-verification automation should handle delayed availability explicitly
 and leave verification incomplete when its bounded check cannot obtain the
 artifact. This extends the existing no-republish rule, not a retry permission.
 
+## A package rename is a republish, not a move (2026-10-30)
+
+npm has no scope or name move. Moving the kernel and its packages to a new
+scope (the [org move decision](/nodes/oats-maintainer/decisions/oats-moves-to-its-own-org-in-stages.md))
+means **publishing the new names and deprecating the old ones**, with the
+old packages left in place for their readers. Two traps follow:
+
+- **A same-named bin fails `EEXIST` over the old package.** Installing a
+  new-scope package globally that ships the same bin as the installed
+  old-scope package fails with `EEXIST` and leaves the old one active;
+  `--force` succeeds but leaves both installed; uninstalling the old package
+  first is clean. The kernel's own update path and remote install run a
+  global install on the kernel's package name, so the rename stage must
+  tell them to remove the old name first rather than install over it.
+- **Token-based publishing has a deadline.** npm targets January 2027 to
+  remove direct publishing through bypass-2FA granular tokens; publishing
+  the new names from CI needs trusted publishing (or a staged-publish
+  token) set up before then, and a new scope is a fresh trust
+  configuration, not an inherited one. Plan the rename before the lane's
+  tokens stop publishing, not around that date.
+
 # What the pre-merge gate cannot rehearse
 
 Anything that only runs on a tag has never run when the PR is reviewed. A
@@ -545,6 +566,7 @@ not relax the integration gate or replace the failed-tag containment rule.
 1. Migrated from agents/oats-expert/soul/knowledge @ 7838d3ca (release lessons 2026-07-10 → 2026-09-22, `decisions/desktop-public-release-contract` amendment, `decisions/desktop-is-built-for-workspace-v2`), agents/cli-dev/soul/knowledge @ 7838d3ca (release-lane lessons, 2026-07-21 → 2026-07-29) and agents/oats-coordinator/soul/knowledge @ 7838d3ca (`release-lane`, `payload-publication`).
 2. Migrated from agents/oats-expert/soul/knowledge/stewardship @ 7838d3ca (delivery-log: the lead's 2026-09-24 release playbook entries; the 0.29.0 lockstep, stale-probe and shallow-clone lessons).
 3. Mirror + pin in one PR as practised by [awebai/oats#264](https://github.com/awebai/oats/pull/264) and [#266](https://github.com/awebai/oats/pull/266).
+4. [Stage-only npm tokens for safer automation](https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation/), GitHub Changelog, 2026-09-18: "npm is targeting January 2027 to remove direct publishing through bypass-2FA tokens."
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-pepe, 2026-10-14; notes/an-upgrade-is-rehearsed-from-released-kernels-before-the-tag.md; notes/a-published-tarball-can-lag-its-metadata.md; notes/a-release-prep-greps-escaped-version-pins.md.
 
@@ -577,3 +599,9 @@ kernel or certify rollout readiness. The 2026-10-30 review read
 [the other maintainer side's note on awebai/oats#1579](https://github.com/awebai/oats/issues/1579#issuecomment-6441887900),
 which asks for this confirmation before a change to `souls/oats-maintainer`
 lands and names the same precedent.
+
+Evidence for the rename trap: OKF proposal from
+oats-maintainer/haiku-oats-migration-maintainer, 2026-10-30;
+notes/repo-move-is-a-contract-change.md. The `EEXIST` behaviour is the
+source's local test with throwaway packages on npm 10.9.4; the January 2027
+target is citation 4. This harvest did not repeat the install test.
