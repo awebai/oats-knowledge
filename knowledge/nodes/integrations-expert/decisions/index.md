@@ -1,6 +1,8 @@
 # Decisions
 
-Accepted positions on packaging, installer ownership, desktop launcher input and messaging-provider behavior.
+Positions and rationale on packaging, installer ownership, launcher input, checkpoint wakes and messaging-provider behavior; each concept states its acceptance limits.
+
+* [An idle waiter's checkpoint wake belongs to the waiter](checkpoint-wake-belongs-to-the-waiter.md) - A waiter-owned kernel job supplies an external checkpoint without depending on harness timers or messaging, but does not prove a child stalled or guarantee timely delivery.
 
 * [Installers start from existing tools and preserve their ownership](installers-preserve-existing-tools-and-state.md) - An OATS installer reuses suitable existing tools, installs only missing ones, upgrades only its own installs, and preserves identities and configuration for adoption rather than replacement.
 * [A launcher's prompt is the person's session input, not agent mail](launcher-prompts-use-the-persons-session-input.md) - Deliver an explicitly entered launcher prompt through kernel session input rather than reclassifying it as agent mail, with no automatic retry and an attach path that preserves uncertainty.

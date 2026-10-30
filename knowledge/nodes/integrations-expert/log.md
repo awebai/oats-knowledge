@@ -1,5 +1,10 @@
 # integrations-expert log
 
+## 2026-10-30
+
+* **Harvest**: Added [waiter-owned checkpoint wake rationale](/nodes/integrations-expert/decisions/checkpoint-wake-belongs-to-the-waiter.md): preserve the source's cross-harness choice and rejected timer, target and recurrence alternatives without claiming a deadline guarantee or a diagnosed stall. Leave escalation counts and replacement policy to reviewed delegation guidance; the generalist's authorized-record and reported-activity boundaries remain unchanged. Guidance was unmerged at capture and the rehearsals are source-reported.
+* **Harvest**: Added [credential-free partial harness proof](/nodes/integrations-expert/lessons/credential-free-harness-probes-have-bounded-proof.md), linked from real-binary acceptance: distinguish real-TUI input consumption, positively established busy state and real-operation sandbox refusals from authenticated end-to-end execution. Reject permission-equivalence inference; preserve native authentication, fixture isolation and the full-lifecycle gate. Name executable fixtures and separate permission probes as prevention routes; no experiment was rerun by this harvest.
+
 ## 2026-10-29
 
 * **Harvest**: Added [forge-account attribution limits](/nodes/integrations-expert/lessons/forge-account-attribution-does-not-prove-human-authorship.md): a shared-account record does not establish human authorship or independent approval; preserve relay attribution and name a protected approval boundary plus regression coverage as prevention routes. Link the operator's credential decision without changing it or waiving human-acceptance gates; the reported relay was not independently audited.
