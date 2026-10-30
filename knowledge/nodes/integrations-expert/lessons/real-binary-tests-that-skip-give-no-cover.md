@@ -77,3 +77,12 @@ Maintainer review of 2026-10-30 read that pull request's diff at `133e00f7`:
 it carries the two-version matrix, the skip rejection, the journey's version
 pin and the version-gated rows the lesson describes. Its reported run results
 remain source-reported.
+
+Maintainer review of oats-knowledge#234, later the same day, found #165 merged
+at `94d212d9`, so the "open and unmerged" above is that earlier review's
+reading. [awebai/oats-aweb#167](https://github.com/awebai/oats-aweb/pull/167),
+merged at `26297493`, adds a real joined-team journey row (invite, accept,
+connect, list, retire). Its jobs passed at aw 1.36.33 and 1.36.51 in run
+41119385387, read by job conclusion only, so the invite limit above describes
+#165's evidence, not #167's. The changelog still listed that work as
+Unreleased: release and deployment stay unestablished. Not human acceptance.
