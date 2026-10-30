@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: Retire exclusion belongs to a whole-run claim, not a plan or retry key
-description: A whole-run lifecycle claim separates exclusion from freshness and replay; extending it to starts preserves existing contention answers and keeps restart's stop and relaunch in one critical section.
+description: A whole-run lifecycle claim separates exclusion from freshness and replay; starts preserve contention answers and span restart's stop and relaunch, but cannot borrow stop's claim-write fallback or claim a path without a readable home record.
 tags: [kernel, lifecycle, retire, resume, start, concurrency, fail-closed]
 timestamp: 2026-10-30
 ---
@@ -170,9 +170,45 @@ critical section and release-on-exit, plus interleaving, failed-launch and
 existing-answer regression tests. Claiming the canonical home also requires
 [binding the requested spelling to receipt authority](/nodes/oats-kernel-expert/lessons/resolved-object-not-referring-string.md#canonical-resolution-must-not-replace-requested-home-authority),
 not silently choosing whichever home a link reaches. The source reports
-review and mutation-sensitive tests; this harvest did not run them. As of
-2026-10-30, the implementation remained open [8][9]. The kernel owner should
-update this direction's status when it changes; it is not a shipped guarantee.
+review and mutation-sensitive tests; this harvest did not run them. The earlier
+2026-10-30 reading found the implementation open and returned [8][9]; the
+later reading found it merged [11]. The kernel owner should update this
+status when it changes; a merge is not a release or deployment guarantee.
+
+# Refinement: a start needs its claim, but a non-home takes none
+
+The later 2026-10-30 proposal preserves two boundaries exposed by review after
+green CI [10][11]. **A start or restart that cannot write its claim refuses
+with `E_LIFECYCLE_FAILED` before any effect.** Stop's read-instead fallback
+exists because an operator may need Stop precisely when storage is exhausted.
+It is a narrowly admitted exception for `instance stop --apply`, not a general
+way to acquire a claim: extending it to start would permit the unclaimed start
+that whole-start exclusion was chosen to prevent.
+
+That choice has a real compatibility cost. A healthy, writable home can sit
+beside a claims directory this user cannot write; its start could previously
+succeed and now refuses. Do not dismiss the change as a start that would have
+failed anyway on its own writes. Restore writability of the claims directory
+rather than bypass the claim. The reviewed permissions case matters separately
+from making the entire filesystem or parent unwritable.
+
+**Establish that there is a readable instance record before taking the claim.**
+A missing path, a non-home directory or an unreadable record is not a home to
+hold. Claiming it first can leave lifecycle state beside a mistyped path and
+replace the record refusal with a claim-write error. The accepted cost is that
+resume of an unreadable record beside a stop claim answers
+`E_UNIDENTIFIED_INSTANCE_HOME`, rather than `E_LIFECYCLE_BUSY`. A pre-claim
+record read admits the operation; it does not replace the authoritative reads
+under the claim or the requested-home authority check.
+
+Keep these boundaries in common start admission and claim acquisition, with
+real-CLI regressions for non-homes, unreadable records, an unwritable parent
+and a separately unwritable claims directory beside a writable home. The
+review also records a residual: a record becoming readable between the
+no-record precheck and start's own read can reach an unclaimed start during
+spawn. The reviewer retained approval and named atomic spawn-record writes as
+the follow-up [11]. This refinement is not proof that every such interleaving
+is eliminated, nor a new permission to bypass claims.
 
 # Boundaries and related decisions
 
@@ -214,6 +250,8 @@ without changing the existing plan or replay obligations.
 
 # Citations
 
+Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-30; notes/start-needs-its-claim-and-non-homes-take-none.md. This adds the claim-write refusal rationale, its compatibility cost and record-before-claim boundary; review records are maintainer-instance evidence, not independently established human acceptance.
+
 Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-30; notes/start-claim-keeps-start-busy.md. This extends start coverage and preserves the compatibility rationale; it does not establish human acceptance or shipped behavior.
 
 Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-28; notes/1601-restart-records-before-termination.md. This updates the failed-restart boundary by reference to its canonical stop-intent decision; the source reported the repair still under review, not shipped.
@@ -231,3 +269,5 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-exclusi
 7. Read on 2026-10-30: the [first-side proposal](https://github.com/awebai/oats/issues/1602#issuecomment-6476048759) and [other-side answer](https://github.com/awebai/oats/issues/1602#issuecomment-6477039652), both dated 2026-10-28, support whole-start coverage, unchanged two-start contention and the three build conditions. The [narrowing](https://github.com/awebai/oats/issues/1602#issuecomment-6477132396) and [precision](https://github.com/awebai/oats/issues/1602#issuecomment-6477180797) preserve the remaining start-lock pairs and resume/resume distinction. These are maintainer-instance records, not independently established human acceptance; the cited narrowing has no answering acceptance. This agrees with the evidence correction in [knowledge harvest #206](https://github.com/awebai/oats-knowledge/pull/206), rather than superseding its agreement gate.
 8. [awebai/oats#1657](https://github.com/awebai/oats/pull/1657) was open and unmerged at `040ae659df10` when read on 2026-10-30. Its description corroborates the selected start holder, restart span, skips, legacy contention answers and older-kernel refusal. It also records a link/retained-cleanup resume refusal-order exception, so the compatibility slogan is not promoted as universal output equivalence. Implementation, CI and mutation results remain source-reported, not independently audited or rerun.
 9. Checked by the knowledge maintainer at review on 2026-10-30: the lane maintainer's [RETURN](https://github.com/awebai/oats/pull/1657#issuecomment-6521130845) of that same head, posted seconds before this harvest was committed, reports the three build conditions and the narrowing met and one blocking problem outside the contention pairs: an existing directory that is no home now takes the claim, leaving claim state beside it, and where that write fails its refusal changes from `E_RUNTIME_ENDPOINT_UNKNOWN` to `E_LIFECYCLE_FAILED`. The fix it asks for keeps such a directory out of the claim. So the head cited in [8] was not accepted, and this case is a further reason the compatibility rule stays limited to contention pairs. The report was not reproduced at this review, and it does not say what finally ships. On awebai/oats#1602 the other side had still not answered the narrowing.
+10. Read on 2026-10-30: [the release-lane decision on awebai/oats#946](https://github.com/awebai/oats/issues/946#issuecomment-6109034481), dated 2026-10-11, explicitly keeps start and restart claim-required; [the other-side agreement](https://github.com/awebai/oats/issues/946#issuecomment-6109602718) agrees to the stop-only fallback and names the shared-deployment permission case. This corroborates the boundary without converting maintainer-instance agreement into human acceptance.
+11. Read on 2026-10-30: the [non-home fix approval](https://github.com/awebai/oats/pull/1657#issuecomment-6521615847), its [spawn-write correction](https://github.com/awebai/oats/pull/1657#issuecomment-6521652250), the [release-lane return](https://github.com/awebai/oats/pull/1657#issuecomment-6521657258) and [final approval](https://github.com/awebai/oats/pull/1657#issuecomment-6521909289) corroborate the two boundaries and the required documentation of the newly refused start. The PR description's earlier assertion that such a start fails anyway is not retained: the later review distinguishes the writable-home/unwritable-claims case. GitHub records [awebai/oats#1657](https://github.com/awebai/oats/pull/1657) merged on 2026-10-30 at `9ac28563d0eff35f8e95bd9d098ea9a153f7b113`, following review at `4d2063351` and a carried-verdict update. The record-read race remains a reviewer-reported limit; runtime, mutation and CI results were not rerun or independently audited by this harvest. No release or installed-host status was checked.
