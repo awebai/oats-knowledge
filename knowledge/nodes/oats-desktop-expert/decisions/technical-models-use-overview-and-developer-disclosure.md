@@ -3,7 +3,7 @@ type: Decision
 title: Explain a technical model with an overview and a closed developer disclosure
 description: Lead with one plain user-facing sentence and place developer-only mechanisms in a native disclosure, sharing state meanings with the visible rows rather than maintaining a second explanation.
 tags: [desktop, explanation, progressive-disclosure, accessibility, design]
-timestamp: 2026-10-15
+timestamp: 2026-10-23
 ---
 # Decision
 
@@ -47,6 +47,36 @@ This is progressive disclosure of developer detail, not permission to hide
 operational warnings or the row's state. It also does not replace the
 separate [shared-reader wording and attribution decision](shared-readers-separate-client-terms-and-kernel-prose.md),
 which governs client terms and the speaker of transported prose.
+
+# Tab concepts use an information modal
+
+An additive product-owner choice reported on 2026-10-23 distinguishes a
+newcomer's **definition of the tab's subject** from developer-only detail
+about an operational screen. For Souls and Capabilities, a round **i** in
+the tab toolbar opens a modal in the existing lifecycle-dialog frame, with
+one **Close** button. Explain what a soul is, or what capabilities are,
+their three sources and what Core and workspace defaults mean, as appropriate
+to that tab.
+
+An inline disclosure was considered and rejected for these definitions:
+the product owner chose a modal. This does **not** supersede Setup's inline
+overview and closed developer disclosure above. Do not turn either example
+into a universal rule that every explanation must use its container. The
+modal keeps introductory definitions on demand; the Setup pattern separates
+a useful visible summary from developer mechanism.
+
+[Workspace defaults](workspace-defaults-show-scope-and-purpose.md) records
+the placement and purpose of that section, and
+[Desktop composition vocabulary](desktop-copy-names-instances-and-injection.md)
+keeps the explanation aligned with the inspection UI. Reusing the dialog
+frame does not waive the existing accessibility and live-verification bar.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-capabilities-workspace-defaults, 2026-10-23; notes/capabilities-defaults-design.md.
+
+The source reports the product-owner's modal choice during the 2026-10-23
+design rounds and identifies [awebai/oats#1489](https://github.com/awebai/oats/pull/1489).
+Acceptance and implementation remain source-reported, not independently
+audited by this harvest.
 
 # Evidence
 

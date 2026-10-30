@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-19
+timestamp: 2026-10-27
 ---
 # Rationale
 
@@ -106,6 +106,94 @@ repository ownership. What defines a workspace has since changed (a Git-hosted
 workspace definition, and since Phase F a deployment directory whose facts come
 only from the kernel); the consequence has not: the switcher never moves
 between repositories inside one workspace.
+
+## Desktop workspace moves cycle rather than report an end
+
+The source reports human direction on **2026-10-27**, relayed by the lane
+maintainer: Desktop's previous/next workspace actions wrap between the first
+and last openable workspace rows. This explicitly supersedes the earlier
+**No wrap** rule reported in the Desktop keyboard contract. An end message
+made ordinary navigation look like an error when cycling offered an obvious
+next destination. With only one openable workspace, do not move; give one
+visible line explaining that there is no other workspace to show rather than
+silently doing nothing.
+
+The initial decision was Desktop-only: terminal-client wrapping was still
+undecided, so sharing the step logic did not authorize silently changing the
+other client. That open point is **resolved by the later 2026-10-27 decision**
+reported by the same source: the human delegated the parity call, and the
+expert chose wrapping in both Desktop and the TUI because one shared keymap
+should give a workspace-move key one behavior across clients. This explicitly
+supersedes the earlier requirement to leave the TUI unchanged pending that
+call; it does not reverse Desktop wrapping or authorize unrelated shared
+behavior changes. The [shared-client scope boundary](shared-terminal-opening-keeps-context-and-client-scope.md)
+still holds: deliberate agreement, not helper reuse, permits the change.
+
+Keep workspace moves distinct from the workspace list's own cursor. The
+previous/next workspace actions cycle; Up/Down browsing inside the list still
+stops at its ends in both clients. Cover that distinction and the one-workspace
+case in client-level regressions, not only shared-helper tests.
+
+Focus on arrival is a separate choice, recorded in
+[Workspace switching restores the operator's place](workspace-switch-restores-focus-place.md).
+Matching wrap behavior does not imply matching focus destinations: Desktop's
+list-initiated move keeps list focus as a browsing choice, not TUI parity.
+This wrapping decision changes neither palette ordering nor workspace tab order.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md.
+
+The source identifies [awebai/oats#1560](https://github.com/awebai/oats/pull/1560)
+and the [Desktop keyboard contract](https://github.com/awebai/oats/blob/main/packages/desktop/docs/desktop-keyboard.md).
+The superseded rule was not recorded in this base. Human direction and the
+reported reversal are source evidence, not independently audited acceptance
+or shipment; maintainer review and live Electron evidence were pending at
+capture.
+
+Maintainer check (2026-10-27, review of oats-knowledge#153): awebai/oats#1560
+merged 2026-10-27; its description records the human's request for wrapping
+and that terminal-client wrapping is undecided, and the Desktop keyboard
+contract on main now documents the wrap and the one-workspace line. The
+superseded No wrap rule carried no acceptance record in this base, and the
+reversal is the same human's later direction. Live Electron behavior was not
+checked by this review. This is the earlier decision's review, not a check of
+the later TUI refinement.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md; notes/workspace-switch-focus-place.md.
+
+The follow-up proposal reports the delegated parity call and identifies
+[awebai/oats#1565](https://github.com/awebai/oats/pull/1565), still under
+maintainer review at capture, for TUI wrapping and the focus-comment
+correction. Delegation and the later decision remain source-reported; this
+harvest did not independently verify human acceptance, implementation or
+shipment. The earlier capture's pending live evidence is updated only by the
+source-reported, limited [fixture check](../lessons/verification-judgment-for-privileged-surfaces.md#agent-free-fixtures-can-prove-desktop-input-arrival),
+not by a new live run in this harvest.
+
+# Workspace tab order
+
+The source reports product-owner direction on **2026-10-23** to order
+Workspace's tabs **Souls, Capabilities, Teams, Setup**. This explicitly
+supersedes the source-reported **2026-09-28 Teams-first** ordering. The
+captured evidence names that replacement but supplies no further rationale
+for the precise order; none is inferred here.
+
+This changes the Workspace tab sequence, not the deployment-switcher model,
+instance-palette ordering or explicit launch intent above. The
+[workspace-defaults decision](workspace-defaults-show-scope-and-purpose.md)
+records what leads the Capabilities tab. The earlier Teams-first direction
+was never recorded as a concept in this base; its date is kept here so the
+supersession stays explicit.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-capabilities-workspace-defaults, 2026-10-23; notes/capabilities-defaults-design.md.
+
+The proposal identifies [awebai/oats#1489](https://github.com/awebai/oats/pull/1489)
+as implementation evidence.
+
+Maintainer check (2026-10-26, review of oats-knowledge#145): awebai/oats#1489,
+merged 2026-10-23, records the product owner's 2026-10-23 request for this
+order and states that it supersedes the 2026-09-28 Teams first order; Souls
+stays the default tab. The superseded order was the same human's earlier
+direction and carried no acceptance record in this base.
 
 # Related
 

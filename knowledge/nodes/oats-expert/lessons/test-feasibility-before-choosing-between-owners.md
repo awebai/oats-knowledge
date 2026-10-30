@@ -70,6 +70,11 @@ When no owners disagree but the lead has an untested preference,
 That lesson owns the common state-preservation and interruption comparison,
 not this bounded draft-PR process for settling a feasibility claim.
 
+When the leaning is the human's, in the form of a named UI framework for a
+terminal client,
+[separate the chrome from the live pane and name the gating spikes](/nodes/oats-expert/lessons/framework-request-is-ergonomics-separate-chrome-from-live-pane.md)
+before committing to the framework.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/oats-expert-tui, 2026-10-09;
