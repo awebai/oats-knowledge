@@ -52,4 +52,7 @@ One effort: eight patches over ten repositories, one old client and one
 bridge, as the source reports them. The step-wise degradation is specific
 to that flip's patch order; the lesson is to replay the real order, not
 that every flip degrades in these steps. This harvest did not run the
-replay.
+replay. The bridge's own
+[pull request](https://github.com/awebai/oats/pull/1679) reports the same
+eight-patch result; it was unmerged at maintainer review, and no declared
+string has been flipped, so this is a rehearsal, not a completed move.

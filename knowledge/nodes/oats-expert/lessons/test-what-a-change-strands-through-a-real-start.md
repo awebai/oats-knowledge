@@ -46,7 +46,10 @@ specification:
 
 So the plan for a swap addresses sessions and the schedule unit, and does
 not need a forwarder for homes. Which stage of a move carries that is the
-maintainer's decision to record.
+maintainer's decision to record. The operational steps for moving a host to
+a new node version are the kernel's
+[upgrade guide](https://github.com/awebai/oats/blob/main/docs/upgrading.md);
+this lesson is about how the risk is established, not those steps.
 
 # How this differs from its neighbours
 
@@ -68,4 +71,7 @@ host with a stand-in harness binary, one frozen and one current core
 capability release, and did not run the schedule host install (it would
 have touched the host's live schedule). Counts of homes and the specific
 releases are source-reported and not durable. This harvest did not repeat
-the swap.
+the swap. Maintainer review confirmed the mechanism in source, not by a
+swap: at awebai/oats@c542bc3 the kernel rewrites the shim at every start,
+and oats.core's launch hook rewrites the Claude settings; the running-session
+results remain source-reported.
