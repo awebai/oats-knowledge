@@ -86,7 +86,16 @@ fallback-failure tests, plus a base-versus-head lineage comparison. No real
 full disk was filled. These results were not rerun or independently audited
 by the harvester.
 
+Status at maintainer review, 2026-10-30: GitHub records #1664 merged at the
+head the harvest read, so the design is on `main`. That is the merge record,
+not a release and not human acceptance of this tradeoff. The lost update
+remains open as [awebai/oats#1663](https://github.com/awebai/oats/issues/1663).
+The review read the merged lineage repair and confirmed that it runs after the
+retire hooks, falls back on any atomic failure and propagates the in-place
+write's failure. Nothing was rerun.
+
 # Citations
 
 1. [awebai/oats#1660](https://github.com/awebai/oats/issues/1660), read at harvest on 2026-10-30: reports the torn-read risk in lineage repair and mode drift in other record writes, and asks for atomic writes retaining the record's mode.
 2. [awebai/oats#1664](https://github.com/awebai/oats/pull/1664), read at harvest on 2026-10-30 at `98febda71aa8ca663182455c0c9629d859f1d25d`: its description corroborates the any-failure fallback, exact-mode rationale, mode-read refusal reaching fallback, metadata costs and remaining lost-update limitation. It was open with no published reviews when checked. Description and reported tests are source evidence, not maintainer acceptance, a release or an independently reproduced filesystem guarantee.
+3. [awebai/oats#1664](https://github.com/awebai/oats/pull/1664) and [awebai/oats#1663](https://github.com/awebai/oats/issues/1663), read at maintainer review on 2026-10-30: #1664 merged as `03a434a0d9deacf12ed712ca37234c30dd637845` from head `98febda71aa8ca663182455c0c9629d859f1d25d`, and #1663 open. The merged `lib/core.mjs` was read, not run.
