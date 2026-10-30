@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A bridge's home marker is retirement state, not harmless bookkeeping
-description: An undeclared bridge marker can make an otherwise disposable home require recovery, so runtime-side bookkeeping should reuse runtime-owned state rather than add home bytes.
-tags: [kernel, runtime, bridges, retirement, baseline]
-timestamp: 2026-10-15
+description: Home bookkeeping needs separate work-retention and copy-permission decisions; avoiding an undeclared bridge marker prevents needless recovery, but classifying a kernel file as a receipt does not keep sensitive bytes out of recovery storage.
+tags: [kernel, runtime, bridges, retirement, baseline, credentials]
+timestamp: 2026-10-27
 ---
 # Lesson and rationale
 
@@ -32,6 +32,42 @@ undeclared home marker. This governs bridge-owned bookkeeping, not the
 instance's legitimate task knowledge or a prohibition on all native harness
 writes. The [pi fresh-home decision](/nodes/oats-kernel-expert/decisions/pi-fresh-home-uses-runtime-sessions.md)
 applies it without duplicating this retirement rationale.
+
+# Refinement: work classification is not copy permission (2026-10-27)
+
+The launch-environment verifier exposed a second question for a new kernel
+home file: **is it work, and may it leave the home?** A kernel receipt
+exclusion answers the first question only. It keeps bookkeeping updates
+from being treated as task work; it does not prevent a recovery copy made
+for another reason from carrying that file out of the home.
+
+The source reports that review caught precisely this gap: classifying the
+verifier's files as receipts still let its key travel into recovery storage.
+For kernel files holding key material or credential-derived comparison
+material, exclude the bytes from the recovery copy **and** from that copy's
+verification. The copier and verifier must agree about the intended
+preservation set; otherwise verification can demand the very private bytes
+that the copy must omit. The [launch-value verification decision](/nodes/oats-kernel-expert/decisions/launch-value-verification-is-private-and-best-effort.md)
+explains the keyed-digest and best-effort-write rationale separately.
+
+This extends the earlier retention lesson; it does not authorize new bridge
+markers, arbitrary exclusions or rewriting old baselines. Kernel receipt
+classification and permission to export a file are independent decisions,
+not two names for disposable state.
+
+Enforce the chosen copy boundary in the recovery copier and its verifier,
+with a regression that forces recovery for legitimate work while private
+kernel material is present, then checks that the work is preserved and the
+private material is absent. A receipt-only/no-recovery test cannot exercise
+that leak. This is the elimination route, not a claim that the harvest ran
+such a test.
+
+Evidence: OKF proposal from oats-kernel-expert/session-resume-kernel-expert,
+2026-10-27; notes/decision-start-env-record-is-a-keyed-digest.md. The source
+attributes the finding and correction to review of
+[awebai/oats#1578](https://github.com/awebai/oats/pull/1578); this harvest did
+not audit the implementation or reproduce a copy. No human acceptance is
+inferred.
 
 # Elimination route and limit
 

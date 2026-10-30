@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses upgrades from released state and changed macOS tests before tags, contains failed-tag repairs, gates a package soul's new key on an installed accepting kernel, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them, and pairs changes to shared instructional behaviour across separately released packages.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-27
+timestamp: 2026-10-30
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -40,45 +40,227 @@ release.
   the human).** In-flight work that began against a superseded line lands on
   `main` and ships in the next release; the old release branch is left inert.
 
+## A one-off package patch is not a maintenance line (2026-10-28)
+
+The no-maintenance-line decision above leaves superseded development on
+`main`; it does not require shipping a deliberately held change with a
+needed fix. When a package's `main` already contains a change held for a
+later minor, isolate the patch from the last released tag. Releasing `main`
+would ship the held change; postponing the fix would leave users with the
+bug. Neither follows from keeping old release branches inert.
+
+Use a one-off release branch for a reviewed release-prep containing only the
+fix and required release metadata, and tag that prep's merge commit. The
+next minor's cut records the patch section on `main`; the patch branch stays
+inert, with no further work targeted to it. Its existence is not a promise
+to maintain the old line. This is a package-release isolation choice, not a
+change to the kernel tag/reachability contract above, ordinary review gates,
+or the human-accepted prohibition on ongoing work for an unused old line.
+
+Keep the operational mechanics in the existing release skill. Release
+verification should check the candidate against the selected tag and allowed
+fix/metadata delta so held content cannot slip into the patch. This is a
+prevention target, not automation established by this harvest; it cannot
+decide whether the held change is ready or create a maintenance commitment.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-28; notes/patch-from-older-tag-is-not-a-maintenance-line.md.
+The source identifies [oats-aweb#160](https://github.com/awebai/oats-aweb/pull/160)
+as a patch prep from the prior release with
+[#159](https://github.com/awebai/oats-aweb/pull/159)'s fix, excluding
+[#158](https://github.com/awebai/oats-aweb/pull/158) held for the later minor.
+This is one source-reported release, second read and tag, not independently
+audited shipment evidence or a new human decision to support an old line.
+
+# Pair changes to shared instructional behaviour (2026-10-27)
+
+When separately released packages both state one behaviour and a change to
+only one would make composed instructions disagree, the maintainer asks the
+release lane to pair both changes in the **same release window**. Treat
+that shared meaning as a release dependency, even when both diffs are only
+text and neither alone appears to break an API.
+
+The source's example is retirement responsibility stated in the oats.core
+inject shipped by oats.framework and in oats.engineering skills. Independent
+release review can find each new text coherent while missing the interval
+in which an instance composes the new rule from one package with the old
+rule from the other. The source reports that the release lane paired these
+changes in its plan; that is planning evidence, not proof either shipped.
+
+This extends lockstep release judgment to instructional meaning. It does
+not require coupling unrelated text edits or approve the underlying
+retirement policy. Same-window publication alone also does not prove that
+a deployment's selected pins compose a coherent set: the generalist's
+[dependent-text planning lesson](/nodes/oats-expert/lessons/soul-text-lands-with-its-capability-pin.md)
+owns that pin dependency and composed-text check. The
+[ship-together evidence gate](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md#a-ship-together-set-needs-whole-set-evidence-before-its-first-merge-2026-10-27)
+remains distinct from deciding which changes need pairing.
+
+Prefer one capability-owned definition of a shared rule; where separate
+texts must remain, composition checks at the intended versions can catch
+known disagreements. Recording the pair in the release plan and enforcing
+its dependency is the prevention route, with the remaining semantic
+judgment in release review. This harvest claims no new enforcement or
+skill change has landed.
+
 # A package soul's new key is a package-wide rollout decision (2026-10-27)
 
 A small declaration change in one packaged soul can raise the kernel floor
 for **every adopter of that package**, not just users who spawn that soul.
-The source reports that the package validator ties the package floor to its
-capability floors: adding a newly accepted soul key therefore excludes an
-older deployment from that package release altogether, rather than merely
-causing a later spawn refusal. Review the package-wide adoption consequence,
-not the size of the soul diff.
+Review the package-wide adoption consequence, not the size of the soul diff.
 
-For this rollout, the maintainer's gate is **before the package PR merges**:
-the accepting kernel release is published, and each maintainer side confirms
-its affected deployments run it. A published release alone is not evidence
-of installation. This extends the kernel-first rule above to package-soul
-adoption; it does not authorize upgrading anyone's deployment or assert that
-all deployments have moved.
+**Correction, 2026-10-28:** the earlier account said that the floor excludes
+an older deployment from the package release altogether, rather than causing
+a later spawn refusal. The source-reported released-kernel rehearsal on
+**0.68.1** contradicts that failure-stage description: sync still locks the
+new package and reports the unknown soul key as a schema problem. Discovery
+drops that soul (`E_SOUL_UNKNOWN`); the raised capability floor refuses new
+spawns that compose the package (`E_CAPABILITY_INCOMPATIBLE`), with a re-pin
+remedy. Existing homes keep their captured composition and continue running;
+that is not a guarantee that their later service spawns will succeed.
+
+For adoption advice, distinguish **locked** from **usable for the next
+spawn**. Do not promise that sync itself will block the incompatible release.
+The failure-stage finding is limited to the reported old-reader experiment,
+not every earlier kernel or every command.
+
+**Rollout refinement, 2026-10-28:** supersede the earlier requirement that
+every affected side already run the accepting kernel **before the package
+PR merges**. Ask each side **how it takes the package**, not just which
+kernel it runs. The compatibility gate belongs where the deployment adopts
+the floor-raising release:
+
+- A catalog-following deployment can remain on an older kernel while the
+  package change merges, provided the release lane moves the catalog to the
+  new package release only in a kernel release at or above its floor.
+- An explicitly chosen tag can also keep an older deployment on a compatible
+  package. The tag is not an exemption: selecting the floor-raising tag
+  requires an accepting kernel. Independently advancing the package ahead
+  of that kernel exposes the deployment to the refusal described above.
+- **Shared-workspace refinement, 2026-10-28:** ask whether **any deployment**
+  follows the project's own workspace definition, not only how product
+  deployments take packages. A deployment following
+  `workspace: git:github.com/awebai/oats` takes the pins in that repository's
+  `oats-workspace.yaml` at its next sync. Those pins move when the PR merges,
+  before a kernel tag: hold every PR that advances them to the floor-raising
+  package with the `hold` label until the affected side confirms that the
+  consuming deployment runs a kernel at or above the floor. This includes
+  the framework prep carrying the okf pin with onboarding text, not just the
+  kernel prep. A published accepting kernel alone does not lift that hold.
+- Keep each affected side's own second-read approval and record its adoption
+  routes across deployments and the applicable catalog or workspace-pin
+  condition. Under those conditions,
+  a side below the new floor need not hold the package merge merely until
+  it upgrades. Unknown adoption routes are not evidence of protection.
+
+This separates source merge from adoption rather than coupling a ready PR
+to every deployment's upgrade schedule. The shared-workspace route narrows
+the earlier catalog/tag framing: a side's catalog answer can be correct for
+its product deployments while omitting its own maintainer deployment. Hold
+the PR that changes the consuming workspace's pins, regardless of which
+release prep it is called; a hold on only the later kernel prep is too late.
+It does not relax the kernel-first
+package-release order above, authorize an upgrade or certify that any
+particular deployment is ready. A published accepting kernel and a green
+probe still do not prove that the deployment taking the new package runs it.
+The real-kernel rehearsal at the declared floor remains release evidence:
+record it in the package release PR before the tag, not as a substitute for
+compatible deployment selection.
 
 Moving the new behavior into an unconditional spawn-time flag in a skill
 is not a compatibility escape. That route still requires a feature check
 against the kernel that will execute it. A different place to spell the
 request does not make an older kernel understand it.
 
-The motivating case is the proposed background default for the packaged
-knowledge harvester. At capture the package PR remained draft and gated;
-its floor increase and accompanying real-kernel CI changes were a plan,
-not a completed rollout. Keep exact versions in the package's release
-artifacts rather than maintaining a second version ledger here.
+The motivating case was the background default for packaged service souls.
+The original 2026-10-27 proposal described a draft, gated change. The later
+2026-10-28 proposal reports that both package PRs merged after a second
+reader below the new floor approved on catalog/tag-selection grounds and the
+release lane accepted the catalog condition. This is one rollout across two
+packages and one other maintainer side, not a universal safety guarantee.
+Exposure from independently pinning ahead of the kernel is inferred from
+the accepted refusal findings, not an observed deployment failure in this
+rollout. Keep exact versions in release artifacts, not a second version
+ledger here.
 
 Enforce declared-floor consistency and supported-kernel compatibility in
-validation and CI; those checks cannot establish that the participating
-deployments have actually upgraded. The remaining release gate needs that
-installation evidence. This harvest neither ran those checks nor inspected
-deployments, and claims no new enforcement was delivered.
+validation and CI, including released-reader checks that distinguish locking,
+soul discovery and composition refusal. At catalog changes, check the selected
+package floor against the kernel release carrying it. Include shared-workspace
+pin changes in compatibility review and hold enforcement rather than keying
+the gate only to kernel-prep PRs. These are prevention targets, not enforcement
+delivered by this harvest. The remaining judgment is the deployment's actual
+adoption route and second-read agreement; tests
+cannot establish those or prove an installed upgrade. The integration
+[released-refusal lesson](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md)
+remains canonical for the experiment, not the maintainer's rollout gate.
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
 2026-10-27; notes/background-instances-gate.md. The package-wide consequence
 and merge gate are source-reported from
 [awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113), not an
 independently audited validator or rollout receipt.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-28; notes/package-soul-new-key-floor.md. For the correction, the source
+identifies the rehearsals in
+[awebai/oats-okf#113](https://github.com/awebai/oats-okf/pull/113) and
+[awebai/oats-cloning#6](https://github.com/awebai/oats-cloning/pull/6).
+The earlier proposal named accepting-kernel 0.69.2 checks and said neither
+package PR had merged at that capture; those checks do not establish failure
+behavior on additional old kernels.
+
+Evidence for the rollout refinement: OKF proposal from
+oats-maintainer/pepe-setup-maintainer, 2026-10-28;
+notes/package-soul-new-key-floor.md (updated capture). The source identifies
+the adoption-route explanation on
+[awebai/oats#1579](https://github.com/awebai/oats/issues/1579#issuecomment-6477062124),
+the second reads on
+[oats-okf#113](https://github.com/awebai/oats-okf/pull/113#issuecomment-6477061036)
+and [oats-cloning#6](https://github.com/awebai/oats-cloning/pull/6#issuecomment-6477061574),
+and the release lane's catalog condition on
+[the okf PR](https://github.com/awebai/oats-okf/pull/113#issuecomment-6477113344)
+and [the cloning PR](https://github.com/awebai/oats-cloning/pull/6#issuecomment-6477113895).
+Approvals, adoption routes and merges are source-reported, not independently
+audited receipts. The note records a request for the cloner's real-kernel
+rehearsal before the tag, not proof it completed. This harvest did not run
+the binaries, inspect deployments or establish release readiness.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-28; notes/package-floor-gate-met-by-pins.md. The source identifies the
+[release-plan adoption question](https://github.com/awebai/oats/issues/1571#issuecomment-6477231538),
+[the shared-workspace answer](https://github.com/awebai/oats/issues/1571#issuecomment-6477261137)
+and [the framework-prep precedent](https://github.com/awebai/oats/pull/1607).
+This extends the earlier catalog/tag account with one source-reported
+rollout and one other side. The hold had not been lifted at capture; no
+installed upgrade, completed rollout or independent deployment inspection
+is certified here. The workspace/package distinction remains in its
+[canonical decision](/nodes/oats-maintainer/decisions/workspace-definition-is-not-a-package.md),
+not a second workspace specification in this lesson.
+
+# Shared-soul keys wait for every reader
+
+The 2026-10-27 background-instance gate adds the deployment-side consequence
+of kernel-first release order: **a soul committed to a shared member
+repository gains a new schema key only after every deployment reading that
+soul runs a kernel that accepts it**. A released parser is not an installed
+parser. Otherwise a shared soul can become unreadable to a still-old
+deployment even though the feature's kernel release exists.
+
+Maintainer review scope, 2026-10-30: the proposal said "a committed soul".
+The gate holds where a deployment reads the soul from the member repository
+itself, so merging is adoption. A packaged soul has a catalog, tag or pin
+between merge and reader: the
+[package-soul section](/nodes/oats-maintainer/stewardship/release-traps.md#a-package-souls-new-key-is-a-package-wide-rollout-decision-2026-10-27)
+owns that case, and its 2026-10-28 refinement moved the gate to where the
+deployment adopts the release. This section restores no pre-merge gate there.
+
+The source cites the earlier launch-declaration rollout as precedent. This
+is not an automatic upgrade authorization or a claim that those deployments
+have moved. Keep deployment acceptance evidence in the rollout, and make
+schema compatibility a checked adoption gate rather than a memory-only
+warning. The [background decision](/nodes/oats-maintainer/decisions/background-is-presentation-not-lifecycle.md)
+is the motivating application, not a second home for the general rule.
 
 # Publish first, housekeep second
 
@@ -160,6 +342,42 @@ release gate requiring evidence for the candidate being tagged. That is not
 a claim such coverage has landed. Keep the remaining release judgment in
 the existing release skill, and remove the workaround only when the
 relevant platform path is actually covered before the tag.
+
+## Rehearse newly taught commands before the package tag (2026-10-28)
+
+Reviewing instructional prose and passing package CI do not establish that
+its command examples work on the kernel agents will use. The source reports
+that engineering 1.17.0 taught self-retirement without the required instance
+name; the first parentless lead to follow it received a usage error, and
+1.17.1 was needed to repair the already-tagged guidance. The same release
+also exposed the separate
+[package-versus-mirror neutrality gap](/nodes/oats-maintainer/lessons/engineering-layer-neutrality-needs-package-side-checks.md).
+That gap has its own canonical lesson; a green check for either property
+is not evidence for the other.
+
+Until executable examples are covered at the package gate, check each newly
+taught command against a current released kernel **before tagging the
+package**. Use its help to check required arguments and, where supported,
+a non-mutating plan of the taught invocation. A help response alone is not
+evidence that the invocation is valid or that the real operation succeeds;
+name what the check did and did not exercise. This is not permission to
+rehearse retirement or other lifecycle effects on working instances.
+
+The extra patch and late discovery are the release lesson, not a permanent
+inventory of missing package tests. Prefer deriving examples from the CLI
+contract where practical, with package CI exercising documented invocations
+against a released kernel in disposable fixtures. Check current coverage
+before carrying forward the manual guard. Remaining release judgment belongs
+in the existing release skill; this harvest adds no skill or test and claims
+no automation has landed.
+
+Evidence: OKF proposal from oats-maintainer/pepe-release-maintainer,
+2026-10-28; notes/check-engineering-mirrors-against-oats-before-tagging.md.
+The source identifies [awebai/oats-engineering#28](https://github.com/awebai/oats-engineering/pull/28)
+and [awebai/oats#1623](https://github.com/awebai/oats/pull/1623) as the
+package and later kernel-prep context. The usage failure, package-CI gap
+and repair releases are source-reported; this harvest did not run those
+commands or audit their implementation.
 
 # Verify the artifact, not the diff
 
@@ -313,6 +531,10 @@ compares them.
 
 # Related
 
+[Engineering layer neutrality needs package-side checks](/nodes/oats-maintainer/lessons/engineering-layer-neutrality-needs-package-side-checks.md)
+records why a package's green CI can miss a provider-specific instruction
+that fails the later mirror-and-pin release gate.
+
 [How the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md).
 [Protect the last release blocker from merge churn](/nodes/oats-maintainer/lessons/protect-the-last-release-blocker-from-merge-churn.md)
 records the scheduling remedy for repeated same-area base updates; it does
@@ -332,6 +554,11 @@ publication (run 38546688491), and escaped pins in
 [#1120](https://github.com/awebai/oats/pull/1120). These are source-reported
 observations; this harvest did not reproduce the rehearsal or registry reads.
 
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/injection-effort-scope-gate.md. Cross-package retirement
+text and the release lane's paired plan are source-reported; no completed
+release or mixed-version deployment failure was independently verified.
+
 Evidence: OKF proposal from oats-maintainer/pepe-release-maintainer,
 2026-10-27; notes/macos-desktop-tests-first-run-on-the-tag.md.
 
@@ -341,3 +568,12 @@ The source identifies the regression from
 [#1590](https://github.com/awebai/oats/issues/1590). The platform coverage,
 failed release, passing targeted run and repair shipment are source-reported;
 this harvest did not audit the workflows or reproduce those runs.
+
+Evidence for the shared-soul schema gate: OKF proposal from
+oats-maintainer/polaris-oats-maintainer-kernel, 2026-10-27;
+notes/background-instances-gate.md. The rule and launch-declaration precedent
+are source-reported; this harvest did not inspect any deployment's installed
+kernel or certify rollout readiness. The 2026-10-30 review read
+[the other maintainer side's note on awebai/oats#1579](https://github.com/awebai/oats/issues/1579#issuecomment-6441887900),
+which asks for this confirmation before a change to `souls/oats-maintainer`
+lands and names the same precedent.

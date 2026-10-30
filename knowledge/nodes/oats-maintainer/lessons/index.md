@@ -1,5 +1,7 @@
 # Lessons
 
+* [A failed-job rerun does not pick up a later base fix](a-rerun-does-not-pick-up-a-base-fix.md) - When PR CI failed on an old merge revision, rerunning that run does not test a fix subsequently merged to main; obtain fresh combination evidence and distinguish a branch update from an unchanged-head retrigger.
+* [Engineering layer neutrality needs package-side checks](engineering-layer-neutrality-needs-package-side-checks.md) - Use the package's own bounded neutrality check rather than importing the kernel test harness; retire the duplicate manual grep but retain the consumer guard until all pinnable releases are covered.
 * [Protect the last release blocker from merge churn](protect-the-last-release-blocker-from-merge-churn.md) - When one PR is the release's last blocker, arrange a temporary hold on competing merges to its paths so repeated base updates do not consume the critical path, without relaxing integration evidence.
 * [Adoption evidence and authority must match the claimed outcome](adoption-evidence-and-approved-scope.md) - Installation, execution, publication, consumption and learning are different evidence; classify a gap before adding anything.
 * [Second-operator acceptance — what the gate is for, how to read its failures, and the contract-siblings rule](second-operator-acceptance.md) - An outsider on the published combination, verifying by positive enumeration, is the acceptance gate; four failure classes, four owners.

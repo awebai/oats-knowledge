@@ -3,7 +3,7 @@ type: Decision
 title: Coordination policy lives in capabilities, not in the kernel or oats.core
 description: Review keeps coordination policy in composed capabilities; OATS delegates finished-child cleanup to parents and parentless-lead cleanup to the lead, reserving human-facing lifecycle messages for required decisions, approvals or input.
 tags: [stewardship, coordination, capabilities, instructions, retirement]
-timestamp: 2026-10-28
+timestamp: 2026-10-30
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes this coordination
 boundary records the new decision and its rationale here.**
@@ -110,10 +110,15 @@ the former bounded assignment to the release lane's human, relayed through
 that lane; that acceptance record is retained, not silently rewritten.
 
 Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-28;
-notes/maintainers-retire-finished-experts.md. Later acceptance is
-source-reported, not independently audited correspondence. This explicitly
-replaces a human-accepted assignment; the source's report does not waive the
-human review required for that supersession.
+notes/maintainers-retire-finished-experts.md.
+
+This explicitly replaces a human-accepted assignment. Acceptance is
+**source-reported (relay at
+[awebai/oats-engineering#28](https://github.com/awebai/oats-engineering/pull/28#issuecomment-6468930552))**,
+checked at maintainer review on 2026-10-30. The relay sets this option against
+the 2026-10-27 assignment, names that assignment as the same human's rule and
+reports the human leaving the choice to the source's recommendation. It is the
+source's report of that session, not the human's own record.
 
 # Human communication is for required action (2026-10-28)
 

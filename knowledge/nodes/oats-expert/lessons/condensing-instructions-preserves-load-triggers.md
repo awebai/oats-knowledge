@@ -71,6 +71,11 @@ it is not permission to move always-needed agent behavior off the hot path.
 
 # Canonical boundaries and prevention
 
+When the effort changes a rule rather than only condensing it, also plan
+[review of the neighboring capabilities in the composition](/nodes/oats-expert/lessons/rule-changes-need-cross-capability-composed-review.md).
+Preserving load coverage does not establish that another capability has
+stopped teaching the old rule.
+
 [Enumerating the guarantees the old behavior held up](/nodes/oats-expert/lessons/enumerate-what-a-removed-behaviour-held-up.md)
 is the general method. Here the guarantee at risk is contextual instruction
 coverage, and even a complete-looking disposition list can misstate it.

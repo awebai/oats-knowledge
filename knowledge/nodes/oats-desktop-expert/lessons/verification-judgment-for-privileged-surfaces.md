@@ -391,6 +391,10 @@ may not be run on a human's machine.
 
 # Related
 
+[Blocked live verification needs an owned handback](blocked-live-verification-needs-an-owned-handback.md)
+records who carries the remaining evidence when an agent cannot launch the
+app; it does not waive live acceptance or the safety rules above.
+
 [Signal tests must contain even regressed cleanup](signal-tests-must-contain-regressed-cleanup.md)
 adds the reparenting hazard: a test-owned child can acquire a foreign parent,
 so signal tests and their negative controls need a runner/namespace boundary
