@@ -25,5 +25,5 @@ and [integrations.md](https://github.com/awebai/oats/blob/main/docs/integrations
 ## Sections
 
 * [Lessons](lessons/index.md) - Hook, testing and release discipline learned building providers against the kernel's contracts.
-* [Decisions](decisions/index.md) - Accepted positions on packaging and on the messaging provider.
+* [Decisions](decisions/index.md) - Positions and rationale on packaging, installer ownership, launcher input, checkpoint wakes and messaging-provider behavior; each concept states its acceptance limits.
 * [References](references/index.md) - Layer contracts a provider must satisfy.

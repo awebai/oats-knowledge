@@ -26,7 +26,6 @@ Hook, testing and release discipline learned building providers against the kern
 ## Acceptance against the real tool
 
 * [Credential-free harness probes establish only the boundary they exercise](credential-free-harness-probes-have-bounded-proof.md) - A real TUI with a local stub provider can test input consumption without login, while real sandbox commands test particular permissions; neither substitutes for authenticated end-to-end acceptance.
-
 * [Forge account attribution does not prove human authorship](forge-account-attribution-does-not-prove-human-authorship.md) - When agents share a person's forge account, an author check establishes the account record, not human authorship or independent approval.
 * [A fake CLI that hangs must start a child of its own](a-fake-that-hangs-must-have-a-child.md) - A single-process hang fake hides descendant leaks, so timeout and reader-termination tests must observe both the fake and its child on every external-CLI call path.
 * [A fake CLI that accepts what the real binary refuses hides a broken hook](a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) - Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.

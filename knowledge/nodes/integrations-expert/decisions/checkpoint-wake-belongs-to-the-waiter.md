@@ -63,9 +63,27 @@ alone must not be treated as cancellation. Exact commands and cleanup
 semantics belong in the current scheduler and delegation guidance, not a
 second operational recipe here.
 
+Two further limits were open at harvest, and the rehearsals settle neither:
+
+- **A wake at an open permission prompt is untested.** A wake reaches a
+  running session as one paste and one Enter. Waiting claims are display-only,
+  so a set claim does not hold it back, and wake delivery stays outside the
+  launch controller that handles known prompts. The rehearsals covered idle
+  and busy waiters, not a waiter at a prompt, so whether that Enter can answer
+  one is **not established**. Do not assume that it cannot before making the
+  wake routine for every waiter. If it can, guidance cannot fix it: holding
+  delivery would reverse a documented kernel contract, which is its owners'
+  decision, and the "no new kernel capability" reason above would no longer
+  hold.
+- **Registering the job may itself stop at a prompt.** The permissions
+  guidance lists `oats schedule` among the operator acts, with no allow rule.
+  Treating a job on an instance's own home as a routine act is a proposal that
+  depends on the first limit, not a settled rule.
+
 The implementation route is the existing lead guidance using the existing
 scheduler. Reusable acceptance coverage should assert which home is woken,
-idle versus busy consumption, missed-minute behavior and job cleanup. Those
+idle versus busy consumption, behavior at an open prompt, missed-minute
+behavior and job cleanup. Those
 checks can prevent regressions in the mechanism; they cannot diagnose a
 child or confer intervention authority. No skill or scheduler change is
 delivered by this knowledge record.
@@ -83,3 +101,12 @@ not a kernel-launched instance or a timer tick. All observations are
 source-reported and were not rerun by this harvest. The proposal describes
 the associated guidance as unmerged at capture; no release or universal
 cross-harness delivery guarantee is claimed.
+
+The knowledge maintainer added the two open limits at review, from the
+[agent review of the associated guidance](https://github.com/awebai/oats-engineering/pull/34#issuecomment-6525755420)
+posted just before this harvest opened. That review kept the design and
+returned the guidance on those findings, among others; its author did not run
+the prompt case. It is not human acceptance. The delivery, claim and
+permissions statements were read in awebai/oats `docs/schedules.md`,
+`docs/execution-targets.md`, `docs/desktop-cli-api.md` and the
+`oats-agent-permissions` skill on 2026-10-30.
