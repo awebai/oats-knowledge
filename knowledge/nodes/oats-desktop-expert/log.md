@@ -1,5 +1,11 @@
 # oats-desktop-expert log
 
+## 2026-10-30
+
+* **Review**: maintainer accepted the harvest (oats-knowledge#107) with amendments. Its layout claim would have rewritten the title, description and two-group statement of the human-accepted [soul inspection decision](decisions/soul-instructions-own-and-composed.md) and cited no human acceptance, so that concept keeps its accepted text and gains only a Related link. The layout claim is dropped, and awebai/oats#1423 had already replaced the page it described. The inspection rationale moved to its own concept, which claims no human acceptance. Merged main to reconcile the node.
+* **Harvest**: added [Soul-skills inspection](decisions/soul-skills-opt-in-inspection.md): bounded inline text avoids per-file routed reads, an opt-in field avoids another verb or Desktop-side model, and the server gates on authoritative feature declarations. Linked the existing source-attribution decision and kept inventory parity as a regression route rather than a second contract specification.
+* **Harvest**: added [Blocked live verification](lessons/blocked-live-verification-needs-an-owned-handback.md): the developer names what automated evidence cannot prove and the expert turns it into owned human checks. Preserved the live quality bar and existing safety/acceptance gates; the reported lane rule and post-deployment timing are not new global policy, and planned checks are not completed evidence.
+
 ## 2026-10-28
 
 * **Harvest**: added [Signal-test containment](lessons/signal-tests-must-contain-regressed-cleanup.md): preserve the source-reported operator direction to keep real-process signal tests off real operator sessions, with disposable CI or isolated Linux PID-namespace execution. The reparenting incident makes test-owned targets, owned subreapers and group teardown before releasing child gates necessary even under a regressed script. Link existing mutation proof, native safety and platform evidence rather than duplicate them; name product repair and executable harness/CI enforcement as the elimination route. Source-reported Linux and macOS results were not rerun and do not establish universal containment or cross-platform coverage.

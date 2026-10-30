@@ -70,3 +70,9 @@ conversion of six classes of unproven items into human steps. No backing note
 was named; this harvest did not inspect the developer's handback or run the
 app. Neither the proposal nor this lesson establishes completion of those
 human checks.
+
+Maintainer check, 2026-10-30: #1201's description confirms the lane rule and
+lists what was left for a person after deployment. It also reports one earlier
+dev-build pass against an unreviewed kernel commit, and no live run on the
+final kernel. #1144 reports the check on the real app as coming after
+deployment, with steps from the lead. Neither shows that check was done.
