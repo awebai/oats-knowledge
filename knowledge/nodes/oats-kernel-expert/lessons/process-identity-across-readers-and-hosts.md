@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Process identity must survive different readers and host conventions
-description: Process identity needs environment-stable readers and fail-closed unknown handling, while PID existence and a matching start token do not prove an unreaped holder can still act.
+description: Process identity needs stable readers and fail-closed unknown handling; empty arguments can precede exit, while PID existence and a matching start token do not prove an unreaped holder can still act.
 tags: [kernel, process, liveness, portability, recovery, fail-closed]
-timestamp: 2026-10-10
+timestamp: 2026-10-30
 ---
 # Discovery
 
@@ -71,6 +71,25 @@ remains undecided in the source evidence: the holder cannot act itself,
 but its children may still act. Do not infer that detecting a zombie alone
 makes destructive takeover safe.
 
+# Empty arguments can precede the zombie state
+
+A 2026-10-30 source-reported Linux finding adds the opposite failure window:
+an exiting child can lose its arguments while still in state `R`, before it
+becomes a zombie, and `ps` then shows a bracketed name such as `[node]` rather
+than an empty field [4][5]. An argument-based identity check can therefore
+lose its match and report gone too early. Adding a zombie check does not make
+lost arguments proof of absence; the report does not establish that a
+`Z`-only predicate itself classifies an `R` process as gone.
+
+For a child whose identity was established earlier, retain that identity
+rather than rediscover it by command-line text. Use the existence and
+start-token distinctions above; when waiting for the test-owned child to be
+absent, require the established absence observation (`ESRCH`), not merely
+lost args or a sent signal. This complements the unreaped-holder limit,
+not a replacement for it: a matching identity can outlive the ability to
+act, and disappearing arguments can precede completed exit. Neither finding
+settles the safety of takeover while descendants may still act.
+
 # Safe refusal must still lead somewhere
 
 The maintainers required an unknown refusal to name an existing recovery
@@ -116,6 +135,15 @@ waiting for reaping in unrelated tests does not resolve the policy question.
 Update this lesson when that decision and implementation replace the
 limitation; the harvest does not establish the issue's current status [2].
 
+The pre-zombie finding likewise needs shared reader/wait logic and regression
+coverage, not another caller-specific `ps` predicate. Exercise loss of
+arguments before completed exit separately from the unreaped-child case;
+keep assertions about the transition being awaited intact. The Desktop
+[delayed-control lesson](/nodes/oats-desktop-expert/lessons/slow-the-suspected-step-on-ci.md)
+owns how a faster exit route exposed a remaining wait failure. Its diagnostic
+method is not duplicated here, and this harvest claims no completed fix or
+cross-platform reproduction of the new window.
+
 # Citations
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/process-liveness-across-hosts.md.
@@ -126,3 +154,8 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-exclusi
 
 2. The proposal and named note report the unreaped-child discovery and successful wait-for-reaping test workaround. The proposal associates the test failures with awebai/oats#871; the note attributes the discovery to work on awebai/oats#863. Both name awebai/oats#870 as the follow-up. The harvest preserves the shared finding without resolving that task attribution, replaying the experiments or auditing the implementation.
 3. Verified by the knowledge maintainer at review of the harvest on 2026-10-10. [awebai/oats#870](https://github.com/awebai/oats/issues/870), open at that review, states that the shared process-liveness reader answers alive for an exited, unreaped process through both readers, that a claim or a pending or in-progress marker naming it therefore refuses as busy until the parent reaps it, and that whether a zombie counts as gone is the decision a fix has to make for both readers, with the holder's children a separate matter. It records the finding as made while building [awebai/oats#863](https://github.com/awebai/oats/issues/863); [awebai/oats#871](https://github.com/awebai/oats/pull/871) is the pull request that fixes #863, so the two attributions in [2] name the same work. #871 was open and unmerged at that review; the tests it changes wait until `kill(pid, 0)` reports `ESRCH` before acting in the killed child's place, and count no other probe error as gone. This establishes what the issue and the pull request say, not a decision on #870; the source note itself was not read at review.
+
+Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-30; notes/exiting-process-reads-gone-before-zombie.md.
+
+4. The proposal and named note report that `product-maintainer-pepe` relayed the Linux pre-zombie finding from the TUI race lead on 2026-10-30. The proposing instance did not reproduce it; this harvest read the captured report, not the correspondence or an independent experiment. The finding remains source-reported, with no frequency, duration, all-Linux or cross-platform guarantee. It supports the argument-loss caution, not the broader claim that any check of `Z` alone must read a still-`R` child as gone.
+5. Checked by the knowledge maintainer at review on 2026-10-30: [awebai/oats#1662](https://github.com/awebai/oats/pull/1662), merged that day, states that on Linux an exiting process loses its args before it is a zombie, so `ps` shows `[node]` in state `R` for a moment, and that a control caught a first wait counting only the args or `Z`, on the SIGTERM row. Its repair is test-only: bracketed or parenthesised args count as not over. That is a caller-specific check, not the shared logic this lesson names. This establishes what the pull request says; the control was not rerun at this review.
