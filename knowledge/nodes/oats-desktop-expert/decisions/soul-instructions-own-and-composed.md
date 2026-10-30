@@ -61,6 +61,8 @@ false positive.
   focus and scroll.
 - [Kernel-composed instructions are executable surface](/nodes/oats-kernel-expert/lessons/kernel-composed-text-is-executable-surface.md):
   what the composed text is, from the kernel's side.
+- [A soul's own skills are an opt-in field of the soul inspection](soul-skills-opt-in-inspection.md):
+  the same opt-in boundary applied to a later field; it changes nothing here.
 
 # Current contracts
 
