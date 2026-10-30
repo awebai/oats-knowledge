@@ -126,6 +126,10 @@ can capture formerly implicit invariants for the verifier to challenge and
 the per-surface object-path inventory for lifted refusals; this harvest
 changes no engineering skill.
 
+When the change makes two spellings of a key one identity, the list to
+ask for is every use of the key as an identity, not only its compares:
+[identity-change specs inventory every use of the key](/nodes/oats-expert/lessons/identity-change-specs-inventory-every-use-of-the-key.md).
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/oats-expert-threaded-channel,
