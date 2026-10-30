@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Identity and location belong to the resolved object, never to the string that named it
-description: Containment and ownership guards compare resolved objects rather than referring strings, including native on-disk directory spelling for case-insensitive identity checks and descriptor identity for reads.
-tags: [kernel, security, containment, symlinks, identity, spawn]
-timestamp: 2026-10-15
+description: Resolved-object checks need independent intended-object authority, including receipt-bound requested homes, native on-disk directory spelling and descriptor identity before reads.
+tags: [kernel, security, containment, symlinks, identity, spawn, lifecycle]
+timestamp: 2026-10-30
 ---
 # Lesson
 
@@ -106,6 +106,47 @@ case-sensitive runner supplies no evidence for this failure mode. Obtain
 and identify the case-insensitive run rather than relying on the host's OS
 name alone. This preserves the descriptor and check-to-effect limits above.
 
+# Canonical resolution must not replace requested-home authority
+
+The 2026-10-30 start-claim review exposed a different way to choose the wrong
+object [5]. Moving canonical resolution before the authority guard was needed
+to claim the on-disk home, but a directory home exchanged for a link to another
+home could then be claimed and started as that other home. A second check of
+the requested path did not suffice: the link could select the other home
+during resolution and the original home could be restored before the guard.
+The two disk observations could each look legitimate without proving they
+referred to the same authorized home.
+
+**A resolved target is not its own authority to replace the requested home.**
+For an owned directory home whose given spelling differs from its real path,
+the selected fix checks the given home's own authority before taking either
+claim. Bind the real path to the home recorded by that home's receipt, not to
+agreement between two mutable disk reads. A mismatch refuses with
+`E_WORK_INSPECTION_FAILED` before either home's claim is acquired. This
+qualifies the earlier path-identity rule: canonicalization supplies location,
+while an independent recorded binding establishes the intended home.
+
+The elimination route is the shared requested-home guard, receipt-bound
+comparison and deterministic regressions for both a persistent redirect and
+a resolve-then-restore interleaving. A future specification that says to claim
+the canonical home must also state what binds the requested spelling to it,
+whether the caller is start, stop, upgrade or a new verb. This is a design
+obligation, not evidence that every such command is currently vulnerable or
+repaired. Preserve the descriptor and check-to-effect limits above; this is
+not a universal race-free filesystem claim or a ban on legitimate aliases.
+
+**Open limit as of 2026-10-30:** the source reports no equivalent receipt
+binding for worktree-mode homes; that case remained outside the repair.
+The kernel owner should update this finding when the binding or coverage
+changes. The proposed directory-home fix must not be advertised as closing
+all work modes. Review findings and regression results are source-reported;
+the implementation was still open when checked [5].
+
+The [whole-start claim decision](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
+records why acquisition moved, and the one-claim restart and compatibility
+constraints. This lesson owns the identity failure, not a duplicate lifecycle
+policy.
+
 # Related
 
 [A consumer filter takes the identity the kernel already reported](/nodes/oats-kernel-expert/decisions/consumer-filter-takes-the-reported-identity.md) applies the identity distinction at the CLI boundary without adding a filesystem containment rule.
@@ -116,7 +157,10 @@ name alone. This preserves the descriptor and check-to-effect limits above.
 
 # Citations
 
+Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-30; notes/canonical-home-needs-receipt-binding.md.
+
 1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (placement-guards-resolve-destination, names-are-not-identity, path-first-resolution-round-trip, symlink-containment-walker-throws, canonical-worktree-verification, adopted-writes-never-follow-a-symlink, captured-session-storage-identity; principle only).
 2. Migrated from agents/cli-dev/soul/knowledge/lessons/guard-the-projection-not-just-the-action.md @ 7838d3ca.
 3. Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-lifecycle, 2026-10-14; notes/compare-existing-paths-in-their-on-disk-spelling.md. The source attributes the reproduction to adversarial review of [awebai/oats#964](https://github.com/awebai/oats/issues/964), implemented in [#1186](https://github.com/awebai/oats/pull/1186), and reports second-round approval and macOS [run 38595416560](https://github.com/awebai/oats/actions/runs/38595416560). The run and repair are source-reported, not independently reproduced or audited by this harvest; no universal realpath behavior or current shipment status is certified.
 4. Reproduced by the knowledge maintainer at review of the harvest on 2026-10-15, on macOS with Node v22.21.1: for an existing directory created as `TreeDir` and named as `treedir`, `fs.realpathSync` returned the caller's lowercase spelling and `fs.realpathSync.native` the on-disk spelling. One host and one Node version only; the kernel repair in [#1186](https://github.com/awebai/oats/pull/1186), open at this review, and the cited run were not checked.
+5. The proposal and named note report two adversarial-review findings while implementing [awebai/oats#1602](https://github.com/awebai/oats/issues/1602): the link swap and resolve-then-restore race. [awebai/oats#1657](https://github.com/awebai/oats/pull/1657), read on 2026-10-30, was open and unmerged at `040ae659df10`; its description corroborates the directory-home receipt binding, refusal before either claim, unchanged worktree-mode limitation, and reported guard/receipt-binding mutation checks. No implementation audit, reproduction or test rerun was performed by this harvest.
