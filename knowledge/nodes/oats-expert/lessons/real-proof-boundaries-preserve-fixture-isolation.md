@@ -78,6 +78,13 @@ kills. The existing
 [lifetime, output and teardown bounds](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md#a-passing-live-terminal-check-can-still-exhaust-the-host)
 still apply when a real run is otherwise authorized.
 
+Two applications of the same boundary judgment to a repository contract
+change have their own lessons: [proving a flip on the real repositories
+from local bare copies](/nodes/oats-expert/lessons/prove-a-contract-flip-on-real-repositories-patch-by-patch.md),
+where the content and patches are real and the remotes are not, and
+[testing what a swap strands through a real start](/nodes/oats-expert/lessons/test-what-a-change-strands-through-a-real-start.md),
+where the start itself is the part that must be real.
+
 # Evidence
 
 Evidence: OKF proposal from oats-expert/oats-expert-session-resume,

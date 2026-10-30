@@ -56,6 +56,10 @@ The coordination skill is the place for a recurring collection procedure,
 under separate review. The lasting lesson is to distinguish a host
 observation from a relay's assertion about it.
 
+A host reading is also not one reading: a host can run several kernels,
+and the one its schedule unit runs is the one a home never reports. When
+the gate guards a contract flip, [count kernels, not hosts](/nodes/oats-expert/lessons/a-contract-flip-gate-counts-kernels-not-hosts.md).
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-expert/polaris-oats-expert-lfx-support,
