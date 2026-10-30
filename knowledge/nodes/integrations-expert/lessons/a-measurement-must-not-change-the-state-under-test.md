@@ -48,8 +48,16 @@ fixture must reject as contaminated. This turns the specific trap into a
 regression guard rather than relying only on an operator remembering it.
 These are proposed controls, not tests implemented or run by this harvest.
 
+For mail, the deferred
+[threads direction](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md)
+records a non-acking conversation read as accepted by the aweb project; that
+is a dependency of deferred work, not a command available today.
+
 This refines [real-binary acceptance](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md):
 using the real tool does not make the measurement apparatus neutral.
+The [real-terminal observation lesson](/nodes/oats-expert/lessons/real-terminal-waits-prove-the-observed-state.md)
+covers a passive observation that misreports the state; this one covers an
+observation that changes it.
 
 # Evidence
 
@@ -58,3 +66,11 @@ Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrat
 The proposal supplies the client version and clean-rerun report; the named
 note supplies the mistaken attribution and timestamp comparison. No live
 rehearsal was repeated by this harvest.
+
+Checked by the knowledge maintainer at review on 2026-10-30: the `aw mail
+inbox --help` text of aw 1.36.35 itself says that messages shown by the
+command are acknowledged as read, so the effect was declared, and a command's
+help is the cheapest first check of an observer. The `aw mail show --help`
+text of that version says nothing either way about acknowledgement, so it
+does not establish that the rerun's observation path preserves read state;
+that remains the source's report. No rehearsal was run here.
