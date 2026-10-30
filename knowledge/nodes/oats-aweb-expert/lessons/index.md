@@ -1,0 +1,4 @@
+# Lessons
+
+* [The suite's real-aw pins age with the installed client — compare against the clean base on the same host before calling a failure a regression](real-aw-pins-age-with-the-installed-client.md) - The package pins the real binary's refusals (exit code and message), and those pins break when the installed aw changes its check order, as aw 1.36.49 did for `team join` with a bad token; run the suite on the clean base on the same host before attributing a failure to a branch, and re-pin the real-aw tables in a dedicated PR, never inside a feature PR.
+* [Identity polling should not buy a server request for local facts](identity-polling-uses-offline-reads.md) - The health publisher chooses offline identity inspection because a per-minute whoami call adds a server request per identity for identifiers already held locally.

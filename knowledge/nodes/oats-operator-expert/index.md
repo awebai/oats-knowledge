@@ -21,7 +21,7 @@ node.
 
 ## Sections
 
-* [Decisions](decisions/index.md) - Operator positions on custody layout and workspace hosting.
+* [Decisions](decisions/index.md) - Operator positions on custody layout, workspace hosting and unattended credentials.
 * [Lessons](lessons/index.md) - Placement, identity, verification and adoption judgement.
 * [Playbooks](playbooks/index.md) - Cutover and rebuild sequencing.
 

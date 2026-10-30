@@ -38,7 +38,8 @@ accessibility review, and refuses a token-table screenshot as proof.
 # Related
 
 [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md);
-[Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md) (distinctions must not rely on colour alone).
+[Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md) (distinctions must not rely on colour alone);
+[Explicit sibling links are shown on both ends and apart from parentage](/nodes/oats-desktop-expert/decisions/sibling-relations-are-shown-apart-from-parentage.md) (why a separated sibling line is meaningful rather than decorative).
 
 # Current contracts
 

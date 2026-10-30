@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-09-20
+timestamp: 2026-10-27
 ---
 # Rationale
 
@@ -27,6 +27,61 @@ contradicting the requested product shape. Prefer coherent reuse of the
 existing roster to adding an overview merely to satisfy a technical
 reachability finding.
 
+# Recency belongs in the instance palette, not the roster
+
+The source expert's 2026-10-14 refinement kept the roster stable while
+making return to the previous agent fast: a flat Recent group led the palette,
+followed by never-focused instances in tree order. That flat-group design is
+**partially superseded (2026-10-19)** by the sidebar's tree ordered by subtree
+recency. The source reports the human owner's request and direct confirmation
+that a focused child lifts its ancestors and that independent runs re-form
+after ordering. Preserve the tree while bringing the path to recent work
+forward, rather than making recency and relationships competing views.
+
+- **Rank by the latest focus anywhere in the subtree.** Apply this at every
+  level: deployment sections, relation clusters, a cluster's roots and a
+  parent's children. A child stays under its parent; its focus lifts the
+  containing subtree relative to peers. Never-focused entries follow focused
+  ones in the sidebar's stable order.
+- **Order clusters and singles before forming display groups.** Each
+  multi-member cluster is a group; each run of consecutive singles becomes
+  an independent group in place. A previous independent run is not an
+  indivisible sorting unit.
+- **Order the full roster before applying a query.** Search projects that
+  order; typing must not re-rank the surviving groups. This complements the
+  [full-roster identity and ambiguity rule](../lessons/identity-and-relationship-legibility.md),
+  rather than deriving relationships from search results.
+- **Keep previous-agent opening, not a fixed second-row shortcut.** Initially
+  select the latest-focused listed instance that is not the terminal in
+  front, and bring it into view. With a query, select the latest-focused
+  match. Tree order means recency rank no longer equals row number.
+
+Reject a flat Recent group ahead of this tree: once the whole list follows
+recency, it repeats rows. Reject ranking each node only by its own focus: a
+fresh child would remain below its stale parent's less-recent siblings,
+contradicting the purpose of subtree ranking. Reject sorting an independent
+run as one block: a just-focused single would remain trapped behind a stale
+run. These are design tradeoffs, not interchangeable sorting implementations.
+
+The palette uses the sidebar's relationship cues as recorded in
+[Explicit sibling display](sibling-relations-are-shown-apart-from-parentage.md#one-relation-distinct-visual-and-accessible-readings).
+The sidebar's [name-order decision](roster-name-order-preserves-recognition.md)
+remains intact. This instance-switching choice does not supersede the
+soul-inspection and explicit-launch flow above.
+
+Reject reordering the sidebar roster by recency. It would make fast keyboard
+switching compete with the spatial memory that makes the roster useful.
+Selecting a tab instead reveals its roster row with only the necessary scroll,
+without moving input focus. The palette answers "where was I just working?";
+the stable roster still answers "which agent is this?".
+
+Recency is bounded, per-machine UI state, persisted in localStorage and
+scoped per workspace so it survives restart without leaking navigation
+history between workspaces. It is never deployment state and is not written
+to a deployment. This keeps one operator's navigation preference from becoming
+an operational fact for other clients. The cap's exact value belongs in the
+implementation, not a competing knowledge specification.
+
 # Workspace switching moves between deployments
 
 The workspace switcher is a **deployment switcher, not a repository filter**
@@ -41,12 +96,101 @@ workspace definition, and since Phase F a deployment directory whose facts come
 only from the kernel); the consequence has not: the switcher never moves
 between repositories inside one workspace.
 
+## Desktop workspace moves cycle rather than report an end
+
+The source reports human direction on **2026-10-27**, relayed by the lane
+maintainer: Desktop's previous/next workspace actions wrap between the first
+and last openable workspace rows. This explicitly supersedes the earlier
+**No wrap** rule reported in the Desktop keyboard contract. An end message
+made ordinary navigation look like an error when cycling offered an obvious
+next destination. With only one openable workspace, do not move; give one
+visible line explaining that there is no other workspace to show rather than
+silently doing nothing.
+
+The initial decision was Desktop-only: terminal-client wrapping was still
+undecided, so sharing the step logic did not authorize silently changing the
+other client. That open point is **resolved by the later 2026-10-27 decision**
+reported by the same source: the human delegated the parity call, and the
+expert chose wrapping in both Desktop and the TUI because one shared keymap
+should give a workspace-move key one behavior across clients. This explicitly
+supersedes the earlier requirement to leave the TUI unchanged pending that
+call; it does not reverse Desktop wrapping or authorize unrelated shared
+behavior changes. The [shared-client scope boundary](shared-terminal-opening-keeps-context-and-client-scope.md)
+still holds: deliberate agreement, not helper reuse, permits the change.
+
+Keep workspace moves distinct from the workspace list's own cursor. The
+previous/next workspace actions cycle; Up/Down browsing inside the list still
+stops at its ends in both clients. Cover that distinction and the one-workspace
+case in client-level regressions, not only shared-helper tests.
+
+Focus on arrival is a separate choice, recorded in
+[Workspace switching restores the operator's place](workspace-switch-restores-focus-place.md).
+Matching wrap behavior does not imply matching focus destinations: Desktop's
+list-initiated move keeps list focus as a browsing choice, not TUI parity.
+This wrapping decision changes neither palette ordering nor workspace tab order.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md.
+
+The source identifies [awebai/oats#1560](https://github.com/awebai/oats/pull/1560)
+and the [Desktop keyboard contract](https://github.com/awebai/oats/blob/main/packages/desktop/docs/desktop-keyboard.md).
+The superseded rule was not recorded in this base. Human direction and the
+reported reversal are source evidence, not independently audited acceptance
+or shipment; maintainer review and live Electron evidence were pending at
+capture.
+
+Maintainer check (2026-10-27, review of oats-knowledge#153): awebai/oats#1560
+merged 2026-10-27; its description records the human's request for wrapping
+and that terminal-client wrapping is undecided, and the Desktop keyboard
+contract on main now documents the wrap and the one-workspace line. The
+superseded No wrap rule carried no acceptance record in this base, and the
+reversal is the same human's later direction. Live Electron behavior was not
+checked by this review. This is the earlier decision's review, not a check of
+the later TUI refinement.
+
+Evidence: OKF proposal from oats-desktop-expert/workspace-switch-focus-expert, 2026-10-27; notes/workspace-moves-wrap.md; notes/workspace-switch-focus-place.md.
+
+The follow-up proposal reports the delegated parity call and identifies
+[awebai/oats#1565](https://github.com/awebai/oats/pull/1565), still under
+maintainer review at capture, for TUI wrapping and the focus-comment
+correction. Delegation and the later decision remain source-reported; this
+harvest did not independently verify human acceptance, implementation or
+shipment. The earlier capture's pending live evidence is updated only by the
+source-reported, limited [fixture check](../lessons/verification-judgment-for-privileged-surfaces.md#agent-free-fixtures-can-prove-desktop-input-arrival),
+not by a new live run in this harvest.
+
+# Workspace tab order
+
+The source reports product-owner direction on **2026-10-23** to order
+Workspace's tabs **Souls, Capabilities, Teams, Setup**. This explicitly
+supersedes the source-reported **2026-09-28 Teams-first** ordering. The
+captured evidence names that replacement but supplies no further rationale
+for the precise order; none is inferred here.
+
+This changes the Workspace tab sequence, not the deployment-switcher model,
+instance-palette ordering or explicit launch intent above. The
+[workspace-defaults decision](workspace-defaults-show-scope-and-purpose.md)
+records what leads the Capabilities tab. The earlier Teams-first direction
+was never recorded as a concept in this base; its date is kept here so the
+supersession stays explicit.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-capabilities-workspace-defaults, 2026-10-23; notes/capabilities-defaults-design.md.
+
+The proposal identifies [awebai/oats#1489](https://github.com/awebai/oats/pull/1489)
+as implementation evidence.
+
+Maintainer check (2026-10-26, review of oats-knowledge#145): awebai/oats#1489,
+merged 2026-10-23, records the product owner's 2026-10-23 request for this
+order and states that it supersedes the 2026-09-28 Teams first order; Souls
+stays the default tab. The superseded order was the same human's earlier
+direction and carried no acceptance record in this base.
+
 # Related
 
 [Identity and relationships must stay legible under ambiguity](../lessons/identity-and-relationship-legibility.md);
 [Keyboard policy follows actions and user intent](../lessons/keyboard-focus-and-action-ownership.md);
 [One standalone Desktop product, no hidden operational kernel](standalone-product-and-cli-authority.md);
-[Editor groups own layout and close succession](editor-group-layout-ownership.md).
+[Editor groups own layout and close succession](editor-group-layout-ownership.md);
+[Closed panels return their space to the main area](closed-panels-return-main-area-space.md).
 
 # Current contracts
 
@@ -57,3 +201,20 @@ between repositories inside one workspace.
 
 1. Migrated from agents/ux-designer/soul/knowledge, agents/oats-desktop-engineer/soul/knowledge and agents/dev-coordinator/soul/knowledge @ 7838d3ca.
 2. Founder-accepted direction 2026-07-26, "Desktop as the workspace view", carried in [Official OATS development runs on the architecture it offers adopters](/nodes/oats-maintainer/decisions/official-development-dogfoods-the-workspace.md).
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-linux-shell, 2026-10-14. The source identifies [awebai/oats#1158](https://github.com/awebai/oats/pull/1158) (`938837d0`) and [#1179](https://github.com/awebai/oats/pull/1179) (`b1e0ee0c`) for palette recency and roster reveal. These are source-reported implementation references, not independently audited shipment or human-acceptance receipts.
+
+Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-palette-order, 2026-10-19; notes/palette-recency-tree-design.md.
+
+For the partial supersession, the source reports the human owner's request
+through the lane maintainer and direct confirmation of both ordering readings
+on 2026-10-19. It identifies [awebai/oats#1383](https://github.com/awebai/oats/issues/1383)
+for design and [PR #1385](https://github.com/awebai/oats/pull/1385) for the merged
+implementation. Acceptance and shipment remain source-reported; this harvest
+did not audit the implementation or run Desktop. Ordering and query-projection
+regressions should enforce the decision; they do not replace its rationale.
+
+Maintainer check (2026-10-19, review of oats-knowledge#133): awebai/oats#1383
+records the owner's request and the subtree-recency, regrouping, query and
+previous-agent rules; PR #1385, merged 2026-10-19, names the flat Recent group
+as superseded. The superseded group carried no human-acceptance record.

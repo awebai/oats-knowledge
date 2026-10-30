@@ -18,7 +18,7 @@ first shipped split, replaced by this decision) attached a temporary arrangement
 
 Closing work should select a neighboring group member rather than an unrelated recent terminal. One real semantic tab control per item, with per-group navigation, avoids duplicated or phantom chrome and preserves accessibility.
 
-Group ownership within a layout does not by itself decide restoration across workspace switches. Treat cross-workspace restoration as a separate product decision, and verify version-specific behavior in the maintained Desktop contract.
+Group ownership within a layout does not by itself decide restoration across workspace switches. The separate [workspace focus-place decision](workspace-switch-restores-focus-place.md), dated 2026-10-27, now addresses that question without changing group ownership or close succession. Verify version-specific behavior in the maintained Desktop contract.
 
 # Related
 

@@ -28,9 +28,9 @@ so the rejected approach does not remain advice for the next reader.
 
 # What this adds to the existing experiment lessons
 
-[Test feasibility before choosing between owners](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md)
-addresses a disagreement that a bounded CI spike can settle. This lesson
-requires no disagreement: the assumption belongs to the lead itself, and
+[Test feasibility before committing to a plan](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md)
+addresses testable feasibility disputes and inherited CI limitations. Here
+the assumption belongs to the lead itself, and
 the important evidence may be state restoration or a visible interaction,
 not CI. Its distinct check is a comparison of alternatives under common
 observations before the spec fixes the choice. It grants no authorization
@@ -42,6 +42,19 @@ Do not weaken a comparison to make the favored candidate pass. The kernel's
 [terminal signal-lifetime lesson](/nodes/oats-kernel-expert/lessons/terminal-child-signal-gaps.md)
 owns the wrapper-lifetime rationale; this lesson does not restate its
 implementation policy.
+
+[Registry population coverage](/nodes/oats-expert/lessons/registry-population-needs-user-path-coverage.md)
+is a distinct application: an apparently complete set of explicit writers
+can still miss a user path, while an unmeasured cost assumption rules out
+automatic population too early.
+
+[Asking whether children follow when moving tree rows](/nodes/oats-expert/lessons/ask-whether-children-follow-when-hiding-tree-rows.md)
+addresses a different uncertainty: an experiment can compare implementation
+outcomes, but cannot select the human's intended descendant placement.
+
+For performance work, [profile the read's waits before designing concurrency](/nodes/oats-expert/lessons/profile-read-waits-before-designing-concurrency.md).
+Comparing candidates can show which is faster without identifying the cost
+that the proposed architecture should address.
 
 # Elimination route
 

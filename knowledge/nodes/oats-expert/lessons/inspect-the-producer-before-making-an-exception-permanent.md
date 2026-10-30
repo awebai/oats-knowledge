@@ -39,6 +39,12 @@ presents an exception; it grants no authority to relax a display or safety
 rule. The [Desktop attribution rationale](/nodes/oats-desktop-expert/decisions/source-prose-is-an-attributed-quote.md)
 remains in its owner's node and is not narrowed here.
 
+The same inspection, done while a brief is still being accepted rather than
+after a limitation appears, is [tracing each "done" item to the code that
+owns it](/nodes/oats-expert/lessons/trace-done-items-to-owning-code-before-accepting-repo-list.md);
+that lesson adds the step of naming the producing repository and owner in
+the spec.
+
 # Elimination route
 
 Have the shared owner carry origin through the interface, with tests for

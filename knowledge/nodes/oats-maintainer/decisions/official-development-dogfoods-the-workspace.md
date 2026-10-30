@@ -3,7 +3,7 @@ type: Decision
 title: Official OATS development runs on the architecture it offers adopters
 description: The framework and its official package repositories develop as one multi-repository OATS workspace, so the project exercises its own workspace, curriculum and discovery architecture at real scale under one cross-package stewardship gate; a repository may be a member and a package publisher without the two roles collapsing.
 tags: [workspace, packages, development, stewardship, dogfooding, supersession]
-timestamp: 2026-09-24
+timestamp: 2026-10-29
 ---
 # Decision
 
@@ -36,7 +36,8 @@ packages do not drift into isolated directions. Who holds which role is the
 
 Stated by the human at the start of the v2 implementation: **a repository may
 be a member AND a package publisher, and the two roles do not collapse.**
-Every official package repository is a member of the OATS workspace (its
+The 2026-09-23 consumption formulation, narrowed below, was: every official
+package repository is a member of the OATS workspace (its
 souls are discoverable at latest state) *and* its published package is
 consumed by the framework's own souls as a package — versioned, pinned in the
 workspace, locked by commit and integrity. What a repository exports as
@@ -45,6 +46,19 @@ one repository; membership never turns a package into a latest-state member
 capability. So the framework consumes its own packages exactly as an adopter
 does, while the package repositories' expert souls are reached through
 membership like any adopter's own souls.
+
+**Explicit exception, 2026-10-29:** the source reports the release lane's
+human chose to stop pinning and composing `oats.cloning` in this workspace
+while retaining its catalog entry and member repository. This narrows the
+blanket consumption statement above for that package, not the membership,
+publisher separation or dogfooding intent. The
+[cloning consumption decision](/nodes/oats-maintainer/decisions/dev-workspace-does-not-compose-cloning.md)
+is canonical for the scope, acceptance evidence and human approval needed
+to reverse it.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-29; notes/dev-workspace-does-not-compose-cloning.md. Human acceptance
+is source-reported, not independently audited by this harvest.
 
 # What survives from 2026-07-26
 

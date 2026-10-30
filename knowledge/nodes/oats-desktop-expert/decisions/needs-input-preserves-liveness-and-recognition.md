@@ -47,6 +47,9 @@ of attention and liveness above.
 
 # Related
 
+- [Name-ordered rosters](roster-name-order-preserves-recognition.md) extend
+  the recognition rationale to liveness and bundle placement, without
+  changing this attention-marker design.
 - [Agent-centered navigation](agent-centered-navigation.md) is the broader
   rationale for keeping the action target legible.
 - [Identity and relationship legibility](../lessons/identity-and-relationship-legibility.md)
