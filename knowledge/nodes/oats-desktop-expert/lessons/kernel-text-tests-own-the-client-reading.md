@@ -57,6 +57,11 @@ that ownership. [Coupled landings](coupled-kernel-and-desktop-landings.md)
 owns the separate case where a producer change would make the shipped client
 actively wrong.
 
+The complementary [client-wording audit](client-wording-must-hold-at-every-code-producer.md)
+asks whether the client's own sentence holds across every producer of a code,
+even when its outcome classification is correct; it does not freeze kernel
+prose.
+
 # Evidence and limits
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-lfx-desktop-queue, 2026-10-14; notes/a-root-test-on-live-kernel-text-holds-the-reader-not-the-kernels-sentences.md; notes/a-test-of-absence-reads-the-words-from-their-owner-and-has-a-positive-control.md.
