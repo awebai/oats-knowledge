@@ -59,6 +59,42 @@ install the floor and newer version being qualified, fail on skipped required
 cases, and check that each version reached the intended behavior. The linked
 lesson preserves why a green suite and then a matrix both missed that proof.
 
+# Refusal classifiers need real-output evidence
+
+A fake can conceal a classifier that **never matches**, not only a hook that
+accepts too much. In the source's 2026-10-30 joined-team spawn/retire rehearsal,
+the provider expected an identity-home path in a refusal; real aw identified
+the identity instead. The fake printed the path the code expected, so unit
+tests stayed green while the real match failed at both aw 1.36.33 and 1.36.51.
+The failure was conservative: retirement stopped and kept the key. These are
+source-reported observations, not runs repeated by this harvest.
+
+For a refusal match that decides whether a key may go, require a real-binary
+case that reaches the refusal and proves the intended classification actually
+fires. A successful lifecycle run that never reaches that branch is not this
+proof. Keep negative cases for misleading paths, unrelated prose and unknown
+errors; do not make a dead exact match pass by weakening it to a substring
+search. The existing [cleanup and key-retention rule](/nodes/integrations-expert/lessons/a-hook-reports-only-the-cleanup-it-confirmed.md)
+owns when a key-independent handoff is permissible and why unknown failures
+remain fatal.
+
+**A precise text match is not a stable machine contract.** The source reports
+that aw's owner did not guarantee stderr wording and that no suitable error
+code existed at capture. Treat such a match as temporary compatibility debt,
+not a permanent parser contract or a universal rule that stderr is always
+unstable. The elimination route is a documented structured error code, such
+as a code in a JSON error, with tests for its semantics. Until that exists,
+exercise the refusal classifier against the real supported binaries and keep
+the fake aligned with observed output. This lesson certifies neither a new
+error-code API nor shipment of the reported fix.
+
+**Audit output consumers, not just the phrase known to have changed.** The
+source's first wording-based audit reported no text dependency; the real
+rehearsal disproved it the same day. Start from reads of tool output and trace
+which consumers classify it, rather than treating an unsuccessful search for
+one diagnostic phrase as a clean audit. The durable finding is that blind
+spot and its elimination route, not a second reference for aw's output format.
+
 # Scratch-deployment boundary
 
 **Before choosing a scratch deployment to prove a line, ask which state the
@@ -199,6 +235,7 @@ failure and its limits, rather than a universal command recipe.
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/a-fake-that-prints-what-the-code-expects.md. The refusal mismatch, failed wording-based audit and tool-owner statement are source-reported; this harvest did not rerun the reported fixes or independently verify the owner's statement.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/real-binary-tests-that-skip-give-no-cover.md; notes/aw-1-36-43-selection-order.md. The CI execution gap and removal of the external-home allowlist are source-reported; this harvest did not rerun them or establish real invite acceptance on aw 1.36.51.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/a-check-can-change-what-it-checks.md. The linked measurement lesson preserves the source-reported observation and version limit; no rehearsal was rerun by this harvest.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/prove-a-harness-you-cannot-log-in-to.md; notes/idle-waiter-wake-rehearsal.md. The linked partial-proof finding is source-reported and does not certify authenticated end-to-end execution.
