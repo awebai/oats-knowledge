@@ -3,7 +3,7 @@ type: Lesson
 title: A fake CLI that accepts what the real binary refuses hides a broken hook — a provider that drives an external CLI is accepted on the whole lifecycle against the published binary
 description: Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
 tags: [lesson, integrations, hooks, testing, fake-cli, rehearsal, acceptance, versioning]
-timestamp: 2026-10-29
+timestamp: 2026-10-30
 ---
 
 Learned 2026-09-23/24 across five review rounds of one messaging provider,
@@ -167,6 +167,11 @@ For package-kernel compatibility, [prove where the floor refuses](/nodes/integra
 a released-reader probe distinguishes a successful lock from discovery and
 composition failures, rather than inferring protection from the floor's intent.
 
+For a missing harness login, [credential-free partial probes](/nodes/integrations-expert/lessons/credential-free-harness-probes-have-bounded-proof.md)
+can exercise the real TUI's input path and particular sandbox operations.
+They leave authenticated launch, host-timer delivery and real-provider work
+unproven; they do not replace this lifecycle gate.
+
 # Consequences
 
 - A provider PR that touches a hook calling an external tool carries a
@@ -179,6 +184,8 @@ composition failures, rather than inferring protection from the floor's intent.
   this node's.
 
 # Citations
+
+- Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/prove-a-harness-you-cannot-log-in-to.md; notes/idle-waiter-wake-rehearsal.md. The linked partial-proof finding is source-reported and does not certify authenticated end-to-end execution.
 
 - Evidence: OKF proposal from integrations-expert/okf-needs-human-removal-integrations-expert, 2026-10-29; notes/poller-triggers-need-an-observed-state-change.md. The missed-observation finding and kernel/status inspection are source-reported; neither the revised migration nor its proposed regression coverage was executed by this harvest.
 - Evidence: OKF proposal from integrations-expert/cloner-rehearsal-integrations-expert, 2026-10-28; notes/package-soul-rehearsal-scratch-workspace.md. The package-soul composition and deployment-list cleanup results are source-reported from one run on OATS 0.69.4, not independently reproduced by this harvest.
