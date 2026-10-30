@@ -17,9 +17,17 @@ Hook, testing and release discipline learned building providers against the kern
 * [A fallback the contract defines is implemented in every path and is a warning](a-fallback-the-contract-defines-is-a-warning-not-a-readiness-problem.md) - Every mode and readiness take the defined default and warn; readiness derives the value exactly as spawn does.
 * [Type availability failures, but rethrow domain errors untouched](type-availability-failures-but-rethrow-domain-errors.md) - A typed availability wrapper catches only transport and unusable-source failures and lets custody, path and validation errors pass.
 
+## Host config and persistent commands
+
+* [Desktop persistence apply is a human handoff, not a classifier workaround](desktop-persistence-apply-is-a-human-handoff.md) - Agent-assisted desktop setup separates plan and check from the person's persistence-changing act, respects harness refusals, and limits each chosen option to its own effects.
+* [Live config validation belongs after confirmation, not in a reusable preview cache](config-validation-belongs-after-confirmation.md) - Validate an isolated baseline and candidate after confirmation and just before an atomic guarded write, because unchanged copied bytes do not prove an executable config's dependencies stayed unchanged.
+* [Persisted launchers need recorded kernel paths, not the installer's PATH](persisted-launchers-need-recorded-kernel-paths.md) - Record and verify absolute CLI and Node paths for commands an integration leaves behind, reject instance shims, and detect paths lost to upgrades rather than promising that absolute means permanent.
+
 ## Acceptance against the real tool
 
-* [A fake CLI that accepts what the real binary refuses hides a broken hook](a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) - Fakes model refusals; the gate is the whole lifecycle on the published binary; one exported floor; the rehearsal controls which binary runs.
+* [Forge account attribution does not prove human authorship](forge-account-attribution-does-not-prove-human-authorship.md) - When agents share a person's forge account, an author check establishes the account record, not human authorship or independent approval.
+* [A fake CLI that hangs must start a child of its own](a-fake-that-hangs-must-have-a-child.md) - A single-process hang fake hides descendant leaks, so timeout and reader-termination tests must observe both the fake and its child on every external-CLI call path.
+* [A fake CLI that accepts what the real binary refuses hides a broken hook](a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) - Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
 * [A delivery acknowledgement must name the stage its receipt proves](acknowledgement-stage-must-match-receipt.md) - Delivery state is recorded only after the component that owns the agreed stage acknowledges that stage; callback completion and whole-turn waits can prove the wrong thing.
 * [Integration guidance and local validation follow the real contract](guidance-names-only-verbs-the-target-cli-exposes.md) - Name only verbs the CLI exposes, read the manifest over prose, and validate a service-defined value the same way in every path.
 * [A client view that contradicts the source of truth is a client defect](a-failing-readiness-diagnostic-is-not-a-missing-fact.md) - Read the authoritative source and the message-level envelope, and never rewrite a live identity to satisfy a view.
@@ -27,7 +35,8 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Packaging and release
 
-* [A provider release is mirrored and pinned in one PR after the tag](a-provider-release-is-mirrored-and-pinned-in-one-pr.md) - Tag in the package repository, then one framework PR carries the tag-identical payload and every pin; the gate runs the Desktop suite.
+* [Prove where a package's kernel floor refuses](package-kernel-floors-need-released-refusal-probes.md) - When a packaged soul gains a kernel key, probe the oldest supported released reader and distinguish locking, discovery and composition failures before choosing or describing the floor's protection.
+* [A provider release is tagged first, then mirrored and pinned in one re-proven framework PR](a-provider-release-is-mirrored-and-pinned-in-one-pr.md) - Tag first, then review the tag-identical mirror and every pin as one diff; the gate keeps the Desktop suite, with the suites in CI and only named affected test files run locally, and a pin is re-proven after another shared-file change lands.
 * [Prefer a narrow integration-owned wrapper, and document its support matrix](prefer-a-narrow-integration-owned-wrapper-over-a-third-party-cli.md) - Own a JSON-first wrapper with credentials from the environment, and state what is supported, human-only or unsupported.
 
 ## Messaging service seams

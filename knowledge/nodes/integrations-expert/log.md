@@ -1,5 +1,36 @@
 # integrations-expert log
 
+## 2026-10-29
+
+* **Harvest**: Added [forge-account attribution limits](/nodes/integrations-expert/lessons/forge-account-attribution-does-not-prove-human-authorship.md): a shared-account record does not establish human authorship or independent approval; preserve relay attribution and name a protected approval boundary plus regression coverage as prevention routes. Link the operator's credential decision without changing it or waiving human-acceptance gates; the reported relay was not independently audited.
+* **Harvest**: Refined [real-binary rehearsal](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) with the missed consumer-observation gap: external state changes do not prove a polled transition, fresh dedup eligibility or available worker capacity. Preserve the rejected recipe's review failure and the need for successful complete observations; omit the versioned status/command recipe and make the absence of a live migration run explicit.
+
+## 2026-10-28
+
+* **Harvest**: Refined the [scratch-deployment boundary](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md): a member-less, provider-free package-soul composition probe can avoid unrelated setup, but onboarding still writes a host deployment-list entry that tree deletion does not clean up. Preserve the source-reported 0.69.4 limit and retire/remove/delete ordering; link existing registry-removal and runner-isolation lessons rather than duplicate them. No universal hook-free or full-lifecycle acceptance claim is made.
+* **Harvest**: Added [released-reader refusal probes](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md), linked from real-binary acceptance: preserve why a raised floor is an earlier composition refusal, not proof of sync exclusion or protection for existing homes. Keep the 0.68.1 results source-reported and version-bounded; name executable boundary coverage as the elimination route. Leave maintainer-owned release wording to its owner and omit the code-derived trigger schema inventory.
+
+## 2026-10-26
+
+* **Harvest**: Added [the desktop persistence handoff](/nodes/integrations-expert/lessons/desktop-persistence-apply-is-a-human-handoff.md): preserve the reported classifier refusal and narrow-choice rationale without generalizing one Claude Code trial into a universal inability to run authorized operator commands. Name option-scoped writes and regressions as enforcement; no bypass or live apply is certified.
+* **Harvest**: Added [installer ownership of tools and state](/nodes/integrations-expert/decisions/installers-preserve-existing-tools-and-state.md): record the source-reported human direction of 2026-10-23, why a second install can shadow an existing tool, and why onboarding adopts rather than replaces state. Preserve separate consent and persisted-path boundaries; implementation and acceptance are not independently audited.
+* **Harvest**: Added [launcher prompts as the person's session input](/nodes/integrations-expert/decisions/launcher-prompts-use-the-persons-session-input.md): preserve the rejected mail route, single-attempt limit and attach path, narrowing an error's non-delivery claim to failure or uncertainty. Link existing receipt, identity and product decisions without superseding them or authorizing a new Desktop composer.
+
+## 2026-10-19
+
+* **Harvest**: Added [a hang fake must have a child](/nodes/integrations-expert/lessons/a-fake-that-hangs-must-have-a-child.md): preserve why single-process hangs and coverage of only the first caller hide descendant leaks, require timeout and reader-SIGTERM evidence per call path, and name shared lifecycle handling plus executable regressions as the elimination route. Link real-binary acceptance and the kernel signal lesson without duplicating their rules; reported implementation tests were not rerun by the harvest.
+* **Harvest**: Added [post-confirmation config validation](/nodes/integrations-expert/lessons/config-validation-belongs-after-confirmation.md): preserve why a copied-byte cache cannot cover executable config inputs, why the validator must read the temporary copy, and why fresh validation, guarded writes and conservative removal are separate obligations. Name executable regression coverage and the limits of headless/read-only evidence; no live-session apply is certified and the kernel's decision-fenced spawn exception is unchanged.
+* **Harvest**: Added [recorded kernel paths for persisted launchers](/nodes/integrations-expert/lessons/persisted-launchers-need-recorded-kernel-paths.md), linked from the ambient-environment lesson without changing that lesson's input policy. Preserve the retirement and minimal-environment failures behind rejecting PATH persistence, and narrow the source's earlier upgrade-survival assertion: stable-Node selection can still yield a versioned path, so missing recorded paths need maintenance checks. No host-specific path or duplicate resolver algorithm is retained.
+
+## 2026-10-13
+
+* **Review**: kept the Desktop-suite gate and the tag-identical mirror in the [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)'s description and index line, and stated that the maintainer node's own local-gate wording is left unchanged (knowledge-maintainer review of the harvest).
+
+## 2026-10-12
+
+* **Harvest**: Refined the [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md) to distinguish one affected test file per local run on a shared host from CI suites and tarball smoke, and to plan pin-owner re-verification after overlapping changes land. This clarifies the formerly unqualified gate, preserves tag-first/one-PR/Desktop acceptance, and links existing merge-proof and review judgment; maintainer merge-order policy is not promoted into this node. The proposal's 2026-10-12–13 guidance is source-reported, not independently established human acceptance.
+* **Harvest**: Refined [real-binary lifecycle acceptance](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md): a scratch deployment isolates only redirected state, not the host; inspect state lookup before choosing the rehearsal, name exercised and unrun branches, and distinguish operator execution from source inspection. Scheduler evidence remains explicitly second-hand; no new installation authority is implied.
+
 ## 2026-10-08
 
 * **Harvest**: Refined [cleanup truthfulness and retry credentials](/nodes/integrations-expert/lessons/a-hook-reports-only-the-cleanup-it-confirmed.md): excluding credentials from recovery removes an accidental backup, so key-dependent cleanup failures must exit nonzero; only an exactly recognized key-independent handoff may leave an obligation without retaining the member key. Added enforcement-floor rationale and regression gates, with source-only evidence limits; no hosted post-retirement authentication claim is accepted.

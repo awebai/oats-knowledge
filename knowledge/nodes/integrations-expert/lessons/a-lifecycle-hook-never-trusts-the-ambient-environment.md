@@ -43,6 +43,13 @@ variable as an external home, and the hook had passed it on without knowing.
 - A tool refuses a command because the hook forwarded an environment it
   never meant to set.
 
+# Related lifetime boundary
+
+[Persisted launchers need recorded kernel paths](/nodes/integrations-expert/lessons/persisted-launchers-need-recorded-kernel-paths.md)
+applies this distrust to commands an integration leaves behind: a locator
+that works in the installer may disappear at retirement or fail outside its
+shell. It does not change the input-authority rules above.
+
 # Consequences
 
 - Tests set a foreign value in the hook's environment and assert the hook

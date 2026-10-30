@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Process identity must survive different readers and host conventions
-description: A persisted PID and start token need environment-stable readers, existence checks independent of ps output, and an explicit unknown result that blocks destructive recovery.
+description: Process identity needs environment-stable readers and fail-closed unknown handling, while PID existence and a matching start token do not prove an unreaped holder can still act.
 tags: [kernel, process, liveness, portability, recovery, fail-closed]
-timestamp: 2026-10-08
+timestamp: 2026-10-10
 ---
 # Discovery
 
@@ -44,6 +44,33 @@ not a way to compare PIDs on different machines.
   lifecycle identity checks, unknown permits no automatic takeover,
   rollback, retirement or signalling.
 
+# A matching identity can still be a zombie
+
+On 2026-10-10, a later source reported that an exited but unreaped child
+still passed both probes: `kill(pid, 0)` succeeded, and its start token
+remained readable through `/proc` or `ps`. A claim, pending marker or
+in-progress marker using only PID existence and start-token equality can
+therefore classify that holder as alive even though the process itself can
+no longer act [2]. **Exists with the recorded start is not the same as can
+still act.** This is a limitation of what the probes establish, not a new
+fourth return value or permission to collapse unknown into gone.
+
+The observed failure was in tests that killed a child and immediately tried
+to perform its deferred completion in the test process. The child had not
+yet been reaped, so the takeover was refused as busy. The workaround that
+worked was to let the parent reap the test-owned child and observe
+`kill(pid, 0)` return `ESRCH` before attempting takeover, without weakening
+the takeover assertions. Sending a kill is not that observation; neither is
+an arbitrary probe error. A busy refusal need not mean a holder will ever
+make progress.
+
+The duration of this condition depends on the parent reaping the child;
+this harvest establishes no production-frequency or guaranteed-reaping
+claim. Whether these lifecycle checks should classify a zombie as gone
+remains undecided in the source evidence: the holder cannot act itself,
+but its children may still act. Do not infer that detecting a zombie alone
+makes destructive takeover safe.
+
 # Safe refusal must still lead somewhere
 
 The maintainers required an unknown refusal to name an existing recovery
@@ -78,8 +105,24 @@ Cover cross-environment token equality, dead-PID output, unreadable starts
 and the exit-during-read recheck. A Linux-only happy path is not portability
 evidence.
 
+The zombie limitation is **knowledge debt**, not a permanent workaround or
+an accepted takeover policy. The proposal names
+[awebai/oats#870](https://github.com/awebai/oats/issues/870) as its elimination
+route: first decide what an unreaped holder and any surviving children mean
+for takeover, then make process-state handling agree in both the `/proc`
+and fixed-environment `ps` readers. Regression coverage must exercise an
+unreaped child and the chosen takeover behavior through both readers;
+waiting for reaping in unrelated tests does not resolve the policy question.
+Update this lesson when that decision and implementation replace the
+limitation; the harvest does not establish the issue's current status [2].
+
 # Citations
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/process-liveness-across-hosts.md.
 
 1. The proposal and named note attribute the reproductions, maintainer recovery condition and fixes to the review of [awebai/oats#801](https://github.com/awebai/oats/pull/801). These are source-reported findings; the harvest did not replay the host experiments or audit implementation/test coverage.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-exclusive, 2026-10-10; notes/zombie-reads-as-alive.md.
+
+2. The proposal and named note report the unreaped-child discovery and successful wait-for-reaping test workaround. The proposal associates the test failures with awebai/oats#871; the note attributes the discovery to work on awebai/oats#863. Both name awebai/oats#870 as the follow-up. The harvest preserves the shared finding without resolving that task attribution, replaying the experiments or auditing the implementation.
+3. Verified by the knowledge maintainer at review of the harvest on 2026-10-10. [awebai/oats#870](https://github.com/awebai/oats/issues/870), open at that review, states that the shared process-liveness reader answers alive for an exited, unreaped process through both readers, that a claim or a pending or in-progress marker naming it therefore refuses as busy until the parent reaps it, and that whether a zombie counts as gone is the decision a fix has to make for both readers, with the holder's children a separate matter. It records the finding as made while building [awebai/oats#863](https://github.com/awebai/oats/issues/863); [awebai/oats#871](https://github.com/awebai/oats/pull/871) is the pull request that fixes #863, so the two attributions in [2] name the same work. #871 was open and unmerged at that review; the tests it changes wait until `kill(pid, 0)` reports `ESRCH` before acting in the killed child's place, and count no other probe error as gone. This establishes what the issue and the pull request say, not a decision on #870; the source note itself was not read at review.

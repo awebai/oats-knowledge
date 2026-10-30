@@ -1,5 +1,13 @@
 # oats-aweb-expert log
 
+## 2026-10-26
+
+* **Harvest**: record [the human alias's host derivation](/nodes/oats-aweb-expert/decisions/human-alias-host-comes-from-the-deployment-not-the-hook-environment.md), [strict validation of `interaction`](/nodes/oats-aweb-expert/decisions/interaction-setting-is-validated-strictly.md) and [real-aw pins aging with the installed client](/nodes/oats-aweb-expert/lessons/real-aw-pins-age-with-the-installed-client.md) from the threaded-channel stage 1 proposal; stage 2 is unbuilt and the branch's merge state is source-reported, not asserted.
+
+## 2026-10-15
+
+* **Harvest**: record [offline identity polling](/nodes/oats-aweb-expert/lessons/identity-polling-uses-offline-reads.md), [receive evidence by delivery mode](/nodes/oats-aweb-expert/decisions/receive-evidence-follows-delivery-mode.md), [the measured cache deferral](/nodes/oats-aweb-expert/decisions/readiness-cache-needs-measured-cost.md) and [rejected duplicate tick locking](/nodes/oats-aweb-expert/decisions/publisher-reuses-scheduler-exclusion.md) from the agent-health-publisher proposal; preserve source-reported evidence limits and add section navigation without claiming shipment or changing the older release references.
+
 ## 2026-09-28
 
 * **Update**: audit pass — both references verified against the oats.aweb 1.16.1 mirror: the single client floor `AW_MIN` (aw 1.36.13) replaces the custody and wake floors, joined teams receive live through the host wake broker since 1.15 (polling only as fallback), and readiness answers only status/problems/warnings (no `teams` block); index entries shortened and the seeding note removed.

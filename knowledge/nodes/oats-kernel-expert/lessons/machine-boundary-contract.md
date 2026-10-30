@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: The CLI as a machine boundary
-description: Once a command has machine consumers, one stdout envelope with stable codes is the whole contract, exit status is part of the answer, explanatory surfaces must not depend on deployment state, a refusal names its cause on the first run, and a printed remedy is behaviour under test.
+description: A machine CLI owes one stdout envelope, honest failure classification and phase-aware refusals, stable typed codes, semantic exit status, deployment-independent explanations and tested remedies.
 tags: [kernel, cli, contract, json, diagnostics, exit-status]
-timestamp: 2026-09-22
+timestamp: 2026-10-13
 ---
 # Lesson
 
@@ -23,6 +23,44 @@ stdout-capture test that runs every command's failure paths under the
 machine-readable mode and asserts one parseable envelope — not a per-command
 fix. Where that test does not yet cover a command, the maintainer treats the
 guarantee as unproven for it.
+
+**A system error code is not a typed lifecycle refusal** (2026-10-10).
+The source's stop-retire investigation encountered the same reporting gap
+at three different sites: recursive removal, a home walk and a stop receipt
+write. Raw `ENOTEMPTY` or `ENOENT` reached the client without saying what had
+been preserved or whether hooks had run. A field called `code` did not make
+the result part of the kernel's published refusal vocabulary [3]. The
+lasting conclusion is that fixing each filesystem race and fixing error
+classification are different scopes of work: another fallible site can
+reopen the reporting gap even after these races are closed.
+
+Classify system failures at the machine boundary without treating arbitrary
+exception codes as domain refusals, and preserve the operation-phase facts
+at the site that knows them. An errno alone cannot establish before-effect
+refusal, completed cleanup or rollback. The elimination route is kernel
+error classification plus CLI failure-injection tests for pre-hook,
+post-hook and receipt-write failures, checking the envelope, exit status
+and truthful preservation details. This is knowledge debt, not a new code
+table or a claim that the repair has shipped; the kernel owner should update
+this finding when that coverage and contract are established [3].
+
+**An unclassified failure is not a diagnosis** (2026-10-13). The source's
+remote-cache investigation found that the kernel's fallback called an
+unrecognized Git failure `network`. That label sent investigation toward a
+healthy network instead of the filtered cache's missing delta base. The
+recorded decision keeps such a failure `unknown`, with Git's last diagnostic
+line, rather than inventing a cause [4]. Preserve uncertainty explicitly;
+a category should name evidence, not fill a required field with a plausible
+explanation.
+
+That diagnostic is still an [output channel](hook-and-error-channels-disclose.md):
+retain useful evidence as one bounded line without control characters or URL
+user information, not raw stderr. Classification can also decide recovery:
+the [cache fetch decision](/nodes/oats-kernel-expert/decisions/cache-fetch-negotiates-before-one-whole-retry.md)
+records why falsely matching authentication text inside an object id skips a
+needed retry. The elimination route is the classifier and failure-path tests
+for genuinely classified errors, unrecognized text and sanitized diagnostics;
+this lesson is not a new reason-code table or a substitute for those tests.
 
 **Exit status is part of the answer.** Any state that blocks apply blocks
 preview with the same exit contract; only side effects differ, and the full
@@ -85,6 +123,22 @@ shipping a GUI-safe verb.
 
 # Related
 
+[A routed preview preserves caller state and includes caller-only consequences](/nodes/oats-kernel-expert/decisions/routed-preview-preserves-caller-state.md)
+applies preview/apply admission and feature-detection rules at the caller,
+where a correct host preview must not become a saved route.
+
+[Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md)
+extends the tested-remedy obligation to upgrade guidance: a before-upgrade
+check is proven on the outgoing releases, not only on the new diagnostic.
+
+[Retire exclusion belongs to a whole-run claim, not a plan or retry key](/nodes/oats-kernel-expert/decisions/retire-exclusion-is-a-whole-run-claim.md)
+separates exclusion from plan freshness and replay of an already recorded
+outcome; neither existing guard serializes an in-flight retirement.
+
+[The viewer detach key is caller-chosen and has its own exit status](/nodes/oats-kernel-expert/decisions/viewer-detach-key-is-caller-chosen.md)
+records why opting into a keyboard exit preserves old status meanings and
+requires host feature detection even for a printed attach command.
+
 [A raw-mode terminal child does not protect its wrapper's whole lifetime](/nodes/oats-kernel-expert/lessons/terminal-child-signal-gaps.md)
 explains how a terminal signal during setup or teardown can bypass cleanup
 and replace the command's semantic exit status.
@@ -106,3 +160,12 @@ extending the plan's JSON shape.
 
 1. Migrated from agents/cli-dev/soul/knowledge and agents/oats-expert/soul/knowledge @ 7838d3ca (json-mode-cli-contract, json-envelope-dispatch-boundary, usage-must-not-resolve-deployment-state, dry-run-exit-status-contract, diagnostic-remedies-are-contracts, retry-hint-sites-travel-in-packs, identity-key-fields-shape-the-diagnostic, provider-problem-reasons-cross-the-wire).
 2. Migrated from agents/oats-expert/soul/knowledge/lessons/consumers-gate-on-advertised-features-never-on-optimistic-invocation.md @ 7838d3ca.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-lifecycle-overlaps, 2026-10-10; notes/raw-errno-passes-as-a-kernel-code.md; notes/866-stop-overlapping-retire.md.
+
+3. The named notes report the three-site pattern on OATS 0.50.0 at `ae9308b2`, attributed to [awebai/oats#866](https://github.com/awebai/oats/issues/866), [#891](https://github.com/awebai/oats/issues/891) and [#892](https://github.com/awebai/oats/issues/892), with an earlier related claim review in [#874](https://github.com/awebai/oats/issues/874). This harvest did not audit code or rerun the failures; it retains the cross-site design conclusion rather than the source-line inventory.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2026-10-13; notes/partial-cache-have-lines-assume-unfiltered-history.md; notes/cache-fetch-negotiates-then-retries-whole.md.
+
+4. The proposal and notes attribute the misleading `network` classification to [awebai/oats#1059](https://github.com/awebai/oats/issues/1059), with the repair attributed to [awebai/oats#1075](https://github.com/awebai/oats/pull/1075). The diagnostic-line bounds and maintainer agreement are reported by the proposal; this harvest did not reproduce the failure, audit sanitization or independently establish human acceptance.
+5. Verified by the knowledge maintainer at review of the harvest on 2026-10-13. [awebai/oats#1059](https://github.com/awebai/oats/issues/1059) reports the unrecognized Git failure answered as `network` and the investigation it misdirected; [comment 6135851592](https://github.com/awebai/oats/issues/1059#issuecomment-6135851592) records the contract point as agreed by both maintainer sides: an unclassified failure is `unknown` with Git's last line, and the reason field gains no value. [awebai/oats#1075](https://github.com/awebai/oats/pull/1075), merged on 2026-10-13 with both maintainer sides approving the head that merged, states the diagnostic line's scrub (one bounded line, no control sequences, no URL user information) and the removal of object ids before classification. The comments are maintainer-lane records posted from the two maintainers' accounts, not evidence of human acceptance, and no release was checked.

@@ -90,6 +90,9 @@ records why endpoint loss needs evidence about the work.
 
 [Recovery completeness must be measured against the source, not Git's advertised refs](/nodes/oats-kernel-expert/lessons/recovery-completeness-needs-source-refs.md)
 records a transport visibility trap in nested-repository preservation.
+[Recovery preserves Git state across ref formats, not just paths](/nodes/oats-kernel-expert/decisions/recovery-preserves-git-state-across-ref-formats.md)
+records the separate path/status blind spot and why comparison coverage must
+match the copier's semantic preservation obligations.
 
 [External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
 [A refusal that needs the old bytes is a pre-commit gate](../lessons/refusal-belongs-before-commit.md);

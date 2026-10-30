@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: How the OATS project ships and reviews
-description: Contributed work reaches main only through PRs judged by the maintainer's four gates against exact heads; reviewers are fresh, tests must agree with the requirement rather than the code, a lone gate gets a second reader, and knowledge PRs get a semantic read.
+description: Maintainer review binds verdicts to content and issue-recorded contract decisions, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh and second readers, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-01
+timestamp: 2026-10-30
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -39,6 +39,27 @@ green, secure, mergeable PR in the wrong direction is still returned. When the
 human redirects a slice, the amendment is recorded in the design record
 **before** the review, so the direction gate reviews against what was asked,
 not against a frame the human has since changed.
+
+For instructions about when agents coordinate or retire children, apply the
+[capability-owned coordination policy boundary](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md):
+neutral mechanism documentation does not make core the owner of team policy.
+
+## A declared deferral still needs the decision's permission
+
+When a PR openly leaves part of a decided rule for a later PR, read the
+original decision before accepting the split. If that decision does not
+permit the staging, return the PR or have the same deciders agree the split
+first. An explicit deferral in a PR description is not itself a decision
+amendment.
+
+The source reports approving a staged change that retained an old start
+kill deadline, then a second reader finding that the decision covered starts
+as well as apply. The description made the omission visible but also made it
+look intentional; checking implementation against that description missed
+the actual direction constraint. This refines the direction-first gate,
+not the authority to change a decision. Put the decision and any authorized
+split in the review evidence; the operating check belongs in the existing
+`direction-gate` skill rather than in a competing implementation plan.
 
 # Fresh eyes
 
@@ -78,6 +99,108 @@ approved head needs the approver's confirmation that the PR's own delta is
 unchanged. Where the platform refuses an author's own approval, the verdict
 is still recorded durably on the PR.
 
+# A batch window preserves same-area integration evidence
+
+The source reports a same-area merge rule agreed by both maintainer sides
+on 2026-10-10 and a 2026-10-14 batch that violated it: a PR whose base moved
+through a same-area merge must be brought up to date and CI-green on that
+combination before it merges. Same area includes shared files and the same
+lane's code and tests, even when they share no file. A shared docs page or
+workflow counts too. A clean textual merge cannot prove this integration,
+and a guard on the approved head does not guard the base.
+
+The narrow release-notes exception is a clean merge where the next version's
+aggregate notes file is the only shared file. It does not exempt two PRs
+correcting the same per-change entry file. Nor does absence of shared files
+establish that changes are unrelated: one PR can change a sentence in the
+producer while another adds a test that expects its old wording.
+
+Updating approved PRs onto one common main and running CI in parallel can
+save redundant rounds. It does not freeze main for the later merges. Before
+each merge in the batch, compare the PR with what has already landed, by
+changed files and by code/test dependency. Same-area changes need another
+update and CI run; independent changes need no serial CI round merely because
+they belong to the batch. Watch main's CI on every merge commit and stop the
+batch at the first red. This makes failures attributable and avoids feeding
+a broken base into every lane's queue.
+
+In the reported batch, two individually green client/Desktop PRs shared no
+file but disagreed on the withheld-text wording. Main went red after the
+second merge and stayed red until a fix-forward. The successful parallel
+update round did not establish that the successive combinations were green.
+
+This is an integration-evidence requirement, not a new rule for carrying
+review verdicts across an update or choosing merge-update versus rebase.
+It also grants no file-nonoverlap shortcut around affected-test checks.
+The structural elimination route is a merge queue that verifies each
+prospective combination; without that enforcement, the residual judgment
+belongs in `pr-review`. A local trial merge can reveal a bad combination,
+but does not replace the same-area updated-head CI requirement.
+
+## Trial-merge test selection must respect the operator-host boundary (2026-10-28)
+
+Before running a trial merge on an operator host, inspect the selected test
+files for real-process signalling or use of real tmux or `oats tui`. Exclude
+such files from the local run, even when they are among the PR's changed
+tests or the tests changed by intervening merges. For a PR needing those
+checks, bring the branch up to date and obtain the integration evidence in
+CI on a disposable runner instead. Pure file-reading and fake-terminal
+tests remain eligible locally when they have no such real effects; a name
+filter does not make a mixed module inert.
+
+The source reports that this routine review step selected a TUI signal test
+on 2026-10-28 and killed the user's systemd manager and its agents, followed
+by an operator-directed hold on those local runs. Private HOME,
+OATS_HOME_DIR and TMUX_TMPDIR did not contain the signal. The
+[signal-test containment lesson](/nodes/oats-desktop-expert/lessons/signal-tests-must-contain-regressed-cleanup.md)
+owns the reparenting rationale, runner/namespace boundary and cleanup proof;
+this refinement puts that boundary at the maintainer's test-selection point,
+not in a second reproduction recipe. Separate isolated reproduction remains
+subject to that lesson and the operator's restrictions.
+
+This qualifies local trial evidence; it does not waive affected-test
+coverage, same-area updated-head CI or existing review-verdict rules. A
+passing inert subset cannot stand in for the omitted integration checks.
+Enforce effect separation and containment in the test-launch harness and CI;
+until then, the selection and CI-routing check belongs in the existing
+`pr-review` skill. No skill or harness enforcement is claimed delivered here.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-desktop, 2026-10-28; notes/local-test-runs-can-kill-the-host.md.
+
+The incident and operator hold are source-reported; this harvest did not
+rerun the tests or independently audit
+[awebai/oats#1615](https://github.com/awebai/oats/issues/1615).
+
+# Evidence outside PR CI belongs before hand-over
+
+The source reports a review starting with an affected macOS path still unrun,
+with that run deferred to the merge gate. The subsequent run failed nine of
+ten tests and hung on the last. It was not a pass, and the investigation later
+traced fixture isolation to a runtime-version difference rather than the
+platform first suspected. Reviewing first would have bound a verdict to a
+head whose required evidence could still force it to change.
+
+Require results for the affected path before accepting the owner's hand-over,
+not merely a promise to obtain them before merge. This includes affected
+Desktop suites or platform-specific paths absent from PR CI. A stand-in can
+qualify logic but not the real service manager's behavior it models.
+
+The exception is evidence that cannot change the code under review, such as a
+later artifact signature. Nor does this require every neighboring test to
+pass regardless of an established baseline failure: the source records a
+bounded exception where the platform-dependent function ran, the larger test
+file failed identically on main, the limit was disclosed in hand-over and
+verdict, and the test problem had an owner. A baseline failure is not evidence
+for or against the change; establish it rather than asserting it.
+
+The structural route is a targeted runner for paths omitted from ordinary
+PR CI, with platform-provided run identity and exact head evidence. The note
+reports that such a manually triggered macOS runner was added; a clean runner
+still cannot prove isolation against a live host service it does not have.
+Keep that limit explicit rather than replacing the missing real-world check
+with a green simulated one. This refines evidence timing, not the authority
+to merge or the paired-maintainer arrangement below.
+
 # Delegating implementation
 
 When an expert delegates to several helpers communicating asynchronously, most
@@ -90,6 +213,22 @@ wrong product — check whether `main` moved before each round. Behavioural
 conflicts return to the implementer who owns the logic; only mechanical,
 append-only unions are the maintainer's. Distinguish environment failures
 from PR defects before returning.
+
+## A brief that may lead to live terminal checks carries their safety gate
+
+A maintainer's brief that may lead to a real-terminal check must point the
+lead to the existing
+[bounded live-terminal verification lesson](/nodes/oats-desktop-expert/lessons/verification-judgment-for-privileged-surfaces.md#a-passing-live-terminal-check-can-still-exhaust-the-host)
+and make satisfying it part of the assignment, rather than leaving safety
+implicit in a request for live evidence. That concept owns the bounds and
+harness teardown requirements; a second checklist here would drift. The
+briefing hook belongs in `launch-work`, while enforced containment belongs
+in the verification harness.
+
+When a capture runs away, ask its owner or the human to end it. A permission
+refusal is not permission to find a different route to the same kill.
+Requiring live evidence or bounding a check grants neither permission to run
+an otherwise forbidden experiment nor authority over unrelated processes.
 
 # A lone gate gets a second reader (2026-09-27)
 
@@ -172,6 +311,190 @@ its producer, fix the producer and keep the consumer's guard as defence in
 depth. A stand-in producer proves only the shapes we assumed: before shipping a
 contract change, recapture the consumer's fixtures from the real producer.
 
+## Instruction precedence needs a cross-side decision (2026-10-27)
+
+The named contract list is not an exhaustive boundary for shared-behaviour
+judgment. Changing the order of composed instructions changes their
+precedence across deployments, even if no config key, manifest field, hook
+environment, Desktop JSON shape or lock format changes. Both maintainer
+sides decide that change on a decision issue **before implementation**;
+absence from the list is not permission for one lane to settle it alone.
+
+The source first treated order as a contract change only if a client read
+the instruction-source arrays positionally. After the other side objected,
+the source agreed that instruction precedence itself needed the cross-side
+decision. A positional JSON consumer still makes it a Desktop-JSON contract
+change outright, but proving there is no such consumer does not remove the
+precedence decision. This distinguishes the governance gate from the wire
+compatibility test rather than conflating them.
+
+The proposed order was still undecided at capture. This lesson records the
+agreed need to decide, **not acceptance of any particular ordering** or a
+guarantee about how a harness resolves conflicting prose. The existing
+[kernel composition lesson](/nodes/oats-kernel-expert/lessons/kernel-composed-text-is-executable-surface.md)
+owns composed-text coverage and structural assertions. The residual
+cross-side decision check belongs in the maintainer's direction gate;
+regressions should enforce the order once decided, not substitute a green
+ordering test for that agreement.
+
+Recorded at maintainer review on 2026-10-30: the order was decided after this
+lesson's capture, on the decision issue
+[awebai/oats#1576](https://github.com/awebai/oats/issues/1576), and merged on
+2026-10-27 in [awebai/oats#1600](https://github.com/awebai/oats/pull/1600).
+Relays on that issue report that the release lane's human accepted it and,
+when asked, said the other side's sign-off was not needed. So this gate's first
+use ended on one human's word, not on both sides' agreement. That ruling is
+source-reported (relay at the issue), and it is recorded here as what happened
+on that change, not as a general waiver: a lane still may not settle precedence
+alone, and the map's rule that both sides decide contract changes is unchanged.
+
+## Contract agreement stays on the issue through implementation (2026-10-28)
+
+The source reports a useful practice across three product-contract cases:
+keep the proposal, both sides' answers and later amendments on the issue,
+so the implementation review can check what was built against what was
+actually decided. Mail directs the other side to that record; it is not a
+parallel decision record. The existing requirement to decide contracts
+before building them remains the authority boundary, not a new claim here.
+
+When a lead finds a contract question, stop the affected build and bring
+options to the lane maintainer. The maintainer's direction gate compares
+them with accepted decisions. Its issue proposal explains the client-visible
+change, alternatives, a recommendation with its decision basis, and the
+consequence for existing deployments: either why no action is needed or
+what must change. Do not assume every contract change is deployment-neutral.
+The other side's explicit answer and build conditions belong on that issue
+before building; carry references to both positions and those conditions
+into the lead's brief and PR review evidence. Inform the release lane when
+the bilateral decision is settled, not through a duplicate negotiation.
+
+A narrowing discovered during implementation still belongs on the issue
+before the PR if it changes the decided text. Fewer affected cases do not
+make it invisible to the other decider. Posting an amendment is not itself
+acceptance: the existing
+[decision-amendment gate](/nodes/oats-maintainer/stewardship/review-protocol.md#a-declared-deferral-still-needs-the-decisions-permission)
+continues to apply. This keeps a review from comparing the code only with
+the author's revised PR description while missing the agreed conditions.
+
+The reported compatibility judgment was to keep an existing error answer
+that clients already match rather than rename it merely for consistency
+inside the larger change. In the lifecycle-start case, the other side's
+answer kept `E_SESSION_START_BUSY` for two concurrent starts rather than
+relabelling them `E_LIFECYCLE_BUSY`; the later build-time narrowing that
+keeps every existing start-lock answer was posted on the issue, not agreed
+by the other side (see the verification note below). The spelling
+cleanup offered no compensating benefit for breaking client matching. This
+is an application of the
+[published-commitment boundary](/nodes/oats-maintainer/decisions/clean-contract-precedent.md#the-precedent-is-bounded),
+not a universal ban on an explicitly decided migration, a new error-code
+specification or permission to apply the pre-adoption removal rule to
+supported clients. Contract fixtures should enforce the preserved answer.
+
+**Limits:** these are three source-reported cases on 2026-10-27–28, with
+prompt replies, not a proven protocol for an absent or disagreeing side.
+One side's positions were posted by its lane maintainer; the source
+expressly says the human had not ruled on that representation. Record the
+practice without turning non-objection into human acceptance or granting
+future maintainers authority to decide on a human's behalf. Routine launch
+autonomy is not that delegation.
+
+The operating route is the existing maintainer `direction-gate` and review
+guidance. Prefer one linked issue record and review evidence requiring the
+agreed conditions; regression tests can enforce contract answers, but cannot
+supply the missing decision authority. No skill change or automated gate is
+claimed here.
+
+Evidence: OKF proposal from oats-maintainer/product-maintainer-pepe,
+2026-10-28; notes/contract-decisions-between-the-two-sides.md. The source
+identifies [session resume](https://github.com/awebai/oats/issues/1567#issuecomment-6439924216),
+[start's proposal](https://github.com/awebai/oats/issues/1602#issuecomment-6476048759),
+[answer with conditions](https://github.com/awebai/oats/issues/1602#issuecomment-6477039652)
+and [narrowing](https://github.com/awebai/oats/issues/1602#issuecomment-6477132396),
+and the [roster proposal](https://github.com/awebai/oats/issues/1628#issuecomment-6476678220)
+and [answer](https://github.com/awebai/oats/issues/1628#issuecomment-6477040132).
+Those are evidence locators from the source, not independently audited
+agreement, implementation, test or release receipts.
+
+Verified by the knowledge maintainer at review on 2026-10-28: the six cited
+comments exist and match the claims above. On awebai/oats#1602 the other
+side answered yes to the proposal and kept `E_SESSION_START_BUSY` for two
+concurrent starts, with three build conditions. The narrowing to every
+start-lock pair, with its follow-up precision, was posted by the proposing
+side with "unless you object" and had no recorded answer from the other side
+at review. So it is the kind of posted amendment the paragraph above says is
+not acceptance, not an agreed scope. On awebai/oats#1628 both sides' yes is
+recorded. #1602 was still open with no implementation merged at review.
+
+## Package-private formats become shared contracts at the reader boundary (2026-10-27)
+
+A format written and read only within one package may evolve inside its
+lane, provided legacy input keeps its existing behavior: unambiguous old
+input still works, while ambiguous old input refuses with an error naming
+the fix. Package-private does not mean compatibility-free. Review who reads
+the format rather than escalating every file-format edit or treating every
+unlisted format as private.
+
+Once another package or the kernel reads it, its change is a shared contract
+decided by both maintainer sides. A change that needs a new kernel field or
+hook variable crosses that boundary too, even if the package still owns the
+file. This classifies the format dependency; it does not waive an independent
+shared-behaviour direction decision or weaken published compatibility promises.
+
+The source's precedent is the `Source:` line in an oats.okf proposal. The
+lane permitted an explicit incarnation while preserving the legacy line's
+unambiguous acceptance and ambiguous refusal, reusing incarnation data the
+kernel already published rather than requiring a new kernel contract.
+The point is the private reader/writer boundary and compatibility judgment,
+not a second specification of the harvest format.
+
+Legacy-input and ambiguity fixtures should enforce the promised behavior;
+the maintainer's `direction-gate` skill owns the remaining judgment about
+readers and cross-side agreement. This does not invoke the
+[pre-adoption removal precedent](/nodes/oats-maintainer/decisions/clean-contract-precedent.md)
+as permission to break a package's supported old inputs.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer, 2026-10-27; notes/reused-name-harvest-gate.md.
+
+The source records its lane ruling on
+[awebai/oats-okf#83](https://github.com/awebai/oats-okf/issues/83), identifying
+comment 6441169785, and reports its application in
+[#111](https://github.com/awebai/oats-okf/pull/111) with the other side's
+second read. These are source-reported decision and review references, not
+an independently audited implementation, test result or release receipt.
+
+# Release-prep second reads check hand-written claims (2026-10-28)
+
+Keep the mechanical checks that release entries were preserved and mirror
+payloads match their tags, but do not treat those checks as proof of the
+release's prose. The introduction, Upgrade section and provider entries
+written without a per-change entry need a semantic read against the doc or
+code that owns each claim. Spend the independent reader's attention there,
+not only on text the release tooling carried forward unchanged. The
+[provider mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)
+owns the parity check; it is not a new procedure here.
+
+The source reports several release-prep reads in which verbatim-entry and
+tree-id checks found no issue, while hand-written text needed correction.
+One Upgrade sentence incorrectly implied that upgrading a stopped home
+also started its session. Checking the owning lifecycle documentation
+exposed that conflation. The lesson is to verify the sentence's behavioral
+claim, not to preserve another copy of the upgrade command sequence.
+
+Automate entry preservation and mirror parity, and reduce duplicated
+behavioral instructions by linking to their authoritative documentation.
+The remaining editorial judgment belongs in the release-prep second-read
+guidance. This is not permission to skip generated material, weaken release
+gates or assume all errors occur in hand-written text; the small reported
+sample establishes a useful review focus, not a general defect rate.
+
+Evidence: OKF proposal from oats-maintainer/pepe-lfx-maintainer, 2026-10-28; notes/release-prep-second-read-checks-the-hand-written-parts.md.
+
+The proposal identifies reads of awebai/oats#1606, #1619, #1623 and #1622 on
+2026-10-27–28; the note specifically describes #1606 and the Upgrade claim
+in [#1623](https://github.com/awebai/oats/pull/1623), reported corrected at
+`ae2fa39e`. Review findings and the correction are source-reported, not
+independently audited implementation or release receipts.
+
 # Knowledge PRs
 
 Strict validation proves structure, not truth. Validate the knowledge tree
@@ -194,6 +517,7 @@ dislodge than the original.
 
 [External knowledge needs source-independent custody](/nodes/oats-maintainer/decisions/external-knowledge-custody.md);
 [Release judgement for the tag-driven lane](/nodes/oats-maintainer/stewardship/release-traps.md);
+[One release lane, project lanes defined by their maintainers](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md);
 [Cross-workstream delivery](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md).
 
 # Citations
@@ -203,3 +527,31 @@ dislodge than the original.
 3. Migrated from agents/oats-expert/soul/knowledge/lessons/window-gone-completed-vs-killed-triage.md @ 7838d3ca.
 4. Harvested 2026-10-01 (paired maintainers). OKF input c15a51880924deaff3fb01859f1c90b8aa09ad3a815c75af48410a708b5862c3 (turns t1:e06654b04457084a49aa064a418ef9a08d6f2e8fd0c0090c1c0edc683f99b78a).
 5. Harvested 2026-10-01 (paired maintainers). OKF input 6fe3e66661e1fb9bcef9dd2a99d0d8c0f3ebcc7aa9882e1a1d6591edc1cb899c (note maintainer-pairing-agreement.md; second-reader rationale only, not the still-proposed operating terms).
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-pepe, 2026-10-14; notes/a-path-ci-does-not-run-is-run-before-the-hand-over.md.
+
+The note dates the initial [awebai/oats#1000](https://github.com/awebai/oats/pull/1000)
+incident to 2026-10-12, rather than the proposal's 2026-10-13, and records later
+qualifications for [#1056](https://github.com/awebai/oats/issues/1056) and
+[#1102](https://github.com/awebai/oats/pull/1102). Runs, causes and accepted
+exceptions are source-reported; this harvest did not reproduce or independently
+audit them.
+
+Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-lfx, 2026-10-14; notes/a-batch-window-keeps-the-same-area-rule.md; notes/merge-rule-base-moved.md; notes/merge-on-old-base-run-the-combination.md; notes/a-pr-that-defers-part-of-a-decided-rule-cites-the-split.md; notes/a-real-terminal-check-is-bounded-and-cleans-up.md.
+
+The source reports the batch failure in
+[awebai/oats#1151](https://github.com/awebai/oats/pull/1151) with
+[#1155](https://github.com/awebai/oats/pull/1155), fixed forward by
+[#1203](https://github.com/awebai/oats/pull/1203); the unauthorized staging in
+[#1164](https://github.com/awebai/oats/pull/1164) against the decision in
+[#855](https://github.com/awebai/oats/issues/855); and the terminal-capture
+incident during [#1193](https://github.com/awebai/oats/issues/1193). Agreement,
+CI results and incidents are source-reported, not independently audited by
+this harvest. The base-moved note's later qualifications are not reduced to
+the proposal's earlier head-guard/clean-merge-only path for unrelated files.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/injection-effort-scope-gate.md. The note's later update
+supersedes its initial positional-consumer-only gate for instruction
+precedence. Agreement to require a decision is source-reported; this
+harvest did not inspect private correspondence or decide the new order.

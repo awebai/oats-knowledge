@@ -80,6 +80,12 @@ This decision does not strengthen the scan's visibility or change the
 An unreadable entry, a failed scan and a visible process in the target home
 remain different observations.
 
+The test-fixture consequence has its own
+[cleanup-evidence decision](/nodes/oats-kernel-expert/decisions/fixture-tmux-directory-preserves-cleanup-evidence.md):
+putting a private tmux directory inside a removable fixture base would let
+base deletion hide the unended fixture. That decision applies this liveness
+finding without changing the production lifecycle rules above.
+
 # Elimination route
 
 The behavioral fix belongs in shared lifecycle liveness classification and

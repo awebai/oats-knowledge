@@ -47,6 +47,7 @@ and the rejected clone-derived proof, not a substitute for regression tests.
 
 # Related
 
+- [Recovery preserves Git state across ref formats, not just paths](/nodes/oats-kernel-expert/decisions/recovery-preserves-git-state-across-ref-formats.md) addresses the different path/status blind spot; its fixed operation-ref set does not replace source enumeration of local branches.
 - [Preserve recovery authority until the outcome is proven](/nodes/oats-kernel-expert/decisions/preserve-authority-until-cleanup-is-proven.md) owns the general measure-before-destroying and fail-closed recovery rule; this lesson records the specific transport visibility trap.
 - [Recovery copies preserve work, not repository-local Git behavior](/nodes/oats-kernel-expert/decisions/recovery-copies-do-not-inherit-local-git-config.md) separates branch and object preservation from restoring local operating configuration.
 

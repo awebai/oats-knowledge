@@ -13,7 +13,7 @@ until 2026-10-03 this node was `nodes/oats-expert`.
 * [Durable specialization preserves judgment across sessions](decisions/durable-specialization.md) - Why OATS exists: expertise as a versioned project artifact.
 * [Optional reference theory, capability-owned runtime](decisions/optional-reference-theory.md) - A reference knowledge theory that capabilities may adopt or replace.
 * [Second-operator acceptance](lessons/second-operator-acceptance.md) - The acceptance gate for published definitions and how to read its failures.
-* [How the OATS project ships and reviews](stewardship/review-protocol.md) - The maintainer's gates and review judgement.
+* [How the OATS project ships and reviews](stewardship/review-protocol.md) - Maintainer review binds verdicts to content and issue-recorded contract decisions, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh and second readers, checks hand-written release claims, and judges tests against requirements rather than implementations.
 
 ## Sections
 

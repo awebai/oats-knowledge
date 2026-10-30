@@ -69,6 +69,10 @@ line changes.
 
 # Related
 
+[Proven unmatched launch pins refuse fall-through; unchecked pins stay visible](/nodes/oats-kernel-expert/decisions/unmatched-launch-pins-refuse-fallthrough.md)
+records why host launch intent needs a refusal, and why incomplete discovery
+cannot establish the mismatch that authorizes it.
+
 [Keep kernel responsibilities generic and capability runtimes complete](kernel-and-capability-responsibility.md);
 [Integrity, origin and consent are different proofs](trust-approval-and-consent-boundaries.md);
 [Operating OATS is capability content](/nodes/oats-maintainer/decisions/official-capabilities-and-reviewed-marketplace.md).
