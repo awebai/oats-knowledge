@@ -391,6 +391,11 @@ may not be run on a human's machine.
 
 # Related
 
+[Delayed timing controls](slow-the-suspected-step-on-ci.md) applies the mutation-proof
+bar to a rare terminal wait: deliberately slow the suspected step to expose
+missed dependants and incomplete fixes, then measure ordinary timing margins
+separately from the forced failure.
+
 [Blocked live verification needs an owned handback](blocked-live-verification-needs-an-owned-handback.md)
 records who carries the remaining evidence when an agent cannot launch the
 app; it does not waive live acceptance or the safety rules above.
