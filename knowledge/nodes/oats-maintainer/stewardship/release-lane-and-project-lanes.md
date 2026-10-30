@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: One release lane does the final review, merge and tags; project lanes are defined by their own maintainers
-description: One release lane owns final review, merge and tags; project maintainers define lanes without sign-off, route follow-ups by the map, review with one second reader, record changed practice and hand over approved heads, while the directing human's lanes launch routine filed work without asking again; child overflow seats add execution capacity without a second accountable authority.
+description: One release lane owns final review, merge and tags; project maintainers define lanes without sign-off, route follow-ups by the map, review with one second reader, record changed practice and hand over approved heads, while the directing human's lanes launch routine filed work without asking again; child overflow preserves accountability and the onboarding redesign has a bounded human-sign-off exception.
 tags: [stewardship, lanes, release, review, process, multi-human]
 timestamp: 2026-10-30
 ---
@@ -173,6 +173,70 @@ attributes the clarification to its lane's human in that day's session.
 Acceptance, the earlier delay and subsequent launches are source-reported;
 this harvest did not inspect the session or certify a guidance change.
 
+# Onboarding redesign delegation (2026-10-30)
+
+For the [onboarding redesign brief](https://github.com/awebai/oats/issues/1665),
+Pepe chose Juan's side to build and his own lanes to review against the brief
+and OATS vision, rather than drive the implementation themselves. The
+arrangement is specific to this effort:
+
+- Implementation PRs use `lane:juan` and name the area lane they touch;
+  Pepe's area-lane maintainers review them without seeking his sign-off on
+  each verdict. The current map and brief own the assignments, not a second
+  roster here.
+- Contract changes are decided by both sides **before** implementation;
+  on Pepe's side, the release lane and `lane:product` participate. Delegated
+  PR verdicts do not supply the still-missing contract agreement.
+- Once the lanes are green, the release lane coordinates and tags this
+  effort's releases without another go from Pepe. His later direct
+  clarification includes kernel tags and deploys for this effort; it is not
+  merely permission to give PR verdicts.
+- Every other kernel tag still needs Pepe's direct go, and every other
+  deploy his word: the standing authority in the
+  [release lane's 2026-10-28 hand-over](https://github.com/awebai/oats/issues/1566#issuecomment-6475980012).
+  The release lane's final review, merge and tag ownership, the second-reader
+  rule and the usual verification gates are unchanged. No project lane gains
+  independent release authority.
+
+The human's stated review bar is
+[optional, provider-neutral human attribution with no-human compatibility](/nodes/oats-maintainer/decisions/human-attribution-is-an-optional-messaging-contract.md),
+with onboarding skills and flows matching the design. The source's reason
+for preserving this delegation is that a later maintainer should neither
+recreate a redundant human sign-off queue nor mistake an authorized
+onboarding tag for a general relaxation of release authority.
+
+**Acceptance and supersession limits.** Acceptance is **source-reported**:
+Pepe, directly in the release lane's session on 2026-10-30, clarified the
+scope to include kernel tags and deploys. That later clarification
+supersedes the backing note's earlier interpretation that the relayed
+no-sign-off direction covered only PR verdicts. For this effort only it
+replaces the separate kernel-tag go and deploy word that hand-over records;
+it does not supersede the general lane model or its contract-before-build
+boundary. The [public brief](https://github.com/awebai/oats/issues/1665),
+read during harvest on 2026-10-30, confirms an agent's relay of the
+build/review split and release coordination after green verdicts:
+**source-reported (relay at the brief)**, not verified human authorship. The
+explicit tags-and-deploys clarification rests on the source's report of the
+private session, which was not audited.
+
+Recorded at maintainer review on 2026-10-30: the relay at
+[the brief](https://github.com/awebai/oats/issues/1665) exists under the
+cited account and says what is claimed above. The brief speaks of
+coordinating releases and names neither tags nor deploys, so that scope stays
+source-reported. The standing rule itself is
+**source-reported (relay at
+[the hand-over](https://github.com/awebai/oats/issues/1566#issuecomment-6475980012))**,
+also not verified human authorship.
+
+At capture, Juan's agreement to take on the work was still pending; this
+records Pepe's delegation, not a bilateral acceptance or delivery receipt.
+Removing harvesters was explicitly still an undecided leaning, so this
+release delegation does not authorize that change or supersede accepted
+knowledge decisions. The contract and implementation were also unfinished.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-30; notes/onboarding-redesign-juans-side-builds.md.
+
 # Route package follow-ups by repository ownership (2026-10-28)
 
 Opening a package-repository PR as part of a project effort does not make
@@ -247,7 +311,10 @@ and release ownership by the release lane are unchanged.
 remains the release lane's. The
 [overflow seat](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md#overflow-adds-capacity-not-another-authority-2026-10-27)
 refines the one accountable maintainer per lane recorded here without adding
-a second one.
+a second one. The [onboarding delegation](#onboarding-redesign-delegation-2026-10-30)
+adds an effort-specific exception to separate human sign-off, with its direct
+acceptance source-reported; it leaves the release lane's ownership and all
+other kernel-tag and deploy approval requirements intact.
 
 # Citations
 
