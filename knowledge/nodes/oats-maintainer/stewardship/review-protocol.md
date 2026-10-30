@@ -1,11 +1,11 @@
 ---
 type: Lesson
 title: How the OATS project ships and reviews
-description: Maintainer review binds verdicts to content and issue-recorded contract decisions, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh and second readers, checks hand-written release claims, and judges tests against requirements rather than implementations.
+description: Maintainer review binds verdicts to content and issue-recorded contract decisions, carries them only across an unchanged delta, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh readers and one second reader per PR, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
 timestamp: 2026-10-30
 ---
-**Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
+**Owner: oats-maintainer (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
 the same change.** The review procedure itself is the `pr-review` skill; this
 concept holds the judgement behind it.
@@ -94,10 +94,41 @@ a verification command supplied by the party being verified bounds the answer
 to what they included. After a squash, prove the landed patch equals the
 approved one (compare patches, not trees, when main moved in between), and
 prove a fix reached main by ancestry before telling its author it landed — a
-commit "in the PR" can be orphaned by the squash. A rebase that moves an
-approved head needs the approver's confirmation that the PR's own delta is
-unchanged. Where the platform refuses an author's own approval, the verdict
-is still recorded durably on the PR.
+commit "in the PR" can be orphaned by the squash. Where the platform refuses
+an author's own approval, the verdict is still recorded durably on the PR.
+
+## Carry verdicts only with proof of an unchanged delta (2026-10-13)
+
+This replaces the earlier rule here requiring the approver's confirmation
+after every rebase of an approved head. The source reports human and
+both-side acceptance of the replacement [6]; the
+[review record](#acceptance-of-the-2026-10-13-decisions-recorded-at-review-2026-10-30) says what that
+acceptance covers. Repeatedly rebinding an unchanged patch creates review rounds without a new independent judgment;
+content identity and integration evidence are the gates, not another message.
+
+The merging maintainer brings the branch up to date using the forge's update
+operation: merge the default branch into it, never force-push it. Both
+verdicts carry only when the PR's own diff is unchanged and CI is green on
+the updated head. If the owner rebases instead, both verdicts carry when
+every commit is `=` in `git range-diff` and CI is green on the new head;
+anything other than `=` returns to both readers for that delta. Record the old and new
+heads and the evidence on the PR: this is a content-bound carry, not approval
+of any future head on the branch.
+
+When the default branch has moved since the head's CI ran, first run on a
+trial merge the test files changed or added by the PR and by what merged
+since its base, inside the
+[operator-host boundary](#trial-merge-test-selection-must-respect-the-operator-host-boundary-2026-10-28).
+This is a first check, not a substitute: a same-area merge still needs the
+[updated-head CI](#a-batch-window-preserves-same-area-integration-evidence)
+that section requires. No shared file and a clean textual merge do not prove
+the combination: a test and the behavior it reads can change in separate files
+[6]. The head guard and the integration check answer different questions.
+
+This decision does not assume a merge queue. Where one exists, enqueue the
+approved head instead; a queue is the repository-level route for enforcing
+CI on the combination. The operating procedure belongs in the
+`oats.maintainer` `pr-review` skill, not in a second checklist here [7].
 
 # A batch window preserves same-area integration evidence
 
@@ -241,6 +272,10 @@ arbitrary file write); its findings landed as follow-ups, never reverts.
 
 ## Paired maintainers cross-review and plan releases together (2026-10-01)
 
+**Operating terms superseded by the
+[2026-10-13 lane decision](#peer-maintainers-own-lanes-each-pr-gets-one-second-reader-2026-10-13)
+below; the second-reader rationale and joint release planning remain.**
+
 The human directed the participating maintainers to review one another's work
 and plan releases together [4]. The maintainer's recorded rationale is to
 build the second reader into the pairing from the start, rather than routinely
@@ -248,6 +283,68 @@ needing an after-the-fact review of lone-gate windows [5]. This adds a paired wo
 arrangement; it does not remove the lone-gate fallback or relax head-bound
 review. The direction records how the pair coordinates, not a standing grant
 of merge or release authority to future instances.
+
+## Peer maintainers own lanes; each PR gets one second reader (2026-10-13)
+
+**Refined since:** the 2026-10-26 decision on
+[one release lane and project lanes](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md)
+owns the lane model, including who merges, and refines rather than removes
+the two rules here. The [lane map](https://github.com/awebai/oats/issues/1566)
+holds today's lanes; this section keeps the 2026-10-13 decision and why.
+
+The source reports a human-accepted refinement, agreed by both maintainer
+sides [6]: each peer holds a lane whose review, merge and tracking have one
+accountable maintainer. A lane is a division of existing responsibility, not
+a new grant of merge or release authority. Every PR gets **one second
+reader**, not a read from every peer. Ask once, at the head the lane's
+maintainer approved; a PR authored by that maintainer goes to the second
+reader without waiting for its author's approval. Where another side already
+reads every PR, peers on the same side do not add reads of one another's PRs.
+Contract changes still need both sides' agreement before implementation.
+
+The forge is the one copy of a PR's state; a maintainer's state holds only
+its own lane. The decision limited peer messages to a second-read request,
+its verdict, a hold on work in flight, the release plan, and a lane
+hand-over; the [`cross-review-peer` skill](https://github.com/awebai/oats-engineering/blob/7a079d99674c5d97a5ca04032e36cdb6aea7b571/oats-package/capabilities/maintainer/skills/cross-review-peer/SKILL.md)
+owns the current list, which has since grown. There is no routine notice before or after a merge or tag. Joint release
+planning remains; duplicating each event does not make it joint planning.
+
+This supersedes the all-peers, parallel-review practice and repeated
+verdict-rebinding associated with the earlier pairing. Experience with that
+practice produced duplicate PR tracking, repeated rebases and per-event mail
+without a new independent read. The choice keeps the second pair of eyes
+while removing those costs, rather than weakening review to save messages.
+The lone-gate fallback above is unchanged; content changes still return to
+both readers under the carry rule. The operating detail belongs in the
+`oats.maintainer` `cross-review-peer` and `pr-review` skills [7].
+
+## Acceptance of the 2026-10-13 decisions (recorded at review, 2026-10-30)
+
+Both decisions above supersede part of a human-directed decision. The
+acceptance is **source-reported (relay at
+[awebai/oats#1103](https://github.com/awebai/oats/issues/1103#issuecomment-6150667299))**, not verified as the human's own
+record. That comment presents itself as an agent reporting the human's
+one-word yes, given in a session on 2026-10-13, to decisions D1 to D4 of the
+[proposal](https://github.com/awebai/oats/issues/1103#issuecomment-6150614496), with that side's
+[condition on D1](https://github.com/awebai/oats/issues/1103#issuecomment-6150639181). The same human gave the 2026-10-01
+direction, so this is that human's refinement of their own decision. D2 is
+the one-second-reader rule and D3 the range-diff carry; each names the
+recorded sentence it changes.
+
+Two terms came from the maintainer sides and that yes does not cover them.
+The [other side's answer](https://github.com/awebai/oats/issues/1103#issuecomment-6150651275) added the changed-test
+selection, and said its own human had not yet weighed in; no later comment on
+the issue overrules it. The [release lane's answer](https://github.com/awebai/oats/issues/1103#issuecomment-6150671879), posted
+after the yes, added the merging maintainer's forge update and the carry
+across it. A merge update is not a rebase, so that term supersedes no recorded
+rule. Both terms went into
+[awebai/oats-engineering#14](https://github.com/awebai/oats-engineering/pull/14),
+approved by a reader from each side, and remain in the current
+[`pr-review` skill](https://github.com/awebai/oats-engineering/blob/7a079d99674c5d97a5ca04032e36cdb6aea7b571/oats-package/capabilities/maintainer/skills/pr-review/SKILL.md).
+
+The shipment in [7] is confirmed: #14 merged as 944470be, which tag v1.10.0
+names, and [awebai/oats#1119](https://github.com/awebai/oats/pull/1119) merged
+as 9a3ae4b2.
 
 # A test that agrees with the code is not evidence (consolidated 2026-09-06)
 
@@ -527,6 +624,8 @@ dislodge than the original.
 3. Migrated from agents/oats-expert/soul/knowledge/lessons/window-gone-completed-vs-killed-triage.md @ 7838d3ca.
 4. Harvested 2026-10-01 (paired maintainers). OKF input c15a51880924deaff3fb01859f1c90b8aa09ad3a815c75af48410a708b5862c3 (turns t1:e06654b04457084a49aa064a418ef9a08d6f2e8fd0c0090c1c0edc683f99b78a).
 5. Harvested 2026-10-01 (paired maintainers). OKF input 6fe3e66661e1fb9bcef9dd2a99d0d8c0f3ebcc7aa9882e1a1d6591edc1cb899c (note maintainer-pairing-agreement.md; second-reader rationale only, not the still-proposed operating terms).
+6. Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-lfx, 2026-10-14; notes/a-human-gate-gets-a-time.md; notes/merge-rule-base-moved.md. The proposal reports human and both-side acceptance on 2026-10-13 in [awebai/oats#1103](https://github.com/awebai/oats/issues/1103), proposal comment 6150614496 and answers 6150639181, 6150651275, 6150667299, 6150671879. The first note records the lane decision and rejected duplicated tracking/notices; the second explains why changed test files, not file overlap alone, determine integration evidence. Its earlier rebase-and-reconfirmation procedure is historical evidence, not an additional current rule. Acceptance references are source-reported, not independently verified by this harvest.
+7. The proposal reports the replacement procedure shipped in [awebai/oats-engineering#14](https://github.com/awebai/oats-engineering/pull/14), oats.engineering 1.10.0 at 944470be, and mirrored/pinned in [awebai/oats#1119](https://github.com/awebai/oats/pull/1119) at 9a3ae4b2. The recorded source composition confirms oats.engineering 1.10.0 at 944470be71a96299ae4a1cfb7df0fba94a592899; this harvest did not inspect the source's copied skills or independently verify the release/tag.
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-pepe, 2026-10-14; notes/a-path-ci-does-not-run-is-run-before-the-hand-over.md.
 
