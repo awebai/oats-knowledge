@@ -9,7 +9,9 @@ timestamp: 2026-10-30
 
 The source records a 2026-10-30 choice for a start refusal: select its
 feature-dependent wording on the Desktop server and carry that sentence
-beside the code to the page. The relevant authority is the **answering
+beside the code to the page. The merged change makes that selection in the
+shared start rule, which the Desktop server calls and the TUI calls too, so
+it is not a Desktop-only sentence. The relevant authority is the **answering
 kernel's** declaration, not the client's installed version or the code alone.
 
 The existing code-keyed sentence table was rejected for this case. A kernel
@@ -35,8 +37,8 @@ fallbacks.
 
 [Shared terms and kernel prose](shared-readers-separate-client-terms-and-kernel-prose.md)
 still owns client terms, control-specific next steps and attribution. A
-sentence selected by the Desktop server remains client-authored; kernel
-speech stays separate. No general removal of code-keyed tables or move of
+sentence selected by the shared rule on the server remains client-authored;
+kernel speech stays separate. No general removal of code-keyed tables or move of
 all UI wording to the server is implied. For codes with multiple producers,
 the [wording audit](../lessons/client-wording-must-hold-at-every-code-producer.md)
 is independently necessary even after the feature gate is satisfied.
@@ -59,3 +61,12 @@ The source identifies work for
 rejected alternative are source-reported, not independently audited human
 acceptance, implementation, test or release evidence. No existing
 human-accepted decision is superseded.
+
+That described the harvest. At maintainer review on 2026-10-30,
+[awebai/oats#1668](https://github.com/awebai/oats/pull/1668) was merged as
+`27dae302`, just after this proposal was opened. Its diff selects the sentence
+in the shared start rule only where the answering kernel lists
+`lifecycle-claim-start`, carries it to the page as an optional route key, and
+leaves the same codes uncertain otherwise; the page's code-keyed table stays
+for other codes. The maintainer read the diff and did not run its tests. A
+merge is not a release.

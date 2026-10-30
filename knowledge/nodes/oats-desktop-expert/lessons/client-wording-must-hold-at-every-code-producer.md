@@ -31,7 +31,10 @@ This concerns **client-authored claims**, not an obligation to freeze the
 kernel's sentences. [Kernel-text test ownership](kernel-text-tests-own-the-client-reading.md)
 keeps that separate boundary. Where the meaning also depends on the answering
 kernel's declaration, [gated wording](../decisions/gated-wording-travels-with-the-answer.md)
-records why the decision must travel with the response.
+records why the decision must travel with the response. The
+[confirmation lesson](asynchronous-intent-and-truthful-outcomes.md#confirmations-follow-effect-conditions-not-the-usual-case)
+owns the same truthfulness question for a promise made before an act; this
+one adds the audit for a sentence keyed to a shared refusal code.
 
 # Elimination route
 
@@ -58,3 +61,13 @@ source-reported review case, not an independent reproduction, an exhaustive
 audit of kernel codes, or evidence of shipment. The prevention route above
 is harvest judgment; the note's claim that there is no code-level route is
 not adopted.
+
+That described the harvest. At maintainer review on 2026-10-30,
+[awebai/oats#1668](https://github.com/awebai/oats/pull/1668) was merged as
+`27dae302`, and its commits confirm the correction: the first head said the
+instance had a retirement that had not finished, and `997e1f6a` widened that to
+being retired or having cleanup to finish, naming the failed spawn's retained
+cleanup. The reviewer's run through the real kernel and client remains
+source-reported. The tests that PR changed pin the widened sentence but feed
+it a retirement-worded refusal, so the retained-cleanup producer case above is
+still owed as a regression input. A merge is not a release.
