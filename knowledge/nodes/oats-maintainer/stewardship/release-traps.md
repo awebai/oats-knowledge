@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them, and pairs changes to shared instructional behaviour across separately released packages.
 tags: [stewardship, release, ci, npm, packaging, pins]
 timestamp: 2026-10-28
 ---
@@ -71,6 +71,37 @@ as a patch prep from the prior release with
 [#158](https://github.com/awebai/oats-aweb/pull/158) held for the later minor.
 This is one source-reported release, second read and tag, not independently
 audited shipment evidence or a new human decision to support an old line.
+
+# Pair changes to shared instructional behaviour (2026-10-27)
+
+When separately released packages both state one behaviour and a change to
+only one would make composed instructions disagree, the maintainer asks the
+release lane to pair both changes in the **same release window**. Treat
+that shared meaning as a release dependency, even when both diffs are only
+text and neither alone appears to break an API.
+
+The source's example is retirement responsibility stated in the oats.core
+inject shipped by oats.framework and in oats.engineering skills. Independent
+release review can find each new text coherent while missing the interval
+in which an instance composes the new rule from one package with the old
+rule from the other. The source reports that the release lane paired these
+changes in its plan; that is planning evidence, not proof either shipped.
+
+This extends lockstep release judgment to instructional meaning. It does
+not require coupling unrelated text edits or approve the underlying
+retirement policy. Same-window publication alone also does not prove that
+a deployment's selected pins compose a coherent set: the generalist's
+[dependent-text planning lesson](/nodes/oats-expert/lessons/soul-text-lands-with-its-capability-pin.md)
+owns that pin dependency and composed-text check. The
+[ship-together evidence gate](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md#a-ship-together-set-needs-whole-set-evidence-before-its-first-merge-2026-10-27)
+remains distinct from deciding which changes need pairing.
+
+Prefer one capability-owned definition of a shared rule; where separate
+texts must remain, composition checks at the intended versions can catch
+known disagreements. Recording the pair in the release plan and enforcing
+its dependency is the prevention route, with the remaining semantic
+judgment in release review. This harvest claims no new enforcement or
+skill change has landed.
 
 # A package soul's new key is a package-wide rollout decision (2026-10-27)
 
@@ -498,6 +529,11 @@ The notes report the 0.53.0 rehearsal prompted by
 publication (run 38546688491), and escaped pins in
 [#1120](https://github.com/awebai/oats/pull/1120). These are source-reported
 observations; this harvest did not reproduce the rehearsal or registry reads.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/injection-effort-scope-gate.md. Cross-package retirement
+text and the release lane's paired plan are source-reported; no completed
+release or mixed-version deployment failure was independently verified.
 
 Evidence: OKF proposal from oats-maintainer/pepe-release-maintainer,
 2026-10-27; notes/macos-desktop-tests-first-run-on-the-tag.md.

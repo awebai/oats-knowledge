@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: One release lane does the final review, merge and tags; project lanes are defined by their own maintainers
-description: One release lane owns final review, merge and tags; project maintainers define lanes without sign-off, route follow-ups by the map, review with one second reader, record changed practice and hand over approved heads, while the directing human's lanes launch routine filed work without asking again.
+description: One release lane owns final review, merge and tags; project maintainers define lanes without sign-off, route follow-ups by the map, review with one second reader, record changed practice and hand over approved heads, while the directing human's lanes launch routine filed work without asking again; child overflow seats add execution capacity without a second accountable authority.
 tags: [stewardship, lanes, release, review, process, multi-human]
-timestamp: 2026-10-28
+timestamp: 2026-10-30
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the lane map's
 rules, the routing judgment, the release lane's ownership or the
@@ -40,6 +40,56 @@ lane assignment by hand. What protects the default branch is the single
 final-review gate, not centralising who defines the project lanes above it.
 Any deployment that composes `oats.maintainer` with several humans meets the
 same situation.
+
+# Overflow adds capacity, not another authority (2026-10-27)
+
+The source reports direct acceptance by the lane's human on 2026-10-27 of
+help **as the lane maintainer's child**, after the other human's side
+objected to an independent second maintainer. With more than five efforts
+in flight, the lane maintainer can spawn an overflow seat:
+
+- it is listed inside the parent's lane-map entry, with no entry of its own;
+- it drives its assigned efforts through specs, developers and PRs up to
+  hand-back;
+- it has no merge, second-read, sign-off-request or contract-answer
+  authority, and never spawns another overflow seat;
+- its parent retires it like a finished child; it does not retire itself
+  when idle.
+
+One accountable maintainer per human per lane still holds. The parent keeps
+those review and coordination responsibilities; this does **not** give a
+project-lane parent the final merge or tag authority reserved above for the
+release lane. The accepted cost is that review and merge load is not relieved:
+this delegation relieves launching and tracking instead.
+
+This refines the one-maintainer rule, not the release-lane boundary. The
+rejected equal-authority second maintainer would split accountability and
+conflict with the existing newcomer-stands-down and lane-split rules.
+Idle self-retirement was also rejected: it was not part of the human's
+request and would turn extra capacity into a separate lifecycle authority.
+The operating terms belong in the lane map and maintainer skills, not a
+second roster here.
+
+The source's later overflow note records the child-form acceptance; the
+scope-gate note still contains the earlier objection and pending-decision
+stage. At proposal time the amended map bullet and skill text were not yet
+edited or merged. This records the reported decision and its rationale,
+not completed implementation or a release.
+
+Recorded at maintainer review on 2026-10-30: the acceptance is
+**source-reported (relay at
+[the lane map](https://github.com/awebai/oats/issues/1566))**, not verified
+as the human's own record. The map the release lane keeps says the child form
+was decided by the human and the other side on 2026-10-27, and its edit
+history shows the independent form, the other side's objection, then the child
+form. That human also took the 2026-10-26 decision above, so this is that
+human's refinement of their own decision. The map now carries these terms, and
+the [maintainer skill](https://github.com/awebai/oats-engineering/blob/3a8dbb9d4a17314c77886ad7371254b1991fe560/oats-package/capabilities/maintainer/skills/cross-review-peer/SKILL.md)
+has since added two: at most one seat until it is retired, and the seat
+reviews each PR at its head before handing it to its parent. That moves part
+of the review load the accepted cost above says stays with the parent; second
+reads, the hand-over, sign-off and the merge stay with the parent. The map and
+skill own the terms; this section keeps the decision and why.
 
 # One product lane replaces separate kernel and Desktop lanes (2026-10-28)
 
@@ -194,7 +244,10 @@ records one accountable maintainer per lane and one second reader per PR,
 and this decision **refines, not removes,** both: one second reader per PR
 and release ownership by the release lane are unchanged.
 [Release judgement](/nodes/oats-maintainer/stewardship/release-traps.md)
-remains the release lane's.
+remains the release lane's. The
+[overflow seat](/nodes/oats-maintainer/stewardship/release-lane-and-project-lanes.md#overflow-adds-capacity-not-another-authority-2026-10-27)
+refines the one accountable maintainer per lane recorded here without adding
+a second one.
 
 # Citations
 
@@ -204,6 +257,13 @@ the human's words relayed by the release lane in a comment on
 [awebai/oats#1103](https://github.com/awebai/oats/issues/1103) and the first
 project lane defined by its own maintainer the same day. Acceptance and the
 map edit are source-reported, not independently verified by this harvest.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/overflow-maintainer-is-a-child.md;
+notes/injection-effort-scope-gate.md. The source reports the human's direct
+acceptance of the child form and the other side's agreement to that form of
+the [lane-map amendment](https://github.com/awebai/oats/issues/1566).
+This harvest did not independently audit that acceptance or the amendment.
 
 Evidence: OKF proposal from oats-maintainer/polaris-oats-maintainer-kernel,
 2026-10-28; notes/package-repo-work-routes-to-lane-setup.md. The source

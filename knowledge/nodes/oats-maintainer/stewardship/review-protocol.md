@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and issue-recorded contract decisions, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh and second readers, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-28
+timestamp: 2026-10-30
 ---
 **Owner: oats-expert (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -311,6 +311,43 @@ its producer, fix the producer and keep the consumer's guard as defence in
 depth. A stand-in producer proves only the shapes we assumed: before shipping a
 contract change, recapture the consumer's fixtures from the real producer.
 
+## Instruction precedence needs a cross-side decision (2026-10-27)
+
+The named contract list is not an exhaustive boundary for shared-behaviour
+judgment. Changing the order of composed instructions changes their
+precedence across deployments, even if no config key, manifest field, hook
+environment, Desktop JSON shape or lock format changes. Both maintainer
+sides decide that change on a decision issue **before implementation**;
+absence from the list is not permission for one lane to settle it alone.
+
+The source first treated order as a contract change only if a client read
+the instruction-source arrays positionally. After the other side objected,
+the source agreed that instruction precedence itself needed the cross-side
+decision. A positional JSON consumer still makes it a Desktop-JSON contract
+change outright, but proving there is no such consumer does not remove the
+precedence decision. This distinguishes the governance gate from the wire
+compatibility test rather than conflating them.
+
+The proposed order was still undecided at capture. This lesson records the
+agreed need to decide, **not acceptance of any particular ordering** or a
+guarantee about how a harness resolves conflicting prose. The existing
+[kernel composition lesson](/nodes/oats-kernel-expert/lessons/kernel-composed-text-is-executable-surface.md)
+owns composed-text coverage and structural assertions. The residual
+cross-side decision check belongs in the maintainer's direction gate;
+regressions should enforce the order once decided, not substitute a green
+ordering test for that agreement.
+
+Recorded at maintainer review on 2026-10-30: the order was decided after this
+lesson's capture, on the decision issue
+[awebai/oats#1576](https://github.com/awebai/oats/issues/1576), and merged on
+2026-10-27 in [awebai/oats#1600](https://github.com/awebai/oats/pull/1600).
+Relays on that issue report that the release lane's human accepted it and,
+when asked, said the other side's sign-off was not needed. So this gate's first
+use ended on one human's word, not on both sides' agreement. That ruling is
+source-reported (relay at the issue), and it is recorded here as what happened
+on that change, not as a general waiver: a lane still may not settle precedence
+alone, and the map's rule that both sides decide contract changes is unchanged.
+
 ## Contract agreement stays on the issue through implementation (2026-10-28)
 
 The source reports a useful practice across three product-contract cases:
@@ -512,3 +549,9 @@ incident during [#1193](https://github.com/awebai/oats/issues/1193). Agreement,
 CI results and incidents are source-reported, not independently audited by
 this harvest. The base-moved note's later qualifications are not reduced to
 the proposal's earlier head-guard/clean-merge-only path for unrelated files.
+
+Evidence: OKF proposal from oats-maintainer/pepe-setup-maintainer,
+2026-10-27; notes/injection-effort-scope-gate.md. The note's later update
+supersedes its initial positional-consumer-only gate for instruction
+precedence. Agreement to require a decision is source-reported; this
+harvest did not inspect private correspondence or decide the new order.
