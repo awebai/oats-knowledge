@@ -2,6 +2,7 @@
 
 Discoveries, integration limitations and verification judgment that the repository cannot express. Where a defect has since become a test, the lesson keeps the stance and names the elimination route.
 
+* [A client's sentence must hold at every producer of a kernel code](client-wording-must-hold-at-every-code-producer.md) - Audit a client-authored sentence separately from its outcome classification, because a shared kernel code can cover causes the first example does not.
 * [Slow the suspected step on CI to expose a rare wait race](slow-the-suspected-step-on-ci.md) - Use a bounded delayed control to reproduce a rare terminal wait failure, expose missed dependants and challenge every affected exit path at the final head, while measuring timing margins separately from failure frequency.
 * [Blocked live verification needs an owned handback](blocked-live-verification-needs-an-owned-handback.md) - When an agent cannot run Desktop live, name what automated evidence leaves unproven and turn those gaps into concrete human checks rather than silently waive live verification.
 * [Signal tests must contain even regressed cleanup](signal-tests-must-contain-regressed-cleanup.md) - Run real-process signal tests only on disposable CI runners or inside an isolated Linux PID namespace, and keep every signal target test-owned even when the code under test regresses.

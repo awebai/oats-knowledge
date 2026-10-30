@@ -78,6 +78,11 @@ This supplies the interface rationale needed to apply
 remains the canonical visual and accessibility treatment. It does not require
 every existing view to change presentation during a shared-code move.
 
+[Feature-gated refusal wording](gated-wording-travels-with-the-answer.md)
+adds why a sentence whose meaning depends on the answering kernel is chosen
+where that context is known and carried to the page. It remains client-authored
+text, not attributed kernel speech.
+
 # Scope and enforcement
 
 Use required-terms tests, attribution/parts equivalence tests and shared
