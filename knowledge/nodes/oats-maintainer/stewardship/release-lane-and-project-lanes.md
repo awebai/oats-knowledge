@@ -237,9 +237,9 @@ does not certify the underlying arrangement as current policy.
 Supersedes the rule that a new maintainer asks the release lane (the keeper
 of the map) which lane is its own, as recorded in the lane model on
 awebai/oats#1103 and in the repository's lane documentation. At the time of
-recording, the knowledge base held no such sentence: the pending lane-owned
-review refinement in
-[how the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md)
+recording, the knowledge base held no such sentence: the lane-owned review
+refinement then pending, since accepted in
+[how the OATS project ships and reviews](/nodes/oats-maintainer/stewardship/review-protocol.md#peer-maintainers-own-lanes-each-pr-gets-one-second-reader-2026-10-13),
 records one accountable maintainer per lane and one second reader per PR,
 and this decision **refines, not removes,** both: one second reader per PR
 and release ownership by the release lane are unchanged.

@@ -3,7 +3,7 @@ type: Lesson
 title: Prove coupled Desktop changes on main and on the prospective kernel merge
 description: When a kernel change would make Desktop actively wrong, keep the Desktop delta reviewable on main but prove the combined tree before maintainers land the pair together.
 tags: [desktop, integration, kernel, release, verification]
-timestamp: 2026-10-09
+timestamp: 2026-10-30
 ---
 # Why these changes need a coupled landing
 
@@ -47,7 +47,7 @@ queue ahead to land before resolving a shared release-notes file; premature
 rebases repeat the same conflict. A range-diff can establish that the
 approved implementation delta survived such a rebase. It does **not** grant
 merge authority or replace approval when content changed. Head-bound review
-and approver confirmation remain owned by the
+and the carrying of verdicts remain owned by the
 [maintainer's review protocol](/nodes/oats-maintainer/stewardship/review-protocol.md).
 General contract freezing and merge-fidelity reasoning stay in
 [cross-workstream delivery](/nodes/oats-maintainer/stewardship/multi-workstream-delivery.md).
