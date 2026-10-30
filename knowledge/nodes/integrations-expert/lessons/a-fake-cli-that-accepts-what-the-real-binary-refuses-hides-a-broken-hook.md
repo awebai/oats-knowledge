@@ -21,11 +21,15 @@ identity home.
    field a fake always populates is a branch the real tool can leave empty.
 2. **Read the tool's admission surface, not only the diff.** When the tool
    admits only an exact allowlist of commands under a mode (the messaging CLI
-   under an external identity home), find every command the provider runs in
-   that mode on the allowlist in the released source at the floor version; if
-   it is absent, use the admitted alternative the refusal names, or change the
-   floor. Keep one real-binary test per such command that proves admission:
-   the failure must be about the input, never about the policy.
+   under an external identity home in the releases examined before aw
+   1.36.43), find every command the provider runs in that mode on the allowlist
+   in the released source at the floor version; if it is absent, use the
+   admitted alternative the refusal names, or change the floor. Keep one
+   real-binary test per such command that proves admission: the failure must
+   be about the input, never about the policy. Do not project that allowlist
+   onto newer releases: the source reports its removal at aw 1.36.43.
+   [Explicit hook identity isolation](/nodes/integrations-expert/lessons/a-lifecycle-hook-never-trusts-the-ambient-environment.md)
+   must hold even when the tool no longer refuses a foreign inherited home.
 3. **The gate is the feature's whole lifecycle** (for a membership: join,
    send, read, leave) run against the published binary on a scratch
    deployment with a disposable identity, with its isolation limits made
@@ -49,6 +53,11 @@ identity home.
    manifest and lock, and a capability must ship no dependency closure.
 6. **When the rehearsal finds a refusal the fake accepted, fix the fake in the
    same round as the hook**, naming the tool's source of truth in the test.
+
+[Required real-binary tests must actually run](/nodes/integrations-expert/lessons/real-binary-tests-that-skip-give-no-cover.md):
+install the floor and newer version being qualified, fail on skipped required
+cases, and check that each version reached the intended behavior. The linked
+lesson preserves why a green suite and then a matrix both missed that proof.
 
 # Scratch-deployment boundary
 
@@ -190,6 +199,7 @@ failure and its limits, rather than a universal command recipe.
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/real-binary-tests-that-skip-give-no-cover.md; notes/aw-1-36-43-selection-order.md. The CI execution gap and removal of the external-home allowlist are source-reported; this harvest did not rerun them or establish real invite acceptance on aw 1.36.51.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/a-check-can-change-what-it-checks.md. The linked measurement lesson preserves the source-reported observation and version limit; no rehearsal was rerun by this harvest.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/prove-a-harness-you-cannot-log-in-to.md; notes/idle-waiter-wake-rehearsal.md. The linked partial-proof finding is source-reported and does not certify authenticated end-to-end execution.
 

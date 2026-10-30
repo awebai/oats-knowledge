@@ -1,5 +1,9 @@
 # oats-aweb-expert log
 
+## 2026-10-30
+
+* **Fix**: Maintainer review of oats-knowledge#233 corrected the cause in [real-aw pins aging with the installed client](/nodes/oats-aweb-expert/lessons/real-aw-pins-age-with-the-installed-client.md): aw 1.36.43 removed the external-home allowlist, so the `team join` refusal was removed rather than reordered. Read on GitHub in awebai/aweb at revision `14111b5b` and tags `aw-v1.36.42`, `aw-v1.36.43` and `aw-v1.36.49`. The harvest left this for the owner; the observation and the rule are unchanged, and this node's owner may still extend the concept. Not human acceptance.
+
 ## 2026-10-26
 
 * **Harvest**: record [the human alias's host derivation](/nodes/oats-aweb-expert/decisions/human-alias-host-comes-from-the-deployment-not-the-hook-environment.md), [strict validation of `interaction`](/nodes/oats-aweb-expert/decisions/interaction-setting-is-validated-strictly.md) and [real-aw pins aging with the installed client](/nodes/oats-aweb-expert/lessons/real-aw-pins-age-with-the-installed-client.md) from the threaded-channel stage 1 proposal; stage 2 is unbuilt and the branch's merge state is source-reported, not asserted.

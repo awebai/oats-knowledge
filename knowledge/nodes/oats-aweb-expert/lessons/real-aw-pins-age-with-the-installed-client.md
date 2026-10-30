@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: The suite's real-aw pins age with the installed client — compare against the clean base on the same host before calling a failure a regression
-description: The package pins the real binary's refusals (exit code and message), and those pins break when the installed aw changes its check order, as aw 1.36.49 did for `team join` with a bad token; run the suite on the clean base on the same host before attributing a failure to a branch, and re-pin the real-aw tables in a dedicated PR, never inside a feature PR.
+description: The package pins the real binary's refusals (exit code and message), and those pins break when the installed aw changes behaviour, as `team join` with a bad token did from aw 1.36.43 (first seen here on 1.36.49); run the suite on the clean base on the same host before attributing a failure to a branch, and re-pin the real-aw tables in a dedicated PR, never inside a feature PR.
 tags: [oats.aweb, testing, real-aw, pins, aw-version, review]
-timestamp: 2026-10-26
+timestamp: 2026-10-30
 ---
 
 Learned 2026-10-26 while reviewing stage 1 of the threaded human channel on a
@@ -20,6 +20,15 @@ identity-home policy message. On aw 1.36.49 the client decodes the invite
 token before applying the identity-home policy and answers exit 1 "invalid
 invite token payload", so both tests fail identically on the clean base and
 on the branch under review.
+
+**Correction (2026-10-30):** the check-order explanation above does not hold.
+aw 1.36.43 removed the external-home command allowlist
+([awebai/aweb@14111b5b](https://github.com/awebai/aweb/commit/14111b5b0f58c7cb39a096bf614fdf337042fed0)
+is in tag `aw-v1.36.43`, not in `aw-v1.36.42`), and the policy message is gone
+from the policy source at `aw-v1.36.43` and `aw-v1.36.49`: the refusal was
+removed, not reordered. The observed exit and message and the rule below stand.
+The risk for hooks is in
+[a tool's refusal is not the hook's isolation boundary](/nodes/integrations-expert/lessons/a-lifecycle-hook-never-trusts-the-ambient-environment.md).
 
 # Rule
 
