@@ -4,8 +4,10 @@ Messaging package expert (`oats.aweb`, repository `oats-aweb`). Owns the FACTS o
 
 **Seam:** the messaging protocol's own identity, custody and team model is decided on the protocol side, in node `aweb-protocol-expert` of the aweb project's base (read-only store reference across bases). This node reads it and records only how the OATS package applies it — so the two rosters do not re-derive each other's decisions ([the OATS soul roster](/nodes/oats-maintainer/decisions/domain-expert-rebuild.md)).
 
-The node records the package's facts as of the release the framework pins (oats.aweb 1.16.1, mirrored in the framework's `capabilities/oats-aweb`); a concept names the release it was verified against.
+The references record package facts verified against oats.aweb 1.16.1. Decisions and lessons preserve later dated rationale and findings with their own evidence and limits; they do not assert a newer pinned release or shipped state.
 
 ## Sections
 
 * [References](references/index.md) - How the package applies the protocol's identity and custody model at each release.
+* [Decisions](decisions/index.md) - Health-publisher evidence, measured caching choices, rejected duplicate locking, and the threaded human channel's alias derivation and `interaction` validation.
+* [Lessons](lessons/index.md) - External CLI findings that change messaging-provider implementation and review choices.

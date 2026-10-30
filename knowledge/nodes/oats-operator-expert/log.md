@@ -1,5 +1,10 @@
 # oats-operator-expert log
 
+## 2026-10-15
+
+* **Harvest**: [Host Git credentials must work for unattended agents](/nodes/oats-operator-expert/decisions/host-git-credentials-must-work-unattended.md) — preserve the source-reported human acceptance of the unattended key trade-off, rejection of an implicit SSH-agent dependency, shared-token least privilege and storage continuity, and the person's sign-off responsibility. Link native forge custody and scope placement without changing their rules; keep commands in the setup skill and live GitHub/macOS verification explicitly unclaimed.
+* **Update**: [Host Git credentials must work for unattended agents](/nodes/oats-operator-expert/decisions/host-git-credentials-must-work-unattended.md) — maintainer review verified the product-owner acceptance on awebai/oats#1236 and recorded it in place of the harvest's unverified attribution.
+
 ## 2026-10-13
 
 * **Harvest**: [Check the target provider's host requirements before sync](/nodes/oats-operator-expert/lessons/check-target-provider-host-requirements-before-sync.md) — promote the operator's target-version check and host-first sequencing judgment; distinguish reported green pre-sync checks, source-inspected spawn refusal and second-hand post-sync readiness failure. Name plan-time requirement comparison as the elimination route, and cross-link the existing provider-settings lesson without changing its rule.

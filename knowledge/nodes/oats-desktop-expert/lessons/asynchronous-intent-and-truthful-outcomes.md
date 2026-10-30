@@ -3,7 +3,7 @@ type: Lesson
 title: Async completion must still own the user's intent
 description: Background work preserves intent and separates creation, readiness and success; confirmations describe effect boundaries without suppressing unrelated reads or inventing stale-result state.
 tags: [desktop, async, intent, mutations, truthfulness]
-timestamp: 2026-10-09
+timestamp: 2026-10-27
 ---
 # Rationale
 
@@ -82,6 +82,15 @@ without accidentally designing extra controls or state.
 
 # Related
 
+The [Desktop sweep-notice decision](../decisions/machine-notices-are-action-free-and-outcome-driven.md)
+records the 2026-10-27 removal of the recovery notice and its app-lifetime
+exception. The earlier inert-summary rationale is historical, not permission
+to restore the surface; context-bound intent ownership remains intact.
+
+[Pending lifecycle state is not evidence of failure](pending-lifecycle-state-is-not-failure.md)
+extends truthful outcomes to producer-reported held rows and per-apply
+reconciliation after a later covering observation.
+
 [Identity and relationships must stay legible under ambiguity](identity-and-relationship-legibility.md); [Keyboard policy follows actions and user intent](keyboard-focus-and-action-ownership.md); [Workspace admission is privileged and transactional](../decisions/privileged-workspace-admission.md); [Browser-owned state and accessibility under repaint](browser-owned-state-and-accessibility-under-repaint.md) (the repaint-barrier rules in detail).
 
 # Current contracts
@@ -96,3 +105,8 @@ without accidentally designing extra controls or state.
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, 2026-10-08; notes/long-spawn-transport-decision.md. The proposal reports the conditional branch-cleanup finding, repeated verification returns and a forced-interruption run whose retire reported `spawnCompensation`, associated with [awebai/oats#801](https://github.com/awebai/oats/pull/801) and [#819](https://github.com/awebai/oats/pull/819). These outcomes are source-reported, not rerun by this harvest; the shared-helper and regression guidance names the elimination route rather than asserting its implementation.
 
 Evidence: OKF proposal from oats-desktop-expert/oats-desktop-expert-desktop-parity-049, received 2026-10-09. The proposal reports the overconstrained history read, stale-result race and existing no-run path in [awebai/oats#850](https://github.com/awebai/oats/pull/850). These review findings are supported by the proposal, not by the narrower manual-action backing note, and were not independently audited or rerun. No claim is made that every proposed regression is already implemented.
+
+Evidence for the related notice supersession: OKF proposal from
+oats-desktop-expert/resume-notice-removal-expert, 2026-10-27;
+notes/desktop-shows-nothing-of-resume-sweep.md. The canonical decision above
+retains its source-reported acceptance and implementation limits.

@@ -50,6 +50,7 @@ not a sandbox or a guarantee about the operator's configuration and commands.
 
 # Related
 
+- [Recovery preserves Git state across ref formats, not just paths](/nodes/oats-kernel-expert/decisions/recovery-preserves-git-state-across-ref-formats.md) refines the ref/object preservation obligation without restoring source-selected operating configuration.
 - [Observation must not harm the observer](/nodes/oats-kernel-expert/lessons/observation-must-not-harm-the-observer.md) owns the helper-execution hazard and the protections required while reading another agent's tree; this decision applies that concern to what recovery leaves for a later reader.
 - [Recovery completeness must be measured against the source, not Git's advertised refs](/nodes/oats-kernel-expert/lessons/recovery-completeness-needs-source-refs.md) explains why preserving branch identity needs source-side evidence, independently of configuration retention.
 

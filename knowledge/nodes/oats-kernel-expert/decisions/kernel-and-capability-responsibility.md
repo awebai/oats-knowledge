@@ -72,6 +72,10 @@ release, with a packaging test.
 
 # Related
 
+[Bridge home markers change retirement](../lessons/bridge-home-markers-change-retirement.md)
+records why a runtime bridge's bookkeeping does not acquire the disposable-home
+declaration authority of a capability.
+
 [Optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md);
 [A minimal process boundary avoids permanent private coupling](minimal-process-boundary.md);
 [Soul declares identity; the workspace versions; the host supplies facts](soul-declares-kind-config-assigns-policy.md);

@@ -41,6 +41,12 @@ addresses the subsequent judgment about an allegedly false restore failure:
 which actor changed the state, and what the comparison must continue to
 protect. It shares the evidence-before-recommendation stance of
 [testable feasibility disputes](/nodes/oats-expert/lessons/test-feasibility-before-choosing-between-owners.md).
+For a fix built away from the runtime that exposes the bug, see
+[verification on the reproducing host](/nodes/oats-expert/lessons/verify-host-bound-fixes-on-the-reproducing-host.md);
+that lesson separates cross-host handback evidence from capture-harness failures.
+For tmux-driven assertions, [prove the observed view and fixture state](/nodes/oats-expert/lessons/real-terminal-waits-prove-the-observed-state.md)
+before trusting content or absence; capture wrapping and input timing can
+invalidate the measurement without a program defect.
 
 # Elimination route
 

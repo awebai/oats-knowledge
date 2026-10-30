@@ -123,6 +123,10 @@ shipping a GUI-safe verb.
 
 # Related
 
+[A routed preview preserves caller state and includes caller-only consequences](/nodes/oats-kernel-expert/decisions/routed-preview-preserves-caller-state.md)
+applies preview/apply admission and feature-detection rules at the caller,
+where a correct host preview must not become a saved route.
+
 [Compatibility follows supported adoption](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md)
 extends the tested-remedy obligation to upgrade guidance: a before-upgrade
 check is proven on the outgoing releases, not only on the new diagnostic.

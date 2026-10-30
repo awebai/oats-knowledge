@@ -75,6 +75,10 @@ the directory is where a machine keeps things; the seat is who holds one.
   list ([private member requires a private workspace host](/nodes/oats-operator-expert/decisions/private-member-requires-a-private-workspace-host.md))
   and the messaging root
   ([messaging root placement decides the team](/nodes/oats-operator-expert/lessons/messaging-root-placement-decides-the-team.md)).
+- Related host-account judgment: [Git credentials must work for unattended
+  agents](/nodes/oats-operator-expert/decisions/host-git-credentials-must-work-unattended.md).
+  Their unattended-use trade-off is an operator decision; the credentials stay
+  in native Git/forge custody, not in OATS configuration.
 
 # Citations
 

@@ -41,6 +41,16 @@ not shown that each input is needed: [a passing composition does not prove
 every copied input is needed](/nodes/oats-expert/lessons/prove-copied-inputs-are-needed.md)
 owns that separate question.
 
+A later, prose-specific responsibility remains with the spec author:
+[recheck dictated words against the build](/nodes/oats-expert/lessons/recheck-dictated-words-against-the-build.md)
+before opening the PR. Correctly built compositions do not establish that
+wording fixed earlier in the spec still describes them.
+
+After implementation, [check the affected-test inventory at handback](/nodes/oats-expert/lessons/check-affected-test-inventory-at-handback.md):
+when suites run only in CI, a green list of selected files can omit existing
+tests of changed surfaces. That selection check is distinct from proving
+the spec's composition here.
+
 # Elimination route
 
 Keep one owner-reviewed composition for shared rules. Turn the useful probe
