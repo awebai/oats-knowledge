@@ -1,5 +1,6 @@
 # Lessons
 
+* [A CI watcher's exit is not the run's result](ci-watcher-exit-is-not-the-run-result.md) - During a GitHub API incident, a watcher can fail while the run succeeds and the run summary can lead its job results, so reconcile the run and complete job list before reporting CI green.
 * [A failed-job rerun does not pick up a later base fix](a-rerun-does-not-pick-up-a-base-fix.md) - When PR CI failed on an old merge revision, rerunning that run does not test a fix subsequently merged to main; obtain fresh combination evidence and distinguish a branch update from an unchanged-head retrigger.
 * [Engineering layer neutrality needs package-side checks](engineering-layer-neutrality-needs-package-side-checks.md) - Use the package's own bounded neutrality check rather than importing the kernel test harness; retire the duplicate manual grep but retain the consumer guard until all pinnable releases are covered.
 * [Protect the last release blocker from merge churn](protect-the-last-release-blocker-from-merge-churn.md) - When one PR is the release's last blocker, arrange a temporary hold on competing merges to its paths so repeated base updates do not consume the critical path, without relaxing integration evidence.
