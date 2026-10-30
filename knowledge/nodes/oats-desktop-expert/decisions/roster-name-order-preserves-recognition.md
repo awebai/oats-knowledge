@@ -3,7 +3,7 @@ type: Decision
 title: Name-ordered rosters preserve recognition across state changes
 description: Order roster bundles by their first root rather than liveness or member count, so starts, stops and a first child do not reprioritize the agents the operator is tracking.
 tags: [desktop, roster, ordering, lineage, recognition]
-timestamp: 2026-10-19
+timestamp: 2026-10-30
 ---
 # Decision and rationale
 

@@ -3,7 +3,7 @@ type: Decision
 title: Agent-centered navigation makes the action target legible
 description: A stable roster and one authoritative inspection flow keep artifacts contextual and launch intent explicit.
 tags: [desktop, navigation, information-architecture, workspaces]
-timestamp: 2026-10-27
+timestamp: 2026-10-30
 ---
 # Rationale
 
@@ -55,10 +55,10 @@ forward, rather than making recency and relationships competing views.
   top of the ordered tree: the root of the most recently focused path. With
   a query, select the first match in the projected order.
 
-This opening rule **supersedes the earlier same-day previous-agent rule
-(2026-10-19)**, which selected the latest-focused listed instance other than
-the terminal in front, or the latest-focused match for a query. Under tree
-order that row can sit mid-list, on a child or in a second group, making the
+This opening rule **supersedes the previous-agent rule (2026-10-19)**, which
+the 2026-10-14 refinement set and the earlier same-day tree refinement kept.
+That rule selected the latest-focused listed instance other than the terminal
+in front, or the latest-focused match for a query. Under tree order that row can sit mid-list, on a child or in a second group, making the
 starting point seem arbitrary even when the order is correct. The source
 reports the human owner's later request, relayed through the lane maintainer,
 to start at the top instead. The accepted tradeoff is losing the palette-open
@@ -238,8 +238,18 @@ previous-agent quick return stated and accepted. It identifies
 [awebai/oats#1391](https://github.com/awebai/oats/issues/1391) and
 [PR #1392](https://github.com/awebai/oats/pull/1392). These acceptance and merge
 references remain source-reported, not independently audited by this harvest.
-The previous-agent rule had human-confirmed direction; this later request
-must receive human-acceptance review rather than silently overturn it. The
+The previous-agent rule had human-confirmed direction, so this supersession
+needed the human's acceptance; the maintainer check below records it. The
 source reports a CI regression for opening selection, but no live Electron
 or assistive-technology run. Such regressions enforce the behavior, not the
 reason for choosing it.
+
+Maintainer check (2026-10-30, review of oats-knowledge#135): the human owner's
+acceptance is **source-reported (relay at
+[awebai/oats#1392](https://github.com/awebai/oats/pull/1392#issuecomment-6266656161))**.
+In that 2026-10-19 comment the lane maintainer reports the owner's direct
+request and the owner's acceptance of losing previous-agent opening. It is an
+agent's report, not the human's own record. awebai/oats#1391 states the same
+change and tradeoff, PR #1392 merged on 2026-10-19, and the Desktop keyboard
+contract on main documents first-row opening. Live Electron behavior was not
+checked by this review.
