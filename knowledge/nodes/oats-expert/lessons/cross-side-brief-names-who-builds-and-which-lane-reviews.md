@@ -33,8 +33,10 @@ assignments per piece, not one:
   piece touches, which is where the other side's PR will be read.
 
 And it states, once, **which lanes decide contract changes on each side**,
-naming the reviewing side's lanes (for this project, the release lane and
-the product lane). Contract changes are decided by both sides before they
+naming the reviewing side's lanes (in the source's effort, the release lane
+and the product lane; take the names from the current
+[lane map](https://github.com/awebai/oats/issues/1566), which changes).
+Contract changes are decided by both sides before they
 are built, whatever the lane; the brief must make visible who those sides
 are so that a piece touching a shared contract is routed to a decision
 rather than reviewed as an ordinary PR. The lane model and the cross-side
@@ -43,9 +45,9 @@ contract rule are the maintainer's records and are not restated here:
 and
 [instruction precedence needs a cross-side decision](/nodes/oats-maintainer/stewardship/review-protocol.md#instruction-precedence-needs-a-cross-side-decision-2026-10-27).
 
-A lane maintainer receiving a cross-side brief checks exactly this before
-accepting it, together with whether any item supersedes a human-accepted
-decision (see
+In the source's effort the receiving lane maintainer checked exactly this
+before accepting the brief, together with whether any item superseded a
+human-accepted decision (see
 [ask for the record of the brief's subject before designing](/nodes/oats-expert/lessons/ask-for-the-record-of-the-briefs-subject-before-designing.md),
 whose delegated-review rule comes from the same brief). Writing both in on
 the first draft saves the review round.
@@ -79,3 +81,11 @@ effort at that date, and the current lane map, not this lesson, owns them.
 The project direction under which that effort ran (which side builds, which
 reviews, who coordinates releases) is the maintainer node's to record and is
 not recorded here.
+
+Checked at maintainer review on 2026-10-30 against the
+[lane map](https://github.com/awebai/oats/issues/1566): a PR from an
+overlapping lane is in that lane and names the area lane it touches, whose
+maintainer is its second reader, and both sides decide contract changes
+before anyone builds them. The lesson's reading of the lane model holds; the
+map does not name lanes as a side's contract deciders, so that remains the
+source's statement.

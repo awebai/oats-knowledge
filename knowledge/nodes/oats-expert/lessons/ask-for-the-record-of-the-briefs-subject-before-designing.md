@@ -119,9 +119,9 @@ decision, however broad the delegated review mandate:
   leaning ("I am more inclined towards X"). A leaning is direction worth
   recording and designing toward; it is not acceptance, and the brief must
   not let a reader infer one from the other;
-- the receiving maintainer will check exactly these two things before
-  accepting the brief; writing them in on the first draft is the saved
-  round.
+- in the source's case the receiving maintainer checked exactly these two
+  things before accepting the brief; writing them in on the first draft is
+  the saved round.
 
 This extends the record check above: it applies to the lead's own brief's
 proposals, not only to the requester's items, and delegated authority held
