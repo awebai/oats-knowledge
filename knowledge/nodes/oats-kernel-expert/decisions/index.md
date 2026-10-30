@@ -1,5 +1,7 @@
 # Decisions
 
+* [Waiting claims may withhold an automated keystroke but never authorize one](waiting-claims-may-only-withhold-automated-input.md) - Kernel wake delivery may defer on waiting claims because uncertainty must cost a late wake rather than an unseen approval, without expiring the message or turning a display summary into an input gate.
+* [Dialog-claim support is a per-start hook statement, not a manifest promise](dialog-claim-support-is-a-per-start-hook-statement.md) - A real hook run reports this home's claim support after setup, replacing earlier answers even by absence, because module capability and past claims cannot prove what this start installed.
 * [Retire's lineage repair falls back on any atomic-write failure](retire-lineage-repair-falls-back-on-any-atomic-write-failure.md) - Retire's lineage repair tries atomic replacement but falls back in place on any failure, preserving the legacy write's outcome rather than adding a new retirement refusal.
 * [Launch-value verification is private and best-effort](launch-value-verification-is-private-and-best-effort.md) - A launch-value verifier must resist low-entropy guessing without becoming credential custody, and recording failure must not become a new reason to fail a start.
 * [Hot-read imports preserve contracts and static boundaries](hot-read-imports-preserve-contracts-and-static-boundaries.md) - Use a narrow hot-read import table with re-exported leaves and literal specifiers to reduce startup work without changing synchronous consumers, non-hot commands or soul-resolution errors.

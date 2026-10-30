@@ -1,5 +1,6 @@
 # Lessons
 
+* [Dialog claims neither enumerate every dialog nor prove one is still open](dialog-claims-do-not-enumerate-all-dialogs.md) - A hook-silent usage-limit menu and a claim surviving refusal show why automated input must treat claim coverage as partial evidence and a long hold as a reason to inspect.
 * [A warm process needs lifetime classification, not just a cache-reset list](warm-process-state-needs-lifetime-classification.md) - A warm-reader review missed a process-long WeakMap and misclassified a live-child registry, so repeated kernel calls need explicit reset, drain and safe-with-reason lifetimes backed by closure and equivalence tests.
 * [A file argument does not bound the repository test runner](a-file-argument-does-not-bound-the-repository-test-runner.md) - A single-file request through the repository runner unexpectedly selected the full suite, so kernel briefs need an explicit bounded invocation until runner semantics enforce the requested scope.
 * [A kernel rewrite does not remove unchanged child waits](kernel-rewrite-does-not-remove-child-waits.md) - Separate process startup and kernel compute from child waits before estimating a language rewrite's benefit, because measured warm-read gains do not remove provider, network or harness costs.

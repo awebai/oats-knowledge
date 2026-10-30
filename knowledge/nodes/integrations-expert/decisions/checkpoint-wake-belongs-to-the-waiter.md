@@ -80,6 +80,16 @@ Two further limits were open at harvest, and the rehearsals settle neither:
   Treating a job on an instance's own home as a routine act is a proposal that
   depends on the first limit, not a settled rule.
 
+**Later kernel direction, added at maintainer review of oats-knowledge#228.**
+[awebai/oats#1670](https://github.com/awebai/oats/issues/1670) reports that a
+wake's Enter does answer an open dialog, and the kernel's direction is now that
+[a waiting claim may withhold a wake](/nodes/oats-kernel-expert/decisions/waiting-claims-may-only-withhold-automated-input.md),
+with [partial dialog coverage](/nodes/oats-kernel-expert/lessons/dialog-claims-do-not-enumerate-all-dialogs.md).
+Its implementation was open and unreleased at that review, so the first limit
+stands until a release carries the hold. Whether the "no new kernel capability"
+reason survives, and what either limit now means for this choice, remain this
+node's owner's to review. This pointer changes no scheduling decision.
+
 The implementation route is the existing lead guidance using the existing
 scheduler. Reusable acceptance coverage should assert which home is woken,
 idle versus busy consumption, behavior at an open prompt, missed-minute

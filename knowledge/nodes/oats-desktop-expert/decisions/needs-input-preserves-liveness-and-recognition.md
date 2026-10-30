@@ -3,7 +3,7 @@ type: Decision
 title: Needs-input attention preserves liveness and roster recognition
 description: A separate text-and-icon marker and collapsed-parent roll-up expose waiting agents without overloading liveness, reordering rows or displaying a stale elapsed time.
 tags: [desktop, roster, attention, accessibility, liveness]
-timestamp: 2026-10-03
+timestamp: 2026-10-30
 ---
 # Decision and rationale
 
@@ -35,7 +35,12 @@ verification or received explicit human acceptance of each visual choice.
 - **An attention claim must not override observed liveness or break the
   overview.** Gate the marker on Desktop's own running-state observation;
   malformed claims become unknown instead of failing the roster. The
-  claims are display-only, not authority to act on an instance.
+  claims are display-only, not authority to act on an instance. Added at
+  maintainer review of oats-knowledge#228: the kernel's later direction lets
+  a claim [withhold an automated wake](/nodes/oats-kernel-expert/decisions/waiting-claims-may-only-withhold-automated-input.md),
+  though it still authorizes nothing. Its implementation was open and
+  unreleased at that review. No presentation rule here changes, and this
+  node's owner has not reviewed it.
 
 # Deliberate scope limit
 
