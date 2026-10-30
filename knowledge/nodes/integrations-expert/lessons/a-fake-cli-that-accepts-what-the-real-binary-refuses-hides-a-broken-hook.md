@@ -172,6 +172,11 @@ can exercise the real TUI's input path and particular sandbox operations.
 They leave authenticated launch, host-timer delivery and real-provider work
 unproven; they do not replace this lifecycle gate.
 
+For observer-induced transitions, [validate the measurement itself](/nodes/integrations-expert/lessons/a-measurement-must-not-change-the-state-under-test.md):
+a real CLI read can also acknowledge what it displays and contaminate the
+state being tested. The linked lesson records the source-reported rehearsal
+failure and its limits, rather than a universal command recipe.
+
 # Consequences
 
 - A provider PR that touches a hook calling an external tool carries a
@@ -185,6 +190,7 @@ unproven; they do not replace this lifecycle gate.
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/a-check-can-change-what-it-checks.md. The linked measurement lesson preserves the source-reported observation and version limit; no rehearsal was rerun by this harvest.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/prove-a-harness-you-cannot-log-in-to.md; notes/idle-waiter-wake-rehearsal.md. The linked partial-proof finding is source-reported and does not certify authenticated end-to-end execution.
 
 - Evidence: OKF proposal from integrations-expert/okf-needs-human-removal-integrations-expert, 2026-10-29; notes/poller-triggers-need-an-observed-state-change.md. The missed-observation finding and kernel/status inspection are source-reported; neither the revised migration nor its proposed regression coverage was executed by this harvest.

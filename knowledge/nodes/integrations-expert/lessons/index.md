@@ -25,6 +25,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Acceptance against the real tool
 
+* [A rehearsal's measurement must not change the state under test](a-measurement-must-not-change-the-state-under-test.md) - Establish that a diagnostic preserves the state being measured, and compare unexplained transitions with the observer's own actions before attributing them to the system under test.
 * [Credential-free harness probes establish only the boundary they exercise](credential-free-harness-probes-have-bounded-proof.md) - A real TUI with a local stub provider can test input consumption without login, while real sandbox commands test particular permissions; neither substitutes for authenticated end-to-end acceptance.
 * [Forge account attribution does not prove human authorship](forge-account-attribution-does-not-prove-human-authorship.md) - When agents share a person's forge account, an author check establishes the account record, not human authorship or independent approval.
 * [A fake CLI that hangs must start a child of its own](a-fake-that-hangs-must-have-a-child.md) - A single-process hang fake hides descendant leaks, so timeout and reader-termination tests must observe both the fake and its child on every external-CLI call path.
