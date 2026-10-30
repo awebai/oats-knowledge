@@ -7,7 +7,7 @@ timestamp: 2026-10-30
 ---
 # Decision and rationale
 
-The 2026-10-30 wake investigation selected a narrow change to the former
+The 2026-10-30 wake investigation selected a narrow change to the documented
 display-only waiting-claim contract: **a claim may withhold an automated
 keystroke, never authorize one**. A scheduled wake pastes text and presses
 Enter; at an open dialog, Enter can answer the dialog instead of submitting
@@ -95,3 +95,8 @@ records the then-open prompt hazard, and the [Desktop attention design](/nodes/o
 records display-only claims. Their historical wording needs owner review
 against this later kernel direction; this harvest does not edit or supersede
 those other nodes or change their scheduling and presentation choices.
+
+At maintainer review, `docs/desktop-cli-api.md` on main at `38509beaf` still
+said claims are display-only, and the implementation PR was still open at the
+same head. The maintainer added a forward pointer to this decision in each of
+those two concepts; their rules and their owners' review are unchanged.
