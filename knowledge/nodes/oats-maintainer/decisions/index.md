@@ -1,5 +1,7 @@
 # Decisions
 
+* [Human attribution is an optional messaging-capability contract](human-attribution-is-an-optional-messaging-contract.md) - Add human attribution through a provider-neutral messaging contract, default new onboarding to human-bound mode where supported, and preserve unchanged operation for capabilities and deployments without human identities.
+
 * [Host-bound automation is declared in the workspace with explicit execution selectors](host-bound-automation-is-declared-in-the-workspace.md) - Declare shared host-bound automation in the workspace with its required host and account selectors, retaining host-local consent rather than hiding the automation locally or redesigning the binding contract merely to omit those names.
 * [The OATS development workspace does not compose oats.cloning](dev-workspace-does-not-compose-cloning.md) - Deliberately leave oats.cloning unpinned and uncomposed in the OATS development workspace while retaining its catalog entry and member repository; restoring consumption needs the deciding human's approval.
 * [CLI speed comes from Node fixes and an app-owned warm reader, not a native rewrite](no-cli-rewrite-app-owned-reader.md) - Reject native CLI rewrites in favor of Node fixes and an app-owned warm reader, with a source-reported bilateral contract preserving request freshness, installation checks and CLI fallback.
