@@ -1,5 +1,10 @@
 # oats-maintainer log
 
+## 2026-10-30
+
+* **Update**: [Lost-session recovery](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md#acceptance-and-evidence-limits) amended at maintainer review: records the always-on supersession's acceptance as source-reported (the product owner, 2026-10-27, private correspondence the review could not read), with the relay and contract confirmation on awebai/oats#1567 as corroboration only, and links the report-only recognition decision and the continuous-trigger lesson.
+* **Fix**: [Lost-session recovery](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md#always-on-continuous-and-bounded-per-boot) corrected at maintainer review: the harvest said the per-boot cap's refusal lasted until the next boot; on the contract agreed on awebai/oats#1567 and in the kernel at `cea30878`, a refused loss is not retried automatically after a reboot either. The cap still counts per boot, and an explicit resume still works.
+
 ## 2026-10-29
 
 * **Update**: [App-owned warm reader](/nodes/oats-maintainer/decisions/no-cli-rewrite-app-owned-reader.md) and [display observation reuse](/nodes/oats-maintainer/decisions/observation-reuse-never-authorizes.md) amended at maintainer review: dated verification notes record which cited issue comments and PRs were checked (agreement terms, build conditions, merged PRs) and what was not (tests, releases, measurements, the asynchronous-only figures).

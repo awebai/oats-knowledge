@@ -3,7 +3,7 @@ type: Decision
 title: Lost sessions resume locally through the kernel into their own conversation
 description: Lost-session recovery is always on and retriggered by local loss, with a per-boot bound and proven harness selectors, while preserving the instance's conversation, user-owned prompt choices and local-only scope.
 tags: [runtime, recovery, lifecycle, clients, locality, supersession]
-timestamp: 2026-10-27
+timestamp: 2026-10-30
 ---
 # Direction and rationale
 
@@ -52,15 +52,24 @@ Recovery is not limited to client startup. A later status read showing a
 local lost row also triggers the sweep, with one sweep in flight, a minimum
 interval and the machine lock. Continuous triggering does not mean an
 unbounded restart loop: **the kernel caps automatic resumes of each home
-per boot**, refusing further automatic recovery for that home until the
-next boot once the cap is reached. A harness that repeatedly gets killed
-must not restart forever. This bound is what makes continuous, always-on
-recovery acceptable without an opt-out; throttling a sweep alone does not
-bound the number of restarts.
+per boot**, refusing further automatic recovery for that home once the cap
+is reached. A harness that repeatedly gets killed must not restart forever.
+This bound is what makes continuous, always-on recovery acceptable without
+an opt-out; throttling a sweep alone does not bound the number of restarts.
+Nor does it settle a repeated observation: the lesson that
+[continuous triggers must account for every input](/nodes/oats-expert/lessons/continuous-triggers-account-for-every-input.md)
+covers that gap.
 
 The cap and the sweep interval are implementation-review parameters, not
 fixed constants in this decision. Preserve the per-home, per-boot bound and
 its refusal behavior when reviewing those values.
+
+Maintainer review correction, 2026-10-30: the proposal said the refusal
+lasted until the next boot. The contract agreed afterwards on
+[awebai/oats#1567](https://github.com/awebai/oats/issues/1567#issuecomment-6440072509),
+and the kernel at `cea30878`, go further: a sweep's refusal answers that loss,
+so the next boot does not retry it automatically. The cap still counts per
+boot, and a person's explicit resume still brings the session back.
 
 # Conversation and prompt boundaries
 
@@ -82,7 +91,9 @@ The maintainer's revision-2 gate adds two safeguards:
   the dialog and report the resume as blocked; never answer it or suppress
   it through undocumented harness internals. Always-on recovery is not
   permission to accept a cost choice. This is a known limit of unattended
-  resume, not a prompt-bypass requirement.
+  resume, not a prompt-bypass requirement. The kernel's
+  [report-only recognition decision](/nodes/oats-kernel-expert/decisions/report-only-prompt-recognition-may-use-derived-labels.md)
+  owns how the dialog is recognised.
 
 The existing [pi fresh-home signal](/nodes/oats-kernel-expert/decisions/pi-fresh-home-uses-runtime-sessions.md)
 is a prompt heuristic with stated limits, not authority to select a recovery
@@ -143,6 +154,16 @@ independently audit the correspondence. The note's earlier startup-only and
 opt-out passages are historical and superseded by its later dated direction
 change, not concurrent requirements.
 
+The acceptance of this supersession is recorded at maintainer review on
+2026-10-30 as **source-reported**: the product owner, 2026-10-27, in private
+correspondence with the lead and the source maintainer, which the review
+could not read. It is neither verified nor the human's own words. The review
+also found the same direction relayed by the source's lane on
+[awebai/oats#1567](https://github.com/awebai/oats/issues/1567), where the other
+side of that contract confirmed the sweep triggers and the per-boot guard.
+The proposal cites neither record; they corroborate the report and are not
+the human's own record.
+
 The source reports a harness resume-cost dialog as the concrete reason for
 the prompt ruling. This record does not certify a particular harness version
 or a universal absence of documented suppression controls.
@@ -160,3 +181,6 @@ The source identifies its design and gate correspondence and code at
 `d5443cc3` as context. Only the captured proposal and named note were used as
 source evidence; this harvest did not read the correspondence, audit the
 implementation repository or exercise any harness resume behavior.
+
+The 2026-10-30 review read [awebai/oats#1567](https://github.com/awebai/oats/issues/1567)
+and `lib/session-resume.mjs` at `cea30878` on GitHub; it did not run the code.
