@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Retire exclusion belongs to a whole-run claim, not a plan or retry key
-description: A per-home claim covers retirement and resume with their authoritative reads, separating exclusion from freshness and replay while treating lifecycle-busy automatic recovery as a skip rather than a judged loss.
-tags: [kernel, lifecycle, retire, resume, concurrency, fail-closed]
-timestamp: 2026-10-28
+description: A whole-run lifecycle claim separates exclusion from freshness and replay; extending it to starts preserves existing contention answers and keeps restart's stop and relaunch in one critical section.
+tags: [kernel, lifecycle, retire, resume, start, concurrency, fail-closed]
+timestamp: 2026-10-30
 ---
 # Decision
 
@@ -114,8 +114,9 @@ Rejected alternatives explain the span:
   buying enough to justify a smaller critical section. A retire arriving
   during resume may instead receive the existing busy refusal and be retried
   after resume releases the claim.
-- Extending the change to ordinary starts was rejected as outside this bug:
-  those are explicit acts, not the automatic recovery being coordinated.
+- Extending that change to ordinary starts was rejected as outside the resume
+  bug: those are explicit acts, not the automatic recovery being coordinated.
+  The later start refinement below explicitly supersedes this scope limit.
 
 The prevention route is shared claim acquisition and authoritative reads in
 the start path, with regression cases for a sweep during a held retire,
@@ -124,6 +125,54 @@ The source reports these races fail with the fix reverted; this harvest did
 not execute them. The policy deciding which losses qualify remains in the
 [maintainer-owned recovery decision](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md),
 not in a competing sweep-side eligibility rule.
+
+# Refinement: every session start joins without renaming contention answers
+
+The 2026-10-30 proposal extends the claim to ordinary `session start`,
+`session restart` and scheduled starts, using one holder verb, `start` [7][8].
+Resume retains `resume`. Spawn's first launch remains outside this addition,
+because retirement already handles a spawn in progress. This explicitly
+supersedes the resume change's ordinary-start exclusion, not its rationale
+for rejecting a read-only retirement check.
+
+**Restart holds one claim across both stop and relaunch.** Releasing after
+stop and acquiring again for launch would admit a retire into the gap. A
+separate `restart` holder was considered but not selected: restart is a start
+for this exclusion boundary, so a second value adds no useful distinction.
+Release on every returning exit, including failed launch; a crashed holder
+still needs the existing stale-holder recovery, not a promise that cleanup
+always ran. Scheduled starts and the sweep record lifecycle-claim contention
+as a skip, release the scheduling slot where applicable, and do not enter an
+immediate retry loop. Contention does not establish a failed recovery.
+
+**Changing the exclusion mechanism is not a reason to rename answers clients
+already match.** Both maintainer sides agreed to retain `E_SESSION_START_BUSY`
+for two concurrent starts. The subsequent build direction preserves every
+existing start-lock pair: a start or restart beside a start, restart or resume,
+and a resume beside a start or restart, including unreadable holder liveness,
+keeps `E_SESSION_START_BUSY`. Resume beside resume keeps `E_LIFECYCLE_BUSY`.
+The latter narrowing is recorded as source-selected direction, not bilateral
+acceptance: the cited follow-up comments contain the proposing side's
+amendment and precision, not the other side's answer [7]. The
+[issue-recorded agreement gate](/nodes/oats-maintainer/stewardship/review-protocol.md#contract-agreement-stays-on-the-issue-through-implementation-2026-10-28)
+remains unchanged; tests and a PR description cannot supply missing agreement.
+
+The compatibility rule here concerns existing contention pairs, not an
+assertion that every start refusal in every path is unchanged. Other lifecycle
+acts meeting a new start holder refuse before effects. The source reports that
+older kernels interpret the unknown `start` holder as retirement: conservative
+before-effect refusal remains, but diagnostic equivalence across kernel
+versions does not. Keep current pair tables in the repository contract rather
+than a second complete table here.
+
+The enforcement route is shared whole-start acquisition with one restart
+critical section and release-on-exit, plus interleaving, failed-launch and
+existing-answer regression tests. Claiming the canonical home also requires
+[binding the requested spelling to receipt authority](/nodes/oats-kernel-expert/lessons/resolved-object-not-referring-string.md#canonical-resolution-must-not-replace-requested-home-authority),
+not silently choosing whichever home a link reaches. The source reports
+review and mutation-sensitive tests; this harvest did not run them. As of
+2026-10-30, the implementation remained open [8][9]. The kernel owner should
+update this direction's status when it changes; it is not a shipped guarantee.
 
 # Boundaries and related decisions
 
@@ -136,8 +185,9 @@ left cross-command coordination for later decisions. The dated resume
 refinement above explicitly extends that scope: the source reports stop and
 upgrade already sharing the claim, and chooses that same claim for resume.
 It does not establish that every lifecycle command or roster reader
-participates. Ordinary start beside retirement remains unguarded by this
-change. The 2026-10-27 account also left failed-restart classification open.
+participates. Ordinary start remained outside the resume change; the dated
+start refinement above supersedes that limit as chosen direction. The
+2026-10-27 account also left failed-restart classification open.
 The [2026-10-28 restart refinement](/nodes/oats-kernel-expert/decisions/stop-intent-recording-is-before-termination-and-best-effort.md#refinement-restart-records-intent-before-its-stop)
 addresses that separate gap through stop recording, with explicit write-failure
 and refused-stop limits; it does not extend lifecycle-claim coverage. Nor does
@@ -164,6 +214,8 @@ without changing the existing plan or replay obligations.
 
 # Citations
 
+Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-30; notes/start-claim-keeps-start-busy.md. This extends start coverage and preserves the compatibility rationale; it does not establish human acceptance or shipped behavior.
+
 Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-28; notes/1601-restart-records-before-termination.md. This updates the failed-restart boundary by reference to its canonical stop-intent decision; the source reported the repair still under review, not shipped.
 
 Evidence: OKF proposal from oats-kernel-expert/session-resume-kernel-expert, 2026-10-27; notes/decision-resume-takes-the-lifecycle-claim.md; notes/decision-retire-stop-record-is-best-effort.md.
@@ -176,3 +228,6 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-exclusi
 4. Verified by the knowledge maintainer at review of the harvest on 2026-10-10. [awebai/oats#871](https://github.com/awebai/oats/pull/871) merged on 2026-10-10 and closed awebai/oats#863. Its description and the two maintainer verdicts on it, both approving the head that merged, state the claim taken in the common retire operation for every apply form, every acted-on read made under it, the answer order, the immediate `E_LIFECYCLE_BUSY` refusal before any effect, no `--force` bypass, the completion's single wait for its own scheduler, the two changed answers and the claims directory left in place by design. awebai/oats#864, #865, #866, #870 and #874 were open at that review. The rejected directory lock, the rejected reuse of the spawn force escape and the reason for not waiting are not stated there; they rest on the source notes, which were not read at review. The verdicts are maintainer-instance records, not evidence of human acceptance, and no release was checked.
 5. The 2026-10-27 proposal and named notes report the mid-retire resume observation, whole-start claim choice, rejected alternatives, skip rationale and residual limits. The proposal identifies [awebai/oats#1599](https://github.com/awebai/oats/pull/1599) as the repair and reports reviewed, green-CI handover with mutation-sensitive race tests. Those are source-reported evidence, not an implementation audit, test rerun, shipment receipt or independently established human acceptance by this harvest.
 6. Checked by the knowledge maintainer at review on 2026-10-27: [awebai/oats#1599](https://github.com/awebai/oats/pull/1599) (part of awebai/oats#1559) was open, not merged. Its description states the whole-start `resume` claim, the re-reads under it, the `lifecycle-busy` skip that is never judged or counted against the loop guard, ordinary Start and Restart unchanged, and the three named race cases. It reports green CI and revert-sensitive tests; the maintainer did not rerun them. Until that PR merges and ships, treat this refinement as the chosen direction, not released behaviour.
+7. Read on 2026-10-30: the [first-side proposal](https://github.com/awebai/oats/issues/1602#issuecomment-6476048759) and [other-side answer](https://github.com/awebai/oats/issues/1602#issuecomment-6477039652), both dated 2026-10-28, support whole-start coverage, unchanged two-start contention and the three build conditions. The [narrowing](https://github.com/awebai/oats/issues/1602#issuecomment-6477132396) and [precision](https://github.com/awebai/oats/issues/1602#issuecomment-6477180797) preserve the remaining start-lock pairs and resume/resume distinction. These are maintainer-instance records, not independently established human acceptance; the cited narrowing has no answering acceptance. This agrees with the evidence correction in [knowledge harvest #206](https://github.com/awebai/oats-knowledge/pull/206), rather than superseding its agreement gate.
+8. [awebai/oats#1657](https://github.com/awebai/oats/pull/1657) was open and unmerged at `040ae659df10` when read on 2026-10-30. Its description corroborates the selected start holder, restart span, skips, legacy contention answers and older-kernel refusal. It also records a link/retained-cleanup resume refusal-order exception, so the compatibility slogan is not promoted as universal output equivalence. Implementation, CI and mutation results remain source-reported, not independently audited or rerun.
+9. Checked by the knowledge maintainer at review on 2026-10-30: the lane maintainer's [RETURN](https://github.com/awebai/oats/pull/1657#issuecomment-6521130845) of that same head, posted seconds before this harvest was committed, reports the three build conditions and the narrowing met and one blocking problem outside the contention pairs: an existing directory that is no home now takes the claim, leaving claim state beside it, and where that write fails its refusal changes from `E_RUNTIME_ENDPOINT_UNKNOWN` to `E_LIFECYCLE_FAILED`. The fix it asks for keeps such a directory out of the claim. So the head cited in [8] was not accepted, and this case is a further reason the compatibility rule stays limited to contention pairs. The report was not reproduced at this review, and it does not say what finally ships. On awebai/oats#1602 the other side had still not answered the narrowing.
