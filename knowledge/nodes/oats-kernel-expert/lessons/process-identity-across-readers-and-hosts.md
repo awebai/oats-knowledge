@@ -74,17 +74,18 @@ makes destructive takeover safe.
 # Empty arguments can precede the zombie state
 
 A 2026-10-30 source-reported Linux finding adds the opposite failure window:
-an exiting child can show empty arguments while still in state `R`, before
-it becomes a zombie [4]. An argument-based identity check can therefore lose
-its match and report gone too early. Adding a zombie check does not make
-empty arguments proof of absence; the report does not establish that a
+an exiting child can lose its arguments while still in state `R`, before it
+becomes a zombie, and `ps` then shows a bracketed name such as `[node]` rather
+than an empty field [4][5]. An argument-based identity check can therefore
+lose its match and report gone too early. Adding a zombie check does not make
+lost arguments proof of absence; the report does not establish that a
 `Z`-only predicate itself classifies an `R` process as gone.
 
 For a child whose identity was established earlier, retain that identity
 rather than rediscover it by command-line text. Use the existence and
 start-token distinctions above; when waiting for the test-owned child to be
 absent, require the established absence observation (`ESRCH`), not merely
-empty args or a sent signal. This complements the unreaped-holder limit,
+lost args or a sent signal. This complements the unreaped-holder limit,
 not a replacement for it: a matching identity can outlive the ability to
 act, and disappearing arguments can precede completed exit. Neither finding
 settles the safety of takeover while descendants may still act.
@@ -157,3 +158,4 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-exclusi
 Evidence: OKF proposal from oats-kernel-expert/session-lifecycle-followups-kernel-expert, 2026-10-30; notes/exiting-process-reads-gone-before-zombie.md.
 
 4. The proposal and named note report that `product-maintainer-pepe` relayed the Linux pre-zombie finding from the TUI race lead on 2026-10-30. The proposing instance did not reproduce it; this harvest read the captured report, not the correspondence or an independent experiment. The finding remains source-reported, with no frequency, duration, all-Linux or cross-platform guarantee. It supports the argument-loss caution, not the broader claim that any check of `Z` alone must read a still-`R` child as gone.
+5. Checked by the knowledge maintainer at review on 2026-10-30: [awebai/oats#1662](https://github.com/awebai/oats/pull/1662), merged that day, states that on Linux an exiting process loses its args before it is a zombie, so `ps` shows `[node]` in state `R` for a moment, and that a control caught a first wait counting only the args or `Z`, on the SIGTERM row. Its repair is test-only: bracketed or parenthesised args count as not over. That is a caller-specific check, not the shared logic this lesson names. This establishes what the pull request says; the control was not rerun at this review.
