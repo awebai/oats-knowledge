@@ -68,3 +68,13 @@ The observations are source-reported from Pi 1.3.0 in a scratch agent
 context and a scratch instance; the harvest did not rerun them. They do not
 establish behavior in other Pi versions, every credential configuration or
 every launch path. No human-accepted soul-default policy is claimed.
+
+Maintainer review, 2026-10-30: [awebai/oats#1683](https://github.com/awebai/oats/pull/1683)
+was an open, unmerged pull request, so its diagnostic was unreleased. Its
+description says it warns and never refuses, acting only on Pi's own
+"No models available" from `pi --list-models`; any other answer says nothing,
+so the warning's absence is not readiness evidence either. It also states a
+limit against the launch-environment decision above: a hook's environment is
+not the pane's, so a provider set only through a launch configuration's `env`
+can draw a false warning. Read from that description, not run; not human
+acceptance.
