@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them, and pairs changes to shared instructional behaviour across separately released packages.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, and coordinates source, tag, mirror, every form of version pin and the framework release that carries them, and pairs changes to shared instructional behaviour across separately released packages.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-28
+timestamp: 2026-10-30
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -237,6 +237,30 @@ installed upgrade, completed rollout or independent deployment inspection
 is certified here. The workspace/package distinction remains in its
 [canonical decision](/nodes/oats-maintainer/decisions/workspace-definition-is-not-a-package.md),
 not a second workspace specification in this lesson.
+
+# Shared-soul keys wait for every reader
+
+The 2026-10-27 background-instance gate adds the deployment-side consequence
+of kernel-first release order: **a soul committed to a shared member
+repository gains a new schema key only after every deployment reading that
+soul runs a kernel that accepts it**. A released parser is not an installed
+parser. Otherwise a shared soul can become unreadable to a still-old
+deployment even though the feature's kernel release exists.
+
+Maintainer review scope, 2026-10-30: the proposal said "a committed soul".
+The gate holds where a deployment reads the soul from the member repository
+itself, so merging is adoption. A packaged soul has a catalog, tag or pin
+between merge and reader: the
+[package-soul section](/nodes/oats-maintainer/stewardship/release-traps.md#a-package-souls-new-key-is-a-package-wide-rollout-decision-2026-10-27)
+owns that case, and its 2026-10-28 refinement moved the gate to where the
+deployment adopts the release. This section restores no pre-merge gate there.
+
+The source cites the earlier launch-declaration rollout as precedent. This
+is not an automatic upgrade authorization or a claim that those deployments
+have moved. Keep deployment acceptance evidence in the rollout, and make
+schema compatibility a checked adoption gate rather than a memory-only
+warning. The [background decision](/nodes/oats-maintainer/decisions/background-is-presentation-not-lifecycle.md)
+is the motivating application, not a second home for the general rule.
 
 # Publish first, housekeep second
 
@@ -544,3 +568,12 @@ The source identifies the regression from
 [#1590](https://github.com/awebai/oats/issues/1590). The platform coverage,
 failed release, passing targeted run and repair shipment are source-reported;
 this harvest did not audit the workflows or reproduce those runs.
+
+Evidence for the shared-soul schema gate: OKF proposal from
+oats-maintainer/polaris-oats-maintainer-kernel, 2026-10-27;
+notes/background-instances-gate.md. The rule and launch-declaration precedent
+are source-reported; this harvest did not inspect any deployment's installed
+kernel or certify rollout readiness. The 2026-10-30 review read
+[the other maintainer side's note on awebai/oats#1579](https://github.com/awebai/oats/issues/1579#issuecomment-6441887900),
+which asks for this confirmation before a change to `souls/oats-maintainer`
+lands and names the same precedent.

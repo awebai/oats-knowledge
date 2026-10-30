@@ -48,7 +48,9 @@ The [presentation coherence ruling](/nodes/oats-maintainer/stewardship/presentat
 owns the separation of display choices from identity, policy and lifecycle.
 The [package-soul rollout gate](/nodes/oats-maintainer/stewardship/release-traps.md#a-package-souls-new-key-is-a-package-wide-rollout-decision-2026-10-27)
 owns compatibility and installation evidence before adoption. Choosing these
-defaults does not waive either boundary or certify deployment readiness.
+defaults does not waive either boundary or certify deployment readiness. The
+[background presentation decision](/nodes/oats-maintainer/decisions/background-is-presentation-not-lifecycle.md)
+owns what the value means and where it lives.
 
 # Evidence and limits
 

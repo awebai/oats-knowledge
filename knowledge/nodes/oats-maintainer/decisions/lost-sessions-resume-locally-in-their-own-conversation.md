@@ -71,6 +71,52 @@ and the kernel at `cea30878`, go further: a sweep's refusal answers that loss,
 so the next boot does not retry it automatically. The cap still counts per
 boot, and a person's explicit resume still brings the session back.
 
+# Launch-environment fidelity
+
+The later 2026-10-27 ruling makes the same-launch-settings promise concrete:
+**resume must not silently launch with changed resolved launch-environment
+values**. Reusing the same recipe is insufficient when a reference resolves
+to a different value. This extends the [launch-check environment decision](/nodes/oats-maintainer/decisions/checks-use-the-launch-environment.md)
+across starts rather than letting a check of today's environment stand in
+for evidence about the previous launch.
+
+- An unresolved `{fromEnv}` reference refuses the start. The source reports
+  this refusal already applies to every start; it is not a resume-only rule.
+- Record a per-home keyed digest (HMAC) of each resolved value at every
+  start, in kernel-private storage, and compare it only at resume. A changed
+  value refuses resume. Retain the digest, never the value, and keep it out
+  of `instance.json`. The choice detects changed resolutions without keeping
+  their potentially sensitive contents as recovery state. The kernel's
+  [launch-value decision](/nodes/oats-kernel-expert/decisions/launch-value-verification-is-private-and-best-effort.md)
+  owns the rejected plain-hash and fail-start alternatives. Ordinary
+  Start/Restart remain fresh and never compare.
+
+A session started by hand outside OATS resumes through its OATS launch.
+**Never capture or replay the process's argv** to reconstruct an ad-hoc
+launch; custom commands belong in launch configuration. Recovery preserves
+the declared launch, not an arbitrary command discovered in a process. The
+kernel's [execution-only selector decision](/nodes/oats-kernel-expert/decisions/resume-selector-and-notice-are-execution-only.md)
+owns the separate persistence boundary for transient resume arguments.
+
+This records a comparison of resolved launch values, not proof that every
+ambient process variable is identical. Enforce the comparison at the launch
+boundary and cover missing references, changed values, ordinary starts and
+configured custom launches in regressions. These are review targets, not
+test results.
+
+**Not settled here: a resume with no usable comparison record.** The kernel
+([awebai/oats#1578](https://github.com/awebai/oats/pull/1578)) resumes such a
+home with one warning: a home last started by an earlier kernel, or one whose
+record belongs to another start or does not read. The source's reason is
+that refusing would stop the first reboot after an upgrade from bringing
+existing instances back. The source itself calls this a qualification of the
+same-settings promise and cites no human acceptance of it, so this record
+does not adopt it. Read it as what the kernel does, not as an accepted
+exception: a change to the promise needs that human's acceptance, cited. It
+is no waiver of a detected change, an unresolved reference or any independent
+recovery eligibility, lifecycle or identity check, and no claim that every
+resume ran under matching values.
+
 # Conversation and prompt boundaries
 
 Find the conversation through native runtime records filtered to the
@@ -164,12 +210,27 @@ side of that contract confirmed the sweep triggers and the per-boot guard.
 The proposal cites neither record; they corroborate the report and are not
 the human's own record.
 
+The launch-environment refinement is attributed by the source to the
+product owner's 2026-10-27 direction and the maintainer's ensuing rulings.
+This is source-reported acceptance, not independently audited private
+correspondence or proof that the human specified every digest mechanism. The
+2026-10-30 review found the same attribution on the
+[source's review of awebai/oats#1578](https://github.com/awebai/oats/pull/1578#issuecomment-6442098368):
+the direction is the product owner's note on custom launches plus the
+source's own rulings. The proposal does not cite that record; it corroborates
+the report and is not the human's own record. The refusal of a changed value
+applies the accepted same-settings promise rather than relaxing it, so the
+review kept it. Neither the proposal nor that record reports the human
+accepting the warning for a home with no record, so the review removed it as
+policy; see [the section above](/nodes/oats-maintainer/decisions/lost-sessions-resume-locally-in-their-own-conversation.md#launch-environment-fidelity).
+
 The source reports a harness resume-cost dialog as the concrete reason for
 the prompt ruling. This record does not certify a particular harness version
 or a universal absence of documented suppression controls.
 
-At both proposal checkpoints nothing was built. This record preserves the
-chosen shape, scope and rejected alternatives, not a release claim, verified
+At both earlier proposal checkpoints nothing was built; at the
+launch-environment checkpoint the source reported work in progress. This
+record preserves the chosen shape, scope and rejected alternatives, not a release claim, verified
 recovery behavior, fixed retry/interval values or a fixed CLI spelling.
 
 # Citations
@@ -184,3 +245,16 @@ implementation repository or exercise any harness resume behavior.
 
 The 2026-10-30 review read [awebai/oats#1567](https://github.com/awebai/oats/issues/1567)
 and `lib/session-resume.mjs` at `cea30878` on GitHub; it did not run the code.
+
+Evidence for the launch-environment refinement: OKF proposal from
+oats-maintainer/polaris-oats-maintainer-kernel, 2026-10-27;
+notes/session-resume-gate.md. The note's final launch-environment paragraph
+and the proposal supply the changed-value refusal, keyed-digest choice,
+legacy warning and configured-launch boundary. The missing-reference rule
+is reported as already implemented, not independently verified here.
+
+The 2026-10-30 review also read [awebai/oats#1578](https://github.com/awebai/oats/pull/1578),
+`lib/start-env.mjs` and `docs/execution-targets.md` at `cea30878`. They match
+the refusals, the resume-only comparison, the typed-command boundary and the
+no-record warning, whose scope is wider than the proposal's pre-feature
+homes. The review did not run the code.
