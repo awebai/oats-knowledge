@@ -23,6 +23,11 @@ execution, scheduler triggering, or successful completion of the requested
 work. The existing [acknowledgement-stage lesson](/nodes/integrations-expert/lessons/acknowledgement-stage-must-match-receipt.md)
 owns that distinction between queued, admitted and processed evidence.
 
+Do not confuse an instrumented partial proof with an unconfigured process
+that merely stays alive: the [Pi 1.3.0 no-provider finding](/nodes/integrations-expert/lessons/a-live-pi-tui-does-not-prove-provider-readiness.md)
+reports a silent running TUI without useful execution, not evidence that a
+prompt reached a model. Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/a-pi-reviewer-with-no-provider-is-silent.md.
+
 # What the reported experiment established
 
 On 2026-10-30, with OATS 0.69.6 and Codex 0.160.0, the source reports:

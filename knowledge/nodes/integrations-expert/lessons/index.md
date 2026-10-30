@@ -25,6 +25,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Acceptance against the real tool
 
+* [A live Pi TUI does not prove provider readiness](a-live-pi-tui-does-not-prove-provider-readiness.md) - Pi 1.3.0 could accept a prompt and remain silently running without a logged-in provider, so omitting a shared model pin avoids a portability assumption but does not establish an executable session.
 * [A rehearsal's measurement must not change the state under test](a-measurement-must-not-change-the-state-under-test.md) - Establish that a diagnostic preserves the state being measured, and compare unexplained transitions with the observer's own actions before attributing them to the system under test.
 * [Credential-free harness probes establish only the boundary they exercise](credential-free-harness-probes-have-bounded-proof.md) - A real TUI with a local stub provider can test input consumption without login, while real sandbox commands test particular permissions; neither substitutes for authenticated end-to-end acceptance.
 * [Forge account attribution does not prove human authorship](forge-account-attribution-does-not-prove-human-authorship.md) - When agents share a person's forge account, an author check establishes the account record, not human authorship or independent approval.
