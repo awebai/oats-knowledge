@@ -191,10 +191,12 @@ arrangement is specific to this effort:
   effort's releases without another go from Pepe. His later direct
   clarification includes kernel tags and deploys for this effort; it is not
   merely permission to give PR verdicts.
-- Every other kernel tag still needs Pepe's direct go. The release lane's
-  final review, merge and tag ownership, the second-reader rule and the
-  usual verification gates are unchanged. No project lane gains independent
-  release authority.
+- Every other kernel tag still needs Pepe's direct go, and every other
+  deploy his word: the standing authority in the
+  [release lane's 2026-10-28 hand-over](https://github.com/awebai/oats/issues/1566#issuecomment-6475980012).
+  The release lane's final review, merge and tag ownership, the second-reader
+  rule and the usual verification gates are unchanged. No project lane gains
+  independent release authority.
 
 The human's stated review bar is
 [optional, provider-neutral human attribution with no-human compatibility](/nodes/oats-maintainer/decisions/human-attribution-is-an-optional-messaging-contract.md),
@@ -208,14 +210,23 @@ Pepe, directly in the release lane's session on 2026-10-30, clarified the
 scope to include kernel tags and deploys. That later clarification
 supersedes the backing note's earlier interpretation that the relayed
 no-sign-off direction covered only PR verdicts. For this effort only it
-replaces the source-reported need for a separate kernel-tag go; it does not
-supersede the general lane model or its contract-before-build boundary.
-The [public brief](https://github.com/awebai/oats/issues/1665), read during
-harvest on 2026-10-30, confirms an agent's relay of the build/review split
-and release coordination after green verdicts: **source-reported (relay at
-the brief)**, not verified human authorship. The explicit tags-and-deploys
-clarification rests on the source's report of the private session, which
-was not audited.
+replaces the separate kernel-tag go and deploy word that hand-over records;
+it does not supersede the general lane model or its contract-before-build
+boundary. The [public brief](https://github.com/awebai/oats/issues/1665),
+read during harvest on 2026-10-30, confirms an agent's relay of the
+build/review split and release coordination after green verdicts:
+**source-reported (relay at the brief)**, not verified human authorship. The
+explicit tags-and-deploys clarification rests on the source's report of the
+private session, which was not audited.
+
+Recorded at maintainer review on 2026-10-30: the relay at
+[the brief](https://github.com/awebai/oats/issues/1665) exists under the
+cited account and says what is claimed above. The brief speaks of
+coordinating releases and names neither tags nor deploys, so that scope stays
+source-reported. The standing rule itself is
+**source-reported (relay at
+[the hand-over](https://github.com/awebai/oats/issues/1566#issuecomment-6475980012))**,
+also not verified human authorship.
 
 At capture, Juan's agreement to take on the work was still pending; this
 records Pepe's delegation, not a bilateral acceptance or delivery receipt.
@@ -303,7 +314,7 @@ refines the one accountable maintainer per lane recorded here without adding
 a second one. The [onboarding delegation](#onboarding-redesign-delegation-2026-10-30)
 adds an effort-specific exception to separate human sign-off, with its direct
 acceptance source-reported; it leaves the release lane's ownership and all
-other kernel-tag approval requirements intact.
+other kernel-tag and deploy approval requirements intact.
 
 # Citations
 
