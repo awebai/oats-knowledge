@@ -50,6 +50,14 @@ not a second environment-selection policy. It also preserves
 [native harness configuration](harness-native-launch.md); it does not
 authorize stripping attributes or bypassing trust.
 
+# Related contrasting decision
+
+[Retire's lineage repair falls back on any atomic-write failure](/nodes/oats-kernel-expert/decisions/retire-lineage-repair-falls-back-on-any-atomic-write-failure.md)
+chooses compatibility with an existing bookkeeping write inside retirement.
+That context-specific fallback does not relax this trust writer's metadata
+refusal or its verified atomic replacement; the supported native trust
+alternative remains the distinction.
+
 # Enforcement and evidence
 
 The enforcement route is the writer's metadata refusal and verified

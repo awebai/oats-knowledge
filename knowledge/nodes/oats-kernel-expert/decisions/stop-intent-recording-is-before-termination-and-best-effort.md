@@ -72,6 +72,14 @@ a non-running home ends no harness and records no stop. A failed record write
 still has the best-effort limitation above; this refinement does not promise
 that every failed restart can never appear lost or expand recovery eligibility.
 
+# Related compatibility tradeoff
+
+[Retire's lineage repair falls back on any atomic-write failure](/nodes/oats-kernel-expert/decisions/retire-lineage-repair-falls-back-on-any-atomic-write-failure.md)
+applies the no-new-bookkeeping-obstacle rationale to reader protection, but
+keeps a different failure boundary: it tries the legacy in-place write and
+propagates that write's failure. It does not generalize this stop-intent
+record's best-effort allowance to every retirement write.
+
 # Enforcement and evidence limits
 
 The enforcement route belongs in the kernel's termination paths and
