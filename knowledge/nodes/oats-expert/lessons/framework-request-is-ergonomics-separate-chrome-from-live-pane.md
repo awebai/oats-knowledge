@@ -3,7 +3,7 @@ type: Lesson
 title: A framework request is about ergonomics, not rendering architecture; separate a terminal client's chrome from its live agent pane
 description: A human's "build it with Ink" asks for Claude-Code-like ergonomics, not a renderer; a React-style terminal framework can carry a client's chrome but rebuilds the whole grid per frame, so a live agent pane needs an in-process terminal emulator whatever the chrome, and the honest proposal measures the frame floor and names the gating spikes and packaging decisions instead of promising fidelity.
 tags: [terminal, tui, frameworks, feasibility, proposals, spikes, honesty]
-timestamp: 2026-10-26
+timestamp: 2026-10-30
 ---
 # Read the request for what it asks
 
@@ -76,9 +76,10 @@ The terminal client's product boundary and the rendering architecture it
 finally adopts are its owners' decisions, not this lesson's. The accepted
 product decision is
 [one standalone Desktop product](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md);
-whether a terminal client is permitted as a product beside it is a separate
-question for its owners that this lesson does not answer. This lesson is the
-lead's way of answering the request, not either decision.
+its [terminal-client exception](/nodes/oats-desktop-expert/decisions/standalone-product-and-cli-authority.md#terminal-client-exception-2026-10-09)
+answers whether a terminal client is permitted as a product beside it, and
+this lesson does not. This lesson is the lead's way of answering the request,
+not either decision.
 
 # Evidence and limits
 
