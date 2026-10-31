@@ -3,7 +3,7 @@ type: Lesson
 title: Release judgement for the tag-driven lane
 description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, coordinates source, tag, mirror, every form of version pin and the framework release that carries them, pairs changes to shared instructional behaviour across separately released packages, and treats a package rename as a republish with a bin collision and a token deadline.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-10-30
+timestamp: 2026-10-31
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -551,6 +551,10 @@ registry records that commit; a claim wrong by one commit fails a verifier who
 compares them.
 
 # Related
+
+[Scoped release approval includes package pins](/nodes/oats-maintainer/lessons/scoped-release-approval-includes-package-pins.md)
+owns the authority check against everything a candidate delivers, not only
+its kernel diff; the compatibility and adoption gates above remain separate.
 
 [Engineering layer neutrality needs package-side checks](/nodes/oats-maintainer/lessons/engineering-layer-neutrality-needs-package-side-checks.md)
 records why a package's green CI can miss a provider-specific instruction
