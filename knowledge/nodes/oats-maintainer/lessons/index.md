@@ -1,5 +1,7 @@
 # Lessons
 
+* [Healthy defaults do not warn merely because an optional feature is off](healthy-defaults-do-not-warn-about-optional-features.md) - Readiness warnings identify a fault or actionable consequence of a chosen configuration, not an invitation to enable an intentionally optional feature, because permanent warnings on healthy defaults train operators to ignore real problems.
+* [Judge a chain of sensible fixes as a whole](judge-a-chain-of-fixes-as-a-whole.md) - When each fix answers the last objection by adding another mechanism, compare the accumulated design with changing the original premise before approving the next step.
 * [A CI watcher's exit is not the run's result](ci-watcher-exit-is-not-the-run-result.md) - During a GitHub API incident, a watcher can fail while the run succeeds and the run summary can lead its job results, so reconcile the run and complete job list before reporting CI green.
 * [A failed-job rerun does not pick up a later base fix](a-rerun-does-not-pick-up-a-base-fix.md) - When PR CI failed on an old merge revision, rerunning that run does not test a fix subsequently merged to main; obtain fresh combination evidence and distinguish a branch update from an unchanged-head retrigger.
 * [Engineering layer neutrality needs package-side checks](engineering-layer-neutrality-needs-package-side-checks.md) - Use the package's own bounded neutrality check rather than importing the kernel test harness; retire the duplicate manual grep but retain the consumer guard until all pinnable releases are covered.

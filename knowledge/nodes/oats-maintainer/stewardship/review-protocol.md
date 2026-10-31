@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and issue-recorded contract decisions, carries them only across an unchanged delta, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh readers and one second reader per PR, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-30
+timestamp: 2026-10-31
 ---
 **Owner: oats-maintainer (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -43,6 +43,12 @@ not against a frame the human has since changed.
 For instructions about when agents coordinate or retire children, apply the
 [capability-owned coordination policy boundary](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md):
 neutral mechanism documentation does not make core the owner of team policy.
+
+Two further direction checks are the
+[whole-design comparison](/nodes/oats-maintainer/lessons/judge-a-chain-of-fixes-as-a-whole.md)
+when successive fixes accumulate complexity, and the
+[healthy-default warning rule](/nodes/oats-maintainer/lessons/healthy-defaults-do-not-warn-about-optional-features.md)
+when readiness starts treating an unused optional feature as a fault.
 
 ## A declared deferral still needs the decision's permission
 
@@ -96,6 +102,33 @@ approved one (compare patches, not trees, when main moved in between), and
 prove a fix reached main by ancestry before telling its author it landed — a
 commit "in the PR" can be orphaned by the squash. Where the platform refuses
 an author's own approval, the verdict is still recorded durably on the PR.
+
+## Establish the review checkout before reading the diff (2026-10-31)
+
+Head-bound review begins at fetch, not only at the merge guard. The source
+reports nearly reviewing an old local PR ref after a force-push. When
+refreshing a disposable local review ref, allow its non-fast-forward update
+with a leading `+` in the fetch refspec, then compare the resolved full
+object id with the head handed over for review **before reading the diff**.
+A successful refresh alone does not establish that it fetched the handed
+head; a mismatch means the review target is not established.
+
+Treat any rejected fetch as a failed refresh, never permission to proceed
+with whatever the local ref already names. The `+` applies only to a
+replaceable local review ref, not a contributor's working
+branch, accepted branch or remote push. It changes no approval-carry or
+merge-update rule below.
+
+This mechanical check belongs in the existing `pr-review` skill and its
+checkout tooling: make fetch success and expected-SHA equality prerequisites
+to review, with a force-pushed-ref regression case. Until enforced there,
+it is temporary review-procedure debt, not another review protocol. This
+harvest changes neither tooling nor skills.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-10-31; notes/pr-ref-fetch-needs-a-plus.md. The source identifies
+[awebai/oats#1673](https://github.com/awebai/oats/pull/1673) on 2026-10-30 as
+the near miss; this harvest did not reproduce or independently audit it.
 
 ## Carry verdicts only with proof of an unchanged delta (2026-10-13)
 
