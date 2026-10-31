@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-10-31
+
+* **Update**: Maintainer review of oats-knowledge#237 added a second forward pointer to the [waiter-owned checkpoint wake rationale](/nodes/integrations-expert/decisions/checkpoint-wake-belongs-to-the-waiter.md): the [own-home checkpoint decision](/nodes/oats-maintainer/decisions/own-home-checkpoint-wake-is-an-instance-act.md) rules on the proposal the second limit left open, and tag `v0.69.7` contains the merge of awebai/oats#1673. Read from GitHub and Git; runtime behaviour was not rerun. The limits stay as recorded and this node's owner retains their review.
+
 ## 2026-10-30
 
 * **Update**: Maintainer review of oats-knowledge#234 read awebai/oats-aweb#165 and #167 on GitHub. [Real-binary rehearsal](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) now records the fix's diff, the failing and passing journey runs by job conclusion, and a dated pointer to the eight other text matches. [Required real-binary execution evidence](/nodes/integrations-expert/lessons/real-binary-tests-that-skip-give-no-cover.md) now records #165 as merged and #167's real joined-team row. The fix was merged and still Unreleased, so no shipment is certified, and the tool owner's statement stays source-reported. Not human acceptance.

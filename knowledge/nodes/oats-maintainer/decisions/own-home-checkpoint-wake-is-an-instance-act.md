@@ -70,7 +70,10 @@ GitHub records the coordination change merged on 2026-10-31 at `654be537`
 and the permission companion at `0f6fa9fb`. The
 [hold-lifting comment](https://github.com/awebai/oats-engineering/pull/34#issuecomment-6537279818)
 reports the prerequisite released in OATS 0.69.7. Merge records were checked;
-the release, runtime behavior and rehearsals were not independently audited
-or reproduced. No installed-host readiness or complete prompt protection is
-certified. The older integration concept's open-limit history is not edited
-or superseded by this harvest; that node's owner retains its review.
+at maintainer review the `v0.69.7` tag was also read and contains the merge
+of [the hold](https://github.com/awebai/oats/pull/1673). Runtime behavior and
+rehearsals were not independently audited or reproduced. No installed-host
+readiness or complete prompt protection is certified. The older integration
+concept's open limits are not rewritten or superseded; the maintainer added a
+forward pointer to this decision there, and that node's owner retains their
+review.
