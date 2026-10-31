@@ -2,6 +2,7 @@
 
 ## 2026-10-31
 
+* **Update**: Maintainer review of oats-knowledge#239 recorded in [Known dialog-reporting gaps](decisions/known-dialog-reporting-gaps-use-home-provenance.md) that the implementation PR had already merged when this harvest opened, and that its release-lane approval and the v0.40.0 release notes confirm the package boundary. Running-app checks stay unproven; no release is established.
 * **Harvest**: added [Known dialog-reporting gaps](decisions/known-dialog-reporting-gaps-use-home-provenance.md): use recorded home provenance for the historical Claude emitter gap, separate limitation wording from live attention, and reject warnings on unknown coverage. Linked the existing warning and attention judgments instead of duplicating them. The source reports dropping the proposed status-row projection; no kernel support contract is superseded. Omitted exact incident timing, CI bookkeeping and a support-version matrix; implementation remains open and live verification unproven.
 
 ## 2026-10-30

@@ -76,3 +76,14 @@ with an explicit attention claim. No implementation execution, release or
 live app verification is established here; the source explicitly leaves
 live checks unproven. This records the expert's design choice and rationale,
 not shipment or a new human-approved requirement.
+
+Added at maintainer review of oats-knowledge#239: the implementation PR merged
+at that head on 2026-10-31 as `ba11de84`, before this harvest opened, so its
+open state above is out of date. The
+[release-lane approval](https://github.com/awebai/oats/pull/1704#issuecomment-6539292772)
+records the same boundary (`oats-framework/v1.5.0` carries oats.core `2.3.0`,
+`v1.6.0` carries `2.4.0`), the clearable-warning rule and `wakeHold` staying
+unbuilt, and says the four running-app checks are still owed. The
+[v0.40.0 release notes](https://github.com/awebai/oats/blob/main/docs/release-notes/v0.40.0.md)
+state the same boundary. The approval is a GitHub record of the lane's
+agreement, not human acceptance, and no release of this notice is established.
