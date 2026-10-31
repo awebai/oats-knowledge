@@ -1,5 +1,6 @@
 # Lessons
 
+* [Scoped release approval covers delivered behavior, including package pins](scoped-release-approval-includes-package-pins.md) - Check an effort-scoped release approval against all behavior the candidate delivers, including package pins, rather than only its kernel diff.
 * [Healthy defaults do not warn merely because an optional feature is off](healthy-defaults-do-not-warn-about-optional-features.md) - Readiness warnings identify a fault or actionable consequence of a chosen configuration, not an invitation to enable an intentionally optional feature, because permanent warnings on healthy defaults train operators to ignore real problems.
 * [Judge a chain of sensible fixes as a whole](judge-a-chain-of-fixes-as-a-whole.md) - When each fix answers the last objection by adding another mechanism, compare the accumulated design with changing the original premise before approving the next step.
 * [A CI watcher's exit is not the run's result](ci-watcher-exit-is-not-the-run-result.md) - During a GitHub API incident, a watcher can fail while the run succeeds and the run summary can lead its job results, so reconcile the run and complete job list before reporting CI green.
