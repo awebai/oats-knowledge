@@ -406,6 +406,36 @@ still teaching a dozen verbs refused since 0.25.0). Kernel fail-closed
 guarantees are proven only by their first real capability user
 ([kernel view](/nodes/oats-kernel-expert/lessons/fail-closed-mechanism-proven-by-first-user.md)).
 
+## Consult cross-lane findings before commissioning another rehearsal (2026-10-31)
+
+When a delivery review exposes a missing state, first check the other
+owning lanes' issue records and existing evidence, and ask what they have
+already observed when that remains unknown. The source reports that the
+open-prompt behavior uncovered in its checkpoint review had been observed
+and tracked elsewhere weeks earlier. Discovering that only after another
+rehearsal duplicated investigation rather than filling the actual evidence
+gap. This is a review-planning lesson, not a mandatory extra sign-off round.
+
+The [checkpoint decision](/nodes/integrations-expert/decisions/checkpoint-wake-belongs-to-the-waiter.md)
+already calls for idle, busy and open-prompt coverage; the kernel's
+[dialog-coverage lesson](/nodes/oats-kernel-expert/lessons/dialog-claims-do-not-enumerate-all-dialogs.md)
+owns the known limits. Reuse those findings to select the missing probe,
+not as a substitute for evidence on the delivery path and harness under
+review. An earlier observation elsewhere is not that combination's pass.
+
+Maintain executable state coverage in the real-harness fixtures rather
+than relying on reviewers to rediscover the missing row. The remaining
+cross-lane evidence lookup belongs in existing `pr-review` guidance; no
+fixture, skill change or new review authority is delivered by this record.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-10-31; notes/rehearse-the-waiting-state.md. The initial
+[review](https://github.com/awebai/oats-engineering/pull/34#issuecomment-6525755420)
+and subsequent [reported probe](https://github.com/awebai/oats-engineering/pull/34#issuecomment-6526004654)
+were read and corroborate the missing-state finding. The prior cross-lane
+observation and avoidable delay remain source-reported; this harvest did
+not read private correspondence or reproduce the experiment.
+
 # Green gates do not lift a hold (2026-09-19)
 
 Mergeability, diff fidelity and a green suite answer "does it apply and run";
