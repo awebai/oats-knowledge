@@ -52,6 +52,9 @@ of attention and liveness above.
 
 # Related
 
+- [Known dialog-reporting gaps](known-dialog-reporting-gaps-use-home-provenance.md)
+  explain a historical missing-emitter case separately from live attention;
+  the reporting notice and an explicit attention claim can coexist.
 - [Name-ordered rosters](roster-name-order-preserves-recognition.md) extend
   the recognition rationale to liveness and bundle placement, without
   changing this attention-marker design.
