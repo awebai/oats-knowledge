@@ -107,6 +107,16 @@ not provider prose, a home marker or kernel launch counts.
 records why an omitted declared name is removed at the launch boundary rather
 than inherited; this is not general isolation of native harness settings.
 
+[Pre-answer first-run offers through home-scoped native settings](first-run-offers-use-home-scoped-settings.md)
+records a project scalar that can outrank a user-level preference through
+Claude's own precedence. It is agent-lane direction, not a supersession of
+this decision, and no human acceptance of that cost is recorded.
+
+[Package probes must see the configuration used by the launch](package-probes-must-see-the-launch-configuration.md)
+records why launch-config args are refused beside a package requirement. Its
+operator-chosen `CLAUDE_CONFIG_DIR` route is a native choice, not an isolation
+adapter of the kind forbidden above.
+
 [The trust writer refuses metadata it cannot preserve](trust-writer-refuses-unpreserved-metadata.md)
 records why a metadata-preservation refusal keeps atomic replacement intact
 and directs trust acceptance through the harness's own dialog.
