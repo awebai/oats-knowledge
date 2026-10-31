@@ -1,5 +1,9 @@
 # oats-desktop-expert log
 
+## 2026-10-31
+
+* **Harvest**: added [Known dialog-reporting gaps](decisions/known-dialog-reporting-gaps-use-home-provenance.md): use recorded home provenance for the historical Claude emitter gap, separate limitation wording from live attention, and reject warnings on unknown coverage. Linked the existing warning and attention judgments instead of duplicating them. The source reports dropping the proposed status-row projection; no kernel support contract is superseded. Omitted exact incident timing, CI bookkeeping and a support-version matrix; implementation remains open and live verification unproven.
+
 ## 2026-10-30
 
 * **Update**: Maintainer review of oats-knowledge#228 added a forward pointer to the [needs-input decision](decisions/needs-input-preserves-liveness-and-recognition.md): the kernel's later direction lets a claim [withhold an automated wake](/nodes/oats-kernel-expert/decisions/waiting-claims-may-only-withhold-automated-input.md) and still authorizes nothing. Implementation was open and unreleased at review. No presentation rule changes; the owner's review stays open.

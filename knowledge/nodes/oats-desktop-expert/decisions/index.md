@@ -2,6 +2,7 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [Known dialog-reporting gaps use the home's provenance](known-dialog-reporting-gaps-use-home-provenance.md) - Explain a known historical Claude dialog-reporting gap from the home's recorded module source, keeping the notice separate from live attention and avoiding warnings based on unknown coverage.
 * [Feature-gated wording travels with the answer](gated-wording-travels-with-the-answer.md) - Choose refusal wording where the answering kernel's feature declaration is known and carry it beside the code, rather than reconstruct a gated guarantee from a page's code-only table.
 * [Removing a row's visible menu trigger must not remove its actions](row-context-menu-preserves-action-reachability.md) - Keep sidebar instance actions in the row's context menu without a visible ellipsis trigger, because a panel tied to an active terminal cannot serve rows with no terminal.
 * [Non-cancellable kernel work unlinks output at spawn](noncancellable-kernel-work-unlinks-output-at-spawn.md) - A shared file-output boundary unlinks its temporary names immediately after spawn and reads through retained descriptors, because a Desktop crash can skip every cleanup callback.
