@@ -3,7 +3,7 @@ type: Decision
 title: An idle waiter's checkpoint wake belongs to the waiter
 description: A waiter-owned kernel job supplies an external checkpoint without depending on harness timers or messaging, but does not prove a child stalled or guarantee timely delivery.
 tags: [integration, delegation, scheduling, harnesses, rationale]
-timestamp: 2026-10-30
+timestamp: 2026-10-31
 ---
 # Choice and rationale
 
@@ -89,6 +89,18 @@ Its implementation was open and unreleased at that review, so the first limit
 stands until a release carries the hold. Whether the "no new kernel capability"
 reason survives, and what either limit now means for this choice, remain this
 node's owner's to review. This pointer changes no scheduling decision.
+
+**Later permission ruling, added at maintainer review of oats-knowledge#237.**
+The second limit's proposal has since been ruled on: the maintainer's
+[own-home checkpoint decision](/nodes/oats-maintainer/decisions/own-home-checkpoint-wake-is-an-instance-act.md)
+classifies registering and removing a job on an instance's own home as routine,
+conditional on the kernel hold and on `wakeHold` coverage, and leaves both acts
+with the classifier, so a prompt there stays possible. At that review
+[awebai/oats#1673](https://github.com/awebai/oats/pull/1673) was merged and the
+`v0.69.7` tag contained its merge commit, so a release now carries the hold; that
+was read from Git, and runtime behaviour was not rerun. The limits above stay as
+recorded at harvest. What they now mean for this choice, including the "no new
+kernel capability" reason, remains this node's owner's to review.
 
 The implementation route is the existing lead guidance using the existing
 scheduler. Reusable acceptance coverage should assert which home is woken,
