@@ -57,9 +57,8 @@ The product-lane decision is source-reported, attributed to
 oats-expert-juan in mail 68131900 on 2026-10-30/31. The harvest read the
 [release-lane clearance](https://github.com/awebai/oats/pull/1692#issuecomment-6536006401)
 of 2026-10-30. It is an agent's release-lane record, not direct human
-acceptance. The record confirms the three conditions, the accepted working
-Node 20 cost, and sequencing after a preceding blocker rather than in
-0.69.7. That sequencing is not a permanent release rule.
+acceptance. The record confirms the three conditions and the accepted working
+Node 20 cost.
 
 The implementation PR was still a draft when read. No tests were rerun,
 and neither a merge nor installed enforcement is claimed.

@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-10-31
+
+* **Fix**: maintainer review of the four harvest entries below (oats-knowledge#235). Added Related pointers from [the native-launch decision](/nodes/oats-kernel-expert/decisions/harness-native-launch.md) to [the first-run setting decision](/nodes/oats-kernel-expert/decisions/first-run-offers-use-home-scoped-settings.md) and [the package-probe decision](/nodes/oats-kernel-expert/decisions/package-probes-must-see-the-launch-configuration.md); that decision's rules are unchanged and it is not superseded. The first-run concept now records its tension with the native-launch sentence on settings and that no human acceptance of the user-level override is recorded. Removed release sequencing from [the prerequisite-boundary decision](/nodes/oats-kernel-expert/decisions/prerequisite-refusals-distinguish-baselines-from-optimizations.md) as task residue. Nothing was rerun at review.
+
 ## 2026-10-30
 
 * **Harvest**: add [the provider-owned delivery-stall decision](/nodes/oats-kernel-expert/decisions/delivery-stalls-use-provider-attention-claims.md), retaining the hot-status cost rationale, rejected live fields and broker ownership, cleanup and bounded-text obligations, and accepted channel-home gap. Evidence: OKF proposal from oats-kernel-expert/onboarding-kernel-expert, 2026-10-30; notes/idle-unread-as-a-producer-claim.md. Apply the existing all-claims input rule without duplicating it or interpreting unknown as idle; provider behavior and agent direction remain source-reported.

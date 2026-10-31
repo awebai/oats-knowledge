@@ -38,6 +38,14 @@ This choice uses native project settings under the
 [native-launch policy](harness-native-launch.md); it does not restore strict
 context isolation, grant permission bypass or change authentication.
 
+Added at maintainer review of oats-knowledge#235: the native-launch decision
+says a harness's own settings stay in force, and it carries human acceptance.
+Overriding a user-level `tui` sits close to that sentence. The review did not
+read it as a supersession: the user's settings are still loaded, the override
+is Claude's own precedence, and `<home>/.claude/settings.json` was already
+managed for oats.core's hooks. No human acceptance of this particular cost is
+recorded.
+
 # What the investigation established
 
 The source read Claude Code 2.1.300's offer gate and found that a defined
