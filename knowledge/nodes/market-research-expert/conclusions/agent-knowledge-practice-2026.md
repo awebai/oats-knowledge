@@ -59,7 +59,10 @@ do not supply a knowledge-review outcome comparison. The
 [verification lesson](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)
 owns reviewer-evidence independence; the
 [scaffolding lesson](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md)
-owns model-dependent retesting and persistence versus learning.
+owns model-dependent retesting and persistence versus learning. The
+[storage/retrieval synthesis](/nodes/market-research-expert/conclusions/agent-knowledge-storage-2026.md)
+owns the authority-versus-recall comparison of where knowledge is kept; this
+concept owns the separation of producing, adopting and measuring a revision.
 
 Nothing here selects or removes an OATS judge or reviewer, changes promotion
 doctrine, or supersedes the accepted
