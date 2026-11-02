@@ -15,6 +15,7 @@ are promoted elsewhere.
 
 ## Research conclusions
 
+* [Agent-definition names carry product meanings, not a shared lifecycle contract](conclusions/agent-definition-vocabulary-2026.md) - The 2026-11-02 source-reported survey identifies competing definition, template and persona meanings without establishing a universal agent-definition noun or measured reader comprehension.
 * [Separate knowledge consolidation from approval and review outcomes](conclusions/agent-knowledge-practice-2026.md) - The 2026-11-02 investigation reports proposal and consolidation workflows but establishes neither a universal vendor approval contract nor the outcome advantage of a separate knowledge judge.
 * [Intake routing has analogue evidence, not an established agent-outcome advantage](conclusions/front-door-routing-evidence-2026.md) - The 2026-11-02 investigation leaves agent intake-routing outcomes unresolved and treats human handoff findings and proposed router state as analogues and hypotheses, not a proven architecture.
 * [Compare knowledge systems by authority and retrieval evidence, not storage format](conclusions/agent-knowledge-storage-2026.md) - The 2026-11-02 research pass distinguishes reviewed authority from agent-written recall and treats pointer indexes and agentic search as bounded retrieval candidates, not universal winners.
@@ -24,6 +25,7 @@ are promoted elsewhere.
 
 ## Research lessons
 
+* [Check role names for inherited meanings and human oversight effects](lessons/role-names-carry-product-meanings.md) - The 2026-11-02 naming investigation motivates checking product and everyday meanings separately from task performance, while leaving function-gloss benefits and roster-comprehension outcomes untested.
 * [Verify decisive product claims before synthesizing a market comparison](lessons/verify-decisive-product-claims-before-synthesis.md) - Source-reported verification passes on 2026-11-02 show how product claims and repeated research figures lose their conditions, motivating primary-source checks and version, population, condition and wording records.
 * [Verify decision fields and silence semantics separately in human-request protocols](lessons/human-request-fields-need-explicit-verification.md) - The 2026-11-02 source-reported protocol comparison found no dedicated decision-context fields in four named surfaces, motivating field-level checks rather than equating an approval API with a decidable request.
 * [Separate coordination recovery guarantees from task correctness](lessons/coordination-recovery-is-not-task-correctness.md) - The 2026-11-02 research synthesis distinguishes ownership, recorded progress and resumable execution from evidence that an agent's result is correct, without asserting uniform protocol guarantees.
