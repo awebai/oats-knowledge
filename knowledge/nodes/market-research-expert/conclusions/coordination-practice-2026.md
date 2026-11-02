@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Coordination practice disagrees on review, messaging, delegation and breadth
-description: The 2026-11-02 synthesis preserves vendor disagreements and model-specific findings while distinguishing collaboration, fleet telemetry and the unresolved multi-human coordination boundary.
+description: The 2026-11-02 synthesis preserves vendor disagreements and model-specific findings while separating plan authorship, per-project contracts, fleet telemetry and multi-human coordination.
 tags: [coordination, multi-agent, research, positioning]
 timestamp: 2026-11-02
 ---
@@ -94,6 +94,43 @@ remains authoritative. Nor does it replace [durable specialization](/nodes/oats-
 role prompts within one run and preservation of reviewed judgment across
 sessions are different claims.
 
+# Cross-area authorship is distinct from local plans and contract agreement
+
+The round-4 investigation of **2026-11-02** reports a recurring product
+pattern: a main session, lead or coordinator authors the cross-area plan,
+while delegated agents plan their assigned slices. The source names
+Anthropic, OpenAI, Cursor, GitHub, Google, Devin, Factory, Kiro and Augment,
+but the captured note has no per-product primary-page inventory. Treat this
+as a **source-reported survey synthesis**, not a verified common contract,
+a complete market census or proof that domain agents never co-author plans.
+
+The same note attributes a two-level arrangement to GitHub Spec Kit's
+*Contract-Driven Development* guide [5]: each project keeps its own spec,
+plan and tasks, while an owner drafts an inter-project contract for agreement
+with its consumers before dependent work starts. This is a documentation
+lead, not a tested enforcement guarantee or a mechanism shown to be unique
+to Spec Kit. The captured summary does not establish who the owner must be,
+that the owner is an agent, or a permanent architecture-review authority.
+The [cross-repository ownership finding](/nodes/market-research-expert/limitations/cross-repo-architecture-ownership-evidence-gap.md)
+owns that separate distinction.
+
+For comparisons, distinguish **the author of the integrated plan, authors of
+local plans, and the parties agreeing the shared interface**. Several local
+plans under a contract are not evidence of several agents co-writing one
+plan; equally, one integrated-plan author does not imply only one planning
+artifact. This refines the earlier one-accountable-writer candidate without
+establishing its outcome advantage. The investigation supplies no measured
+comparison of these authorship arrangements or domain-section plan review;
+that is a capture limit, not proof that no such study exists. The new
+product readings name no measured model, so no model generation is inferred.
+
+Plan authorship also does not identify the approver. The
+[approval-authority lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
+already distinguishes automatic teammate-plan approval from lead review and
+human consent; the [human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md)
+owns gate timing and independent judgment. This survey selects no OATS plan
+author, review sequence or approval policy.
+
 # Fleet overview is not evidence of multi-human coordination
 
 A further **2026-11-02** investigation reports a distinction between
@@ -139,7 +176,10 @@ comparison that changes the conclusion must update this record and log the
 correction or supersession, not silently present it as timeless guidance.
 Recheck the fleet-overview gap when a documented multi-human/per-epic
 coordination deployment supplies its ownership and approval boundaries;
-product visibility alone does not close it.
+product visibility alone does not close it. Recheck the plan-authorship
+synthesis when versioned primary contracts document co-authorship, local-plan
+and interface-agreement boundaries, or matched authorship/review trials
+supply named models and outcomes. Log any resulting correction or supersession.
 
 # Citations
 
@@ -156,6 +196,11 @@ verification by this harvest:
    source-reported recheck on 2026-11-02. Other fleet examples above have
    product names but no exact primary-page locators in the capture; no
    availability or enforcement audit was performed by this harvest.
+5. GitHub Spec Kit, *Contract-Driven Development* guide, named in the
+   round-4 note on 2026-11-02. The capture supplies a guide title and an
+   issue reference, but no exact guide URL, version or full contract. Neither
+   that guide nor the other vendors' planning pages was fetched by this
+   harvest; the reported pattern remains a lead for primary-source checks.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/multi-agent-coordination-consensus-2026.md.
@@ -169,3 +214,7 @@ Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expe
 Evidence for the Projects scope correction: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/claude-projects-coordinator-is-goalless-and-single-user.md.
+
+Evidence for the plan-authorship refinement: OKF proposal from
+market-research-expert/coord-frontier-research-expert, 2026-11-02;
+notes/one-plan-author-per-area-specs.md.

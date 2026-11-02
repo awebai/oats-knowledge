@@ -2,6 +2,8 @@
 
 ## 2026-11-02
 
+* **Update**: refine [coordination practice](/nodes/market-research-expert/conclusions/coordination-practice-2026.md) with the round-4 source-reported distinction between integrated-plan authorship, local project plans and shared-interface agreement, including the Spec Kit guide lead; retain no exhaustive vendor convergence, unique mechanism, measured authorship advantage or OATS approval change.
+
 * **Update**: refine [human-oversight evidence](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md) with the round-4 source-reported early-direction-review practice and rejected-PR sampling limit; distinguish direction from implementation checks and retain epic randomization, seeded errors and cost per accepted non-reverted change only as candidate evaluation elements, not a proven agent merge gate.
 * **Update**: refine [independent verification](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md) with context-access and author-versus-fresh-review leads; separate requirements, reasoning, labels and completion claims without effect-size transfer, a blanket reasoning-blindness rule or a guarantee from reviewer separation. Existing operating decisions are unchanged.
 
