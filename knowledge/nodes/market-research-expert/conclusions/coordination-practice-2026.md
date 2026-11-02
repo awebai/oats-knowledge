@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Coordination practice disagrees on review, messaging, delegation and breadth
-description: A 2026-11-02 research synthesis records four live disagreements in vendor coordination practice and agent-count and equal-token findings, linking the topology, verification and persona lessons for the claims they own.
+description: The 2026-11-02 synthesis preserves four vendor-practice disagreements and model-specific coordination findings, distinguishing avoidance of collaboration from successful shared work.
 tags: [coordination, multi-agent, research, positioning]
 timestamp: 2026-11-02
 ---
@@ -29,14 +29,44 @@ not restate them:
 
 For this soul, the useful comparison is **what can be decomposed and how the
 result is checked**, not how many named roles a framework can create. This
-pass adds two source-reported findings. Anthropic found that increasing
-agent count could reduce the merged-PR fraction for older models, and that
-role or hierarchy prompts made little difference [2]. An equal-token-budget
-comparison found single agents could match multi-agent systems [3]. These
-are findings in particular experiments, consistent with the topology
-lesson's refusal of a blanket equal-compute verdict. They are not a pooled
-effect size, a current-model ranking or proof that durable specialization
-has no value.
+pass adds source-reported findings on model-specific coordination [2] and an
+equal-token-budget comparison in which single agents could match multi-agent
+systems [3]. These are findings in particular experiments, consistent with
+the topology lesson's refusal of a blanket equal-compute verdict. They are
+not a pooled effect size, a current-model ranking or proof that durable
+specialization has no value.
+
+## Avoiding merge collapse is not necessarily collaborating successfully
+
+A later source-reported reading, dated 2026-11-02, narrows the interpretation
+of Anthropic's 2026-08-13 multiagent report [2]:
+
+- The reported fall in merged-PR fraction as agent count increased from
+  10 to 80 was steep for Sonnet 4.6 and Opus 4.6, not an outcome to attribute
+  to every tested model.
+- Opus 4.8 and Mythos Preview reportedly avoided that collapse largely by
+  avoiding work together; absence of collapse alone is not evidence of
+  successful collaboration.
+- Among the tested models, the source describes Sonnet 5 as the one that
+  worked on shared resources while preserving high throughput.
+- Role and hierarchy prompts reportedly made little difference in this
+  setting; this does not establish that prompt structure never matters.
+
+The capture characterizes this as first-party, single-task evidence, not an
+independent replication or a universal ranking. The source reports reading
+the page, but its fetch path returned model summaries and quote fragments;
+this harvest does not attest exact quotations. Model generation is therefore
+a comparison variable to preserve, not an isolated causal explanation that
+has been shown to dominate prompt design across tasks.
+
+Evaluate shared-resource behavior alongside merge fraction and throughput,
+and name the model and task behind each result, as the
+[recency and model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md)
+requires. The reusable re-evaluation rule remains in
+[retesting scaffolding after model changes](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
+This investigation establishes no newer-model replication for its older
+MAST, LangChain or ImpossibleBench findings; that is a gap in the capture,
+not proof that no replication exists.
 
 # Practice converges less than a single consensus label suggests
 
@@ -86,10 +116,13 @@ verification by this harvest:
 
 1. Google Research scaling study, blog dated 2026-01-28 by the source;
    [arXiv 2512.08296](https://arxiv.org/abs/2512.08296), characterized as a preprint.
-2. Anthropic, *Patterns and Problems in Emerging Multiagent Systems*, dated
-   2026-08-13 by the source.
+2. Anthropic, [*Patterns and Problems in Emerging Multiagent Systems*](https://anthropic.com/research/multiagent-systems),
+   dated 2026-08-13 by the source; later reading reported on 2026-11-02.
 3. Tran–Kiela comparison, [arXiv 2604.02460](https://arxiv.org/abs/2604.02460),
    characterized as a preprint.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/multi-agent-coordination-consensus-2026.md.
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/frontier-multiagent-evidence-2026-08.md.

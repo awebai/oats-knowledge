@@ -3,7 +3,7 @@ type: Lesson
 title: A fake CLI that accepts what the real binary refuses hides a broken hook — a provider that drives an external CLI is accepted on the whole lifecycle against the published binary
 description: Fakes model the released tool's refusals and outputs; acceptance needs the whole lifecycle on the published binary, one version floor, and explicit control of the binary and state the rehearsal actually exercises.
 tags: [lesson, integrations, hooks, testing, fake-cli, rehearsal, acceptance, versioning]
-timestamp: 2026-10-30
+timestamp: 2026-11-02
 ---
 
 Learned 2026-09-23/24 across five review rounds of one messaging provider,
@@ -98,6 +98,34 @@ The source's second audit lists eight other text matches in
 [awebai/oats-aweb#167](https://github.com/awebai/oats-aweb/pull/167), left in
 place until the error code exists. That list is dated 2026-10-30: start an
 audit from it, not in place of one.
+
+# An early-deciding reader needs split-output evidence
+
+**Delivery in chunks is part of output shape.** A fake that prints a whole
+line in one write can hide a reader that accepts a prefix as the complete
+value. In the source's 2026-11-02 version-gate review, the reader returned at
+the first match so it could terminate a CLI that subsequently waited on an
+update check. Output split as `aw 1.36.33` then `-rc.1` let a prerelease pass
+the release floor; a split inside another prerelease suffix truncated the
+version used for a daemon comparison. The single-write fake passed every
+test. These are source-reported failures from one provider and one CLI.
+
+The rejected shortcut is deciding on a regex prefix, not early return
+itself. When a reader resolves before EOF, require evidence that the token
+is complete: a delimiter defined by the output grammar has arrived, or the
+stream has closed. Then validate the whole token. A chunk boundary proves
+neither completion nor validity; an unterminated last line becomes complete
+at close, not merely because the currently buffered prefix parses.
+
+The elimination route is complete-token framing and whole-value parsing in
+the reader, enforced by executable regressions. Give the fake modes that
+split before and inside an optional suffix, end without a newline, and emit
+a non-conforming token. Check both the decision and process cleanup on these
+paths; the [hang-with-child lesson](/nodes/integrations-expert/lessons/a-fake-that-hangs-must-have-a-child.md)
+owns descendant-lifetime coverage. The source reports fixes and tests in
+[awebai/oats-aweb#172](https://github.com/awebai/oats-aweb/pull/172) at
+`0e3f332`; this harvest did not rerun them. Remembering the failure is not a
+substitute for the framing fix or for real-binary lifecycle acceptance.
 
 # Scratch-deployment boundary
 
@@ -239,6 +267,7 @@ failure and its limits, rather than a universal command recipe.
 
 # Citations
 
+- Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-11-02; notes/a-reader-that-stops-early-meets-split-output.md. The split-output failures and their repair are source-reported; no independent implementation, CI or release verification is claimed.
 - Maintainer review of oats-knowledge#234, 2026-10-30, read [awebai/oats-aweb#167](https://github.com/awebai/oats-aweb/pull/167) and its diff, and [#165](https://github.com/awebai/oats-aweb/pull/165) with its correction comment. The fix keeps the whole-refusal match with exit 2 and adds only this home's own name. The journey jobs failed at aw 1.36.33 and 1.36.51 before it (run 41117898173) and passed after it (run 41119385387), read by job conclusion only. It merged at `26297493` and the changelog still listed it as Unreleased, so shipment stays uncertified. The tool owner's statement appears there only as the source's report, and one approving review says it did not re-check each of the eight other matches. Not human acceptance.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/a-fake-that-prints-what-the-code-expects.md. The refusal mismatch, failed wording-based audit and tool-owner statement are source-reported; this harvest did not rerun the reported fixes or independently verify the owner's statement.
 - Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert, 2026-10-30; notes/real-binary-tests-that-skip-give-no-cover.md; notes/aw-1-36-43-selection-order.md. The CI execution gap and removal of the external-home allowlist are source-reported; this harvest did not rerun them or establish real invite acceptance on aw 1.36.51.
