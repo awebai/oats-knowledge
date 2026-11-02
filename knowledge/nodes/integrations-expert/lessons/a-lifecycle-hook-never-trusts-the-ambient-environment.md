@@ -113,6 +113,35 @@ preserves why stripping and redaction were rejected for an optional locator;
 it neither changes that lesson's known-request fallback nor creates a generic
 redaction policy. The input-authority rule above still applies first.
 
+## Disclosure rejection is not service absence
+
+The disclosure projection above intentionally returns `null` for both an
+absent locator and a value it will not hand on. That is safe for its output
+contract, but loses information a classifier needs. In a later review on
+2026-11-02, the source reports that a compatibility warning reused this
+projection and treated `null` as no configured service, hence the default
+Cloud service. Valid self-hosted values involving IPv6, IDNs or a trailing
+configuration comment then lost their warning. A value's non-disclosure had
+silently become a claim about what it was.
+
+Keep the two questions separate: **may this value be emitted?** and **which
+service does the authoritative configuration select?** Classify from that
+configuration's raw value, using its parsing rules for quotes and comments,
+without emitting the raw value in results or diagnostics. Give an actually
+absent service its own branch; disclosure rejection is not absence and does
+not authorize a default or an ambient fallback. This does not widen the
+existing disclosure allowlist.
+
+The elimination route is separate classification and output-projection
+interfaces that do not collapse these states for a decision-making caller,
+plus end-to-end regression cases through every warning caller. Include valid
+service forms rejected by the disclosure projection, true absence and
+credential-bearing values; assert both the intended classification and the
+absence of raw-value disclosure. The source attributes this repair to
+[awebai/oats-aweb#175](https://github.com/awebai/oats-aweb/pull/175), review
+round 1. The [tested-bound decision](/nodes/integrations-expert/decisions/newer-than-tested-warnings-follow-release-authority.md)
+records the warning's rationale, not a second locator policy.
+
 # Related lifetime boundary
 
 [Persisted launchers need recorded kernel paths](/nodes/integrations-expert/lessons/persisted-launchers-need-recorded-kernel-paths.md)
@@ -129,6 +158,11 @@ shell. It does not change the input-authority rules above.
   ([the served identity is a messaging-layer fact](/nodes/oats-maintainer/decisions/served-identity-is-a-messaging-layer-fact.md)).
 
 # Evidence
+
+Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert,
+2026-11-02; notes/a-disclosure-filter-is-not-a-classifier.md. The hidden-value
+classification failure and repair are source-reported from one provider's
+review, not independently reproduced or certified as released by this harvest.
 
 Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert,
 2026-11-02; notes/hand-on-a-url-by-allowlisted-shape.md. The URL-path failure,
