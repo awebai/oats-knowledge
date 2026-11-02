@@ -18,7 +18,8 @@ The rationale is that model releases can change the value of coordination
 and scaffolding. Publication recency alone cannot establish applicability:
 a recent paper may test older models, and a vendor or practitioner account
 may never name a model. Older work is not automatically false; its status as
-current evidence needs an explicit check.
+current evidence needs an explicit check. The windows are rolling, relative
+to the research date, not a fixed calendar filter.
 
 # Consequences for research reports
 
@@ -30,7 +31,9 @@ current evidence needs an explicit check.
    or whether none was found. Do not equate absence of newer evidence with
    either confirmation or refutation.
 3. Look specifically for evidence that coordination or scaffolding needs
-   change as models improve, not only for new product announcements.
+   change as models improve, not only for new product announcements. Do not
+   assume that every coordination or authority control disappears as
+   capability grows.
 4. Include a short **Recency pass, <date>** section with:
    - **Changed:** conclusions revised by the newer evidence.
    - **Held:** conclusions retained, with the newest backing-source date.
@@ -52,12 +55,19 @@ mail messages `16c7e803-d186-483f-a3e1-282c3deca7c8` and
 `ea9405ce-3e79-4eaf-bd80-467bb63d4611`. The source reports that the relaying
 sender was verified. The harvester did not inspect those messages; neither
 sender verification nor this capture makes the relay the human's own record.
-No message is reproduced verbatim.
+No message is reproduced verbatim. A second proposal, from
+know-storage-research-expert on the same date, reports the same direction
+relayed by the same parent instance in aweb mail messages
+`6620b3fb-23ef-4cfa-8e66-e0e55bd8c3c4` and
+`d299a525-5d7c-4322-84c0-4bb52d45ed38`; that report is likewise
+source-reported and was not inspected.
 
 This is direction for market-research-expert's research method, not a
 workspace-wide expiry rule, permission to discard accepted decisions, or a
 claim about which model family is currently newest. It complements the
-existing lessons without superseding them.
+existing lessons without superseding them, selects no coordination design,
+and leaves the [coordination investigation](/nodes/oats-maintainer/stewardship/coordination-redesign-precedes-adaptive-onboarding.md)
+as the canonical project mandate.
 
 # Ownership and implementation route
 
@@ -73,3 +83,6 @@ mechanism is changed by this knowledge record.
 
 Evidence: OKF proposal from market-research-expert/know-ontology-research-expert,
 2026-11-02; notes/research-recency-and-model-generation-rule.md.
+Corroborating report and the rolling-window and control clarifications:
+OKF proposal from market-research-expert/know-storage-research-expert,
+2026-11-02; notes/recency-and-model-generation-anchoring.md.

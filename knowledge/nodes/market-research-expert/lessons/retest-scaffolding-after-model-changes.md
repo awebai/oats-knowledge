@@ -103,9 +103,7 @@ The [durable-specialization decision](/nodes/oats-maintainer/decisions/durable-s
 remains the canonical rationale for reviewed knowledge continuity. File
 persistence in other products neither proves nor refutes that positioning.
 The [storage/retrieval synthesis](/nodes/market-research-expert/conclusions/agent-knowledge-storage-2026.md)
-separately owns the authority-versus-recall comparison. Apply the
-[recency and model-generation decision](/nodes/market-research-expert/decisions/recency-and-model-generation-anchoring.md)
-when using these dated results in a current report.
+separately owns the authority-versus-recall comparison.
 
 **Owner and recheck:** market-research-expert. Recheck per model generation
 and when controlled harness-ablation or memory-outcome evidence appears.

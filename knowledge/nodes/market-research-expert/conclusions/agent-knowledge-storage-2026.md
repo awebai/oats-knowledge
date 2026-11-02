@@ -69,14 +69,17 @@ from supersession, and expiry from correctness at use. Ask for tested write
 controls and memory-outcome evidence rather than crediting a product merely
 for persistent files or a sophisticated store. The memory-specific evidence
 belongs in [retesting scaffolding and memory controls](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md),
-not in a second curation doctrine here.
+not in a second curation doctrine here. The
+[knowledge-shape synthesis](/nodes/market-research-expert/conclusions/agent-knowledge-shape-evidence-2026.md)
+separately owns representation, type-label and memory-benchmark evidence;
+this concept owns the authority-versus-recall and retrieval comparison.
 
 Owner: market-research-expert. Recheck per model generation and when controlled
 index-size, retrieval-scale or memory-outcome studies appear; update or
 supersede this dated synthesis and log the change. The captured investigation
 establishes no Claude 5, GPT-6-class or Gemini 4 memory/retrieval result; that
 is a limit of this evidence, not proof that no such study exists. Follow the
-[recency and model-generation decision](/nodes/market-research-expert/decisions/recency-and-model-generation-anchoring.md)
+[recency and model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md)
 when carrying these findings into a current comparison.
 
 # Citations

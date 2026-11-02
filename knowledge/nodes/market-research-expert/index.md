@@ -12,7 +12,6 @@ are promoted elsewhere.
 ## Research decisions
 
 * [Date fast-moving research and name the measured model generation](decisions/date-evidence-and-name-model-generations.md) - Source-reported human direction on 2026-11-02 prioritizes the last six months, explicitly searches the latest quarter, and requires model-generation labels and a dated recency pass.
-* [Prefer recent agent research and qualify findings by model generation](decisions/recency-and-model-generation-anchoring.md) - Human direction reported on 2026-11-02 prioritizes the last six months of agent research, a dedicated latest-three-month search and explicit model-generation limits on every finding.
 
 ## Research conclusions
 
