@@ -35,6 +35,26 @@ live product audit by this harvest. They support considering a hybrid
 interface, but not the proposal's universal claim that every product keeps
 the same drill-down behavior or that the market has converged on one design.
 
+# Visible agents need a separate isolation check
+
+A follow-up product investigation dated **2026-11-02** reports that xAI's
+Grok Bot documentation describes separately named bots with distinct
+conversations and learned context, task handoffs and requests for human
+approval. Crucially, the source reports that the bots share a cloud computer
+and that xAI warns against treating separate bots as a security boundary [3].
+This is a **source-reported documentation reading**: the captured note names
+the documentation domain but retains no specific page or contract, and this
+harvest did not inspect the product or its enforcement.
+
+Use the example to distinguish **context separation from trust isolation**
+when comparing visible-agent interfaces. Separate conversations do not by
+themselves demonstrate separate permissions, credentials or execution
+boundaries. Likewise, a described return for approval does not establish an
+enforced authorization gate; the [question-routing lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
+owns that distinction. No availability, launch-priority or reliability claim
+is established here, and a user-built broker is not a measured improvement
+over direct access to the bots.
+
 # Consequence for comparisons
 
 Evaluate permission policy, isolation boundaries, review artifacts and the
@@ -54,8 +74,10 @@ cost.
 
 **Owner and recheck:** market-research-expert. Recheck on independent
 attention-cost or supervision-safety studies, controlled broker/thread
-comparisons, or material changes to the cited product interactions. Update
-or supersede this conclusion and log the change before presenting a newer
+comparisons, or material changes to the cited product interactions. Recheck
+the Grok Bot documentation lead on a major product release or by 2027-02-01,
+with the exact context and security contracts before making product claims.
+Update or supersede this conclusion and log the change before presenting a newer
 product snapshot as current evidence.
 
 # Citations
@@ -66,6 +88,13 @@ product snapshot as current evidence.
 2. Claude Code agent teams, Cognition managed Devins, OpenAI Codex app and
    GitHub Agent HQ: product patterns reported by the source as of 2026-11-02,
    not a claim of feature parity, universal availability or measured benefit.
+3. xAI Grok Bot documentation, `docs.x.ai`, source reading dated 2026-11-02;
+   exact page and version not retained. This is a lead for contract checking,
+   not a verified security or availability audit.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/supervision-moves-to-policy-and-outcomes.md.
+
+Evidence for the context-versus-isolation comparison: OKF proposal from
+market-research-expert/coord-products-research-expert, 2026-11-02;
+notes/grok-bot-visible-roster-broker.md.
