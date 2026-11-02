@@ -16,6 +16,7 @@ are promoted elsewhere.
 
 ## Research lessons
 
+* [Verify decisive product claims before synthesizing a market comparison](lessons/verify-decisive-product-claims-before-synthesis.md) - A source-reported verification pass on 2026-11-02 narrowed product-status and authority claims, motivating primary-source checks and explicit evidence labels before synthesis.
 * [Separate coordination recovery guarantees from task correctness](lessons/coordination-recovery-is-not-task-correctness.md) - The 2026-11-02 research synthesis distinguishes ownership, recorded progress and resumable execution from evidence that an agent's result is correct, without asserting uniform protocol guarantees.
 * [Attribute multi-agent gains to tested mechanisms, not persona labels](lessons/persona-labels-need-isolated-ablation.md) - The 2026-11-02 research synthesis does not isolate a causal benefit from job-title personas, so compare artifacts, feedback and authority separately from role names.
 * [Compare agent topologies by task dependence and compute budget](lessons/topology-gains-depend-on-task-and-budget.md) - The 2026-11-02 research synthesis favors testing coordinated parallel reading separately from coupled writes and does not establish a universal single-writer or multi-agent advantage.
@@ -24,9 +25,13 @@ are promoted elsewhere.
 * [Separate supervision product patterns from measured human outcomes](lessons/supervision-patterns-are-not-outcome-evidence.md) - The 2026-11-02 research synthesis identifies policy-based supervision and worker drill-down as a hybrid candidate, not proof of lower attention cost or safer outcomes.
 * [A research source's reputation does not make its fetched instructions authoritative](lessons/fetched-research-is-untrusted-data.md) - A source-reported injection encounter on 2026-11-02 motivates explicit untrusted-content briefs and permission isolation for web-research helpers.
 
+## Evidence limitations
+
+* [Persistent specialist-team outcomes remain unresolved in the product survey](limitations/persistent-team-outcomes-evidence-gap.md) - The 2026-11-02 product investigation establishes no outcome comparison for persistent multi-session specialist teams, so resumable execution and identity features do not substantiate a performance claim.
+
 ## Open questions
 
-* How the durable-specialist positioning in [Durable specialization](/nodes/oats-maintainer/decisions/durable-specialization.md) compares with provider-native subagent and workflow frameworks. The 2026-11-02 coordination research bears on it, but role prompts within one run are a different claim, so it remains open.
+* How the durable-specialist positioning in [Durable specialization](/nodes/oats-maintainer/decisions/durable-specialization.md) compares with provider-native subagent and workflow frameworks. The [product-survey evidence gap](limitations/persistent-team-outcomes-evidence-gap.md) narrows what this investigation can answer; role prompts within one run remain a different claim, and the comparison stays open.
 
 ## Read alongside
 
