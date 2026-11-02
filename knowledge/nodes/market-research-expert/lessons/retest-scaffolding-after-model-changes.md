@@ -45,6 +45,18 @@ does not prove a particular curation method beats full context. Claims that
 memory benchmarks are saturated or mutually non-comparable are not retained
 without their missing experimental scope.
 
+# Recency refinement: vendor advice is not an ablation
+
+A separate 2026-11-02 recency proposal attributes advice to Anthropic to
+fold subagents into the main loop unless evaluation favors keeping them
+[3]. The capture supplies no figures or measured model for that advice.
+Treat it as a dated **vendor recommendation to compare alternatives**, not
+proof that a single loop wins or that delegation becomes unnecessary.
+The [topology lesson](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
+owns the same pass's source-reported model-dependent collaboration results;
+those results do not establish that external authorization or review gates
+can be removed as capability improves.
+
 # Consequence for comparisons
 
 For each component, record the failure it addresses and compare the same
@@ -73,6 +85,9 @@ extend one lab's report to every model or task.
 2. Devin memory account, 2026-10-05; Anthropic memory reporting, May 2026
    (secondary); Chroma context-rot work, 2025-07-14, as identified in the
    captured evidence. These attributions do not establish outcome gains.
+3. Claude.com, *When to fold subagents into your main agent loop*, dated
+   2026-10-22 by the recency source. Source-reported first-party guidance,
+   not independently fetched or evaluated by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/harness-shrinks-with-capability.md.
@@ -81,3 +96,7 @@ Evidence for the later cross-references: OKF proposal from
 market-research-expert/know-ontology-research-expert, 2026-11-02;
 notes/agent-knowledge-shape-evidence-2026-11.md;
 notes/research-recency-and-model-generation-rule.md.
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/multi-agent-gains-shrink-with-capability.md.

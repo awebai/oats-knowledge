@@ -42,13 +42,31 @@ The harvest checked the captured note, not the underlying experiments. It
 does not retain numerical benchmark rates or rank review products on this
 evidence.
 
+# Recency refinement: human reviewers also need independent evidence
+
+A separate 2026-11-02 recency pass reports an Anthropic analyst study in
+which judgments tended to follow an agent's randomly assigned lean [3].
+The source names **Opus 4.8**; this was an analyst task, **not code review**.
+It motivates testing whether a human reviewer forms a judgment from
+independent evidence rather than treating human involvement itself as
+independence. The short capture does not support a transferable deference
+rate or a claim that human review is ineffective.
+
+The same note points to a preprint on correlated failures of AI approvers
+[4], with **model unstated** in the capture. That is a research lead, not a
+verified error-correlation estimate or a ranking of human, same-model and
+cross-model reviewers. Neither report was independently checked here.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
 what execution evidence reaches the reviewer, and whether the builder can
 report impossibility instead of being rewarded only for apparent success.
 Treat an independent context or a different model as a hypothesis to test,
-not a substitute for protected evaluation and observable results.
+not a substitute for protected evaluation and observable results. For human
+review, test the effect of exposure to the agent's recommendation separately
+from access to its execution evidence; the analyst finding does not establish
+which review design works for code.
 
 This is evaluation judgment, not a manual substitute for enforcement:
 protection of acceptance artifacts and held-out execution belong in the
@@ -68,6 +86,14 @@ and a node-log entry.
 2. Self-preference study, [arXiv 2404.13076](https://arxiv.org/abs/2404.13076),
    and Huang et al., ICLR 2024: source-reported readings, not independently
    re-fetched for this harvest.
+3. Anthropic, [*How AI agents shape experts' judgment calls*](https://www.anthropic.com/research/agents-judgment-calls),
+   dated 2026-10-27 by the recency proposal; source-reported analyst result.
+4. [arXiv 2610.29178](https://arxiv.org/abs/2610.29178), dated 2026-10-21
+   and described as a preprint on AI approvers by the recency source.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/builder-checker-separation.md.
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/oversight-fatigue-and-deference-recency.md.

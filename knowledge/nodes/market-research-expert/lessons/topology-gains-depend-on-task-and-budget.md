@@ -41,6 +41,24 @@ substantially larger token budget. Its summary of equal-compute studies
 includes an exception but insufficient study detail to resolve the issue;
 no blanket equal-compute verdict is retained.
 
+# Recency refinement: compare the direction of model-dependent gains
+
+The 2026-11-02 recency proposal reports diminishing collaboration benefit
+as single-agent capability rises, including disadvantages on SWE-bench
+Verified in the scaling study [1]. It identifies the measured models as
+**GPT-5, Sonnet 4.5 and Gemini 2.5 Pro**. It also reports mid-2026 preprints
+pointing in that direction [3]. These are the source's readings, not an
+independently checked cross-study result or an exhaustive literature census.
+
+The capture lacks matched configurations and controls sufficient to isolate
+model strength from task, budget and topology changes. Do not retain its
+numerical crossover threshold, benchmark effect sizes or error multiplier as
+a portable rule. Do not infer that stronger models always reduce the value
+of collaboration. Instead, compare the **change in marginal benefit** on the
+same task and budget after a model upgrade, as well as which topology wins.
+This capture establishes no test on a newer generation; transfer remains
+unconfirmed under the [model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md).
+
 # Transfer to personal-agent workflows is untested here
 
 A separate personal-use research pass, also dated 2026-11-02, reports that
@@ -85,6 +103,13 @@ change rather than extending it to a new model generation silently.
    scaling-agents account, 2026-01-14; Anthropic, multi-agent research-system
    account, 2025-06-13. These are the source's attributions, not independent
    reproductions or re-fetches by this harvest.
+3. [arXiv 2606.13003](https://arxiv.org/abs/2606.13003),
+   [2607.16133](https://arxiv.org/abs/2607.16133),
+   [2609.19759](https://arxiv.org/abs/2609.19759) and
+   [2609.20804](https://arxiv.org/abs/2609.20804): source-supplied preprint
+   locators for shrinking collaboration or scaffolding benefit. Per-study
+   model identifiers are not retained in the recency note; do not extend
+   the scaling study's model list to these papers.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/single-writer-parallel-readers.md.
@@ -92,3 +117,7 @@ Evidence: OKF proposal from market-research-expert/coord-frontier-research-exper
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/personal-agents-organise-by-data-ownership-not-roles.md
 (personal-workflow transfer limit).
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/multi-agent-gains-shrink-with-capability.md.
