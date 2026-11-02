@@ -51,12 +51,15 @@ The 2026-09-19 [flexible-knowledge decision](/nodes/oats-maintainer/decisions/fl
 extends this: capabilities own their learning model and placement, not only
 their runtime.
 
-The knowledge-theory-expert (an `oats.framework` package soul) is an
-authoring aid: it is not a required live dispatcher, universal harvester, or
-approval service. Operating a capability
+The knowledge-theory-expert is an authoring aid: it is not a required live
+dispatcher, universal harvester, or approval service. Operating a capability
 should not depend on that expert being alive or on fetching mutable reference
 documentation at runtime. This records accepted rationale, not implementation
-completion or a particular deployment's configuration.
+completion or a particular deployment's configuration. Its framework-package
+placement at the time of this record is addressed by the
+[planned move to oats.authoring](/nodes/oats-maintainer/decisions/knowledge-theory-expert-moves-to-authoring.md)
+recorded on 2026-11-02; that separate placement decision preserves this role
+and is not a shipment claim.
 
 # A lesson the reference theory carries forward
 

@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and issue-recorded contract decisions, carries them only across an unchanged delta, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh readers and one second reader per PR, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-10-31
+timestamp: 2026-11-02
 ---
 **Owner: oats-maintainer (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -66,6 +66,42 @@ the actual direction constraint. This refines the direction-first gate,
 not the authority to change a decision. Put the decision and any authorized
 split in the review evidence; the operating check belongs in the existing
 `direction-gate` skill rather than in a competing implementation plan.
+
+## An agreed condition follows the advice across messages (2026-11-02)
+
+When a decision constrains advice, review every place the change gives that
+advice against every agreed condition: warnings, refusals, documentation,
+release prose and the PR description. Checking only the surface named in the
+original discussion can miss the same remedy in a second message. This is a
+concrete application of the all-surfaces rule below, not another approval
+round or permission to revise the agreement.
+
+The source reports approving a compatibility warning with a condition on
+pinning an older client, while missing that condition in a new spawn refusal
+in the same PR. The condition matters because another deployment on that
+host may require the newer client. A second reader returned the omission.
+The [compatibility decision](/nodes/integrations-expert/decisions/newer-than-tested-warnings-follow-release-authority.md)
+owns the remedy's rationale; this section owns the review failure, not a
+second specification of the provider's messages.
+
+Prefer one shared remedy representation where practical, and regression
+checks that assert the required condition on every emitted variant. Tests
+should check the resulting message, not merely a shared helper. Residual
+semantic checking of docs and PR prose belongs in the existing `pr-review`
+and `direction-gate` guidance. These are prevention routes, not delivered
+code or skill changes, and a passing wording test cannot supply decision
+authority.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-02; notes/check-every-emitted-message-against-agreed-conditions.md.
+
+This is one source-reported review miss on
+[awebai/oats-aweb#175](https://github.com/awebai/oats-aweb/pull/175) at
+`2835c4b`, not a measured failure rate. The public correction
+[`dbb2962`](https://github.com/awebai/oats-aweb/commit/dbb29620170df8c1f79e39b731bc777e65f5da78)
+was read: it adds the condition to the refusal, its assertions and the
+changelog. That corroborates the omission and correction, not the private
+agreement or return, human acceptance, runtime safety or completed release.
 
 # Fresh eyes
 

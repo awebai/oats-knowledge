@@ -1,5 +1,6 @@
 # Decisions
 
+* [Put the reference-theory authoring aid in oats.authoring](knowledge-theory-expert-moves-to-authoring.md) - Move the optional knowledge-theory soul and capability to the existing authoring package rather than expose them in every new framework workspace, with release continuity and existing-home preservation.
 * [A workspace front door routes and introduces without mandatory brokering](front-door-routes-and-introduces.md) - For most workspaces, keep an always-alive intake agent that finds or starts the owner and introduces the human, without requiring every later message to pass through it.
 
 * [An own-home checkpoint wake is a routine instance act](own-home-checkpoint-wake-is-an-instance-act.md) - Classify an instance's own checkpoint registration and removal as routine rather than operator work, while retaining the wake-hold prerequisite, its coverage limits, and separate gates for host installation and other-home wakes.
