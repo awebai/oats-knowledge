@@ -2,6 +2,7 @@
 
 ## 2026-11-02
 
+* **Harvest**: add the bounded research lesson [separating coordination recovery from task correctness](/nodes/market-research-expert/lessons/coordination-recovery-is-not-task-correctness.md); distinguish mechanism guarantees from outcome evidence without asserting protocol parity, measured failure rankings or a ban on distributed-systems techniques.
 * **Harvest**: add five bounded, source-reported research lessons on [persona attribution](/nodes/market-research-expert/lessons/persona-labels-need-isolated-ablation.md), [task-dependent topology comparisons](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md), [independent verification evidence](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md), [retesting scaffolding](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md) and [supervision patterns versus outcomes](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md); retain uncertainty and recheck triggers, not universal consensus, unverified effect sizes or changes to accepted OATS direction.
 * **Update**: replace the [node index](/nodes/market-research-expert/index.md)'s intentionally-empty statement with the first research listings.
 
