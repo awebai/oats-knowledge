@@ -11,7 +11,7 @@ The source reports three corrections from Pepe during one coordination-design
 effort on **2026-11-02**: replace comparison columns and tables with full
 sections; shorten the subsequent paper-style draft and foreground practices,
 what will exist and why; and replace an unfamiliar role name with a plain
-word he understood. Changing the layout alone did not cure the excessive
+word Pepe understood. Changing the layout alone did not cure the excessive
 length.
 
 For the next decision page addressed to this human, start with a short,

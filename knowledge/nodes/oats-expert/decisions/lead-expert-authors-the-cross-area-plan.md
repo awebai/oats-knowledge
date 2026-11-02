@@ -51,7 +51,7 @@ authorship decision.
 # Decision is not research proof or a new authority grant
 
 Acceptance is **source-reported**: Pepe in the coordination-rethink lead's
-session on **2026-11-02**, before trials. The proposal reports his direction
+session on **2026-11-02**, before trials. The proposal reports Pepe's direction
 that experts plan and research, coordinators only coordinate, and the lead
 also coordinates by default. The captured note's later addendum replaces its
 earlier option of a coordinator assembling area plans. That earlier option
