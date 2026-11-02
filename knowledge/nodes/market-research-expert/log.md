@@ -5,6 +5,7 @@
 * **Harvest**: Added a dated, source-reported [coordination-practice synthesis](/nodes/market-research-expert/conclusions/coordination-practice-2026.md), preserving task-dependent findings and disagreements rather than a universal topology or role-count claim.
 * **Harvest**: Added [human-oversight evidence and unresolved comparisons](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md), treating selective gates as a research hypothesis rather than authorization to remove existing controls.
 * **Harvest**: Added the [fetched-research trust-boundary lesson](/nodes/market-research-expert/lessons/fetched-research-is-untrusted-data.md) with a source-reported incident and a harness-enforcement elimination route; no skill or control is changed.
+* **Update** (review): the [node index](/nodes/market-research-expert/index.md) no longer says the node is intentionally empty; its first open question (durable-specialist positioning versus provider-native frameworks) is kept under Open questions, since the new research does not settle it.
 
 ## 2026-09-28
 

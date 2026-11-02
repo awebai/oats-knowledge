@@ -18,6 +18,10 @@ are promoted elsewhere.
 
 * [A research source's reputation does not make its fetched instructions authoritative](lessons/fetched-research-is-untrusted-data.md) - A source-reported injection encounter on 2026-11-02 motivates explicit untrusted-content briefs and permission isolation for web-research helpers.
 
+## Open questions
+
+* How the durable-specialist positioning in [Durable specialization](/nodes/oats-maintainer/decisions/durable-specialization.md) compares with provider-native subagent and workflow frameworks. The 2026-11-02 coordination research bears on it, but role prompts within one run are a different claim, so it remains open.
+
 ## Read alongside
 
 * [oats-maintainer](/nodes/oats-maintainer/index.md) - the positioning and direction research here supports or corrects.
