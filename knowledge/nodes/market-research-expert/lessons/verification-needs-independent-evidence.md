@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Separate verifier evidence from the builder's control
-description: The 2026-11-02 research synthesis distinguishes test integrity, held-out generalization and reviewer independence rather than treating self-review or a second agent as sufficient verification.
+description: The 2026-11-02 research synthesis distinguishes test integrity, held-out generalization and reviewer independence, with cross-provider error correlation as a reason not to assume vendor diversity supplies independent evidence.
 tags: [research, verification, reward-hacking, evaluation]
 timestamp: 2026-11-02
 ---
@@ -38,9 +38,34 @@ model alone produces independence. The SpecBench and vendor code-review
 claims in the note lack enough captured study detail for a comparative
 accuracy conclusion here.
 
-The harvest checked the captured note, not the underlying experiments. It
-does not retain numerical benchmark rates or rank review products on this
-evidence.
+The earlier harvest checked the captured note, not the underlying
+experiments; those benchmark and review-product summaries do not establish
+transferable numerical rates or product rankings.
+
+## Cross-provider diversity is not a guarantee of error independence
+
+A later source-reported reading of Kim et al. [3], dated 2026-11-02, supplies
+a more specific reason to test reviewer independence. The abstract reportedly
+finds about 60% answer agreement on one leaderboard dataset **conditional on
+both models being wrong**, and correlated errors among larger, more accurate
+models despite different architectures and providers. The note's body-level
+reading, supplied by a research helper rather than the proposer directly,
+identifies HELM MMLU and says the average pools model pairs across providers,
+not just same-family pairs.
+
+The 60% is neither an unconditional failure probability nor a rate for every
+cross-vendor pair or coding review. A pooled average is not an isolated
+cross-provider comparison. The capture does not retain the pair inventory
+or full regression specification, so it does not support a precise
+same-company increment or a ranking of vendor combinations. The models
+belong to the reported 2025 study; this investigation establishes no
+2026-model replication. No paper or experiment was independently checked by
+this harvest.
+
+This supports the existing caution that changing a reviewer's model or
+vendor does not itself create independent evidence. It does not show that
+vendor diversity is useless, or quantify how much protected execution or
+held-out checks improve review relative to it.
 
 # Consequence for comparisons
 
@@ -68,6 +93,12 @@ and a node-log entry.
 2. Self-preference study, [arXiv 2404.13076](https://arxiv.org/abs/2404.13076),
    and Huang et al., ICLR 2024: source-reported readings, not independently
    re-fetched for this harvest.
+3. Kim et al., [arXiv 2506.07962](https://arxiv.org/abs/2506.07962), identified
+   by the later source as ICML 2025; abstract read by that source, body-level
+   details reported through a helper, on 2026-11-02.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/builder-checker-separation.md.
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/cross-vendor-review-is-not-error-independence.md.
