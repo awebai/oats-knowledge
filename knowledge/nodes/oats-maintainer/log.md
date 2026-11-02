@@ -1,5 +1,9 @@
 # oats-maintainer log
 
+## 2026-11-02
+
+* **Harvest**: [Coordination redesign before adaptive onboarding](/nodes/oats-maintainer/stewardship/coordination-redesign-precedes-adaptive-onboarding.md) records the source-reported human direction to evaluate the role model across software and personal uses through research and real trials, with human oversight central; dates the priority order and the adaptive-onboarding dependency. Preserves capability-owned policy, the deferred threads build, optional human attribution and bilateral contract agreement; no replacement model or supersession is selected. Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe, 2026-11-02; notes/coordination-is-open-for-rethink.md. Acceptance is source-reported from Pepe's direction in the release-lane session, not independently verified; no completed research, release, deployment or trial is certified.
+
 ## 2026-10-31
 
 * **Harvest**: [Scoped release approval includes package pins](/nodes/oats-maintainer/lessons/scoped-release-approval-includes-package-pins.md) records why an effort-only go must be checked against delivered package behavior, not only kernel changes; remove out-of-scope effects or obtain authority, and make inseparable incidental content's impact judgment explicit without granting a blanket exception. Links from release judgment and preserves the existing delegation and review gates. Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe, 2026-10-31; notes/a-go-covers-what-its-words-name.md. Public review and correction records checked; one source-reported release, no runtime or shipment audit. Candidate-inventory tooling and existing release guidance are the prevention routes, not delivered enforcement.
