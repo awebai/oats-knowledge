@@ -79,6 +79,33 @@ attention over the session and decision granularity, not aggregate approval
 alone, while keeping classifier misses and downstream outcomes in scope.
 The newer note establishes no fresh classifier false-negative estimate.
 
+# Refinement: peak concurrency is not sustainable supervisory capacity
+
+The organisation-scale research pass of **2026-11-02** reports a small
+controlled ParallelPilot study [7] in which a coordination dashboard raised
+peak concurrent coding-agent use and throughput, without improving
+intervention success or perceived control. This is a **source-reported study
+lead**, not a replicated result: the capture supplies no task protocol,
+uncertainty estimates, precise model identifiers or definition of the peak
+measure. It does not establish a safe or sustainable human span of control.
+
+The same note reports low concurrent-agent use in Jellyfish's Claude Code
+telemetry and a weekly concurrent-use observation attributed to OpenAI [8].
+Observed use is not a capacity experiment; peak, weekly reach and sustained
+workload are different measures. Likewise, the note's vendor team-sizing
+advice is not a measured human limit, particularly where advice concerns an
+agent lead rather than a human. The exact figures and any pooled range are
+not retained without the missing population and measurement context.
+
+Compare active steering, asynchronous work awaiting review, and artifact
+review load separately. A dashboard can increase concurrent work without
+improving intervention quality; measure both rather than equating throughput
+with oversight. Product concurrency allowances do not by themselves establish
+human capacity or prove that PR review is every workflow's binding constraint.
+This investigation still does not settle a threads-versus-boards-versus-digests
+versus-queues comparison, and the capture establishes no newer-model transfer.
+Its broad model-era shorthand cannot identify the models in each study.
+
 # Unknown in this investigation, not absent from the world
 
 The captured evidence does not settle:
@@ -90,8 +117,9 @@ The captured evidence does not settle:
 - **Persona roles versus function contracts at equal compute:** the reported
   role-prompt results do not settle the value of durable, curated expertise;
   see the [persona lesson](/nodes/market-research-expert/lessons/persona-labels-need-isolated-ablation.md).
-- **Sustainable agents per human:** neither anecdotes nor session counts
-  establish a general span of control across workloads and interfaces.
+- **Sustainable agents per human:** the reported pilot's peak concurrency,
+  field usage and session anecdotes do not establish a general span of
+  control across workloads and interfaces.
 - **Defect and revert rates of agent changes:** approval and abandonment
   measures do not answer downstream quality.
 
@@ -138,6 +166,12 @@ Source-supplied locators, not independently audited by this harvest:
    auto mode in production*, dated 2026-08-07 by the source, with the former
    updated 2026-10-22. Titles and dates are source-reported; primary pages
    and evaluation methods were not inspected by this harvest.
+7. ParallelPilot, [arXiv 2609.33113](https://arxiv.org/abs/2609.33113),
+   September 2026 as identified by the organisation-scale source. The harvest
+   read the captured note, not the paper; measured models are not identified.
+8. Jellyfish Claude Code concurrency account, dated 2026-03-23 by the source,
+   and OpenAI Codex weekly-concurrency account, labelled H1 2026. Exact page
+   locators, populations and collection methods are absent from the capture.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/human-oversight-evidence-2026.md.
@@ -148,3 +182,8 @@ Evidence: OKF proposal from market-research-expert/coord-claims-verification-exp
 Evidence for the recency refinement: OKF proposal from
 market-research-expert/coord-practice-research-expert, 2026-11-02;
 notes/oversight-fatigue-and-deference-recency.md.
+
+Peak-concurrency refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
+2026-11-02; notes/measured-interactive-agent-span-is-low-single-digits.md.

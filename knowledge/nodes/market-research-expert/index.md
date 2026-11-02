@@ -24,6 +24,8 @@ are promoted elsewhere.
 
 ## Research lessons
 
+* [Distinguish forge-account attribution from agent and human attribution](lessons/forge-attribution-is-not-agent-attribution.md) - The 2026-11-02 forge investigation distinguishes claimed authorship, authenticated account, credential use and human approval, without establishing a universal per-agent attribution mechanism.
+* [A prompt prohibition is not evidence of forge-side enforcement](lessons/prompt-rules-are-not-forge-enforcement.md) - A source-reported 2026 merge incident motivates checking effective forge and credential authority separately from prompt compliance, without establishing incident rates or a sufficient defense.
 * [Verify decisive product claims before synthesizing a market comparison](lessons/verify-decisive-product-claims-before-synthesis.md) - Source-reported verification passes on 2026-11-02 show how product claims and repeated research figures lose their conditions, motivating primary-source checks and version, population, condition and wording records.
 * [Verify decision fields and silence semantics separately in human-request protocols](lessons/human-request-fields-need-explicit-verification.md) - The 2026-11-02 source-reported protocol comparison found no dedicated decision-context fields in four named surfaces, motivating field-level checks rather than equating an approval API with a decidable request.
 * [Separate coordination recovery guarantees from task correctness](lessons/coordination-recovery-is-not-task-correctness.md) - The 2026-11-02 research synthesis distinguishes ownership, recorded progress and resumable execution from evidence that an agent's result is correct, without asserting uniform protocol guarantees.
