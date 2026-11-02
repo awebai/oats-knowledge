@@ -9,7 +9,13 @@ unknown is recorded as unknown. Charter:
 which routes comparison and positioning claims through this node before they
 are promoted elsewhere.
 
+## Research decisions
+
+* [Prefer recent agent research and qualify findings by model generation](decisions/recency-and-model-generation-anchoring.md) - Human direction reported on 2026-11-02 prioritizes the last six months of agent research, a dedicated latest-three-month search and explicit model-generation limits on every finding.
+
 ## Research conclusions
+
+* [Compare knowledge systems by authority and retrieval evidence, not storage format](conclusions/agent-knowledge-storage-2026.md) - The 2026-11-02 research pass distinguishes reviewed authority from agent-written recall and treats pointer indexes and agentic search as bounded retrieval candidates, not universal winners.
 
 * [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - A 2026-11-02 research synthesis records four live disagreements in vendor coordination practice and agent-count and equal-token findings, linking the topology, verification and persona lessons for the claims they own.
 * [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research pass motivates a selective-gate hypothesis and leaves sustainable agents per human and downstream change quality unresolved; supervision-interface evidence is owned by the supervision lesson.
