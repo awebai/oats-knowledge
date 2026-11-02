@@ -21,8 +21,8 @@ node.
 
 ## Sections
 
-* [Decisions](decisions/index.md) - Operator positions on custody layout, workspace hosting, unattended credentials and disposable trials.
-* [Lessons](lessons/index.md) - Placement, identity, verification, trial boundaries and measurement, and adoption judgement.
+* [Decisions](decisions/index.md) - Operator positions on onboarding acceptance, custody layout, workspace hosting, unattended credentials and disposable trials.
+* [Lessons](lessons/index.md) - Placement, identity, verification, trial boundaries and measurement, fresh-account coverage, harness refusals and adoption judgement.
 * [Playbooks](playbooks/index.md) - Cutover and rebuild sequencing.
 
 ## Read alongside

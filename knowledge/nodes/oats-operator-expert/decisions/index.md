@@ -1,6 +1,8 @@
 # Decisions
 
-Operator decisions on custody, workspace hosting, unattended credentials and disposable trials, with rationale and rejected alternatives.
+Operator decisions on onboarding acceptance, custody, workspace hosting, unattended credentials and disposable trials, with rationale and rejected alternatives.
+
+* [Onboarding passes on the newcomer's experience](onboarding-passes-on-the-newcomers-experience.md) - Judge onboarding through the newcomer's real entry path and plain-language experience, with agents doing permitted routine commands; passing command predicates alone is insufficient.
 
 * [Disposable trials prefer local messaging over throwaway hosted accounts](disposable-trials-prefer-local-messaging.md) - Prefer a local rootless messaging stack when teardown must remove trial service state, reserving hosted trials for explicitly needed hosted-build behavior.
 

@@ -2,6 +2,9 @@
 
 Placement, identity, verification and adoption judgement learned operating deployments.
 
+* [Fresh machines do not reset account history](fresh-machines-do-not-reset-account-history.md) - First-time onboarding needs fresh service-account evidence as well as a fresh machine, followed by a second machine joining the same workspace, because existing accounts and single-machine trials hide different failures.
+* [Intake consent does not predict auto-mode approval](intake-consent-does-not-predict-auto-mode-approval.md) - Two reported onboarding retries were allowed after step-specific human consent, but broad intake consent and a conversational yes establish no general guarantee that Claude Code will permit a refused action.
+
 * [Trial runtime redirection excludes host-service proof](trial-runtime-redirection-excludes-host-service-proof.md) - A Linux trial reported that redirecting runtime state made the user service manager unreachable, so its successful tick-loop wake proves neither host-service installation nor complete containment.
 * [Rootless messaging needs the server's database extensions, not just PostgreSQL](rootless-messaging-needs-required-database-extensions.md) - A rootless aweb trial failed with the pgserver wheel because pgcrypto was absent and succeeded with a PostgreSQL 16 build including that extension.
 * [Claude trial metrics need origin and message identity](claude-trial-metrics-need-origin-and-message-identity.md) - In Claude Code 2.1.308 trial transcripts, origin-bearing user entries distinguish input turns from tool results, while message identity prevents repeated streaming usage from being counted twice.
