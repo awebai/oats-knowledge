@@ -16,6 +16,11 @@ are promoted elsewhere.
 * [Separate verifier evidence from the builder's control](lessons/verification-needs-independent-evidence.md) - The 2026-11-02 research synthesis distinguishes test integrity, held-out generalization and reviewer independence rather than treating self-review or a second agent as sufficient verification.
 * [Re-test coordination scaffolding when model capability changes](lessons/retest-scaffolding-after-model-changes.md) - The 2026-11-02 research synthesis treats a harness component's value as model- and task-dependent and does not equate durable files with demonstrated learning gains.
 * [Separate supervision product patterns from measured human outcomes](lessons/supervision-patterns-are-not-outcome-evidence.md) - The 2026-11-02 research synthesis identifies policy-based supervision and worker drill-down as a hybrid candidate, not proof of lower attention cost or safer outcomes.
+* [Distinguish question routing from human approval authority](lessons/question-routing-is-not-approval-authority.md) - Two source-reported product examples from 2026-11-02 distinguish routing a request from an agent supplying human confirmation, without establishing a universal ban on relayed authorization.
+
+## Evidence limitations
+
+* [Personal-agent retention was unresolved in the November 2026 research pass](limitations/personal-agent-retention-evidence-gap.md) - The 2026-11-02 investigation found no published retention, opt-out or churn data for its named scheduled-agent products, so anecdotes and popularity measures do not establish durable use.
 
 ## Read alongside
 
