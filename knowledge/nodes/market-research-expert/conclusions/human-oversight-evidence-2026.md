@@ -61,6 +61,24 @@ It does not authorize removal of existing human approvals. The
 [verifier-evidence lesson](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)
 owns the related but distinct issue of independence among model reviewers.
 
+# Recency refinement: within-session attention
+
+A further captured note from the same source, also dated 2026-11-02, reports
+that newer vendor auto-mode accounts [6] describe declining human detection
+of dangerous commands over a session and more rejection of plans than of
+individual actions. This adds a **source-reported within-session observation**
+to the earlier habituation hypothesis, not an independently replicated
+fatigue effect or evidence that plan gates guarantee safety. The measured
+model is **unstated**; the production model family cannot establish it.
+
+The capture does not retain the experimental protocol, task mix or enough
+context to compare cohorts with the March account. It therefore does not
+establish a numerical trend across releases or supersede a published rate
+here: the earlier harvest deliberately retained no exact rate. Evaluate
+attention over the session and decision granularity, not aggregate approval
+alone, while keeping classifier misses and downstream outcomes in scope.
+The newer note establishes no fresh classifier false-negative estimate.
+
 # Unknown in this investigation, not absent from the world
 
 The captured evidence does not settle:
@@ -116,9 +134,17 @@ Source-supplied locators, not independently audited by this harvest:
 4. Agent-PR rejection analysis, [arXiv 2601.15195](https://arxiv.org/abs/2601.15195).
 5. Anthropic, [agents and judgment calls](https://anthropic.com/research/agents-judgment-calls),
    dated 2026-10-27 by the later source, reading reported on 2026-11-02.
+6. Claude.com, *Auto mode is now the default in Claude Code* and *Running
+   auto mode in production*, dated 2026-08-07 by the source, with the former
+   updated 2026-10-22. Titles and dates are source-reported; primary pages
+   and evaluation methods were not inspected by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/human-oversight-evidence-2026.md.
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/plan-approvers-are-steered-by-agents.md.
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/oversight-fatigue-and-deference-recency.md.

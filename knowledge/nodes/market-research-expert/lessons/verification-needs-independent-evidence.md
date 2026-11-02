@@ -93,6 +93,18 @@ harvest read the note, not the paper, and did not reproduce the experiment.
 The newer result qualifies how the older self-recognition finding should be
 used; it does not erase it or establish a universal model ranking.
 
+# Recency refinement: correlated AI approvers and human deference
+
+A separate 2026-11-02 recency pass points to a preprint on correlated failures
+of AI approvers [5], with **model unstated** in the capture. That is a research
+lead, not a verified error-correlation estimate or a ranking of human,
+same-model and cross-model reviewers. It was not independently checked here.
+
+The same pass also reports the Anthropic analyst study of agent influence on
+human judgment. Its canonical home is the
+[human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md),
+which owns human-approver independence; this lesson does not repeat it.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
@@ -103,7 +115,9 @@ not a substitute for protected evaluation and observable results. Where the
 evaluation does not need authorship information, blind it and test label
 sensitivity rather than crediting a model swap alone with reviewer independence.
 Keep provenance available for audit without treating an author label as
-quality evidence.
+quality evidence. For human reviewers, test exposure to the agent's
+recommendation separately from access to its execution evidence; see the
+[human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md).
 
 This is evaluation judgment, not a manual substitute for enforcement:
 protection of acceptance artifacts and held-out execution belong in the
@@ -129,6 +143,8 @@ and a node-log entry.
 4. Chae et al., [arXiv 2608.18091v1](https://arxiv.org/html/2608.18091v1),
    identified by the source as Findings of EMNLP 2026; source reports
    re-reading it on 2026-11-02. Not independently fetched by this harvest.
+5. [arXiv 2610.29178](https://arxiv.org/abs/2610.29178), dated 2026-10-21
+   and described as a preprint on AI approvers by the recency source.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/builder-checker-separation.md.
@@ -140,3 +156,7 @@ Authorship-label refinement:
 
 Evidence: OKF proposal from market-research-expert/know-practice-research-expert,
 2026-11-02; notes/authorship-labels-bias-judges.md.
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/oversight-fatigue-and-deference-recency.md.
