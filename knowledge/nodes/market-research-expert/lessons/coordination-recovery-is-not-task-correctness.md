@@ -51,11 +51,36 @@ owns the distinction between persistent files and demonstrated learning.
 This concept adds the research comparison boundary between execution recovery
 and task validity, rather than duplicating those conclusions.
 
+# Recency refinement: renewal is not evidence of progress
+
+A later proposal from the same source reports rechecking **Beads v1.3.0
+release notes**, dated 2026-09-15, on 2026-11-02 [4]. It describes expiring
+claims renewed by heartbeat, reclaim/unclaim operations and conditional
+updates to assignment or status. This is a **source-reported release-note
+reading**, not a tested lease contract. The capture retains neither an exact
+release-page locator nor enough implementation detail to establish safe
+ownership transfer, fencing or the behavior of a stale claimant.
+
+This adds a reported implementation lead to the earlier mechanism comparison;
+it does not correct an accepted assertion that expiring claims were unbuilt.
+A heartbeat renewal indicates that something can still renew the claim, not
+that useful work advanced. Compare **claim validity, renewal/liveness,
+artifact-level progress and result correctness** separately. Reclamation
+also raises a distinct question: what prevents a previous claimant from
+continuing to affect the artifact after ownership changes? Neither expiry
+nor a conditional metadata update alone answers that enforcement question.
+
+The report does not establish progress-based renewal, a measured reduction
+in stalled work or that fencing exists only in small projects. Any selected
+ownership-transfer design needs enforcement and stale-writer tests in the
+owning implementation; this research is not an OATS lease specification.
+
 # Limits and refresh
 
-The harvest inspected the captured note, not the primary documentation or
-working report. Exact protocol versions, integration availability, fencing
-support and cross-product contract equivalence are not established here.
+The harvest inspected the captured notes, not the primary documentation or
+working report. Apart from the attributed Beads release identifier above,
+protocol versions, integration availability, fencing support and cross-product
+contract equivalence are not established here.
 The note supplies no comparative conflict, duplicate-handoff or
 restart-versus-compaction measurements. It also does not substantiate its
 claim that wrong output reported as success is the dominant failure class;
@@ -63,9 +88,10 @@ that ranking is not promoted.
 
 **Owner and recheck:** market-research-expert. Recheck when version-specific
 primary contracts or controlled coordination/recovery trials establish these
-guarantees and outcome measures. Update or supersede this conclusion and log
-the change. Framework changes and OATS operating decisions require their
-owners' separate review; this research grants no implementation authority.
+guarantees and outcome measures, or progress-based renewal and stale-claimant
+enforcement are documented and tested. Update or supersede this conclusion
+and log the change. Framework changes and OATS operating decisions require
+their owners' separate review; this research grants no implementation authority.
 
 # Citations
 
@@ -79,6 +105,14 @@ Source-supplied locators, not independently audited by this harvest:
 3. A2A task-state, cancellation and webhook-delivery specification, as
    characterized by the source on 2026-11-02; no version-specific guarantee
    is certified here.
+4. Beads v1.3.0 release notes, dated 2026-09-15 by the recency source;
+   source-reported recheck on 2026-11-02. Exact release-page locator absent
+   from the captured proposal and note; no behavior reproduced here.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/distributed-systems-primitives-that-map-to-agents.md.
+
+Renewal/progress refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/recency-refinements-memory-relay-claims-2026.md.

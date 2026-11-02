@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Distinguish question routing from human approval authority
-description: Source-reported product readings from 2026-11-02 distinguish question routing, teammate-plan approval and human permission or consent, without establishing a universal ban on relayed authorization.
+description: Source-reported readings from 2026-11-02 distinguish question routing, plan approval, merge-review credit and human consent, without establishing uniform product authorization rules.
 tags: [research, consent, authorization, delegation, personal-agents]
 timestamp: 2026-11-02
 ---
@@ -65,14 +65,45 @@ interfaces already belongs in the
 [supervision-pattern lesson](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md),
 not in a second product register here.
 
+## Merge-review credit is not human confirmation
+
+A separate recency proposal, also dated 2026-11-02, reports a contrast between
+GitHub Copilot approval settings and the Claude Code team's own development
+policy [3, 4]:
+
+- GitHub reportedly lets an administrator opt in to counting Copilot's
+  approval toward required repository approvals, with configurable path
+  scope. This describes review credit under a configured gate, not an agent
+  supplying a human's consent.
+- The Claude Code team reportedly varies required human review by change
+  risk, including a low-risk path without human approval once automated
+  checks pass, while not counting an agent review as a person's approval.
+  This is a reported team policy, not a contract for every Claude product.
+
+The proposer says it rechecked both primary pages on 2026-11-02. That check
+is **source-reported**: the capture preserves no exact page URLs or full
+policy text, and this harvest did not fetch the pages or test enforcement.
+The note also reports conflicting GitHub documentation without identifying
+the conflicting pages; this harvest cannot resolve their scope or freshness.
+Use the contrast as a lead to verify the configured gate, not as a certified
+availability/defaults register or a blanket assertion that agents may merge.
+No reviewer model or approval-quality evaluation is established here.
+
+This extends the plan-versus-consent distinction rather than correcting an
+accepted claim that no vendor permits agent approval; this concept made no
+such universal claim. Automated review credit, omission of human review for
+a risk class, human confirmation and permission to execute a merge are
+separate properties. A vendor policy difference does not establish which
+policy produces safer or more correct changes.
+
 # Consequence for comparisons, not an OATS policy change
 
-Compare the question-delivery path, plan-review decision, human-confirmation
-path and executing tool's enforcement separately. Record automatic plan
-approval separately from an actual lead-agent review. Distinguish a model's
-assertion of approval from whatever authorization evidence the product
-actually accepts; do not
-infer that either a direct thread or a parent-agent relay proves the latter.
+Compare the question-delivery path, plan-review decision, required-review
+credit, human-confirmation path and executing tool's enforcement separately.
+Record automatic plan approval separately from an actual lead-agent review.
+Distinguish a model's assertion of approval from whatever authorization
+evidence the product actually accepts; do not infer that either a direct
+thread or a parent-agent relay proves the latter.
 The [supervision-pattern lesson](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md)
 owns the separate question of whether an interface improves human outcomes.
 
@@ -86,10 +117,11 @@ change belongs in the owning capability's reviewed authorization design and
 tests, not in a knowledge-only workaround.
 
 **Owner and recheck:** market-research-expert. Recheck when Claude Code agent
-teams leave experimental status, the cited vendor contracts change, or a
-proposed OATS approval primitive provides a readable contract and enforcement
-evidence. Update or supersede this dated finding and log the change; retain
-unknown behavior as unknown until then.
+teams leave experimental status, the cited vendor contracts or team review
+policies change, approval-quality evidence becomes available, or a proposed
+OATS approval primitive provides a readable contract and enforcement evidence.
+Update or supersede this dated finding and log the change; retain unknown
+behavior as unknown until then.
 
 # Citations
 
@@ -98,9 +130,20 @@ Source-supplied locators, not independently audited by this harvest:
 1. [Claude Code agent teams](https://code.claude.com/docs/en/agent-teams),
    source reading dated 2026-11-02.
 2. Google ADK Python, PR #6462, source reading dated 2026-11-02.
+3. GitHub Copilot approval announcement, dated 2026-10-28 by the source;
+   source-reported primary-page recheck on 2026-11-02. Exact page locator
+   absent from the capture.
+4. Claude Code team's review-policy account, dated 2026-10-15 by the source;
+   source-reported primary-page recheck on 2026-11-02. Exact page locator
+   absent from the capture; a team policy, not a universal product guarantee.
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/consent-must-not-be-relayed-between-agents.md.
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/coordination-products-have-coordinating-agents.md.
+
+Merge-review refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/human-consent-agent-approval-split-2026.md.

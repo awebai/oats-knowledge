@@ -70,6 +70,28 @@ persistent decisions, rationale and supersession as durable project knowledge;
 that is a gap in the captured research, not a complete negative literature
 review.
 
+# Additional context-file evidence reported on 2026-11-02
+
+A separate recency proposal supplies a **researcher-read, secondhand summary**
+of an AGENTS.md ablation [7], dated 2026-07-28 by the source, on
+**claude-sonnet-4-6 and gpt-5.5**. It reports no measurable correctness change
+in a small study. The proposer explicitly did not recheck this paper; this
+harvest read the captured summary, not the paper or experiment.
+
+The source identifies a distinct context-file study; this capture establishes
+neither a newer version nor a replication of the ETH study above. The capture
+does not retain the tasks, file contents, comparison arms or uncertainty
+needed to infer equivalence, a universal
+zero benefit or a model-strength trend. A null result in the reported setup
+is not proof that context files never help. This summary also establishes no
+test of reviewed decisions, rationale and supersession across future
+instances, and supplies no Claude 5 or GPT-6-class result.
+
+Keep this as an additional model-qualified lead for context-file comparisons,
+not a finding that memory or skills generally stopped working. The comparison
+question remains what content and mechanism were tested against what baseline;
+publication recency alone cannot answer it.
+
 # Related claims and refresh rule
 
 The [scaffolding lesson](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md)
@@ -106,6 +128,14 @@ secondhand researcher summaries, not upgraded into harvest verification.
    dated 2026-09-29 by the source; researcher-summary support only.
 6. [Xiong et al., arXiv 2505.16067](https://arxiv.org/abs/2505.16067),
    identified by the source as ACL 2026; researcher-summary support only.
+7. AGENTS.md ablation, [arXiv 2607.27250](https://arxiv.org/abs/2607.27250),
+   dated 2026-07-28 by the recency source; researcher-summary support only,
+   not rechecked by the proposer or independently fetched by this harvest.
 
 Evidence: OKF proposal from market-research-expert/know-ontology-research-expert,
 2026-11-02; notes/agent-knowledge-shape-evidence-2026-11.md.
+
+Additional context-file finding:
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/recency-refinements-memory-relay-claims-2026.md.
