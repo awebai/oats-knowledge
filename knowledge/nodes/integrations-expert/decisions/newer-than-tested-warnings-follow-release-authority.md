@@ -80,3 +80,9 @@ review approval and passing CI are source-reported; this harvest did not
 independently inspect that implementation or reproduce them. The lane relay
 is not recorded as verified human acceptance. No prior accepted decision is
 superseded, and no release or deployment is certified.
+
+Maintainer review of oats-knowledge#259 on 2026-11-02 found #175 open and
+unmerged, with `2835c4b` as its second commit and a later head `dbb29620`;
+its two resident-journey jobs (aw 1.36.33 and 1.36.51) had passed and its
+validate-and-test job had not concluded. Until it merges, this records the
+decision's rationale, not shipped behavior.
