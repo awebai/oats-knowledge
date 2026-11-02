@@ -48,7 +48,9 @@ instead of restating it.
   `oats.setup` for a deployment's config, never harvested) and
   `knowledge-theory-expert` (an `oats.framework` package soul, an optional
   authoring aid — see
-  [optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md)).
+  [optional reference theory](/nodes/oats-maintainer/decisions/optional-reference-theory.md);
+  a [move to `oats.authoring`](/nodes/oats-maintainer/decisions/knowledge-theory-expert-moves-to-authoring.md)
+  is planned as of 2026-11-02, not shipped).
 - **Dropped:** `oats-assistant` (merged into the operator expert),
   `dev-coordinator`, `docs-expert`, `lead`, `oats-coordinator`. Release
   stewardship is not a soul: it is authority plus a procedure, held as

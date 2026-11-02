@@ -3,7 +3,7 @@ type: Decision
 title: Human attribution is an optional messaging-capability contract
 description: Add human attribution through a provider-neutral messaging contract, default new onboarding to human-bound mode where supported, and preserve unchanged operation for capabilities and deployments without human identities.
 tags: [messaging, human-identity, onboarding, compatibility, contracts]
-timestamp: 2026-10-30
+timestamp: 2026-11-02
 ---
 # Decision
 
@@ -46,7 +46,43 @@ These are review constraints, not descriptions recoverable from code.
   human. This attribution decision does not resume the deferred threads UI
   or settle signing-key custody.
 
-# Scope and acceptance
+# Attribution consent is a human choice, not terminal work (2026-11-02)
+
+The source reports Pepe's further direction on 2026-11-02, relayed by the
+release-lane maintainer in mail `bc0b1bc6`: agents execute onboarding and
+attribution commands; the person's acts are clicks, logins and answers.
+**Acceptance is source-reported**, not independently verified from that
+private relay. The [newcomer acceptance decision](/nodes/oats-operator-expert/decisions/onboarding-passes-on-the-newcomers-experience.md)
+owns the general onboarding direction and its secret-entry, login and
+shell-capturing-install exceptions; this section adds its attribution-design
+consequence rather than creating a second onboarding procedure.
+
+Human binding and steward approval are not reasons to ask the person to type
+commands. Design required consent as a click or login: the agent performs the
+permitted setup operation and the person makes the identity-owning choice.
+The account-claim flow, where an agent requests the claim and the person
+clicks a verification link, is the source's model. Documentation should name
+the setup expert as the executor rather than leave a bare command addressed
+to the person.
+
+A design needing the human's own signing key goes to the release lane before
+implementation; an agent must not take custody of that key to satisfy the
+no-typing goal. This strengthens the existing before-build custody review,
+not a grant to sign as the human or a settled key-storage design. Consent,
+identity authority and execution permission remain different requirements.
+
+This direction does not supersede native authentication, the scoped
+[desktop-persistence handoff](/nodes/integrations-expert/lessons/desktop-persistence-apply-is-a-human-handoff.md)
+or a harness refusal. The [auto-mode finding](/nodes/oats-operator-expert/lessons/intake-consent-does-not-predict-auto-mode-approval.md)
+rejects a general guarantee that a conversational yes permits a retry.
+Implement the intended consent flow and executor wording in the owning
+provider and setup guidance, with acceptance coverage; knowledge is not an
+execution workaround. No implementation or rollout is certified here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-02; notes/agents-run-every-command.md.
+
+# Scope and acceptance of the original direction
 
 This records direction, not a completed contract or implementation. At
 capture the contract was undecided and nothing was built. Both sides must
