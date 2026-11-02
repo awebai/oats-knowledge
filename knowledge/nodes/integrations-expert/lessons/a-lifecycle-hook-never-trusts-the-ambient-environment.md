@@ -3,7 +3,7 @@ type: Lesson
 title: A lifecycle hook never trusts the ambient environment — hooks inherit the operator's process, and the operator can be another instance
 description: Spawn, launch and retire hooks run with the invoking process's environment; a hook that reads a locator, credential home or team from that environment can act for the wrong principal when the invoker is itself an instance, so every such input comes from the hook's own payload, its persisted meta or the instance home.
 tags: [lesson, integrations, hooks, environment, locator, custody, launch]
-timestamp: 2026-10-30
+timestamp: 2026-11-02
 ---
 
 Learned 2026-09-24 in the review of a messaging provider's launch hook; the
@@ -78,6 +78,41 @@ not a second reference here. The reported version boundary is retained only
 as the evidence for why an accidental refusal must not be a provider's
 identity guard.
 
+# An authoritative locator is not automatically safe to hand on
+
+Selecting the right input answers **whose value**, not **whether that value
+is safe to disclose**. The source's 2026-11-02 review found this gap in a
+provider handing on a service URL from the selected root's credential-bearing
+workspace file. Parsing the URL and stripping userinfo, query and fragment
+still left a path carrying a credential, including encoded or dot-segment
+forms. The rejected sanitizer tried to enumerate where a secret might be;
+it did not establish the narrow locator shape the recipient actually needed.
+
+For this nullable service locator, the chosen boundary was to allowlist the
+**raw value's expected shape** before emitting it, and return `null` for
+anything else or for an absent value. The reported implementation allowed
+http(s), a host, an optional port and only its narrowly supported bare API
+paths, with a length bound. Those exact accepted forms belong in the
+provider's contract and tests, not in a second URL specification here.
+Redacting a rejected value was also rejected: it would still look like a
+usable locator. Absence or rejection does not authorize an ambient fallback.
+
+This is a bounded integration choice, not a universal rule that all URLs
+share this shape or that syntactic validity proves arbitrary text
+secret-free. Its elimination route is a single explicit output-validation
+boundary with positive supported-locator cases and negative credential-bearing
+cases, including userinfo, query, fragment, extra path material, encoded and
+dot-segment forms. A missing value must stay absent even with an ambient
+candidate present. The source reports the repair and regression tests in
+[awebai/oats-aweb#172](https://github.com/awebai/oats-aweb/pull/172) at
+`0e3f332`; they were not independently rerun by this harvest.
+
+The kernel's [hook and error output-channel lesson](/nodes/oats-kernel-expert/lessons/hook-and-error-channels-disclose.md)
+already owns general disclosure and caller-aware suppression. This refinement
+preserves why stripping and redaction were rejected for an optional locator;
+it neither changes that lesson's known-request fallback nor creates a generic
+redaction policy. The input-authority rule above still applies first.
+
 # Related lifetime boundary
 
 [Persisted launchers need recorded kernel paths](/nodes/integrations-expert/lessons/persisted-launchers-need-recorded-kernel-paths.md)
@@ -94,6 +129,11 @@ shell. It does not change the input-authority rules above.
   ([the served identity is a messaging-layer fact](/nodes/oats-maintainer/decisions/served-identity-is-a-messaging-layer-fact.md)).
 
 # Evidence
+
+Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert,
+2026-11-02; notes/hand-on-a-url-by-allowlisted-shape.md. The URL-path failure,
+rejected sanitizer and repair are source-reported from one provider; no
+independent implementation, CI or release verification is claimed.
 
 Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert,
 2026-10-30; notes/aw-1-36-43-selection-order.md.

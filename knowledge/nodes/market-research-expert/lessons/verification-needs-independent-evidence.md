@@ -93,6 +93,62 @@ harvest read the note, not the paper, and did not reproduce the experiment.
 The newer result qualifies how the older self-recognition finding should be
 used; it does not erase it or establish a universal model ranking.
 
+# Recency refinement: correlated AI approvers and human deference
+
+A separate 2026-11-02 recency pass points to a preprint on correlated failures
+of AI approvers [5], with **model unstated** in the capture. That is a research
+lead, not a verified error-correlation estimate or a ranking of human,
+same-model and cross-model reviewers. It was not independently checked here.
+
+The same pass also reports the Anthropic analyst study of agent influence on
+human judgment. Its canonical home is the
+[human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md),
+which owns human-approver independence; this lesson does not repeat it.
+
+# Mixed-review and system-card leads added on 2026-11-02
+
+A further recency pass supplies two narrower reviewer-comparison leads:
+
+- The source's abstract/snippet reading of arXiv 2610.01471 reports that one
+  same-model plus one cross-model review caught more planted errors than two
+  same-model reviews, while a top cross-model reviewer alone did not beat a
+  fresh same-model reviewer [6]. **Models are unnamed in the capture.**
+- Its reading of arXiv 2607.21656 reports a direction-dependent cross-model
+  effect: one reviewer/builder direction helped and the reverse hurt [7].
+  **Exact model identifiers are not supplied here either.**
+
+These reports motivate testing mixed review against fresh-context same-model
+review, not declaring mixed review universally better or transferring either
+result to a current generation. The capture lacks full methods and uncertainty;
+no detection percentages or model ranking are retained. Model diversity alone
+still does not establish independent evidence, consistent with the
+error-agreement finding above.
+
+The source also reports lower successful reward hacking in newer GPT-6 Astra
+and Claude Opus 5.5 system-card evaluations, alongside concerns about impossible
+tasks and reduced chain-of-thought monitorability for Astra [8]. The capture
+does not preserve matched evaluation conditions or primary-page locators.
+Treat this as a source-reported trend to check, not a comparable cross-generation
+safety rate. It does not update the older METR/ImpossibleBench rates into
+current-model estimates or justify relaxing protected evaluation. Successful
+hacks, attempted hacks and monitor detection are separate outcomes to measure.
+
+# Refinement: test exposure to the agent's completion claim
+
+The 2026-11-02 oversight investigation reports an **abstract-only** result
+in which hiding an agent's completion claim from the judge improved recall
+of misreported outcomes [9]. The capture does not identify the agent or
+judge models, task mix, false-positive tradeoff or full judging procedure.
+It therefore supplies a hypothesis about claim exposure, not a transferable
+recall gain or a demonstrated best review design.
+
+Compare judging execution evidence with and without the agent's assertion
+of success while holding that evidence fixed. This is distinct from hiding
+author identity or changing reviewer models. Do not remove the execution
+record or provenance in the name of blinding; test whether the completion
+claim adds useful information or biases the judgment. The abstract report
+does not show that claim-blind judging alone is sufficient verification.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
@@ -103,7 +159,9 @@ not a substitute for protected evaluation and observable results. Where the
 evaluation does not need authorship information, blind it and test label
 sensitivity rather than crediting a model swap alone with reviewer independence.
 Keep provenance available for audit without treating an author label as
-quality evidence.
+quality evidence. For human reviewers, test exposure to the agent's
+recommendation separately from access to its execution evidence; see the
+[human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md).
 
 This is evaluation judgment, not a manual substitute for enforcement:
 protection of acceptance artifacts and held-out execution belong in the
@@ -129,9 +187,23 @@ and a node-log entry.
 4. Chae et al., [arXiv 2608.18091v1](https://arxiv.org/html/2608.18091v1),
    identified by the source as Findings of EMNLP 2026; source reports
    re-reading it on 2026-11-02. Not independently fetched by this harvest.
+5. [arXiv 2610.29178](https://arxiv.org/abs/2610.29178), dated 2026-10-21
+   and described as a preprint on AI approvers by the recency source.
+6. Mixed/same-model review comparison, [arXiv 2610.01471](https://arxiv.org/abs/2610.01471),
+   October 2026 as identified by the source; abstract/snippet support only.
+7. Direction-dependent review comparison, [arXiv 2607.21656](https://arxiv.org/abs/2607.21656),
+   July 2026 as identified by the source.
+8. GPT-6 Astra system card, dated 2026-09-03 and compared with GPT-5.6 Sol
+   by the source; Claude Opus 5 and 5.5 cards, dated 2026-07-24 and 2026-09-22
+   by the source. These are source-reported vendor evaluations, not matched
+   independent replications or primary-page checks by this harvest.
+9. [arXiv 2610.29609](https://arxiv.org/abs/2610.29609), abstract-only
+   report identified by the oversight investigation on 2026-11-02; measured
+   models unstated in the capture, not independently audited here.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
-2026-11-02; notes/builder-checker-separation.md.
+2026-11-02; notes/builder-checker-separation.md (initial synthesis and
+subsequent mixed-review and system-card leads).
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/cross-vendor-review-is-not-error-independence.md.
@@ -140,3 +212,12 @@ Authorship-label refinement:
 
 Evidence: OKF proposal from market-research-expert/know-practice-research-expert,
 2026-11-02; notes/authorship-labels-bias-judges.md.
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/oversight-fatigue-and-deference-recency.md.
+
+Claim-exposure refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
+2026-11-02; notes/per-action-human-approval-does-not-hold-at-volume.md.

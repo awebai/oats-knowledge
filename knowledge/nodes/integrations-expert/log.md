@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-11-02
+
+* **Harvest**: Refined [real-binary rehearsal](/nodes/integrations-expert/lessons/a-fake-cli-that-accepts-what-the-real-binary-refuses-hides-a-broken-hook.md) with the source-reported early-reader prefix failure hidden by a single-write fake: delivery chunks are part of output shape, complete-token framing precedes whole-value parsing, and split-suffix, unterminated-line, malformed-token and cleanup regressions are the elimination route. Refined [authoritative hook inputs](/nodes/integrations-expert/lessons/a-lifecycle-hook-never-trusts-the-ambient-environment.md) with the separate output boundary for a nullable service locator: raw-shape admission rather than stripping or redaction, because a path can carry credentials, with no ambient fallback. Keep both findings bounded to the reported provider/CLI review; link existing descendant-cleanup and output-disclosure judgment without changing either. No implementation, CI or release was independently verified.
+
 ## 2026-10-31
 
 * **Update**: Maintainer review of oats-knowledge#237 added a second forward pointer to the [waiter-owned checkpoint wake rationale](/nodes/integrations-expert/decisions/checkpoint-wake-belongs-to-the-waiter.md): the [own-home checkpoint decision](/nodes/oats-maintainer/decisions/own-home-checkpoint-wake-is-an-instance-act.md) rules on the proposal the second limit left open, and tag `v0.69.7` contains the merge of awebai/oats#1673. Read from GitHub and Git; runtime behaviour was not rerun. The limits stay as recorded and this node's owner retains their review.
