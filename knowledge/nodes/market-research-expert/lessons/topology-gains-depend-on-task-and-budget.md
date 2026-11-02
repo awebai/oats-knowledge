@@ -158,6 +158,10 @@ scaffold sensitivity for **GPT-5.6-sol**. Hold scaffold choice explicit when
 comparing models, and separate bug fixes from feature work rather than
 promote one aggregate topology score to a universal rule. No numerical
 leaderboard is adopted from the unresolved success-score evidence.
+The [multi-domain planning conclusion](/nodes/market-research-expert/conclusions/multi-domain-plan-authorship-evidence-2026.md)
+separately owns the whole-plan authorship candidate and CooperBench/Specification
+Gap readings: execution topology and contract-detail interventions do not
+compare one plan author against per-area planners plus a coordinator.
 
 # Unowned-seam failure and oracle-message recovery are different studies
 

@@ -35,8 +35,10 @@ transfer evidence for other generations.
 The initial capture flags an inconsistency between Table 1 and the text's
 headline/best-configuration success rates. A later verification note supplies
 more detail on the **failure-category table**, not a resolution of that
-success-score discrepancy. No numerical success leaderboard, joint/independent
-score or request-cost ratio is promoted here.
+success-score discrepancy. A further planning-practice note identifies the
+joint/independent subexperiment's model and reports scores, but does not
+reconcile the earlier Table 1/text conflict. No numerical success leaderboard,
+joint/independent score or request-cost ratio is promoted here.
 
 The **2026-11-02 verification pass** reports 120 tasks mined from merged PRs,
 with hidden fail-to-pass and pass-to-pass tests in each repository. Across
@@ -58,9 +60,21 @@ In a separate comparison over **89 cases in one configuration**, giving
 independent executions their target repositories did not improve the aggregate
 result over joint execution. The source reports opposite directions by task:
 independent execution helped bug fixes and hurt features. **Total budgets
-were unequal**, and the verification capture does not name this subexperiment's
-model. This is not a controlled estimate of scope-discovery benefit or proof
-that independent work never helps.
+were unequal**. A further source-reported HTML check on **2026-11-02** names
+this subexperiment's scaffold/model as **Codex CLI with GPT-5.6-sol**, filling
+the earlier verification capture's missing identifier. It describes 89 paired
+cases, independent runs confined to one repository and greater API-request
+use by those runs. Request counts are not themselves token or monetary-cost
+budgets, and this is not an equal-budget topology comparison.
+
+That later source also reports case studies of independent runs making
+incompatible cross-repository assumptions. These are illustrative cases,
+not a measured prevalence or an isolated causal effect of split ownership.
+The captured note does not retain the exact comparison-table identifier,
+full configuration or a resolution of the previously flagged success-score
+conflict. Its reported direct check remains source-reported, not harvest
+replication. This evidence is not a controlled estimate of scope-discovery
+benefit or proof that independent work never helps.
 
 No dependency-map, code-search or architecture-owner intervention was tested
 in this evidence. Do not equate any failure share with the causal cost of
@@ -80,7 +94,11 @@ separately.
 Treat a proposed architecture steward, pre-fan-out plan review and blocking
 contract checks as **design hypotheses**, not established industry practice
 or a measured solution to WideSWE failures. This research chooses no OATS
-role or approval policy. A selected blocking rule needs enforcement and
+role or approval policy. The distinct
+[multi-domain planning account](/nodes/market-research-expert/conclusions/multi-domain-plan-authorship-evidence-2026.md)
+adds source-reported practice and contract-ownership guidance, not a
+planner/coordinator comparison or a measured remedy for these failures.
+A selected blocking rule needs enforcement and
 runnable tests in its owning implementation, not just an agent title or
 recorded approval. The existing
 [topology comparison](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
@@ -108,9 +126,16 @@ proposal and named note, not product pages or experiments:
    source-reported Table 1/text discrepancy remains unresolved here. The
    later verification source reports checking the failure-category table in
    raw HTML on the same date; this does not certify the other success scores.
+   The later planning-practice source reports checking the 89-case
+   joint/independent section in HTML on 2026-11-02 and supplies its model;
+   its capture does not reconcile the earlier success-score discrepancy.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/cross-repo-architecture-ownership-is-unshipped.md.
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/cross-repo-agent-failures-are-mostly-post-edit.md.
+
+Evidence for the subexperiment model and scope refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/multi-domain-plan-authorship-2026.md.
