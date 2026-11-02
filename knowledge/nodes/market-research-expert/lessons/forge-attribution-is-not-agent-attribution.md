@@ -16,7 +16,11 @@ commit trailer.
 
 This is the bounded research conclusion of the **2026-11-02** investigation,
 not an audit of a deployed account or a recommendation to replace OATS's
-credential arrangement.
+credential arrangement. The integrations node's
+[account-attribution lesson](/nodes/integrations-expert/lessons/forge-account-attribution-does-not-prove-human-authorship.md)
+owns the operational consequence for OATS review and sign-off evidence
+(an account record is not human authorship); this lesson is the
+cross-product comparison and does not restate that rule.
 
 # Source-reported mechanisms and limits
 

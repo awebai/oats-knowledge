@@ -16,7 +16,10 @@ that ablation cannot isolate the label's contribution.
 This is a **source-reported research conclusion as of 2026-11-02**, not an
 independent replication or a finding that personas never help. It concerns
 accuracy and agent-task performance, not whether a role can guide tone or
-make responsibilities legible to people.
+make responsibilities legible to people. The complementary
+[role-name lesson](/nodes/market-research-expert/lessons/role-names-carry-product-meanings.md)
+separately treats product meanings, human interpretation and the reported
+employee/tool oversight lead; these are not agent-task accuracy results.
 
 # Evidence and its limits
 
