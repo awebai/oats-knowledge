@@ -35,6 +35,12 @@ removing the harvester role:
 - Specify how the working agent obtains the write access needed to prepare
   and publish a proposal. Knowledge ownership by itself is not that access.
 
+The [personal-data exclusion decision](/nodes/oats-okf-expert/decisions/personal-data-exclusion-is-not-a-publication-guarantee.md)
+is a design input to both: it counts the capturing instance, harvester and
+reviewer as separate exclusion judges, and it deferred separating publication
+access from the agent that judges exclusions. Removing the harvester changes
+both premises, so the design must say how they carry forward.
+
 The [source-independent custody decision](/nodes/oats-maintainer/decisions/external-knowledge-custody.md)
 remains the record of why evidence, proposal delivery and acceptance are
 separate, and why learning must not ride the code work branch. Its current
