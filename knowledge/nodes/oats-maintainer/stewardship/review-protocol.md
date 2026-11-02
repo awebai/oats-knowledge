@@ -73,11 +73,13 @@ When a decision constrains advice, review every place the change gives that
 advice against every agreed condition: warnings, refusals, documentation,
 release prose and the PR description. Checking only the surface named in the
 original discussion can miss the same remedy in a second message. This is a
-concrete application of the all-surfaces rule below, not another approval
+concrete application of the every-surface
+[scope corollary](#a-test-that-agrees-with-the-code-is-not-evidence-consolidated-2026-09-06)
+below, not another approval
 round or permission to revise the agreement.
 
 The source reports approving a compatibility warning with a condition on
-pinning an older client, while missing that condition in a new spawn refusal
+pinning an older client, while missing that condition in a new mint refusal
 in the same PR. The condition matters because another deployment on that
 host may require the newer client. A second reader returned the omission.
 The [compatibility decision](/nodes/integrations-expert/decisions/newer-than-tested-warnings-follow-release-authority.md)
