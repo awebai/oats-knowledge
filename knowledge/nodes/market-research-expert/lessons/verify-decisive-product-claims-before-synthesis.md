@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Verify decisive product claims before synthesizing a market comparison
-description: A source-reported verification pass on 2026-11-02 narrowed product-status and authority claims, motivating primary-source checks and explicit evidence labels before synthesis.
+description: Source-reported verification passes on 2026-11-02 show how product claims and repeated research figures lose their conditions, motivating primary-source checks and version, population, condition and wording records.
 tags: [research, verification, product-status, evidence-quality]
 timestamp: 2026-11-02
 ---
@@ -27,6 +27,29 @@ histories. The captured note does not include the primary pages or an
 itemized before/after record, so this finding retains neither an exact
 correction count nor a correction rate.
 
+# Repeated research can preserve a source while losing its meaning
+
+A separate verification proposal, also dated 2026-11-02, reports rechecking
+claims on which same-model research instances had converged. It found real
+sources behind the claims but identified these distortion categories:
+
+- mixing a paper's version-specific results or category definitions;
+- combining results from separate posts into a single apparent range;
+- presenting a vendor product-post experiment as an academic study;
+- generalizing a worst-case variant or hard-setting result to all tasks;
+- adding qualifiers such as exclusivity, model-family scope or universality
+  that the source did not establish;
+- sampling products without looking outside the initial set for
+  counterexamples.
+
+This is an attributed process finding, not an independently audited
+before/after inventory or a general error rate. The captured note supplies
+examples, but the full verification report and primary pages are not part
+of the evidence inspected by this harvest. The source also warns that its
+page-fetch tool returned model-generated summaries, sometimes only quote
+fragments; a fragment labelled verbatim is not thereby a checked quotation.
+Repeated agreement among research instances is not independent confirmation.
+
 # Consequence for research
 
 For decisive claims, check what the accessible primary source actually says
@@ -34,6 +57,14 @@ and preserve its scope. A retirement announcement does not automatically
 name a successor or establish why the product was withdrawn. A button or
 human-sent instruction does not, by itself, establish an enforced authority
 boundary. A reported intention is not a measured action.
+
+For each decisive figure, preserve the source version, measured population
+and denominator, task/model/experimental condition, and the supporting
+wording. Check those fields against the accessible primary text, not just a
+helper's summary. Mark wording obtained through a summarizer as unverified
+until compared with the original. Check whether a strong qualifier actually
+appears, keep separate studies and versions separate, and deliberately search
+for counterexamples outside the consensus sample.
 
 If a first-party page cannot be inspected, including because a fetch returns
 403, label any claim supported only by press or another secondary source as
@@ -68,3 +99,6 @@ turning the reported incident into an independently audited result.
 
 Evidence: OKF proposal from market-research-expert/coord-products-research-expert,
 2026-11-02; notes/verify-secondary-product-claims.md.
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/research-echo-detaches-figures-from-conditions.md.

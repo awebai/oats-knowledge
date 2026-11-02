@@ -41,17 +41,37 @@ substantially larger token budget. Its summary of equal-compute studies
 includes an exception but insufficient study detail to resolve the issue;
 no blanket equal-compute verdict is retained.
 
-# Generation-anchored recency update, 2026-11-02
+# Recency refinement: compare the direction of model-dependent gains
 
-A later pass makes **single-agent capability on the tested task** an explicit
-comparison variable, not just model name or release date. The source now
-identifies the scaling study's models as GPT-5, Gemini 2.x and Claude 3.7–4.5;
-that is not a measurement on the newer models named below. Its reported
+The 2026-11-02 recency proposal reports diminishing collaboration benefit
+as single-agent capability rises, including disadvantages on SWE-bench
+Verified in the scaling study [1]. It identifies the measured models as
+**GPT-5, Sonnet 4.5 and Gemini 2.5 Pro**. It also reports mid-2026 preprints
+pointing in that direction [3]. These are the source's readings, not an
+independently checked cross-study result or an exhaustive literature census.
+
+The capture lacks matched configurations and controls sufficient to isolate
+model strength from task, budget and topology changes. Do not retain its
+numerical crossover threshold, benchmark effect sizes or error multiplier as
+a portable rule. Do not infer that stronger models always reduce the value
+of collaboration. Instead, compare the **change in marginal benefit** on the
+same task and budget after a model upgrade, as well as which topology wins.
+This capture establishes no test on a newer generation; transfer remains
+unconfirmed under the [model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md).
+
+# Capability-baseline comparison added on 2026-11-02
+
+A further recency pass makes **single-agent capability on the tested task** an
+explicit comparison variable, not just model name or release date. That pass
+identifies the scaling study's models more broadly, as GPT-5, Gemini 2.x and
+Claude 3.7–4.5; the refinement above names GPT-5, Sonnet 4.5 and Gemini 2.5
+Pro. Neither reading was checked against the paper here, and neither is a
+measurement on the newer models named below. That pass's reported
 journal-publication update does not establish that the preprint's figures
 survived unchanged, so no new publication status or threshold is asserted here.
 
 The source reports a Vals AI comparison, page dated 2026-10-09, of **GPT 6 Sol
-and Claude Opus 5.5**, one run over 50 apps [3]. It reports higher costs for a
+and Claude Opus 5.5**, one run over 50 apps [4]. It reports higher costs for a
 lead with five subagents, a significant gain only at the weakest baseline,
 no significant gain at the high baselines, and a larger gain from increasing
 single-agent reasoning effort. This is a bounded reported result, not a
@@ -60,11 +80,12 @@ uncertainty or configurations sufficient to reuse its numerical effects or
 to establish an equal-cost causal comparison.
 
 Keep the counterexample: the source reports that Agensh, **GPT-5.6-sol**,
-raised pass rates with parallel writers but lacked an equal-cost control [4].
+raised pass rates with parallel writers but lacked an equal-cost control [5].
 Neither report establishes that teams never improve high-capability models,
 that more writers cause the gain, or that single-writer execution is universal.
 Anthropic's 2026-10-22 one-loop-first guidance is vendor advice, not a measured
-comparison; it supplies no measured-model result in this capture [5].
+comparison; its canonical home is the
+[scaffolding lesson's vendor-advice section](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
 
 # Transfer to personal-agent workflows is untested here
 
@@ -89,9 +110,7 @@ or supersedes durable specialization.
 Compare topologies on the same task and model with explicit token/cost and
 context budgets. Record the single-agent baseline and compare adding agents
 with spending more effort on that baseline; report quality, cost and wall-clock
-time separately. Apply the [model-generation reporting decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md)
-rather than treating a recent publication as a current-model measurement.
-Separate read-only decomposition from shared-state writes,
+time separately. Separate read-only decomposition from shared-state writes,
 and test whether the integration step preserves the workers' useful output.
 A centralized coordinator is itself an error source to evaluate, not an
 assumed cure. Do not equate adding agent names with adding expertise; see
@@ -114,22 +133,31 @@ change rather than extending it to a new model generation silently.
    scaling-agents account, 2026-01-14; Anthropic, multi-agent research-system
    account, 2025-06-13. These are the source's attributions, not independent
    reproductions or re-fetches by this harvest.
-3. Vals AI, single-agent versus lead-plus-subagents comparison, page dated
+3. [arXiv 2606.13003](https://arxiv.org/abs/2606.13003),
+   [2607.16133](https://arxiv.org/abs/2607.16133),
+   [2609.19759](https://arxiv.org/abs/2609.19759) and
+   [2609.20804](https://arxiv.org/abs/2609.20804): source-supplied preprint
+   locators for shrinking collaboration or scaffolding benefit. Per-study
+   model identifiers are not retained in the recency note; do not extend
+   the scaling study's model list to these papers.
+4. Vals AI, single-agent versus lead-plus-subagents comparison, page dated
    2026-10-09 by the source; no exact page URL is supplied in the capture.
-4. Agensh, [arXiv 2609.26781](https://arxiv.org/abs/2609.26781), dated
+5. Agensh, [arXiv 2609.26781](https://arxiv.org/abs/2609.26781), dated
    2026-09-22 by the source.
-5. Anthropic, *When to fold subagents into your main agent loop*, claude.com,
-   dated 2026-10-22 by the source; vendor guidance without published data
-   according to the proposal.
 
-The recency update uses the captured proposal and note, not independent
-page fetches or experimental replication. Model names and dates above are
-source-supplied; they do not establish which models are currently leading.
+The capability-baseline addition uses the captured proposal and note, not
+independent page fetches or experimental replication. Model names and dates
+in it are source-supplied; they do not establish which models are currently
+leading.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/single-writer-parallel-readers.md (initial synthesis and
-subsequent generation-anchored recency update).
+subsequent capability-baseline addition).
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/personal-agents-organise-by-data-ownership-not-roles.md
 (personal-workflow transfer limit).
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/multi-agent-gains-shrink-with-capability.md.
