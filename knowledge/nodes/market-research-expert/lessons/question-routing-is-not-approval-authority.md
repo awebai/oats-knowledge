@@ -165,6 +165,47 @@ a risk class, human confirmation and permission to execute a merge are
 separate properties. A vendor policy difference does not establish which
 policy produces safer or more correct changes.
 
+## Area ownership, review criteria and approval are different mechanisms
+
+The source's round-3 pass on **2026-11-02** adds an area-based review
+comparison [7, 8]: CODEOWNERS or a configured required-reviewer rule routes
+review responsibility, while owner-maintained path instructions supply
+criteria to an organization-level review agent. Neither mechanism alone
+establishes an addressable reviewing agent belonging to another person.
+
+The reported Claude Code Review reading distinguishes inline findings and a
+commit-bound check run from approval or merge blocking. It also says REVIEW.md
+is read from the base branch, not from the proposed changes [7]. This is a
+**source-reported documentation reading**, not tested enforcement. It adds a
+specific comparison question: can a proposed change redefine the criteria
+used to review itself? Check the criteria's source revision separately from
+whether the reviewer ran and whether its result satisfies a required gate.
+The existing Copilot account above concerns approval credit, not proof that
+all agent reviewers have that capability or satisfy code-owner requirements.
+
+The source did not find documented person-to-person agent review requests,
+a coding agent choosing reviewers from ownership records, or a deputy field
+in the forges/catalogs it considered. The capture has no reproducible
+query/result inventory, so these are unresolved capabilities in this
+investigation, not market-wide absences. A reported difference between
+GitHub and the Claude Code team's treatment of the directing person's review
+credit likewise needs the exact policy scopes checked; the short capture
+does not establish a contradiction within one authorization contract [5, 6].
+
+## Review sequencing remains an untested recommendation
+
+The same pass found no study comparing asking an owner's agent first with
+building a change and then requesting owner review. Its proposed build-first
+default and ask-first exceptions are therefore **design hypotheses**, not a
+measured result. The brief incident, delegation and conflict-study summaries
+in the consent note do not supply that comparison. Do not infer either that
+only PRs can record authorized decisions or that an authenticated decision
+cannot travel through a relay. Compare the decision evidence accepted at the
+executing endpoint, reviewer eligibility and bypass rights; the existing
+[forge-enforcement lesson](/nodes/market-research-expert/lessons/prompt-rules-are-not-forge-enforcement.md)
+owns testing those controls. No review sequence or absence/deputy policy is
+adopted by this research.
+
 # Consequence for comparisons, not an OATS policy change
 
 Compare the question-delivery path, plan-review decision, required-review
@@ -188,8 +229,9 @@ tests, not in a knowledge-only workaround.
 **Owner and recheck:** market-research-expert. Recheck when Claude Code agent
 teams leave experimental status, the cited vendor contracts or team review
 policies change, Projects leaves beta or reaches Team/Enterprise,
-approval-quality evidence becomes available, or a proposed OATS approval
-primitive provides a readable contract and enforcement evidence.
+approval-quality or review-sequencing evidence becomes available, area-based
+review routing or criteria-source contracts change, or a proposed OATS
+approval primitive provides a readable contract and enforcement evidence.
 Update or supersede this dated finding and log the change; retain unknown
 behavior as unknown until then.
 
@@ -216,6 +258,13 @@ Source-supplied locators, not independently audited by this harvest:
 6. Claude Code team's review-policy account, dated 2026-10-15 by the source;
    source-reported primary-page recheck on 2026-11-02. Exact page locator
    absent from the capture; a team policy, not a universal product guarantee.
+7. [Claude Code Review documentation](https://code.claude.com/docs/en/code-review),
+   source-reported recheck on 2026-11-02; reported criteria-source and review
+   behavior were not independently fetched or tested by this harvest.
+8. CODEOWNERS and GitHub ruleset required-reviewer documentation, as named in
+   the round-3 note; precise page locators and tested configurations absent
+   from the capture. No availability chronology or uniform enforcement is
+   certified here.
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/consent-must-not-be-relayed-between-agents.md
@@ -235,3 +284,7 @@ Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expe
 Evidence for the Projects scope refinement: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/claude-projects-coordinator-is-goalless-and-single-user.md.
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/cross-person-review-routes-by-area-record.md;
+notes/consent-holds-only-when-decider-acts-on-record.md.

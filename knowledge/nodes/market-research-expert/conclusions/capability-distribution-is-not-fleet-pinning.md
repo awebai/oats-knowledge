@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Capability distribution does not establish fleet pinning or safe provenance
-description: The 2026-11-02 investigation separates organization-wide capability distribution from content pinning and rollout evidence, without establishing a vendor-wide lockfile gap or measured copy-drift cost.
+description: The 2026-11-02 investigation separates capability distribution, contribution governance, content pinning and rollout evidence, without establishing a vendor-wide lockfile gap or measured convergence benefit.
 tags: [research, capabilities, distribution, provenance, uncertainty]
 timestamp: 2026-11-02
 ---
@@ -41,6 +41,34 @@ reported harm or that pinning alone prevents it. A hash can identify a fixed
 malicious input too; **content identity is not review or trust**. No registry
 prevalence estimate or measured pinning benefit is promoted from this capture.
 
+# Contribution governance is not demonstrated convergence
+
+A round-3 pass on **2026-11-02** adds source-reported organizational examples
+[4]: Uber's DevEx-owned distribution CLI, Stripe's common rule format with
+subdirectory-scoped content, and AutoScout24's marketplace repository with
+per-plugin CODEOWNERS and a required linter. The last account distinguishes
+team autonomy to update existing plugins from governance of additions.
+These are attributed company-practice leads, not independently audited
+configurations or one shared contract implemented identically everywhere.
+The captured summary retains names and dates, but no precise primary-page
+locators, linter specification or runtime rollout evidence.
+
+The useful distinction is between **who owns the distribution channel and
+format, who may change team content, and what can reject a contribution**.
+A required linter can check a declared invariant independently of a reviewer's
+approval; its presence alone establishes neither the adequacy of the checks
+nor whether running agents converge on reviewed content. Scoped rules and
+team plugins are reported ways to accommodate local needs, not evidence that
+overlays or forks are universally absent or inferior.
+
+The investigation found no measured drift reduction, time-to-converge result
+or documented RFC/board procedure in these accounts. This is a bounded
+evidence gap, not proof that no such process or measurement exists. Do not
+turn a reported governance pattern into a proven convergence strategy or
+invent a consensus process to fill the gap. A selected invariant belongs in
+reviewed tooling and executable checks; this research selects no OATS
+capability governance or rollout design.
+
 # Consequence for comparisons
 
 Ask what is selected, what content is actually loaded, how its provenance is
@@ -59,8 +87,9 @@ owns the existing distinction between agent and human approval; capability
 distribution establishes neither.
 
 **Owner:** market-research-expert. Recheck when version-specific primary
-contracts document fleet content selection and rollout, or controlled studies
-measure configuration divergence and review/pinning effects. Update or
+contracts document fleet content selection, contribution governance and
+rollout, or controlled studies measure configuration divergence, convergence
+time and review/pinning effects. Update or
 supersede this dated finding and log the change. Do not retain the current
 search gap as a permanent product limitation.
 
@@ -73,11 +102,17 @@ search gap as a permanent product limitation.
    from repository tooling only, with no exact primary locator retained.
 3. Koi and Snyk public-skill-registry reports, as named in the note; no exact
    report URLs, sampling methods or matched pinning comparison retained.
+4. Uber DevEx accounts, dated March/October 2026; Stripe rule-format account,
+   dated 2026-02-19; AutoScout24 marketplace account, dated 2026-05-07, all as
+   named by the round-3 source. No exact primary locators or measured
+   convergence outcomes are retained in the capture.
 
-The harvest read only the captured proposal and named note. These broad
-source attributions are not primary-page checks, reproduced security results
+These broad source attributions are not primary-page checks, reproduced security results
 or a product-availability audit. No measured model result is established for
 the distribution comparison.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/capability-sharing-pinning-and-identity-2026.md.
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/cross-group-convergence-and-cross-machine-messaging-2026.md.

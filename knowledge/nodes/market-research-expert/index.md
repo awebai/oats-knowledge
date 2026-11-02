@@ -15,7 +15,7 @@ are promoted elsewhere.
 
 ## Research conclusions
 
-* [Capability distribution does not establish fleet pinning or safe provenance](conclusions/capability-distribution-is-not-fleet-pinning.md) - The 2026-11-02 investigation separates organization-wide capability distribution from content pinning and rollout evidence, without establishing a vendor-wide lockfile gap or measured copy-drift cost.
+* [Capability distribution does not establish fleet pinning or safe provenance](conclusions/capability-distribution-is-not-fleet-pinning.md) - The 2026-11-02 investigation separates capability distribution, contribution governance, content pinning and rollout evidence, without establishing a vendor-wide lockfile gap or measured convergence benefit.
 * [Agent-definition names carry product meanings, not a shared lifecycle contract](conclusions/agent-definition-vocabulary-2026.md) - The 2026-11-02 source-reported survey identifies competing definition, template and persona meanings without establishing a universal agent-definition noun or measured reader comprehension.
 * [Separate knowledge consolidation from approval and review outcomes](conclusions/agent-knowledge-practice-2026.md) - The 2026-11-02 investigation reports proposal and consolidation workflows but establishes neither a universal vendor approval contract nor the outcome advantage of a separate knowledge judge.
 * [Intake routing has analogue evidence, not an established agent-outcome advantage](conclusions/front-door-routing-evidence-2026.md) - The 2026-11-02 investigation leaves agent intake-routing outcomes unresolved and treats human handoff findings and proposed router state as analogues and hypotheses, not a proven architecture.
