@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Durable specialization preserves judgment across sessions
-description: OATS exists to make agent expertise a versioned project artifact; durable specialist roles preserve reviewed judgment without replacing native sessions or forcing a universal assistant.
+description: Preserve expertise as a versioned project artifact and the soul as canonical curated birth context, while treating agent genomics and speciation as direction rather than replacing shared specialization with per-instance configuration.
 tags: [positioning, specialization, providers, architecture]
-timestamp: 2026-07-26
+timestamp: 2026-11-02
 ---
 # The founding claim
 
@@ -68,6 +68,37 @@ implementations are judged for runtime neutrality even when they bind one
 external service ([kernel responsibility boundary](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md)).
 Present-tense product claims must match released behaviour; target
 architecture is never documented as shipped.
+
+# Birth-context refinement and evolution direction (2026-11-02)
+
+The source reports Pepe's framing of a soul as an agent's **birth context**:
+a curated set of capabilities, a specialization and one canonical shared
+definition. The agent is the model and harness alive with that context.
+This reinforces the founding reason for curating reusable expertise; review
+should not collapse that shared definition into per-instance configuration.
+It is rationale for the distinction, not a second schema description.
+
+The associated direction is toward agent genomics and speciation: souls can
+evolve and branch. The existing
+[evidence-based speciation decision](/nodes/oats-maintainer/decisions/flexible-knowledge-and-situated-instances.md)
+already owns the criteria and human-acceptance boundary for structural change;
+this refinement neither replaces those criteria nor establishes automatic
+speciation. Renaming the term “soul” remains open, not a selected name or
+migration commitment.
+
+**Owner: oats-maintainer. Update-on-change:** when the human accepts a changed
+birth-context model, evolution policy or naming decision, update this dated
+refinement and log the change in the same session, preserving the original
+specialization rationale and citing any explicit supersession.
+
+Acceptance is **source-reported**: Pepe in the coordination-rethink lead's
+session on 2026-11-02, relayed to the source maintainer by that lead in mail
+83131d00 that day. Neither the session nor the mail was inspected. The
+framing and future direction are not evidence of an implemented evolution
+mechanism, chosen rename or completed trial.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-02; notes/soul-is-birth-context.md.
 
 # Current contracts
 

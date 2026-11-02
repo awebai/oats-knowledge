@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Coordination policy lives in capabilities, not in the kernel or oats.core
-description: Review keeps coordination policy in composed capabilities; OATS delegates finished-child cleanup to parents and parentless-lead cleanup to the lead, reserving human-facing lifecycle messages for required decisions, approvals or input.
+description: Keep coordination policy in composed capabilities, deliver the redesign as templates adapted into workspace-owned capabilities with a human guide, and retain the existing cleanup and action-required lifecycle-message rules until explicitly changed.
 tags: [stewardship, coordination, capabilities, instructions, retirement]
-timestamp: 2026-10-30
+timestamp: 2026-11-02
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes this coordination
 boundary records the new decision and its rationale here.**
@@ -25,6 +25,39 @@ It applies the existing
 [kernel/capability responsibility boundary](/nodes/oats-kernel-expert/decisions/kernel-and-capability-responsibility.md);
 the [shared-work decision](/nodes/oats-maintainer/decisions/parent-child-lines-require-declared-shared-work.md)
 remains the canonical home of that flag's semantics and engineering convention.
+
+# Delivery direction: templates become workspace-owned capabilities (2026-11-02)
+
+For the [coordination redesign](/nodes/oats-maintainer/stewardship/coordination-redesign-precedes-adaptive-onboarding.md),
+OATS supplies templates that onboarding adapts into the workspace's own member
+capabilities, rather than a coordination package pinned for each use case.
+Every template carries a human-facing guide, and onboarding ends by explaining
+how the human interacts with the resulting agents.
+
+The rationale is variation in use: a team software project, an individual's
+application, personal scheduled-agent work and research fan-out need not share
+one process. Workspace ownership lets the coordination text fit the use;
+the guide makes the result usable without requiring the human to discover
+its organisation unaided. Review should reject per-use-case coordination
+packages as the delivery model for this redesign, not move the policy into
+neutral core instructions.
+
+This refines **delivery and ownership of the text**, not the capability
+boundary above. It is not a ban on packages generally, nor evidence that
+existing coordination packages have been removed. The adaptive-onboarding
+step waits on the templates as part of the already-recorded coordination
+outcome dependency. No delivered template, completed trial or installed
+workspace change is certified here; current operating rules remain until
+explicitly changed.
+
+Acceptance is **source-reported**: Pepe in the coordination-rethink lead's
+session on 2026-11-02, relayed to the source maintainer by that lead in mail
+83131d00 that day. Neither the session nor the mail was inspected. The source
+reports a pre-trial direction; trials test its shape, not whether that
+direction was given.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-02; notes/coordination-ships-as-templates.md.
 
 # Review consequence
 
