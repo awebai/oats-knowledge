@@ -31,7 +31,9 @@ timestamp: 2026-09-25
 - **Readiness follows spawn**: one shared derivation and one fixture, so the
   readiness answer predicts what spawn does. A readiness verdict that
   disagrees with spawn is worse than none: it sends the operator to the wrong
-  remedy.
+  remedy. For a check predicting a live consumer rather than spawn, see
+  [readiness reads the setting source its consumer uses](/nodes/integrations-expert/lessons/readiness-reads-what-the-consumer-reads.md)
+  for the captured-versus-current distinction; the fallback rule is unchanged.
 - Readiness status is about operation, not configuration taste: ready when the
   instance can run on the fallback, with the improvement carried as a warning.
 - Test the fallback with the real binary, the kernel's actual signal and the
