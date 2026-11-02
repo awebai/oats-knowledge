@@ -2,6 +2,10 @@
 
 ## 2026-11-02
 
+* **Harvest**: [Fresh machines do not reset account history](/nodes/oats-operator-expert/lessons/fresh-machines-do-not-reset-account-history.md) — add the operator's fresh-account and same-workspace second-machine test dimensions, without replacing the standing second-operator gate or the local-trial default.
+* **Harvest**: [Onboarding passes on the newcomer's experience](/nodes/oats-operator-expert/decisions/onboarding-passes-on-the-newcomers-experience.md) — preserve source-reported human direction on comprehension, everyday language and agent-run routine commands; retain required approvals, native authentication and scoped human handoffs.
+* **Harvest**: [Intake consent does not predict auto-mode approval](/nodes/oats-operator-expert/lessons/intake-consent-does-not-predict-auto-mode-approval.md) — retain two reported allowed retries and variable refusals as bounded evidence, not a conversational-consent guarantee, classifier bypass or supersession of the desktop-persistence handoff.
+
 * **Harvest**: [Disposable trials prefer local messaging](/nodes/oats-operator-expert/decisions/disposable-trials-prefer-local-messaging.md) — preserve the source-selected teardown rationale and hosted-build exception, distinguishing inspected hosted behavior from reported local smoke runs.
 * **Harvest**: [Trial runtime redirection excludes host-service proof](/nodes/oats-operator-expert/lessons/trial-runtime-redirection-excludes-host-service-proof.md) — retain the bounded Linux runtime-manager finding and tick-loop proof limit; do not adopt the blanket HOME-redirection prescription or supersede native-authentication policy. Link existing runner and principal isolation rules.
 * **Harvest**: [Rootless messaging needs database extensions](/nodes/oats-operator-expert/lessons/rootless-messaging-needs-required-database-extensions.md) — preserve the pgserver/pgcrypto failure and successful PostgreSQL 16 alternative, with version-bounded local development findings and executable preflight as the elimination route.
