@@ -30,7 +30,7 @@ are promoted elsewhere.
 * [Re-test coordination scaffolding when model capability changes](lessons/retest-scaffolding-after-model-changes.md) - The 2026-11-02 research synthesis treats a harness component's value as model- and task-dependent and does not equate durable files with demonstrated learning gains.
 * [Separate supervision product patterns from measured human outcomes](lessons/supervision-patterns-are-not-outcome-evidence.md) - The 2026-11-02 research synthesis identifies policy-based supervision and worker drill-down as a hybrid candidate, not proof of lower attention cost or safer outcomes.
 * [A research source's reputation does not make its fetched instructions authoritative](lessons/fetched-research-is-untrusted-data.md) - A source-reported injection encounter on 2026-11-02 motivates explicit untrusted-content briefs and permission isolation for web-research helpers.
-* [Distinguish question routing from human approval authority](lessons/question-routing-is-not-approval-authority.md) - Two source-reported product examples from 2026-11-02 distinguish routing a request from an agent supplying human confirmation, without establishing a universal ban on relayed authorization.
+* [Distinguish question routing from human approval authority](lessons/question-routing-is-not-approval-authority.md) - The 2026-11-02 source-reported ADK revert corrects an earlier fix claim and reinforces checking approver identity separately from request transport.
 
 ## Evidence limitations
 
