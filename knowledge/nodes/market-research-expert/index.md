@@ -9,8 +9,13 @@ unknown is recorded as unknown. Charter:
 which routes comparison and positioning claims through this node before they
 are promoted elsewhere.
 
+## Research decisions
+
+* [Date fast-moving research and name the measured model generation](decisions/date-evidence-and-name-model-generations.md) - Source-reported human direction on 2026-11-02 prioritizes the last six months, explicitly searches the latest quarter, and requires model-generation labels and a dated recency pass.
+
 ## Research conclusions
 
+* [Knowledge-shape evidence does not establish a durable-project-memory winner](conclusions/agent-knowledge-shape-evidence-2026.md) - The 2026-11-02 research pass identifies no experiment isolating a type-label benefit and reports competitive simple memory baselines, without establishing a best representation for durable project judgment or current models.
 * [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - A 2026-11-02 research synthesis records four live disagreements in vendor coordination practice and agent-count and equal-token findings, linking the topology, verification and persona lessons for the claims they own.
 * [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research pass motivates a selective-gate hypothesis and leaves sustainable agents per human and downstream change quality unresolved; supervision-interface evidence is owned by the supervision lesson.
 
