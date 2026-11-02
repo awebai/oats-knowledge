@@ -72,7 +72,9 @@ belongs in [retesting scaffolding and memory controls](/nodes/market-research-ex
 not in a second curation doctrine here. The
 [knowledge-shape synthesis](/nodes/market-research-expert/conclusions/agent-knowledge-shape-evidence-2026.md)
 separately owns representation, type-label and memory-benchmark evidence;
-this concept owns the authority-versus-recall and retrieval comparison.
+this concept owns the authority-versus-recall and retrieval comparison. The
+[consolidation and review conclusion](/nodes/market-research-expert/conclusions/agent-knowledge-practice-2026.md)
+owns the separation of producing, adopting and measuring a knowledge revision.
 
 Owner: market-research-expert. Recheck per model generation and when controlled
 index-size, retrieval-scale or memory-outcome studies appear; update or

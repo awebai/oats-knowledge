@@ -1,10 +1,11 @@
 ---
 type: Lesson
-title: Compare agent topologies by task dependence and compute budget
-description: The 2026-11-02 research synthesis favors testing coordinated parallel reading separately from coupled writes and does not establish a universal single-writer or multi-agent advantage.
-tags: [research, multi-agent, topology, evaluation, compute]
+title: Compare agent topologies by task dependence, capability baseline and budget
+description: The 2026-11-02 research synthesis treats task dependence, single-agent capability and compute budget as separate comparison variables, without establishing a universal single-writer or multi-agent advantage.
+tags: [research, multi-agent, topology, evaluation, compute, model-capability]
 timestamp: 2026-11-02
 ---
+
 # Conclusion and scope
 
 Treat coordinated parallel reading and single-writer execution as a useful
@@ -41,6 +42,73 @@ substantially larger token budget. Its summary of equal-compute studies
 includes an exception but insufficient study detail to resolve the issue;
 no blanket equal-compute verdict is retained.
 
+# Recency refinement: compare the direction of model-dependent gains
+
+The 2026-11-02 recency proposal reports diminishing collaboration benefit
+as single-agent capability rises, including disadvantages on SWE-bench
+Verified in the scaling study [1]. It identifies the measured models as
+**GPT-5, Sonnet 4.5 and Gemini 2.5 Pro**. It also reports mid-2026 preprints
+pointing in that direction [3]. These are the source's readings, not an
+independently checked cross-study result or an exhaustive literature census.
+
+The capture lacks matched configurations and controls sufficient to isolate
+model strength from task, budget and topology changes. Do not retain its
+numerical crossover threshold, benchmark effect sizes or error multiplier as
+a portable rule. Do not infer that stronger models always reduce the value
+of collaboration. Instead, compare the **change in marginal benefit** on the
+same task and budget after a model upgrade, as well as which topology wins.
+This capture establishes no test on a newer generation; transfer remains
+unconfirmed under the [model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md).
+
+# Capability-baseline comparison added on 2026-11-02
+
+A further recency pass makes **single-agent capability on the tested task** an
+explicit comparison variable, not just model name or release date. That pass
+identifies the scaling study's models more broadly, as GPT-5, Gemini 2.x and
+Claude 3.7–4.5; the refinement above names GPT-5, Sonnet 4.5 and Gemini 2.5
+Pro. Neither reading was checked against the paper here, and neither is a
+measurement on the newer models named below. That pass's reported
+journal-publication update does not establish that the preprint's figures
+survived unchanged, so no new publication status or threshold is asserted here.
+
+The source reports a Vals AI comparison, page dated 2026-10-09, of **GPT 6 Sol
+and Claude Opus 5.5**, one run over 50 apps [4]. It reports higher costs for a
+lead with five subagents, a significant gain only at the weakest baseline,
+no significant gain at the high baselines, and a larger gain from increasing
+single-agent reasoning effort. This is a bounded reported result, not a
+replicated current-generation verdict. The capture does not retain methods,
+uncertainty or configurations sufficient to reuse its numerical effects or
+to establish an equal-cost causal comparison.
+
+Keep the counterexample: the source reports that Agensh, **GPT-5.6-sol**,
+raised pass rates with parallel writers but lacked an equal-cost control [5].
+Neither report establishes that teams never improve high-capability models,
+that more writers cause the gain, or that single-writer execution is universal.
+Anthropic's 2026-10-22 one-loop-first guidance is vendor advice, not a measured
+comparison; its canonical home is the
+[scaffolding lesson's vendor-advice section](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
+
+# Breadth-search evidence still needs budget qualification
+
+A follow-up recency pass dated **2026-11-02** reports that a coordinated
+**Mythos Preview** swarm found more vulnerabilities than independent agents
+in Anthropic's 2026-08-13 multiagent study [6], but used a substantially
+larger token budget. This is a **source-reported vendor finding**, not an
+independent replication or an equal-budget coordination gain. Exact counts
+and the claimed per-token parity are not retained: the captured summary
+lacks validation, coverage and budget-accounting detail sufficient for
+reusing them. The note's description says "Mythos 5" while its experiment
+summary says "Mythos Preview"; no model equivalence is inferred here.
+
+This is a reason to compare breadth search separately from coupled writes,
+not to infer a universal swarm advantage or that stronger models cannot
+coordinate better. Record the measured model, search scope, token budget
+and method for validating distinct discoveries. Do not rank shared-code
+integration against search breadth by comparing their headline output
+counts; the [coordination-practice conclusion](/nodes/market-research-expert/conclusions/coordination-practice-2026.md)
+owns the separate merge-fraction findings. Transfer to later models remains
+unconfirmed by this capture under the [model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md).
+
 # Transfer to personal-agent workflows is untested here
 
 A separate personal-use research pass, also dated 2026-11-02, reports that
@@ -62,7 +130,9 @@ or supersedes durable specialization.
 # Consequence for research
 
 Compare topologies on the same task and model with explicit token/cost and
-context budgets. Separate read-only decomposition from shared-state writes,
+context budgets. Record the single-agent baseline and compare adding agents
+with spending more effort on that baseline; report quality, cost and wall-clock
+time separately. Separate read-only decomposition from shared-state writes,
 and test whether the integration step preserves the workers' useful output.
 A centralized coordinator is itself an error source to evaluate, not an
 assumed cure. Do not equate adding agent names with adding expertise; see
@@ -74,8 +144,10 @@ not a chosen replacement for existing OATS coordination policy.
 
 **Owner and recheck:** market-research-expert. Recheck on controlled topology
 studies with matched budgets, evidence about conflicting parallel writes,
-or changed lab guidance. Update or supersede the conclusion and log the
-change rather than extending it to a new model generation silently.
+or changed lab guidance. Recheck the breadth-search finding on a new frontier
+generation, a controlled study, or by 2027-02-01. Update or supersede the
+conclusion and log the change rather than extending it to a new model
+generation silently.
 
 # Citations
 
@@ -85,10 +157,38 @@ change rather than extending it to a new model generation silently.
    scaling-agents account, 2026-01-14; Anthropic, multi-agent research-system
    account, 2025-06-13. These are the source's attributions, not independent
    reproductions or re-fetches by this harvest.
+3. [arXiv 2606.13003](https://arxiv.org/abs/2606.13003),
+   [2607.16133](https://arxiv.org/abs/2607.16133),
+   [2609.19759](https://arxiv.org/abs/2609.19759) and
+   [2609.20804](https://arxiv.org/abs/2609.20804): source-supplied preprint
+   locators for shrinking collaboration or scaffolding benefit. Per-study
+   model identifiers are not retained in the recency note; do not extend
+   the scaling study's model list to these papers.
+4. Vals AI, single-agent versus lead-plus-subagents comparison, page dated
+   2026-10-09 by the source; no exact page URL is supplied in the capture.
+5. Agensh, [arXiv 2609.26781](https://arxiv.org/abs/2609.26781), dated
+   2026-09-22 by the source.
+6. Anthropic, [multiagent-systems study](https://anthropic.com/research/multiagent-systems),
+   dated 2026-08-13 by the follow-up source; breadth-search result reported
+   on 2026-11-02, not independently fetched or reproduced by this harvest.
+
+The capability-baseline addition uses the captured proposal and note, not
+independent page fetches or experimental replication. Model names and dates
+in it are source-supplied; they do not establish which models are currently
+leading.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
-2026-11-02; notes/single-writer-parallel-readers.md.
+2026-11-02; notes/single-writer-parallel-readers.md (initial synthesis and
+subsequent capability-baseline addition).
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/personal-agents-organise-by-data-ownership-not-roles.md
 (personal-workflow transfer limit).
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/multi-agent-gains-shrink-with-capability.md.
+
+Evidence for the breadth-search qualification: OKF proposal from
+market-research-expert/coord-products-research-expert, 2026-11-02;
+notes/coordination-across-model-generations.md.

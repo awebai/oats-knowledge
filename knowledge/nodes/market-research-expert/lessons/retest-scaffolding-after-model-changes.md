@@ -87,6 +87,74 @@ verified result: [human-oversight evidence](/nodes/market-research-expert/conclu
 already owns the approval-habituation concern. Neither claim licenses bypassing
 human approval or removing existing authority controls.
 
+# Newer-model evidence added on 2026-11-02
+
+A later source reports re-reading a **claude.dev post dated 2026-07-24** [9]
+in which Anthropic describes substantial Claude Code system-prompt removal
+for **Claude Opus 5 and Claude Fable 5**, with no measured loss on its coding
+evaluations. This is a **source-reported vendor claim**, not an independent
+ablation: the captured note says no evaluation design or scores were
+published, and retains no exact post URL. It motivates testing older prompt
+scaffolding on those models; it does not establish a transferable safe
+removal fraction or justify removing authority controls.
+
+The same note supplies a **secondhand researcher summary** of *Memory Tax*
+[10], dated **2026-10-25**, on **GPT-5.6 “Luna”**. It reports two-round
+retrieval-augmented generation outperforming full context and the eleven
+memory systems compared on **LongMemEval-s**. The proposer explicitly did
+not re-read this paper. The capture lacks complete configurations, metric
+and uncertainty detail; retain the bounded comparison, not its numerical
+leaderboard or a universal retrieval winner. The note also flags sensitivity
+to judge prompts without retaining the experimental details needed to
+quantify it.
+
+This adds a reported memory-system accuracy comparison, not an independently
+checked memory-outcome evaluation by this harvest. It neither retroactively
+changes the limits of the earlier capture nor demonstrates that accumulated
+project knowledge makes later instances learn more. The measured comparison
+is on GPT-5.6; the Claude 5 evidence above remains vendor-only, and this
+capture establishes no GPT-6-class measured result. Retrieval accuracy,
+longitudinal learning and safe knowledge adoption are different outcomes.
+
+# Task-memory outcome leads added on 2026-11-02
+
+A further recency pass reports three task-memory benchmarks [12]:
+
+- **VibeMemBench:** the tested memory systems usually failed to outperform
+  the no-memory comparator.
+- **MemDev-Bench:** memory rescued some failing tasks but also broke tasks
+  the baseline solved.
+- **DreamBench-SWE:** memory helped when later tasks required facts from
+  earlier sessions.
+
+The source dates these to August–October 2026 and describes their solvers
+as **2026 open-weight models**, without exact model identifiers in the
+capture. It supplies no Claude 5 or GPT-6 evaluation for these findings;
+transfer to those families is unconfirmed here, not evidence that no such
+study exists. The short summaries lack primary URLs, full configurations
+and uncertainty; no numerical win rate or ranking is retained. These are
+source-reported outcome leads, not independently checked experiments.
+
+The comparison consequence is to separate tasks requiring earlier-session
+facts from tasks solvable from the current input, and measure both rescues
+and regressions against no memory. The reports do **not** establish that
+memory helps only with non-derivable facts. This capture also establishes no
+test of whether reviewed decisions and rationale improve durable project
+judgment. Keep the initial capture's limits above distinct from these later
+reported findings.
+
+# Recency refinement: vendor advice is not an ablation
+
+A separate 2026-11-02 recency proposal attributes advice to Anthropic to
+fold subagents into the main loop unless evaluation favors keeping them
+[11]. The capture supplies no figures or measured model for that advice.
+Treat it as a dated **vendor recommendation to compare alternatives**, not
+proof that a single loop wins or that delegation becomes unnecessary.
+The [topology lesson](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
+owns the same pass's source-reported model-dependent collaboration results;
+those results do not establish that external authorization or review gates
+can be removed as capability improves.
+
 # Consequence for comparisons
 
 For each component, record the failure it addresses and compare the same
@@ -124,12 +192,27 @@ extend one lab's report to every model or task.
 6. Compaction and safety-rule retention, [arXiv 2608.22752](https://arxiv.org/abs/2608.22752).
 7. MoM, [arXiv 2609.25054](https://arxiv.org/abs/2609.25054).
 8. Poisoned memory writes, [arXiv 2605.15338](https://arxiv.org/abs/2605.15338).
+9. claude.dev post, dated 2026-07-24 by the source, describing Claude Code
+   prompt removal for Opus 5 and Fable 5; source reports a 2026-11-02 re-read,
+   but the capture supplies no exact URL. Not independently fetched here.
+10. *Memory Tax*, [arXiv 2610.34073](https://arxiv.org/abs/2610.34073), dated
+    2026-10-25 by the source; researcher-summary support only, not re-read by
+    the proposer or independently fetched by this harvest.
 
 Items 3–8 are source-supplied preprint locators, not independently fetched or
 experimentally reproduced by this harvest.
+11. Claude.com, *When to fold subagents into your main agent loop*, dated
+    2026-10-22 by the recency source. Source-reported first-party guidance,
+    not independently fetched or evaluated by this harvest.
+12. VibeMemBench (2026-09-20), MemDev-Bench (2026-10-20) and DreamBench-SWE
+    (2026-08-21), as named and dated by the source. No primary URLs or exact
+    solver identifiers were retained in the captured proposal and note;
+    these benchmark descriptions were not independently fetched or reproduced
+    by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
-2026-11-02; notes/harness-shrinks-with-capability.md.
+2026-11-02; notes/harness-shrinks-with-capability.md (initial synthesis and
+subsequent task-memory outcome leads).
 
 Evidence for the later cross-references: OKF proposal from
 market-research-expert/know-ontology-research-expert, 2026-11-02;
@@ -140,3 +223,12 @@ Memory-specific addition:
 
 Evidence: OKF proposal from market-research-expert/know-storage-research-expert,
 2026-11-02; notes/curation-and-write-control-survive-model-gains.md.
+
+Newer-model refinement:
+
+Evidence: OKF proposal from market-research-expert/know-practice-research-expert,
+2026-11-02; notes/scaffolding-and-memory-on-newer-models.md.
+
+Evidence for the recency refinement: OKF proposal from
+market-research-expert/coord-practice-research-expert, 2026-11-02;
+notes/multi-agent-gains-shrink-with-capability.md.
