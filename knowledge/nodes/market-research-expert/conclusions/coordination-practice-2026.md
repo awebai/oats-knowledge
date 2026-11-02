@@ -60,8 +60,9 @@ a comparison variable to preserve, not an isolated causal explanation that
 has been shown to dominate prompt design across tasks.
 
 Evaluate shared-resource behavior alongside merge fraction and throughput,
-and name the model and task behind each result. The reusable re-evaluation
-rule remains in
+and name the model and task behind each result, as the
+[recency and model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md)
+requires. The reusable re-evaluation rule remains in
 [retesting scaffolding after model changes](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
 This investigation establishes no newer-model replication for its older
 MAST, LangChain or ImpossibleBench findings; that is a gap in the capture,

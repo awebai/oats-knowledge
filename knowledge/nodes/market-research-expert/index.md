@@ -9,8 +9,14 @@ unknown is recorded as unknown. Charter:
 which routes comparison and positioning claims through this node before they
 are promoted elsewhere.
 
+## Research decisions
+
+* [Date fast-moving research and name the measured model generation](decisions/date-evidence-and-name-model-generations.md) - Source-reported human direction on 2026-11-02 prioritizes the last six months, explicitly searches the latest quarter, and requires model-generation labels and a dated recency pass.
+
 ## Research conclusions
 
+* [Compare knowledge systems by authority and retrieval evidence, not storage format](conclusions/agent-knowledge-storage-2026.md) - The 2026-11-02 research pass distinguishes reviewed authority from agent-written recall and treats pointer indexes and agentic search as bounded retrieval candidates, not universal winners.
+* [Knowledge-shape evidence does not establish a durable-project-memory winner](conclusions/agent-knowledge-shape-evidence-2026.md) - The 2026-11-02 research pass identifies no experiment isolating a type-label benefit and reports competitive simple memory baselines, without establishing a best representation for durable project judgment or current models.
 * [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - The 2026-11-02 synthesis preserves four vendor-practice disagreements and model-specific coordination findings, distinguishing avoidance of collaboration from successful shared work.
 * [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research supports testing selective oversight gates but adds source-reported evidence of agent influence on human judgment, leaving coding-review transfer, human capacity and downstream quality unresolved.
 
