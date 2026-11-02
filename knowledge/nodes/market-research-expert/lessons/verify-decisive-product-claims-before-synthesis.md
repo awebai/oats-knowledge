@@ -48,7 +48,9 @@ This lesson concerns **accuracy and evidentiary precision**, distinct from
 [fetched content's lack of instructional authority](/nodes/market-research-expert/lessons/fetched-research-is-untrusted-data.md).
 The [supervision lesson](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md)
 separately owns the distinction between shipped interfaces and measured
-human outcomes. Neither a verification pass nor a first-party statement
+human outcomes, and the
+[question-routing lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
+owns how to compare who carries a request with who may approve the action. Neither a verification pass nor a first-party statement
 substitutes for a runtime test where behavior or enforcement is the claim.
 
 # Elimination route and ownership
