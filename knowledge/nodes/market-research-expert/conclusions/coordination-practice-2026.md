@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Coordination practice disagrees on review, messaging, delegation and breadth
-description: The 2026-11-02 synthesis preserves four vendor-practice disagreements and model-specific coordination findings, distinguishing avoidance of collaboration from successful shared work.
+description: The 2026-11-02 synthesis preserves vendor disagreements and model-specific findings while distinguishing collaboration, fleet telemetry and the unresolved multi-human coordination boundary.
 tags: [coordination, multi-agent, research, positioning]
 timestamp: 2026-11-02
 ---
@@ -94,6 +94,32 @@ remains authoritative. Nor does it replace [durable specialization](/nodes/oats-
 role prompts within one run and preservation of reviewed judgment across
 sessions are different claims.
 
+# Fleet overview is not evidence of multi-human coordination
+
+A further **2026-11-02** investigation reports a distinction between
+platform-team telemetry and the human responsible for an individual agent
+change. It names Shopify, Ramp, Uber and GitHub as telemetry examples, and
+Claude Code Projects, Devin managing Devins and Copilot projects as
+coordinators within a goal. These are **source-reported practice leads**,
+not an exhaustive fleet inventory or proof that every task has exactly one
+session, branch and PR.
+
+The source reports rechecking Claude Code Projects documentation [4]: the
+coordinator works from thread reports rather than every worker step. The
+separate [approval-authority lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
+already owns the reported thread-local approval boundary; it is not repeated
+as a new finding here. Neither report establishes that a coordinator sees
+all relevant evidence or exercises authority across several humans.
+
+This investigation did not document a per-epic or per-responsibility
+coordinating agent spanning multiple human owners. That is a **dated search
+gap**, not proof that no deployment has one. The capture names surveyed
+products but lacks a reproducible search inventory and exact primary
+locators for most examples. Platform telemetry, goal-local coordination and
+multi-human portfolio responsibility must therefore remain separate columns
+in a comparison. Do not cite this survey as an industry-endorsed way to
+partition a long-lived maintainer fleet, or as proof of OATS's uniqueness.
+
 # Evidence limits and recheck triggers
 
 This is a **source-reported research synthesis**, judged from the captured
@@ -108,6 +134,9 @@ agent teams leave experimental status, OpenAI replaces the practical guide
 the source dates to 2025-04-11, or MAST is replicated on 2026 models. A later
 comparison that changes the conclusion must update this record and log the
 correction or supersession, not silently present it as timeless guidance.
+Recheck the fleet-overview gap when a documented multi-human/per-epic
+coordination deployment supplies its ownership and approval boundaries;
+product visibility alone does not close it.
 
 # Citations
 
@@ -120,9 +149,16 @@ verification by this harvest:
    dated 2026-08-13 by the source; later reading reported on 2026-11-02.
 3. Tran–Kiela comparison, [arXiv 2604.02460](https://arxiv.org/abs/2604.02460),
    characterized as a preprint.
+4. [Claude Code Projects documentation](https://code.claude.com/docs/en/claude-projects),
+   source-reported recheck on 2026-11-02. Other fleet examples above have
+   product names but no exact primary-page locators in the capture; no
+   availability or enforcement audit was performed by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/multi-agent-coordination-consensus-2026.md.
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/frontier-multiagent-evidence-2026-08.md.
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/fleet-overview-partitions-by-task-owner.md.
