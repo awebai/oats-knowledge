@@ -15,7 +15,7 @@ are promoted elsewhere.
 
 ## Research conclusions
 
-* [Multi-domain planning practice does not establish an authorship winner](conclusions/multi-domain-plan-authorship-evidence-2026.md) - The 2026-11-02 investigation reports whole-plan authorship with domain review and provider-owned contracts, but does not compare that pattern against per-area planners plus a coordinator.
+* [Multi-domain planning practice does not establish an authorship winner](conclusions/multi-domain-plan-authorship-evidence-2026.md) - The 2026-11-02 investigation distinguishes integrated-plan authorship, Spec Kit's federated contract guidance and model-specific integration findings without establishing a software planning winner.
 * [Capability distribution does not establish fleet pinning or safe provenance](conclusions/capability-distribution-is-not-fleet-pinning.md) - The 2026-11-02 investigation separates organization-wide capability distribution from content pinning and rollout evidence, without establishing a vendor-wide lockfile gap or measured copy-drift cost.
 * [Agent-definition names carry product meanings, not a shared lifecycle contract](conclusions/agent-definition-vocabulary-2026.md) - The 2026-11-02 source-reported survey identifies competing definition, template and persona meanings without establishing a universal agent-definition noun or measured reader comprehension.
 * [Separate knowledge consolidation from approval and review outcomes](conclusions/agent-knowledge-practice-2026.md) - The 2026-11-02 investigation reports proposal and consolidation workflows but establishes neither a universal vendor approval contract nor the outcome advantage of a separate knowledge judge.
