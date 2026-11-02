@@ -5,6 +5,7 @@ description: The 2026-11-02 research synthesis treats task dependence, single-ag
 tags: [research, multi-agent, topology, evaluation, compute, model-capability]
 timestamp: 2026-11-02
 ---
+
 # Conclusion and scope
 
 Treat coordinated parallel reading and single-writer execution as a useful
@@ -87,6 +88,27 @@ Anthropic's 2026-10-22 one-loop-first guidance is vendor advice, not a measured
 comparison; its canonical home is the
 [scaffolding lesson's vendor-advice section](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
 
+# Breadth-search evidence still needs budget qualification
+
+A follow-up recency pass dated **2026-11-02** reports that a coordinated
+**Mythos Preview** swarm found more vulnerabilities than independent agents
+in Anthropic's 2026-08-13 multiagent study [6], but used a substantially
+larger token budget. This is a **source-reported vendor finding**, not an
+independent replication or an equal-budget coordination gain. Exact counts
+and the claimed per-token parity are not retained: the captured summary
+lacks validation, coverage and budget-accounting detail sufficient for
+reusing them. The note's description says "Mythos 5" while its experiment
+summary says "Mythos Preview"; no model equivalence is inferred here.
+
+This is a reason to compare breadth search separately from coupled writes,
+not to infer a universal swarm advantage or that stronger models cannot
+coordinate better. Record the measured model, search scope, token budget
+and method for validating distinct discoveries. Do not rank shared-code
+integration against search breadth by comparing their headline output
+counts; the [coordination-practice conclusion](/nodes/market-research-expert/conclusions/coordination-practice-2026.md)
+owns the separate merge-fraction findings. Transfer to later models remains
+unconfirmed by this capture under the [model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md).
+
 # Transfer to personal-agent workflows is untested here
 
 A separate personal-use research pass, also dated 2026-11-02, reports that
@@ -122,8 +144,10 @@ not a chosen replacement for existing OATS coordination policy.
 
 **Owner and recheck:** market-research-expert. Recheck on controlled topology
 studies with matched budgets, evidence about conflicting parallel writes,
-or changed lab guidance. Update or supersede the conclusion and log the
-change rather than extending it to a new model generation silently.
+or changed lab guidance. Recheck the breadth-search finding on a new frontier
+generation, a controlled study, or by 2027-02-01. Update or supersede the
+conclusion and log the change rather than extending it to a new model
+generation silently.
 
 # Citations
 
@@ -144,6 +168,9 @@ change rather than extending it to a new model generation silently.
    2026-10-09 by the source; no exact page URL is supplied in the capture.
 5. Agensh, [arXiv 2609.26781](https://arxiv.org/abs/2609.26781), dated
    2026-09-22 by the source.
+6. Anthropic, [multiagent-systems study](https://anthropic.com/research/multiagent-systems),
+   dated 2026-08-13 by the follow-up source; breadth-search result reported
+   on 2026-11-02, not independently fetched or reproduced by this harvest.
 
 The capability-baseline addition uses the captured proposal and note, not
 independent page fetches or experimental replication. Model names and dates
@@ -161,3 +188,7 @@ Evidence: OKF proposal from market-research-expert/coord-personal-research-exper
 Evidence for the recency refinement: OKF proposal from
 market-research-expert/coord-practice-research-expert, 2026-11-02;
 notes/multi-agent-gains-shrink-with-capability.md.
+
+Evidence for the breadth-search qualification: OKF proposal from
+market-research-expert/coord-products-research-expert, 2026-11-02;
+notes/coordination-across-model-generations.md.

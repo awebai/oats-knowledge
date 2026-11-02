@@ -5,6 +5,7 @@ description: The 2026-11-02 research synthesis identifies policy-based supervisi
 tags: [research, supervision, human-oversight, interfaces, evaluation]
 timestamp: 2026-11-02
 ---
+
 # Conclusion and scope
 
 Policy-bounded execution with review of outcomes, a lead-agent interface and
@@ -61,6 +62,26 @@ boundaries. An aggregated inbox alone is not cross-agent attack detection,
 and a joinable activity record is a candidate evaluation requirement, not a
 proven sufficient defense or a newly selected OATS architecture.
 
+# Visible agents need a separate isolation check
+
+A follow-up product investigation dated **2026-11-02** reports that xAI's
+Grok Bot documentation describes separately named bots with distinct
+conversations and learned context, task handoffs and requests for human
+approval. Crucially, the source reports that the bots share a cloud computer
+and that xAI warns against treating separate bots as a security boundary [6].
+This is a **source-reported documentation reading**: the captured note names
+the documentation domain but retains no specific page or contract, and this
+harvest did not inspect the product or its enforcement.
+
+Use the example to distinguish **context separation from trust isolation**
+when comparing visible-agent interfaces. Separate conversations do not by
+themselves demonstrate separate permissions, credentials or execution
+boundaries. Likewise, a described return for approval does not establish an
+enforced authorization gate; the [question-routing lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
+owns that distinction. No availability, launch-priority or reliability claim
+is established here, and a user-built broker is not a measured improvement
+over direct access to the bots.
+
 # Consequence for comparisons
 
 Evaluate permission policy, isolation boundaries, review artifacts and the
@@ -80,8 +101,10 @@ cost.
 
 **Owner and recheck:** market-research-expert. Recheck on independent
 attention-cost or supervision-safety studies, controlled broker/thread
-comparisons, or material changes to the cited product interactions. Update
-or supersede this conclusion and log the change before presenting a newer
+comparisons, or material changes to the cited product interactions. Recheck
+the Grok Bot documentation lead on a major product release or by 2027-02-01,
+with the exact context and security contracts before making product claims.
+Update or supersede this conclusion and log the change before presenting a newer
 product snapshot as current evidence.
 
 # Citations
@@ -101,6 +124,9 @@ product snapshot as current evidence.
 5. METR/Redwood red-team account of OpenAI internal monitoring, dated
    2026-10-22 by the source; a source-reported lead without a specific report
    URL in the capture, not an audited incident or coverage inventory.
+6. xAI Grok Bot documentation, `docs.x.ai`, source reading dated 2026-11-02;
+   exact page and version not retained. This is a lead for contract checking,
+   not a verified security or availability audit.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/supervision-moves-to-policy-and-outcomes.md.
@@ -108,3 +134,7 @@ Evidence: OKF proposal from market-research-expert/coord-frontier-research-exper
 Evidence for the recency refinement: OKF proposal from
 market-research-expert/coord-practice-research-expert, 2026-11-02;
 notes/inbox-convergence-and-fleet-monitoring.md.
+
+Evidence for the context-versus-isolation comparison: OKF proposal from
+market-research-expert/coord-products-research-expert, 2026-11-02;
+notes/grok-bot-visible-roster-broker.md.
