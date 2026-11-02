@@ -29,7 +29,11 @@ all current roles are wrong or a decision selecting their replacement.
 The recommendation must rest on deep research and trial setups actually run,
 not only a paper design. The human-interaction question includes direct
 threads to top-level agents versus an interface agent acting as the human's
-intermediary; neither option is selected by this direction.
+intermediary; neither option was selected by this initial research mandate.
+The later same-day [front-door direction](/nodes/oats-maintainer/decisions/front-door-routes-and-introduces.md)
+selects intake routing and introductions for most workspaces while leaving
+continued brokering open. It refines that question without selecting a
+complete coordination model or resuming the threads build.
 
 # Sequencing and dependency
 
@@ -66,7 +70,11 @@ The research reopening is not a supersession of operating decisions:
 Those records hold until an accepted decision explicitly supersedes them.
 The source reserves the decision on the coordination recommendation to Pepe;
 a research mandate alone grants no implementation, release or authority
-change.
+change. The later [template-delivery direction](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md#delivery-direction-templates-become-workspace-owned-capabilities-2026-11-02)
+refines how the outcome reaches a workspace; the
+[thread-inbox roadmap](/nodes/oats-maintainer/decisions/humans-address-long-lived-agents-through-threads.md#roadmap-refinement-the-humans-inbox-is-threads-2026-11-02)
+follows coordination rather than becoming its prerequisite. Those linked
+records own their source-reported acceptance and limits.
 
 # Acceptance and evidence limits
 

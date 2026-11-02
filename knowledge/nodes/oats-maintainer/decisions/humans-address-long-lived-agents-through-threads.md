@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: A human addresses a long-lived agent through threads that are aweb conversations; the soul declares an interaction kind in its messaging settings
-description: Deferred on 2026-10-26, the day it was decided, with nothing built or released, so the 2026-07-22 one-input-surface rule stands; the design to resume from is threads as aweb mail conversations between the human's own identity and the agent, read and sent through the messaging capability's JSON surface and keyed by a soul-level interaction kind in the messaging capability's settings, with no second messaging channel and no UI layout in the kernel contract.
+description: Keep the deferred aweb-conversation design and current one-input-surface rule, with a later thread-inbox vision of curated mail and chat for depth as a design criterion after coordination rather than authorization to resume the build.
 tags: [desktop, messaging, aweb, threads, human-interaction, soul-settings, direction, deferred]
-timestamp: 2026-10-26
+timestamp: 2026-11-02
 ---
 # Status: deferred, not reversed (2026-10-26)
 
@@ -36,6 +36,39 @@ as a non-acking read over the existing endpoint, while a non-acking
 presentation's ack is what stops redelivery and what session recovery relies
 on. Whether the effort resumes is unknown. Resuming is the lane's human's
 call, as cancelling was.
+
+# Roadmap refinement: the human's inbox is threads (2026-11-02)
+
+The source reports Pepe's direction that agents reach the human by mail,
+with each inbox entry a thread of curated HTML or Markdown for a decision or
+for visibility, and chat available for deeper discussion. This is a design
+criterion for coordination and messaging: do not make that interaction model
+impossible. The intended delivery follows the new coordination; it is **not
+a dependency that blocks coordination**, a shipped feature, or a request to
+resume the deferred implementation now.
+
+This refines the design to resume from, not its current deferral. It is
+compatible with a [front door that introduces an owner without brokering
+every later message](/nodes/oats-maintainer/decisions/front-door-routes-and-introduces.md).
+The current input-surface rule, messaging ownership, human-identity custody
+and bilateral contract gates remain. In particular, future inbox visibility
+is not an immediate replacement for the existing
+[action-required lifecycle communication policy](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md#human-communication-is-for-required-action-2026-10-28).
+A future change to that operating policy must name its scope and acceptance;
+this roadmap supplies neither a new notification duty nor a second channel.
+
+**Owner: oats-maintainer. Update-on-change:** when the human accepts a changed
+inbox direction or resumes the build, update this dated refinement and its
+status in the same session, preserving the earlier decision and any explicit
+supersession. The delivery sequence alone does not establish resumption.
+
+Acceptance is **source-reported**: Pepe in the coordination-rethink lead's
+session on 2026-11-02, relayed to the source maintainer by that lead in mail
+83131d00 that day. Neither the session nor the mail was inspected; no
+completed implementation, release or trial is established.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-02; notes/thread-inbox-vision.md.
 
 # Decision (2026-10-26; deferred the same day, see above)
 

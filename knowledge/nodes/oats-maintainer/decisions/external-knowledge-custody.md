@@ -57,6 +57,15 @@ the maintainer under the
 claims about knowledge follow
 [adoption evidence discipline](/nodes/oats-maintainer/lessons/adoption-evidence-and-approved-scope.md).
 
+# Later direction, not a current-policy replacement
+
+The [2026-11-02 direct-proposal roadmap](/nodes/oats-maintainer/stewardship/direct-knowledge-proposals-retain-maintainer-review.md)
+records a move toward working agents opening knowledge PRs themselves, with
+unchanged doctrine and maintainer review. It does not lift the current write
+prohibition or remove current harvest duties. The package-owner design must
+address provenance, independent review and write authority before the
+transition ships; the custody rationale above remains in force.
+
 # Current contracts
 
 - [knowledge.md](https://github.com/awebai/oats/blob/main/docs/knowledge.md)
