@@ -148,6 +148,17 @@ capacity threshold. Assigning a responsibility only where it has a runnable
 check is an untested design hypothesis here, not a measured winning partition
 or authority to replace the accepted domain roster.
 
+# Cross-repository comparisons need task and scaffold controls
+
+The refined [WideSWE account](/nodes/market-research-expert/limitations/cross-repo-architecture-ownership-evidence-gap.md)
+owns the source-reported failure table and the joint/independent comparison's
+unequal-budget and task-type limits. It does not isolate a scope-discovery or
+architecture-owner benefit. The verification note also reports same-model
+scaffold sensitivity for **GPT-5.6-sol**. Hold scaffold choice explicit when
+comparing models, and separate bug fixes from feature work rather than
+promote one aggregate topology score to a universal rule. No numerical
+leaderboard is adopted from the unresolved success-score evidence.
+
 # Consequence for research
 
 Compare topologies on the same task and model with explicit token/cost and
@@ -166,9 +177,10 @@ not a chosen replacement for existing OATS coordination policy.
 **Owner and recheck:** market-research-expert. Recheck on controlled topology
 studies with matched budgets, evidence about conflicting parallel writes,
 or changed lab guidance. Recheck the coordinator-span gap on controlled
-load/partition comparisons with named models and task outcomes. Recheck the
-breadth-search finding on a new frontier generation, a controlled study, or
-by 2027-02-01. Update or supersede the
+load/partition comparisons with named models and task outcomes, and the
+WideSWE interpretation on matched-budget interventions or newer-model
+replications. Recheck the breadth-search finding on a new frontier
+generation, a controlled study, or by 2027-02-01. Update or supersede the
 conclusion and log the change rather than extending it to a new model
 generation silently.
 
@@ -218,3 +230,6 @@ notes/coordination-across-model-generations.md.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/coordinator-span-is-unmeasured-state-not-headcount.md.
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/cross-repo-agent-failures-are-mostly-post-edit.md.

@@ -100,9 +100,12 @@ A further **2026-11-02** investigation reports a distinction between
 platform-team telemetry and the human responsible for an individual agent
 change. It names Shopify, Ramp, Uber and GitHub as telemetry examples, and
 Claude Code Projects, Devin managing Devins and Copilot projects as
-coordinators within a goal. These are **source-reported practice leads**,
-not an exhaustive fleet inventory or proof that every task has exactly one
-session, branch and PR.
+project- or goal-scoped coordinators. These are **source-reported practice
+leads**, not an exhaustive fleet inventory or proof that every task has
+exactly one session, branch and PR. A later source-reported Projects reading
+makes its goal optional; the earlier goal-only shorthand was too narrow.
+The [approval-authority lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
+owns that scope/overview refinement and its single-user boundary.
 
 The source reports rechecking Claude Code Projects documentation [4]: the
 coordinator works from thread reports rather than every worker step. The
@@ -115,7 +118,7 @@ This investigation did not document a per-epic or per-responsibility
 coordinating agent spanning multiple human owners. That is a **dated search
 gap**, not proof that no deployment has one. The capture names surveyed
 products but lacks a reproducible search inventory and exact primary
-locators for most examples. Platform telemetry, goal-local coordination and
+locators for most examples. Platform telemetry, project-local coordination and
 multi-human portfolio responsibility must therefore remain separate columns
 in a comparison. Do not cite this survey as an industry-endorsed way to
 partition a long-lived maintainer fleet, or as proof of OATS's uniqueness.
@@ -162,3 +165,7 @@ Evidence: OKF proposal from market-research-expert/coord-claims-verification-exp
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/fleet-overview-partitions-by-task-owner.md.
+
+Evidence for the Projects scope correction: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/claude-projects-coordinator-is-goalless-and-single-user.md.

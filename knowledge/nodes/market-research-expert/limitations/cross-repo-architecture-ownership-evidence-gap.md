@@ -32,13 +32,41 @@ plus an aggregate advantage for joint over independent execution. These are
 source-reported benchmark findings, not an independent replication or
 transfer evidence for other generations.
 
-The capture explicitly flags an inconsistency between Table 1 and the text's
-headline/best-configuration success rates. It lacks enough metric and
-configuration detail to resolve that inconsistency or safely reuse the
-success range, failure shares, joint/independent scores or request-cost ratio.
-No numerical leaderboard is promoted here. Do not equate any reported
-failure share with the causal cost of lacking an architecture agent: the
-capture establishes no intervention testing that role.
+The initial capture flags an inconsistency between Table 1 and the text's
+headline/best-configuration success rates. A later verification note supplies
+more detail on the **failure-category table**, not a resolution of that
+success-score discrepancy. No numerical success leaderboard, joint/independent
+score or request-cost ratio is promoted here.
+
+The **2026-11-02 verification pass** reports 120 tasks mined from merged PRs,
+with hidden fail-to-pass and pass-to-pass tests in each repository. Across
+seven model/scaffold configurations, the reported **share of classified
+failures** assigned to missed repository scope ranges from **21.33% to 37.68%**;
+it is **25.64% for Opus 5 with Claude Code**. These are not percentages of all
+tasks. Scope is classified at repository level, so touching the right
+repositories does not prove complete coverage within them.
+
+Post-edit failures account for approximately **59–73% of failures in six of
+seven configurations**; the seventh is dominated by delivery failure. Thus
+the highest scope-miss share is not a general cross-repository failure rate,
+and identifying target repositories is not equivalent to producing correct
+behavior. The captured table is source-reported, not independently fetched
+or reproduced by this harvest. It establishes no general ranking for newer
+models or production repositories.
+
+In a separate comparison over **89 cases in one configuration**, giving
+independent executions their target repositories did not improve the aggregate
+result over joint execution. The source reports opposite directions by task:
+independent execution helped bug fixes and hurt features. **Total budgets
+were unequal**, and the verification capture does not name this subexperiment's
+model. This is not a controlled estimate of scope-discovery benefit or proof
+that independent work never helps.
+
+No dependency-map, code-search or architecture-owner intervention was tested
+in this evidence. Do not equate any failure share with the causal cost of
+lacking an architecture agent, or treat a pre-fan-out plan review as a measured
+remedy. The [verification lesson](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)
+owns the distinction between plans and runnable evidence of correct behavior.
 
 The supported comparison question is whether a system discovers all affected
 repositories and validates changes across their boundaries, separately from
@@ -77,7 +105,12 @@ proposal and named note, not product pages or experiments:
    primary-page URLs are absent from the capture.
 2. [WideSWE, arXiv 2609.33382v1](https://arxiv.org/html/2609.33382v1), dated
    2026-09-27 by the source; HTML reportedly checked on 2026-11-02. The
-   source-reported Table 1/text discrepancy remains unresolved here.
+   source-reported Table 1/text discrepancy remains unresolved here. The
+   later verification source reports checking the failure-category table in
+   raw HTML on the same date; this does not certify the other success scores.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/cross-repo-architecture-ownership-is-unshipped.md.
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/cross-repo-agent-failures-are-mostly-post-edit.md.

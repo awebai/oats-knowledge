@@ -50,6 +50,17 @@ page-fetch tool returned model-generated summaries, sometimes only quote
 fragments; a fragment labelled verbatim is not thereby a checked quotation.
 Repeated agreement among research instances is not independent confirmation.
 
+A second pass, also dated 2026-11-02, adds two specific failure modes:
+**moving results between experiments inside one paper**, and **replacing an
+operational measure with a broader interpretation**. The source reports a
+ProgramBench model comparison being attributed to a separate Claude Code
+session sample, and absence of review comments being relabelled as absence
+of review. It also reports conclusions contradicting the supporting passage
+already present in the research summary. These are source-reported examples,
+not an audited correction rate; the individual review statistics are not
+established by this note. Earlier worst-case and self-forecast distortions
+are recurrence, not independent evidence for their numerical claims.
+
 # Consequence for research
 
 For decisive claims, check what the accessible primary source actually says
@@ -64,7 +75,12 @@ wording. Check those fields against the accessible primary text, not just a
 helper's summary. Mark wording obtained through a summarizer as unverified
 until compared with the original. Check whether a strong qualifier actually
 appears, keep separate studies and versions separate, and deliberately search
-for counterexamples outside the consensus sample.
+for counterexamples outside the consensus sample. Record the **experiment
+or table identifier and the measured variable's definition** as well as the
+paper identifier: a correct paper citation can still attach the wrong
+sample, model or outcome. Absence of a recorded action is not automatically
+absence of the underlying activity. Check the conclusion against its own
+supporting passage before treating consensus as corroboration.
 
 If a first-party page cannot be inspected, including because a fetch returns
 403, label any claim supported only by press or another secondary source as
@@ -101,4 +117,5 @@ Evidence: OKF proposal from market-research-expert/coord-products-research-exper
 2026-11-02; notes/verify-secondary-product-claims.md.
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
-2026-11-02; notes/research-echo-detaches-figures-from-conditions.md.
+2026-11-02; notes/research-echo-detaches-figures-from-conditions.md
+(initial pass and captured round-2 refinement).
