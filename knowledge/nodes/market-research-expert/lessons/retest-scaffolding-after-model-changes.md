@@ -116,6 +116,33 @@ is on GPT-5.6; the Claude 5 evidence above remains vendor-only, and this
 capture establishes no GPT-6-class measured result. Retrieval accuracy,
 longitudinal learning and safe knowledge adoption are different outcomes.
 
+# Task-memory outcome leads added on 2026-11-02
+
+A further recency pass reports three task-memory benchmarks [12]:
+
+- **VibeMemBench:** the tested memory systems usually failed to outperform
+  the no-memory comparator.
+- **MemDev-Bench:** memory rescued some failing tasks but also broke tasks
+  the baseline solved.
+- **DreamBench-SWE:** memory helped when later tasks required facts from
+  earlier sessions.
+
+The source dates these to August–October 2026 and describes their solvers
+as **2026 open-weight models**, without exact model identifiers in the
+capture. It supplies no Claude 5 or GPT-6 evaluation for these findings;
+transfer to those families is unconfirmed here, not evidence that no such
+study exists. The short summaries lack primary URLs, full configurations
+and uncertainty; no numerical win rate or ranking is retained. These are
+source-reported outcome leads, not independently checked experiments.
+
+The comparison consequence is to separate tasks requiring earlier-session
+facts from tasks solvable from the current input, and measure both rescues
+and regressions against no memory. The reports do **not** establish that
+memory helps only with non-derivable facts. This capture also establishes no
+test of whether reviewed decisions and rationale improve durable project
+judgment. Keep the initial capture's limits above distinct from these later
+reported findings.
+
 # Recency refinement: vendor advice is not an ablation
 
 A separate 2026-11-02 recency proposal attributes advice to Anthropic to
@@ -177,9 +204,15 @@ experimentally reproduced by this harvest.
 11. Claude.com, *When to fold subagents into your main agent loop*, dated
     2026-10-22 by the recency source. Source-reported first-party guidance,
     not independently fetched or evaluated by this harvest.
+12. VibeMemBench (2026-09-20), MemDev-Bench (2026-10-20) and DreamBench-SWE
+    (2026-08-21), as named and dated by the source. No primary URLs or exact
+    solver identifiers were retained in the captured proposal and note;
+    these benchmark descriptions were not independently fetched or reproduced
+    by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
-2026-11-02; notes/harness-shrinks-with-capability.md.
+2026-11-02; notes/harness-shrinks-with-capability.md (initial synthesis and
+subsequent task-memory outcome leads).
 
 Evidence for the later cross-references: OKF proposal from
 market-research-expert/know-ontology-research-expert, 2026-11-02;
