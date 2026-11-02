@@ -81,30 +81,40 @@ The newer note establishes no fresh classifier false-negative estimate.
 
 # Refinement: peak concurrency is not sustainable supervisory capacity
 
-The organisation-scale research pass of **2026-11-02** reports a small
-controlled ParallelPilot study [7] in which a coordination dashboard raised
-peak concurrent coding-agent use and throughput, without improving
-intervention success or perceived control. This is a **source-reported study
-lead**, not a replicated result: the capture supplies no task protocol,
-uncertainty estimates, precise model identifiers or definition of the peak
-measure. It does not establish a safe or sustainable human span of control.
+The organisation-scale research pass of **2026-11-02** reports that a
+ParallelPilot dashboard raised peak concurrent coding-agent use and throughput
+without improving intervention success or perceived control [7]. A later
+verification note supplies missing measurement context from its reported
+reading of v1, Table 7.1: **16 Microsoft participants**, 20-minute blocks of
+six tickets, a Copilot CLI/Chat baseline and a GPT-5.6-sol tool condition.
+The reported peak-concurrency values are **2.31 versus 3.25**. The baseline's
+model identifier and uncertainty estimates are not retained in this capture.
+These are source-reported study figures, not a replication or a safe capacity
+limit. The **4.00** response concerns participants' forecast of how many agents
+they would feel comfortable supervising later, not observed concurrency.
+The source also reports a ceiling effect.
 
-The same note reports low concurrent-agent use in Jellyfish's Claude Code
-telemetry and a weekly concurrent-use observation attributed to OpenAI [8].
-Observed use is not a capacity experiment; peak, weekly reach and sustained
-workload are different measures. Likewise, the note's vendor team-sizing
-advice is not a measured human limit, particularly where advice concerns an
-agent lead rather than a human. The exact figures and any pooled range are
-not retained without the missing population and measurement context.
+The later note identifies Jellyfish's measure as a **30-day peak of top-level
+Claude Code sessions**, with subagents invisible and light users dominating
+[8]. Its OpenAI abstract reading reports **more than 10% of users managing
+three or more concurrent Codex agents weekly** [9]. These are observed-use
+measures, not capacity experiments; the measured models are not identified.
+The Jellyfish percentage and helper-read OpenAI-staff subgroup figure are not
+retained as independent quantitative findings from this capture.
 
-Compare active steering, asynchronous work awaiting review, and artifact
-review load separately. A dashboard can increase concurrent work without
-improving intervention quality; measure both rather than equating throughput
-with oversight. Product concurrency allowances do not by themselves establish
-human capacity or prove that PR review is every workflow's binding constraint.
-This investigation still does not settle a threads-versus-boards-versus-digests
-versus-queues comparison, and the capture establishes no newer-model transfer.
-Its broad model-era shorthand cannot identify the models in each study.
+**Sessions are not multi-day efforts steered through a coordinator.** None
+of these captured measurements establishes that latter span. Do not combine
+peak lab use, field-use reach and self-forecasts into a human limit of two
+to four efforts. Vendor team-sizing advice and product concurrency allowances
+also do not establish human capacity, especially when they concern an agent
+lead rather than a human.
+
+Compare active steering, asynchronous work awaiting review and artifact-review
+load separately. A dashboard can increase concurrent work without improving
+intervention quality; measure both rather than equating throughput with
+oversight. This evidence does not settle the interface comparison, establish
+PR review as every workflow's bottleneck, or demonstrate transfer to newer
+models or long-running coordinator-mediated work.
 
 # Unknown in this investigation, not absent from the world
 
@@ -166,12 +176,14 @@ Source-supplied locators, not independently audited by this harvest:
    auto mode in production*, dated 2026-08-07 by the source, with the former
    updated 2026-10-22. Titles and dates are source-reported; primary pages
    and evaluation methods were not inspected by this harvest.
-7. ParallelPilot, [arXiv 2609.33113](https://arxiv.org/abs/2609.33113),
-   September 2026 as identified by the organisation-scale source. The harvest
-   read the captured note, not the paper; measured models are not identified.
-8. Jellyfish Claude Code concurrency account, dated 2026-03-23 by the source,
-   and OpenAI Codex weekly-concurrency account, labelled H1 2026. Exact page
-   locators, populations and collection methods are absent from the capture.
+7. ParallelPilot, [arXiv 2609.33113v1](https://arxiv.org/html/2609.33113v1),
+   dated 2026-09-27 by the verification source; Table 7.1 reportedly checked
+   in raw HTML on 2026-11-02. The harvest read the captured note, not the paper.
+8. Jellyfish Research Substack concurrency account, dated 2026-03-23 by the
+   source; helper-read support, without an exact page locator in the capture.
+9. OpenAI Codex usage paper, [arXiv 2606.26959](https://arxiv.org/abs/2606.26959),
+   dated 2026-06-25 by the source; abstract reading reported on 2026-11-02,
+   not independently fetched or reproduced by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/human-oversight-evidence-2026.md.
@@ -187,3 +199,8 @@ Peak-concurrency refinement:
 
 Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
 2026-11-02; notes/measured-interactive-agent-span-is-low-single-digits.md.
+
+Measurement-definition refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/supervision-span-evidence-measures-sessions-not-efforts.md.

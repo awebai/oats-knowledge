@@ -157,6 +157,11 @@ can be removed as capability improves.
 
 # Consequence for comparisons
 
+For compaction, the [recovery lesson](/nodes/market-research-expert/lessons/coordination-recovery-is-not-task-correctness.md)
+owns the later source-reported distinction between summary omission,
+disk re-injection and subsequent compliance. Test those separately rather
+than assign one omission rate to every instruction-storage mechanism.
+
 For each component, record the failure it addresses and compare the same
 model and task with and without it, including correctness, cost and retained
 state quality. Re-run that comparison after a model change; the
@@ -232,3 +237,7 @@ Evidence: OKF proposal from market-research-expert/know-practice-research-expert
 Evidence for the recency refinement: OKF proposal from
 market-research-expert/coord-practice-research-expert, 2026-11-02;
 notes/multi-agent-gains-shrink-with-capability.md.
+
+Evidence for the compaction cross-reference: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/compaction-loss-applies-to-conversation-only-rules.md.

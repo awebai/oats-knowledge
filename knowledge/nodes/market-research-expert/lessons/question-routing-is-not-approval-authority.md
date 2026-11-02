@@ -104,9 +104,10 @@ Claude Code Projects combines a coordinator conversation with worker threads,
 but keeps approval prompts inside the worker's thread: an instruction to
 proceed in the coordinator conversation does not answer that prompt [4].
 This is a **source-reported documentation reading**, not a runtime test or
-an independently checked product contract. The capture supplies no precise
-Projects page locator; its launch date is secondary-sourced and is not used
-here. No measured model or outcome comparison is identified.
+an independently checked product contract. That initial capture supplied no
+precise Projects page locator; its secondary-sourced launch date is not used here.
+A later verification pass supplies the documentation locator below [4], not
+a measured model or outcome comparison.
 
 This adds an approval-surface distinction to the earlier authority question:
 a conversation may carry intent without reaching the prompt that accepts
@@ -114,6 +115,24 @@ confirmation. It does not show that authenticated authorization cannot be
 relayed, nor that all products bind consent to the same thread. A coordinator
 front and direct worker access can coexist; neither establishes better
 oversight. The existing supervision lesson owns that outcome question.
+
+## Project scope and overview are separate from approval authority
+
+The verification source reports reading the Projects documentation [4] on
+**2026-11-02**: a goal is optional, a project can receive an ongoing stream of
+tasks, and its Overview pane tracks threads and includes a Pull requests tab.
+This contradicts an unqualified description of coordinators as confined to
+one finite goal or of the product as lacking a project overview. It does not
+establish a dedicated per-epic interface or measured oversight benefit.
+
+The same reading describes **single-user ownership**, no organization-level
+project controls during the beta, and public-beta availability on Pro, Max
+and Ultra rather than Team or Enterprise. These are dated, source-reported
+documentation conditions, not tested enforcement or a permanent availability
+register. They bound this product reading; they do not prove that no shipping
+coordinator anywhere spans teams or a portfolio. A visible overview, an
+open-ended work stream and multi-human authority are different properties.
+The thread-local confirmation boundary above remains separate from all three.
 
 ## Merge-review credit is not human confirmation
 
@@ -168,8 +187,9 @@ tests, not in a knowledge-only workaround.
 
 **Owner and recheck:** market-research-expert. Recheck when Claude Code agent
 teams leave experimental status, the cited vendor contracts or team review
-policies change, approval-quality evidence becomes available, or a proposed
-OATS approval primitive provides a readable contract and enforcement evidence.
+policies change, Projects leaves beta or reaches Team/Enterprise,
+approval-quality evidence becomes available, or a proposed OATS approval
+primitive provides a readable contract and enforcement evidence.
 Update or supersede this dated finding and log the change; retain unknown
 behavior as unknown until then.
 
@@ -186,8 +206,10 @@ Source-supplied locators, not independently audited by this harvest:
 3. Claude Code auto-mode classifier and scheduled-task documentation,
    source-reported reading dated 2026-11-02; precise page locators absent
    from the captured evidence.
-4. Claude Code Projects documentation, as reported by the oversight source
-   on 2026-11-02; precise page locator absent from the capture.
+4. [Claude Code Projects documentation](https://code.claude.com/docs/en/claude-projects),
+   source-reported reading on 2026-11-02. The verification pass supplies this
+   locator and reported scope/overview/availability details; neither pass
+   constitutes a runtime test or an independent page check by this harvest.
 5. GitHub Copilot approval announcement, dated 2026-10-28 by the source;
    source-reported primary-page recheck on 2026-11-02. Exact page locator
    absent from the capture.
@@ -209,3 +231,7 @@ Merge-review refinement:
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/human-consent-agent-approval-split-2026.md.
+
+Evidence for the Projects scope refinement: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/claude-projects-coordinator-is-goalless-and-single-user.md.

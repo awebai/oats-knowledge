@@ -149,6 +149,21 @@ record or provenance in the name of blinding; test whether the completion
 claim adds useful information or biases the judgment. The abstract report
 does not show that claim-blind judging alone is sufficient verification.
 
+# Cross-repository plans are not behavioral verification
+
+The source-reported [WideSWE analysis](/nodes/market-research-expert/limitations/cross-repo-architecture-ownership-evidence-gap.md)
+distinguishes finding the affected repositories from producing correct
+behavior after editing them. Its failure breakdown and experimental limits
+live there, rather than forming a second benchmark account here.
+
+For cross-repository evaluations, compare repository-coverage checks with
+protected runnable checks of the combined behavior. Reviewing a plan or list
+of target repositories cannot by itself establish that the resulting changes
+work together. This motivates testing cross-repository oracles, not a measured
+claim that one review design beats another: the captured study did not compare
+architect review or dependency-map interventions. Checks belong in the
+evaluation architecture and executable tests, not only in a reviewer prompt.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
@@ -221,3 +236,7 @@ Claim-exposure refinement:
 
 Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
 2026-11-02; notes/per-action-human-approval-does-not-hold-at-volume.md.
+
+Evidence for the cross-repository consequence: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/cross-repo-agent-failures-are-mostly-post-edit.md.

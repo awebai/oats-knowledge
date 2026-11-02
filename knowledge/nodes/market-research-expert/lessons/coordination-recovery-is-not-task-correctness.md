@@ -75,33 +75,44 @@ in stalled work or that fencing exists only in small projects. Any selected
 ownership-transfer design needs enforcement and stale-writer tests in the
 owning implementation; this research is not an OATS lease specification.
 
-# Compaction can preserve features while losing operating constraints
+# Compaction: summary omission is not instruction violation
 
-A further 2026-11-02 proposal reports checking the HTML of a compaction
-study [5]. In the source's reading, process instructions and scope exclusions
-were lost more often than feature requirements, and repeated compactions
-increased loss. The note names **Opus 4.6 and GPT-5.3-Codex** for its
-per-compaction comparison. These are source-reported findings, not a
-replication, a cross-model safety ranking or a measurement on later models.
-The captured summary does not preserve the sample, scoring definitions or
-model/configuration breakdown needed to reuse its precise rates.
+A verification pass dated **2026-11-02** supplies a narrower reading of
+arXiv 2610.31778v1 [5]. Its SWE-chat analysis covered **44 Claude Code
+sessions and 269 constraints**, judged by LLMs, chiefly Sonnet 5, against
+**the next compaction summary**. The source reports omission rates of
+35.9% for process constraints, 36.8% for scope exclusions and 6.2% for
+features, with Wilson 95% intervals of 23–52%, 19–59% and 3–13%, respectively.
+These are shares absent from that summary, **not observed violation rates**.
+The session agent models are unstated; do not infer them from the judge or
+the product name. These are source-reported readings, not harvest replication.
 
-For recovery comparisons, check retention of **ownership, scope exclusions
-and process obligations separately from feature requirements**. A plausible
-feature summary is not evidence that the continuing session still knows its
-limits. Explicitly retained, re-read records and status checks against work
-artifacts are candidate defenses to test; the reported study does not show
-that either is sufficient. Where a rule can be enforced, permission checks
-and executable tests are the preferred elimination route, not reliance on
-remembering a file.
+The paper's Opus 4.6 versus GPT-5.3-Codex comparison and growth over repeated
+rounds belong to a **separate ProgramBench/OpenCode experiment on three
+anti-cheating rules**. Do not assign those models or repeated-round results
+to the SWE-chat population. This capture does not establish a newer-model
+retention result or a measured fresh-restart advantage over compaction.
 
-The source says the paper proposes but does not run a comparison between
-compaction and a fresh restart. It therefore supplies no measured restart advantage or
-basis for a mandatory respawn policy. The [topology lesson](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
-owns the separate missing coordinator-span comparison; retention loss does
-not determine a safe number of concurrent efforts. The
-[scaffolding lesson](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md)
-remains canonical for general model-dependent memory retesting.
+The same source reports reading Claude Code's context-window documentation
+[6]: root CLAUDE.md, unscoped rules, auto memory and the plan-mode plan are
+re-injected from disk after compaction; invoked skill bodies are re-injected
+subject to caps. Path-scoped rules and nested CLAUDE.md are instead summarized.
+This is a dated documentation reading, not a runtime test or a guarantee that
+reloaded instructions are followed.
+
+For recovery evaluation, distinguish **summary retention, disk re-injection
+and subsequent compliance**. Do not apply the study's omission percentages to
+all file-backed rules, or treat them as measured rates specifically for
+path-scoped files: the capture provides no storage-location breakdown. The
+reported mechanism motivates testing placement of essential rules in
+re-injected files rather than conversation-only state; it does not prove that
+placement prevents violations. Enforce machine-checkable constraints in
+permissions and executable tests instead of relying solely on remembered
+instructions. General model-dependent retesting remains in the
+[scaffolding lesson](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
+The [topology lesson](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
+owns the separate coordinator-span gap; retention loss determines neither a
+safe effort count nor a mandatory respawn policy.
 
 # Limits and refresh
 
@@ -119,8 +130,9 @@ that ranking is not promoted.
 primary contracts or controlled coordination/recovery trials establish these
 guarantees and outcome measures, progress-based renewal and stale-claimant
 enforcement are documented and tested, or controlled compaction/restart
-studies measure constraint retention and task outcomes. Update or supersede
-this conclusion and log the change. Framework changes and OATS operating decisions require
+studies and changed re-injection contracts connect retention to compliance
+on named models. Update or supersede this conclusion and log the change.
+Framework changes and OATS operating decisions require
 their owners' separate review; this research grants no implementation authority.
 
 # Citations
@@ -138,9 +150,11 @@ Source-supplied locators, not independently audited by this harvest:
 4. Beads v1.3.0 release notes, dated 2026-09-15 by the recency source;
    source-reported recheck on 2026-11-02. Exact release-page locator absent
    from the captured proposal and note; no behavior reproduced here.
-5. Compaction study, [arXiv 2610.31778](https://arxiv.org/abs/2610.31778), dated
-   2026-10-22 by the source; HTML reportedly checked on 2026-11-02, not
-   independently fetched or experimentally reproduced by this harvest.
+5. [Compaction study, arXiv 2610.31778v1](https://arxiv.org/html/2610.31778v1),
+   dated 2026-10-22 by the source; section 4.2 reportedly checked in raw HTML
+   on 2026-11-02. No primary page was fetched by this harvest.
+6. [Claude Code context window](https://code.claude.com/docs/en/context-window),
+   source-reported reading on 2026-11-02; product behavior not tested here.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/distributed-systems-primitives-that-map-to-agents.md.
@@ -152,3 +166,6 @@ Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expe
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/coordinator-span-is-unmeasured-state-not-headcount.md.
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/compaction-loss-applies-to-conversation-only-rules.md.
