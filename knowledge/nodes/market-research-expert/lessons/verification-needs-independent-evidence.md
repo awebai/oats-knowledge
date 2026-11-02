@@ -164,6 +164,40 @@ claim that one review design beats another: the captured study did not compare
 architect review or dependency-map interventions. Checks belong in the
 evaluation architecture and executable tests, not only in a reviewer prompt.
 
+# Refinement: context access is not the opposite of independence
+
+The round-4 verification pass of **2026-11-02** adds source-reported context
+leads: Baker et al. [10] compare chain-of-thought with action-only monitoring,
+and Meta's ARCTIC [11] uses intent from conversation logs. The proposer
+reports reading both abstracts; body-level Baker figures came through a
+researcher and were explicitly not verified by the proposer. Neither short
+account retains the evaluated model identities, complete methods or an
+isolated plan-context intervention. No accuracy or F1 estimates are retained,
+and no current-frontier judge result follows. Baker's 2025 evidence remains
+background unconfirmed for current models; a 2026 paper date alone does not
+establish ARCTIC's measured generation.
+
+These leads motivate separating **access to intended requirements and useful
+execution context** from **control over acceptance criteria or pressure to
+agree with the builder**. They do not prove that revealing a builder's plan
+improves merge decisions, nor that withholding its reasoning is always safer.
+Compare specification access, reasoning access, authorship labels and
+completion claims separately; the earlier claim-exposure result does not
+justify removing requirements or the execution record.
+
+The note also reports no detected author-versus-fresh-review difference in
+arXiv 2606.20093 [12]. This researcher-read lead supplies no model identities,
+full protocol or uncertainty here. A null result is not equivalence and does
+not establish that a fresh reviewer is useless. The existing self-preference
+and conditional error-agreement accounts above already explain why a new
+instance or provider is not proof of independent evidence; the new note's
+shorthand must not turn them into a coding-review failure rate or a claim
+that separation can never help.
+
+The [human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md)
+owns the distinct question of when to review direction and the untested
+agent-merge-gate comparison. These context leads select no review policy.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
@@ -185,9 +219,9 @@ layer. See [mechanism rather than persona attribution](/nodes/market-research-ex
 and [retesting scaffolding](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md).
 
 **Owner and recheck:** market-research-expert. Recheck when an independent
-reviewer benchmark or controlled same-model/cross-model comparison measures
-these properties. Record changed findings through an update or supersession
-and a node-log entry.
+reviewer benchmark or controlled model, context-access or authorship
+comparison measures these properties. Record changed findings through an
+update or supersession and a node-log entry.
 
 # Citations
 
@@ -215,6 +249,15 @@ and a node-log entry.
 9. [arXiv 2610.29609](https://arxiv.org/abs/2610.29609), abstract-only
    report identified by the oversight investigation on 2026-11-02; measured
    models unstated in the capture, not independently audited here.
+10. Baker et al., [arXiv 2503.11926](https://arxiv.org/abs/2503.11926),
+    March 2025; abstract read by the round-4 proposer on 2026-11-02,
+    quantitative body details researcher-read and not verified by that proposer.
+11. Meta ARCTIC, [arXiv 2607.29516](https://arxiv.org/abs/2607.29516),
+    July 2026; abstract reading reported by the same proposer on 2026-11-02.
+12. Author-versus-fresh-review comparison,
+    [arXiv 2606.20093](https://arxiv.org/abs/2606.20093), June 2026;
+    researcher-read summary supplied by the round-4 source. No primary paper
+    in [10–12] was fetched or experiment replicated by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/builder-checker-separation.md (initial synthesis and
@@ -240,3 +283,8 @@ Evidence: OKF proposal from market-research-expert/coord-oversight-research-expe
 Evidence for the cross-repository consequence: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/cross-repo-agent-failures-are-mostly-post-edit.md.
+
+Context-access refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/plan-blind-merge-gate-loses-measured-context.md.

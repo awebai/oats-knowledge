@@ -22,7 +22,7 @@ are promoted elsewhere.
 * [Compare knowledge systems by authority and retrieval evidence, not storage format](conclusions/agent-knowledge-storage-2026.md) - The 2026-11-02 research distinguishes authority, recall, retrieval and maintenance evidence without treating storage format, layout or edit frequency as guarantees of knowledge quality.
 * [Knowledge-shape evidence does not establish a durable-project-memory winner](conclusions/agent-knowledge-shape-evidence-2026.md) - The 2026-11-02 research pass identifies no experiment isolating a type-label benefit and reports competitive simple memory baselines, without establishing a best representation for durable project judgment or current models.
 * [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - The 2026-11-02 synthesis preserves vendor disagreements and model-specific findings while distinguishing collaboration, fleet telemetry and the unresolved multi-human coordination boundary.
-* [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research supports testing selective oversight gates but adds source-reported evidence of agent influence on human judgment, leaving coding-review transfer, human capacity and downstream quality unresolved.
+* [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research motivates testing oversight timing, reviewer context and agent influence separately, without establishing a best merge gate, sustainable human capacity or downstream quality.
 
 ## Research lessons
 
