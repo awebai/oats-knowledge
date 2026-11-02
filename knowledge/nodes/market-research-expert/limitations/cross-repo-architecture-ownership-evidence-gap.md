@@ -37,8 +37,11 @@ headline/best-configuration success rates. A later verification note supplies
 more detail on the **failure-category table**, not a resolution of that
 success-score discrepancy. A further planning-practice note identifies the
 joint/independent subexperiment's model and reports scores, but does not
-reconcile the earlier Table 1/text conflict. No numerical success leaderboard,
-joint/independent score or request-cost ratio is promoted here.
+reconcile the earlier Table 1/text conflict. The round-5 note now explicitly
+identifies **RQ3** and supplies paired feature counts and request use for that
+subexperiment, retained below as a separate source-reported result. This does
+not resolve the earlier headline discrepancy or establish a numerical model
+leaderboard.
 
 The **2026-11-02 verification pass** reports 120 tasks mined from merged PRs,
 with hidden fail-to-pass and pass-to-pass tests in each repository. Across
@@ -56,27 +59,36 @@ behavior. The captured table is source-reported, not independently fetched
 or reproduced by this harvest. It establishes no general ranking for newer
 models or production repositories.
 
-In a separate comparison over **89 cases in one configuration**, giving
-independent executions their target repositories did not improve the aggregate
-result over joint execution. The source reports opposite directions by task:
-independent execution helped bug fixes and hurt features. **Total budgets
-were unequal**. A further source-reported HTML check on **2026-11-02** names
-this subexperiment's scaffold/model as **Codex CLI with GPT-5.6-sol**, filling
-the earlier verification capture's missing identifier. It describes 89 paired
-cases, independent runs confined to one repository and greater API-request
-use by those runs. Request counts are not themselves token or monetary-cost
-budgets, and this is not an equal-budget topology comparison.
+In the separate **RQ3 comparison, 89 paired cases with Codex CLI and
+GPT-5.6-sol**, the source reports opposite directions by task: independent
+execution helped bug fixes and hurt features, without an aggregate advantage
+over joint execution. The round-5 HTML reading on **2026-11-02** clarifies
+that independent means **isolated single-repository runs given the identical
+prompt**, with a full run for each repository, not agents coordinating from
+separate locally authored plans.
 
-That later source also reports case studies of independent runs making
-incompatible cross-repository assumptions. These are illustrative cases,
-not a measured prevalence or an isolated causal effect of split ownership.
-The captured note does not retain the exact comparison-table identifier,
-full configuration or a resolution of the previously flagged success-score
-conflict. Its reported direct check remains source-reported, not harvest
-replication. This evidence is not a controlled estimate of scope-discovery
-benefit or proof that independent work never helps.
+For **60 feature cases**, that reading reports **26 successes for joint
+execution versus 19 for independent execution**, with **11 versus 4**
+discordant pairs in those respective directions. These are source-reported
+counts in one configuration, not a significance or causal claim. The
+proposal's McNemar calculation is the researcher's own analysis, not a
+paper-reported result adopted here. The source also reports **3.13 times as
+many API requests** for the independent condition, explaining that each
+repository receives a full run. Request counts are not token or monetary
+costs; the comparison does not hold total budgets equal. These RQ3 details
+do not certify the separate headline/best-configuration scores.
 
-No dependency-map, code-search or architecture-owner intervention was tested
+The earlier planning-practice source reports illustrative incompatible
+cross-repository assumptions. The round-5 source qualifies the paper's
+recovery comparison by whether a repository was modified as **descriptive,
+not causal**. Neither is a measured prevalence of contract errors or an
+experiment repairing them with contracts. The capture still lacks full
+configuration, scoring and uncertainty details, and the reported direct
+checks are not harvest replication. This evidence is not a controlled
+estimate of scope-discovery benefit or proof that independent work never helps.
+
+The captured RQ3 account has **no planner, contract or coordinator arm**;
+no dependency-map, code-search or architecture-owner intervention was tested
 in this evidence. Do not equate any failure share with the causal cost of
 lacking an architecture agent, or treat a pre-fan-out plan review as a measured
 remedy. The [verification lesson](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)
@@ -115,8 +127,9 @@ permanent market claim.
 
 # Citations
 
-Source-supplied locators and descriptions; this harvest inspected the captured
-proposal and named note, not product pages or experiments:
+Source-supplied locators and descriptions; these refinements use captured
+proposals and named notes, not independently fetched product pages or
+replicated experiments:
 
 1. Sourcegraph Agentic Batch Changes, Moderne Moddy, Copilot projects and
    Augment Intent, as named in the source's 2026-11-02 research pass; exact
@@ -129,6 +142,9 @@ proposal and named note, not product pages or experiments:
    The later planning-practice source reports checking the 89-case
    joint/independent section in HTML on 2026-11-02 and supplies its model;
    its capture does not reconcile the earlier success-score discrepancy.
+   The round-5 verification source identifies RQ3, the identical-prompt
+   independent condition, paired feature counts and request ratio; these are
+   scoped to RQ3 and do not resolve or validate the earlier headline scores.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/cross-repo-architecture-ownership-is-unshipped.md.
@@ -139,3 +155,7 @@ Evidence: OKF proposal from market-research-expert/coord-claims-verification-exp
 Evidence for the subexperiment model and scope refinement: OKF proposal from
 market-research-expert/coord-practice-research-expert, 2026-11-02;
 notes/multi-domain-plan-authorship-2026.md.
+
+Evidence for the RQ3 intervention, paired-count and request-use qualification:
+OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/split-implementation-tax-survives-full-spec.md.
