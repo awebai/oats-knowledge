@@ -42,13 +42,43 @@ The harvest checked the captured note, not the underlying experiments. It
 does not retain numerical benchmark rates or rank review products on this
 evidence.
 
+# Authorship-label evidence added on 2026-11-02
+
+A later source reports re-reading Chae et al. [3], a creative-writing study
+with ten judges including **Claude Opus 4.7, GPT-5.5 and Gemini 3.1 Pro**.
+It reports a positive blind self-preference coefficient across all ten after
+controlling selector quality and judge severity. The coefficient becomes
+near zero and statistically non-significant **only after excluding two
+low-discrimination judges, Llama 4 Maverick and Mistral Large 3**. Do not
+turn that restricted result into a finding that blind self-preference has
+vanished across models; non-significance is not proof of no effect.
+
+In the labelled condition, displayed authorship reportedly shifted scores,
+while actual source and its interaction with the label were non-significant.
+The note reports different patterns by judge, including a non-significant
+self-boost for Opus 4.7 and an other-author penalty for GPT-5.5. This motivates
+**hiding authorship as an evaluation control**, not a claim that switching
+models never helps or that blinding guarantees independent judgment.
+
+This is one source-reported study in one domain, not a coding-review or
+knowledge-promotion trial, and it supplies no Claude 5 or GPT-6-class result.
+The capture does not retain the full protocol, sample or uncertainty needed
+to transfer its numerical effect sizes into review-design estimates. The
+harvest read the note, not the paper, and did not reproduce the experiment.
+The newer result qualifies how the older self-recognition finding should be
+used; it does not erase it or establish a universal model ranking.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
 what execution evidence reaches the reviewer, and whether the builder can
 report impossibility instead of being rewarded only for apparent success.
 Treat an independent context or a different model as a hypothesis to test,
-not a substitute for protected evaluation and observable results.
+not a substitute for protected evaluation and observable results. Where the
+evaluation does not need authorship information, blind it and test label
+sensitivity rather than crediting a model swap alone with reviewer independence.
+Keep provenance available for audit without treating an author label as
+quality evidence.
 
 This is evaluation judgment, not a manual substitute for enforcement:
 protection of acceptance artifacts and held-out execution belong in the
@@ -68,6 +98,14 @@ and a node-log entry.
 2. Self-preference study, [arXiv 2404.13076](https://arxiv.org/abs/2404.13076),
    and Huang et al., ICLR 2024: source-reported readings, not independently
    re-fetched for this harvest.
+3. Chae et al., [arXiv 2608.18091v1](https://arxiv.org/html/2608.18091v1),
+   identified by the source as Findings of EMNLP 2026; source reports
+   re-reading it on 2026-11-02. Not independently fetched by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/builder-checker-separation.md.
+
+Authorship-label refinement:
+
+Evidence: OKF proposal from market-research-expert/know-practice-research-expert,
+2026-11-02; notes/authorship-labels-bias-judges.md.

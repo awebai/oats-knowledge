@@ -11,6 +11,7 @@ are promoted elsewhere.
 
 ## Research conclusions
 
+* [Separate knowledge consolidation from approval and review outcomes](conclusions/agent-knowledge-practice-2026.md) - The 2026-11-02 investigation reports proposal and consolidation workflows but establishes neither a universal vendor approval contract nor the outcome advantage of a separate knowledge judge.
 * [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - A 2026-11-02 research synthesis records four live disagreements in vendor coordination practice and agent-count and equal-token findings, linking the topology, verification and persona lessons for the claims they own.
 * [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research pass motivates a selective-gate hypothesis and leaves sustainable agents per human and downstream change quality unresolved; supervision-interface evidence is owned by the supervision lesson.
 
