@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A re-dated claim must be re-verified against the release it now names
-description: When a doc sentence of the form "as of version X, Y is broken" is updated to a newer version during a release, the reviewer checks whether Y is still true at that version; a version bump inside a factual claim is either a verified fact or a doc error, never a mechanical edit.
+description: Verify version-qualified behavior against the named release, including a skill's feature floor; an earliest possible future version is a planning bound, not evidence that the feature shipped.
 tags: [lesson, review, docs, release, versions]
-timestamp: 2026-09-24
+timestamp: 2026-11-02
 ---
 
 Learned 2026-09-24 by the maintainer while reviewing a provider release's
@@ -46,3 +46,41 @@ the authority of a freshly updated version number.
   green mechanical checks do not cover prose, and
   [the merge range is the scope](/nodes/oats-maintainer/lessons/pr-branch-merge-range-scope.md)
   includes every touched sentence.
+
+# Feature floors need a shipped feature (2026-11-02)
+
+The same distinction applies before a release, not just when re-dating a
+limitation. A skill's claim that a feature needs package version X or later
+must be checked against a tag that actually includes that feature. Before it
+ships, say "the release that ships it"; an explicitly labelled earliest
+possible version can record a planning bound, but cannot certify feature
+availability. If the feature misses a release, correct the claim rather than
+letting the guessed floor become a shipped promise.
+
+The source reports that getting-started guidance named oats.aweb 1.33.0 for
+a root route still pending in oats-aweb#147. The 0.69.9 pin move exposed the
+mismatch through a skill-versus-mirror test. The skill was live from main, so
+the misleading version line mattered at merge, not only at the next tag.
+That timing is the new lesson; the actual floor remains in release evidence,
+not this knowledge record.
+
+The [correction at b0ad6929](https://github.com/awebai/oats/commit/b0ad692950ba6df50e4a76604c8192f56a9d9410)
+was read during harvest: it changes the skill's floor to 1.34.0 and describes
+that version as the earliest possible shipment in the test. The
+[second read](https://github.com/awebai/oats/pull/1709#issuecomment-6575948203)
+explicitly says no 1.34.0 tag existed then. Neither proves shipment in
+1.34.0, and the still-unqualified skill wording is not adopted as evidence
+that a future numeric floor is safe.
+
+Prefer deriving feature-availability guidance from one release-qualified
+source, with CI exercising the documented route against its named released
+package rather than merely comparing duplicate version literals. The
+reported test caught this instance; no general version-claim gate is claimed.
+The remaining semantic check belongs in existing release and skill-review
+guidance, not a second procedure or a knowledge-only permanent workaround.
+No skill or test is changed by this harvest.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-02; notes/a-skill-names-a-version-only-once-it-ships.md. The CI failure
+and main-served timing are source-reported; the public correction and reader's
+assessment were checked, but no CI run, release or runtime was reproduced.
