@@ -94,6 +94,16 @@ remains authoritative. Nor does it replace [durable specialization](/nodes/oats-
 role prompts within one run and preservation of reviewed judgment across
 sessions are different claims.
 
+# Plan authorship has its own canonical home
+
+The one-accountable-writer candidate above does not settle who plans
+cross-area work. The
+[multi-domain planning conclusion](/nodes/market-research-expert/conclusions/multi-domain-plan-authorship-evidence-2026.md)
+owns that question, which covers the author of the integrated plan, the
+authors of local plans and the parties agreeing a shared interface. It also
+holds the round-4 product survey of plan authorship. That survey establishes
+no outcome advantage for a single writer.
+
 # Fleet overview is not evidence of multi-human coordination
 
 A further **2026-11-02** investigation reports a distinction between

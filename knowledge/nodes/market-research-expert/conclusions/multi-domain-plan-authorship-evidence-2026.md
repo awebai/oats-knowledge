@@ -38,6 +38,23 @@ a maintained enforcement contract. The useful research distinction is between
 **who agrees to consume it**. A hierarchy of artifacts does not settle the
 number of planners or demonstrate successful integration.
 
+A separate round-4 survey, also dated **2026-11-02** [5], reports the same
+outline across products. A main session, lead or coordinator writes the
+cross-area plan, and delegated agents plan the slices assigned to them. The
+source names Anthropic, OpenAI, Cursor, GitHub, Google, Devin, Factory, Kiro
+and Augment, but its note keeps no primary page for each product. Treat the
+survey as corroborating source-reported practice. It is not a complete
+census, not a verified common contract and not proof that domain agents never
+co-author a plan. The same note names Spec Kit's *Contract-Driven
+Development* guide for this split between local and shared artifacts: each
+project keeps its own spec, plan and tasks, and an owner drafts an
+inter-project contract that its consumers agree before dependent work
+starts. The note gives no guide URL or version, so the guide is a lead to
+check against the discussion and issue above, not an additional verified
+source. Several local plans under one contract are not evidence that several
+agents wrote one plan together. Likewise, one author of the integrated plan
+does not mean there is only one planning artifact.
+
 The source also describes an Abnormal AI engineering account, dated
 2026-03-02, in which an agent drafts the whole design and domain teams supply
 constraints and approve [2]. It supplies no baseline, measured model or
@@ -109,8 +126,9 @@ changes the domain roster or supersedes an accepted review decision.
 
 **Owner and refresh:** market-research-expert. Recheck on a documented
 federated-planning deployment, a matched planner/coordinator trial, exact
-model identification or newer-model replication, or revised Spec Kit
-contract guidance. Update or supersede this dated conclusion and log the
+model identification or newer-model replication, revised Spec Kit
+contract guidance, or versioned primary contracts that document
+co-authorship, local-plan and interface-agreement boundaries. Update or supersede this dated conclusion and log the
 change; do not silently turn a practice synthesis or search gap into policy.
 
 # Citations
@@ -130,6 +148,15 @@ source's reported readings are not independent harvest verification.
    as ICLR 2026 by the source; paper version unstated in the capture.
 4. [The Specification Gap, arXiv 2603.24284](https://arxiv.org/abs/2603.24284),
    dated March 2026 by the source; paper and exact model versions unstated.
+5. Round-4 product survey and GitHub Spec Kit *Contract-Driven Development*
+   guide, both named by the source on 2026-11-02. The capture gives the guide
+   title and an issue reference, but no guide URL, version or full contract.
+   Neither the guide nor any vendor's planning page was fetched by this
+   harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/multi-domain-plan-authorship-2026.md.
+
+Evidence for the round-4 product survey: OKF proposal from
+market-research-expert/coord-frontier-research-expert, 2026-11-02;
+notes/one-plan-author-per-area-specs.md.
