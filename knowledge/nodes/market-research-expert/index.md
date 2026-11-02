@@ -15,6 +15,7 @@ are promoted elsewhere.
 
 ## Research conclusions
 
+* [Separate knowledge consolidation from approval and review outcomes](conclusions/agent-knowledge-practice-2026.md) - The 2026-11-02 investigation reports proposal and consolidation workflows but establishes neither a universal vendor approval contract nor the outcome advantage of a separate knowledge judge.
 * [Compare knowledge systems by authority and retrieval evidence, not storage format](conclusions/agent-knowledge-storage-2026.md) - The 2026-11-02 research pass distinguishes reviewed authority from agent-written recall and treats pointer indexes and agentic search as bounded retrieval candidates, not universal winners.
 * [Knowledge-shape evidence does not establish a durable-project-memory winner](conclusions/agent-knowledge-shape-evidence-2026.md) - The 2026-11-02 research pass identifies no experiment isolating a type-label benefit and reports competitive simple memory baselines, without establishing a best representation for durable project judgment or current models.
 * [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - The 2026-11-02 synthesis preserves four vendor-practice disagreements and model-specific coordination findings, distinguishing avoidance of collaboration from successful shared work.

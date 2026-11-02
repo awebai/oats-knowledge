@@ -87,6 +87,35 @@ verified result: [human-oversight evidence](/nodes/market-research-expert/conclu
 already owns the approval-habituation concern. Neither claim licenses bypassing
 human approval or removing existing authority controls.
 
+# Newer-model evidence added on 2026-11-02
+
+A later source reports re-reading a **claude.dev post dated 2026-07-24** [9]
+in which Anthropic describes substantial Claude Code system-prompt removal
+for **Claude Opus 5 and Claude Fable 5**, with no measured loss on its coding
+evaluations. This is a **source-reported vendor claim**, not an independent
+ablation: the captured note says no evaluation design or scores were
+published, and retains no exact post URL. It motivates testing older prompt
+scaffolding on those models; it does not establish a transferable safe
+removal fraction or justify removing authority controls.
+
+The same note supplies a **secondhand researcher summary** of *Memory Tax*
+[10], dated **2026-10-25**, on **GPT-5.6 “Luna”**. It reports two-round
+retrieval-augmented generation outperforming full context and the eleven
+memory systems compared on **LongMemEval-s**. The proposer explicitly did
+not re-read this paper. The capture lacks complete configurations, metric
+and uncertainty detail; retain the bounded comparison, not its numerical
+leaderboard or a universal retrieval winner. The note also flags sensitivity
+to judge prompts without retaining the experimental details needed to
+quantify it.
+
+This adds a reported memory-system accuracy comparison, not an independently
+checked memory-outcome evaluation by this harvest. It neither retroactively
+changes the limits of the earlier capture nor demonstrates that accumulated
+project knowledge makes later instances learn more. The measured comparison
+is on GPT-5.6; the Claude 5 evidence above remains vendor-only, and this
+capture establishes no GPT-6-class measured result. Retrieval accuracy,
+longitudinal learning and safe knowledge adoption are different outcomes.
+
 # Consequence for comparisons
 
 For each component, record the failure it addresses and compare the same
@@ -124,6 +153,12 @@ extend one lab's report to every model or task.
 6. Compaction and safety-rule retention, [arXiv 2608.22752](https://arxiv.org/abs/2608.22752).
 7. MoM, [arXiv 2609.25054](https://arxiv.org/abs/2609.25054).
 8. Poisoned memory writes, [arXiv 2605.15338](https://arxiv.org/abs/2605.15338).
+9. claude.dev post, dated 2026-07-24 by the source, describing Claude Code
+   prompt removal for Opus 5 and Fable 5; source reports a 2026-11-02 re-read,
+   but the capture supplies no exact URL. Not independently fetched here.
+10. *Memory Tax*, [arXiv 2610.34073](https://arxiv.org/abs/2610.34073), dated
+    2026-10-25 by the source; researcher-summary support only, not re-read by
+    the proposer or independently fetched by this harvest.
 
 Items 3–8 are source-supplied preprint locators, not independently fetched or
 experimentally reproduced by this harvest.
@@ -140,3 +175,8 @@ Memory-specific addition:
 
 Evidence: OKF proposal from market-research-expert/know-storage-research-expert,
 2026-11-02; notes/curation-and-write-control-survive-model-gains.md.
+
+Newer-model refinement:
+
+Evidence: OKF proposal from market-research-expert/know-practice-research-expert,
+2026-11-02; notes/scaffolding-and-memory-on-newer-models.md.
