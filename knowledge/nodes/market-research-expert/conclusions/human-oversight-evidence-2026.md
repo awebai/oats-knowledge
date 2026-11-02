@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Attention is an oversight risk, not a measured universal agent limit
-description: The 2026-11-02 research supports testing selective oversight gates but adds source-reported evidence of agent influence on human judgment, leaving coding-review transfer, human capacity and downstream quality unresolved.
+description: The 2026-11-02 research motivates testing oversight timing, reviewer context and agent influence separately, without establishing a best merge gate, sustainable human capacity or downstream quality.
 tags: [human-oversight, coordination, research, uncertainty]
 timestamp: 2026-11-02
 ---
@@ -116,6 +116,46 @@ oversight. This evidence does not settle the interface comparison, establish
 PR review as every workflow's bottleneck, or demonstrate transfer to newer
 models or long-running coordinator-mediated work.
 
+# Refinement: direction checks and merge checks answer different questions
+
+The round-4 verification pass of **2026-11-02** reports that the Claude Code
+team's review account [10] recommends raising direction disagreements early
+rather than first blocking a finished PR, while its automated reviewer reads
+the PR's stated intent. This is a source-reported reading of a dated team
+practice, not evidence that a plan-time gate improves outcomes or that a
+reviewer needs every part of the builder's reasoning. The distinction between
+agent review credit and human approval already lives in
+[question routing and approval authority](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md).
+
+The same pass describes abandonment and duplication, rather than unwanted
+features, as the leading rejection categories in a 600-rejected-PR sample
+from 2025-era agent work [4]. The reading is researcher-supplied; the capture
+lacks category definitions, sampling details and measured model identities.
+No percentages or population-wide ranking are retained. Even within a
+rejected-PR sample, reasons for rejection do not measure direction-error
+prevalence among all generated changes or the benefit of moving a gate.
+
+For gate comparisons, separate **whether the intended change is wanted**
+from **whether the implementation satisfies the authorized requirements**.
+A direction objection first surfaced after implementation comes too late to
+prevent the work already done; that does not make later review unnecessary.
+A candidate to test is early direction review plus implementation review
+against an approved specification and execution evidence, varying exposure
+to the builder's explanation separately. The
+[verifier-context refinement](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)
+owns the evidence limits: plan blindness, author blindness and independence
+from builder-controlled checks are not interchangeable interventions.
+
+This capture establishes neither agent merge-gate accuracy nor a matched
+planner-versus-approver outcome comparison, and supplies no current-frontier
+judge result. Those are limits of this investigation, not proof that no such
+study exists. The source proposes randomization by epic, seeded errors and
+measurement of total cost per accepted, non-reverted change as candidate
+evaluation elements. It supplies no full protocol or result, so these are
+not a validated trial design or authorization to replace existing checks and
+human merge requirements with an agent gate. The human-influence finding
+above also prevents assuming that early human review restores independence.
+
 # Unknown in this investigation, not absent from the world
 
 The captured evidence does not settle:
@@ -134,9 +174,10 @@ The captured evidence does not settle:
   measures do not answer downstream quality.
 
 Keep these as open comparisons, not claims that no relevant study exists.
-The proposal says a larger report supplies discriminating trials, but those
-trial designs are absent from the captured notes and are not reproduced or
-invented here.
+The earlier proposal says a larger report supplies discriminating trials,
+but its full designs are absent from the capture. The later round-4 proposal
+adds only the candidate evaluation elements above; no full trial protocol is
+reproduced or invented here.
 
 This finding supports the accepted [coordination investigation](/nodes/oats-maintainer/stewardship/coordination-redesign-precedes-adaptive-onboarding.md)
 without selecting its outcome. It neither resumes the deferred
@@ -156,10 +197,10 @@ retained only with its task, model and participant-selection limits above;
 it is not pooled with the earlier results.
 
 Owner: market-research-expert. Recheck on controlled evidence addressing the
-four unresolved comparisons, replication on newer models, or revised
-first-party approval guidance. Update this dated conclusion and its log
-when that evidence changes the judgment; do not convert the hypothesis
-into a product claim without the missing support.
+unresolved comparisons, controlled gate-timing/context evaluations,
+replication on newer models, or revised first-party approval guidance. Update
+this dated conclusion and its log when that evidence changes the judgment;
+do not convert the hypothesis into a product claim without the missing support.
 
 # Citations
 
@@ -184,6 +225,11 @@ Source-supplied locators, not independently audited by this harvest:
 9. OpenAI Codex usage paper, [arXiv 2606.26959](https://arxiv.org/abs/2606.26959),
    dated 2026-06-25 by the source; abstract reading reported on 2026-11-02,
    not independently fetched or reproduced by this harvest.
+10. Claude Code team, [Solving code review at Anthropic](https://claude.dev/blog/solving-code-review-at-anthropic),
+    dated 2026-10-15 by the source; direct reading reported on 2026-11-02.
+    The harvest read the captured proposal and note, not the page. The
+    round-4 reading of [4] came through a researcher, not a new paper check
+    by the proposer or this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/human-oversight-evidence-2026.md.
@@ -204,3 +250,8 @@ Measurement-definition refinement:
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/supervision-span-evidence-measures-sessions-not-efforts.md.
+
+Gate-timing refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
+2026-11-02; notes/plan-blind-merge-gate-loses-measured-context.md.
