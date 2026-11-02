@@ -1,5 +1,12 @@
 # oats-operator-expert log
 
+## 2026-11-02
+
+* **Harvest**: [Disposable trials prefer local messaging](/nodes/oats-operator-expert/decisions/disposable-trials-prefer-local-messaging.md) — preserve the source-selected teardown rationale and hosted-build exception, distinguishing inspected hosted behavior from reported local smoke runs.
+* **Harvest**: [Trial runtime redirection excludes host-service proof](/nodes/oats-operator-expert/lessons/trial-runtime-redirection-excludes-host-service-proof.md) — retain the bounded Linux runtime-manager finding and tick-loop proof limit; do not adopt the blanket HOME-redirection prescription or supersede native-authentication policy. Link existing runner and principal isolation rules.
+* **Harvest**: [Rootless messaging needs database extensions](/nodes/oats-operator-expert/lessons/rootless-messaging-needs-required-database-extensions.md) — preserve the pgserver/pgcrypto failure and successful PostgreSQL 16 alternative, with version-bounded local development findings and executable preflight as the elimination route.
+* **Harvest**: [Claude trial metrics need origin and message identity](/nodes/oats-operator-expert/lessons/claude-trial-metrics-need-origin-and-message-identity.md) — retain the reported 2.1.308 channel-metadata and repeated-usage traps without claiming a universal schema, human authorship or verified cost totals; require parser fixtures rather than a permanent manual recipe.
+
 ## 2026-10-15
 
 * **Harvest**: [Host Git credentials must work for unattended agents](/nodes/oats-operator-expert/decisions/host-git-credentials-must-work-unattended.md) — preserve the source-reported human acceptance of the unattended key trade-off, rejection of an implicit SSH-agent dependency, shared-token least privilege and storage continuity, and the person's sign-off responsibility. Link native forge custody and scope placement without changing their rules; keep commands in the setup skill and live GitHub/macOS verification explicitly unclaimed.
