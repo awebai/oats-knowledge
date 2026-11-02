@@ -165,6 +165,47 @@ a risk class, human confirmation and permission to execute a merge are
 separate properties. A vendor policy difference does not establish which
 policy produces safer or more correct changes.
 
+## A review instruction's source revision is part of its trust boundary
+
+A third verification pass on **2026-11-02** reports that GitHub Copilot code
+review reads custom instructions from the **PR head branch** [7]. The source
+obtained this through documentation search results; the claimed change date
+came from a secondary release summary and is not retained as a verified
+release boundary. The harvest did not fetch the page or run the product.
+
+This is a product lead for testing whether a proposed change to instruction
+files changes the criteria applied to that same proposal. Reading path-scoped
+instructions does not itself establish that an owner authorized their content.
+Check the loaded revision, who can change it, and the gate protecting changes
+to the criteria. Do not infer sufficient protection from CODEOWNERS alone,
+or assume that all review agents read the same branch. The captured pass
+leaves the branch behavior of several other reviewers unresolved.
+
+The source's reading of the Copilot approval announcement above [5] also
+leaves **code-owner approval satisfaction** unresolved. Counting toward a
+configured approval total is not evidence that every required-owner gate is
+satisfied. The capture supplies neither a code-owner contract nor an
+execution test that would resolve that question.
+
+## Approval delegation has prior art outside code-review products
+
+The same pass reports **time-bounded ServiceNow Delegates that can approve
+on a person's behalf**, and Okta governance delegates [8]. ServiceNow support
+came from documentation in search results; Okta was researcher-read. These
+are dated, source-reported prior-art leads, not independently checked
+contracts. They are enough to challenge an unqualified claim that no tool
+supports approval deputies, but not to establish equivalent delegation in a
+forge or a policy suitable for OATS.
+
+The note separately describes Entra entitlement-management alternate
+approvers as a **timeout/non-response fallback**, not an absence-aware deputy
+[8]. Compare delegated approval authority, assignment-only substitution and
+non-response escalation separately. For any proposed deputy mechanism,
+check the delegating principal, action scope, validity period and revocation,
+not just the presence of a substitute's name. This investigation establishes
+no exhaustive forge absence, common cross-product contract or measured
+benefit from delegation; it adopts no new approval policy.
+
 # Consequence for comparisons, not an OATS policy change
 
 Compare the question-delivery path, plan-review decision, required-review
@@ -188,7 +229,9 @@ tests, not in a knowledge-only workaround.
 **Owner and recheck:** market-research-expert. Recheck when Claude Code agent
 teams leave experimental status, the cited vendor contracts or team review
 policies change, Projects leaves beta or reaches Team/Enterprise,
-approval-quality evidence becomes available, or a proposed OATS approval
+approval-quality evidence becomes available, review-instruction source
+contracts change, Copilot documents code-owner approval satisfaction,
+versioned deputy contracts become available, or a proposed OATS approval
 primitive provides a readable contract and enforcement evidence.
 Update or supersede this dated finding and log the change; retain unknown
 behavior as unknown until then.
@@ -216,6 +259,13 @@ Source-supplied locators, not independently audited by this harvest:
 6. Claude Code team's review-policy account, dated 2026-10-15 by the source;
    source-reported primary-page recheck on 2026-11-02. Exact page locator
    absent from the capture; a team policy, not a universal product guarantee.
+7. GitHub Copilot code-review custom-instructions documentation, read through
+   search results by the verification source on 2026-11-02; precise page
+   locator and tested configuration absent from the capture.
+8. ServiceNow Delegates documentation (search-result reading), Okta governance
+   delegates and Entra entitlement-management alternate approvers
+   (researcher-read), as reported on 2026-11-02. Precise page locators,
+   product versions and full authorization contracts are not captured.
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/consent-must-not-be-relayed-between-agents.md
@@ -235,3 +285,8 @@ Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expe
 Evidence for the Projects scope refinement: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/claude-projects-coordinator-is-goalless-and-single-user.md.
+
+Evidence for the instruction-source and deputy refinements: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/review-agent-instructions-branch-decides-owner-control.md;
+notes/approval-deputies-exist-outside-forges.md.

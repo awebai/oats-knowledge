@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Verify decision fields and silence semantics separately in human-request protocols
-description: The 2026-11-02 source-reported protocol comparison found no dedicated decision-context fields in four named surfaces, motivating field-level checks rather than equating an approval API with a decidable request.
+description: The 2026-11-02 source-reported protocol comparison separates decision-context fields, silence semantics and identity evidence, without equating an approval API or transport authentication with a decidable, authorized request.
 tags: [research, human-oversight, protocols, consent, uncertainty]
 timestamp: 2026-11-02
 ---
@@ -38,6 +38,38 @@ semantics rather than infer them from an input-required status or UI label.
 The [routing-versus-authority lesson](/nodes/market-research-expert/lessons/question-routing-is-not-approval-authority.md)
 owns who may confirm an action and where that confirmation is accepted.
 
+# Identity evidence is separate from decision-context fields
+
+A third verification pass on **2026-11-02** adds a researcher-read A2A
+**1.0.1** specification/enterprise-guide lead [3]: caller authentication is
+at the transport, the base payload does not carry identity, and Agent Card
+JWS signing is optional. This is a **source-reported interpretation**, not an
+independently checked schema or runtime audit. The note lacks exact clauses
+and full extension/configuration coverage. It does not show that A2A lacks
+authentication, that applications cannot carry identity, or that a signed
+Agent Card authenticates every subsequent message or its originating human.
+
+For comparisons, inspect **authenticated caller, payload sender identity,
+Agent Card authenticity and authorization to act** separately. Where a claim
+concerns a forwarded or durable message, check what verifiable attribution
+survives beyond the transport connection. The presence of decision-context
+fields answers none of these identity questions, and a field claiming an
+identity is not itself verification. This changes neither OATS's
+[optional human-attribution contract](/nodes/oats-maintainer/decisions/human-attribution-is-an-optional-messaging-contract.md)
+nor its approval requirements.
+
+The same source reports reading **A2ABreak, arXiv 2609.10871v3**, in raw
+HTML [4]. Its account identifies **eleven candidate findings from an
+LLM-based pipeline**, of which **three were machine-checked with Alloy/TLA+**,
+with **none tested on live systems**. The paper analyzed A2A **1.0.0**, not
+an independently tested deployment of 1.0.1. Do not cite this as eleven
+formally verified vulnerabilities or as demonstrated live exploitability.
+A formal model's assumptions and optional implementation choices still bound
+its result; no present-day affected-version range or fix status is established
+by this capture. The harvest did not inspect the models or reproduce the
+analysis. Keep proposed findings, formal-model checks and implementation
+validation as distinct evidence levels.
+
 # Consequence for comparisons
 
 Evaluate decision context field by field. Separate native typed support
@@ -54,9 +86,11 @@ boundary tests; a knowledge entry is not an enforcement mechanism. Existing
 human-only, authorization and safety requirements remain unchanged.
 
 **Owner and recheck:** market-research-expert. Recheck on the next MCP/A2A
-release or material SDK, hook or permission-behavior change. Re-read the
-selected schemas and implementations before calling the inventory current;
-update or supersede this finding and log the change in the same session.
+release after the versions above or material SDK, hook or permission-behavior
+change, and when A2ABreak implementation validation or fix evidence appears.
+Re-read the selected schemas and implementations before calling the
+inventory current; update or supersede this finding and log the change in
+the same session.
 
 # Citations
 
@@ -67,6 +101,15 @@ harvest:
    permission hooks, source reading dated 2026-11-02.
 2. Claude Code changelog, September–October 2026 entries as summarized by
    the source; exact locators and tested configurations absent.
+3. A2A 1.0.1 specification and enterprise guide, researcher-read as reported
+   on 2026-11-02; precise page/section locators are absent from the capture.
+4. A2ABreak, [arXiv 2609.10871v3](https://arxiv.org/html/2609.10871v3),
+   source-reported raw-HTML reading on 2026-11-02, analyzing A2A 1.0.0;
+   neither the paper nor formal artifacts were independently checked here.
 
 Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
 2026-11-02; notes/human-request-protocols-lack-deadline-default-reversibility.md.
+
+Evidence for the identity and security-evidence refinement: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/a2a-identity-is-transport-level-with-optional-signing.md.
