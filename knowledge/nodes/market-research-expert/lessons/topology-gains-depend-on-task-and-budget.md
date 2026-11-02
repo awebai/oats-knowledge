@@ -41,6 +41,24 @@ substantially larger token budget. Its summary of equal-compute studies
 includes an exception but insufficient study detail to resolve the issue;
 no blanket equal-compute verdict is retained.
 
+# Transfer to personal-agent workflows is untested here
+
+A separate personal-use research pass, also dated 2026-11-02, reports that
+its controlled multi-agent evidence concerns coding, research, finance and
+QA, not personal mail, calendars or notes. It establishes no controlled
+personal-workflow comparison and documents no personal-store clobbering
+incident. These are limits of that investigation, not proof that no study
+or incident exists.
+
+Consequently, do not present file-ownership guidance from coding products
+as a measured advantage for personal data stores. Data ownership is a
+candidate design axis to test there, not an established replacement for
+roles. Recheck this transfer boundary when controlled personal-workflow
+studies or vendor reports with measured personal-use outcomes appear. The
+[persona-attribution lesson](/nodes/market-research-expert/lessons/persona-labels-need-isolated-ablation.md)
+remains the canonical home for role-label evidence; neither finding tests
+or supersedes durable specialization.
+
 # Consequence for research
 
 Compare topologies on the same task and model with explicit token/cost and
@@ -70,3 +88,7 @@ change rather than extending it to a new model generation silently.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/single-writer-parallel-readers.md.
+
+Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
+2026-11-02; notes/personal-agents-organise-by-data-ownership-not-roles.md
+(personal-workflow transfer limit).
