@@ -133,6 +133,22 @@ safety rate. It does not update the older METR/ImpossibleBench rates into
 current-model estimates or justify relaxing protected evaluation. Successful
 hacks, attempted hacks and monitor detection are separate outcomes to measure.
 
+# Refinement: test exposure to the agent's completion claim
+
+The 2026-11-02 oversight investigation reports an **abstract-only** result
+in which hiding an agent's completion claim from the judge improved recall
+of misreported outcomes [9]. The capture does not identify the agent or
+judge models, task mix, false-positive tradeoff or full judging procedure.
+It therefore supplies a hypothesis about claim exposure, not a transferable
+recall gain or a demonstrated best review design.
+
+Compare judging execution evidence with and without the agent's assertion
+of success while holding that evidence fixed. This is distinct from hiding
+author identity or changing reviewer models. Do not remove the execution
+record or provenance in the name of blinding; test whether the completion
+claim adds useful information or biases the judgment. The abstract report
+does not show that claim-blind judging alone is sufficient verification.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
@@ -181,6 +197,9 @@ and a node-log entry.
    by the source; Claude Opus 5 and 5.5 cards, dated 2026-07-24 and 2026-09-22
    by the source. These are source-reported vendor evaluations, not matched
    independent replications or primary-page checks by this harvest.
+9. [arXiv 2610.29609](https://arxiv.org/abs/2610.29609), abstract-only
+   report identified by the oversight investigation on 2026-11-02; measured
+   models unstated in the capture, not independently audited here.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/builder-checker-separation.md (initial synthesis and
@@ -197,3 +216,8 @@ Evidence: OKF proposal from market-research-expert/know-practice-research-expert
 Evidence for the recency refinement: OKF proposal from
 market-research-expert/coord-practice-research-expert, 2026-11-02;
 notes/oversight-fatigue-and-deference-recency.md.
+
+Claim-exposure refinement:
+
+Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
+2026-11-02; notes/per-action-human-approval-does-not-hold-at-volume.md.

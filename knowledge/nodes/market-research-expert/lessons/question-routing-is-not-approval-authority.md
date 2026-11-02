@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Distinguish question routing from human approval authority
-description: Source-reported product readings from 2026-11-02 distinguish question routing, teammate-plan approval and human permission or consent, and a reported ADK revert corrects an earlier fix claim, without establishing a universal ban on relayed authorization.
+description: Source-reported product readings from 2026-11-02 distinguish question routing, teammate-plan approval, the surface that accepts confirmation and human permission or consent, and a reported ADK revert corrects an earlier fix claim, without establishing a universal ban on relayed authorization.
 tags: [research, consent, authorization, delegation, personal-agents]
 timestamp: 2026-11-02
 ---
@@ -97,10 +97,28 @@ interfaces already belongs in the
 [supervision-pattern lesson](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md),
 not in a second product register here.
 
+## A coordinator conversation need not reach a worker's approval
+
+A separate oversight investigation, also dated 2026-11-02, reports that
+Claude Code Projects combines a coordinator conversation with worker threads,
+but keeps approval prompts inside the worker's thread: an instruction to
+proceed in the coordinator conversation does not answer that prompt [4].
+This is a **source-reported documentation reading**, not a runtime test or
+an independently checked product contract. The capture supplies no precise
+Projects page locator; its launch date is secondary-sourced and is not used
+here. No measured model or outcome comparison is identified.
+
+This adds an approval-surface distinction to the earlier authority question:
+a conversation may carry intent without reaching the prompt that accepts
+confirmation. It does not show that authenticated authorization cannot be
+relayed, nor that all products bind consent to the same thread. A coordinator
+front and direct worker access can coexist; neither establishes better
+oversight. The existing supervision lesson owns that outcome question.
+
 # Consequence for comparisons, not an OATS policy change
 
-Compare the question-delivery path, plan-review decision, human-confirmation
-path and executing tool's enforcement separately. Record automatic plan
+Compare the question-delivery path, plan-review decision, the surface that
+accepts human confirmation and the executing tool's enforcement separately. Record automatic plan
 approval separately from an actual lead-agent review. Distinguish a model's
 assertion of approval from whatever authorization evidence the product
 actually accepts; do not
@@ -136,6 +154,8 @@ Source-supplied locators, not independently audited by this harvest:
 3. Claude Code auto-mode classifier and scheduled-task documentation,
    source-reported reading dated 2026-11-02; precise page locators absent
    from the captured evidence.
+4. Claude Code Projects documentation, as reported by the oversight source
+   on 2026-11-02; precise page locator absent from the capture.
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/consent-must-not-be-relayed-between-agents.md
@@ -143,3 +163,6 @@ Evidence: OKF proposal from market-research-expert/coord-personal-research-exper
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/coordination-products-have-coordinating-agents.md.
+
+Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
+2026-11-02; notes/concierge-front-with-thread-bound-consent-is-mainstream.md.
