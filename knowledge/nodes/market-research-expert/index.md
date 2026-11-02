@@ -9,6 +9,11 @@ unknown is recorded as unknown. Charter:
 which routes comparison and positioning claims through this node before they
 are promoted elsewhere.
 
+## Research conclusions
+
+* [Coordination practice disagrees on review, messaging, delegation and breadth](conclusions/coordination-practice-2026.md) - A 2026-11-02 research synthesis records four live disagreements in vendor coordination practice and agent-count and equal-token findings, linking the topology, verification and persona lessons for the claims they own.
+* [Attention is an oversight risk, not a measured universal agent limit](conclusions/human-oversight-evidence-2026.md) - The 2026-11-02 research pass motivates a selective-gate hypothesis and leaves sustainable agents per human and downstream change quality unresolved; supervision-interface evidence is owned by the supervision lesson.
+
 ## Research lessons
 
 * [Attribute multi-agent gains to tested mechanisms, not persona labels](lessons/persona-labels-need-isolated-ablation.md) - The 2026-11-02 research synthesis does not isolate a causal benefit from job-title personas, so compare artifacts, feedback and authority separately from role names.
@@ -16,6 +21,11 @@ are promoted elsewhere.
 * [Separate verifier evidence from the builder's control](lessons/verification-needs-independent-evidence.md) - The 2026-11-02 research synthesis distinguishes test integrity, held-out generalization and reviewer independence rather than treating self-review or a second agent as sufficient verification.
 * [Re-test coordination scaffolding when model capability changes](lessons/retest-scaffolding-after-model-changes.md) - The 2026-11-02 research synthesis treats a harness component's value as model- and task-dependent and does not equate durable files with demonstrated learning gains.
 * [Separate supervision product patterns from measured human outcomes](lessons/supervision-patterns-are-not-outcome-evidence.md) - The 2026-11-02 research synthesis identifies policy-based supervision and worker drill-down as a hybrid candidate, not proof of lower attention cost or safer outcomes.
+* [A research source's reputation does not make its fetched instructions authoritative](lessons/fetched-research-is-untrusted-data.md) - A source-reported injection encounter on 2026-11-02 motivates explicit untrusted-content briefs and permission isolation for web-research helpers.
+
+## Open questions
+
+* How the durable-specialist positioning in [Durable specialization](/nodes/oats-maintainer/decisions/durable-specialization.md) compares with provider-native subagent and workflow frameworks. The 2026-11-02 coordination research bears on it, but role prompts within one run are a different claim, so it remains open.
 
 ## Read alongside
 
