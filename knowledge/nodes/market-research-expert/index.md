@@ -16,6 +16,7 @@ are promoted elsewhere.
 
 ## Research lessons
 
+* [Separate coordination recovery guarantees from task correctness](lessons/coordination-recovery-is-not-task-correctness.md) - The 2026-11-02 research synthesis distinguishes ownership, recorded progress and resumable execution from evidence that an agent's result is correct, without asserting uniform protocol guarantees.
 * [Attribute multi-agent gains to tested mechanisms, not persona labels](lessons/persona-labels-need-isolated-ablation.md) - The 2026-11-02 research synthesis does not isolate a causal benefit from job-title personas, so compare artifacts, feedback and authority separately from role names.
 * [Compare agent topologies by task dependence and compute budget](lessons/topology-gains-depend-on-task-and-budget.md) - The 2026-11-02 research synthesis favors testing coordinated parallel reading separately from coupled writes and does not establish a universal single-writer or multi-agent advantage.
 * [Separate verifier evidence from the builder's control](lessons/verification-needs-independent-evidence.md) - The 2026-11-02 research synthesis distinguishes test integrity, held-out generalization and reviewer independence rather than treating self-review or a second agent as sufficient verification.
