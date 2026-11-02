@@ -75,22 +75,52 @@ in stalled work or that fencing exists only in small projects. Any selected
 ownership-transfer design needs enforcement and stale-writer tests in the
 owning implementation; this research is not an OATS lease specification.
 
+# Compaction can preserve features while losing operating constraints
+
+A further 2026-11-02 proposal reports checking the HTML of a compaction
+study [5]. In the source's reading, process instructions and scope exclusions
+were lost more often than feature requirements, and repeated compactions
+increased loss. The note names **Opus 4.6 and GPT-5.3-Codex** for its
+per-compaction comparison. These are source-reported findings, not a
+replication, a cross-model safety ranking or a measurement on later models.
+The captured summary does not preserve the sample, scoring definitions or
+model/configuration breakdown needed to reuse its precise rates.
+
+For recovery comparisons, check retention of **ownership, scope exclusions
+and process obligations separately from feature requirements**. A plausible
+feature summary is not evidence that the continuing session still knows its
+limits. Explicitly retained, re-read records and status checks against work
+artifacts are candidate defenses to test; the reported study does not show
+that either is sufficient. Where a rule can be enforced, permission checks
+and executable tests are the preferred elimination route, not reliance on
+remembering a file.
+
+The source says the paper proposes but does not run a comparison between
+compaction and a fresh restart. It therefore supplies no measured restart advantage or
+basis for a mandatory respawn policy. The [topology lesson](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
+owns the separate missing coordinator-span comparison; retention loss does
+not determine a safe number of concurrent efforts. The
+[scaffolding lesson](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md)
+remains canonical for general model-dependent memory retesting.
+
 # Limits and refresh
 
 The harvest inspected the captured notes, not the primary documentation or
 working report. Apart from the attributed Beads release identifier above,
 protocol versions, integration availability, fencing support and cross-product
 contract equivalence are not established here.
-The note supplies no comparative conflict, duplicate-handoff or
-restart-versus-compaction measurements. It also does not substantiate its
+The initial note supplies no comparative conflict, duplicate-handoff or
+restart-versus-compaction measurements; the later compaction study does not
+supply the restart comparison either. It also does not substantiate its
 claim that wrong output reported as success is the dominant failure class;
 that ranking is not promoted.
 
 **Owner and recheck:** market-research-expert. Recheck when version-specific
 primary contracts or controlled coordination/recovery trials establish these
-guarantees and outcome measures, or progress-based renewal and stale-claimant
-enforcement are documented and tested. Update or supersede this conclusion
-and log the change. Framework changes and OATS operating decisions require
+guarantees and outcome measures, progress-based renewal and stale-claimant
+enforcement are documented and tested, or controlled compaction/restart
+studies measure constraint retention and task outcomes. Update or supersede
+this conclusion and log the change. Framework changes and OATS operating decisions require
 their owners' separate review; this research grants no implementation authority.
 
 # Citations
@@ -108,6 +138,9 @@ Source-supplied locators, not independently audited by this harvest:
 4. Beads v1.3.0 release notes, dated 2026-09-15 by the recency source;
    source-reported recheck on 2026-11-02. Exact release-page locator absent
    from the captured proposal and note; no behavior reproduced here.
+5. Compaction study, [arXiv 2610.31778](https://arxiv.org/abs/2610.31778), dated
+   2026-10-22 by the source; HTML reportedly checked on 2026-11-02, not
+   independently fetched or experimentally reproduced by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/distributed-systems-primitives-that-map-to-agents.md.
@@ -116,3 +149,6 @@ Renewal/progress refinement:
 
 Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
 2026-11-02; notes/recency-refinements-memory-relay-claims-2026.md.
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/coordinator-span-is-unmeasured-state-not-headcount.md.

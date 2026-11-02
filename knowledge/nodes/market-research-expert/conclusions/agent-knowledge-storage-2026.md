@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Compare knowledge systems by authority and retrieval evidence, not storage format
-description: The 2026-11-02 research pass distinguishes reviewed authority from agent-written recall and treats pointer indexes and agentic search as bounded retrieval candidates, not universal winners.
+description: The 2026-11-02 research distinguishes authority, recall, retrieval and maintenance evidence without treating storage format, layout or edit frequency as guarantees of knowledge quality.
 tags: [research, knowledge, memory, retrieval, authority]
 timestamp: 2026-11-02
 ---
@@ -62,6 +62,33 @@ explicit. The grep result does not establish that vector or graph storage is
 unsuitable for authoritative knowledge; retrieval performance and authority
 are separate properties.
 
+# Layout and edit history do not establish knowledge freshness
+
+A further **2026-11-02** investigation reports product/technical or
+specification/plan artifact divisions in Kiro, Spec Kit and BMAD. These are
+source-reported organization examples, not evidence that every product uses
+one physical store with enforced owners, or that one shared base beats
+separate product and engineering bases. This capture establishes no
+controlled comparison of those layouts. The
+[knowledge-shape synthesis](/nodes/market-research-expert/conclusions/agent-knowledge-shape-evidence-2026.md)
+owns the separate question of whether type labels improve outcomes.
+
+The same source reports checking a study of committed AI configuration in
+441 repositories [5], in which most configuration was reportedly unchanged
+after its first commit. This is an observational **edit-history finding**,
+not a measured stale-content rate: a file may remain correct without edits,
+and a modified file may still be wrong. The short capture lacks the unit,
+observation-window and sampling details needed to reuse its exact percentage.
+It also establishes no drift detector's precision or agent-model outcome.
+
+Compare who owns maintenance, what triggers review and how correctness at
+use is checked, separately from storage layout and modification frequency.
+Do not choose a base split or an automatic refresh policy from edit counts.
+The [consolidation/review conclusion](/nodes/market-research-expert/conclusions/agent-knowledge-practice-2026.md)
+remains the home for revision-production and adoption evidence; capability
+rollout and pinning are separately covered in the
+[distribution comparison](/nodes/market-research-expert/conclusions/capability-distribution-is-not-fleet-pinning.md).
+
 # Consequence, ownership and refresh
 
 For future comparisons, distinguish review/admission from recall, versioning
@@ -77,7 +104,8 @@ this concept owns the authority-versus-recall and retrieval comparison. The
 owns the separation of producing, adopting and measuring a knowledge revision.
 
 Owner: market-research-expert. Recheck per model generation and when controlled
-index-size, retrieval-scale or memory-outcome studies appear; update or
+index-size, retrieval-scale or memory-outcome studies appear, or maintenance
+studies distinguish unchanged configuration from actual stale content; update or
 supersede this dated synthesis and log the change. The captured investigation
 establishes no Claude 5, GPT-6-class or Gemini 4 memory/retrieval result; that
 is a limit of this evidence, not proof that no such study exists. Follow the
@@ -95,6 +123,13 @@ experimentally reproduced by this harvest:
 3. Index-structure comparison, [arXiv 2607.17598](https://arxiv.org/abs/2607.17598).
 4. Vercel pointer-index evaluation, as described in the captured note; no
    exact source URL, date or model identifier was supplied there.
+5. AI-configuration study, [arXiv 2608.25241](https://arxiv.org/abs/2608.25241),
+   source-reported recheck on 2026-11-02. Kiro, Spec Kit and BMAD artifact
+   examples have no exact primary-page locators in the capture; no product
+   contract or study result was independently checked by this harvest.
 
 Evidence: OKF proposal from market-research-expert/know-storage-research-expert,
 2026-11-02; notes/agent-knowledge-storage-retrieval-2026.md.
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/capability-sharing-pinning-and-identity-2026.md.

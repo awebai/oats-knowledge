@@ -127,6 +127,27 @@ studies or vendor reports with measured personal-use outcomes appear. The
 remains the canonical home for role-label evidence; neither finding tests
 or supersedes durable specialization.
 
+# Coordinator span and responsibility splits remain unmeasured here
+
+An org-scale investigation dated **2026-11-02** did not identify a benchmark
+varying the number of open efforts under one coordinator, or a controlled
+comparison of responsibility-based splits (such as architecture versus
+landing) with surface-based splits (such as repository or epic). The capture
+does not retain a reproducible search inventory, so this is a limit of the
+investigation, not a claim that no such study exists on any generation.
+A configurable concurrency cap or a practitioner's session-count anecdote
+is not an experimentally justified span of control.
+
+Treat coordinator load as a trial variable rather than quote a safe child
+count. Evaluate carried state, handoff fidelity and the coordinator's ability
+to check results alongside headcount; this capture does not establish that
+state load is causally more important than count. The distinct
+[compaction finding](/nodes/market-research-expert/lessons/coordination-recovery-is-not-task-correctness.md)
+motivates measuring retained scope and process constraints, not deriving a
+capacity threshold. Assigning a responsibility only where it has a runnable
+check is an untested design hypothesis here, not a measured winning partition
+or authority to replace the accepted domain roster.
+
 # Consequence for research
 
 Compare topologies on the same task and model with explicit token/cost and
@@ -144,8 +165,10 @@ not a chosen replacement for existing OATS coordination policy.
 
 **Owner and recheck:** market-research-expert. Recheck on controlled topology
 studies with matched budgets, evidence about conflicting parallel writes,
-or changed lab guidance. Recheck the breadth-search finding on a new frontier
-generation, a controlled study, or by 2027-02-01. Update or supersede the
+or changed lab guidance. Recheck the coordinator-span gap on controlled
+load/partition comparisons with named models and task outcomes. Recheck the
+breadth-search finding on a new frontier generation, a controlled study, or
+by 2027-02-01. Update or supersede the
 conclusion and log the change rather than extending it to a new model
 generation silently.
 
@@ -192,3 +215,6 @@ notes/multi-agent-gains-shrink-with-capability.md.
 Evidence for the breadth-search qualification: OKF proposal from
 market-research-expert/coord-products-research-expert, 2026-11-02;
 notes/coordination-across-model-generations.md.
+
+Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expert,
+2026-11-02; notes/coordinator-span-is-unmeasured-state-not-headcount.md.
