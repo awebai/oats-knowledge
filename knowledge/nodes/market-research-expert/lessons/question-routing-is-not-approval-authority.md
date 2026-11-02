@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Distinguish question routing from human approval authority
-description: Two source-reported product examples from 2026-11-02 distinguish routing a request from an agent supplying human confirmation, without establishing a universal ban on relayed authorization.
+description: Source-reported product examples from 2026-11-02 distinguish routing a request, reaching its approval surface and supplying human confirmation, without establishing a universal ban on relayed authorization.
 tags: [research, consent, authorization, delegation, personal-agents]
 timestamp: 2026-11-02
 ---
@@ -38,6 +38,24 @@ The note's broader assertion that four labs gate the same consequential
 action classes lacks captured contract detail. No equivalent default policy,
 coverage or enforcement across those products is inferred here.
 
+# Refinement: a coordinator conversation need not reach a worker's approval
+
+A separate oversight investigation, also dated 2026-11-02, reports that
+Claude Code Projects combines a coordinator conversation with worker threads,
+but keeps approval prompts inside the worker's thread: an instruction to
+proceed in the coordinator conversation does not answer that prompt [3].
+This is a **source-reported documentation reading**, not a runtime test or
+an independently checked product contract. The capture supplies no precise
+Projects page locator; its launch date is secondary-sourced and is not used
+here. No measured model or outcome comparison is identified.
+
+This adds an approval-surface distinction to the earlier authority question:
+a conversation may carry intent without reaching the prompt that accepts
+confirmation. It does not show that authenticated authorization cannot be
+relayed, nor that all products bind consent to the same thread. A coordinator
+front and direct worker access can coexist; neither establishes better
+oversight. The existing supervision lesson owns that outcome question.
+
 # Consequence for comparisons, not an OATS policy change
 
 Compare the question-delivery path with the confirmation path and the
@@ -68,6 +86,11 @@ Source-supplied locators, not independently audited by this harvest:
 1. [Claude Code agent teams](https://code.claude.com/docs/en/agent-teams),
    source reading dated 2026-11-02.
 2. Google ADK Python, PR #6462, source reading dated 2026-11-02.
+3. Claude Code Projects documentation, as reported by the oversight source
+   on 2026-11-02; precise page locator absent from the capture.
 
 Evidence: OKF proposal from market-research-expert/coord-personal-research-expert,
 2026-11-02; notes/consent-must-not-be-relayed-between-agents.md.
+
+Evidence: OKF proposal from market-research-expert/coord-oversight-research-expert,
+2026-11-02; notes/concierge-front-with-thread-bound-consent-is-mainstream.md.
