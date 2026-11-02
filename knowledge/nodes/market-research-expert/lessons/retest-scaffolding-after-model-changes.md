@@ -33,7 +33,11 @@ memory artifacts, including a Devin account dated 2026-10-05 and secondary
 reporting about Anthropic in May 2026. **Persistence format is not evidence
 of improved outcomes.** No independently checked memory-outcome evaluation
 is established by this capture; it cannot support the universal assertion
-that no vendor publishes one, nor a ranking of memory systems.
+that no vendor publishes one, nor a ranking of memory systems. A separate
+[knowledge-shape research pass](/nodes/market-research-expert/conclusions/agent-knowledge-shape-evidence-2026.md)
+adds a source-reported reading of MemoryAgentBench v4 on recall/conflict
+tasks. That later evidence is not a test of durable project judgment and
+does not retroactively change the limits of this capture.
 
 The source also cites Chroma's context-rot work (2025-07-14) as a warning
 against assuming that longer supplied context always helps. That alone
@@ -87,7 +91,9 @@ human approval or removing existing authority controls.
 
 For each component, record the failure it addresses and compare the same
 model and task with and without it, including correctness, cost and retained
-state quality. Re-run that comparison after a model change. Distinguish
+state quality. Re-run that comparison after a model change; the
+[recency and model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md)
+specifies how this soul dates and labels the evidence. Distinguish
 capability compensation from authority controls: a model no longer needing
 an evaluator for one task is not permission to let the builder control its
 acceptance evidence; see
@@ -126,6 +132,11 @@ experimentally reproduced by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-frontier-research-expert,
 2026-11-02; notes/harness-shrinks-with-capability.md.
+
+Evidence for the later cross-references: OKF proposal from
+market-research-expert/know-ontology-research-expert, 2026-11-02;
+notes/agent-knowledge-shape-evidence-2026-11.md;
+notes/research-recency-and-model-generation-rule.md.
 
 Memory-specific addition:
 

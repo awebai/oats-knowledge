@@ -2,6 +2,10 @@
 
 Placement, identity, verification and adoption judgement learned operating deployments.
 
+* [Trial runtime redirection excludes host-service proof](trial-runtime-redirection-excludes-host-service-proof.md) - A Linux trial reported that redirecting runtime state made the user service manager unreachable, so its successful tick-loop wake proves neither host-service installation nor complete containment.
+* [Rootless messaging needs the server's database extensions, not just PostgreSQL](rootless-messaging-needs-required-database-extensions.md) - A rootless aweb trial failed with the pgserver wheel because pgcrypto was absent and succeeded with a PostgreSQL 16 build including that extension.
+* [Claude trial metrics need origin and message identity](claude-trial-metrics-need-origin-and-message-identity.md) - In Claude Code 2.1.308 trial transcripts, origin-bearing user entries distinguish input turns from tool results, while message identity prevents repeated streaming usage from being counted twice.
+
 * [Place each fact at the scope that owns it](place-each-fact-at-the-scope-that-owns-it.md) - Shared declarations, host facts or spawn: choose by how many holders the fact may have, meaning over type.
 * [The installed provider is the authority for a setting](the-installed-provider-is-the-authority-for-a-setting.md) - The preview proves delivery, not effect; configure against what the locked provider reads.
 * [Check the target provider's host requirements before sync](check-target-provider-host-requirements-before-sync.md) - Green checks against the current lock do not establish readiness for a moving provider; compare the target version's host requirements and satisfy them before writing the new lock.
