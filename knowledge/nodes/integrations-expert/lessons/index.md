@@ -12,6 +12,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Kernel contracts
 
+* [Readiness reads the setting source its consumer uses](readiness-reads-what-the-consumer-reads.md) - A readiness check predicting a live consumer must use that consumer's setting source, because a spawn capture can miss a later enable or keep a stale enable after disable; captured settings still describe the home's composition.
 * [A document a provider writes for the kernel passes the kernel's own rule](a-provider-answer-is-validated-by-the-kernel-not-by-the-reviewer.md) - Vendor the kernel's validator on the provider's stage; a new key is a wire question; operation keys are bare names.
 * [A provider test that fakes the kernel's payload proves nothing about the kernel](a-provider-test-that-fakes-the-kernel-payload-proves-nothing-about-the-kernel.md) - Read the kernel's merge for a key before giving it meaning, and change the kernel rather than guess in the provider.
 * [A fallback the contract defines is implemented in every path and is a warning](a-fallback-the-contract-defines-is-a-warning-not-a-readiness-problem.md) - Every mode and readiness take the defined default and warn; readiness derives the value exactly as spawn does.
