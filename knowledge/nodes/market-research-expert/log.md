@@ -2,6 +2,7 @@
 
 ## 2026-11-02
 
+* **Fix** (review of the knowledge-shape and recency harvest): reworded the [knowledge-shape conclusion](/nodes/market-research-expert/conclusions/agent-knowledge-shape-evidence-2026.md)'s description and index listing so it reports no isolating experiment found, matching the body's unknown-not-disproved finding, rather than reading as a negative type-label result.
 * **Harvest**: add the bounded [knowledge-shape evidence synthesis](/nodes/market-research-expert/conclusions/agent-knowledge-shape-evidence-2026.md), distinguishing source-reported primary checks from researcher summaries, simple memory baselines from durable-project-knowledge outcomes, and missing type-label evidence from proof of no benefit; omit unsupported numerical and universal rankings.
 * **Harvest**: record the [research recency and model-generation decision](/nodes/market-research-expert/decisions/date-evidence-and-name-model-generations.md), preserving the six-month preference, explicit latest-quarter search and dated reporting rule; human acceptance is source-reported through a relay, not independently verified.
 * **Update**: link [scaffolding retests](/nodes/market-research-expert/lessons/retest-scaffolding-after-model-changes.md) to the new benchmark synthesis and reporting decision while preserving the original capture's evidence limit; no accepted OATS direction is superseded.

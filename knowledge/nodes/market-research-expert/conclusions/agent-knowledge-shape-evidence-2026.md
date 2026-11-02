@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Knowledge-shape evidence does not establish a durable-project-memory winner
-description: The 2026-11-02 research pass finds no isolated type-label benefit and reports competitive simple memory baselines, without establishing a best representation for durable project judgment or current models.
+description: The 2026-11-02 research pass identifies no experiment isolating a type-label benefit and reports competitive simple memory baselines, without establishing a best representation for durable project judgment or current models.
 tags: [research, knowledge, memory, evaluation, uncertainty]
 timestamp: 2026-11-02
 ---
