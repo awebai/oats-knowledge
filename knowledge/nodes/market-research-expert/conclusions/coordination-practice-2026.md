@@ -1,7 +1,7 @@
 ---
 type: Conclusion
-title: Coordination research favors task decomposition over adding agent roles
-description: A 2026-11-02 research synthesis favors a single-agent baseline and bounded parallel work with accountable artifact ownership, without establishing a universal topology or a benefit from role labels.
+title: Coordination practice disagrees on review, messaging, delegation and breadth
+description: A 2026-11-02 research synthesis records four live disagreements in vendor coordination practice and agent-count and equal-token findings, linking the topology, verification and persona lessons for the claims they own.
 tags: [coordination, multi-agent, research, positioning]
 timestamp: 2026-11-02
 ---
@@ -15,16 +15,28 @@ fresh-context verifier. These are candidate practices to evaluate, not a
 finding that every vendor endorses every element or that parallel agents
 cannot help any sequential workflow.
 
+Three claims this synthesis shares with a separate 2026-11-02 research pass
+have their canonical home in that pass's lessons, and this conclusion does
+not restate them:
+
+- task dependence, the single-writer baseline and compute budget, including
+  the Google Research scaling study [1]:
+  [compare topologies by task dependence and compute budget](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md);
+- the fresh-context verifier and reviewer independence:
+  [separate verifier evidence from the builder's control](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md);
+- role labels:
+  [attribute gains to tested mechanisms, not persona labels](/nodes/market-research-expert/lessons/persona-labels-need-isolated-ablation.md).
+
 For this soul, the useful comparison is **what can be decomposed and how the
-result is checked**, not how many named roles a framework can create. The
-source reports that Google Research's scaling study found gains on
-parallelizable tasks and losses on sequential tasks [1]; Anthropic found
-that increasing agent count could reduce the merged-PR fraction for older
-models and that role or hierarchy prompts made little difference [2]; and
-an equal-token-budget comparison found single agents could match multi-agent
-systems [3]. These are source-reported findings in particular experiments,
-not a pooled effect size, a current-model ranking or proof that durable
-specialization has no value.
+result is checked**, not how many named roles a framework can create. This
+pass adds two source-reported findings. Anthropic found that increasing
+agent count could reduce the merged-PR fraction for older models, and that
+role or hierarchy prompts made little difference [2]. An equal-token-budget
+comparison found single agents could match multi-agent systems [3]. These
+are findings in particular experiments, consistent with the topology
+lesson's refusal of a blanket equal-compute verdict. They are not a pooled
+effect size, a current-model ranking or proof that durable specialization
+has no value.
 
 # Practice converges less than a single consensus label suggests
 
@@ -42,7 +54,8 @@ The source reports both successful bounded parallelism and cases where an
 integrator became a bottleneck. A claimed swarm success must therefore be
 read with its verification conditions, not just its agent count. The note's
 successful compiler example had a strong checking oracle; it does not
-establish success where outcomes are hard to check.
+establish success where outcomes are hard to check (see the
+[verification lesson](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)).
 
 The related [human-oversight conclusion](/nodes/market-research-expert/conclusions/human-oversight-evidence-2026.md)
 owns the attention and approval-gate implications. This research adds no

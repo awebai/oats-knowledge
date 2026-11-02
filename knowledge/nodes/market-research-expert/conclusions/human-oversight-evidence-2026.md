@@ -1,7 +1,7 @@
 ---
 type: Conclusion
 title: Attention is an oversight risk, not a measured universal agent limit
-description: The 2026-11-02 research pass motivates selective human gates while leaving broker-versus-thread interfaces, role benefits, sustainable agent counts and change quality unresolved.
+description: The 2026-11-02 research pass motivates a selective-gate hypothesis and leaves sustainable agents per human and downstream change quality unresolved; supervision-interface evidence is owned by the supervision lesson.
 tags: [human-oversight, coordination, research, uncertainty]
 timestamp: 2026-11-02
 ---
@@ -14,6 +14,10 @@ auto-approval with experience, reduced inline review activity and reviewer
 abandonment of some agent PRs [1–4]. Those observations motivate concern
 about approval habituation; they do not by themselves establish its cause,
 the safety of automatic approval or a universal number of agents per human.
+The reading of the auto-mode report [1] as prompt acceptance that is not
+informed consent has its canonical home in
+[separate supervision product patterns from measured human outcomes](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md);
+this conclusion adds the habituation concern and the review-burden findings.
 
 The resulting design hypothesis is to concentrate meaningful human decisions
 at plan approval and irreversible outcomes instead of treating frequent
@@ -33,9 +37,12 @@ agent changes.
 The captured evidence does not settle:
 
 - **Broker interface versus per-agent threads:** product choices do not
-  establish which better preserves the human's intent and oversight.
+  establish which better preserves the human's intent and oversight. The
+  [supervision lesson](/nodes/market-research-expert/lessons/supervision-patterns-are-not-outcome-evidence.md)
+  owns this gap; this pass found the same one independently.
 - **Persona roles versus function contracts at equal compute:** the reported
-  role-prompt results do not settle the value of durable, curated expertise.
+  role-prompt results do not settle the value of durable, curated expertise;
+  see the [persona lesson](/nodes/market-research-expert/lessons/persona-labels-need-isolated-ablation.md).
 - **Sustainable agents per human:** neither anecdotes nor session counts
   establish a general span of control across workloads and interfaces.
 - **Defect and revert rates of agent changes:** approval and abandonment
