@@ -159,6 +159,41 @@ comparing models, and separate bug fixes from feature work rather than
 promote one aggregate topology score to a universal rule. No numerical
 leaderboard is adopted from the unresolved success-score evidence.
 
+# Unowned-seam failure and oracle-message recovery are different studies
+
+A verification pass on **2026-11-02** reports reading two papers in raw
+arXiv HTML [7, 8]. Keep their tasks, models and interventions separate:
+
+- **arXiv 2608.16801, Sonnet 4.6:** a synthetic eight-agent chain in one
+  harness failed at an unowned rounding seam in all ten runs, although the
+  agents discussed rounding in each run. The same task reportedly succeeded
+  in nine of ten runs with two to four agents when one agent owned both
+  adjacent steps. Team size and ownership changed together; this does not
+  isolate ownership as the cause or show that messaging repaired the seam.
+- **arXiv 2609.25396v1, GPT-5.5:** in constructed Django tasks, the source
+  reports interference in 105/108 runs and recovery in 89/108 runs (82%)
+  with a template-generated oracle message about a completed change. The
+  denominator for that recovery figure is all 108 runs, not just the 105
+  interference runs. Messages generated during ongoing work were not
+  evaluated. In a separate mined-pair setting, only one of 834 runs over
+  417 Django pairs reportedly showed interference.
+
+These are **source-reported study readings**, not harvest replication. The
+capture retains enough setting and denominator detail to bound the quoted
+results, but not the full task-selection, judging and uncertainty analysis.
+The constructed and mined settings do not supply one pooled interference
+rate. An oracle message is an idealized information intervention, not
+measured performance of an agent-generated messaging workflow.
+
+Do not fuse the first paper's failures with the second paper's recovery
+percentage into a causal story that messaging fixes unowned interfaces.
+Compare ownership, team size, information supplied and task construction as
+separate variables. Neither captured account tests agents run by different
+people, so transfer to cross-person coordination remains unestablished here;
+this is not a claim that no such study exists elsewhere. Any proposed remedy
+needs runnable integration checks and a matched trial, not only a prompt
+encouraging agents to discuss the seam.
+
 # Consequence for research
 
 Compare topologies on the same task and model with explicit token/cost and
@@ -176,8 +211,10 @@ not a chosen replacement for existing OATS coordination policy.
 
 **Owner and recheck:** market-research-expert. Recheck on controlled topology
 studies with matched budgets, evidence about conflicting parallel writes,
-or changed lab guidance. Recheck the coordinator-span gap on controlled
-load/partition comparisons with named models and task outcomes, and the
+or changed lab guidance. Recheck the seam/interference interpretation when
+matched ownership interventions, realistic agent-generated messages or
+cross-person trials separate the variables above. Recheck the coordinator-span
+gap on controlled load/partition comparisons with named models and task outcomes, and the
 WideSWE interpretation on matched-budget interventions or newer-model
 replications. Recheck the breadth-search finding on a new frontier
 generation, a controlled study, or by 2027-02-01. Update or supersede the
@@ -206,6 +243,12 @@ generation silently.
 6. Anthropic, [multiagent-systems study](https://anthropic.com/research/multiagent-systems),
    dated 2026-08-13 by the follow-up source; breadth-search result reported
    on 2026-11-02, not independently fetched or reproduced by this harvest.
+7. Seam-failure study, [arXiv 2608.16801](https://arxiv.org/abs/2608.16801),
+   raw-HTML reading reported on 2026-11-02; paper version unstated in the
+   capture, measured model Sonnet 4.6.
+8. Interference/recovery study, [arXiv 2609.25396v1](https://arxiv.org/html/2609.25396v1),
+   raw-HTML reading reported on 2026-11-02; measured model GPT-5.5.
+   Neither paper was independently fetched or replicated by this harvest.
 
 The capability-baseline addition uses the captured proposal and note, not
 independent page fetches or experimental replication. Model names and dates
@@ -233,3 +276,7 @@ Evidence: OKF proposal from market-research-expert/coord-orgdesign-research-expe
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/cross-repo-agent-failures-are-mostly-post-edit.md.
+
+Evidence for the seam/interference refinement: OKF proposal from
+market-research-expert/coord-claims-verification-expert, 2026-11-02;
+notes/agent-seam-and-interference-evidence-is-narrow.md.

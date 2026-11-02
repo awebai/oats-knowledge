@@ -61,6 +61,20 @@ not an audited correction rate; the individual review statistics are not
 established by this note. Earlier worst-case and self-forecast distortions
 are recurrence, not independent evidence for their numerical claims.
 
+A third pass, also on 2026-11-02, reports additional distortions **between
+research and the synthesized brief**: fusing two papers into one causal
+story, broadening a forge/catalog-scoped finding into a claim about all
+tools, and presenting one vendor's design as cross-vendor convergence. It
+also reports misdescribing an LLM-based security pipeline's findings as all
+formally checked, and failing to locate a claimed figure in its cited paper.
+These are attributed verification findings, not an independently audited
+absence proof or evidence that all the underlying sources were fabricated.
+The [topology lesson](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md)
+owns the separated seam/interference study results; the
+[protocol-field lesson](/nodes/market-research-expert/lessons/human-request-fields-need-explicit-verification.md)
+owns the A2A method and identity qualifications, rather than duplicating
+those accounts here.
+
 # Consequence for research
 
 For decisive claims, check what the accessible primary source actually says
@@ -80,7 +94,14 @@ or table identifier and the measured variable's definition** as well as the
 paper identifier: a correct paper citation can still attach the wrong
 sample, model or outcome. Absence of a recorded action is not automatically
 absence of the underlying activity. Check the conclusion against its own
-supporting passage before treating consensus as corroboration.
+supporting passage before treating consensus as corroboration. Recheck scope
+at each synthesis handoff: a brief must not broaden a bounded finding merely
+by dropping the product category or attributing one vendor's choice to the
+market. A causal story needs a matching intervention and population, not two
+compatible-looking headlines. Record whether a security result was proposed
+by a model, checked in a formal model or tested in an implementation. If a
+figure cannot be located in the cited version, exclude it pending a traceable
+source rather than fill in a plausible origin.
 
 If a first-party page cannot be inspected, including because a fetch returns
 403, label any claim supported only by press or another secondary source as
@@ -118,4 +139,4 @@ Evidence: OKF proposal from market-research-expert/coord-products-research-exper
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/research-echo-detaches-figures-from-conditions.md
-(initial pass and captured round-2 refinement).
+(initial pass and captured round-2 and round-3 refinements).
