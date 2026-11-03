@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Claude trial metrics need run, origin and message identity
-description: Claude trial measurements must isolate the deployment incarnation before counting origin-bearing inputs and deduplicating streamed usage by message identity.
+description: Claude trial measurements need run, origin and message identity, with per-command timing evidence retained before teardown rather than attributing whole-turn duration to component owners.
 tags: [operator, trials, measurement, claude, transcripts]
 timestamp: 2026-11-03
 ---
@@ -57,6 +57,33 @@ The source also observed `system/turn_duration` as an active-time signal.
 Keep it distinct from elapsed trial time and queueing delays; the report
 does not establish it as a billing or end-to-end latency contract.
 
+# Preserve command timing before teardown
+
+The onboarding campaign's 2026-11-02 warm run recorded person inputs and
+screen output, but not the per-tool timing evidence needed for an owner-by-owner
+latency split. Its report assigned a combined onboarding-and-spawn interval
+to components even though the interval included model time. The source
+reports correcting that attribution: screen redraws and whole-turn counters
+could bound a turn but could not separate command execution from reasoning
+around it. The proposal reports later runs retaining per-command evidence;
+their exact totals have not been independently checked.
+
+A measured disposable run must preserve the evidence needed for its intended
+breakdown before destroying the machine. The source recommends retaining the
+harness's tool-call/result timestamps and timing the provider commands
+explicitly. Keep component command durations distinct from model time and
+end-to-end elapsed time. A tool-call/result interval may include dispatch or
+other overhead; it is not automatically pure component execution time.
+Without the finer-grained evidence, report the owner split as unavailable
+rather than allocating a whole turn to the components whose names appear in
+it. Destruction of the only retained timing record cannot be repaired by
+reading the implementation later.
+
+This is evidence-retention judgment, not permission to collect other
+instances' transcripts or publish raw session content. Retain only authorized
+trial evidence in its appropriate protected location, not in the knowledge
+base.
+
 # Make measurement reproducible
 
 The elimination route is a version-qualified parser with sanitized fixtures
@@ -66,8 +93,13 @@ a recreated home path, nested timestamps preceding the first top-level one,
 and missing or boundary-spanning session starts. Assert both session
 membership and the intended input/message counts; flag unsupported shapes
 instead of silently assigning comparable numbers.
-Requalify the parser when the transcript format changes. Exact schema
-maintenance belongs in that parser and its tests, not in this lesson.
+For timing, have the trial runner collect command start/end records and check
+that the intended run's required evidence has been exported and is readable
+before teardown. Test missing timestamps, incomplete calls and the refusal to
+produce owner totals from turn-only evidence. These are proposed prevention
+routes, not a delivered collector or a verified reconstruction of this
+campaign. Requalify the parser when the transcript format changes. Exact
+schema maintenance belongs in that parser and its tests, not in this lesson.
 
 This is operator measurement judgment for comparing trials, not a new kernel
 activity contract or permission to inspect other instances' transcripts.
@@ -91,3 +123,10 @@ also read only the captured evidence, not transcripts or a parser. The
 2.1.308 qualifier above is not evidence of the later runs' version. No
 universal transcript schema, complete cost model or result for other
 harnesses is claimed.
+
+Evidence: OKF proposal from oats-operator-expert/oats-operator-expert-onboarding-vm-campaign, 2026-11-03; notes/time-each-command-before-teardown.md.
+
+The timing refinement is source-reported from the 2026-11-02/03 onboarding
+campaign. The harvest read only the captured note and proposal, not a
+transcript or timing collector. No exact harness version, cost correction,
+component speedup or complete causal attribution is established.

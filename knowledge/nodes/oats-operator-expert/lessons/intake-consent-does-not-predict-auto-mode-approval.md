@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Intake consent does not predict auto-mode approval
-description: Two reported onboarding retries were allowed after step-specific human consent, but broad intake consent and a conversational yes establish no general guarantee that Claude Code will permit a refused action.
+description: Onboarding handoffs need actual scoped consent on record, but neither that consent nor suppressing intake questions guarantees Claude Code will permit consequential setup steps.
 tags: [operator, onboarding, harnesses, consent, acceptance]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 # The bounded observation
 
@@ -22,6 +22,32 @@ contract that every refusal can be cleared by asking again. The exact Claude
 Code version and model are absent from this capture. Its stated scope is
 Claude Code on a Max account, Ubuntu 24.04; other harnesses and platforms were
 not tested.
+
+# Refinement: suppressing questions is not carrying consent (2026-11-03)
+
+The source reports one later installer-style handoff that forbade further
+consent questions. The agent skipped the intake round, leaving no recorded
+human authorization naming the setup changes. Claude Code auto mode then
+refused private repository creation, aweb signup and folder trust, and each
+needed a separate person round. Other runs retained an intake round and still
+encountered repository-creation refusals, but already had the person's named
+choice to refer to.
+
+This is one source-reported comparison on Ubuntu 24.04, not a controlled
+measurement of the classifier's reasons or a universal three-versus-one
+round saving. The capture supplies no exact harness version or model for
+these later runs. It supports checking the consent content of the handoff,
+not assuming that fewer initial questions mean fewer interruptions overall.
+
+When designing a handoff, preserve one scoped consent round that names the
+planned consequential changes if that consent has not already been given.
+An installer prompt can carry the person's actual prior decision and its
+scope; an instruction to ask nothing, or the fact that an installer was
+started, cannot substitute for it. Never manufacture a yes to satisfy the
+prompt. A consolidated intake is not a cap on required later approvals and
+is not an execution-permission guarantee.
+
+Evidence: OKF proposal from oats-operator-expert/oats-operator-expert-onboarding-vm-campaign, 2026-11-03; notes/installer-prompt-without-a-yes-meets-every-boundary.md.
 
 # Consequence for onboarding design
 
@@ -53,8 +79,10 @@ its human handoff.
 Keep the concrete approval/refusal branches in the maintained
 [getting-started skill](https://github.com/awebai/oats/blob/main/skills/oats-getting-started/SKILL.md),
 with tests that preserve refusal handling and no-circumvention boundaries.
-Rehearse them through the actual newcomer harness after relevant changes;
-static wording checks do not prove classifier behavior. The source reports
+Cover installer handoffs both with and without actual prior scoped consent,
+so suppressing questions cannot silently erase the consent step or fabricate
+its answer. Rehearse through the actual newcomer harness after relevant
+changes; static wording checks do not prove classifier behavior. The source reports
 incorporating the lesson through
 [awebai/oats#1705](https://github.com/awebai/oats/pull/1705).
 This harvest checked the PR's description and changed paths, not a live
