@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Separate verifier evidence from the builder's control
-description: The 2026-11-02 research synthesis distinguishes test integrity, held-out generalization and reviewer independence, with cross-provider error correlation as a reason not to assume vendor diversity supplies independent evidence.
+description: Source-reported research distinguishes test integrity, held-out generalization and reviewer independence, and a trial audit motivates checking mechanism claims against primary run records rather than matching summaries.
 tags: [research, verification, reward-hacking, evaluation]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 # Conclusion and scope
 
@@ -198,6 +198,60 @@ The [human-oversight conclusion](/nodes/market-research-expert/conclusions/human
 owns the distinct question of when to review direction and the untested
 agent-merge-gate comparison. These context leads select no review policy.
 
+# Refinement: matching a trial summary does not verify its mechanism
+
+A source-reported audit on **2026-11-03** found that a decision page's counts
+matched the trial summaries and metrics, yet its claimed early-refusal
+mechanism was not supported by the per-run verdicts as the source read them.
+The launch check reportedly approved every inspected run; late refusals
+credited to that check concerned seeded implementation defects. Executing a
+check and producing the intervention credited with an outcome are different
+facts. An all-approve record questions the asserted early-refusal pathway;
+it does not establish that the check could have no other effect on behavior.
+
+For a trial or benchmark's mechanism claim, go below the summary:
+
+- Name the observable event the claimed mechanism would produce, then trace
+  and count it in per-run verdicts or forge events. A label or aggregate
+  outcome count cannot stand in for that event. Treat missing records as
+  unknown rather than as evidence that the mechanism never acted.
+- Cross-tab reported categories against the actual fault and outcome records.
+  A label such as product refusal does not establish a direction error if
+  the underlying objection is a seeded code defect. Preserve the stage,
+  objection and disposition rather than infer the mechanism from its label.
+- Bind headline figures to the originating run and its inclusion status,
+  observed model mix and seed condition. Distinguish price uncertainty within
+  a run from variation between runs: a cache-write pricing band is not a
+  distribution of experimental outcomes.
+
+The audit also reports figures from an uncounted, unseeded, mixed-model smoke
+run being presented as a control run, and dollar ranges reflecting cache-write
+price bands within individual runs. These are **source-reported findings from
+one study and one page**, not independently checked corrections or measured
+error rates. The capture supplies no complete run ledger, verdict texts,
+model records or billing calculation; this harvest read only the proposal
+and named note. No fixed-model performance, time-saving or cost comparison
+is certified here.
+
+The [gate-evaluation lesson](/nodes/oats-expert/lessons/evaluate-gates-beyond-code-seed-catches.md)
+owns the campaign's trial observations and their scripted-human accounting
+limits; this refinement neither replaces its counts nor chooses a gate.
+[Seeded-review measurement](/nodes/oats-operator-expert/lessons/seeded-review-needs-planting-and-catch-validation.md)
+owns planting and semantic catch attribution. The existing
+[decisive-claim lesson](/nodes/market-research-expert/lessons/verify-decisive-product-claims-before-synthesis.md)
+owns general source, comparator and experimental-condition preservation.
+The added research judgment here is to check the claimed intervention
+against primary events even when summary arithmetic agrees. Primary records
+are more direct evidence, not automatically protected or independent of the
+builder; the control and provenance questions elsewhere in this lesson remain.
+
+**Elimination route:** put run identifiers, inclusion flags, mechanism-event
+links, fault categories and price assumptions into the evaluation records,
+with checks that summary rows resolve to those records. These are proposed
+harness/reporting controls, not implemented defenses. Semantic adjudication
+and causal attribution still require review; the reusable research procedure
+belongs in separately reviewed guidance, not a soul-skill change here.
+
 # Consequence for comparisons
 
 Ask who controls tests and acceptance criteria, what checks are held out,
@@ -220,8 +274,9 @@ and [retesting scaffolding](/nodes/market-research-expert/lessons/retest-scaffol
 
 **Owner and recheck:** market-research-expert. Recheck when an independent
 reviewer benchmark or controlled model, context-access or authorship
-comparison measures these properties. Record changed findings through an
-update or supersession and a node-log entry.
+comparison measures these properties, or primary trial records or reporting
+controls change the mechanism-audit finding. Record changed findings through
+an update or supersession and a node-log entry.
 
 # Citations
 
@@ -288,3 +343,8 @@ Context-access refinement:
 
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/plan-blind-merge-gate-loses-measured-context.md.
+
+Trial-mechanism refinement:
+
+Evidence: OKF proposal from market-research-expert/study-trials-opus-expert,
+2026-11-03; notes/trial-claims-need-primary-run-records.md.
