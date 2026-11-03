@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A re-dated claim must be re-verified against the release it now names
-description: Verify version-qualified behavior against the named release, including a skill's feature floor; an earliest possible future version is a planning bound, not evidence that the feature shipped.
+description: Verify version-qualified behavior against the named release; an unreleased-feature gate keeps its fallback without a guessed floor, and mirror-keyed checks prompt release-qualified wording when the feature ships.
 tags: [lesson, review, docs, release, versions]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 
 Learned 2026-09-24 by the maintainer while reviewing a provider release's
@@ -55,7 +55,8 @@ must be checked against a tag that actually includes that feature. Before it
 ships, say "the release that ships it"; an explicitly labelled earliest
 possible version can record a planning bound, but cannot certify feature
 availability. If the feature misses a release, correct the claim rather than
-letting the guessed floor become a shipped promise.
+letting the guessed floor become a shipped promise. The refinement below
+makes the boundary explicit: a planning bound does not belong in the gate.
 
 The source reports that getting-started guidance named oats.aweb 1.33.0 for
 a root route still pending in oats-aweb#147. The 0.69.9 pin move exposed the
@@ -84,3 +85,42 @@ Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
 2026-11-02; notes/a-skill-names-a-version-only-once-it-ships.md. The CI failure
 and main-served timing are source-reported; the public correction and reader's
 assessment were checked, but no CI run, release or runtime was reproduced.
+
+# An unshipped feature's gate names no version (2026-11-03)
+
+Do not write an earliest possible release number into an availability gate,
+even as a temporary floor to bump at each release. Name the feature's PR and
+keep the documented fallback unconditional until a release carries the
+feature. The release preparation that pins that release supplies the first
+evidence-backed floor. A PR merge alone is not shipment. Planning estimates
+may remain outside the gate; review and release prep reject them as execution
+conditions. This refines the earlier planning-bound distinction without
+changing the duty to re-verify later version-qualified claims.
+
+The source reports that the root-route gate was moved to 1.34.0 and then
+1.35.0, neither carrying the feature. The plan still fell back safely: the
+observed cost was needless release-prep edits, not a broken run. Removing the
+guessed floor avoids that repeated prediction; it does not make all wording
+immune to staleness once the feature ships or its contract changes.
+
+Prefer one release-qualified feature source for guidance, with a check keyed
+to the pinned package's mirror: absence requires fallback wording; presence
+requires replacing it with a floor verified against release evidence. This
+puts the transition in the prep that actually adopts the feature rather than
+in a calendar guess. Keep the remaining semantic judgment in existing
+release/skill review, not a duplicate procedure or a knowledge-only guard.
+
+The public [correction in oats#1728](https://github.com/awebai/oats/pull/1728)
+was read during harvest. It removes the guessed provider floor and keys
+`test/getting-started-steward.test.mjs` to a root-route marker in the mirror.
+Its positive branch rejects the old no-release sentence and checks the
+underlying CLI floor; it does **not** assert that the replacement prose names
+the correct provider release. Treat it as a bounded transition reminder, not
+complete enforcement. Release-evidence verification, or a stronger assertion
+against that evidence, is still needed. No skill or test is changed here.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-03; notes/an-unshipped-feature-floor-names-no-version.md. The merged
+PR and relevant diff were checked; the repeated guesses and safe-fallback
+outcome remain source-reported, bounded to one skill and one feature. No CI
+run, release availability or deployment was independently verified.
