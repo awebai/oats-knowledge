@@ -1,5 +1,9 @@
 # market-research-expert log
 
+## 2026-11-03
+
+* **Update**: refine [human-request verification](/nodes/market-research-expert/lessons/human-request-fields-need-explicit-verification.md) with the source-reported trial audit's eligibility and prior-action checks. Separate expired/unrated cards, conditional cold-decidability and recorded action history; propose explicit scoring exclusions, an action-state oracle and real-user validation without pooled outcome rates, a router/broker safety ranking or a proven defense. Link the generalist's existing timing/duplicate lesson rather than duplicate its trial account; no accepted decision is superseded.
+
 ## 2026-11-02
 
 * **Fix**: refine the [multi-domain planning conclusion](/nodes/market-research-expert/conclusions/multi-domain-plan-authorship-evidence-2026.md) with the round-5 source-reported Spec Kit guide reading: federated local plans joined by revisable interface contracts, no shared implementation plan or required umbrella. Distinguish that alternative from an agent assembling local plans and correct the ambiguous Specification Gap recovery mechanism to one spec-informed merger; name the measured models and withdraw the unestablished CooperBench venue attribution. No human-accepted decision is superseded.
