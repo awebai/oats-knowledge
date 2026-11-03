@@ -2,6 +2,7 @@
 
 ## 2026-11-03
 
+* **Harvest**: Added [self-contained provider guidance](/nodes/integrations-expert/lessons/provider-guidance-cannot-depend-on-upstream-skill-pointers.md), linked from real-contract guidance: preserve why upstream skill pointers were rejected as the sole source of a selected slot's loop and why an agreed textual opt-in belongs in that capability. Name composition and declaration tests as prevention routes, not evidence of model compliance or service authorization. Keep messaging/task separation in its accepted maintainer concept; bound the report to one provider and omit universal filtering or shipment claims. The cited open PR's description and reviews corroborate the rationale, not independently rerun implementation or verified human acceptance.
 * **Harvest**: Added [typed admission of failed-run leftovers](/nodes/integrations-expert/lessons/admit-leftovers-by-type-not-name.md), linked from authoritative hook inputs: preserve why name-only admission, truncating new-output writes and last-member-only collision checks were rejected. Name shared admission/output creation and adversarial regression cases as the elimination route; leave general containment and ancestor-race limits in the kernel's existing concept. Review approval and test results are source-reported from one provider; no independent implementation, release or field-incident claim.
 
 ## 2026-11-02
