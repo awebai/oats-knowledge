@@ -1,5 +1,9 @@
 # market-research-expert log
 
+## 2026-11-03
+
+* **Update**: refine [decisive-claim verification](/nodes/market-research-expert/lessons/verify-decisive-product-claims-before-synthesis.md) with the source-reported comparator reversal in a small coordination fixture: name the baseline, measured unit and human approval duties before claiming time savings. Link the generalist's accepted gate-evaluation account rather than duplicate its trial figures; no measured real-user benefit, safety ranking or accepted policy change follows.
+
 ## 2026-11-02
 
 * **Fix**: refine the [multi-domain planning conclusion](/nodes/market-research-expert/conclusions/multi-domain-plan-authorship-evidence-2026.md) with the round-5 source-reported Spec Kit guide reading: federated local plans joined by revisable interface contracts, no shared implementation plan or required umbrella. Distinguish that alternative from an agent assembling local plans and correct the ambiguous Specification Gap recovery mechanism to one spec-informed merger; name the measured models and withdraw the unestablished CooperBench venue attribution. No human-accepted decision is superseded.

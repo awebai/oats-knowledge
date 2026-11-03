@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Verify decisive product claims before synthesizing a market comparison
-description: Source-reported verification passes on 2026-11-02 show how product claims and repeated research figures lose their conditions, motivating primary-source checks and version, population, condition and wording records.
+description: Source-reported verification passes on 2026-11-02/03 show how product claims and research figures lose their conditions or comparator, motivating primary-source checks and explicit measurement and authority boundaries.
 tags: [research, verification, product-status, evidence-quality]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 # Lesson and evidence boundary
 
@@ -75,6 +75,37 @@ owns the separated seam/interference study results; the
 owns the A2A method and identity qualifications, rather than duplicating
 those accounts here.
 
+# Refinement: the comparator can reverse a saving headline
+
+A source-reported verification pass on **2026-11-03** revisited a two-effort
+OATS coordination fixture run on 2026-11-02/03. Its recommended gate arm
+looked cheaper in reported human minutes than the single no-gate run but
+more expensive than the existing-process control. The source reports that
+the additional human authorization work was deliberate. The accepted
+[gate-evaluation lesson](/nodes/oats-expert/lessons/evaluate-gates-beyond-code-seed-catches.md)
+already owns the trial observations and scripted-human accounting limits;
+this refinement adds the consequence for research claims, not another trial
+result or a new gate recommendation.
+
+Before retaining a time-saving headline, name **which comparator** supports
+it and whether it is the current process or a deliberately altered arm.
+Preserve the denominator and distinguish human-time accounting, elapsed
+runtime, request counts and actual decisions. State which approval duties
+move to or from the human: fewer minutes under different authority
+assignments are not an isolated efficiency or safety effect. When available
+comparators reverse the headline, show that contrast rather than silently
+choosing the favorable baseline. More human decisions may be an intentional
+authorization cost, not automatically a design failure.
+
+The new capture contains one human seat, two efforts, three runs per main
+arm, one no-gate run and unequal planted seeds. It does not retain a full
+timing ledger or measured model identifier. The proposer reports reading
+the trial results and a revised page; this harvest read only the captured
+proposal and named note. Neither that rereading nor the reported reversal
+establishes observed real-user savings, sustainable supervisory capacity,
+safety superiority or a product outcome. Do not turn the no-gate comparison
+into an unqualified claim that the gate halves human time.
+
 # Consequence for research
 
 For decisive claims, check what the accessible primary source actually says
@@ -140,3 +171,6 @@ Evidence: OKF proposal from market-research-expert/coord-products-research-exper
 Evidence: OKF proposal from market-research-expert/coord-claims-verification-expert,
 2026-11-02; notes/research-echo-detaches-figures-from-conditions.md
 (initial pass and captured round-2 and round-3 refinements).
+
+Evidence: OKF proposal from market-research-expert/study-design-gpt-expert,
+2026-11-03; notes/human-minute-claims-require-comparator.md.
