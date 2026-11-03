@@ -1,6 +1,7 @@
 # Decisions
 
-* [Messaging does not compose task coordination](messaging-and-task-coordination-are-separate-choices.md) - Keep task teaching and task-only prerequisites in oats.aweb-tasks rather than oats.aweb, because choosing messaging does not choose a task layer and even conditional guidance teaches unavailable behavior.
+* [A shared task list selects its team without changing messaging defaults](tasks-team-is-a-workspace-setting.md) - Select the aweb tasks team once in the workspace's tasks payload, not through deployment-local overrides or messaging defaults, so deployments share a task list without moving unrelated identities.
+* [Messaging does not compose task coordination](messaging-and-task-coordination-are-separate-choices.md) - Keep task teaching and prerequisites capability-scoped, default onboarding to aweb tasks only without an existing tracker, and keep OATS-installed aweb skills within composition so messaging alone never opts a home into tasks.
 
 * [Operator-default soul selection is not a wording fix](operator-default-soul-selection-is-not-a-wording-fix.md) - Preserve first-by-name operator soul selection when clarifying a confusing notice, because choosing a friendlier soul changes the command's resolved settings and teams rather than just its presentation.
 * [Put the reference-theory authoring aid in oats.authoring](knowledge-theory-expert-moves-to-authoring.md) - Move the optional knowledge-theory soul and capability to the existing authoring package rather than expose them in every new framework workspace, with release continuity and existing-home preservation.
