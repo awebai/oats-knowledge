@@ -3,6 +3,7 @@
 ## 2026-11-03
 
 * **Update**: refine [human-request verification](/nodes/market-research-expert/lessons/human-request-fields-need-explicit-verification.md) with the source-reported trial audit's eligibility and prior-action checks. Separate expired/unrated cards, conditional cold-decidability and recorded action history; propose explicit scoring exclusions, an action-state oracle and real-user validation without pooled outcome rates, a router/broker safety ranking or a proven defense. Link the generalist's existing timing/duplicate lesson rather than duplicate its trial account; no accepted decision is superseded.
+* **Update**: refine [decisive-claim verification](/nodes/market-research-expert/lessons/verify-decisive-product-claims-before-synthesis.md) with the source-reported comparator reversal in a small coordination fixture: name the baseline, measured unit and human approval duties before claiming time savings. Link the generalist's accepted gate-evaluation account rather than duplicate its trial figures; no measured real-user benefit, safety ranking or accepted policy change follows.
 
 ## 2026-11-02
 
