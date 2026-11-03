@@ -130,9 +130,9 @@ human-only, authorization and safety requirements remain unchanged.
 release after the versions above or material SDK, hook or permission-behavior
 change, when A2ABreak implementation validation or fix evidence appears,
 and when oversight trials supply eligibility, action-history or real-user
-validation evidence. Re-read the selected schemas and implementations before calling the
-inventory current; update or supersede this finding and log the change in
-the same session.
+validation evidence. Re-read the selected schemas and implementations before
+calling the inventory current; update or supersede this finding and log the
+change in the same session.
 
 # Citations
 
