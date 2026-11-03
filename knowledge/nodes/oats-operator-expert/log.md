@@ -2,6 +2,8 @@
 
 ## 2026-11-03
 
+* **Harvest**: [Join an existing workspace with one invite, not team ensure](/nodes/oats-operator-expert/decisions/existing-workspace-join-uses-one-paste-invite.md) — preserve the one-paste choice, the rejected ensure route's silent-team-split rationale and the measurement trigger for revisiting tokenless enrollment; distinguish source-reported service behavior from implementation and live acceptance, without reviving the superseded human-login lifecycle design.
+
 * **Harvest**: [No GitHub account means assisted signup, not local-only onboarding](/nodes/oats-operator-expert/decisions/no-github-account-gets-assisted-signup.md) — preserve source-reported human direction to help newcomers create an account while keeping one workspace host and the attested Desktop path; record rejected hosting alternatives without a timeless availability claim or an execution-permission guarantee.
 
 * **Harvest**: [Existing trackers get a tailored capability offer](/nodes/oats-operator-expert/decisions/existing-trackers-get-a-tailored-capability-offer.md) — preserve source-reported human direction to follow deferred tracker onboarding with a workspace-owned capability offer based on the person's workflow; link the maintainer's existing selection rule rather than duplicate it.
