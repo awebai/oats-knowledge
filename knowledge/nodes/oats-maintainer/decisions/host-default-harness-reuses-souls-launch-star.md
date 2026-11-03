@@ -36,6 +36,14 @@ for one failed helper. A multi-harness case that needs different precedence
 requires a contract proposal, not invention of another key during onboarding.
 This decision does not authorize changing an existing host's selections.
 
+The earlier [authoring-placement decision](/nodes/oats-maintainer/decisions/knowledge-theory-expert-moves-to-authoring.md)
+rejected the wildcard as a way to record one person's harness, because it
+would override deliberate soul-specific choices and did not solve package
+placement. That rejection stands for its problem. This decision answers the
+same concern differently: the wildcard is the host's chosen default, and a
+soul keeps its own harness through a per-soul entry when that harness can
+actually run there.
+
 # Canonical boundaries and prevention
 
 The [setup-admin launch lesson](/nodes/oats-setup-admin/lessons/a-host-wide-pi-model-is-one-launch-set-write.md)
