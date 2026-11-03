@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Seeded review needs planting and catch validation
-description: Post-authorship defect injection triggered tamper handling and cooperative planting varied between instances, so seeded-review comparisons need actual planted populations and validated catch stages rather than raw counts.
+description: Seeded-review comparisons need actual planted populations and semantically validated catch stages reconstructed from branch pushes, issues and messages, not raw counts or PR heads alone.
 tags: [operator, trials, review, measurement, seeds]
 timestamp: 2026-11-03
 ---
@@ -60,14 +60,44 @@ ambiguous earliest mentions and preserve correction reasons rather than
 silently shifting credit. Do not infer detection from a private seed's name
 appearing in a message.
 
+# PR heads omit pre-PR catches
+
+A later source report, from the 2026-11-03 T6 campaign, identifies another
+attribution failure: an expert can return a developer's failing branch
+before any PR exists. Reading only PR heads then loses the objection and
+can misclassify the fault as author avoidance. The source also reports a
+smoke run in which PR-only attribution credited a reviewer of the fixing
+PR rather than the maintainer who had already raised the fault on an issue.
+
+Reconstruct the fault's history from every pushed head of the relevant work
+branches, including branches with no PR. Join reviews and PR comments with
+issues, issue comments and relevant mails to the branch author. For the
+reported fixture, the observation window runs from the first failing head
+to the first passing head after it. Do not start only at PR creation or use
+the last failing head across branches: another branch can retain an old
+fault after the repair is already pushed. Preserve the earlier issue report
+when a later effort fixes a pre-existing fault.
+
+Credit the earliest evidenced reader who actually identifies the fault,
+not the first word match or the later reviewer of its repair. A pre-PR mail
+is a catch only when its content and timing establish that objection; the
+sender's role alone does not. An author repair before any evidenced reader
+objection is avoidance only when the relevant history supports that
+classification. Missing heads or message history leave attribution unknown,
+not proof that nobody caught the fault. Detection credit still does not by
+itself prove that the objection caused the repair.
+
 # Elimination route and scope
 
 Put a seed-presence ledger and review-stage evidence into the trial's
-measurement design, with assertions at the points being compared. Test the
-attribution tool on mentions that approve the behavior, later genuine
-objections, self-removal and multiple readers. Deterministic checks can
-establish presence; ambiguous semantic credit still needs adjudication.
-These are proposed controls, not validated tooling from this harvest.
+measurement design, with assertions at the points being compared. Retain
+push history and link branch, fault and reader events before teardown.
+Test attribution on pre-PR send-backs, earlier issue reports followed by a
+later fixing effort, stale failing branches, approving mentions, later
+genuine objections, self-removal and multiple readers. Deterministic checks
+can establish presence and event coverage; ambiguous semantic credit still
+needs adjudication. These are proposed controls, not validated tooling from
+this harvest.
 
 This is operator knowledge about constructing and interpreting an experiment,
 not a replacement review policy. The research lesson on
@@ -87,3 +117,12 @@ with unintended models are excluded from fixed-model inference as explained
 in [model identity](/nodes/oats-operator-expert/lessons/trial-model-identity-needs-launch-enforcement.md).
 No arm ranking, transferable planting rate or controlled comparison of
 injection methods is established.
+
+Evidence for the branch-history refinement: OKF proposal from oats-operator-expert/coord-blind-trial-kit-expert, 2026-11-03; notes/trap-attribution-needs-branch-heads.md.
+
+The later source reports OATS 0.69.9 and pi 1.3.0, with Copilot
+claude-opus-5.5 and gpt-6-sol in the campaign. Its attribution correction is
+source-reported, not independently checked against pushed heads, issues,
+mails or the attribution script by this harvest. It establishes an omitted
+evidence surface and a corrected example, not a validated universal window
+algorithm or a new catch-rate or model comparison.

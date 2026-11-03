@@ -2,6 +2,10 @@
 
 ## 2026-11-03
 
+* **Update**: [Seeded review needs planting and catch validation](/nodes/oats-operator-expert/lessons/seeded-review-needs-planting-and-catch-validation.md) — merge the source-reported PR-only attribution failure and earlier-issue correction; retain pushed heads and pre-PR objections, preserve semantic adjudication, and leave incomplete histories unknown rather than crediting avoidance.
+* **Update**: [Trial model identity needs launch enforcement and observation](/nodes/oats-operator-expert/lessons/trial-model-identity-needs-launch-enforcement.md) — add the pi 1.3.0 wrapper/probe dispatch trap and reported correction; route prevention to version-qualified launcher regressions, not a timeless subcommand list.
+* **Harvest**: [Trial extension tools are part of the capability baseline](/nodes/oats-operator-expert/lessons/trial-extension-tools-are-part-of-the-capability-baseline.md) — retain the reported ambient-tool and out-of-framework delegation confound; require effective inventory and per-run use evidence, without adopting a private-config isolation recipe or superseding native launch/authentication decisions.
+
 * **Harvest**: [Join an existing workspace with one invite, not team ensure](/nodes/oats-operator-expert/decisions/existing-workspace-join-uses-one-paste-invite.md) — preserve the one-paste choice, the rejected ensure route's silent-team-split rationale and the measurement trigger for revisiting tokenless enrollment; distinguish source-reported service behavior from implementation and live acceptance, without reviving the superseded human-login lifecycle design.
 
 * **Harvest**: [No GitHub account means assisted signup, not local-only onboarding](/nodes/oats-operator-expert/decisions/no-github-account-gets-assisted-signup.md) — preserve source-reported human direction to help newcomers create an account while keeping one workspace host and the attested Desktop path; record rejected hosting alternatives without a timeless availability claim or an execution-permission guarantee.
