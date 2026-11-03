@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Installers start from existing tools and preserve their ownership
-description: An OATS installer reuses suitable existing tools, installs only missing ones, upgrades only its own installs, and preserves identities and configuration for adoption rather than replacement.
+description: An OATS installer reuses suitable existing tools, installs only missing ones, upgrades only its own installs, preserves user state for adoption, and filters bundled teaching from its runtime install path rather than merely documenting the composition leak.
 tags: [integrations, installers, adoption, ownership, human-direction]
-timestamp: 2026-10-26
+timestamp: 2026-11-03
 ---
 # Direction and rationale
 
@@ -41,6 +41,51 @@ This decision constrains installer ownership. It does not authorize
 onboarding to mutate or re-enroll discovered state, nor make an unsupported
 existing version acceptable. Such cases need an explicit resolution outside
 the installer's automatic missing-tool path.
+
+# Refinement: bundled teaching is an installation side effect (2026-11-03)
+
+The accepted [messaging/task composition decision](/nodes/oats-maintainer/decisions/messaging-and-task-coordination-are-separate-choices.md#refinement-installation-must-preserve-the-composition-boundary-2026-11-03)
+owns the rule that the OATS aweb installation supplies runtime pieces, not
+machine-wide skills. Apply that boundary when reviewing an upstream plugin
+or extension: installing a runtime dependency can also install teaching that
+bypasses the capability, version and soul choices of composition.
+
+The source reports a choice between leaving bundled skills as a documented
+known gap and filtering them during installation, with readiness warning when
+they still load. The directing human chose the latter. Documentation alone
+leaves the unwanted teaching in the home's context; a correct explanation of
+the leak does not preserve the composition boundary. The filter is an interim
+integration measure, not a reason to make a parallel permanent skill system.
+Prefer upstream packaging without the bundled teaching, or a supported
+manifest-level resource filter, to a provider-specific settings edit.
+
+The reported working filter was for Pi. The note separately identifies the
+Claude channel plugin's own skill as an unresolved upstream gap; it does not
+establish that the same filter works on both harnesses. Nor does the choice
+supersede installer ownership above: it grants no automatic removal of a
+person's pre-existing skills or alteration of an independently installed
+plugin. aweb's own installation and the OATS-controlled installation remain
+distinct paths.
+
+Prevent regression with install and update tests that inspect which resources
+actually load, paired with readiness cases for filtered and unfiltered
+configurations. Keep the runtime extension present while excluding its
+teaching. The source reports Pi 1.3.0 retaining its filter through installation
+and updates; that is bounded evidence, not an indefinite compatibility
+promise. Removing and reinstalling the dependency needs its own coverage.
+The long-term elimination route is upstream separation or a declarative
+resource filter, with tests rather than a recurring reviewer reminder.
+
+Acceptance is **source-reported**: the directing human's choice was relayed
+by the setup maintainer by mail on 2026-11-03. No private exchange or runtime
+test was inspected by this harvest. The proposal names
+[awebai/oats-aweb#188](https://github.com/awebai/oats-aweb/pull/188) and
+[awebai/oats#1722](https://github.com/awebai/oats/pull/1722) as implementation
+work, open at capture; these are evidence locators, not release or installation
+receipts. No human-accepted decision is superseded.
+
+Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert,
+2026-11-03; notes/provider-install-path-installs-no-skills.md.
 
 # Enforcement and related boundaries
 
