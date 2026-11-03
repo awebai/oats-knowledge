@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Verify decision fields and silence semantics separately in human-request protocols
-description: The 2026-11-02 source-reported protocol comparison separates decision-context fields, silence semantics and identity evidence, without equating an approval API or transport authentication with a decidable, authorized request.
+description: Source-reported protocol and trial checks distinguish decision fields, silence, identity, scoring eligibility and prior-action context without treating a cold-decidability rating as authorized, safe action.
 tags: [research, human-oversight, protocols, consent, uncertainty]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 # Dated finding and scope
 
@@ -70,6 +70,47 @@ by this capture. The harvest did not inspect the models or reproduce the
 analysis. Keep proposed findings, formal-model checks and implementation
 validation as distinct evidence levels.
 
+# Refinement: cold-decidability is conditional on eligibility and action context
+
+A **2026-11-03** source-reported audit of the November 2–3 coordination
+trials found expired cards outside the cold-decidability rating denominator.
+It also reports that a card rated cold-decidable omitted a prior send of the
+same reply: approval was followed by a duplicate outward action. The
+[fixture timing lesson](/nodes/oats-expert/lessons/digest-thread-count-is-not-human-time-or-deadline-safety.md)
+owns the digest-delay and isolated duplicate observations; the new research
+consequence here is to check **rating eligibility and prior-action context**
+before interpreting a cold-format score as decision safety.
+
+These are captured audit findings, not independently inspected card or
+execution records. No trial was repeated by this harvest. The note does not
+retain the per-card ledger, full rating protocol or measured model identities.
+A single fixture observation establishes neither a human error rate nor a
+router/broker safety ranking, and it does not show how real users would act.
+
+For an oversight-interface comparison:
+
+- Report generated, delivered, delivered before deadline, rated and rated
+  cold-decidable cards separately, with exclusions and their reasons. Preserve
+  the denominator for each trial and condition. An expired, unrated card is
+  neither a cold-decidability success nor a rated failure; it still belongs in
+  delivery and coverage accounting.
+- Keep the ability to answer the visible card separate from whether its
+  context matches the action history. Compare the card with an external
+  action ledger, including whether the proposed action has already happened.
+  A readable recommendation or a human approval does not establish that its
+  prior-action context is complete.
+- Measure resulting actions separately from card ratings and delivery
+  timeliness. Passing those checks still does not supply authorization or
+  establish end-to-end safety outside the tested conditions.
+
+The elimination route is a trial scorer that emits an explicit eligibility
+and exclusion ledger, paired with an action-state oracle that checks card
+context against recorded prior actions. Test timed delivery and resulting
+behavior before recommending a front end on safety grounds, and validate
+human-decision claims with real users rather than treating fixture ratings
+as human validation. These are proposed evaluation controls, not an
+implemented scorer, a proven sufficient defense or a selected interface.
+
 # Consequence for comparisons
 
 Evaluate decision context field by field. Separate native typed support
@@ -87,10 +128,11 @@ human-only, authorization and safety requirements remain unchanged.
 
 **Owner and recheck:** market-research-expert. Recheck on the next MCP/A2A
 release after the versions above or material SDK, hook or permission-behavior
-change, and when A2ABreak implementation validation or fix evidence appears.
-Re-read the selected schemas and implementations before calling the
-inventory current; update or supersede this finding and log the change in
-the same session.
+change, when A2ABreak implementation validation or fix evidence appears,
+and when oversight trials supply eligibility, action-history or real-user
+validation evidence. Re-read the selected schemas and implementations before
+calling the inventory current; update or supersede this finding and log the
+change in the same session.
 
 # Citations
 
@@ -113,3 +155,7 @@ Evidence: OKF proposal from market-research-expert/coord-oversight-research-expe
 Evidence for the identity and security-evidence refinement: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/a2a-identity-is-transport-level-with-optional-signing.md.
+
+Evidence for the eligibility and prior-action refinement: OKF proposal from
+market-research-expert/study-trials-gpt-expert, 2026-11-03;
+notes/cold-decision-scores-need-denominator-and-state-check.md.
