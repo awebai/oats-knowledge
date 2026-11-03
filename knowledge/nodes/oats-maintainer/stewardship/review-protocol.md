@@ -53,6 +53,49 @@ messaging/tasks seam, apply the
 [independent-composition decision](/nodes/oats-maintainer/decisions/messaging-and-task-coordination-are-separate-choices.md):
 choosing messaging does not select task teaching or task-only prerequisites.
 
+## A favorable first reaction is not a final direction decision (2026-11-03)
+
+When conveying a human's response, preserve whether it is a provisional
+reaction or acceptance of a specified proposal. Remaining review and scope
+qualifications belong in the report; do not turn them into a final decision
+merely because the reaction was favorable. Routing builds, telling peers
+that direction is settled and rewriting decision records can spread that
+misclassification before it is corrected.
+
+The source reports one such case: an expert interpreted a favorable first
+reading as adoption of a coordination proposal. The receiving maintainer
+routed builds, informed peers and rewrote direction notes before the expert
+corrected the report: the human still intended to review the proposal.
+The source reports withdrawing those actions the same day. This is a
+source-reported failure to distinguish discussion from decision, not a
+measured relay failure rate. The capture does not preserve the full original
+relay or establish whether it met the prescribed decision-record form.
+
+This lesson does **not** add a human reconfirmation round for every large
+direction, role, contract or shared-package decision. The cited
+[`cross-review-peer` rule](https://github.com/awebai/oats-engineering/blob/7a079d99674c5d97a5ca04032e36cdb6aea7b571/oats-package/capabilities/maintainer/skills/cross-review-peer/SKILL.md#decisions-passed-on-from-a-human)
+trusts a decision relayed by that human's own agent, within what that human
+may decide, without asking the human whether they said it. Its separate
+rules for decision form, conflicts, human-accepted supersessions and direct
+authority for safeguarded acts remain intact. A known qualification or
+correction must not be discarded, but a mandatory quoted line for every
+such relay is not adopted; neither a quotation alone nor confidence in the
+sender settles the meaning or scope of the response.
+
+Prefer an explicit distinction between proposed and decided status in the
+existing decision record, carrying any remaining human review. Structural
+checks can expose a missing status or locator, not determine whether the
+human intended final acceptance. The residual interpretation belongs in
+existing `direction-gate` and `cross-review-peer` guidance, not a second
+approval service. No skill, schema or automated enforcement is changed here,
+and this incident does not itself supersede any accepted coordination choice.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-03; notes/a-yes-on-first-reading-is-not-a-decision.md. The incident
+and correction are source-reported; no private mail, session or decision
+page was inspected, and no human acceptance of a new confirmation rule is
+cited.
+
 ## A declared deferral still needs the decision's permission
 
 When a PR openly leaves part of a decided rule for a later PR, read the
