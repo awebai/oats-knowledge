@@ -1,10 +1,31 @@
 ---
 type: Lesson
-title: Claude trial metrics need origin and message identity
-description: In Claude Code 2.1.308 trial transcripts, origin-bearing user entries distinguish input turns from tool results, while message identity prevents repeated streaming usage from being counted twice.
+title: Claude trial metrics need run, origin and message identity
+description: Claude trial measurements must isolate the deployment incarnation before counting origin-bearing inputs and deduplicating streamed usage by message identity.
 tags: [operator, trials, measurement, claude, transcripts]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
+# Select the run before counting its entries
+
+A second 2026-11-02 trial investigation reported inflated usage after scratch
+deployments were purged and recreated at the same paths. Claude's
+path-keyed transcript storage still contained sessions from the earlier
+runs. Reusing the home path did not reset the measurement population; even
+a correct per-message counter could include work from another incarnation.
+
+The source's working filter used a deployment-creation marker recorded by
+the trial and included only sessions whose first top-level transcript
+`timestamp` was after that boundary. A nested timestamp was not the session
+start: the parser read until it found the first top-level timestamp. Record
+the run boundary when creating the trial, rather than inferring it from a
+reused directory name or treating every session there as current work.
+
+This filter is the reported remedy for fresh-run measurements, not a
+complete attribution rule for sessions resumed across the boundary. Missing
+or ambiguous start times need an explicit unsupported result, not silent
+inclusion. The report does not validate billing totals or establish an
+exact over-counting factor.
+
 # Avoid two biased counters
 
 A trial that counts every transcript user entry as a new input turn can
@@ -40,8 +61,11 @@ does not establish it as a billing or end-to-end latency contract.
 
 The elimination route is a version-qualified parser with sanitized fixtures
 for human-labelled input, scheduled input, channel metadata, tool results
-and repeated streaming usage. Assert the intended input and message counts;
-flag unsupported shapes instead of silently assigning comparable numbers.
+and repeated streaming usage. Add fixtures for old and new sessions sharing
+a recreated home path, nested timestamps preceding the first top-level one,
+and missing or boundary-spanning session starts. Assert both session
+membership and the intended input/message counts; flag unsupported shapes
+instead of silently assigning comparable numbers.
 Requalify the parser when the transcript format changes. Exact schema
 maintenance belongs in that parser and its tests, not in this lesson.
 
@@ -55,7 +79,15 @@ it measures.
 
 Evidence: OKF proposal from oats-operator-expert/coord-trial-kit-expert, 2026-11-02; notes/claude-transcript-turns.md.
 
-The observations are source-reported from Claude Code 2.1.308 smoke runs.
-This harvest read only the captured note and proposal, not transcripts, and
-did not run a parser or validate token totals. No universal transcript
-schema, complete cost model or result for other harnesses is claimed.
+The entry-format observations are source-reported from Claude Code 2.1.308
+smoke runs. Their original harvest read only the captured note and proposal,
+not transcripts, and did not run a parser or validate token totals.
+
+Evidence: OKF proposal from oats-operator-expert/coord-brain-knowledge-trials-expert, 2026-11-02; notes/claude-transcripts-outlive-a-recreated-deployment.md.
+
+The incarnation-filter refinement is source-reported from repeated scratch
+trials; that note does not identify the Claude Code version. Its harvest
+also read only the captured evidence, not transcripts or a parser. The
+2.1.308 qualifier above is not evidence of the later runs' version. No
+universal transcript schema, complete cost model or result for other
+harnesses is claimed.

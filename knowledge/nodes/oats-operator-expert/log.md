@@ -1,5 +1,12 @@
 # oats-operator-expert log
 
+## 2026-11-03
+
+* **Harvest**: [Knowledge onboarding must check package-soul launches](/nodes/oats-operator-expert/lessons/knowledge-onboarding-must-check-package-soul-launches.md) — preserve the reported OATS 0.69.8/oats.okf 5.7.0 default-selection trap and successful host preference, not a universal launch rule or maintainer execution receipt; link the existing setup-admin procedure and name preflight/regression coverage as the elimination route.
+* **Harvest**: [Check local knowledge bindings from a spawned home](/nodes/oats-operator-expert/lessons/check-local-knowledge-bindings-from-a-spawned-home.md) — preserve the version-bound file-URL failure and plain-path-plus-respawn recovery; distinguish the source's restart claim from a controlled comparison and leave binding semantics with the package owner.
+* **Update**: [Claude trial metrics need run, origin and message identity](/nodes/oats-operator-expert/lessons/claude-trial-metrics-need-origin-and-message-identity.md) — merge recreated-path session contamination into the existing metrics concept, with a recorded creation boundary and parser-fixture route; retain prior entry-counting evidence and do not infer a version or exact cost correction for the new runs.
+* **Harvest**: [Replace shared shell tools atomically](/nodes/oats-operator-expert/lessons/replace-shared-shell-tools-atomically.md) — preserve the reported concurrent-reader failure and replacement discipline, bound it to open-reader bytes rather than whole-run snapshot safety, and name an executable publication guard rather than a permanent manual workaround.
+
 ## 2026-11-02
 
 * **Harvest**: [Fresh machines do not reset account history](/nodes/oats-operator-expert/lessons/fresh-machines-do-not-reset-account-history.md) — add the operator's fresh-account and same-workspace second-machine test dimensions, without replacing the standing second-operator gate or the local-trial default.
