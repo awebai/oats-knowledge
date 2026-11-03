@@ -53,6 +53,44 @@ messaging/tasks seam, apply the
 [independent-composition decision](/nodes/oats-maintainer/decisions/messaging-and-task-coordination-are-separate-choices.md):
 choosing messaging does not select task teaching or task-only prerequisites.
 
+## A shape check must protect the value that reaches the reader (2026-11-03)
+
+When reviewing a sender-supplied value, trace what the validator checks and
+what downstream code actually receives. Parsing a normalized copy and then
+returning the unchecked original breaks that connection. A general URL
+parser can remove ASCII tabs and newlines and accept paths that the service
+contract forbids; parse success is not a plain-service-URL shape check.
+
+The source reports approving an invite setup change before a second reader
+found this mismatch. The invite's raw service value could reach recorded
+configuration, a JSON result, mismatch text and a resume command printed on
+the failure path. Checking only the successful operation would miss that
+last output route. These are potential agent-input surfaces, not proof that
+an agent followed injected text or that an exploit occurred.
+
+Prefer one contract-specific helper whose callers consume only its checked
+result. Either validate the raw string against the allowed shape or return
+a normalized value that also satisfies that shape; normalization alone does
+not reject an otherwise forbidden path. Reuse an existing helper for the
+same contract rather than invent a second URL rule. Add hostile-input
+regressions for embedded/trailing controls and extra paths on success and
+failure paths, asserting both refusal before effects and absence of the raw
+value from output. This is the elimination route; residual source-to-sink
+judgment belongs in `pr-review`, not a permanent manual substitute for tests.
+
+The [reference-display decision](/nodes/oats-maintainer/decisions/reference-display-is-rebuilt-or-withheld.md)
+already owns construction versus redaction. This finding adds the
+checked-value/returned-value mismatch, not a second display grammar or a
+claim that one regex makes all agent-readable text safe.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-03; notes/validate-the-value-you-return.md. The public
+[second-reader return](https://github.com/awebai/oats-aweb/pull/194#issuecomment-6610660459)
+at `ad97521` and [delta approval](https://github.com/awebai/oats-aweb/pull/194#issuecomment-6611082683)
+at `2b3321f5` were read and corroborate the review miss and reported shared-helper
+fix. This harvest did not execute the implementation or tests; merge is not
+release or live-service verification. The exact grammar stays in the package.
+
 ## Raw host identifiers are disclosures even when they do not look like secrets (2026-11-03)
 
 Trace identifiers read from the host to their audiences during the security
@@ -289,42 +327,93 @@ approved head instead; a queue is the repository-level route for enforcing
 CI on the combination. The operating procedure belongs in the
 `oats.maintainer` `pr-review` skill, not in a second checklist here [7].
 
+## A release heading is part of an entry's meaning (2026-11-03)
+
+After updating or rebasing a PR across a release cut, inspect the heading
+above each added CHANGELOG entry on the updated head. Identical added lines
+can acquire the wrong meaning when an update places them under a version
+that has already shipped rather than `Unreleased`. A comparison that ignores
+surrounding context can miss this even when the patch appears unchanged.
+Return a misplaced entry for correction; this is a semantic placement check,
+not a new blanket approval-carry exception.
+
+The public [return on oats-aweb#188](https://github.com/awebai/oats-aweb/pull/188#issuecomment-6604310692)
+records precisely that failure after a forge update across the 1.34.0 cut.
+The [subsequent read](https://github.com/awebai/oats-aweb/pull/188#issuecomment-6604514665)
+records moving the entry to `Unreleased`. This is one corroborated review
+incident, not a claim that every update misplaces notes or that ordinary CI
+can never detect it.
+
+Prefer separate per-change release-note fragments to eliminate this shared
+heading trap; where a repository keeps one changelog, add a check against
+unintended edits to already-released sections. Until enforced, placement is
+review-procedure debt in the existing `pr-review` guidance. Neither approach
+proves the release prose true, and no CI or skill change is made here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-03; notes/changelog-section-after-branch-update.md. The cited review
+records were read; this harvest did not reproduce the merge. The kernel's
+per-change notes are a contrast, not immunity from all release-note errors.
+
 ## A publication screen must distinguish the PR range from a moving base (2026-11-03)
 
 Review a new publication gate against the ordinary concurrent case: two PRs
-start from one accepted base, then one merges before the other. Requiring
-the second PR's starting base to equal the accepted branch's current tip,
-and that tip to be an ancestor of its unchanged head, rejects that case
-merely because unrelated work landed. The source reports reproducing this
-failure with real Git while reviewing a harvest content screen.
+start from one accepted base, then one merges before the other. A gate that
+requires the old base to equal today's accepted tip, without a safe way to
+rebuild the pending change, blocks ordinary concurrent work. The original
+lesson recorded the source's real-Git reproduction and the stale-whole-tree
+rewrite trap.
 
-The review distinction is between the PR's own outgoing range and the result
-of integrating it. The source's proposed screen uses the PR's fork point,
-checked to belong to accepted history, rather than demanding tip equality.
-That range choice does not prove the combined result safe or complete the
-publication screen's other coverage requirements. In particular, a guard on
-the exact PR head does not establish integration evidence: the existing
-same-area updated-head CI rule and affected-test checks below remain intact.
+**Refinement of that earlier lesson, later on 2026-11-03:** screening the PR's
+own range from its fork point remains distinct from screening what will be
+published. It is not sufficient merge evidence. A local approximation of a
+hosted squash is not necessarily the hosted result either: `merge=union` or
+other merge-algorithm differences can retain content the screen rejected.
+The review invariant is that the published tree must be the screened tree.
+This supersedes the note's initial suggestion that fork-point screening plus
+an exact-head guard alone resolves the moved-base problem.
 
-A removal rewrite has a second trap: putting the old head's whole tree onto
-the new accepted tip can silently revert intervening work. Rebuild from the
-current tip plus the PR's intended delta, and check that intervening changes
-survive; a content-pattern screen is not a semantic check for accidental
-reverts. This is review judgment, not authority to rewrite a branch or carry
-an old verdict to changed content.
+The source reports both maintainer sides agreeing three conditions for the
+content-screened rewrite path: integrate the sanitized delta onto the
+current accepted tip as one screened replacement commit; bind a fresh verdict
+to that replacement head, with a range-diff read of the delta; and prove the
+behavior with real Git, including a `merge=union` case. Direct merge requires
+the accepted tip to be an ancestor of the screened head, so the squash needs
+no divergent-tree composition. Renewed advancement that invalidates that
+condition requires refusal and renewed review, not automatic recomposition
+under an old verdict.
 
-Eliminate the mechanical failure in the publication implementation and real-Git
-regressions: advance the accepted branch between PR creation and review, then
-check both range admission and preservation of the intervening change during
-a rewrite. Residual judgment belongs in `pr-review`; no gate or skill change
-is delivered here.
+Rebuilding still starts from the current accepted tree plus the intended
+delta, never the old head's whole tree. Test preservation of intervening
+additions, edits and deletions as well as conflict refusal. A content-pattern
+screen does not establish semantic preservation or cover personal data in
+general; the [package's publication-limit decision](/nodes/oats-okf-expert/decisions/personal-data-exclusion-is-not-a-publication-guarantee.md)
+owns that separate boundary.
+
+The public second read also identifies a residual race: a last accepted-tip
+check is not atomic with the hosted merge. Its recorded mitigation is one
+serialized merge writer per base, an operational requirement rather than a
+lock the helper enforces. Do not describe a head guard or repeated checks as
+an atomic expected-base guarantee, or local Git tests as certification of
+hosted merge semantics.
+
+This refines publication-gate review judgment, not the general unchanged-delta
+carry rule, same-area updated-head CI or affected-test requirements. It grants
+no new authority to rewrite a branch. Package-specific publication and legacy
+ancestry procedures stay with their owner and composed skills. Enforcement
+belongs in the publication implementation and real-Git regression suite;
+residual judgment belongs in `pr-review`. No gate or skill changes here.
 
 Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
-2026-11-03; notes/a-publication-gate-must-allow-a-moved-base.md. The reported
-return and synthetic reproduction concern
-[awebai/oats-okf#121](https://github.com/awebai/oats-okf/pull/121) at
-`736b6d33`; this harvest did not reproduce them. The public PR was still open
-at that head when read, not a released implementation or verified fix.
+2026-11-03; notes/a-publication-gate-must-allow-a-moved-base.md, later capture.
+The source reports bilateral agreement in private message `6feb3148`. The
+public [delta approval](https://github.com/awebai/oats-okf/pull/121#issuecomment-6607805220),
+[other-side confirmation](https://github.com/awebai/oats-okf/pull/121#issuecomment-6607890507)
+and [serialization clarification](https://github.com/awebai/oats-okf/pull/121#issuecomment-6607979387)
+were read and corroborate the three conditions and residual limit.
+Agreement is source-reported maintainer agreement, not human acceptance.
+The PR merged on 2026-11-03; this harvest did not run its tests, reproduce the
+experiment or establish a release, deployment or hosted-merge guarantee.
 
 # A batch window preserves same-area integration evidence
 

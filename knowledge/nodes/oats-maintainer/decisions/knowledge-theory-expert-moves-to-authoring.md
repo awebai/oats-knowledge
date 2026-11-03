@@ -38,7 +38,11 @@ and does not change any capability's runtime obligations.
   of removing the authoring aid from a newcomer's framework consumption.
 - **Record the person's harness through `souls.launch."*"`:** a broad
   override would also replace deliberate soul-specific harness choices
-  later; it does not solve inappropriate package placement.
+  later; it does not solve inappropriate package placement. A later decision
+  adopts the wildcard for a different purpose, the
+  [host-default harness](/nodes/oats-maintainer/decisions/host-default-harness-reuses-souls-launch-star.md),
+  with per-soul exceptions for harnesses that can run on the machine; this
+  rejection is unchanged for placement.
 
 # Continuity and dependencies
 

@@ -1,5 +1,7 @@
 # Decisions
 
+* [The host-default harness reuses souls.launch."*", not a second key](host-default-harness-reuses-souls-launch-star.md) - Use the existing host-wide launch preference rather than a second default-harness key, because it must override unavailable soul-declared harnesses and cover souls added later, with per-soul exceptions only for installed and authenticated harnesses.
+
 * [A shared task list selects its team without changing messaging defaults](tasks-team-is-a-workspace-setting.md) - Select the aweb tasks team once in the workspace's tasks payload, not through deployment-local overrides or messaging defaults, so deployments share a task list without moving unrelated identities.
 * [Messaging does not compose task coordination](messaging-and-task-coordination-are-separate-choices.md) - Keep task teaching and prerequisites capability-scoped, default onboarding to aweb tasks only without an existing tracker, and keep OATS-installed aweb skills within composition so messaging alone never opts a home into tasks.
 
