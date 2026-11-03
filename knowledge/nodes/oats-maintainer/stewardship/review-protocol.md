@@ -83,7 +83,11 @@ such relay is not adopted; neither a quotation alone nor confidence in the
 sender settles the meaning or scope of the response.
 
 Prefer an explicit distinction between proposed and decided status in the
-existing decision record, carrying any remaining human review. Structural
+existing decision record, carrying any remaining human review. The cited rule
+already draws that line: a relay is a decision only in its
+`Decided with <human>: <decision>` form, recorded where it applies, and anything else is a
+proposal. A favorable first reading does not earn that form, and a receiver
+treats a relay without it as a proposal. Structural
 checks can expose a missing status or locator, not determine whether the
 human intended final acceptance. The residual interpretation belongs in
 existing `direction-gate` and `cross-review-peer` guidance, not a second
