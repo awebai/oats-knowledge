@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Trial runtime redirection excludes host-service proof
-description: A Linux trial reported that redirecting runtime state made the user service manager unreachable, so its successful tick-loop wake proves neither host-service installation nor complete containment.
+description: Linux trials reported excluded host-service access but surviving absolute temporary-file writes, so runtime redirection and a private temporary mount each prove only the boundary exercised.
 tags: [operator, trials, isolation, runtime, evidence]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 # Finding
 
@@ -50,6 +50,23 @@ Similarly, Docker was unavailable in the source's environment; that is not
 a general reason to reject containers or equate environment redirection
 with container isolation.
 
+# Absolute temporary writes need their own boundary
+
+A later source report from the same campaign found a Claude seat writing an
+absolute temporary path on the host despite the trial's HOME/TMPDIR
+redirection. The reported remedy was an unprivileged mount of a per-run
+directory over the process's `/tmp`; a probe write then landed inside the
+trial root. This is evidence for one tested write destination, not that
+environment redirection was sufficient or that all host writes were contained.
+
+The reported mount retained the rest of the host filesystem's visibility.
+It is not a general security sandbox, an authentication-isolation adapter or
+proof about other temporary paths, services and platforms. The native
+configuration and authentication boundaries above remain unchanged; this
+observation does not adopt the rejected blanket HOME-redirection prescription.
+An authorized fixture should test its actual absolute write destination and
+name what remains shared rather than label a redirected environment isolated.
+
 # Turn the observed traps into launcher checks
 
 The source also found two practical limits: a trial root inside a real
@@ -67,8 +84,12 @@ already owns deliberate child environments: a private tmux socket does not
 prevent inherited instance or messaging selectors from choosing a live
 principal. Link those rules rather than treating an unset list as sufficient.
 Executable checks should exercise contaminated caller environments, state
-escape, nested roots, socket length and interrupted cleanup. No such
-regression coverage is certified by this harvest.
+escape, nested roots, socket length and interrupted cleanup. Include an
+absolute temporary-write probe in the selected process context: assert where
+the write lands and reject a containment claim when that boundary is absent.
+No such regression coverage is certified by this harvest. The separate
+[stdin-stall lesson](/nodes/oats-operator-expert/lessons/trial-stdin-stalls-are-harness-faults.md)
+explains why containing a file write does not prove that the writer completes.
 
 # Evidence and limits
 
@@ -79,3 +100,9 @@ OATS 0.69.8, aw 1.36.35, Claude Code 2.1.308 and oats.aweb 1.32.1. This
 harvest did not inspect the kit, transcripts or host, or repeat the scan.
 The report supports the bounded runtime-manager observation and its proof
 limit, not a supported cross-platform isolation procedure.
+
+Evidence for the temporary-write refinement: OKF proposal from oats-operator-expert/coord-trial-kit-expert, 2026-11-03; notes/kit-model-pin-and-private-tmp.md.
+
+The refinement reports OATS 0.69.8 and Claude Code 2.1.308 on the same host;
+its probe was not repeated by the harvest. No complete containment audit or
+new permission to alter native authentication follows.
