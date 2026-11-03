@@ -2,6 +2,8 @@
 
 ## 2026-11-03
 
+* **Harvest**: [No GitHub account means assisted signup, not local-only onboarding](/nodes/oats-operator-expert/decisions/no-github-account-gets-assisted-signup.md) — preserve source-reported human direction to help newcomers create an account while keeping one workspace host and the attested Desktop path; record rejected hosting alternatives without a timeless availability claim or an execution-permission guarantee.
+
 * **Harvest**: [Existing trackers get a tailored capability offer](/nodes/oats-operator-expert/decisions/existing-trackers-get-a-tailored-capability-offer.md) — preserve source-reported human direction to follow deferred tracker onboarding with a workspace-owned capability offer based on the person's workflow; link the maintainer's existing selection rule rather than duplicate it.
 * **Update**: [Intake consent does not predict auto-mode approval](/nodes/oats-operator-expert/lessons/intake-consent-does-not-predict-auto-mode-approval.md) — merge the reported no-consent installer handoff into the canonical lesson; keep actual scoped consent distinct from question suppression and execution permission, without a classifier-causality or round-saving guarantee.
 * **Update**: [Claude trial metrics need run, origin and message identity](/nodes/oats-operator-expert/lessons/claude-trial-metrics-need-origin-and-message-identity.md) — add pre-teardown command-timing retention and the corrected whole-turn attribution failure; route prevention to the collector and export checks, not a second metrics concept or unverified component totals.
