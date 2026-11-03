@@ -64,7 +64,9 @@ that measures the intended duties separately:
 - Planted opportunities and catch attribution, alongside human requests,
   accounting assumptions and rescue interventions. Unequal planted
   populations or self-removal can change catch shares without changing
-  review quality.
+  review quality;
+  [seeded-review measurement](/nodes/oats-operator-expert/lessons/seeded-review-needs-planting-and-catch-validation.md)
+  owns how to plant seeds and credit catches.
 
 The elimination route is explicit outcome definitions and per-stage evidence
 in the trial harness, with controls for planted populations and attribution,
