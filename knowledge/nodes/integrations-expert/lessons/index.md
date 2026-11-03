@@ -4,6 +4,7 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Hooks and provider state
 
+* [Admit failed-run leftovers by type, not name](admit-leftovers-by-type-not-name.md) - Widening a provider's directory admission to accept failed-run leftovers requires expected-type checks before effects, exclusive creation of new outputs, and collision checks across the whole output set.
 * [A lifecycle hook never trusts the ambient environment](a-lifecycle-hook-never-trusts-the-ambient-environment.md) - Inputs come from the payload, persisted meta or the instance home, because the invoker may be another instance.
 * [A hook reports only the cleanup it confirmed, and keeps the credential a retry needs](a-hook-reports-only-the-cleanup-it-confirmed.md) - Emit meta before failing, report only confirmed cleanup, re-check uncertain effects, retain credentials for key-dependent retries, and pair credential exclusion from retirement recovery with fail-closed hooks.
 * [Settings reach hooks as a payload, and the brief tells the agent where they are](settings-reach-hooks-as-a-payload-and-the-brief-tells-the-agent-where-they-are.md) - One merged payload in, one brief line and persisted meta out; advisory hooks warn, required hooks fail.

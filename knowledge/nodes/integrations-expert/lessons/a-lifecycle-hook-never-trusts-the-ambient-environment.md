@@ -142,6 +142,14 @@ absence of raw-value disclosure. The source attributes this repair to
 round 1. The [tested-bound decision](/nodes/integrations-expert/decisions/newer-than-tested-warnings-follow-release-authority.md)
 records the warning's rationale, not a second locator policy.
 
+# Related filesystem boundary
+
+[Admit failed-run leftovers by type, not name](/nodes/integrations-expert/lessons/admit-leftovers-by-type-not-name.md)
+records why a provider widening directory admission must inspect the expected
+object types before effects and create new output sets without overwriting
+leftovers. Authoritative input selection does not establish write safety for
+what is already on disk.
+
 # Related lifetime boundary
 
 [Persisted launchers need recorded kernel paths](/nodes/integrations-expert/lessons/persisted-launchers-need-recorded-kernel-paths.md)
