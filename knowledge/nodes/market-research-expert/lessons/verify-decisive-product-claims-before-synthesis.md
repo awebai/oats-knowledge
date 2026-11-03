@@ -1,7 +1,7 @@
 ---
 type: Lesson
 title: Verify decisive product claims before synthesizing a market comparison
-description: Source-reported verification passes on 2026-11-02/03 show how product claims and research figures lose their conditions or comparator, motivating primary-source checks and explicit measurement and authority boundaries.
+description: Source-reported verification passes on 2026-11-02/03 motivate checking claim scope, comparators, paper attribution and correction propagation in the final synthesis, not only in upstream research.
 tags: [research, verification, product-status, evidence-quality]
 timestamp: 2026-11-03
 ---
@@ -106,6 +106,26 @@ establishes observed real-user savings, sustainable supervisory capacity,
 safety superiority or a product outcome. Do not turn the no-gate comparison
 into an unqualified claim that the gate halves human time.
 
+# Refinement: upstream corrections can fail to reach the final page
+
+A separate **2026-11-03** proposal reports auditing one synthesized decision
+page after adversarial verification of its research. The source found
+claims still using categories or interpretations that the verification
+record had already corrected, and real figures attached to the wrong paper.
+In particular, it reports a WideSWE feature result attributed to CooperBench
+despite the earlier record assigning it to WideSWE. A valid number found
+somewhere in the research is not support from the paper the final text cites.
+The [WideSWE account](/nodes/market-research-expert/limitations/cross-repo-architecture-ownership-evidence-gap.md)
+owns that study's results and limits; they are not a new benchmark finding here.
+
+The source reports reading the primary texts, but this harvest inspected
+only its proposal and named note, not the page, full audit, earlier verdicts
+or papers. This is one page and one audit, with the audit model identified
+by the source as `github-copilot/claude-opus-5.5`; no independent replication,
+general error rate or measured benefit from a final audit is established.
+The added process finding is **correction propagation failure**: checking
+the research does not establish that a later synthesis preserved its verdicts.
+
 # Consequence for research
 
 For decisive claims, check what the accessible primary source actually says
@@ -134,6 +154,16 @@ by a model, checked in a formal model or tested in an implementation. If a
 figure cannot be located in the cited version, exclude it pending a traceable
 source rather than fill in a plausible origin.
 
+Before treating a decision-bearing synthesis as reviewed, audit the **final
+artifact itself** against both the primary text and the earlier verification
+verdicts. For each decisive figure, confirm that the cited paper and
+experiment contain it, rather than accepting a match in a neighboring paper.
+Trace each relevant correction into the final wording and source list,
+including narrowed categories, reattributions and exclusions. An upstream
+corrected verdict is not evidence that the published sentence was corrected.
+Resolve discrepancies against the primary source; do not treat the earlier
+verdict as infallible or substitute citation presence for semantic agreement.
+
 If a first-party page cannot be inspected, including because a fetch returns
 403, label any claim supported only by press or another secondary source as
 such; do not upgrade its evidence status because the secondary source links
@@ -156,9 +186,12 @@ substitutes for a runtime test where behavior or enforcement is the claim.
 
 **Owner:** market-research-expert. The reusable verification step belongs in
 this soul's research and delegation guidance, for separate review; no soul
-skill is changed here. Structured evidence records and checks for missing
-citations or evidence labels can reduce omissions, but cannot determine
-whether a page supports a shutdown, migration or authority interpretation.
+skill is changed here. Structured evidence records can bind claims to paper
+and experiment identifiers, verification verdicts and final-artifact locations;
+checks can flag missing citations, evidence labels or unresolved corrections.
+These are workflow improvements to review, not an implemented or proven defense.
+They cannot determine whether the final wording faithfully preserves the
+source's meaning, including shutdown, migration or authority interpretations.
 That remaining semantic check requires source review, not a lint rule alone.
 
 Revisit this lesson when the research workflow records and checks decisive
@@ -174,3 +207,6 @@ Evidence: OKF proposal from market-research-expert/coord-claims-verification-exp
 
 Evidence: OKF proposal from market-research-expert/study-design-gpt-expert,
 2026-11-03; notes/human-minute-claims-require-comparator.md.
+
+Evidence: OKF proposal from market-research-expert/study-claims-opus-expert,
+2026-11-03; notes/verification-corrections-fail-to-reach-the-page.md.
