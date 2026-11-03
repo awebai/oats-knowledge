@@ -53,6 +53,44 @@ messaging/tasks seam, apply the
 [independent-composition decision](/nodes/oats-maintainer/decisions/messaging-and-task-coordination-are-separate-choices.md):
 choosing messaging does not select task teaching or task-only prerequisites.
 
+## Raw host identifiers are disclosures even when they do not look like secrets (2026-11-03)
+
+Trace identifiers read from the host to their audiences during the security
+read. Machine IDs, hardware UUIDs, MAC addresses and serials must not land
+raw, including raw prefixes, in names, messages or files other people see.
+A credential-oriented scan can miss them because they do not look like
+passwords. For an application-specific name, require a suitable keyed
+identifier derivation or a random identifier retained locally, rather than
+publishing host-identifier characters.
+
+The source reports approving an onboarding change whose team-visible names
+contained raw machine-ID prefixes. The public
+[initial approval](https://github.com/awebai/oats/pull/1705#issuecomment-6601362324)
+and [second-reader return](https://github.com/awebai/oats/pull/1705#issuecomment-6601392031)
+were read and corroborate the review miss at `8b049542`. The return identifies
+the root alias and setup expert's name as the disclosure surfaces. This is
+one review failure, not a measured failure rate or an independent audit of
+the later fix. The cited
+[machine-id(5)](https://www.freedesktop.org/software/systemd/man/latest/machine-id.html)
+guidance treats the machine ID as confidential and calls for an
+application-specific cryptographically keyed derivation instead of exposing
+it or any portion directly; no shell recipe or unlinkability guarantee is
+certified here.
+
+Prefer an identifier-generation boundary that never exports the raw input,
+with synthetic-host-ID regression cases checking every outward naming and
+reporting surface. Source-to-sink checks can help flag direct use; residual
+judgment belongs in the existing `pr-review` security gate. No test, skill or
+cryptographic implementation changes here. This does not reverse the
+[explicit execution-selector decision](/nodes/oats-maintainer/decisions/host-bound-automation-is-declared-in-the-workspace.md):
+required operational host/account labels and confidential machine identifiers
+are different data, and neither decision grants blanket disclosure authority.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-03; notes/never-publish-raw-machine-ids.md. The public review record
+corroborates the incident; the broader identifier review rule is the source's
+generalized lesson, not a claim that machine-id(5) specifies every platform.
+
 ## A favorable first reaction is not a final direction decision (2026-11-03)
 
 When conveying a human's response, preserve whether it is a provisional
