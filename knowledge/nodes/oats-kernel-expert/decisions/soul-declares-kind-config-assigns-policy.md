@@ -69,6 +69,11 @@ line changes.
 
 # Related
 
+[Committed-only settings prevent deployment drift, not committed soul choice](committed-only-prevents-deployment-drift.md)
+records the later source-reported design for restricting a setting to reviewed
+sources without excluding soul payloads; it does not change this decision's
+ownership rules or certify released support.
+
 [Proven unmatched launch pins refuse fall-through; unchecked pins stay visible](/nodes/oats-kernel-expert/decisions/unmatched-launch-pins-refuse-fallthrough.md)
 records why host launch intent needs a refusal, and why incomplete discovery
 cannot establish the mismatch that authorizes it.

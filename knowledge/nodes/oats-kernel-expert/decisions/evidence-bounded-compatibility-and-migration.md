@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Compatibility follows supported adoption, not every intermediate format
-description: Supported adoption bounds compatibility, unrepresentable migrations refuse, manifest floors retain the narrow non-required-hook exception from 0.49.0, and pre-upgrade checks are proven on outgoing releases.
+description: Supported adoption bounds compatibility, unrepresentable migrations refuse, and rollout gates and pre-upgrade checks must match the actual outgoing reader rather than assume every new declaration fails the same way.
 tags: [kernel, compatibility, migration, locks, packages, manifests]
-timestamp: 2026-10-13
+timestamp: 2026-11-03
 ---
 # Rationale
 
@@ -44,6 +44,9 @@ field its floor kernel cannot load. The mirror image governs removal: a field
 the kernel stops using is kept in the schema as tolerated-and-ignored
 (`helperInjection`, hook `inputs` since 0.26.0), because deleting it would
 reject every manifest that still carries it.
+Its load-rejection premise is qualified, not overturned, by
+[the 2026-11-03 old-reader finding](#additive-contracts-need-the-actual-old-reader-failure-path)
+below.
 
 **Partly superseded, 2026-10-08:**
 [Unknown hook events are forward-tolerant unless required](forward-tolerant-hook-events.md)
@@ -53,6 +56,44 @@ strict. Other new manifest fields and unknown required events still need a
 kernel that supports them. Pre-0.49.0 kernels still reject every unknown
 event, so provider floors and upgrading every composing host before adoption
 remain necessary; this is not retroactive compatibility.
+
+## Additive contracts need the actual old-reader failure path
+
+**Dated qualification, 2026-11-03:** the historical closed-manifest-loader
+premise above must not be read as a universal current runtime guarantee.
+The source's investigation for the
+[committed-only setting decision](committed-only-prevents-deployment-drift.md)
+reports two different boundaries on the then-installed OATS **0.69.9** [5]:
+
+- A workspace root key unknown to that kernel (`tasks:` in this case) is
+  refused by runtime workspace validation before a spawn or provider hook
+  can use it. The rollout choice was to state the kernel prerequisite in
+  the release's Upgrade guidance and adopt the workspace key only after
+  that kernel is available. A provider warning that the old kernel might
+  silently ignore this workspace key addresses a path that cannot reach
+  the provider.
+- An unknown manifest settings flag such as `committedOnly` is not protected
+  by that workspace check. The source reports no runtime manifest-schema
+  validation in this reader and concludes that the flag is ignored rather
+  than enforced. A provider relying on the restriction still needs an
+  enforcing kernel in its compatibility range; merely loading the manifest
+  is not evidence of protection. Provider-side authoring validation may
+  separately need the updated schema.
+
+This qualifies the descriptive loader premise, **not** the obligation to
+support declared features or preserve published commitments. It makes no
+claim about when the historical behavior changed, all older kernels, all
+manifest fields, or unknown hook-event handling. The named runtime check and
+source inspection were reported by the proposer, not reproduced here.
+
+The decision-changing lesson is to distinguish **cannot reach the provider**
+from **can load but lacks enforcement** before selecting a rollout gate or
+compatibility warning. The schema inventory itself is repository-owned.
+The [released-reader boundary lesson](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md)
+already owns the general proof discipline. Eliminate assumptions with
+regressions against the intended floor and older reader, checking rejection
+and actual enforcement separately; no such cross-version matrix is certified
+by this harvest.
 
 **A kernel upgrade is separable from a provider floor** (2026-09-19). A
 release note that pins a new provider version invites the reading that
@@ -142,6 +183,10 @@ problems does not by itself authorize a stream or exit-status migration.
    and unaffected fixtures and both rejected alternatives appear in neither
    thread and rest on the source's note alone, which this review did not
    read.
+
+5. [The 2026-11-03 contract record](https://github.com/awebai/oats/issues/1719#issuecomment-6603147412), read at harvest, reports the 0.69.9 unknown-workspace-key check, the absence of runtime manifest-schema validation, the rejected provider warning and the kernel-first adoption order. It corroborates the source's report, not an independent runtime test or direct human acceptance. The associated [PR #1721](https://github.com/awebai/oats/pull/1721) was open at `3885ca029dcb454b78c3f6a967ccb127259171e8` when checked; no feature release or new upgrade diagnostic is certified here.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-tasks-slot-payload, 2026-11-03; notes/new-workspace-root-key-fails-loudly-on-old-kernels.md (dated loader-premise qualification and rollout rationale only).
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/forward-tolerant-hook-events.md (partial supersession only).
 
