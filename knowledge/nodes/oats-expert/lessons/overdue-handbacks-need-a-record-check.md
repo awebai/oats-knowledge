@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: An overdue handback needs a record check, not indefinite mail waiting
-description: Give a delegated step an expected checkpoint and inspect authorized work records when it is overdue, because a lead and child can both wait on mail while useful work stays idle.
+description: Give delegated steps expected checkpoints and distinguish a recorded result from notification of its next actor, because overdue work can hide either a missing handoff wake or an undelivered one.
 tags: [coordination, delegation, review, handover]
-timestamp: 2026-10-29
+timestamp: 2026-11-03
 ---
 # A chain of mail waits has no inherent checkpoint
 
@@ -33,6 +33,32 @@ Nor does this lesson grant access to another instance's private records or
 transcript: use only the shared or otherwise authorized evidence available
 to the lead. It is not a polling loop or a demand for progress messages.
 
+# A record check can find a wake that was never sent
+
+A later source report, from ten counted coordination-trial runs across four
+arms on 2026-11-02/03, attributes ten rescued stalls to completed steps that
+were recorded without notifying the person or agent who needed to act next:
+plans or approvals on an issue only, a gate verdict on a PR only, or a PR
+reported to the lead rather than its next reviewer. This differs from the
+Desktop lesson above: an undelivered message has a delivery problem; a
+record-only handoff may have no message to deliver.
+
+For a handoff that requires another actor to continue, name both the durable
+record and the notification route to that actor. In the trial's messaging-led
+workflow, the proposed repair is a mail pointing to the exact issue, PR or
+reviewed head. Opening the PR, posting a verdict or telling a non-acting lead
+was not sufficient. Rework is another transition: an opening-only trigger
+does not establish a re-review wake after a revision.
+
+Do not generalize this to "a forge never wakes anyone": a configured,
+verified trigger may supply the route. Check the actual transition and
+recipient rather than assume either automatic delivery or a need for
+redundant mail. Sending a notification still does not prove consumption,
+transfer review authority or make a relayed approval valid; the authoritative
+record and existing approval rules remain separate. This is a result or
+blocking handoff to the next actor, not a periodic progress report or a new
+human-notification duty.
+
 # Prevention and the existing communication rule
 
 The existing `oats-token-saving` skill already says to read a shared record
@@ -47,6 +73,16 @@ owned dependencies and overdue checkpoints, prefer that visibility to
 repeated manual inspection. This is coordination debt, not a reason to add
 a second activity detector or a new kernel lifecycle policy. No scheduler,
 notification mechanism or skill change is claimed implemented here.
+
+For the missing-wake case, prefer a handoff mechanism that records the
+transition and reliably notifies its designated next actor. Test opening,
+verdict and rework transitions, including a recipient different from the
+lead. Where handoffs remain manual, the owning capability's template should
+name the record, recipient and notification responsibility for separate
+review. Keep this policy in
+[composed coordination capabilities](/nodes/oats-maintainer/stewardship/coordination-policy-lives-in-capabilities.md),
+not in neutral kernel or core instructions. Neither the mechanism nor those
+checks is delivered by this lesson.
 
 # Evidence and limits
 
@@ -63,3 +99,16 @@ are examples of parallelizing work, not permission to skip verification or
 a universal rule for stacking branches. Exact clock times and temporary PR
 letters are not needed to preserve the lesson. No other instance's records
 were read to verify the account during this harvest.
+
+Evidence for the missing-wake refinement: OKF proposal from
+oats-expert/oats-expert-coordination-rethink, 2026-11-03;
+notes/a-hand-over-written-only-on-the-forge-wakes-nobody.md.
+
+The trial account is source-reported: real OATS instances with a local forge
+and messaging in scratch deployments, a single model generation and a scripted
+human. The source also reports a production-workspace confirmation: five PRs
+waited on a verdict left only as a comment until mail was added. Neither that
+correspondence nor the trial records were inspected here; only the captured
+proposal and named note were read. Ten rescued stalls are not a population
+failure rate, proof of unassisted completion or evidence that every idle
+agent lacks a wake. The earlier progressing-reviewer case remains unchanged.
