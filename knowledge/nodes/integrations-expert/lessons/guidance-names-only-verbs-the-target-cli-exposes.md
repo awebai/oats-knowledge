@@ -58,5 +58,8 @@ join time, after the kernel has committed to the name.
 - Readiness remedies follow the same rule as guidance, and readiness itself
   follows spawn:
   [a fallback the contract defines is a warning](/nodes/integrations-expert/lessons/a-fallback-the-contract-defines-is-a-warning-not-a-readiness-problem.md).
+- Correct upstream guidance can still be an unavailable dependency:
+  [provider guidance cannot depend on upstream skill pointers](/nodes/integrations-expert/lessons/provider-guidance-cannot-depend-on-upstream-skill-pointers.md)
+  records why the composed provider must carry its own minimum loop.
 - The operator node's counterpart:
   [the installed provider is the authority for a setting](/nodes/oats-operator-expert/lessons/the-installed-provider-is-the-authority-for-a-setting.md).
