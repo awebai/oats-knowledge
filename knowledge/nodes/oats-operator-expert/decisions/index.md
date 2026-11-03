@@ -2,6 +2,8 @@
 
 Operator decisions on onboarding acceptance, custody, workspace hosting, unattended credentials and disposable trials, with rationale and rejected alternatives.
 
+* [Join an existing workspace with one invite, not team ensure](existing-workspace-join-uses-one-paste-invite.md) - Choose one-paste invite onboarding for an existing workspace, reject team ensure because it can create a separate team, and revisit tokenless enrollment only if measured join friction warrants the service-side authority work.
+
 * [No GitHub account means assisted signup, not local-only onboarding](no-github-account-gets-assisted-signup.md) - Help a newcomer create a GitHub account in their browser rather than add a local-only onboarding route, preserving one workspace hosting model and the attested Desktop path.
 
 * [Existing trackers get a tailored capability offer](existing-trackers-get-a-tailored-capability-offer.md) - After onboarding defers an existing tracker with tasks none, the setup expert offers a workspace-owned tasks capability shaped by how the person uses that tracker rather than silently abandoning integration or selecting a generic provider.
