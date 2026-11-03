@@ -44,6 +44,9 @@ field its floor kernel cannot load. The mirror image governs removal: a field
 the kernel stops using is kept in the schema as tolerated-and-ignored
 (`helperInjection`, hook `inputs` since 0.26.0), because deleting it would
 reject every manifest that still carries it.
+Its load-rejection premise is qualified, not overturned, by
+[the 2026-11-03 old-reader finding](#additive-contracts-need-the-actual-old-reader-failure-path)
+below.
 
 **Partly superseded, 2026-10-08:**
 [Unknown hook events are forward-tolerant unless required](forward-tolerant-hook-events.md)
