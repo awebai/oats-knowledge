@@ -1,5 +1,7 @@
 # Decisions
 
+* [Messaging does not compose task coordination](messaging-and-task-coordination-are-separate-choices.md) - Keep task teaching and task-only prerequisites in oats.aweb-tasks rather than oats.aweb, because choosing messaging does not choose a task layer and even conditional guidance teaches unavailable behavior.
+
 * [Operator-default soul selection is not a wording fix](operator-default-soul-selection-is-not-a-wording-fix.md) - Preserve first-by-name operator soul selection when clarifying a confusing notice, because choosing a friendlier soul changes the command's resolved settings and teams rather than just its presentation.
 * [Put the reference-theory authoring aid in oats.authoring](knowledge-theory-expert-moves-to-authoring.md) - Move the optional knowledge-theory soul and capability to the existing authoring package rather than expose them in every new framework workspace, with release continuity and existing-home preservation.
 * [A workspace front door routes and introduces without mandatory brokering](front-door-routes-and-introduces.md) - For most workspaces, keep an always-alive intake agent that finds or starts the owner and introduces the human, without requiring every later message to pass through it.

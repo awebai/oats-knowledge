@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and issue-recorded contract decisions, carries them only across an unchanged delta, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh readers and one second reader per PR, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 **Owner: oats-maintainer (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -48,7 +48,10 @@ Two further direction checks are the
 [whole-design comparison](/nodes/oats-maintainer/lessons/judge-a-chain-of-fixes-as-a-whole.md)
 when successive fixes accumulate complexity, and the
 [healthy-default warning rule](/nodes/oats-maintainer/lessons/healthy-defaults-do-not-warn-about-optional-features.md)
-when readiness starts treating an unused optional feature as a fault.
+when readiness starts treating an unused optional feature as a fault. At the
+messaging/tasks seam, apply the
+[independent-composition decision](/nodes/oats-maintainer/decisions/messaging-and-task-coordination-are-separate-choices.md):
+choosing messaging does not select task teaching or task-only prerequisites.
 
 ## A declared deferral still needs the decision's permission
 
@@ -200,6 +203,43 @@ This decision does not assume a merge queue. Where one exists, enqueue the
 approved head instead; a queue is the repository-level route for enforcing
 CI on the combination. The operating procedure belongs in the
 `oats.maintainer` `pr-review` skill, not in a second checklist here [7].
+
+## A publication screen must distinguish the PR range from a moving base (2026-11-03)
+
+Review a new publication gate against the ordinary concurrent case: two PRs
+start from one accepted base, then one merges before the other. Requiring
+the second PR's starting base to equal the accepted branch's current tip,
+and that tip to be an ancestor of its unchanged head, rejects that case
+merely because unrelated work landed. The source reports reproducing this
+failure with real Git while reviewing a harvest content screen.
+
+The review distinction is between the PR's own outgoing range and the result
+of integrating it. The source's proposed screen uses the PR's fork point,
+checked to belong to accepted history, rather than demanding tip equality.
+That range choice does not prove the combined result safe or complete the
+publication screen's other coverage requirements. In particular, a guard on
+the exact PR head does not establish integration evidence: the existing
+same-area updated-head CI rule and affected-test checks below remain intact.
+
+A removal rewrite has a second trap: putting the old head's whole tree onto
+the new accepted tip can silently revert intervening work. Rebuild from the
+current tip plus the PR's intended delta, and check that intervening changes
+survive; a content-pattern screen is not a semantic check for accidental
+reverts. This is review judgment, not authority to rewrite a branch or carry
+an old verdict to changed content.
+
+Eliminate the mechanical failure in the publication implementation and real-Git
+regressions: advance the accepted branch between PR creation and review, then
+check both range admission and preservation of the intervening change during
+a rewrite. Residual judgment belongs in `pr-review`; no gate or skill change
+is delivered here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-03; notes/a-publication-gate-must-allow-a-moved-base.md. The reported
+return and synthetic reproduction concern
+[awebai/oats-okf#121](https://github.com/awebai/oats-okf/pull/121) at
+`736b6d33`; this harvest did not reproduce them. The public PR was still open
+at that head when read, not a released implementation or verified fix.
 
 # A batch window preserves same-area integration evidence
 
@@ -444,6 +484,34 @@ still teaching a dozen verbs refused since 0.25.0). Kernel fail-closed
 guarantees are proven only by their first real capability user
 ([kernel view](/nodes/oats-kernel-expert/lessons/fail-closed-mechanism-proven-by-first-user.md)).
 
+## Removed assertions are part of the review (2026-11-03)
+
+Read test deletions and weakened assertions as changes to guarantees, not
+just reductions in test maintenance. For each, identify what the assertion
+used to establish and where that guarantee is now tested. If the behavior is
+intentionally changing, compare that change with the accepted requirement;
+a green suite cannot justify silently discarding it. A suite says nothing
+about a guarantee whose only assertion has been removed.
+
+The source reports approving a readiness change after reading code paths and
+CI but missing a deleted channel-home test. A second reader caught that the
+absence of an inapplicable warning, and avoidance of its extra kernel query,
+would no longer be guarded. This is a concrete extension of the requirement-
+based test judgment above, not a new sign-off round.
+
+Restore behavioral regressions for the retained guarantees. Tooling can flag
+deleted or weakened assertions for review, but cannot decide whether their
+replacement proves the same requirement. That semantic comparison belongs in
+the existing `pr-review` guidance; no automated enforcement or skill change
+is claimed here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-03; notes/read-the-test-diff-for-removed-guards.md. The note dates the
+miss to 2026-11-02 on
+[awebai/oats-aweb#179](https://github.com/awebai/oats-aweb/pull/179) at
+`1503e65`. The missed assertion and second-reader finding remain source-reported;
+this harvest did not audit the test diff or rerun the suite.
+
 ## Consult cross-lane findings before commissioning another rehearsal (2026-10-31)
 
 When a delivery review exposes a missing state, first check the other
@@ -508,6 +576,36 @@ consumer-first, in one release. When a consumer's review finds a trust gap in
 its producer, fix the producer and keep the consumer's guard as defence in
 depth. A stand-in producer proves only the shapes we assumed: before shipping a
 contract change, recapture the consumer's fixtures from the real producer.
+
+## One reference contract must agree across schemas without widening display (2026-11-03)
+
+A repository-reference form must be accepted consistently wherever that same
+contract appears, not just in the configuration file where an operator first
+hit a refusal. The source reports bilateral agreement on 2026-11-02 to admit
+the password-free SSH-user form across the local, membership and workspace
+schemas, including the pinned-source form. Widening only the local file was
+rejected: onboarding would accept a value that the next configuration surface
+could refuse. This is a contract-coherence decision, not a second copy of the
+reference grammar or a requirement to unify distinct reference contracts.
+
+Input acceptance does not widen disclosure. The source's initial condition
+to show a bare SSH user in refusals was withdrawn because it would reverse
+[the recorded reference-display decision](/nodes/oats-maintainer/decisions/reference-display-is-rebuilt-or-withheld.md).
+Preserve that redaction; once the supported input is accepted, repairing its
+confusing refusal does not require exposing user information. Before changing
+what an error shows, check the decision that established the current display.
+
+Prefer one contract definition or generated schema fragments, backed by the
+same accepted/refused fixtures at every consumer, with separate redaction
+checks. The remaining review judgment is whether the contract's consumers
+were all identified. No schema, renderer or test changes are made here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-03; notes/one-ref-pattern-across-schemas.md. The body of
+[awebai/oats#1714](https://github.com/awebai/oats/pull/1714) was read and
+corroborates the reported all-patterns scope and unchanged display rule.
+Agreement remains source-reported, not verified human acceptance; the merged
+PR record is not a release, deployment or independently executed test receipt.
 
 ## Instruction precedence needs a cross-side decision (2026-10-27)
 
