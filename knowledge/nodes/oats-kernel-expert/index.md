@@ -9,6 +9,7 @@ judgement behind them.
 
 * [Decisions](decisions/index.md) - Accepted kernel contracts with their rationale, rejected alternatives and explicit supersessions.
 * [Lessons](lessons/index.md) - Hard-won constraints on transactions, containment, composition, hooks and the CLI boundary.
+* [Conclusions](conclusions/index.md) - Dated investigation conclusions and provisional expert positions, with explicit evidence and acceptance limits.
 
 ## Start here
 
