@@ -1,5 +1,6 @@
 # Lessons
 
+* [A derived name's absence proves nothing unless it is the producer's name](derived-name-absence-needs-producer-identity.md) - Lost-receipt recovery must establish the producer's actual instance-name derivation before freeing a schedule slot, because a lookup under another spelling can miss a live run.
 * [Dialog claims neither enumerate every dialog nor prove one is still open](dialog-claims-do-not-enumerate-all-dialogs.md) - A hook-silent usage-limit menu and a claim surviving refusal show why automated input must treat claim coverage as partial evidence and a long hold as a reason to inspect.
 * [A warm process needs lifetime classification, not just a cache-reset list](warm-process-state-needs-lifetime-classification.md) - A warm-reader review missed a process-long WeakMap and misclassified a live-child registry, so repeated kernel calls need explicit reset, drain and safe-with-reason lifetimes backed by closure and equivalence tests.
 * [A file argument does not bound the repository test runner](a-file-argument-does-not-bound-the-repository-test-runner.md) - A single-file request through the repository runner unexpectedly selected the full suite, so kernel briefs need an explicit bounded invocation until runner semantics enforce the requested scope.
