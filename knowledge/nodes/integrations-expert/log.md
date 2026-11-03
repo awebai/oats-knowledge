@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-11-03
+
+* **Harvest**: Added [typed admission of failed-run leftovers](/nodes/integrations-expert/lessons/admit-leftovers-by-type-not-name.md), linked from authoritative hook inputs: preserve why name-only admission, truncating new-output writes and last-member-only collision checks were rejected. Name shared admission/output creation and adversarial regression cases as the elimination route; leave general containment and ancestor-race limits in the kernel's existing concept. Review approval and test results are source-reported from one provider; no independent implementation, release or field-incident claim.
+
 ## 2026-11-02
 
 * **Harvest**: Added [readiness input selection](/nodes/integrations-expert/lessons/readiness-reads-what-the-consumer-reads.md), linked from defined fallbacks without changing their rule: preserve the source-reported two-direction capture drift, resolver-over-file rationale and rejected missing-key-only lookup and per-process memoization. Keep composition-only checks captured, name shared resolution and disagreement regressions as the elimination route, and leave publisher performance policy with its owner. One provider and setting were reported; implementation, timing, review, release and deployment were not independently verified.
