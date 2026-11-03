@@ -48,5 +48,6 @@ Hook, testing and release discipline learned building providers against the kern
 
 ## Messaging service seams
 
+* [Presence-dependent floors follow the component serving each identity](presence-floors-follow-the-serving-component.md) - Before gating a presence-dependent feature, map each identity to its active heartbeat producer, keep task prerequisites in the task capability, and distinguish presence-only registration from message delivery.
 * [A team per workspace needs a service primitive](a-team-per-workspace-needs-a-service-primitive.md) - The messaging service has no idempotent team create-or-return; its human-login conclusion is superseded by the default-team decision.
 * [A global instance identity's address is released only by the authority that owns its lifecycle](a-global-instance-identity-leaves-a-permanent-address-behind.md) - Settle which authority releases a global identity's address and joins further teams before defaulting instances to global.
