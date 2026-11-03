@@ -69,7 +69,8 @@ reports two different boundaries on the then-installed OATS **0.69.9** [5]:
   refused by runtime workspace validation before a spawn or provider hook
   can use it. The rollout choice was to state the kernel prerequisite in
   the release's Upgrade guidance and adopt the workspace key only after
-  that kernel is available. A provider warning that the old kernel might
+  that kernel is available (narrowed below: running on every reading
+  deployment, not merely released). A provider warning that the old kernel might
   silently ignore this workspace key addresses a path that cannot reach
   the provider.
 - An unknown manifest settings flag such as `committedOnly` is not protected
@@ -79,6 +80,27 @@ reports two different boundaries on the then-installed OATS **0.69.9** [5]:
   enforcing kernel in its compatibility range; merely loading the manifest
   is not evidence of protection. Provider-side authoring validation may
   separately need the updated schema.
+
+**Further review refinement, 2026-11-03:** kernel availability alone is not
+that workspace's adoption gate. Every deployment reading the workspace must
+**run** a kernel advertising the new key's feature in `oats version --json`
+`features`. The review rejected guidance to raise a workspace kernel floor:
+`oats-workspace.yaml` has no such field in the reviewed contract, so that
+instruction named no action an operator could take [6]. State the actual
+per-deployment prerequisite, not a fictional workspace setting or merely the
+existence of a supporting release.
+
+The same review corrected the operational consequence: an unknown workspace
+root key stops resolve and spawn, including spawn preview, on the refusing
+deployment; it does **not** by itself stop an existing home's ordinary start.
+The source reports that the live-team read falls back to the home's recorded
+teams when the workspace is unreadable, while removed-team-key errors are
+re-thrown. This is not a guarantee that every start succeeds, nor permission
+to treat recorded teams as a successful live workspace read. The reviewer
+probe and the proposer's source check at `3885ca029` establish only the
+reported **0.69-series** case; earlier released readers were not reproduced.
+Keep that limit when describing rollout urgency rather than extrapolating a
+schema refusal to every lifecycle operation [6].
 
 This qualifies the descriptive loader premise, **not** the obligation to
 support declared features or preserve published commitments. It makes no
@@ -92,8 +114,11 @@ compatibility warning. The schema inventory itself is repository-owned.
 The [released-reader boundary lesson](/nodes/integrations-expert/lessons/package-kernel-floors-need-released-refusal-probes.md)
 already owns the general proof discipline. Eliminate assumptions with
 regressions against the intended floor and older reader, checking rejection
-and actual enforcement separately; no such cross-version matrix is certified
-by this harvest.
+and actual enforcement separately. For a workspace-key rollout, also assert
+resolve/spawn refusal and existing-home start behavior independently, and
+check that the published upgrade instruction names an available operator
+action. No such cross-version or release-guidance matrix is certified by
+this harvest.
 
 **A kernel upgrade is separable from a provider floor** (2026-09-19). A
 release note that pins a new provider version invites the reading that
@@ -186,7 +211,9 @@ problems does not by itself authorize a stream or exit-status migration.
 
 5. [The 2026-11-03 contract record](https://github.com/awebai/oats/issues/1719#issuecomment-6603147412), read at harvest, reports the 0.69.9 unknown-workspace-key check, the absence of runtime manifest-schema validation, the rejected provider warning and the kernel-first adoption order. It corroborates the source's report, not an independent runtime test or direct human acceptance. The associated [PR #1721](https://github.com/awebai/oats/pull/1721) was open at `3885ca029dcb454b78c3f6a967ccb127259171e8` when checked; no feature release or new upgrade diagnostic is certified here.
 
-Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-tasks-slot-payload, 2026-11-03; notes/new-workspace-root-key-fails-loudly-on-old-kernels.md (dated loader-premise qualification and rollout rationale only).
+6. The [second-reader return](https://github.com/awebai/oats/pull/1721#issuecomment-6603829587), [product-lane delta approval](https://github.com/awebai/oats/pull/1721#issuecomment-6604134267) and [second-reader delta approval](https://github.com/awebai/oats/pull/1721#issuecomment-6604145043), read at harvest on 2026-11-03, corroborate the rejected workspace-floor instruction and the correction excluding ordinary start from the schema-refusal warning. These are agent review records, not direct human acceptance or independent runtime reproduction. PR #1721 is now recorded merged at `0da94ee00bf6e489b6f3f0b858733cceb9d66543`; this updates citation 5's earlier open-status observation, not a release or deployment receipt. The exact fallback exception and 0.69-series limit rest on the captured proposal and note; no implementation code or cross-version probe was audited here.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-tasks-slot-payload, 2026-11-03; notes/new-workspace-root-key-fails-loudly-on-old-kernels.md (dated loader-premise qualification, rollout rationale, and later per-deployment gate and ordinary-start refinement).
 
 Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-worktree-setup, 2026-10-08; notes/forward-tolerant-hook-events.md (partial supersession only).
 
