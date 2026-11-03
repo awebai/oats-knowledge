@@ -1,9 +1,9 @@
 ---
 type: Decision
 title: Teams in the messaging provider: the workspace's default team, explicit join and leave, one local identity per joined team
-description: Agreed 2026-09-25 on the human's priority: every instance lives in the workspace's default team; a soul's team labels only make wider teams eligible; joining is a spawn choice or one idempotent command at any time, leaving is the same command or automatic when eligibility disappears; each joined team is a further local identity the provider records and revokes at retire; the kernel hands the eligible teams beside the settings and exposes them in preview and inspect.
+description: Team eligibility does not join an identity, and losing eligibility permits launch cleanup only on live evidence; making an already-joined team the default is not membership loss or authority to migrate the home's primary identity without respawn.
 tags: [decision, integrations, messaging, teams, identity, lifecycle, desktop]
-timestamp: 2026-09-25
+timestamp: 2026-11-03
 ---
 
 Agreed 2026-09-25 between the integrations lane and the framework lead on the
@@ -54,7 +54,9 @@ identity scope is local, with global an explicit choice.
   when the workspace could not be observed, the provider keeps every
   membership and warns (`teams-unverified`), so an offline host never costs
   an instance a membership. The provider never joins on its own and never
-  leaves a membership it did not create.
+  leaves a membership it did not create. A joined team becoming the exact
+  live default is not eligibility loss for this cleanup; see the dated
+  clarification below.
 - **One local identity per joined team**, minted the way the primary is
   (the person's root mints a local invite, the instance joins in a fresh
   identity directory beside its primary), recorded in the instance's
@@ -72,6 +74,60 @@ identity scope is local, with global an explicit choice.
   holds can release a retired identity's address.
 - **Readiness** reports, per home and per soul: the default team, eligible against
   joined, unmapped, and poll-only joined teams, each with its remedy.
+
+# Default-team moves are not membership loss — 2026-11-03
+
+A configuration change that makes an already-joined team the live default
+must not silently remove that membership at the home's next start or
+restart. Keep the joined membership when **both its label and team id**
+match the live default. Keep the primary identity in its original team,
+warn about the changed default, and name deliberate respawn as the way to
+move that primary identity.
+
+The source reports the failure behind this clarification: a default team
+is not eligible to join, so applying the ordinary ineligible-team cleanup
+to that row removed the very membership the configuration had promoted.
+Configuration classification had been mistaken for an instruction to
+change a running home's membership. Restart is not consent to migrate an
+identity; lifecycle synchronization must distinguish those acts.
+
+This reconciles the existing default-cannot-be-left rule with automatic
+cleanup; it does not replace explicit join/leave or freeze all memberships:
+
+- A matching label with a changed team id is a different team, not a reason
+  to preserve the old row. Other genuinely ineligible joined teams still
+  follow the live-evidence cleanup rule.
+- Unavailable live team data still means keep memberships and warn, not
+  infer eligibility loss.
+- Retirement still releases the kept joined identity. Keeping it at launch
+  is not an exemption from cleanup at retirement.
+
+The requirement is **source-reported**: on 2026-11-03 the setup maintainer
+relayed the counterpart maintainer side's requirement by mail. The
+[setup-lane review](https://github.com/awebai/oats-aweb/pull/190#issuecomment-6605635953)
+corroborates the keep-until-respawn rationale and exact-label/exact-id
+boundary, but identifies itself as an agent maintainer's review, not a
+human's own acceptance. The private mail was not inspected. This
+clarification does not supersede the earlier human-accepted team model or
+change who selects the default.
+
+Enforce the distinction in lifecycle synchronization and regression cases,
+not just guidance: cover the exact-default row, a changed id, genuinely
+lost eligibility, unavailable live data, side-effect-free preview, retained
+receive registration across delivery modes, and release at retire. The
+source reports added review cases; neither the implementation nor its tests
+were rerun for this harvest. The cited PR was open and unmerged when checked
+on 2026-11-03, so this records rationale, not a release or migration result.
+Applying the same question to an upgrade is a review criterion, not evidence
+that every upgrade path has been tested.
+
+Shared task-team selection has its own
+[maintainer-owned decision](/nodes/oats-maintainer/decisions/tasks-team-is-a-workspace-setting.md);
+this clarification does not choose task destinations or rewrite that
+record's historical risk analysis.
+
+Evidence: OKF proposal from integrations-expert/overdue-step-checkpoint-integrations-expert,
+2026-11-03; notes/a-default-team-move-never-changes-a-running-home.md.
 
 # Consequences
 
