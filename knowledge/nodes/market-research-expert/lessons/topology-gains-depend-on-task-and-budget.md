@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Compare agent topologies by task dependence, capability baseline and budget
-description: The 2026-11-02 research synthesis treats task dependence, single-agent capability and compute budget as separate comparison variables, without establishing a universal single-writer or multi-agent advantage.
+description: The 2026-11-02/03 research separates task, capability, budget, interface coverage and handoff opportunities when comparing topologies, without establishing a universal single-writer or multi-agent advantage.
 tags: [research, multi-agent, topology, evaluation, compute, model-capability]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 
 # Conclusion and scope
@@ -198,6 +198,55 @@ this is not a claim that no such study exists elsewhere. Any proposed remedy
 needs runnable integration checks and a matched trial, not only a prompt
 encouraging agents to discuss the seam.
 
+## Ownership means covering the interface, not naming a coordinator
+
+A **2026-11-03** follow-up reading of Destefanis and Aste [7] reinforces
+what the first study's ownership condition means: one agent owns both
+adjacent steps and reconciles them internally, rather than a third party
+merely recording their agreement. It also reports that naming one agent as
+coordinator created no communication hub and supplied no reliable success
+improvement in that setting. This is a source-reported reading, not a new
+replication or evidence that every coordinator is ineffective. The follow-up
+note does not identify the model; Sonnet 4.6 above comes from the earlier
+capture, not a fresh model check.
+
+When transferring this result, check **which agent can see and reconcile
+both sides**, not only whether an ownership field or coordinator title
+exists. This captured reading does not establish a test of a third-party
+contract owner as an isolated intervention. Missing support for that remedy
+is not proof the remedy cannot help. Keep team-size confounding and the distinction from the
+oracle-message experiment intact. The
+[planning conclusion](/nodes/market-research-expert/conclusions/multi-domain-plan-authorship-evidence-2026.md)
+owns the implication for plan-review comparisons.
+
+# Attribute stalls to interactions as well as failure classes
+
+The **2026-11-03** source reports inspecting a stall table from a small
+coordination fixture run on 2026-11-02/03: seven of nine variant stalls
+occurred at section-review handoffs (three) or plan-approval handoffs to the
+section expert (four), with the result recorded only on the issue. The
+control had one stall in three runs. These are **source-reported event
+counts**, not per-handoff failure rates or an isolated effect of plan
+fan-out. The proposal describes three runs per arm on one model but does
+not name it; the capture lacks the full ledger, handoff denominators and
+controls needed for a causal comparison. No trial was repeated here.
+
+For a fair topology comparison, classify a stall both by its immediate
+failure mode and by the interaction that required the handoff. More required
+handoffs create more opportunities for a handoff failure even if the
+per-handoff risk is unchanged; that does not establish linear scaling,
+independence or the net cost-benefit of the extra review. Measure required
+handoffs, notification compliance, stalls and rescue work separately by arm
+and interaction. Do not infer from the issue-only records that every
+observed handoff followed its notification rule.
+
+The existing [missing-wake lesson](/nodes/oats-expert/lessons/overdue-handbacks-need-a-record-check.md)
+owns operational notification repair; this refinement owns attribution in
+research comparisons. Put interaction identifiers and transition/recipient
+checks in the trial harness for separate review rather than rely only on a
+failure-class summary. Those checks are not implemented by this lesson,
+and these counts select no planning or approval policy.
+
 # Consequence for research
 
 Compare topologies on the same task and model with explicit token/cost and
@@ -215,7 +264,9 @@ not a chosen replacement for existing OATS coordination policy.
 
 **Owner and recheck:** market-research-expert. Recheck on controlled topology
 studies with matched budgets, evidence about conflicting parallel writes,
-or changed lab guidance. Recheck the seam/interference interpretation when
+or changed lab guidance. Recheck the stall attribution with per-interaction
+handoff denominators, rule-compliance records and matched replicated arms.
+Recheck the seam/interference interpretation when
 matched ownership interventions, realistic agent-generated messages or
 cross-person trials separate the variables above. Recheck the coordinator-span
 gap on controlled load/partition comparisons with named models and task outcomes, and the
@@ -249,7 +300,9 @@ generation silently.
    on 2026-11-02, not independently fetched or reproduced by this harvest.
 7. Seam-failure study, [arXiv 2608.16801](https://arxiv.org/abs/2608.16801),
    raw-HTML reading reported on 2026-11-02; paper version unstated in the
-   capture, measured model Sonnet 4.6.
+   capture, measured model Sonnet 4.6. Follow-up reading of Destefanis and
+   Aste at [the HTML page](https://arxiv.org/html/2608.16801) reported on
+   2026-11-03; that follow-up retains no model identifier or full methods.
 8. Interference/recovery study, [arXiv 2609.25396v1](https://arxiv.org/html/2609.25396v1),
    raw-HTML reading reported on 2026-11-02; measured model GPT-5.5.
    Neither paper was independently fetched or replicated by this harvest.
@@ -284,3 +337,11 @@ Evidence: OKF proposal from market-research-expert/coord-claims-verification-exp
 Evidence for the seam/interference refinement: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/agent-seam-and-interference-evidence-is-narrow.md.
+
+Evidence: OKF proposal from market-research-expert/study-design-opus-expert,
+2026-11-03; notes/cited-sources-cut-against-section-review.md
+(interface-coverage and named-coordinator refinement).
+
+Evidence: OKF proposal from market-research-expert/study-design-opus-expert,
+2026-11-03; notes/stalls-concentrate-in-plan-fanout.md
+(interaction-level stall attribution; underlying trial ledger not inspected).

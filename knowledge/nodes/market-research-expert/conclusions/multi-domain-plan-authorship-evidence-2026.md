@@ -1,9 +1,9 @@
 ---
 type: Conclusion
 title: Multi-domain planning practice does not establish an authorship winner
-description: The 2026-11-02 investigation distinguishes integrated-plan authorship, Spec Kit's federated contract guidance and model-specific integration findings without establishing a software planning winner.
+description: The 2026-11-02/03 investigation distinguishes plan authorship, interface ownership, integration and verifiable review from feedback-only revision without establishing a software planning winner.
 tags: [research, planning, contracts, coordination, uncertainty]
-timestamp: 2026-11-02
+timestamp: 2026-11-03
 ---
 # Dated conclusion
 
@@ -130,6 +130,35 @@ current software agents unconfirmed. The missing software comparison remains
 a search-bounded gap, not proof of no benefit or permission to call a proposed
 review pattern unique.
 
+# Verification and feedback-only revision are different interventions
+
+A **2026-11-03** source-reported reading of Agachan et al., arXiv
+2609.14767 [8], describes an open-ended business-intelligence reporting
+comparison with **43 pairs, 86 runs**. Flat teams reportedly scored higher
+than a manager arrangement that sent work back for revision. The source
+reports the paper's conclusion as conditional: authority helped when the
+manager could verify the work, but feedback-only authority reduced quality
+in its reported setting. The short capture gives no model identifiers,
+complete scoring protocol or uncertainty analysis. The pair/run counts
+bound the report, not a transferable effect size or proof that verification
+was the only differing variable.
+
+This is an analogue for reviewing a plan, **not a software plan-review
+experiment**. It motivates asking what the reviewer can actually verify
+before citing a checker-versus-reviser shorthand as support for folding
+feedback into a plan. It does not establish that plan feedback always hurts,
+that flat teams are generally better, or that a verifier role alone creates
+reliable evidence. The
+[independent-verification lesson](/nodes/market-research-expert/lessons/verification-needs-independent-evidence.md)
+owns the broader evidence and acceptance-criteria distinction.
+
+Likewise, the follow-up Destefanis and Aste reading remains in its canonical
+[topology account](/nodes/market-research-expert/lessons/topology-gains-depend-on-task-and-budget.md):
+coverage of both sides of an interface is not interchangeable with a
+third-party contract-owner label. Check that intervention match before using
+seam ownership to justify a planning design. Neither reading overturns the
+bounded HMAS-2 analogue or settles the missing software-authorship comparison.
+
 # Consequence for research, not a new approval policy
 
 When asked who should plan cross-area work, present the integrated-plan
@@ -167,12 +196,27 @@ changes the domain roster or supersedes an accepted review decision.
   that no evidence exists elsewhere. No matched software-authorship or
   controlled repository-layout comparison was found in this investigation.
 
+# Recency pass, 2026-11-03
+
+- **Changed:** comparisons must distinguish verifiable review from
+  feedback-only revision and test whether a cited seam owner covers both
+  sides of the interface, rather than merely carrying an owner title.
+- **Held:** no software-authorship winner follows. The Specification Gap
+  merger distinction remains unchanged; its repeated confirmation is not
+  a new experiment or a newly established recovery percentage.
+- **New:** the Agachan reporting-task analogue and the linked named-coordinator
+  qualification. Models are unstated in this follow-up capture, so no
+  current-generation transfer or replication is established.
+
 **Owner and refresh:** market-research-expert. Recheck on a documented
 federated-planning deployment, a matched planner/coordinator trial, exact
 model identification or newer-model replication, revised Spec Kit
 contract guidance, or versioned primary contracts that document
-co-authorship, local-plan and interface-agreement boundaries. Update or supersede this dated conclusion and log the
-change; do not silently turn a practice synthesis or search gap into policy.
+co-authorship, local-plan and interface-agreement boundaries. Recheck the
+feedback-revision analogue on a matched, model-identified software review
+trial with explicit verification access and scoring. Update or supersede
+this dated conclusion and log the change; do not silently turn a practice
+synthesis or search gap into policy.
 
 # Citations
 
@@ -207,6 +251,10 @@ reported readings are not independent harvest verification.
    identified by the source as ICRA 2024; raw-HTML reading reported on
    2026-11-02. HMAS-2's model, task setting and comparison are source-reported,
    not a harvest replication.
+8. Agachan et al., [arXiv 2609.14767](https://arxiv.org/abs/2609.14767),
+   abstract-page reading reported on 2026-11-03. Task, sample and conditional
+   quality direction are source-reported; no primary page or experiment was
+   independently checked by this harvest.
 
 Evidence: OKF proposal from market-research-expert/coord-practice-research-expert,
 2026-11-02; notes/multi-domain-plan-authorship-2026.md.
@@ -219,3 +267,6 @@ Evidence for the round-5 corrections and robotics analogue: OKF proposal from
 market-research-expert/coord-claims-verification-expert, 2026-11-02;
 notes/spec-kit-contract-guide-is-federated-planning.md;
 notes/split-implementation-tax-survives-full-spec.md.
+
+Evidence: OKF proposal from market-research-expert/study-design-opus-expert,
+2026-11-03; notes/cited-sources-cut-against-section-review.md.
