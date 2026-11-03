@@ -69,7 +69,8 @@ reports two different boundaries on the then-installed OATS **0.69.9** [5]:
   refused by runtime workspace validation before a spawn or provider hook
   can use it. The rollout choice was to state the kernel prerequisite in
   the release's Upgrade guidance and adopt the workspace key only after
-  that kernel is available. A provider warning that the old kernel might
+  that kernel is available (narrowed below: running on every reading
+  deployment, not merely released). A provider warning that the old kernel might
   silently ignore this workspace key addresses a path that cannot reach
   the provider.
 - An unknown manifest settings flag such as `committedOnly` is not protected
