@@ -1,5 +1,6 @@
 # Lessons
 
+* [tmux's paste guess can bypass a key-table test](tmux-paste-guess-bypasses-key-tables.md) - Burst input can bypass every tmux key table and mask coverage, so disable paste guessing on private key-table test servers rather than changing production paste handling to fix CI.
 * [A derived name's absence proves nothing unless it is the producer's name](derived-name-absence-needs-producer-identity.md) - Lost-receipt recovery must establish the producer's actual instance-name derivation before freeing a schedule slot, because a lookup under another spelling can miss a live run.
 * [Dialog claims neither enumerate every dialog nor prove one is still open](dialog-claims-do-not-enumerate-all-dialogs.md) - A hook-silent usage-limit menu and a claim surviving refusal show why automated input must treat claim coverage as partial evidence and a long hold as a reason to inspect.
 * [A warm process needs lifetime classification, not just a cache-reset list](warm-process-state-needs-lifetime-classification.md) - A warm-reader review missed a process-long WeakMap and misclassified a live-child registry, so repeated kernel calls need explicit reset, drain and safe-with-reason lifetimes backed by closure and equivalence tests.
