@@ -1,9 +1,9 @@
 ---
 type: Lesson
-title: Before designing from a human's brief, and before offering a "decision for the requester", check the lane's records; a recorded decision makes the item a supersession request to its human
-description: A brief can read as a new idea when its author decided and parked the same direction hours earlier, and a draft's "decisions for the requester" can reverse what another human recently decided; ask the lane's maintainer for the record of each subject, resume a parked direction rather than inventing a second mechanism, address each item a recorded decision owns to the human who made it with citation, reason and loss, mark it pending even when that human has delegated review and quote their words as a decision or a leaning, and publish the draft where the lane's readers can open it.
-tags: [planning, briefs, decisions, supersession, resumption, maintainer, cross-area, review, delegation]
-timestamp: 2026-10-30
+title: Check human briefs, proposed choices and doc-review statements against the lane's decisions
+description: Check the lane's records before designing or treating review remarks as facts, resume parked direction, route supersessions to the deciding human with citation, reason and loss even under delegated review, distinguish decisions from leanings or questions, and publish drafts where their readers can open them.
+tags: [planning, briefs, decisions, supersession, resumption, maintainer, cross-area, review, delegation, documentation]
+timestamp: 2026-11-04
 ---
 # A brief is written from the author's head, not from the records
 
@@ -129,6 +129,28 @@ by the reviewers is not the human's call. When the same brief is built by
 the other side, its ownership table has its own two-sided reading; see
 [a cross-side brief names who builds and which lane reviews](/nodes/oats-expert/lessons/cross-side-brief-names-who-builds-and-which-lane-reviews.md).
 
+# Doc-review statements are also claims to check
+
+The 2026-11-04 refinement applies the record check during a documentation
+review, after the brief and draft stages. A human's remark about how the
+system works may be a question or a recollection rather than a decision.
+Do not silently turn it into a public fact or a supersession just because
+it came from the person reviewing the page.
+
+Before incorporating such a model statement, look up its subject in the
+accepted knowledge and check the relevant decision. Where it conflicts,
+present the existing decision with its citation alongside the proposed
+wording and ask for the intended resolution. Any supersession still goes
+to the human who accepted the decision, under the rules above; a tentative
+question is not that acceptance. This is conflict resolution, not a new
+confirmation round for every human comment or a reason to re-ask an
+explicitly settled decision.
+
+Keep factual review against the implementation separate from this direction
+check: [reviewed wording can still misdescribe the build](/nodes/oats-expert/lessons/recheck-dictated-words-against-the-build.md).
+Neither the current code nor a polished sentence alone supersedes an
+accepted decision.
+
 # How this relates to neighbouring lessons
 
 [Trace each "done" item to the code that owns it](/nodes/oats-expert/lessons/trace-done-items-to-owning-code-before-accepting-repo-list.md)
@@ -150,7 +172,12 @@ A brief template that asks the author for "existing records on this
 subject" would catch the common case at the source. Until the planning
 skills carry that question, the lead asks it at the start of every
 human-initiated effort; a maintainer's reply costs one message and saves a
-design round.
+design round. Extend that record field to model statements introduced during
+doc review, with an explicit unresolved/settled disposition for conflicts.
+Structural checks can flag a missing citation or disposition; interpreting
+a question versus acceptance and resolving a genuine conflict remain
+semantic review. This is a proposed refinement to existing authoring and
+review guidance, not an implemented check or a soul-skill change.
 
 # Evidence and limits
 
@@ -182,3 +209,17 @@ here, and the Desktop decisions linked above are cited as records the
 items touched, not restated or judged. The lesson is the planning and
 drafting step; it grants no authority over the parked direction or any
 recorded decision, whose supersession is each deciding human's call.
+
+Evidence: OKF proposal from oats-expert/oats-expert-coordination-rethink,
+2026-11-04; notes/a-humans-model-statement-in-a-doc-review-is-checked-against-accepted-decisions.md.
+
+In the source's README effort, a tentative human model statement became
+public prose that conflicted with point 17 of
+[workspace model v2](/nodes/oats-maintainer/decisions/workspace-model-v2.md).
+The source reports that a maintainer raised the conflict after merge and
+that, when shown the decision, the human chose to preserve it. This is one
+effort, one document and one human, source-reported; this harvest read the
+accepted decision but not the review conversation or README changes. The
+model stays in its canonical decision, unchanged: this is evidence for
+checking a remark, not a new workspace policy or verified human acceptance
+of a supersession. No private wording is reproduced.
