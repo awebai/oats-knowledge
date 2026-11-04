@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A provider pin carries its upgrade consequences into the kernel release
-description: When kernel release preparation advances a provider pin, its author carries operator-visible behavior changes and upgrade steps from every crossed provider release into the kernel Upgrade section before tagging.
+description: Carry crossed provider releases' operator-visible changes and upgrade steps into the kernel Upgrade section, and check prescribed installs against registry selection and upgrade commands against their platform paths before tagging.
 tags: [release, providers, pins, upgrade, review]
-timestamp: 2026-11-02
+timestamp: 2026-11-04
 ---
 
 # The author owns upgrade coverage
@@ -39,14 +39,60 @@ second procedure nor a current-version ledger. The existing
 [mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)
 owns payload parity, which cannot establish complete operator guidance.
 
+# A prescribed step must reach its promise (2026-11-04)
+
+Carrying a step into the notes is necessary, not sufficient. Before the tag,
+the release maintainer checks the prescribed upgrade against the state it
+must reach, rather than leaving that check to the second reader. This
+applies to the provider's own release notes as well as the kernel notes
+that carry them forward:
+
+- **Registry selection:** for an npm prerequisite, inspect
+  `npm view <pkg> dist-tags`. If the required release is not `latest`, name
+  the exact versioned install rather than assuming a bare install reaches
+  it. Check a range-based install's actual selection against the required
+  floor; the existence of a higher published version alone proves neither
+  that the command selects it nor that every range stops short.
+- **Platform path:** read the code the prescribed command runs on each
+  supported platform, including the upgrade of an existing installation,
+  as code under review. A command named "restart" or an unchanged service
+  definition does not establish that a replaced executable will run.
+  Code review is not platform execution evidence.
+
+The source reports that the oats.aweb 1.37.0 prep required aw 1.36.54 while
+npm's `latest` still named 1.36.53 and `next` named 1.36.54. Sign-off caught
+the install-selection gap; a later second read caught a prescribed wake
+broker restart that could leave the service down after binary replacement.
+The [launchd binary-upgrade lesson](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md)
+owns that failure and recovery judgment. Do not reproduce its platform
+procedure or maintain a current package-version ledger here. When the same
+risk appears in a code change under review, the
+[restart review section](/nodes/oats-maintainer/stewardship/review-protocol.md#a-restart-that-can-leave-the-service-down-blocks-approval-2026-11-04)
+makes it a blocker rather than an approved follow-up.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-04; notes/a-prescribed-upgrade-step-is-verified-before-the-tag.md.
+This is one source-reported release, npm and launchd; the exact macOS
+version was not established. No registry state, platform run or shipment
+was independently verified by this harvest. The finding supports checking
+the promised outcome, not a universal npm-resolution or macOS guarantee.
+
 # Prevention route
 
 Prefer release tooling that enumerates the crossed provider versions and
 carries their upgrade entries into the candidate notes, with checks for an
-omitted release or Upgrade entry. Whether another changelog entry changes
-what an operator sees or must do still needs semantic judgment in the
-existing release-preparation guidance. Until that is enforced, this manual
-coverage check is release-process debt, not automation delivered here.
+omitted release or Upgrade entry. Extend executable release checks to the
+prescribed install's selected version versus the required floor. Put
+platform recovery fixes and regression coverage in the provider, using
+[released-state upgrade rehearsals](/nodes/oats-maintainer/stewardship/release-traps.md#rehearse-upgrades-from-released-state)
+for runtime evidence, with that lesson's existing scope and gate
+qualifications intact. A command-sequence fake cannot prove the service
+manager will admit a replacement executable.
+
+Whether a changelog entry changes what an operator sees or must do still
+needs semantic judgment in the existing release-preparation guidance.
+Until enforced, these manual checks are release-process debt, not
+automation delivered here; no new release authority or skill is created.
 
 # Evidence
 

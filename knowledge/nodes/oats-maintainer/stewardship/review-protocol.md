@@ -533,7 +533,11 @@ unloaded. This adds a severity judgment to the evidence-before-hand-over
 rule above, not a new sign-off round or a ban on non-blocking follow-ups.
 The [launchd upgrade lesson](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md)
 owns the platform recovery rationale; this section owns why the unresolved
-service-down path cannot be treated as non-blocking.
+service-down path cannot be treated as non-blocking. The release-side
+counterpart, checking a prescribed upgrade command against its platform path
+before the tag, is the
+[prescribed-step check](/nodes/oats-maintainer/lessons/provider-pin-upgrade-notes-belong-in-the-kernel-release.md#a-prescribed-step-must-reach-its-promise-2026-11-04);
+it governs release notes, this section governs code-review severity.
 
 Prefer lifecycle handling that preserves or restores service across partial
 failure, backed by regressions and an authorized affected-platform rehearsal
