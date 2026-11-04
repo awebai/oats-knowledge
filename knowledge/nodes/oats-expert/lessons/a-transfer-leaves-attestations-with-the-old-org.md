@@ -31,7 +31,10 @@ and URLs, not for attestation verification.
 - **Inventory it.** List attestation verification among the
   redirect-dependent paths a transfer must keep working, beside clones,
   pins and raw URLs, and run a real verify of an existing release in the
-  rehearsal.
+  rehearsal. The same move showed a second kind of missing entry, a
+  hand-kept per-host file a consumer reads that no declaration feeds; that
+  is the
+  [read-source inventory lesson](/nodes/oats-expert/lessons/a-moves-inventory-follows-what-each-consumer-reads.md).
 - **Two verify forms, each bounded.** Verify by the new repository first;
   fall back to the old owner **for old versions only**, the versions
   released before the transfer. Pin each form to its release workflow
