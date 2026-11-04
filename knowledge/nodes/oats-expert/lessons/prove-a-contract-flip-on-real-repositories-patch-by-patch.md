@@ -56,3 +56,8 @@ replay. The bridge's own
 [pull request](https://github.com/awebai/oats/pull/1679) reports the same
 eight-patch result; it was unmerged at maintainer review, and no declared
 string has been flipped, so this is a rehearsal, not a completed move.
+What the real transfer later taught, beyond what any rehearsal of the
+content showed, is in
+[the attestation lesson](/nodes/oats-expert/lessons/a-transfer-leaves-attestations-with-the-old-org.md)
+and
+[the empty-read lesson](/nodes/oats-expert/lessons/a-check-right-after-a-transfer-reads-an-empty-repository.md).
