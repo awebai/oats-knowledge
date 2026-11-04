@@ -54,6 +54,13 @@ byte-for-byte mirror of the payload root at the published tag
 - Rehearsing a provider against a pre-release head pins the repository by Git
   reference and full commit, and the kernel reads the payload root from it.
 
+# Related
+
+[Capability-local helper copies need a behavioral parity test](capability-local-copies-need-parity-tests.md)
+records why small shared helpers are copied into each separately composed
+capability and compared by test. Package-payload containment alone does not
+make a sibling capability a runtime dependency.
+
 # Citations
 
 - Migrated from agents/integrations-expert/soul/knowledge @ dade3270.

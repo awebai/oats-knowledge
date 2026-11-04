@@ -2,6 +2,7 @@
 
 Positions and rationale on packaging, installer ownership, launcher input, checkpoint wakes and messaging-provider behavior; each concept states its acceptance limits.
 
+* [Capability-local helper copies need a behavioral parity test](capability-local-copies-need-parity-tests.md) - For small helpers needed by separately composed capabilities, keep a copy in each capability, cross-reference the copies, and test their behavior on the same success and refusal fixtures rather than adding a runtime dependency.
 * [Newer-than-tested warnings follow the service's release authority](newer-than-tested-warnings-follow-release-authority.md) - A provider's tested client bound is evidence rather than a refusal ceiling, and a managed-service exemption depends on that service owning server-before-client release order.
 * [An idle waiter's checkpoint wake belongs to the waiter](checkpoint-wake-belongs-to-the-waiter.md) - A waiter-owned kernel job supplies an external checkpoint without depending on harness timers or messaging, but does not prove a child stalled or guarantee timely delivery.
 * [Installers start from existing tools and preserve their ownership](installers-preserve-existing-tools-and-state.md) - An OATS installer reuses suitable existing tools, installs only missing ones, upgrades only its own installs, preserves user state for adoption, and filters bundled teaching from its runtime install path rather than merely documenting the composition leak.
