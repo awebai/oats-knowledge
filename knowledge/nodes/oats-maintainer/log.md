@@ -1,5 +1,9 @@
 # oats-maintainer log
 
+## 2026-11-04
+
+* **Update**: [Restart review](/nodes/oats-maintainer/stewardship/review-protocol.md#a-restart-that-can-leave-the-service-down-blocks-approval-2026-11-04) adds the service-down severity judgment: resolve a suspected restart failure that can leave the service down without automatic recovery before approval, or return it. Links the integrations-owned launchd recovery lesson rather than duplicating its contract or pending stop-window refinement. Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe, 2026-11-04; notes/launchd-kickstart-fails-after-binary-replaced.md. One source-reported approval reversal; lifecycle handling, regressions and safe platform rehearsal are prevention routes, not delivered enforcement or independently verified platform/release receipts.
+
 ## 2026-11-03
 
 * **Update**: Maintainer review of the host-default harvest linked the [host-default harness decision](/nodes/oats-maintainer/decisions/host-default-harness-reuses-souls-launch-star.md) and the earlier wildcard rejection in [authoring placement](/nodes/oats-maintainer/decisions/knowledge-theory-expert-moves-to-authoring.md) in both directions. The two decisions answer different problems, so neither supersedes the other.

@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and issue-recorded contract decisions, carries them only across an unchanged delta, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh readers and one second reader per PR, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-11-03
+timestamp: 2026-11-04
 ---
 **Owner: oats-maintainer (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -516,6 +516,40 @@ still cannot prove isolation against a live host service it does not have.
 Keep that limit explicit rather than replacing the missing real-world check
 with a green simulated one. This refines evidence timing, not the authority
 to merge or the paired-maintainer arrangement below.
+
+## A restart that can leave the service down blocks approval (2026-11-04)
+
+Treat a suspected restart failure after the stop step as a correctness
+blocker when it can leave the service down with no automatic recovery.
+Do not approve while labelling that risk a follow-up. Resolve it with
+evidence on the affected platform before approving, or return the change
+with the unresolved finding. Reviewing from another operating system limits
+what the reviewer can establish; it does not reduce the failure's severity.
+
+The source reports initially approving a service reload despite suspecting
+a stop/reload race. A later real-platform slow-exit check reproduced the
+failure and overturned that approval: the reload could leave the job
+unloaded. This adds a severity judgment to the evidence-before-hand-over
+rule above, not a new sign-off round or a ban on non-blocking follow-ups.
+The [launchd upgrade lesson](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md)
+owns the platform recovery rationale; this section owns why the unresolved
+service-down path cannot be treated as non-blocking.
+
+Prefer lifecycle handling that preserves or restores service across partial
+failure, backed by regressions and an authorized affected-platform rehearsal
+that checks the resulting service state, not just command order. These are
+the elimination routes; residual severity judgment belongs in the existing
+`pr-review` skill, not a permanent manual substitute for implementation and
+tests. Requiring evidence grants no permission to bypass existing host-safety
+and containment limits. No code, test or soul skill changes here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-04; notes/launchd-kickstart-fails-after-binary-replaced.md.
+The proposal identifies [awebai/oats-aweb#198](https://github.com/awebai/oats-aweb/pull/198).
+The approval reversal and later successful check are source-reported from
+one review; this harvest did not audit that PR, run a service-manager
+experiment or independently verify platform constants, release or deployment.
+No human-accepted review rule is superseded.
 
 # Delegating implementation
 
