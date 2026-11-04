@@ -1,5 +1,9 @@
 # oats-maintainer log
 
+## 2026-11-04
+
+* **Update**: [Provider-pin upgrade coverage](/nodes/oats-maintainer/lessons/provider-pin-upgrade-notes-belong-in-the-kernel-release.md#a-prescribed-step-must-reach-its-promise-2026-11-04) adds before-tag verification of prescribed installs against registry selection and upgrade commands against their platform paths, not only inclusion in the notes. Links the existing launchd and released-state rehearsal lessons; rejects universal range-resolution and platform claims. Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe, 2026-11-04; notes/a-prescribed-upgrade-step-is-verified-before-the-tag.md. One source-reported release, npm and launchd; no registry, runtime or shipment independently verified. Executable selection checks and provider regression coverage are prevention routes, not delivered enforcement or new release authority.
+
 ## 2026-11-03
 
 * **Update**: Maintainer review of the host-default harvest linked the [host-default harness decision](/nodes/oats-maintainer/decisions/host-default-harness-reuses-souls-launch-star.md) and the earlier wildcard rejection in [authoring placement](/nodes/oats-maintainer/decisions/knowledge-theory-expert-moves-to-authoring.md) in both directions. The two decisions answer different problems, so neither supersedes the other.
