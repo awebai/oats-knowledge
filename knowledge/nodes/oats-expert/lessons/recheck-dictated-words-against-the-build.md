@@ -1,9 +1,9 @@
 ---
 type: Lesson
-title: The spec author checks user-facing claims before handover and against the build
-description: Test interaction claims before developers copy a spec into docs, share disproved claims with every developer using it, and recheck dictated wording against the built cases before the PR opens.
+title: The lead checks user-facing claims against evidence, not just reviewed wording
+description: Test interaction claims before handover, propagate corrections to every consumer, and finish a fresh-context claim review of human-polished public docs against a pinned tree before the PR.
 tags: [specification, documentation, review, handover]
-timestamp: 2026-10-27
+timestamp: 2026-11-04
 ---
 # Exact compliance can preserve a false sentence
 
@@ -48,6 +48,37 @@ copies can survive a correction to the shared source. It is distinct from
 which finds omitted test consumers rather than false instructions copied
 from a spec.
 
+# Human-polished public docs still need a completed claim review
+
+The 2026-11-04 refinement applies the same ownership gap to a public page
+written with a human, not only to sentences handed to developers in a spec.
+Repeated review of voice and structure does not establish factual accuracy.
+Human review can check facts, but neither the number of drafts nor approval
+to publish is evidence that each claim was checked against the tree.
+
+For public docs the lead owns, arrange a read-only, fresh-context claim
+review once the text is close, before asking for final publication approval
+and before opening the PR. Give the reader the complete candidate text, the
+pinned tree it describes and the intended deliberate choices, not the
+author's conclusions as answers to confirm. Require findings against that
+evidence. Finish and resolve the review; a review still running at merge
+cannot protect the merged page. Re-run the semantic check after substantial
+restructuring, because unchanged words can assert something different in a
+new context.
+
+Distinguish a factual contradiction from a disputed stylistic emphasis.
+Resolve discrepancies with the wording's owner as above; deliberate wording
+is not a reason to retain a known false claim. If a stylistic choice remains
+after the objection is considered, explain that disposition in the PR rather
+than implying unanimous factual endorsement. A claim about intended system
+policy also needs the separate
+[accepted-decision check](/nodes/oats-expert/lessons/ask-for-the-record-of-the-briefs-subject-before-designing.md#doc-review-statements-are-also-claims-to-check).
+
+The [instruction-condensation lesson](/nodes/oats-expert/lessons/condensing-instructions-preserves-load-triggers.md)
+checks full-text load coverage; this lesson checks the public text's claims
+against their evidence. Neither creates a second maintainer gate or changes
+[the maintainer's review authority](/nodes/oats-maintainer/stewardship/review-protocol.md).
+
 # Distinct responsibility and elimination route
 
 [Consumer-spec checks](/nodes/oats-expert/lessons/run-consumer-spec-against-built-producer.md)
@@ -67,7 +98,11 @@ that an action works. The remaining semantic review, explicit unverified
 questions and correction fan-out belong in specification and verification
 guidance; this harvest changes no skill and creates no new release gate.
 The lesson preserves why an explicit owner is needed even when developer
-compliance and review are both working as intended.
+compliance and review are both working as intended. For public-doc reviews,
+carry the candidate revision, claim findings and their dispositions in the
+existing documentation-review handover, with a completion check before
+publication. This is a prevention route for separate guidance/tooling review,
+not delivered enforcement; a completion field alone cannot prove a claim true.
 
 # Evidence and limits
 
@@ -97,3 +132,15 @@ This is one source-reported case, not an independently repeated interaction
 test or a permanent statement about viewer bindings. It supports the timing
 and correction-propagation lesson, not a claim that every spec sentence is
 copied or that the reported fix shipped.
+
+Evidence: OKF proposal from oats-expert/oats-expert-coordination-rethink,
+2026-11-04; notes/human-reviewed-public-docs-need-a-claim-review-against-the-tree.md.
+
+The source reports that a README merged after many human-reviewed drafts
+while a fresh-context accuracy review was still running. That review then
+found wrong or overstated claims about supported scope, removed behavior
+and version-dependent behavior, and the source reports a follow-up
+correction. This is one document, one effort and one human, source-reported;
+this harvest did not inspect the README revisions, review or code. It does
+not establish a general error rate, a fixed review cost, that human review
+never checks facts, or that a fresh reader guarantees correctness.
