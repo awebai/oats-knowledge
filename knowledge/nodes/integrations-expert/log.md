@@ -2,6 +2,7 @@
 
 ## 2026-11-04
 
+* **Harvest**: Refined [launchd binary-upgrade recovery](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md): back-to-back bootout/bootstrap can race asynchronous unload, so require confirmed job absence within a stop-allowance-aware bound and no bootstrap on timeout. Preserve the reported six-round measurement and why a shorter-than-ExitTimeOut wait was rejected; distinguish unknown print failures from not-found. The reported twenty-second default, thirty-second fix and fake coverage are not independent platform or shipment proof, and the exact real-Mac not-found code remains unconfirmed. Keep the original upgrade lesson in this canonical home; drop a universal review-blocker rule rather than infer policy from one race.
 * **Harvest**: Added [launchd binary-upgrade recovery](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md): preserve the reported failed kickstart and successful bootout/bootstrap recovery, and why an unchanged plist or loaded job is insufficient upgrade evidence. Name provider lifecycle handling, regression coverage and an authorized macOS rehearsal as the elimination route. Keep the mechanism source-reported and delayed KeepAlive respawn a risk, not a separately reproduced custody failure; omit universal macOS, exclusive-recovery, blanket systemd and shipment claims.
 
 ## 2026-11-03
