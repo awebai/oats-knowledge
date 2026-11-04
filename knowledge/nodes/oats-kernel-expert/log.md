@@ -1,5 +1,9 @@
 # oats-kernel-expert log
 
+## 2026-11-04
+
+* **Harvest**: add [tmux's paste guess can bypass a key-table test](/nodes/oats-kernel-expert/lessons/tmux-paste-guess-bypasses-key-tables.md), preserving the source-reported 3.4/3.6/3.7c distinction, server-handling-time hazard, mutation-sensitive private-fixture remedy and reason for rejecting a production paste-policy override as a CI fix. Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-tmux-2604-detach-key, 2026-11-04; notes/tmux-paste-guess-bypasses-key-tables.md. Link the existing table-ownership, detach-key and Desktop viewer concepts rather than duplicate their policies; add a related pointer from the table lesson. Narrow universal pre-3.7 and burst-delivery claims to the evidenced mechanism and tested configurations; omit CI/review chronology as standalone knowledge. The shared-fixture audit remains an elimination route, not completed coverage. No experiments or implementation audit were rerun and no human-accepted decision is superseded.
+
 ## 2026-11-03
 
 * **Update**: knowledge-maintainer review of the workspace-key adoption refinement: the earlier "after that kernel is available" rollout bullet in [the additive-contract qualification](/nodes/oats-kernel-expert/decisions/evidence-bounded-compatibility-and-migration.md#additive-contracts-need-the-actual-old-reader-failure-path) now points forward to the per-deployment gate, so it is not read alone. The three cited PR #1721 review comments and its merge commit were checked on GitHub and match citation 6. No rule text, evidence citation or human-accepted decision changed.

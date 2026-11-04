@@ -50,6 +50,12 @@ to reach the pane despite the custom table. The observed setup required
 `prefix None` as well as the custom table. Neither setting removes the
 copy-mode precedence limit.
 
+For another dispatch limit, see
+[tmux's paste guess can bypass a key-table test](/nodes/oats-kernel-expert/lessons/tmux-paste-guess-bypasses-key-tables.md).
+It records the version-qualified burst-input finding and why its fixture repair
+does not authorize changing production paste policy; the ownership and prefix
+rules above remain unchanged.
+
 # Elimination route and verification limit
 
 The structural fix for table interference is per-viewer table ownership;
