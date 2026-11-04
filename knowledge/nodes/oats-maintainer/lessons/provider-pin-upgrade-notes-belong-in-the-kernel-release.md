@@ -65,7 +65,10 @@ the install-selection gap; a later second read caught a prescribed wake
 broker restart that could leave the service down after binary replacement.
 The [launchd binary-upgrade lesson](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md)
 owns that failure and recovery judgment. Do not reproduce its platform
-procedure or maintain a current package-version ledger here.
+procedure or maintain a current package-version ledger here. When the same
+risk appears in a code change under review, the
+[restart review section](/nodes/oats-maintainer/stewardship/review-protocol.md#a-restart-that-can-leave-the-service-down-blocks-approval-2026-11-04)
+makes it a blocker rather than an approved follow-up.
 
 Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
 2026-11-04; notes/a-prescribed-upgrade-step-is-verified-before-the-tag.md.
