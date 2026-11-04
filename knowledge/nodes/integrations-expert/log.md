@@ -1,5 +1,9 @@
 # integrations-expert log
 
+## 2026-11-04
+
+* **Harvest**: Added [launchd binary-upgrade recovery](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md): preserve the reported failed kickstart and successful bootout/bootstrap recovery, and why an unchanged plist or loaded job is insufficient upgrade evidence. Name provider lifecycle handling, regression coverage and an authorized macOS rehearsal as the elimination route. Keep the mechanism source-reported and delayed KeepAlive respawn a risk, not a separately reproduced custody failure; omit universal macOS, exclusive-recovery, blanket systemd and shipment claims.
+
 ## 2026-11-03
 
 * **Harvest**: Added [per-identity presence prerequisites](/nodes/integrations-expert/lessons/presence-floors-follow-the-serving-component.md): preserve why a global daemon floor missed channel and poll-only identities, and the reported choice of one task-capability scope gate over public status and launch records. Keep messaging/task separation and broker diagnostics in their existing homes; distinguish planned presence-only registration from receive and name route-specific regressions and rehearsal as enforcement. Omit a current version table and shipment claims; investigation and later maintainer agreement remain source-reported, with the note's earlier open questions and the proposal's unbuilt registration limit explicit.
