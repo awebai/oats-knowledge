@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, coordinates source, tag, mirror, every form of version pin and the framework release that carries them, pairs changes to shared instructional behaviour across separately released packages, and treats a package rename as a republish with a bin collision and a token deadline.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, coordinates source, tag, mirror, every form of version pin and the framework release that carries them, pairs changes to shared instructional behaviour across separately released packages, treats a package rename as a republish whose old package is never uninstalled from a running host, and plans tags around a hosted runner image's retirement brownouts.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-11-02
+timestamp: 2026-11-04
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -71,6 +71,36 @@ as a patch prep from the prior release with
 [#158](https://github.com/awebai/oats-aweb/pull/158) held for the later minor.
 This is one source-reported release, second read and tag, not independently
 audited shipment evidence or a new human decision to support an old line.
+
+## A hosted runner image's retirement brownouts can stop a tag from publishing anything (2026-10-30)
+
+GitHub retires a hosted runner image in stages, with announced **brownout
+windows** first. A job that names the image gets no runner inside a window
+and is simply not run, which at a glance reads like a hang or a timeout. It
+is neither: check whether a runner was ever assigned before diagnosing a
+stuck job.
+
+For OATS the cost is the **whole release**, not one job, because the tag
+workflow's publish step needs the Desktop build on a named macOS image. A
+tag pushed inside a brownout publishes nothing. So, when planning a tag,
+check the retirement schedule of every image the release workflow names,
+tag in a clear window, and move the runner before the retirement date. The
+runnerless-lane decision above still governs an outright outage; this is
+the scheduled, avoidable case.
+
+The elimination route is a CI check that warns when a workflow names an
+image with an announced retirement date; this lesson does not deliver it.
+
+Evidence: OKF proposal from oats-maintainer/haiku-oats-migration-maintainer,
+2026-11-04; notes/runner-retirement-can-stop-a-tag.md. The source identifies
+the `macos-14` retirement
+([actions/runner-images#13518](https://github.com/actions/runner-images/issues/13518))
+and three jobs on
+[oats#1679](https://github.com/oats-project/oats/pull/1679#issuecomment-6530256569)
+that ran no steps in a window; that they passed once it closed is
+source-reported. The approval comment naming the brownout was read, the job
+logs were not. The tag consequence is inferred from the publish step's
+dependence on the Desktop build, not an observed empty tag.
 
 # Pair changes to shared instructional behaviour (2026-10-27)
 
@@ -304,10 +334,26 @@ old packages left in place for their readers. Two traps follow:
 - **A same-named bin fails `EEXIST` over the old package.** Installing a
   new-scope package globally that ships the same bin as the installed
   old-scope package fails with `EEXIST` and leaves the old one active;
-  `--force` succeeds but leaves both installed; uninstalling the old package
-  first is clean. The kernel's own update path and remote install run a
-  global install on the kernel's package name, so the rename stage must
-  tell them to remove the old name first rather than install over it.
+  `--force` succeeds but leaves both installed, and then removing either
+  package removes the shared bin link, leaving no `oats` at all. The
+  kernel's own update path and remote install run a global install on the
+  kernel's package name, so the rename stage cannot simply install over the
+  old name.
+
+  **Correction, 2026-10-30:** this entry first said that uninstalling the
+  old package first is clean. That holds **for npm only**. For OATS it
+  strands every running session, whose hook settings and shim name the old
+  kernel's path until a restart regenerates them, and the schedule unit,
+  which records the path it was installed with and is rewritten only by
+  `oats schedule install`, which `oats update` does not run. The mechanics
+  are the generalist's
+  [swap lesson](/nodes/oats-expert/lessons/test-what-a-change-strands-through-a-real-start.md).
+  The release consequence: **no release note or skill tells a host to
+  uninstall the old package**, and the bridge's contract keeps one code base
+  under two npm names until the npm ending is decided
+  ([open state of the move](/nodes/oats-maintainer/decisions/oats-moves-to-its-own-org-in-stages.md)).
+  A final `oats update` that performs the swap itself is the candidate
+  ending, measured and not built.
 - **Token-based publishing has a deadline.** npm targets January 2027 to
   remove direct publishing through bypass-2FA granular tokens; publishing
   the new names from CI needs trusted publishing (or a staged-publish
@@ -616,3 +662,11 @@ oats-maintainer/haiku-oats-migration-maintainer, 2026-10-30;
 notes/repo-move-is-a-contract-change.md. The `EEXIST` behaviour is the
 source's local test with throwaway packages on npm 10.9.4; the January 2027
 target is citation 4. This harvest did not repeat the install test.
+
+Evidence for the rename correction: OKF proposal from
+oats-maintainer/haiku-oats-migration-maintainer, 2026-11-04;
+notes/uninstalling-the-old-kernel-is-clean-for-npm-only.md. The
+`--force`-then-remove result is the generalist's isolated npm test; the
+session and schedule-unit stranding was first read in the kernel and the
+lifecycle hook and then measured by the generalist with real kernels and
+sessions, all source-reported here and canonical in the linked lesson.
