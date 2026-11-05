@@ -41,7 +41,10 @@ is a diagnostic problem, not merely a retained-copy information line.
 Preserve doctor's existing problem/exit semantics rather than inferring an
 exit code from the word “problem.” Each retry must leave its own hook-outcome
 trace in the existing event vocabulary; a record ending at the first attempt
-cannot explain later recovery work.
+cannot explain later recovery work. The [retire-warning decision](retire-warnings-preserve-event-meaning-and-reader-bounds.md)
+applies that requirement to advisory warnings and records why extending the
+vocabulary deliberately is preferable to silently widening an existing kind's
+meaning.
 
 Rejected alternatives:
 
