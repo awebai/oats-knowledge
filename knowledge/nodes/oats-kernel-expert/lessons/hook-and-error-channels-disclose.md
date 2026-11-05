@@ -94,6 +94,11 @@ guidance; no such automation or skill change is claimed here.
 
 # Related
 
+[Retire warnings preserve event meaning and reader bounds](../decisions/retire-warnings-preserve-event-meaning-and-reader-bounds.md)
+records the separate storage decision: enforce text bounds at the common
+append boundary in the strict reader's units. That does not replace the
+disclosure discipline above or make stored hook text authoritative.
+
 [The CLI as a machine boundary](/nodes/oats-kernel-expert/lessons/machine-boundary-contract.md)
 owns the output contract; the reachability check above establishes which
 layer's output is actually under review.
