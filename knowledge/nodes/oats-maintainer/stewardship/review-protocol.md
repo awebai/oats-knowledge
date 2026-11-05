@@ -3,7 +3,7 @@ type: Lesson
 title: How the OATS project ships and reviews
 description: Maintainer review binds verdicts to content and issue-recorded contract decisions, carries them only across an unchanged delta, preserves same-area integration evidence, requires timely and safely obtained verification, uses fresh readers and one second reader per PR, checks hand-written release claims, and judges tests against requirements rather than implementations.
 tags: [stewardship, review, pull-requests, process]
-timestamp: 2026-11-04
+timestamp: 2026-11-05
 ---
 **Owner: oats-maintainer (the PR gate). Update-on-change: whoever changes the
 review skill, the repository gate or the delivery flow revises this concept in
@@ -554,6 +554,47 @@ The approval reversal and later successful check are source-reported from
 one review; this harvest did not audit that PR, run a service-manager
 experiment or independently verify platform constants, release or deployment.
 No human-accepted review rule is superseded.
+
+## An agent-read claim false under a supported setting blocks approval (2026-11-05)
+
+A skill, inject or onboarding document that promises behavior contradicted
+by a supported configuration has a correctness defect, not a wording
+follow-up. Do not approve over a known false claim because that configuration
+seems unlikely: an agent using the text is directed incorrectly whenever
+that case applies. This is a severity judgment, not a ban on non-blocking
+editorial follow-ups or another sign-off round.
+
+The source reports finding such a gap in invite-join guidance, approving it
+as a follow-up, and having the release lane return it. The text promised a
+refusal without stating the configuration conditions that controlled it;
+under another supported configuration the operation proceeded instead, so
+the next instructional check would misclassify the result. The reported fix
+qualified the text and asserted the relevant refusal codes in tests.
+
+The [composed-instruction lesson](/nodes/oats-kernel-expert/lessons/kernel-composed-text-is-executable-surface.md)
+already owns why shared text must distinguish invariant from variable
+behavior. Apply it at review: identify the setting or combination that
+switches the promised behavior and check the sentence against the supported
+cases. Require the missing condition or removal of the false claim before
+approval. The [version-qualified-claim lesson](/nodes/oats-maintainer/lessons/a-re-dated-claim-must-be-re-verified-against-the-release-it-now-names.md)
+owns the analogous release-evidence check; this section adds configuration-
+dependent severity, not another provider contract.
+
+Prefer one authoritative account of the conditional behavior and regression
+cases for both permitted and refused outcomes, asserting each relevant
+refusal's exact code rather than merely that something failed. These are
+the elimination routes for the concrete mismatch; tests do not establish
+all prose semantics. Residual truthfulness and severity judgment belongs in
+the existing `pr-review` skill. No code, tests or soul skills change here.
+
+Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
+2026-11-05; notes/agent-read-claims-false-in-a-supported-config-block.md.
+The proposal identifies [oats-project/oats#1744](https://github.com/oats-project/oats/pull/1744).
+The review miss, return and correction are source-reported from one review;
+this harvest did not audit that PR or execute the provider. Exact policy
+predicates remain repository-owned; no release, deployment, universal agent
+compliance or measured failure rate is certified. No human-accepted review
+rule is superseded.
 
 # Delegating implementation
 
