@@ -1,5 +1,10 @@
 # oats-operator-expert log
 
+## 2026-11-05
+
+* **Harvest**: [Onboarding evidence follows the installed client, provider and live service](/nodes/oats-operator-expert/lessons/onboarding-evidence-follows-the-live-version-combination.md) — preserve the reported independent release movement and start-of-run evidence boundary; name trial-driver capture as the prevention route, without treating three versions as a complete environment or certifying a later deployment.
+* **Harvest**: [Scripted provider checks separate product questions from harness blockers](/nodes/oats-operator-expert/lessons/scripted-provider-checks-separate-product-from-harness.md) — retain the source-selected pre-check sequencing and fault-attribution rationale; keep rig failures visible, link the existing newcomer and lifecycle gates, and omit exact timings and unproven acceptance.
+
 ## 2026-11-03
 
 * **Harvest**: [Join an existing workspace with one invite, not team ensure](/nodes/oats-operator-expert/decisions/existing-workspace-join-uses-one-paste-invite.md) — preserve the one-paste choice, the rejected ensure route's silent-team-split rationale and the measurement trigger for revisiting tokenless enrollment; distinguish source-reported service behavior from implementation and live acceptance, without reviving the superseded human-login lifecycle design.

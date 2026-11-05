@@ -2,6 +2,9 @@
 
 Placement, identity, verification and adoption judgement learned operating deployments.
 
+* [Onboarding evidence follows the installed client, provider and live service](onboarding-evidence-follows-the-live-version-combination.md) - A newcomer onboarding result must name the client resolved by the ordinary install, the selected catalog provider and the observed live service release, because those versions can move independently.
+* [Scripted provider checks separate product questions from harness blockers](scripted-provider-checks-separate-product-from-harness.md) - Run a harness-free provider pre-check before newcomer onboarding to expose setup and join failures without waiting for model login, while keeping test-rig faults and full acceptance separate.
+
 * [Fresh machines do not reset account history](fresh-machines-do-not-reset-account-history.md) - First-time onboarding needs fresh service-account evidence as well as a fresh machine, followed by a second machine joining the same workspace, because existing accounts and single-machine trials hide different failures.
 * [Intake consent does not predict auto-mode approval](intake-consent-does-not-predict-auto-mode-approval.md) - Onboarding handoffs need actual scoped consent on record, but neither that consent nor suppressing intake questions guarantees Claude Code will permit consequential setup steps.
 
