@@ -1,5 +1,6 @@
 # Decisions
 
+* [Retire-hook retry stays inside the completion that was authorized](retire-hook-retry-stays-inside-authorizing-completion.md) - Retry hook-only retirement debt within the bounded deferred completion, not a later automatic actor, and expose unfinished cleanup through doctor rather than cross-home claims.
 * [Committed-only settings prevent deployment drift, not committed soul choice](committed-only-prevents-deployment-drift.md) - Refuse host and spawn contributions to committed-only settings in the resolver while allowing soul payloads, because the restriction prevents deployment-local drift rather than privileging workspace files over other reviewed sources.
 * [A local schedule's soul check reuses spawn without narrowing legacy acceptance](local-schedule-soul-check-reuses-spawn.md) - Check newly admitted local schedule souls through spawn preview with the run's selectors, retaining the existing local-directory fast path rather than adding a second resolver or new refusals for previously accepted jobs.
 * [Delivery stalls use the messaging provider's attention claim](delivery-stalls-use-provider-attention-claims.md) - Delivery failures reach the roster through a provider-owned attention claim because live network reads do not belong on the status hot path and liveness does not establish idleness.
