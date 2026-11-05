@@ -3,7 +3,7 @@ type: Lesson
 title: The CLI as a machine boundary
 description: A machine CLI owes one stdout envelope, honest failure classification and phase-aware refusals, stable typed codes, semantic exit status, deployment-independent explanations and tested remedies.
 tags: [kernel, cli, contract, json, diagnostics, exit-status]
-timestamp: 2026-10-13
+timestamp: 2026-11-05
 ---
 # Lesson
 
@@ -121,6 +121,30 @@ on retry. The Desktop engineer refused to wire removal until both existed;
 shipping the semantics without the advertisement and the revision is not
 shipping a GUI-safe verb.
 
+# Internal storage can be an exported contract
+
+The 2026-11-05 retire-retry design rejected putting new internal bookkeeping
+in the existing pending marker: the source found that status relays that
+object whole as `retirePending`, which Desktop consumes [6][7]. The reason for
+using separate internal state was to avoid silently extending a client-read
+shape, not a general preference for more files. A writer's “internal” label
+does not establish a boundary when an outward reader passes its data through.
+
+Before extending persisted state, trace its export path. Preserve an existing
+wire shape by keeping new internal state separate, or deliberately change
+the public contract with the required agreement. The elimination route is an
+explicit projection at the serialization boundary where compatible, backed
+by contract tests that seed internal-only fields and assert the published
+shape. That is a proposed prevention route, not evidence such a projection
+or regression already exists. A reminder to inspect readers is knowledge
+debt until the boundary is enforced.
+
+This retains the rejected placement and its compatibility rationale, not a
+second description of status or a permanent retry-file lifecycle recipe.
+[Pending lifecycle state is not evidence of failure](/nodes/oats-desktop-expert/lessons/pending-lifecycle-state-is-not-failure.md)
+owns the client's separate interpretation question; the [retire-retry decision](../decisions/retire-hook-retry-stays-inside-authorizing-completion.md)
+owns authorization and recovery scope.
+
 # Related
 
 [A routed preview preserves caller state and includes caller-only consequences](/nodes/oats-kernel-expert/decisions/routed-preview-preserves-caller-state.md)
@@ -169,3 +193,8 @@ Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-launch-pins, 2
 
 4. The proposal and notes attribute the misleading `network` classification to [awebai/oats#1059](https://github.com/awebai/oats/issues/1059), with the repair attributed to [awebai/oats#1075](https://github.com/awebai/oats/pull/1075). The diagnostic-line bounds and maintainer agreement are reported by the proposal; this harvest did not reproduce the failure, audit sanitization or independently establish human acceptance.
 5. Verified by the knowledge maintainer at review of the harvest on 2026-10-13. [awebai/oats#1059](https://github.com/awebai/oats/issues/1059) reports the unrecognized Git failure answered as `network` and the investigation it misdirected; [comment 6135851592](https://github.com/awebai/oats/issues/1059#issuecomment-6135851592) records the contract point as agreed by both maintainer sides: an unclassified failure is `unknown` with Git's last line, and the reason field gains no value. [awebai/oats#1075](https://github.com/awebai/oats/pull/1075), merged on 2026-10-13 with both maintainer sides approving the head that merged, states the diagnostic line's scrub (one bounded line, no control sequences, no URL user information) and the removal of object ids before classification. The comments are maintainer-lane records posted from the two maintainers' accounts, not evidence of human acceptance, and no release was checked.
+
+Evidence: OKF proposal from oats-kernel-expert/oats-kernel-expert-retire-hook-failure, 2026-11-05; notes/status-relayed-marker-is-a-contract.md.
+
+6. The note reports reading the whole-object relay at `8679dd165`. The description of [oats-project/oats#1748](https://github.com/oats-project/oats/pull/1748), read on 2026-11-05 while open at `109ac1a6ed9a4730c36a721edda464e86a4908c5`, corroborates keeping the marker and status shape unchanged by using separate internal retry state. This harvest did not inspect that implementation or run a contract regression; the placement rationale remains source-reported, not released behavior or independently established human acceptance.
+7. Checked by the knowledge maintainer at review of the harvest on 2026-11-05: [oats-project/oats#1748](https://github.com/oats-project/oats/pull/1748) merged on 2026-11-05 at `109ac1a6ed9a4730c36a721edda464e86a4908c5`, the head cited above, and its description still lists the pending marker and status JSON's `retirePending` as unchanged contracts. The implementation was not inspected and no release was checked.

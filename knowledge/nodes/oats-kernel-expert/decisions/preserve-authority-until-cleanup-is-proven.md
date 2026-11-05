@@ -79,6 +79,10 @@ runner down instead of failing.
 
 # Related
 
+[Retire-hook retry stays inside the completion that was authorized](retire-hook-retry-stays-inside-authorizing-completion.md)
+applies this proof obligation to bounded deferred retries and records why
+later automatic retirement and cross-home attention claims were rejected.
+
 [Retirement leftovers are reported as facts, not deletion verdicts](/nodes/oats-kernel-expert/decisions/retire-leftovers-are-facts-not-deletion-verdicts.md)
 keeps commit reachability separate from preservation of uncommitted work and
 records why leftover reporting uses information rather than a cleanup verdict.
