@@ -1,5 +1,10 @@
 # oats-desktop-expert log
 
+## 2026-11-06
+
+* **Harvest**: refined [Verification judgment](lessons/verification-judgment-for-privileged-surfaces.md#launch-diagnosis-must-reach-the-persons-view) with the source-reported packaged-launch counterexample: delivered requests and selected rows can leave the expected content unseen. Require the row, main area, active instance or terminal panel and notices as joint evidence, with packaged regressions as the elimination route. Merged the proposal's process-listing caution into the same canonical lesson, without certifying Chromium internals, unchanged first-launch argv or diagnostic-log shipment. No new launch behavior is approved; the original environment and running-row behavior remain unproven.
+* **Update**: Maintainer review of oats-knowledge#321 defined D3 in place, corrected its citation to the oats-project/oats#1665 issue, linked [the running-version lesson](lessons/check-running-version-before-debugging-behaviour.md) for second-instance handoff, and recorded a maintainer check of the cited records. No decision is superseded.
+
 ## 2026-10-31
 
 * **Update**: Maintainer review of oats-knowledge#239 recorded in [Known dialog-reporting gaps](decisions/known-dialog-reporting-gaps-use-home-provenance.md) that the implementation PR had already merged when this harvest opened, and that its release-lane approval and the v0.40.0 release notes confirm the package boundary. Running-app checks stay unproven; no release is established.
