@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Evaluate merge gates beyond code-seed catches
-description: A small coordination trial attributed few code-seed catches to the merge gate but surfaced direction and evidence-checking work, so compare those duties and human burden separately before choosing a gate design.
+description: Compare a coordination gate's direction and evidence duties separately from code catches, and distinguish new human decisions from repeated requests for settled ones before treating request counts as necessary oversight.
 tags: [coordination, trials, review, gates, human-oversight]
-timestamp: 2026-11-03
+timestamp: 2026-11-06
 ---
 # Match the experiment to the gate's job
 
@@ -49,6 +49,47 @@ reported outcome count, not an isolated causal estimate of an early gate's
 benefit. The single no-gate run cannot establish a typical doubling. The
 source's small, overlapping cost ranges likewise do not select a cheaper
 architecture.
+
+# Count re-asks separately from new decisions (2026-11-06)
+
+A later pilot exposed another dimension of human burden: a request can ask
+for judgment, or merely ask the person to perform a decision again. Audit
+the human-action log against the decisions already recorded. For each
+apparent repeat, identify the earlier decision, what changed and which
+organisational rule requires a new act. Keep first decisions, materially
+changed questions, pure re-asks and informational notices distinguishable;
+a succession notice is overhead, but not itself another approval.
+
+The source reports repeated plan approvals, signatures requested again at a
+new head, and decisions made in mail that had to be restated on the forge.
+It also reports frequent count-triggered lead successions, with one successor
+presenting an already-given approval as still open. These are qualitative
+examples from one unfrozen, uncounted pilot of one redesign arm, not a
+validated ceremony rate or evidence that all those acts were unnecessary.
+
+A repeat with no new decision or policy requirement is a candidate for
+removal from the design. A new head alone does not establish either that the
+question changed or that an old approval remains valid. Check content,
+evidence and the applicable approval contract; do not carry consent merely
+because the request looks familiar. The maintainer's
+[unchanged-delta carry rule](/nodes/oats-maintainer/stewardship/review-protocol.md#carry-verdicts-only-with-proof-of-an-unchanged-delta-2026-10-13)
+owns that review policy. An explicit authority, safety or integration check
+is not waived by calling it ceremony.
+
+This is a way to discover avoidable human work before adoption, not a claim
+that re-asks measure all ceremony or predict human time. It complements
+[thread count versus reading burden](/nodes/oats-expert/lessons/digest-thread-count-is-not-human-time-or-deadline-safety.md).
+The related [refused custody question](/nodes/oats-expert/lessons/human-refusal-of-a-custody-question-is-design-direction.md)
+lesson owns how to read pushback as design direction; this refinement adds
+a pilot-audit method, not another custody or human-notification policy.
+
+Prefer a workflow that reuses its authoritative decision record under the
+existing contract instead of asking the human to restate it for another
+surface or successor. In the trial harness, record each request's prior
+decision, changed scope and rule requiring renewal, and check unchanged,
+changed and successor-resumption cases. Those are proposed prevention and
+measurement routes for separate implementation and capability review, not
+newly delivered checks or a second approval gate.
 
 # What the next comparison should establish
 
@@ -99,3 +140,27 @@ The source explicitly proposes evidence, not human acceptance of those
 choices. Adoption belongs to the
 [coordination redesign](/nodes/oats-maintainer/stewardship/coordination-redesign-precedes-adaptive-onboarding.md)
 and its owners.
+
+Evidence: OKF proposal from oats-expert/oats-expert-coordination-rethink,
+2026-11-06; notes/pilot-re-asks-expose-ceremony-in-a-coordination-design.md.
+
+The later refinement concerns the source's T7 p05 pilot on 2026-11-05/06.
+The captured note supplies a coarse classification, not the underlying
+human-action ledger or reconciled categories, so its numerical burden and
+succession totals are not promoted as measurements. No log, transcript,
+trial kit or approval record was inspected and no trial was repeated; the
+pilot's model identity is not supplied. Do not inherit the earlier trial's
+model identity or scripted-human accounting for this later pilot.
+
+The source reports Pepe directing simplification in the lead's session on
+2026-11-06. That direction is **source-reported**, not a privately inspected
+or independently verified acceptance record. Its project-wide merge,
+human-communication and compaction-over-respawn policies belong to the
+maintainer's coordination records, outside this harvest's ownership. This
+refinement preserves the evaluation lesson; it does not adopt those policies
+or supersede the lead's accepted 2026-11-02 context-relief direction.
+The source also reports the human asking for short injects and repeated
+skill loading. That is reported design direction, not a demonstrated cure
+for succession or approval-state loss. No inject or skill changes here;
+[load-trigger preservation](/nodes/oats-expert/lessons/condensing-instructions-preserves-load-triggers.md)
+owns the existing instruction-review lesson.
