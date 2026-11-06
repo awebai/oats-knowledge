@@ -88,7 +88,13 @@ argument that only selects the named instance; it starts, attaches and
 writes nothing): selecting a row did not expose the question displayed
 above its terminal. That is diagnostic context, not a new launch
 policy or approval to make a launch open a terminal. The proposed change to
-running-instance behavior had no human decision in the captured evidence.
+running-instance behavior had no human decision in that earlier capture.
+The later [launch-view decision](../decisions/launch-instance-opens-view-without-input-focus.md)
+records source-reported human acceptance on 2026-11-06 and explicitly
+supersedes D3's select-only/no-attach condition for running local instances:
+open the terminal view without taking keyboard focus. Non-running rows stay
+select-only. The old condition above is historical context, not the current
+running-row rule; the diagnostic lesson still holds.
 
 The elimination route is a packaged-launch regression that asserts those
 visible outcomes together for first launch and handoff to an existing app,
