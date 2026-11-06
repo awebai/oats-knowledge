@@ -53,7 +53,9 @@ to the **recorded source named by a proposal**. They establish source-record
 consistency, not who authored the proposal. An opted-out soul's exclusion
 from harvest is not an information-flow barrier around correspondence its
 instances send to other seats. That limit is why an opt-out cannot substitute
-for a publication boundary.
+for a publication boundary. How that per-soul opt-out is ordered against
+legacy record keys on a retired source is in
+[the package's retired 4.x source admission](/nodes/oats-okf-expert/decisions/retired-4x-host-harvest-keys-carry-no-authority.md).
 
 # Rejected alternatives and deferred direction
 

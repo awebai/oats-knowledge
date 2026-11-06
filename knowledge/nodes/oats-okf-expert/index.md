@@ -7,3 +7,11 @@ Knowledge package expert (`oats.okf`, repository `oats-okf`). Owns the FACTS of 
 ## Decisions
 
 * [Decisions](decisions/index.md) - Accepted positions on how the knowledge package behaves.
+
+## Lessons
+
+* [Lessons](lessons/index.md) - Lessons learned operating and evolving the knowledge package.
+
+## Limitations
+
+* [Limitations](limitations/index.md) - Limitations found in the knowledge package or the kernel it runs on, and what the package does about them.
