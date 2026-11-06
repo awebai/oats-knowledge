@@ -85,7 +85,9 @@ returns for a redirected repository, or compare canonical identities; that
 fix is the owning package's. Host files that name a moved identity should
 be written or checked by a command, so a move can list them. Neither is
 delivered by this lesson; until they are, the inventory above is the
-planning rule.
+planning rule. The package fix was decided on 2026-11-06 as
+[publication proven by the forge read-back](/nodes/oats-maintainer/decisions/publication-is-proven-by-the-forge-readback.md),
+reported not yet built at that date.
 
 # Evidence and limits
 
