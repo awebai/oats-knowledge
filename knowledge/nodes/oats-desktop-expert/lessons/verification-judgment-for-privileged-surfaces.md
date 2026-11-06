@@ -3,7 +3,7 @@ type: Lesson
 title: Verification judgment for Desktop's privileged surfaces
 description: Prove guards at real boundaries, include source-evaluating tests of main and renderer code, and contain native verification with enforced lifetime and output bounds rather than trusting test selection or a passing assertion.
 tags: [desktop, verification, security, review, testing-judgment, operator-safety, node-test, native-effects]
-timestamp: 2026-10-27
+timestamp: 2026-11-06
 ---
 # Lesson
 
@@ -68,6 +68,73 @@ projection drops the field. Parser acceptance tests remain useful for
 compatibility, but cannot stand in for that consumer proof. This is the
 field-level form of the shell-reachability lesson below, not a permanent
 inventory of projection function names.
+
+# Launch diagnosis must reach the person's view
+
+The source's 2026-11-06 investigation found a second gap beyond request
+delivery: even proving that the renderer selected a roster row did not
+explain a report that a launch appeared to do nothing. In its isolated Linux
+packaged-AppImage probe, first and second launches selected the stopped row,
+while the active instance stayed null and the main area remained on Workspace
+overview. No notice appeared. These are source-reported observations, not a
+reproduction of the original environment, which was no longer available.
+
+For such a report, observe the selected row, main area, active terminal or
+instance panel, and notices together at the packaged boundary. Request
+delivery and selection alone cannot show whether the person reached the
+content they expected. In this case the source attributed the mismatch to
+D3's focus-only launch intent (the onboarding brief's Desktop launch
+argument that only selects the named instance; it starts, attaches and
+writes nothing): selecting a row did not expose the question displayed
+above its terminal. That is diagnostic context, not a new launch
+policy or approval to make a launch open a terminal. The proposed change to
+running-instance behavior had no human decision in the captured evidence.
+
+The elimination route is a packaged-launch regression that asserts those
+visible outcomes together for first launch and handoff to an existing app,
+using an isolated disposable CI environment. Make the expected outcome
+explicit from the accepted product contract; a test cannot decide whether
+focus-only behavior meets the intended experience. Retain the distinction
+between a stopped-row probe and untested running-row behavior. Existing
+native-verification containment and operator-machine restrictions still apply.
+
+## A process listing does not settle an argv hypothesis
+
+The same proposal reports that Linux `/proc/<pid>/cmdline` showed switches
+ahead of loose values and prompted a parsing theory. That observation alone
+did not establish what the first launch parsed or what a later launch handed
+to the existing app. Before changing accepted argument forms or adding a
+parser workaround, capture the actual arguments and parsed launch target at
+the relevant main-process entry and compare them with the rendered outcome.
+Keep first launch and second-instance handoff separate in that evidence. A
+handoff can reach an older running app, so first establish
+[the running version](check-running-version-before-debugging-behaviour.md).
+
+This retains the source's diagnostic caution, not its stronger explanation
+of Chromium process-title rewriting or a guarantee that first-launch argv
+is unchanged: the captured note supplies no argument trace establishing
+those mechanisms. Parser-entry diagnostics and corresponding packaged
+regressions are the elimination route; a permanent log's presence or release
+status must be checked in the current implementation.
+
+Evidence: OKF proposal from oats-desktop-expert/desktop-platforms-expert, 2026-11-06; notes/launch-instance-is-focus-only.md.
+
+The note backs the visible-state investigation; the process-listing caution
+comes from the proposal. The source identifies
+[CI run 42270573051](https://github.com/oats-project/oats/actions/runs/42270573051)
+and [oats-project/oats#1757](https://github.com/oats-project/oats/pull/1757)
+as investigation and diagnostic work. This harvest did not rerun the probe,
+audit those changes or verify the source-reported D3 acceptance in
+[oats-project/oats#1665](https://github.com/oats-project/oats/issues/1665).
+
+Maintainer check (2026-11-06, review of oats-knowledge#321): #1665 is an
+issue, the onboarding brief of record, not a pull request. Its comments
+state D3 as a launch argument that only selects, and record the lane's
+acceptance of D3 with lane:product's conditions; the record shows that, not
+that a human typed it. This lesson cites D3 as diagnostic context and
+supersedes nothing. The cited run succeeded, and #1757 merged on 2026-11-06
+after capture; neither its log's presence in a release nor the probe's
+result was checked by this review.
 
 # Source-evaluating tests include renderer modules, not only main
 
