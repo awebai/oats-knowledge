@@ -2,6 +2,7 @@
 
 Product, design and security decisions with their rationale and rejected alternatives. Each names its acceptance date; supersession is recorded in place.
 
+* [A launch opens a running instance's terminal without taking input focus](launch-instance-opens-view-without-input-focus.md) - Let Desktop launch intent reveal a running local instance's terminal while keeping keyboard input behind the person's explicit focus action.
 * [Known dialog-reporting gaps use the home's provenance](known-dialog-reporting-gaps-use-home-provenance.md) - Explain a known historical Claude dialog-reporting gap from the home's recorded module source, keeping the notice separate from live attention and avoiding warnings based on unknown coverage.
 * [Feature-gated wording travels with the answer](gated-wording-travels-with-the-answer.md) - Choose refusal wording where the answering kernel's feature declaration is known and carry it beside the code, rather than reconstruct a gated guarantee from a page's code-only table.
 * [Removing a row's visible menu trigger must not remove its actions](row-context-menu-preserves-action-reachability.md) - Keep sidebar instance actions in the row's context menu without a visible ellipsis trigger, because a panel tied to an active terminal cannot serve rows with no terminal.
