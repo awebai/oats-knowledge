@@ -3,7 +3,7 @@ type: Decision
 title: Human attribution is an optional messaging-capability contract
 description: Add human attribution through a provider-neutral messaging contract, default new onboarding to human-bound mode where supported, and preserve unchanged operation for capabilities and deployments without human identities.
 tags: [messaging, human-identity, onboarding, compatibility, contracts]
-timestamp: 2026-11-02
+timestamp: 2026-11-06
 ---
 # Decision
 
@@ -81,6 +81,77 @@ execution workaround. No implementation or rollout is certified here.
 
 Evidence: OKF proposal from oats-maintainer/setup-maintainer-pepe,
 2026-11-02; notes/agents-run-every-command.md.
+
+# Opt-in is strict: what review checks (2026-11-05)
+
+On 2026-11-05 the directing human restated the compatibility half of this
+decision to the release lane, with emphasis: the human-ID work must stay
+compatible with the current way of running OATS for people who do not want
+human IDs. Acceptance is **source-reported**: Pepe, directly to the release
+lane in session; no public record was cited and none was read here. This
+does not change the decision above; it sharpens what the release lane
+checks when reviewing the implementation.
+
+A deployment that does not opt in to human attribution behaves exactly as
+before, on upgrade and after it:
+
+- no new readiness item, prompt, cloud request or required setting appears
+  for it;
+- no existing home is re-signed or re-attached;
+- every new guard and refusal introduced for attribution fires only on a
+  deployment that opted in.
+
+Tests pin each of these, and a live run of the feature includes a control
+deployment without human IDs. A design that changes something for every
+deployment, opted in or not, is a decision for the humans, not a review fix
+the lane can accept or make. The general principle covers any identity or
+attribution feature added to an existing messaging provider: a deployment
+already running keeps its existing path until it chooses the new one. This
+does not change the new-onboarding default above: human-bound mode stays
+the default for new onboarding wherever the capability supports it.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-05; notes/human-ids-are-opt-in.md. No implementation, test or
+live run was inspected by this harvest.
+
+# The steward bind may use a scoped, immediately ended aw login (2026-11-05)
+
+The messaging provider's rule since oats.aweb 1.15.0 is that agent-facing
+text never tells anyone to run `aw auth login`, because an agent enrolled
+under whichever account logged in last is a custody failure. On 2026-11-05
+the directing human accepted one narrow exception, for the human-ID steward
+bind only. Acceptance is **source-reported**: Pepe, directly to the release
+lane in session ("go for it" to the proposed design); no public record was
+cited and none was read here. The ban stays for everything else, and the
+[default-team decision](/nodes/integrations-expert/decisions/a-workspace-has-a-default-team-there-is-no-personal-team.md)'s
+rule of no human login in spawn, mint, retire or wake is untouched: the
+steward bind is none of those.
+
+The exception is a login scoped to team admission only, which the person
+approves by link, and which sits beside three guards: a check that the
+logged-in account is the person's, an expected-account assertion on the
+global identity initialization that follows, and an immediate logout. The
+agent runs every command; the person's part stays a link, consistent with
+the consent direction above.
+
+Why this and not the alternative: the grant is narrower and shorter-lived
+than a pasted team API key, which stays valid until someone revokes it. The
+ban's reason, enrollment under the wrong account, is covered by the account
+check and the expected-account assertion. The accepted residue is that other
+agents of the same OS user share the grant for the seconds it exists; that
+was judged acceptable because those agents can already read the deployment's
+identity keys. **Rejected:** keeping the ban intact and pasting a key once
+per host.
+
+The exact flag names, scope string and command order are the provider's
+contract and belong to its own release record, not here. Widening this
+exception to another step, or dropping any of the three guards, reopens the
+ban's reason and needs the deciding human again.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-05; notes/steward-bind-may-use-a-scoped-aw-login.md. The 1.15.0
+rule and the design's guards are source-reported; this harvest did not read
+the provider's release notes or run the flow.
 
 # Scope and acceptance of the original direction
 

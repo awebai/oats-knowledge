@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: Release judgement for the tag-driven lane
-description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, coordinates source, tag, mirror, every form of version pin and the framework release that carries them, pairs changes to shared instructional behaviour across separately released packages, treats a package rename as a republish whose old package is never uninstalled from a running host, and plans tags around a hosted runner image's retirement brownouts.
+description: Release judgment distinguishes publication from artifact availability, rehearses released-state upgrades, changed macOS tests and newly taught skill commands before tags, runs the kernel tests that read a package's mirror before the package tag or plans their port, contains failed-tag repairs, separates one-off package patches from maintenance lines, gates package-soul adoption through catalog, explicit-tag and shared-workspace routes, holds new keys in shared member-repository souls until every reader accepts them, coordinates source, tag, mirror, every form of version pin and the framework release that carries them, pairs changes to shared instructional behaviour across separately released packages, treats a package rename as a republish whose old package is never uninstalled from a running host, and plans tags around a hosted runner image's retirement brownouts.
 tags: [stewardship, release, ci, npm, packaging, pins]
-timestamp: 2026-11-04
+timestamp: 2026-11-06
 ---
 **Owner: oats-maintainer. Update-on-change: whoever changes the release workflow,
 the runnerless lane or the release skill revises this concept in the same
@@ -445,6 +445,53 @@ and [awebai/oats#1623](https://github.com/awebai/oats/pull/1623) as the
 package and later kernel-prep context. The usage failure, package-CI gap
 and repair releases are source-reported; this harvest did not run those
 commands or audit their implementation.
+
+## A package cut runs the kernel tests that read its mirror (2026-11-04)
+
+Some kernel tests read or run a mirrored package's skills and injects, so a
+mirror refresh can break them even when the package's own CI is green and
+the pin PR is otherwise routine. Once the package is tagged, the
+mirror-and-pin PR is the release's only route to deployments; a pin whose
+CI then fails on a test that pinned the old text leaves the release waiting
+on a test port that nobody planned and on that port's review.
+
+Before tagging a package release that changes skill text or commands, the
+release maintainer either runs the kernel tests that read that package's
+mirror against the new payload (a trial refresh in a scratch kernel
+checkout, not a hand copy into the real mirror) or names the port of those
+tests in the cut's plan, so the pin PR carries it as planned work rather
+than discovering it. The
+[mirror-and-pin lesson](/nodes/integrations-expert/lessons/a-provider-release-is-mirrored-and-pinned-in-one-pr.md)
+already places "any kernel tests the release reclassifies" in the one pin
+PR; this section adds **when** that is known, before the package tag rather
+than after it. It is a sibling of the newly-taught-commands rehearsal above:
+that one checks the package's commands against the kernel, this one checks
+the kernel's tests against the package.
+
+The source reports two cases in the OATS 0.69.12 preparation (2026-11-04):
+the oats.okf 5.8.0 pin,
+[oats#1732](https://github.com/oats-project/oats/pull/1732), failed three
+kernel tests that pinned the previous release's harvest publication commands
+and placeholders, and the port went to another lane; and oats.aweb 1.36.0
+removed a usage error that a kernel hook test pinned, caught at the package
+PR's sign-off and fixed in the kernel preparation. The package's own release
+guidance names moving the pins and mirrors, not the kernel tests that read
+the mirror. The pin PR was read as merged during harvest; the failing tests,
+their port and the sign-off catch are source-reported, from two packages in
+one release.
+
+The elimination route is for the package gate itself to run the kernel
+tests that read its mirror, or for those tests to read the mirror's
+contract rather than its text, so a text change cannot fail a pin. The
+neutrality lesson's
+[rejected route](/nodes/oats-maintainer/lessons/engineering-layer-neutrality-needs-package-side-checks.md#package-enforcement-retires-the-temporary-grep-2026-10-29)
+notes the dependency cost of importing the kernel harness into package CI;
+that tradeoff applies here too. Until either lands, the trial refresh or
+the named port is release-planning debt, not automation delivered by this
+lesson, and it adds no release authority.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-04; notes/a-package-cut-runs-the-kernel-tests-that-read-its-mirror.md.
 
 # Verify the artifact, not the diff
 

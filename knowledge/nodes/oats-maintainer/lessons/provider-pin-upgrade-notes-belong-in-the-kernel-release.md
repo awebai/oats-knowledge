@@ -1,9 +1,9 @@
 ---
 type: Lesson
 title: A provider pin carries its upgrade consequences into the kernel release
-description: Carry crossed provider releases' operator-visible changes and upgrade steps into the kernel Upgrade section, and check prescribed installs against registry selection and upgrade commands against their platform paths before tagging.
+description: Carry crossed provider releases' operator-visible changes and upgrade steps into the kernel Upgrade section, and check prescribed installs against registry selection, upgrade commands against their platform paths, and each prescribed step against who may run it before tagging.
 tags: [release, providers, pins, upgrade, review]
-timestamp: 2026-11-04
+timestamp: 2026-11-06
 ---
 
 # The author owns upgrade coverage
@@ -58,6 +58,16 @@ that carry them forward:
   as code under review. A command named "restart" or an unchanged service
   definition does not establish that a replaced executable will run.
   Code review is not platform execution evidence.
+- **Who can run it:** check who may run each prescribed step,
+  not only what it does. Some commands refuse inside an OATS instance
+  because the result would be wrong from there, and belong in the operator's
+  own terminal. Deploys here are run by agents: the release maintainer's own
+  instance, and operator instances briefed on other hosts. A step only the
+  human may run, missed in planning, stops a deploy halfway or tempts a
+  shortcut around the guard. The deploy brief and the deploy report name
+  such a step as the human's, not as a failure; an agent never routes
+  around the refusal with a manual service restart, because the refusal is
+  the guard.
 
 The source reports that the oats.aweb 1.37.0 prep required aw 1.36.54 while
 npm's `latest` still named 1.36.53 and `next` named 1.36.54. Sign-off caught
@@ -76,6 +86,23 @@ This is one source-reported release, npm and launchd; the exact macOS
 version was not established. No registry state, platform run or shipment
 was independently verified by this harvest. The finding supports checking
 the promised outcome, not a universal npm-resolution or macOS guarantee.
+
+The source reports that the OATS 0.69.12 deploy (2026-11-04) prescribed an
+aw upgrade followed by a rerun of the host wake-broker install. From the
+release maintainer's instance the upgrade went through, but the install
+rerun refused with the provider's inside-an-instance error, because the
+service unit would record the session's environment. Another host's
+operator brief, which would have met the same refusal, was corrected before
+it was sent. Until the human reran the install, the broker went on running
+the old binary; the
+[launchd binary-upgrade lesson](/nodes/integrations-expert/lessons/launchd-binary-upgrades-can-need-rebootstrap.md)
+owns why the old binary may also not be respawned there. One refused
+command backs this check; the guard it illustrates is general to any
+prescribed host-service command. The refusal, the brief correction and
+the broker state are source-reported; this harvest ran no deploy.
+
+Evidence: OKF proposal from oats-maintainer/release-maintainer-pepe,
+2026-11-04; notes/a-prescribed-step-names-who-can-run-it.md.
 
 # Prevention route
 
