@@ -44,6 +44,9 @@ not independently verified, like the canonical concept's.
 4. **Fail closed on an unexpected soul value.** A soul `harvest:` value other
    than `off` refuses, live or retired. 4.x treated a soul `harvest: on` as
    "off, also reported", so a masked soul `on` must not pass as consent.
+   How this text check must be anchored, and why its first draft would
+   have refused every valid source, is in
+   [a soul.yaml text check matches a key position](/nodes/oats-okf-expert/lessons/soul-yaml-text-check-anchors-to-a-key-position.md).
 
 **Why the ordering keeps the opt-out safe.** The invariant "an opted-out
 soul is never harvested" holds by construction because the hook decides the
