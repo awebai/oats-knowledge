@@ -1,5 +1,6 @@
 # Decisions
 
+* [No public announcement of OATS until it is polished; a launch is the humans' joint call](no-public-announcement-until-polished.md) - OATS is not announced publicly until its humans together judge it polished enough, so work framed as being for a launch is reviewed on its own merits without launch urgency, and what counts as polished waits on the directing human's list.
 * [The host-default harness reuses souls.launch."*", not a second key](host-default-harness-reuses-souls-launch-star.md) - Use the existing host-wide launch preference rather than a second default-harness key, because it must override unavailable soul-declared harnesses and cover souls added later, with per-soul exceptions only for installed and authenticated harnesses.
 
 * [A shared task list selects its team without changing messaging defaults](tasks-team-is-a-workspace-setting.md) - Select the aweb tasks team once in the workspace's tasks payload, not through deployment-local overrides or messaging defaults, so deployments share a task list without moving unrelated identities.
